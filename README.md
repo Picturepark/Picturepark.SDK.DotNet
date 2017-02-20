@@ -7,6 +7,22 @@ Links:
 - [Documentation](docs/README.md)
 - [Sources](src/)
 
+## Usage
+
+Install required NuGet package: 
+
+    Install-Package Picturepark.SDK.V1
+    
+Create new `PictureparkClient` and access remote PCP server: 
+
+```cs
+using (var authClient = new UsernamePasswordAuthClient("http://mypcpserver.com", username, password))
+using (var client = new PictureparkClient(authClient))
+{
+    var asset = await client.Assets.GetAsync("myAssetId");
+}
+```
+
 ## Development
 
 NuGet Feed: https://www.nuget.org/packages?q=Picturepark
