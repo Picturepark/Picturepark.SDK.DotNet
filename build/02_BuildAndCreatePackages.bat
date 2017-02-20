@@ -31,4 +31,10 @@ del project.lock.json
 dotnet restore --no-cache
 dotnet pack --output "../../build/Packages" --configuration Release
 
+cd "../Picturepark.SDK.V1.Tests"
+
+del project.lock.json
+dotnet restore --no-cache
+dotnet build --configuration Release
+
 cd "../../build"
