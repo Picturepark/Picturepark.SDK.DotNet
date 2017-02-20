@@ -9,6 +9,8 @@ Links:
 
 ## Development
 
+AppVeyor Build: https://ci.appveyor.com/project/Picturepark/picturepark-sdk-dotnet
+
 AppVeyor CI Build: https://ci.appveyor.com/project/Picturepark/picturepark-sdk-dotnet-y10cr
 
 MyGet CI Feed: https://www.myget.org/feed/Packages/picturepark-sdk-dotnet-ci
