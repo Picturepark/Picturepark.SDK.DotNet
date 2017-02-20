@@ -4,11 +4,11 @@ Globally installs the NSwag NPM module (C# client generator)
 
 **01_RunNSwag.bat**
 
-Regenerates all clients based on the Swagger specifications in /swagger
+Regenerates all clients based on the Swagger specifications located in the "/swagger" directory
 
 **02_BuildAndCreatePackages.bat**
 
-Compiles all projects and creates NuGet packages in /build/Packages
+Compiles all projects and creates NuGet packages in the directory "/build/Packages"
 
 **03_PushPackages.bat**
 
