@@ -4,6 +4,7 @@
 Links: 
 
 - [Documentation](docs/README.md)
+- [Build Scripts](build/README.md)
 - [Sources](src/)
 
 ## Usage
@@ -23,8 +24,6 @@ using (var client = new PictureparkClient(authClient))
 ```
 
 ## Development
-
-- [Build Scripts](build/README.md)
 
 NuGet Feed: https://www.nuget.org/packages?q=Picturepark
 
