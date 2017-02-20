@@ -20,7 +20,8 @@
 
   "buildOptions": {
     "xmlDoc": true,
-    "additionalArguments": [ "/ruleset:../Picturepark.SDK.DotNet.ruleset" ]
+    "additionalArguments": [ "/ruleset:../Picturepark.SDK.DotNet.ruleset" ],
+    "nowarn": [ "CS1591", "SA1600", "SA1601" ]
   },
 
   "frameworks": {

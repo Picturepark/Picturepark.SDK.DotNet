@@ -30,6 +30,7 @@ namespace Picturepark.SDK.V1
 
         /// <summary>Gets an asset.</summary>
         /// <param name="assetId">The asset identifier.</param>
+        /// <param name="resolve">If set to <c>true</c> resolves the asset relations.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The asset details.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -52,6 +53,7 @@ namespace Picturepark.SDK.V1
 
         /// <summary>Reactivates an asset.</summary>
         /// <param name="assetId">The asset identifier.</param>
+        /// <param name="resolve">If set to <c>true</c> resolves the asset relations.</param>
         /// <param name="timeout">The timeout.</param>
         /// <returns>The task.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
