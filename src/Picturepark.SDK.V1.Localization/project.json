@@ -19,6 +19,7 @@
   },
 
   "buildOptions": {
+    "xmlDoc": true,
     "additionalArguments": [ "/ruleset:../Picturepark.SDK.DotNet.ruleset" ]
   },
 
