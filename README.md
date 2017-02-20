@@ -1,6 +1,9 @@
 # Picturepark Content Platform .NET SDK
 ## Picturepark.Sdk.DotNet
 
+[![Build status](https://img.shields.io/appveyor/ci/Picturepark/picturepark-sdk-dotnet.svg?label=build)](https://ci.appveyor.com/project/Picturepark/picturepark-sdk-dotnet)
+[![Build status](https://img.shields.io/appveyor/ci/Picturepark/picturepark-sdk-dotnet-y10cr.svg?label=CI+build)](https://ci.appveyor.com/project/Picturepark/picturepark-sdk-dotnet-y10cr)
+
 Links: 
 
 - [Documentation](docs/README.md)
