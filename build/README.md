@@ -9,7 +9,3 @@ Regenerates all clients based on the Swagger specifications located in the "/swa
 **02_BuildAndCreatePackages.bat**
 
 Compiles all projects and creates NuGet packages in the directory "/build/Packages"
-
-**03_PushPackages.bat**
-
-Pushes all packages to the public NuGet feed
