@@ -1,0 +1,2542 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "title": "Picturepark 9 API",
+    "description": "Picturepark 9 Api Description",
+    "termsOfService": "Terms of service",
+    "contact": {
+      "name": "Picturepark",
+      "email": "sales@picturepark.com"
+    },
+    "version": "V1"
+  },
+  "host": "localhost:42651",
+  "basePath": "",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/Customer": {
+      "post": {
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Customers_Create",
+        "parameters": [
+          {
+            "name": "createRequest",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CustomerCreateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerConfigurationItem"
+            },
+            "x-nullable": true
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Customers_Update",
+        "parameters": [
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CustomerUpdateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerConfigurationItem"
+            },
+            "x-nullable": true
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/Customer/{CustomerId}": {
+      "get": {
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Customers_Get",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "CustomerId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerConfigurationItem"
+            },
+            "x-nullable": true
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Customers_Delete",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "CustomerId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-nullable": false
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/Customer/Search": {
+      "get": {
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Customers_List",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "CustomerId",
+            "in": "query",
+            "required": true,
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerSearchResult"
+            },
+            "x-nullable": true
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Customers_Search",
+        "parameters": [
+          {
+            "name": "searchRequest",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/CustomerSearchRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerSearchResult"
+            },
+            "x-nullable": true
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/Customer/{CustomerId}/Users": {
+      "get": {
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Customers_GetAllUsers",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "CustomerId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UserViewItem"
+              }
+            },
+            "x-nullable": true
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/Customer/{CustomerId}/ExternalProvider": {
+      "post": {
+        "tags": [
+          "Customers"
+        ],
+        "operationId": "Customers_AddExternalProviders",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "CustomerId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "name": "addRequest",
+            "in": "body",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ExternalProviderItem"
+              }
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerConfigurationItem"
+            },
+            "x-nullable": true
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/Services/ShutdownAll": {
+      "post": {
+        "tags": [
+          "Services"
+        ],
+        "operationId": "Services_ShutdownAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/Services/RestartAll": {
+      "post": {
+        "tags": [
+          "Services"
+        ],
+        "operationId": "Services_RestartAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/Services/{ServiceName}/Restart": {
+      "post": {
+        "tags": [
+          "Services"
+        ],
+        "operationId": "Services_RestartService",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "ServiceName",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/Services/{ServiceName}/Shutdown": {
+      "post": {
+        "tags": [
+          "Services"
+        ],
+        "operationId": "Services_ShutdownService",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "ServiceName",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "CustomerCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Enabled",
+        "CacheRetentionTimeInMinutes",
+        "UseSsl",
+        "ElasticSearchNumberOfShards",
+        "ElasticSearchNumberOfReplicas",
+        "RootSearchIndexNumberOfShards",
+        "RootSearchIndexNumberOfReplicas"
+      ],
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "DeactivationComment": {
+          "type": "string"
+        },
+        "InitialCatalog": {
+          "type": "string"
+        },
+        "MetadataCatalog": {
+          "type": "string"
+        },
+        "StatisticsCatalog": {
+          "type": "string"
+        },
+        "DocumentHistoryCatalog": {
+          "type": "string"
+        },
+        "LiveStreamCatalog": {
+          "type": "string"
+        },
+        "CacheCatalog": {
+          "type": "string"
+        },
+        "DatabaseVersion": {
+          "type": "string"
+        },
+        "BaseUrl": {
+          "type": "string"
+        },
+        "StoragePath": {
+          "type": "string"
+        },
+        "WatermarkPath": {
+          "type": "string"
+        },
+        "CacheRetentionTimeInMinutes": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "CustomerHosts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "UseSsl": {
+          "type": "boolean"
+        },
+        "CDNUrl": {
+          "type": "string"
+        },
+        "SupportContactEmailAddress": {
+          "type": "string"
+        },
+        "ExternalProviders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExternalProviderItem"
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "ServiceProviders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomerServiceProviderItem"
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "CorsAllowedHosts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "ElasticSearchNumberOfShards": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ElasticSearchNumberOfReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "RootSearchIndexNumberOfShards": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "RootSearchIndexNumberOfReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "NoReplyEmailAddress": {
+          "type": "string"
+        },
+        "LanguageConfiguration": {
+          "$ref": "#/definitions/LanguageConfigurationItem"
+        },
+        "OutputFormats": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OutputFormatStoreItem"
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "BusinessProcessEngineConnectionString": {
+          "type": "string"
+        },
+        "CreateTransferBusinessProcess": {
+          "type": "string"
+        }
+      }
+    },
+    "ExternalProviderItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ProviderName"
+      ],
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "ProviderName": {
+          "$ref": "#/definitions/ExternalProviderName"
+        },
+        "ApplicationId": {
+          "type": "string"
+        },
+        "ApplicationSecret": {
+          "type": "string"
+        },
+        "Services": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OAuthServiceApi"
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "RedirectUri": {
+          "type": "string"
+        }
+      }
+    },
+    "ExternalProviderName": {
+      "type": "integer",
+      "x-enumNames": [
+        "Google",
+        "Windows",
+        "Dropbox",
+        "Buffer",
+        "Picturepark"
+      ],
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "description": ""
+    },
+    "OAuthServiceApi": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "OAuthServiceType"
+      ],
+      "properties": {
+        "Scopes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "OAuthServiceType": {
+          "$ref": "#/definitions/OAuthServiceType"
+        }
+      }
+    },
+    "OAuthServiceType": {
+      "type": "integer",
+      "x-enumNames": [
+        "Drive",
+        "SocialMedia",
+        "AssetStore"
+      ],
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "description": ""
+    },
+    "CustomerServiceProviderItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Scopes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "AllowedMessages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomerAllowedMessage"
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "AllowedCommands": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomerAllowedCommand"
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "Configuration": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomerAllowedMessage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Target": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomerAllowedCommand": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "type": "string"
+        }
+      }
+    },
+    "LanguageConfigurationItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "SystemLanguages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "MetadataLanguages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "DefaultLanguage": {
+          "type": "string"
+        }
+      }
+    },
+    "OutputFormatStoreItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Static",
+        "System",
+        "Dynamic",
+        "DataExtraction",
+        "Temporary",
+        "Render"
+      ],
+      "properties": {
+        "Static": {
+          "type": "boolean"
+        },
+        "System": {
+          "type": "boolean"
+        },
+        "Dynamic": {
+          "type": "boolean"
+        },
+        "DataExtraction": {
+          "type": "boolean"
+        },
+        "Temporary": {
+          "type": "boolean"
+        },
+        "SourceOutputFormats": {
+          "$ref": "#/definitions/SourceOutputFormats"
+        },
+        "Render": {
+          "type": "boolean"
+        },
+        "Format": {
+          "$ref": "#/definitions/FormatBase"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseStoreItem"
+        }
+      ]
+    },
+    "SourceOutputFormats": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Image": {
+          "type": "string"
+        },
+        "Video": {
+          "type": "string"
+        },
+        "Document": {
+          "type": "string"
+        },
+        "Audio": {
+          "type": "string"
+        }
+      }
+    },
+    "FormatBase": {
+      "type": "object",
+      "discriminator": "Kind",
+      "additionalProperties": false,
+      "required": [
+        "Kind"
+      ],
+      "properties": {
+        "DefaultOutputExtension": {
+          "type": "string"
+        },
+        "AllowedOutputExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "Kind": {
+          "type": "string"
+        }
+      }
+    },
+    "ImageFormatBase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ColorTransformationIntent",
+        "RenderFirstFrameOnly",
+        "KeepClippingPath",
+        "CloneExif",
+        "CloneIptc",
+        "CloneAdobeResources",
+        "CloneXmp"
+      ],
+      "properties": {
+        "ColorProfile": {
+          "$ref": "#/definitions/ColorProfile"
+        },
+        "ColorTransformationIntent": {
+          "$ref": "#/definitions/ColorTransformationIntent"
+        },
+        "HorizontalResolution": {
+          "type": "number",
+          "format": "double"
+        },
+        "VerticalResolution": {
+          "type": "number",
+          "format": "double"
+        },
+        "RenderFirstFrameOnly": {
+          "type": "boolean"
+        },
+        "KeepClippingPath": {
+          "type": "boolean"
+        },
+        "CloneExif": {
+          "type": "boolean"
+        },
+        "CloneIptc": {
+          "type": "boolean"
+        },
+        "CloneAdobeResources": {
+          "type": "boolean"
+        },
+        "CloneXmp": {
+          "type": "boolean"
+        },
+        "ResizeAction": {
+          "$ref": "#/definitions/ResizeAction"
+        },
+        "Actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ImageActionBase"
+          },
+          "xml": {
+            "wrapped": true
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FormatBase"
+        }
+      ]
+    },
+    "ColorProfile": {
+      "type": "integer",
+      "x-enumNames": [
+        "AdobeRgb1998",
+        "AppleRgb",
+        "ColorMatchRgb",
+        "EciRgbV1",
+        "EciRgbV2",
+        "Srgb",
+        "SrgbColorSpaceProfile",
+        "EuropeIsoCoatedFogra27",
+        "EuroscaleCoated",
+        "EuroscaleUncoated",
+        "IsoCoated",
+        "IsoCoatedEciV2",
+        "JapanColor2001Coated",
+        "JapanColor2001Uncoated",
+        "JapanColor2002Newspaper",
+        "JapanWebCoated",
+        "UsSheetfedCoated",
+        "UsSheetfedUncoated",
+        "UsWebCoatedSwop",
+        "UsWebUncoated",
+        "IsoCoatedV2Grey1cBas",
+        "IsoCoated300EciV2",
+        "CoatedFogra27",
+        "CoatedFogra39",
+        "UncoatedFogra29",
+        "WebCoatedFogra28",
+        "WebCoatedSwop2006Grade3",
+        "WebCoatedSwop2006Grade5",
+        "Isonewspaper26v4",
+        "Isonewspaper26v4Grey"
+      ],
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "description": ""
+    },
+    "ColorTransformationIntent": {
+      "type": "integer",
+      "x-enumNames": [
+        "RelativeColorimetricBpc",
+        "AbsoluteColorimetric",
+        "Perceptual",
+        "RelativeColorimetric",
+        "Saturation"
+      ],
+      "enum": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "description": ""
+    },
+    "ResizeAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Width",
+        "Height",
+        "ResizeMode"
+      ],
+      "properties": {
+        "Width": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Height": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ResizeMode": {
+          "$ref": "#/definitions/ResizeMode"
+        }
+      }
+    },
+    "ResizeMode": {
+      "type": "integer",
+      "x-enumNames": [
+        "Fit",
+        "Shrink",
+        "Resize"
+      ],
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "description": ""
+    },
+    "ImageActionBase": {
+      "type": "object",
+      "discriminator": "Kind",
+      "additionalProperties": false,
+      "required": [
+        "Kind"
+      ],
+      "properties": {
+        "Kind": {
+          "type": "string"
+        }
+      }
+    },
+    "AlphaHandlingAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "AlphaHandling"
+      ],
+      "properties": {
+        "AlphaHandling": {
+          "$ref": "#/definitions/AlphaHandling"
+        },
+        "ReplacementRgbColorHexCode": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ImageActionBase"
+        }
+      ]
+    },
+    "AlphaHandling": {
+      "type": "integer",
+      "x-enumNames": [
+        "DiscardAlpha",
+        "ReplaceAlpha",
+        "ReplaceInvertedAlpha"
+      ],
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "description": ""
+    },
+    "CropAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "X",
+        "Y",
+        "Width",
+        "Height"
+      ],
+      "properties": {
+        "X": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Y": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Width": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Height": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ImageActionBase"
+        }
+      ]
+    },
+    "UnsharpenMaskAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Amount",
+        "Radius",
+        "Threshold"
+      ],
+      "properties": {
+        "Amount": {
+          "type": "number",
+          "format": "double"
+        },
+        "Radius": {
+          "type": "number",
+          "format": "double"
+        },
+        "Threshold": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ImageActionBase"
+        }
+      ]
+    },
+    "WatermarkAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Opacity",
+        "WidthRatio",
+        "HeightRatio"
+      ],
+      "properties": {
+        "WatermarkFilePath": {
+          "type": "string"
+        },
+        "WatermarkText": {
+          "type": "string"
+        },
+        "MarginLeft": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "MarginTop": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "MarginRight": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "MarginBottom": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Opacity": {
+          "type": "number",
+          "format": "double"
+        },
+        "WidthRatio": {
+          "type": "number",
+          "format": "double"
+        },
+        "HeightRatio": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ImageActionBase"
+        }
+      ]
+    },
+    "OriginalFormat": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "DefaultOutputExtension": {
+          "type": "string"
+        },
+        "AllowedOutputExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FormatBase"
+        }
+      ]
+    },
+    "JpegFormat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Quality",
+        "IsProgressive",
+        "ChromaSubsamplingEnabled"
+      ],
+      "properties": {
+        "Quality": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "IsProgressive": {
+          "type": "boolean"
+        },
+        "ChromaSubsamplingEnabled": {
+          "type": "boolean"
+        },
+        "DefaultOutputExtension": {
+          "type": "string"
+        },
+        "AllowedOutputExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ImageFormatBase"
+        }
+      ]
+    },
+    "PngFormat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Interlaced"
+      ],
+      "properties": {
+        "Interlaced": {
+          "type": "boolean"
+        },
+        "DefaultOutputExtension": {
+          "type": "string"
+        },
+        "AllowedOutputExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ImageFormatBase"
+        }
+      ]
+    },
+    "TiffFormat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "AlphaPremultiplied",
+        "CompressionType",
+        "IncludeUnspecifiedTiffExtraChannels"
+      ],
+      "properties": {
+        "AlphaPremultiplied": {
+          "type": "boolean"
+        },
+        "CompressionType": {
+          "$ref": "#/definitions/CompressionType"
+        },
+        "IncludeUnspecifiedTiffExtraChannels": {
+          "type": "boolean"
+        },
+        "DefaultOutputExtension": {
+          "type": "string"
+        },
+        "AllowedOutputExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ImageFormatBase"
+        }
+      ]
+    },
+    "CompressionType": {
+      "type": "integer",
+      "x-enumNames": [
+        "None",
+        "Lzw",
+        "Rle",
+        "Zip"
+      ],
+      "enum": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "description": ""
+    },
+    "VideoFormatBase": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/FormatBase"
+        }
+      ]
+    },
+    "Mp4VideoFormat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Preset"
+      ],
+      "properties": {
+        "ResizeAction": {
+          "$ref": "#/definitions/ResizeAction2"
+        },
+        "AudioCodec": {
+          "$ref": "#/definitions/AudioFormatBase"
+        },
+        "Preset": {
+          "$ref": "#/definitions/Preset"
+        },
+        "DefaultOutputExtension": {
+          "type": "string"
+        },
+        "AllowedOutputExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "Actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IVideoAction"
+          },
+          "xml": {
+            "wrapped": true
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/VideoFormatBase"
+        }
+      ]
+    },
+    "ResizeAction2": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Width",
+        "Height",
+        "ResizeMode"
+      ],
+      "properties": {
+        "Width": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Height": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ResizeMode": {
+          "$ref": "#/definitions/ResizeMode"
+        }
+      }
+    },
+    "AudioFormatBase": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/FormatBase"
+        }
+      ]
+    },
+    "VideoPresetFormat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "VideoPresetId"
+      ],
+      "properties": {
+        "VideoPresetId": {
+          "type": "string",
+          "format": "guid"
+        },
+        "CustomerId": {
+          "type": "string"
+        },
+        "DefaultOutputExtension": {
+          "type": "string"
+        },
+        "AllowedOutputExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/VideoFormatBase"
+        }
+      ]
+    },
+    "VideoSpriteFormat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "MaxNumberOfSprites",
+        "Quality"
+      ],
+      "properties": {
+        "SpriteResizeAction": {
+          "$ref": "#/definitions/ResizeAction2"
+        },
+        "MaxNumberOfSprites": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Quality": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "DefaultOutputExtension": {
+          "type": "string"
+        },
+        "AllowedOutputExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/VideoFormatBase"
+        }
+      ]
+    },
+    "VideoStillFormat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "PositionInSeconds"
+      ],
+      "properties": {
+        "DefaultOutputExtension": {
+          "type": "string"
+        },
+        "AllowedOutputExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "PositionInSeconds": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/VideoFormatBase"
+        }
+      ]
+    },
+    "AacAudioFormat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Profile",
+        "Coder"
+      ],
+      "properties": {
+        "DefaultOutputExtension": {
+          "type": "string"
+        },
+        "AllowedOutputExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "Profile": {
+          "$ref": "#/definitions/Profile"
+        },
+        "Coder": {
+          "$ref": "#/definitions/Coder"
+        },
+        "Bitrate": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "VariableBitRate": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/AudioFormatBase"
+        }
+      ]
+    },
+    "Profile": {
+      "type": "integer",
+      "x-enumNames": [
+        "aac_low",
+        "mpeg2_aac_low",
+        "aac_ltp",
+        "aac_main"
+      ],
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "description": ""
+    },
+    "Coder": {
+      "type": "integer",
+      "x-enumNames": [
+        "twoloop",
+        "anmr",
+        "fast"
+      ],
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "description": ""
+    },
+    "AudioPresetFormat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "AudioPresetId"
+      ],
+      "properties": {
+        "AudioPresetId": {
+          "type": "string",
+          "format": "guid"
+        },
+        "DefaultOutputExtension": {
+          "type": "string"
+        },
+        "AllowedOutputExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/AudioFormatBase"
+        }
+      ]
+    },
+    "AudioStillFormat": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "DefaultOutputExtension": {
+          "type": "string"
+        },
+        "AllowedOutputExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/AudioFormatBase"
+        }
+      ]
+    },
+    "Mp3AudioFormat": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "DefaultOutputExtension": {
+          "type": "string"
+        },
+        "AllowedOutputExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "Bitrate": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Quality": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/AudioFormatBase"
+        }
+      ]
+    },
+    "DocumentFormatBase": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/FormatBase"
+        }
+      ]
+    },
+    "DocumentStillFormat": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "DefaultOutputExtension": {
+          "type": "string"
+        },
+        "AllowedOutputExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/DocumentFormatBase"
+        }
+      ]
+    },
+    "PdfFormat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "JpegQuality",
+        "FastWebView",
+        "ReduceFileSize",
+        "ExtractFullText"
+      ],
+      "properties": {
+        "JpegQuality": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "FastWebView": {
+          "type": "boolean"
+        },
+        "ReduceFileSize": {
+          "type": "boolean"
+        },
+        "DefaultOutputExtension": {
+          "type": "string"
+        },
+        "AllowedOutputExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "ExtractFullText": {
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/DocumentFormatBase"
+        }
+      ]
+    },
+    "Preset": {
+      "type": "integer",
+      "x-enumNames": [
+        "ultrafast",
+        "superfast",
+        "veryfast",
+        "faster",
+        "fast",
+        "medium",
+        "slow",
+        "slower"
+      ],
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "description": ""
+    },
+    "IVideoAction": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "BaseStoreItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Version"
+      ],
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Audit": {
+          "$ref": "#/definitions/StoreAudit"
+        }
+      }
+    },
+    "StoreAudit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "CreationDate",
+        "ModificationDate"
+      ],
+      "properties": {
+        "CreationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "CreatedByUser": {
+          "$ref": "#/definitions/UserItem"
+        },
+        "ModificationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ModifiedByUser": {
+          "$ref": "#/definitions/UserItem"
+        }
+      }
+    },
+    "UserItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "FirstName": {
+          "type": "string"
+        },
+        "LastName": {
+          "type": "string"
+        },
+        "EmailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomerConfigurationItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "UseSsl",
+        "ElasticSearchNumberOfShards",
+        "ElasticSearchNumberOfReplicas",
+        "RootSearchIndexNumberOfShards",
+        "RootSearchIndexNumberOfReplicas",
+        "RedisDatabaseIndex"
+      ],
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "InitialCatalog": {
+          "type": "string"
+        },
+        "MetadataCatalog": {
+          "type": "string"
+        },
+        "StatisticsCatalog": {
+          "type": "string"
+        },
+        "DocumentHistoryCatalog": {
+          "type": "string"
+        },
+        "LiveStreamCatalog": {
+          "type": "string"
+        },
+        "CacheCatalog": {
+          "type": "string"
+        },
+        "WatermarkPath": {
+          "type": "string"
+        },
+        "StoragePath": {
+          "type": "string"
+        },
+        "CustomerHosts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "UseSsl": {
+          "type": "boolean"
+        },
+        "ExternalProviders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ExternalProviderItem"
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "ServiceProviders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomerServiceProviderItem"
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "SupportContactEmailAddress": {
+          "type": "string"
+        },
+        "BaseUrl": {
+          "type": "string"
+        },
+        "CDNUrl": {
+          "type": "string"
+        },
+        "ElasticSearchNumberOfShards": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ElasticSearchNumberOfReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "RootSearchIndexNumberOfShards": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "RootSearchIndexNumberOfReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "CorsAllowedHosts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "NoReplyEmailAddress": {
+          "type": "string"
+        },
+        "LanguageConfiguration": {
+          "$ref": "#/definitions/LanguageConfigurationItem"
+        },
+        "BusinessProcessEngineConnectionString": {
+          "type": "string"
+        },
+        "CreateTransferBusinessProcess": {
+          "type": "string"
+        },
+        "RedisDatabaseIndex": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "CustomerUpdateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Enabled",
+        "CacheRetentionTimeInMinutes",
+        "UseSsl"
+      ],
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "CustomerHosts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "CacheRetentionTimeInMinutes": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "UseSsl": {
+          "type": "boolean"
+        },
+        "CDNUrl": {
+          "type": "string"
+        },
+        "SupportContactEmailAddress": {
+          "type": "string"
+        },
+        "CorsAllowedHosts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "NoReplyEmailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomerSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfCustomerViewItem"
+        }
+      ]
+    },
+    "BaseResultOfCustomerViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "TotalResults"
+      ],
+      "properties": {
+        "TotalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomerViewItem"
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "PageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomerViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "DeactivationComment": {
+          "type": "string"
+        },
+        "CustomerHosts": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "InitialCatalog": {
+          "type": "string"
+        },
+        "DatabaseVersion": {
+          "type": "string"
+        },
+        "StoragePath": {
+          "type": "string"
+        },
+        "WatermarkPath": {
+          "type": "string"
+        }
+      }
+    },
+    "UserViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "UserRoleIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/UserItem"
+        }
+      ]
+    },
+    "CustomerSearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Start",
+        "Limit"
+      ],
+      "properties": {
+        "SearchString": {
+          "type": "string"
+        },
+        "Sort": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          },
+          "xml": {
+            "wrapped": true
+          }
+        },
+        "Start": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Filter": {
+          "$ref": "#/definitions/FilterBase"
+        }
+      }
+    },
+    "SortInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Direction"
+      ],
+      "properties": {
+        "Field": {
+          "type": "string"
+        },
+        "Direction": {
+          "$ref": "#/definitions/SortDirection"
+        }
+      }
+    },
+    "SortDirection": {
+      "type": "integer",
+      "x-enumNames": [
+        "Asc",
+        "Desc"
+      ],
+      "enum": [
+        1,
+        2
+      ],
+      "description": ""
+    },
+    "FilterBase": {
+      "type": "object",
+      "discriminator": "Kind",
+      "additionalProperties": false,
+      "required": [
+        "Kind"
+      ],
+      "properties": {
+        "Kind": {
+          "type": "string"
+        }
+      }
+    },
+    "AndFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Filters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FilterBase"
+          },
+          "xml": {
+            "wrapped": true
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "OrFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Filters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FilterBase"
+          },
+          "xml": {
+            "wrapped": true
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "NotFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Filter": {
+          "$ref": "#/definitions/FilterBase"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "DateRangeFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string"
+        },
+        "Range": {
+          "$ref": "#/definitions/DateRange"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "DateRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Names": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "From": {
+          "type": "string"
+        },
+        "To": {
+          "type": "string"
+        }
+      }
+    },
+    "TranslatedStringDictionary": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "ExistsFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "GeoBoundingBoxFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string"
+        },
+        "TopLeft": {
+          "$ref": "#/definitions/GeoLocation"
+        },
+        "BottomRight": {
+          "$ref": "#/definitions/GeoLocation"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "GeoLocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Lat",
+        "Lon"
+      ],
+      "properties": {
+        "Lat": {
+          "type": "number",
+          "format": "double"
+        },
+        "Lon": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "GeoDistanceFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Distance"
+      ],
+      "properties": {
+        "Field": {
+          "type": "string"
+        },
+        "Location": {
+          "$ref": "#/definitions/GeoLocation"
+        },
+        "Distance": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "GeoDistanceRangeFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string"
+        },
+        "Location": {
+          "$ref": "#/definitions/GeoLocation"
+        },
+        "Range": {
+          "$ref": "#/definitions/NumericRange"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "NumericRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Names": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "From": {
+          "type": "number",
+          "format": "double"
+        },
+        "To": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "NestedFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Path": {
+          "type": "string"
+        },
+        "Join": {
+          "type": "boolean"
+        },
+        "Filter": {
+          "$ref": "#/definitions/FilterBase"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "NumericRangeFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string"
+        },
+        "Range": {
+          "$ref": "#/definitions/NumericRange"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "PrefixFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string"
+        },
+        "Prefix": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "TermFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string"
+        },
+        "Term": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "TermsFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string"
+        },
+        "Terms": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "String"
+            }
+          },
+          "xml": {
+            "wrapped": true
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "AggregationFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "AggregationName": {
+          "type": "string"
+        },
+        "Filter": {
+          "$ref": "#/definitions/FilterBase"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    }
+  },
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "oauth2": {
+      "type": "oauth2",
+      "description": "Foo",
+      "flow": "password",
+      "tokenUrl": "/token",
+      "scopes": {
+        "read": "Read access to protected resources",
+        "write": "Write access to protected resources"
+      }
+    },
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "scopes": {
+        "read": "Read access to protected resources",
+        "write": "Write access to protected resources"
+      }
+    }
+  }
+}

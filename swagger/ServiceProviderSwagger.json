@@ -1,0 +1,1009 @@
+﻿{
+	"swagger": "2.0",
+	"info": {
+		"title": "Picturepark 9 API",
+		"description": "Picturepark 9 Api Description",
+		"termsOfService": "Terms of service",
+		"contact": {
+			"name": "Picturepark",
+			"email": "sales@picturepark.com"
+		},
+		"version": "V1"
+	},
+	"host": "localhost:5000",
+	"basePath": "",
+	"schemes": [
+		"http",
+		"https"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"produces": [
+		"application/json"
+	],
+	"paths": {
+		"/API/V1/ServiceProviders/{ServiceProviderId}/Message": {
+			"post": {
+				"tags": [
+					"ServiceProviders"
+				],
+				"operationId": "ServiceProviders_SendMessage",
+				"parameters": [
+					{
+						"type": "string",
+						"name": "ServiceProviderId",
+						"in": "path",
+						"required": true,
+						"x-nullable": false
+					},
+					{
+						"name": "request",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/SendMessageRequest"
+						},
+						"x-nullable": true
+					}
+				],
+				"responses": {
+					"500": {
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/PictureparkException"
+						},
+						"x-nullable": true
+					},
+					"204": {
+						"description": ""
+					}
+				},
+				"security": [
+					{
+						"Bearer": []
+					}
+				]
+			}
+		},
+		"/API/V1/ServiceProviders/{ServiceProviderId}/Configuration": {
+			"get": {
+				"tags": [
+					"ServiceProviders"
+				],
+				"operationId": "ServiceProviders_GetConfiguration",
+				"parameters": [
+					{
+						"type": "string",
+						"name": "ServiceProviderId",
+						"in": "path",
+						"required": true,
+						"x-nullable": false
+					}
+				],
+				"responses": {
+					"500": {
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/PictureparkException"
+						},
+						"x-nullable": true
+					},
+					"200": {
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/CustomerServiceProviderItem"
+						},
+						"x-nullable": true
+					}
+				},
+				"security": [
+					{
+						"Bearer": []
+					}
+				]
+			},
+			"put": {
+				"tags": [
+					"ServiceProviders"
+				],
+				"operationId": "ServiceProviders_UpdateConfiguration",
+				"parameters": [
+					{
+						"type": "string",
+						"name": "ServiceProviderId",
+						"in": "path",
+						"required": true,
+						"x-nullable": false
+					},
+					{
+						"name": "configuration",
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/ServiceProviderConfigurationUpdateRequest"
+						},
+						"x-nullable": true
+					}
+				],
+				"responses": {
+					"500": {
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/PictureparkException"
+						},
+						"x-nullable": true
+					},
+					"200": {
+						"description": "",
+						"schema": {
+							"$ref": "#/definitions/CustomerServiceProviderItem"
+						},
+						"x-nullable": true
+					}
+				},
+				"security": [
+					{
+						"Bearer": []
+					}
+				]
+			}
+		}
+	},
+	"definitions": {
+		"SendMessageRequest": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"MessageName": {
+					"type": "string"
+				},
+				"BusinessProcessId": {
+					"type": "string"
+				},
+				"Variables": {}
+			}
+		},
+		"PictureparkException": {
+			"type": "object",
+			"discriminator": "Kind",
+			"additionalProperties": false,
+			"required": [
+				"TraceLevel",
+				"HttpStatusCode",
+				"Kind"
+			],
+			"properties": {
+				"TraceLevel": {
+					"$ref": "#/definitions/TraceLevel"
+				},
+				"TraceId": {
+					"type": "string"
+				},
+				"TraceJobId": {
+					"type": "string"
+				},
+				"HttpStatusCode": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"Kind": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/Exception"
+				}
+			]
+		},
+		"TraceLevel": {
+			"type": "integer",
+			"x-enumNames": [
+				"Critical",
+				"Error",
+				"Warning",
+				"Information",
+				"Verbose"
+			],
+			"enum": [
+				1,
+				2,
+				3,
+				4,
+				5
+			],
+			"description": ""
+		},
+		"Exception": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"Message": {
+					"type": "string"
+				},
+				"InnerException": {
+					"$ref": "#/definitions/Exception"
+				},
+				"StackTrace": {
+					"type": "string"
+				},
+				"Source": {
+					"type": "string"
+				}
+			}
+		},
+		"PictureparkApplicationException": {
+			"type": "object",
+			"additionalProperties": false,
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"PictureparkBusinessException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"CustomerId": {
+					"type": "string"
+				},
+				"UserId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkException"
+				}
+			]
+		},
+		"PictureparkArgumentNullException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"ArgumentName": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"AssetNotFoundException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"AssetId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"BusinessProcessDefinitionCreateException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"ProcessDefinitionIds": {
+					"type": "array",
+					"items": {
+						"type": "string",
+						"xml": {
+							"name": "String"
+						}
+					},
+					"xml": {
+						"wrapped": true
+					}
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"BusinessProcessDefinitionNotFoundException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"ProcessDefinitionId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"BusinessProcessNotFoundException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"BusinessProcessId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"CustomerHostNotFoundException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"HostName": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkException"
+				}
+			]
+		},
+		"CustomerNotFoundException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"CustomerId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkException"
+				}
+			]
+		},
+		"DocumentNotFoundException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"DocumentId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"DocumentVersionNotFoundException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"DocumentId": {
+					"type": "string"
+				},
+				"DocumentVersion": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"DriveRequestException": {
+			"type": "object",
+			"additionalProperties": false,
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"DuplicateRightException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"PermissionSetId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"DuplicateDocumentException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"DocumentId": {
+					"type": "string"
+				},
+				"DocumentType": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"DuplicateAggregatorException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"AggregatorName": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"FailedToLockException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"ResourceId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"IndexException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"IndexName": {
+					"type": "string"
+				},
+				"DebugInformation": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"InvalidArgumentException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"ArgumentName": {
+					"type": "string"
+				},
+				"ArgumentValue": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"InvalidCustomerException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"CustomerId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkException"
+				}
+			]
+		},
+		"PictureparkInvalidMetadataException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"MetadataErrors": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/MetadataError"
+					},
+					"xml": {
+						"wrapped": true
+					}
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"MetadataError": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"LineNumber",
+				"LinePosition"
+			],
+			"properties": {
+				"ErrorType": {
+					"type": "string"
+				},
+				"LineNumber": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"LinePosition": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"Path": {
+					"type": "string"
+				},
+				"Message": {
+					"type": "string"
+				},
+				"SchemaId": {
+					"type": "string"
+				}
+			}
+		},
+		"InvalidStateException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"ResourceId": {
+					"type": "string"
+				},
+				"State": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"InvalidUserOrPasswordException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"CustomerId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkException"
+				}
+			]
+		},
+		"PictureparkMappingException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"IndexName": {
+					"type": "string"
+				},
+				"DebugInformation": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"MessagePerformerTaskCanceledException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"MessageId": {
+					"type": "string"
+				},
+				"CustomerId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkException"
+				}
+			]
+		},
+		"NotFoundException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"Reference": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"ObjectStoreException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"RowErrorMessages": {
+					"type": "string"
+				},
+				"ErrorMessage": {
+					"type": "string"
+				},
+				"Message": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"ObjectStoreResponseException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"RowErrorMessages": {
+					"type": "string"
+				},
+				"Message": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"PictureparkOperationCanceledException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"CancellationToken": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"OperationTimeoutException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"MessageId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"OutputNotFoundException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"AssetId": {
+					"type": "string"
+				},
+				"OutputFormatId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"PermissionException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"Permission": {
+					"type": "string"
+				},
+				"Operation": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"QueryException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"DebugInformation": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"RenderingException": {
+			"type": "object",
+			"additionalProperties": false,
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"RenderingJobItemNotSetException": {
+			"type": "object",
+			"additionalProperties": false,
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"ServiceProviderCreateException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"UserId": {
+					"type": "string"
+				},
+				"ExternalId": {
+					"type": "string"
+				},
+				"VirtualHost": {
+					"type": "string"
+				},
+				"DetailErrorMessage": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkException"
+				}
+			]
+		},
+		"ServiceProviderDeleteException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"ServiceProviderId": {
+					"type": "string"
+				},
+				"DetailedErrorMessage": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkException"
+				}
+			]
+		},
+		"ServiceProviderNotFoundException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"MissingServiceProviderId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkException"
+				}
+			]
+		},
+		"TokenValidationException": {
+			"type": "object",
+			"additionalProperties": false,
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"UnknownException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"ExceptionDetail": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"UserNotFoundException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"MissingUserId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"UserPermanentlyRemovedException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"RemovedUserId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"UserRoleAssignedException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"UserRoleId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"UserRolesRightsAssignedException": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"AssetPermissionSetId": {
+					"type": "string"
+				}
+			},
+			"allOf": [
+				{
+					"$ref": "#/definitions/PictureparkBusinessException"
+				}
+			]
+		},
+		"CustomerServiceProviderItem": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"Id": {
+					"type": "string"
+				},
+				"Scopes": {
+					"type": "array",
+					"items": {
+						"type": "string",
+						"xml": {
+							"name": "String"
+						}
+					},
+					"xml": {
+						"wrapped": true
+					}
+				},
+				"AllowedMessages": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CustomerAllowedMessage"
+					},
+					"xml": {
+						"wrapped": true
+					}
+				},
+				"AllowedCommands": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CustomerAllowedCommand"
+					},
+					"xml": {
+						"wrapped": true
+					}
+				},
+				"Configuration": {
+					"type": "string"
+				}
+			}
+		},
+		"CustomerAllowedMessage": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"Name": {
+					"type": "string"
+				},
+				"Target": {
+					"type": "string"
+				}
+			}
+		},
+		"CustomerAllowedCommand": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"Name": {
+					"type": "string"
+				}
+			}
+		},
+		"ServiceProviderConfigurationUpdateRequest": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"CustomerId": {
+					"type": "string"
+				},
+				"ServiceProviderId": {
+					"type": "string"
+				},
+				"Configuration": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"parameters": {},
+	"responses": {},
+	"securityDefinitions": {
+		"oauth2": {
+			"type": "oauth2",
+			"description": "Foo",
+			"flow": "password",
+			"tokenUrl": "/token",
+			"scopes": {
+				"read": "Read access to protected resources",
+				"write": "Write access to protected resources"
+			}
+		},
+		"Bearer": {
+			"type": "apiKey",
+			"name": "Authorization",
+			"in": "header",
+			"scopes": {
+				"read": "Read access to protected resources",
+				"write": "Write access to protected resources"
+			}
+		}
+	}
+}

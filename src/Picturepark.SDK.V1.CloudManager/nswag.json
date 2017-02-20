@@ -1,0 +1,45 @@
+﻿{
+  "swaggerGenerator": {
+    "fromSwagger": {
+      "url": "../../swagger/CloudManagerSwagger.json",
+      "output": null
+    }
+  },
+  "codeGenerators": {
+    "swaggerToCSharpClient": {
+      "clientBaseClass": "ClientBase",
+      "configurationClass": "Picturepark.SDK.V1.Authentication.IAuthClient",
+      "generateClientClasses": true,
+      "generateClientInterfaces": false,
+      "generateDtoTypes": true,
+      "injectHttpClient": false,
+      "generateExceptionClasses": true,
+      "exceptionClass": "ApiException",
+      "useHttpClientCreationMethod": true,
+      "useHttpRequestMessageCreationMethod": false,
+      "clientClassAccessModifier": "public",
+      "generateContractsOutput": true,
+      "contractsNamespace": "Picturepark.SDK.V1.CloudManager.Contract",
+      "contractsOutputFilePath": "Clients/Contracts.Generated.cs",
+      "className": "{controller}ClientBase",
+      "namespace": "Picturepark.SDK.V1.CloudManager",
+      "additionalNamespaceUsages": [],
+      "generateOptionalParameters": false,
+      "requiredPropertiesMustBeDefined": true,
+      "dateType": "System.DateTime",
+      "dateTimeType": "System.DateTime",
+      "timeType": "System.TimeSpan",
+      "timeSpanType": "System.TimeSpan",
+      "arrayType": "System.Collections.Generic.List",
+      "dictionaryType": "System.Collections.Generic.Dictionary",
+      "classStyle": "Poco",
+      "operationGenerationMode": "MultipleClientsFromOperationId",
+      "generateDefaultValues": true,
+      "excludedTypeNames": [],
+      "wrapResponses": false,
+      "generateResponseClasses": true,
+      "responseClass": "SwaggerResponse",
+      "output": "Clients/Clients.Generated.cs"
+    }
+  }
+}

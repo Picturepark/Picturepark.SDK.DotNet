@@ -1,0 +1,374 @@
+{
+	"Version": "1.0.0.0",
+	"MetadataSchemaTransferItems": [
+		{
+			"Id": "Years",
+			"Dependencies": [],
+			"MetadataSchemaNamespace": "Years",
+			"Scope": "Metadata",
+			"Names": {
+				"en": "Year",
+				"de": "Year",
+				"fr": "Year"
+			},
+			"Fields": [
+				{
+					"TypeName": "FieldString",
+					"Id": "Name",
+					"FieldNamespace": "Years_Name",
+					"Names": {
+						"en": "Name",
+						"de": "Name",
+						"fr": "Name"
+					},
+					"Required": false,
+					"Fixed": false,
+					"Index": true,
+					"SimpleSearch": true,
+					"Deleted": false,
+					"MaxRecursion": 0,
+					"UniqueItems": false,
+					"MultiLine": false,
+					"Boost": 1,
+					"Analyzers": [
+						{
+							"TypeName": "SimpleAnalyzer",
+							"SimpleSearch": true
+						}
+					]
+				}
+			],
+			"Sort": [
+				{
+					"Field": "Name",
+					"Direction": "Asc"
+				}
+			],
+			"AggregationConfigurations": [],
+			"SortOrder": 30
+		},
+		{
+			"Id": "Keyword",
+			"Dependencies": [],
+			"MetadataSchemaNamespace": "Keyword",
+			"Scope": "Metadata",
+			"Names": {
+				"en": "Keyword",
+				"de": "Keyword",
+				"fr": "Keyword"
+			},
+			"Fields": [
+				{
+					"TypeName": "FieldString",
+					"Id": "Name",
+					"FieldNamespace": "Keyword_Name",
+					"Names": {
+						"en": "Name",
+						"de": "Name",
+						"fr": "Name"
+					},
+					"Required": false,
+					"Fixed": false,
+					"Index": true,
+					"SimpleSearch": true,
+					"Deleted": false,
+					"MaxRecursion": 0,
+					"UniqueItems": false,
+					"MultiLine": false,
+					"Boost": 1,
+					"Analyzers": [
+						{
+							"TypeName": "SimpleAnalyzer",
+							"SimpleSearch": true
+						}
+					]
+				},
+				{
+					"TypeName": "FieldString",
+					"Id": "Synonym",
+					"FieldNamespace": "Keyword_Synonym",
+					"Names": {
+						"en": "Synonym",
+						"de": "Synonym",
+						"fr": "Synonym"
+					},
+					"Required": false,
+					"Fixed": false,
+					"Index": true,
+					"SimpleSearch": true,
+					"Deleted": false,
+					"MaxRecursion": 0,
+					"UniqueItems": false,
+					"MultiLine": false,
+					"Boost": 1,
+					"Analyzers": [
+						{
+							"TypeName": "SimpleAnalyzer",
+							"SimpleSearch": true
+						}
+					]
+				}
+			],
+			"Sort": [
+				{
+					"Field": "Name",
+					"Direction": "Asc"
+				}
+			],
+			"AggregationConfigurations": [
+				{
+					"Name": "Keywords",
+					"Aggregator": {
+						"TypeName": "TermsAggregator",
+						"Name": "Keywords",
+						"Field": "Keyword.Name",
+						"Size": 10
+					}
+				}
+			],
+			"SortOrder": 29
+		},
+		{
+			"Id": "Corporate",
+			"Dependencies": [
+				"Years",
+				"Keyword"
+			],
+			"MetadataSchemaNamespace": "Corporate",
+			"Scope": "Asset",
+			"Names": {
+				"en": "Corporate Details",
+				"de": "Corporate Details",
+				"fr": "Corporate Details"
+			},
+			"Fields": [
+				{
+					"TypeName": "FieldString",
+					"Id": "Name",
+					"FieldNamespace": "Corporate_Name",
+					"Names": {
+						"en": "Notes",
+						"de": "Notes",
+						"fr": "Notes"
+					},
+					"Required": false,
+					"Fixed": false,
+					"Index": true,
+					"SimpleSearch": true,
+					"Deleted": false,
+					"MaxRecursion": 0,
+					"UniqueItems": false,
+					"MultiLine": true,
+					"Boost": 1,
+					"Analyzers": [
+						{
+							"TypeName": "SimpleAnalyzer",
+							"SimpleSearch": true
+						}
+					]
+				},
+				{
+					"TypeName": "FieldSchemaItems",
+					"Id": "Language",
+					"FieldNamespace": "Corporate_Language",
+					"Names": {
+						"en": "Language",
+						"de": "Language",
+						"fr": "Language"
+					},
+					"Required": false,
+					"Fixed": false,
+					"Index": true,
+					"SimpleSearch": true,
+					"Deleted": false,
+					"MetadataSchemaId": "Language",
+					"MaxRecursion": 2,
+					"UniqueItems": false,
+					"MultiLine": false,
+					"Boost": 1
+				},
+				{
+					"TypeName": "FieldSchemaItems",
+					"Id": "Year",
+					"FieldNamespace": "Corporate_Year",
+					"Names": {
+						"en": "Year",
+						"de": "Year",
+						"fr": "Year"
+					},
+					"Required": false,
+					"Fixed": false,
+					"Index": true,
+					"SimpleSearch": true,
+					"Deleted": false,
+					"MetadataSchemaId": "Years",
+					"MaxRecursion": 2,
+					"UniqueItems": false,
+					"MultiLine": false,
+					"Boost": 1
+				},
+				{
+					"TypeName": "FieldSchemaItems",
+					"Id": "Keywords",
+					"FieldNamespace": "Corporate_Keywords",
+					"Names": {
+						"en": "Keywords",
+						"de": "Keywords",
+						"fr": "Keywords"
+					},
+					"Required": false,
+					"Fixed": false,
+					"Index": true,
+					"SimpleSearch": true,
+					"Deleted": false,
+					"MetadataSchemaId": "Keyword",
+					"MaxRecursion": 2,
+					"UniqueItems": false,
+					"MultiLine": false,
+					"Boost": 1
+				}
+			],
+			"Sort": [
+				{
+					"Field": "Name",
+					"Direction": "Asc"
+				}
+			],
+			"AggregationConfigurations": [
+				{
+					"Name": "Corporate Keywords",
+					"Aggregator": {
+						"TypeName": "TermsAggregator",
+						"Name": "Corporate Keywords",
+						"Field": "Corporate.Keywords.Name",
+						"Size": 10
+					}
+				}
+			],
+			"SortOrder": 4
+		}
+	],
+	"MetadataObjectTransferItems": [
+		[
+			{
+				"Id": "f5bec70820754035ae50332efa63dae9",
+				"Dependencies": [],
+				"MetadataSchemaId": "Years",
+				"Metadata": {
+					"Name": "2013",
+					"refId": "f5bec70820754035ae50332efa63dae9"
+				}
+			},
+			{
+				"Id": "641488ccd4dc485ea6ddcc7e1927cead",
+				"Dependencies": [],
+				"MetadataSchemaId": "Years",
+				"Metadata": {
+					"Name": "2015",
+					"refId": "641488ccd4dc485ea6ddcc7e1927cead"
+				}
+			},
+			{
+				"Id": "51a579cdfcd54b6ea44907bf59887406",
+				"Dependencies": [],
+				"MetadataSchemaId": "Years",
+				"Metadata": {
+					"Name": "2014",
+					"refId": "51a579cdfcd54b6ea44907bf59887406"
+				}
+			},
+			{
+				"Id": "64e3bfdfd32941869ecee36db6c7e858",
+				"Dependencies": [],
+				"MetadataSchemaId": "Years",
+				"Metadata": {
+					"Name": "2016",
+					"refId": "64e3bfdfd32941869ecee36db6c7e858"
+				}
+			},
+			{
+				"Id": "c1f3fc683735490c8dcda15f1f86c8b2",
+				"Dependencies": [],
+				"MetadataSchemaId": "Years",
+				"Metadata": {
+					"Name": "2012",
+					"refId": "c1f3fc683735490c8dcda15f1f86c8b2"
+				}
+			},
+			{
+				"Id": "5296390962034726b67119988ae308d6",
+				"Dependencies": [],
+				"MetadataSchemaId": "Years",
+				"Metadata": {
+					"Name": "2011",
+					"refId": "5296390962034726b67119988ae308d6"
+				}
+			}
+		],
+		[
+			{
+				"Id": "225d4cd1ed704ec488b3aff292c47ad0",
+				"Dependencies": [],
+				"MetadataSchemaId": "Keyword",
+				"Metadata": {
+					"Name": "Präsentation",
+					"refId": "225d4cd1ed704ec488b3aff292c47ad0"
+				}
+			},
+			{
+				"Id": "5d68051c297740d3b2d1c9004843c481",
+				"Dependencies": [],
+				"MetadataSchemaId": "Keyword",
+				"Metadata": {
+					"Name": "Brand element",
+					"refId": "5d68051c297740d3b2d1c9004843c481"
+				}
+			},
+			{
+				"Id": "2d81c2959ade496981787d084fb10de6",
+				"Dependencies": [],
+				"MetadataSchemaId": "Keyword",
+				"Metadata": {
+					"Name": "Fallstudie",
+					"refId": "2d81c2959ade496981787d084fb10de6"
+				}
+			},
+			{
+				"Id": "11726e34eed14c0f8edc63aa2bc0fbcc",
+				"Dependencies": [],
+				"MetadataSchemaId": "Keyword",
+				"Metadata": {
+					"Name": "Management",
+					"refId": "11726e34eed14c0f8edc63aa2bc0fbcc"
+				}
+			},
+			{
+				"Id": "837807b3a09e451eb8ad645130b53efa",
+				"Dependencies": [],
+				"MetadataSchemaId": "Keyword",
+				"Metadata": {
+					"Name": "Broschüre",
+					"refId": "837807b3a09e451eb8ad645130b53efa"
+				}
+			},
+			{
+				"Id": "d7acfd792c0645a19eaa0acd71073dd9",
+				"Dependencies": [],
+				"MetadataSchemaId": "Keyword",
+				"Metadata": {
+					"Name": "Logo",
+					"refId": "d7acfd792c0645a19eaa0acd71073dd9"
+				}
+			},
+			{
+				"Id": "af62c43ade884d63b87c82d15a614959",
+				"Dependencies": [],
+				"MetadataSchemaId": "Keyword",
+				"Metadata": {
+					"Name": "Multimedia",
+					"refId": "af62c43ade884d63b87c82d15a614959"
+				}
+			}
+		]
+	]
+}
