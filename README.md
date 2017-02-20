@@ -29,6 +29,15 @@ using (var client = new PictureparkClient(authClient))
 }
 ```
 
+## Packages
+
+- Picturepark.SDK.V1
+- Picturepark.SDK.V1.Contract
+- Picturepark.SDK.V1.Localization
+
+- Picturepark.SDK.V1.CloudManager
+- Picturepark.SDK.V1.ServiceProvider
+
 ## Development
 
 NuGet Feed: https://www.nuget.org/packages?q=Picturepark
