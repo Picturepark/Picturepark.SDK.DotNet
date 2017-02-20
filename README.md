@@ -37,7 +37,7 @@ Public APIs:
 - Picturepark.SDK.V1.Contract
 - Picturepark.SDK.V1.Localization
 
-Cloud Management APIs: 
+Management APIs: 
 
 - Picturepark.SDK.V1.CloudManager
 - Picturepark.SDK.V1.ServiceProvider
