@@ -2,6 +2,7 @@
 ## Picturepark.Sdk.DotNet
 
 [![Build status](https://img.shields.io/appveyor/ci/Picturepark/picturepark-sdk-dotnet.svg?label=build)](https://ci.appveyor.com/project/Picturepark/picturepark-sdk-dotnet)
+[![MyGet CI](https://img.shields.io/myget/picturepark/vpre/picturepark-sdk-dotnet-ci.svg)]()
 [![Build status](https://img.shields.io/appveyor/ci/Picturepark/picturepark-sdk-dotnet-y10cr.svg?label=CI+build)](https://ci.appveyor.com/project/Picturepark/picturepark-sdk-dotnet-y10cr)
 
 Links: 
