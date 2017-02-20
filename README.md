@@ -31,9 +31,13 @@ using (var client = new PictureparkClient(authClient))
 
 ## Packages
 
+Public APIs: 
+
 - Picturepark.SDK.V1
 - Picturepark.SDK.V1.Contract
 - Picturepark.SDK.V1.Localization
+
+Cloud Management APIs: 
 
 - Picturepark.SDK.V1.CloudManager
 - Picturepark.SDK.V1.ServiceProvider
