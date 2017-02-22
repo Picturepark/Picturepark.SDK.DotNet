@@ -1787,6 +1787,13 @@
         "operationId": "Assets_AggregateByChannel",
         "parameters": [
           {
+            "type": "string",
+            "name": "ChannelId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
             "name": "assetAggregationRequest",
             "in": "body",
             "required": true,
@@ -1794,13 +1801,6 @@
               "$ref": "#/definitions/AssetAggregationRequest"
             },
             "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "ChannelId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false
           }
         ],
         "responses": {
@@ -2570,6 +2570,13 @@
         "operationId": "BusinessProcesses_Start",
         "parameters": [
           {
+            "type": "string",
+            "name": "ProcessDefinitionId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
             "name": "request",
             "in": "body",
             "required": true,
@@ -2577,13 +2584,6 @@
               "$ref": "#/definitions/StartProcessRequest"
             },
             "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "ProcessDefinitionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false
           }
         ],
         "responses": {
@@ -2670,6 +2670,13 @@
         "operationId": "BusinessProcesses_SendMessage",
         "parameters": [
           {
+            "type": "string",
+            "name": "ProcessId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
             "name": "request",
             "in": "body",
             "required": true,
@@ -2677,13 +2684,6 @@
               "$ref": "#/definitions/SendMessageRequest"
             },
             "x-nullable": true
-          },
-          {
-            "type": "string",
-            "name": "ProcessId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false
           }
         ],
         "responses": {

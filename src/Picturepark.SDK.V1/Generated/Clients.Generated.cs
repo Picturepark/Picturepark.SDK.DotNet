@@ -4455,14 +4455,14 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public ObjectAggregationResult AggregateByChannel(AssetAggregationRequest assetAggregationRequest, string channelId)
+        public ObjectAggregationResult AggregateByChannel(string channelId, AssetAggregationRequest assetAggregationRequest)
         {
-            return System.Threading.Tasks.Task.Run(async () => await AggregateByChannelAsync(assetAggregationRequest, channelId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await AggregateByChannelAsync(channelId, assetAggregationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateByChannelAsync(AssetAggregationRequest assetAggregationRequest, string channelId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateByChannelAsync(string channelId, AssetAggregationRequest assetAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var url_ = string.Format("{0}", "Service/Assets/{ChannelId}/Aggregate");
     
@@ -6116,14 +6116,14 @@ namespace Picturepark.SDK.V1
         partial void ProcessResponse(System.Net.Http.HttpClient request, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public BusinessProcessViewItem Start(StartProcessRequest request, string processDefinitionId)
+        public BusinessProcessViewItem Start(string processDefinitionId, StartProcessRequest request)
         {
-            return System.Threading.Tasks.Task.Run(async () => await StartAsync(request, processDefinitionId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await StartAsync(processDefinitionId, request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BusinessProcessViewItem> StartAsync(StartProcessRequest request, string processDefinitionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BusinessProcessViewItem> StartAsync(string processDefinitionId, StartProcessRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var url_ = string.Format("{0}", "API/V1/BusinessProcesses/ProcessDefinitions/{ProcessDefinitionId}/Start");
     
@@ -6372,14 +6372,14 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public void SendMessage(SendMessageRequest request, string processId)
+        public void SendMessage(string processId, SendMessageRequest request)
         {
-            System.Threading.Tasks.Task.Run(async () => await SendMessageAsync(request, processId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await SendMessageAsync(processId, request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task SendMessageAsync(SendMessageRequest request, string processId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SendMessageAsync(string processId, SendMessageRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var url_ = string.Format("{0}", "API/V1/BusinessProcesses/Processes/{ProcessId}/Message");
     

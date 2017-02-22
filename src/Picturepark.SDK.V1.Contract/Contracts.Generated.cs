@@ -366,11 +366,11 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(AssetAggregationRequest assetAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        ObjectAggregationResult AggregateByChannel(AssetAggregationRequest assetAggregationRequest, string channelId);
+        ObjectAggregationResult AggregateByChannel(string channelId, AssetAggregationRequest assetAggregationRequest);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ObjectAggregationResult> AggregateByChannelAsync(AssetAggregationRequest assetAggregationRequest, string channelId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ObjectAggregationResult> AggregateByChannelAsync(string channelId, AssetAggregationRequest assetAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         AssetBatchDownloadItem CreateBatchAssetDownload(AssetBatchDownloadRequest request);
@@ -496,11 +496,11 @@ namespace Picturepark.SDK.V1.Contract
     public partial interface IBusinessProcessesClient
     {
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        BusinessProcessViewItem Start(StartProcessRequest request, string processDefinitionId);
+        BusinessProcessViewItem Start(string processDefinitionId, StartProcessRequest request);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BusinessProcessViewItem> StartAsync(StartProcessRequest request, string processDefinitionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcessViewItem> StartAsync(string processDefinitionId, StartProcessRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         void MarkAsEnded(string processId);
@@ -517,11 +517,11 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task MarkAsStartedAsync(string processId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        void SendMessage(SendMessageRequest request, string processId);
+        void SendMessage(string processId, SendMessageRequest request);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task SendMessageAsync(SendMessageRequest request, string processId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SendMessageAsync(string processId, SendMessageRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         BusinessProcessWaitResult WaitForStates(string processId, string states, int timeout);
