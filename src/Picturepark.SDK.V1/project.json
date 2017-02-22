@@ -30,7 +30,12 @@
         "System.Collections": "4.3.0",
         "System.IO.FileSystem": "4.3.0"
       }
-    }
+    },
+    "net45": {
+      "dependencies": {
+        "System.Net.Http": "4.0.0"
+      }
+    } 
   },
 
   "buildOptions": {
