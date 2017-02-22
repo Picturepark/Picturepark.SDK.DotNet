@@ -1,6 +1,6 @@
 {
   "title": "Picturepark.SDK.V1.ServiceProvider",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "description": "Picturepark DotNet SDK ServiceProvider",
   "packOptions": {
     "iconUrl": "https://bitbucket.vit.ch:8443/projects/PP9/repos/picturepark.public/browse/picturepark-240px.png?raw",
@@ -8,9 +8,10 @@
   },
 
   "dependencies": {
+    "Picturepark.SDK.V1": "*",
+    "Picturepark.API.Contract.V1": "*",
+
     "Newtonsoft.Json": "9.0.1",
-    "Picturepark.API.Contract.V1": "1.0.12",
-    "Picturepark.SDK.V1": "0.13.3",
     "RabbitMQ.Client": "4.1.1",
     "System.Reactive.Linq": "3.1.1",
     "StyleCop.Analyzers": {

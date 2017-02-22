@@ -1,6 +1,6 @@
 {
   "title": "Picturepark.SDK.V1.Localization",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "description": "Picturepark DotNet SDK Localization",
   "packOptions": {
     "iconUrl": "https://bitbucket.vit.ch:8443/projects/PP9/repos/picturepark.public/browse/picturepark-240px.png?raw",
@@ -8,14 +8,15 @@
   },
 
   "dependencies": {
-    "Picturepark.SDK.V1.Contract": "0.13.1",
+    "Picturepark.SDK.V1.Contract": "*",
+
     "DotLiquid": "2.0.64",
     "NGettext": "0.6.2",
+    "System.Collections.Concurrent": "4.3.0",
     "StyleCop.Analyzers": {
       "version": "1.0.0",
       "type": "build"
-    },
-    "System.Collections.Concurrent": "4.3.0"
+    }
   },
 
   "buildOptions": {
@@ -25,7 +26,7 @@
   },
 
   "frameworks": {
-    "netstandard1.3": {
-    }
+    "netstandard1.3": {},
+    "net451": {}
   }
 }

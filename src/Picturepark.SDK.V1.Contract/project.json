@@ -1,6 +1,6 @@
 {
   "title": "Picturepark.SDK.V1.Contract",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "description": "Picturepark DotNet SDK Contracts",
   "packOptions": {
     "iconUrl": "https://bitbucket.vit.ch:8443/projects/PP9/repos/picturepark.public/browse/picturepark-240px.png?raw",
@@ -9,8 +9,6 @@
 
   "dependencies": {
     "Newtonsoft.Json": "9.0.1",
-    "System.ComponentModel.Annotations": "4.3.0",
-    "System.Diagnostics.Tools": "4.3.0",
     "StyleCop.Analyzers": {
       "version": "1.0.0",
       "type": "build"
@@ -24,7 +22,12 @@
   },
 
   "frameworks": {
-    "netstandard1.3": {},
+    "netstandard1.3": {
+      "dependencies": {
+        "System.ComponentModel.Annotations": "4.3.0.0",
+        "System.Diagnostics.Tools": "4.3.0.0"
+      }
+    },
     "net45": {
       "frameworkAssemblies": {
         "System.ComponentModel.DataAnnotations": "4.0.0.0",
