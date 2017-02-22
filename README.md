@@ -30,7 +30,37 @@ using (var client = new PictureparkClient(authClient))
 }
 ```
 
-### .NET 4.5.x
+### ASP.NET Core
+
+Register Picturepark services in the ASP.NET Core dependency injection system (`Startup.cs`): 
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+	services.AddApplicationInsightsTelemetry(Configuration);
+	services.AddMvc();
+
+	services.AddSingleton<IAuthClient>(new UsernamePasswordAuthClient("myUrl", "myUsername", "myPassword"));
+	services.AddScoped<IPictureparkClient, PictureparkClient>();
+}
+```
+
+Inject `IPictureparkClient` into your controller: 
+
+```csharp
+public class MyController : Controller
+{
+    private readonly IPictureparkClient _pictureparkClient;
+
+    public MyController(IPictureparkClient pictureparkClient)
+    {
+        _pictureparkClient = pictureparkClient;
+    }
+    
+    ...
+```
+
+### Target .NET 4.5.x
 
 For .NET 4.5.x targets you need to enable TLS 1.2: 
 
