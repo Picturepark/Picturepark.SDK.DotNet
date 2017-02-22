@@ -95,16 +95,14 @@ All packages support the following target frameworks:
 
 Branch: master
 
-NuGet CI Feed: https://www.myget.org/gallery/picturepark-sdk-dotnet-ci
-
-AppVeyor CI Build: https://ci.appveyor.com/project/Picturepark/picturepark-sdk-dotnet-y10cr
+- NuGet CI Feed: https://www.myget.org/gallery/picturepark-sdk-dotnet-ci
+- AppVeyor CI Build: https://ci.appveyor.com/project/Picturepark/picturepark-sdk-dotnet-y10cr
 
 ### Release Builds
 
 Branch: release
 
-NuGet Feed: https://www.nuget.org/packages?q=Picturepark
-
-AppVeyor Build: https://ci.appveyor.com/project/Picturepark/picturepark-sdk-dotnet
+- NuGet Feed: https://www.nuget.org/packages?q=Picturepark
+- AppVeyor Build: https://ci.appveyor.com/project/Picturepark/picturepark-sdk-dotnet
 
 
