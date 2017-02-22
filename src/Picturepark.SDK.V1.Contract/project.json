@@ -1,6 +1,6 @@
 {
   "title": "Picturepark.SDK.V1.Contract",
-  "version": "0.19.0",
+  "version": "0.20.0",
   "description": "Picturepark DotNet SDK Contracts",
   "packOptions": {
     "iconUrl": "https://bitbucket.vit.ch:8443/projects/PP9/repos/picturepark.public/browse/picturepark-240px.png?raw",

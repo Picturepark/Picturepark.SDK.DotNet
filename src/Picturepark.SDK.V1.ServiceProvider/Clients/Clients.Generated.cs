@@ -112,14 +112,14 @@ namespace Picturepark.SDK.V1.ServiceProvider
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<CustomerServiceProviderItem> GetConfigurationAsync(string serviceProviderId)
+        public System.Threading.Tasks.Task<CustomerServiceProviderConfigurationViewItem> GetConfigurationAsync(string serviceProviderId)
         {
             return GetConfigurationAsync(serviceProviderId, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<CustomerServiceProviderItem> GetConfigurationAsync(string serviceProviderId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<CustomerServiceProviderConfigurationViewItem> GetConfigurationAsync(string serviceProviderId, System.Threading.CancellationToken cancellationToken)
         {
             var url_ = string.Format("{0}/{1}", BaseUrl, "API/V1/ServiceProviders/{ServiceProviderId}/Configuration");
     
@@ -168,10 +168,10 @@ namespace Picturepark.SDK.V1.ServiceProvider
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(CustomerServiceProviderItem); 
+                            var result_ = default(CustomerServiceProviderConfigurationViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderConfigurationViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -186,7 +186,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(CustomerServiceProviderItem);
+                        return default(CustomerServiceProviderConfigurationViewItem);
                     }
                     finally
                     {
@@ -203,14 +203,14 @@ namespace Picturepark.SDK.V1.ServiceProvider
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<CustomerServiceProviderItem> UpdateConfigurationAsync(string serviceProviderId, ServiceProviderConfigurationUpdateRequest configuration)
+        public System.Threading.Tasks.Task<CustomerServiceProviderConfigurationViewItem> UpdateConfigurationAsync(string serviceProviderId, ServiceProviderConfigurationUpdateRequest configuration)
         {
             return UpdateConfigurationAsync(serviceProviderId, configuration, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<CustomerServiceProviderItem> UpdateConfigurationAsync(string serviceProviderId, ServiceProviderConfigurationUpdateRequest configuration, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<CustomerServiceProviderConfigurationViewItem> UpdateConfigurationAsync(string serviceProviderId, ServiceProviderConfigurationUpdateRequest configuration, System.Threading.CancellationToken cancellationToken)
         {
             var url_ = string.Format("{0}/{1}", BaseUrl, "API/V1/ServiceProviders/{ServiceProviderId}/Configuration");
     
@@ -262,10 +262,10 @@ namespace Picturepark.SDK.V1.ServiceProvider
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(CustomerServiceProviderItem); 
+                            var result_ = default(CustomerServiceProviderConfigurationViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderConfigurationViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -280,7 +280,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(CustomerServiceProviderItem);
+                        return default(CustomerServiceProviderConfigurationViewItem);
                     }
                     finally
                     {

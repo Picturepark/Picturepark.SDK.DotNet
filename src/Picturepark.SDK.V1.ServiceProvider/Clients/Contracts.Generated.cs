@@ -894,19 +894,13 @@ namespace Picturepark.SDK.V1.ServiceProvider.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class CustomerServiceProviderItem 
+    public partial class CustomerServiceProviderConfigurationViewItem 
     {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
+        [Newtonsoft.Json.JsonProperty("ServiceProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ServiceProviderId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("Scopes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> Scopes { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AllowedMessages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<CustomerAllowedMessage> AllowedMessages { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AllowedCommands", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<CustomerAllowedCommand> AllowedCommands { get; set; }
+        [Newtonsoft.Json.JsonProperty("CustomerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("UserRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<string> UserRoleIds { get; set; }
@@ -919,46 +913,9 @@ namespace Picturepark.SDK.V1.ServiceProvider.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static CustomerServiceProviderItem FromJson(string data)
+        public static CustomerServiceProviderConfigurationViewItem FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class CustomerAllowedMessage 
-    {
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Target", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Target { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static CustomerAllowedMessage FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerAllowedMessage>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class CustomerAllowedCommand 
-    {
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static CustomerAllowedCommand FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerAllowedCommand>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderConfigurationViewItem>(data);
         }
     }
     

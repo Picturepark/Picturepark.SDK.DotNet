@@ -92,7 +92,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/CustomerServiceProviderItem"
+              "$ref": "#/definitions/CustomerServiceProviderConfigurationViewItem"
             },
             "x-nullable": true
           }
@@ -137,7 +137,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/CustomerServiceProviderItem"
+              "$ref": "#/definitions/CustomerServiceProviderConfigurationViewItem"
             },
             "x-nullable": true
           }
@@ -911,30 +911,15 @@
         }
       ]
     },
-    "CustomerServiceProviderItem": {
+    "CustomerServiceProviderConfigurationViewItem": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Id": {
+        "ServiceProviderId": {
           "type": "string"
         },
-        "Scopes": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "AllowedMessages": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CustomerAllowedMessage"
-          }
-        },
-        "AllowedCommands": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CustomerAllowedCommand"
-          }
+        "CustomerId": {
+          "type": "string"
         },
         "UserRoleIds": {
           "type": "array",
@@ -943,27 +928,6 @@
           }
         },
         "Settings": {
-          "type": "string"
-        }
-      }
-    },
-    "CustomerAllowedMessage": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Name": {
-          "type": "string"
-        },
-        "Target": {
-          "type": "string"
-        }
-      }
-    },
-    "CustomerAllowedCommand": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Name": {
           "type": "string"
         }
       }
