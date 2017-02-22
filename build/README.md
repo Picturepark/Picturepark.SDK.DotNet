@@ -12,4 +12,4 @@ Compiles all projects and creates NuGet packages in the directory "/build/Packag
 
 **03_RunTests.bat**
 
-Runs the unit tests in the `Picturepark.SDK.V1.Tests` project
+Runs the unit tests in the "Picturepark.SDK.V1.Tests" project
