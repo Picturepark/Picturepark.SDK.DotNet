@@ -9,11 +9,6 @@ namespace Picturepark.SDK.V1.Contract
     #pragma warning disable // Disable all warnings
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
-    public partial interface IJsonSchemasClient
-    {
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
     public partial interface IUsersClient
     {
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -23,6 +18,335 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.List<ChannelViewItem>> GetChannelsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
+    public partial interface ITransfersClient
+    {
+        /// <summary>Cancels an active batch. Valid states: TODO</summary>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        void CancelBatch(string transferId);
+    
+        /// <summary>Cancels an active batch. Valid states: TODO</summary>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task CancelBatchAsync(string transferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        TransferViewItem Create(CreateTransferRequest request);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<TransferViewItem> CreateAsync(CreateTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        void Delete(string transferId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeleteAsync(string transferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        TransferDetailViewItem Get(string transferId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<TransferDetailViewItem> GetAsync(string transferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        FileTransferDetailViewItem GetFile(string fileTransferId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<FileTransferDetailViewItem> GetFileAsync(string fileTransferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        TransferViewItem ImportBatch(string transferId, FileTransfer2AssetCreateRequest request);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<TransferViewItem> ImportBatchAsync(string transferId, FileTransfer2AssetCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        TransferViewItem PartialImport(string transferId, FileTransferPartial2AssetCreateRequest request);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<TransferViewItem> PartialImportAsync(string transferId, FileTransferPartial2AssetCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        TransferSearchResult Search(TransferSearchRequest request);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<TransferSearchResult> SearchAsync(TransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        FileTransferSearchResult SearchFiles(FileTransferSearchRequest request);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<FileTransferSearchResult> SearchFilesAsync(FileTransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        void UploadFile(string transferId, string identifier, FileParameter formFile = null, string flowRelativePath = null, long? flowChunkNumber = null, long? flowCurrentChunkSize = null, long? flowTotalSize = null, long? flowTotalChunks = null);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task UploadFileAsync(string transferId, string identifier, FileParameter formFile = null, string flowRelativePath = null, long? flowChunkNumber = null, long? flowCurrentChunkSize = null, long? flowTotalSize = null, long? flowTotalChunks = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
+    public partial interface ISharesClient
+    {
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        ObjectAggregationResult Aggregate(ShareAggregationRequest request);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ShareAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        ShareDetailViewItem GetShareByToken(string token);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<ShareDetailViewItem> GetShareByTokenAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        CreateShareResult CreateBasicShare(BasicShareCreateItem request);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<CreateShareResult> CreateBasicShareAsync(BasicShareCreateItem request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        CreateShareResult CreateEmbedShare(EmbedShareCreateItem request);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<CreateShareResult> CreateEmbedShareAsync(EmbedShareCreateItem request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        BasicShareDetailViewItem GetBasicShare(string shareId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<BasicShareDetailViewItem> GetBasicShareAsync(string shareId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        EmbedShareDetailViewItem GetEmbedShare(string shareId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<EmbedShareDetailViewItem> GetEmbedShareAsync(string shareId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        BaseResultOfShareViewItem Search(AssetSearchRequest request);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<BaseResultOfShareViewItem> SearchAsync(AssetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
+    public partial interface IPublicAccessClient
+    {
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        BasicShareDetailViewItem GetShare(string token);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<BasicShareDetailViewItem> GetShareAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
+    public partial interface IPermissionsClient
+    {
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        PermissionSetSearchResult SearchAssetPermissions(PermissionSetSearchRequest request);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<PermissionSetSearchResult> SearchAssetPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        AssetPermissionSetDetailViewItem GetAssetPermissions(string permissionSetId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<AssetPermissionSetDetailViewItem> GetAssetPermissionsAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        PermissionSetSearchResult SearchMetadataPermissions(PermissionSetSearchRequest request);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<PermissionSetSearchResult> SearchMetadataPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        MetadataPermissionSetDetailViewItem GetMetadataPermissions(string permissionSetId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<MetadataPermissionSetDetailViewItem> GetMetadataPermissionsAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
+    public partial interface IMetadataSchemasClient
+    {
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        MetadataSchemaDetailViewItem Get(string schemaId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<MetadataSchemaDetailViewItem> GetAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        ExistsResponse Exists(string schemaId, string fieldId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<ExistsResponse> ExistsAsync(string schemaId, string fieldId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        BusinessProcessViewItem Create(MetadataSchemaCreateRequest schema);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<BusinessProcessViewItem> CreateAsync(MetadataSchemaCreateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        BaseResultOfMetadataSchemaViewItem Search(MetadataSchemaSearchRequest metadataSchemaSearchRequest);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<BaseResultOfMetadataSchemaViewItem> SearchAsync(MetadataSchemaSearchRequest metadataSchemaSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
+    public partial interface IMetadataObjectsClient
+    {
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        MetadataObjectDetailViewItem Create(MetadataObjectCreateRequest metadataObject, bool resolve, int timeout, string pattern);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<MetadataObjectDetailViewItem> CreateAsync(MetadataObjectCreateRequest metadataObject, bool resolve, int timeout, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        BusinessProcessViewItem DeleteMany(System.Collections.Generic.IEnumerable<string> ids = null);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<BusinessProcessViewItem> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        BusinessProcessViewItem UpdateMany(System.Collections.Generic.IEnumerable<MetadataObjectUpdateRequest> objects);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<BusinessProcessViewItem> UpdateManyAsync(System.Collections.Generic.IEnumerable<MetadataObjectUpdateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        ObjectAggregationResult Aggregate(MetadataObjectAggregationRequest metadataObjectAggregationRequest);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(MetadataObjectAggregationRequest metadataObjectAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        BaseResultOfMetadataObjectViewItem Search(MetadataObjectSearchRequest metadataObjectSearchRequest);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<BaseResultOfMetadataObjectViewItem> SearchAsync(MetadataObjectSearchRequest metadataObjectSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        void Delete(string objectId, int timeout);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeleteAsync(string objectId, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        MetadataObjectDetailViewItem Get(string objectId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<MetadataObjectDetailViewItem> GetAsync(string objectId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        MetadataObjectDetailViewItem Update(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve, int timeout, string pattern);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<MetadataObjectDetailViewItem> UpdateAsync(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve, int timeout, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        MetadataObjectDetailViewItem GetResolved(string objectId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<MetadataObjectDetailViewItem> GetResolvedAsync(string objectId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        BusinessProcessWaitResult WaitForStates(string processId, int timeout, System.Collections.Generic.IEnumerable<string> states = null);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, int timeout, System.Collections.Generic.IEnumerable<string> states = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        void Import(string assetId, string fileTransferId, bool includeObjects);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task ImportAsync(string assetId, string fileTransferId, bool includeObjects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
+    public partial interface IDocumentHistoryClient
+    {
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        DocumentHistoryViewItem Get(string id);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<DocumentHistoryViewItem> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        DocumentHistoryViewItem GetVersion(string id, string version);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<DocumentHistoryViewItem> GetVersionAsync(string id, string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        DocumentHistoryDifferenceViewItem GetDifferenceLatest(string id, long oldVersion);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<DocumentHistoryDifferenceViewItem> GetDifferenceLatestAsync(string id, long oldVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        DocumentHistoryDifferenceViewItem GetDifference(string id, long oldVersion, long newVersion);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<DocumentHistoryDifferenceViewItem> GetDifferenceAsync(string id, long oldVersion, long newVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
+    public partial interface IJsonSchemasClient
+    {
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
@@ -42,11 +366,11 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(AssetAggregationRequest assetAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        ObjectAggregationResult AggregateByChannel(AssetAggregationRequest assetAggregationRequest, string channelId);
+        ObjectAggregationResult AggregateByChannel(string channelId, AssetAggregationRequest assetAggregationRequest);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ObjectAggregationResult> AggregateByChannelAsync(AssetAggregationRequest assetAggregationRequest, string channelId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ObjectAggregationResult> AggregateByChannelAsync(string channelId, AssetAggregationRequest assetAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         AssetBatchDownloadItem CreateBatchAssetDownload(AssetBatchDownloadRequest request);
@@ -172,11 +496,11 @@ namespace Picturepark.SDK.V1.Contract
     public partial interface IBusinessProcessesClient
     {
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        BusinessProcessViewItem Start(StartProcessRequest request, string processDefinitionId);
+        BusinessProcessViewItem Start(string processDefinitionId, StartProcessRequest request);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BusinessProcessViewItem> StartAsync(StartProcessRequest request, string processDefinitionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcessViewItem> StartAsync(string processDefinitionId, StartProcessRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         void MarkAsEnded(string processId);
@@ -193,11 +517,11 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task MarkAsStartedAsync(string processId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        void SendMessage(SendMessageRequest request, string processId);
+        void SendMessage(string processId, SendMessageRequest request);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task SendMessageAsync(SendMessageRequest request, string processId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SendMessageAsync(string processId, SendMessageRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         BusinessProcessWaitResult WaitForStates(string processId, string states, int timeout);
@@ -205,330 +529,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, string states, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
-    public partial interface IDocumentHistoryClient
-    {
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        DocumentHistoryViewItem Get(string id);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<DocumentHistoryViewItem> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        DocumentHistoryViewItem GetVersion(string id, string version);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<DocumentHistoryViewItem> GetVersionAsync(string id, string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        DocumentHistoryDifferenceViewItem GetDifferenceLatest(string id, long oldVersion);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<DocumentHistoryDifferenceViewItem> GetDifferenceLatestAsync(string id, long oldVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        DocumentHistoryDifferenceViewItem GetDifference(string id, long oldVersion, long newVersion);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<DocumentHistoryDifferenceViewItem> GetDifferenceAsync(string id, long oldVersion, long newVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
-    public partial interface IMetadataObjectsClient
-    {
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        MetadataObjectDetailViewItem Create(MetadataObjectCreateRequest metadataObject, bool resolve, int timeout, string pattern);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<MetadataObjectDetailViewItem> CreateAsync(MetadataObjectCreateRequest metadataObject, bool resolve, int timeout, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        BusinessProcessViewItem DeleteMany(System.Collections.Generic.IEnumerable<string> ids = null);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BusinessProcessViewItem> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        BusinessProcessViewItem UpdateMany(System.Collections.Generic.IEnumerable<MetadataObjectUpdateRequest> objects);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BusinessProcessViewItem> UpdateManyAsync(System.Collections.Generic.IEnumerable<MetadataObjectUpdateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        ObjectAggregationResult Aggregate(MetadataObjectAggregationRequest metadataObjectAggregationRequest);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(MetadataObjectAggregationRequest metadataObjectAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        BaseResultOfMetadataObjectViewItem Search(MetadataObjectSearchRequest metadataObjectSearchRequest);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BaseResultOfMetadataObjectViewItem> SearchAsync(MetadataObjectSearchRequest metadataObjectSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        void Delete(string objectId, int timeout);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task DeleteAsync(string objectId, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        MetadataObjectDetailViewItem Get(string objectId);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<MetadataObjectDetailViewItem> GetAsync(string objectId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        MetadataObjectDetailViewItem Update(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve, int timeout, string pattern);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<MetadataObjectDetailViewItem> UpdateAsync(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve, int timeout, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        MetadataObjectDetailViewItem GetResolved(string objectId);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<MetadataObjectDetailViewItem> GetResolvedAsync(string objectId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        BusinessProcessWaitResult WaitForStates(string processId, int timeout, System.Collections.Generic.IEnumerable<string> states = null);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, int timeout, System.Collections.Generic.IEnumerable<string> states = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        void Import(string assetId, string fileTransferId, bool includeObjects);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task ImportAsync(string assetId, string fileTransferId, bool includeObjects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
-    public partial interface IMetadataSchemasClient
-    {
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        MetadataSchemaDetailViewItem Get(string schemaId);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<MetadataSchemaDetailViewItem> GetAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        ExistsResponse Exists(string schemaId, string fieldId);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ExistsResponse> ExistsAsync(string schemaId, string fieldId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        BusinessProcessViewItem Create(MetadataSchemaCreateRequest schema);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BusinessProcessViewItem> CreateAsync(MetadataSchemaCreateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        BaseResultOfMetadataSchemaViewItem Search(MetadataSchemaSearchRequest metadataSchemaSearchRequest);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BaseResultOfMetadataSchemaViewItem> SearchAsync(MetadataSchemaSearchRequest metadataSchemaSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
-    public partial interface IPermissionsClient
-    {
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        PermissionSetSearchResult SearchAssetPermissions(PermissionSetSearchRequest request);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<PermissionSetSearchResult> SearchAssetPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        AssetPermissionSetDetailViewItem GetAssetPermissions(string permissionSetId);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<AssetPermissionSetDetailViewItem> GetAssetPermissionsAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        PermissionSetSearchResult SearchMetadataPermissions(PermissionSetSearchRequest request);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<PermissionSetSearchResult> SearchMetadataPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        MetadataPermissionSetDetailViewItem GetMetadataPermissions(string permissionSetId);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<MetadataPermissionSetDetailViewItem> GetMetadataPermissionsAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
-    public partial interface IPublicAccessClient
-    {
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        BasicShareDetailViewItem GetShare(string token);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BasicShareDetailViewItem> GetShareAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
-    public partial interface ISharesClient
-    {
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        ObjectAggregationResult Aggregate(ShareAggregationRequest request);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ShareAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        ShareDetailViewItem GetShareByToken(string token);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<ShareDetailViewItem> GetShareByTokenAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        CreateShareResult CreateBasicShare(BasicShareCreateItem request);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<CreateShareResult> CreateBasicShareAsync(BasicShareCreateItem request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        CreateShareResult CreateEmbedShare(EmbedShareCreateItem request);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<CreateShareResult> CreateEmbedShareAsync(EmbedShareCreateItem request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        BasicShareDetailViewItem GetBasicShare(string shareId);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BasicShareDetailViewItem> GetBasicShareAsync(string shareId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        EmbedShareDetailViewItem GetEmbedShare(string shareId);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<EmbedShareDetailViewItem> GetEmbedShareAsync(string shareId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        BaseResultOfShareViewItem Search(AssetSearchRequest request);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BaseResultOfShareViewItem> SearchAsync(AssetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
-    public partial interface ITransfersClient
-    {
-        /// <summary>Cancels an active batch. Valid states: TODO</summary>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        void CancelBatch(string transferId);
-    
-        /// <summary>Cancels an active batch. Valid states: TODO</summary>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task CancelBatchAsync(string transferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        TransferViewItem Create(CreateTransferRequest request);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<TransferViewItem> CreateAsync(CreateTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        void Delete(string transferId);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task DeleteAsync(string transferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        TransferDetailViewItem Get(string transferId);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<TransferDetailViewItem> GetAsync(string transferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        FileTransferDetailViewItem GetFile(string fileTransferId);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<FileTransferDetailViewItem> GetFileAsync(string fileTransferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        TransferViewItem ImportBatch(string transferId, FileTransfer2AssetCreateRequest request);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<TransferViewItem> ImportBatchAsync(string transferId, FileTransfer2AssetCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        TransferViewItem PartialImport(string transferId, FileTransferPartial2AssetCreateRequest request);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<TransferViewItem> PartialImportAsync(string transferId, FileTransferPartial2AssetCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        TransferSearchResult Search(TransferSearchRequest request);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<TransferSearchResult> SearchAsync(TransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        FileTransferSearchResult SearchFiles(FileTransferSearchRequest request);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<FileTransferSearchResult> SearchFilesAsync(FileTransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        void UploadFile(string transferId, string identifier, FileParameter formFile = null, string flowRelativePath = null, long? flowChunkNumber = null, long? flowCurrentChunkSize = null, long? flowTotalSize = null, long? flowTotalChunks = null);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UploadFileAsync(string transferId, string identifier, FileParameter formFile = null, string flowRelativePath = null, long? flowChunkNumber = null, long? flowCurrentChunkSize = null, long? flowTotalSize = null, long? flowTotalChunks = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -974,23 +974,6 @@ namespace Picturepark.SDK.V1.Contract
         public static InvalidStateException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidStateException>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class InvalidStateTransitionException : InvalidStateException
-    {
-        [Newtonsoft.Json.JsonProperty("Transition", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Transition { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static InvalidStateTransitionException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidStateTransitionException>(data);
         }
     }
     
@@ -2050,3072 +2033,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class AssetAggregationRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("SearchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregationFilter> AggregationFilters { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregatorBase> Aggregators { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ChannelId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ChannelId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("DisplayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DisplayLanguage { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("SearchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> SearchLanguages { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("CollectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CollectionId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("LifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
-        public LifeCycleFilter LifeCycleFilter { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AssetAggregationRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetAggregationRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public enum LifeCycleFilter
-    {
-        ActiveOnly = 0,
-    
-        All = 1,
-    
-        InactiveOnly = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class ObjectAggregationResult 
-    {
-        [Newtonsoft.Json.JsonProperty("ElapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
-        public long ElapsedMilliseconds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ObjectAggregationResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectAggregationResult>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class AggregationResult 
-    {
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("SumOtherDocCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? SumOtherDocCount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AggregationResultItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregationResultItem> AggregationResultItems { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AggregationResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResult>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class AggregationResultItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Count", Required = Newtonsoft.Json.Required.Always)]
-        public long Count { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AggregationFilter Filter { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Active", Required = Newtonsoft.Json.Required.Always)]
-        public bool Active { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AggregationResultItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResultItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class AssetBatchDownloadRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("Assets", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<Asset> Assets { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AssetBatchDownloadRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetBatchDownloadRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class Asset 
-    {
-        [Newtonsoft.Json.JsonProperty("AssetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AssetId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("OutputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputFormatId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static Asset FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Asset>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class DownloadItem 
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static DownloadItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DownloadItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class AssetBatchDownloadItem : DownloadItem
-    {
-        [Newtonsoft.Json.JsonProperty("DownloadToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DownloadToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("DownloadUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DownloadUrl { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AssetBatchDownloadItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetBatchDownloadItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class CreateVirtualAssetRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("ContentMetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentMetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public MetadataDictionary Metadata { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AssetPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> AssetPermissionSetIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static CreateVirtualAssetRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CreateVirtualAssetRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataDictionary : System.Collections.Generic.Dictionary<string, object>
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataDictionary FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataDictionary>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class AssetDetailViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("AssetTypeId", Required = Newtonsoft.Json.Required.Always)]
-        public int AssetTypeId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Trashed", Required = Newtonsoft.Json.Required.Always)]
-        public bool Trashed { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("EntityType", Required = Newtonsoft.Json.Required.Always)]
-        public EntityType EntityType { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ContentMetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentMetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public MetadataDictionary Metadata { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AssetPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> AssetPermissionSetIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Outputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<OutputViewItem> Outputs { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public StoreAudit Audit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("OwnerTokenId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OwnerTokenId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AssetType", Required = Newtonsoft.Json.Required.Always)]
-        public AssetType AssetType { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AssetDetailViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetDetailViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class OutputViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("OutputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputFormatId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AssetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AssetId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("FileExtension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FileExtension { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("FileName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FileName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("FileSizeInBytes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? FileSizeInBytes { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static OutputViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class StoreAudit 
-    {
-        [Newtonsoft.Json.JsonProperty("CreationDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime CreationDate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("CreatedByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserItem CreatedByUser { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ModificationDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime ModificationDate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ModifiedByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserItem ModifiedByUser { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static StoreAudit FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<StoreAudit>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class UserItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("FirstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FirstName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("LastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LastName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("EmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string EmailAddress { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static UserItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public enum AssetType
-    {
-        Unknown = 1,
-    
-        Bitmap = 2,
-    
-        VectorGraphic = 3,
-    
-        RawImage = 4,
-    
-        InterchangeDocument = 5,
-    
-        WordProcessingDocument = 6,
-    
-        TextDocument = 7,
-    
-        DesktopPublishingDocument = 8,
-    
-        Presentation = 9,
-    
-        Spreadsheet = 10,
-    
-        Archive = 11,
-    
-        Audio = 12,
-    
-        Video = 13,
-    
-        Font = 14,
-    
-        Multimedia = 15,
-    
-        Application = 16,
-    
-        SourceCode = 17,
-    
-        Database = 18,
-    
-        Cad = 19,
-    
-        Model3d = 20,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public enum ThumbnailSize
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Small")]
-        Small = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Medium")]
-        Medium = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Large")]
-        Large = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class UpdateAssetPermissionsRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("AssetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AssetId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AssetPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> AssetPermissionSetIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static UpdateAssetPermissionsRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UpdateAssetPermissionsRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class AssetSearchRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("ChannelIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> ChannelIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("DisplayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DisplayLanguage { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("SearchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> SearchLanguages { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("CollectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CollectionId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("SearchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("LifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
-        public LifeCycleFilter LifeCycleFilter { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AssetSearchRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetSearchRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class BaseResultOfAssetViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("TotalResults", Required = Newtonsoft.Json.Required.Always)]
-        public long TotalResults { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AssetViewItem> Results { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("PageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BaseResultOfAssetViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfAssetViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class AssetSearchResult : BaseResultOfAssetViewItem
-    {
-        [Newtonsoft.Json.JsonProperty("AggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ElapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
-        public long ElapsedMilliseconds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AssetSearchResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetSearchResult>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class AssetViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public StoreAudit Audit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("EntityType", Required = Newtonsoft.Json.Required.Always)]
-        public EntityType EntityType { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ContentMetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentMetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public MetadataDictionary Metadata { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AssetViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class UpdateAssetMetadataRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public MetadataDictionary Metadata { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static UpdateAssetMetadataRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UpdateAssetMetadataRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class AssetDeactivationRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("AssetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> AssetIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AssetDeactivationRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetDeactivationRequest>(data);
-        }
-    }
-    
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class BusinessProcessViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ProcessDefinitionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ProcessDefinitionId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ReferenceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ReferenceId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("StartDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime StartDate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("EndDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime EndDate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("StateHistory", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<BusinessProcessStateItem> StateHistory { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BusinessProcessViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class BusinessProcessStateItem 
-    {
-        [Newtonsoft.Json.JsonProperty("State", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string State { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Timestamp", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime Timestamp { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ErrorResponse Error { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BusinessProcessStateItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessStateItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class ErrorResponse 
-    {
-        [Newtonsoft.Json.JsonProperty("Exception", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Exception { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("TraceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TraceId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("TraceJobId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TraceJobId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ErrorResponse FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ErrorResponse>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class BusinessProcessBulkResponseViewItem : BusinessProcessViewItem
-    {
-        [Newtonsoft.Json.JsonProperty("Response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BulkResponseViewItem Response { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BusinessProcessBulkResponseViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessBulkResponseViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class BulkResponseViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Rows", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<BulkResponseRowViewItem> Rows { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BulkResponseViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BulkResponseViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class BulkResponseRowViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Version", Required = Newtonsoft.Json.Required.Always)]
-        public long Version { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Error { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Reason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Reason { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Succeeded", Required = Newtonsoft.Json.Required.Always)]
-        public bool Succeeded { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BulkResponseRowViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BulkResponseRowViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class AssetReactivationRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("AssetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> AssetIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AssetReactivationRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetReactivationRequest>(data);
-        }
-    }
-    
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataValuesChangeRequestBase 
-    {
-        [Newtonsoft.Json.JsonProperty("ChangeCommands", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<MetadataValuesChangeCommandBase> ChangeCommands { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataValuesChangeRequestBase FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesChangeRequestBase>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class AssetsMetadataUpdateRequest : MetadataValuesChangeRequestBase
-    {
-        [Newtonsoft.Json.JsonProperty("AssetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> AssetIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AssetsMetadataUpdateRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetsMetadataUpdateRequest>(data);
-        }
-    }
-    
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataValuesChangeCommandBase 
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataValuesChangeCommandBase FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesChangeCommandBase>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataValuesSchemaUpdateCommand : MetadataValuesChangeCommandBase
-    {
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public MetadataDictionary Value { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataValuesSchemaUpdateCommand FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesSchemaUpdateCommand>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataValuesSchemaUpsertCommand : MetadataValuesChangeCommandBase
-    {
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public MetadataDictionary Value { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataValuesSchemaUpsertCommand FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesSchemaUpsertCommand>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataValuesSchemaRemoveCommand : MetadataValuesChangeCommandBase
-    {
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MetadataSchemaId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataValuesSchemaRemoveCommand FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesSchemaRemoveCommand>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataValuesFieldRemoveCommand : MetadataValuesChangeCommandBase
-    {
-        [Newtonsoft.Json.JsonProperty("FieldNamespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldNamespace { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataValuesFieldRemoveCommand FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesFieldRemoveCommand>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataValuesSchemaItemAddCommand : MetadataValuesChangeCommandBase
-    {
-        [Newtonsoft.Json.JsonProperty("FieldNamespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldNamespace { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ReferenceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ReferenceId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataValuesSchemaItemAddCommand FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesSchemaItemAddCommand>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataValuesSchemaItemRemoveCommand : MetadataValuesChangeCommandBase
-    {
-        [Newtonsoft.Json.JsonProperty("FieldNamespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldNamespace { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ReferenceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ReferenceId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataValuesSchemaItemRemoveCommand FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesSchemaItemRemoveCommand>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FilterAssetsMetadataUpdateRequest : MetadataValuesChangeRequestBase
-    {
-        [Newtonsoft.Json.JsonProperty("AssetSearchRequest", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AssetSearchRequest AssetSearchRequest { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("TotalItemsCount", Required = Newtonsoft.Json.Required.Always)]
-        public int TotalItemsCount { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FilterAssetsMetadataUpdateRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FilterAssetsMetadataUpdateRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class StartProcessRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("Variables", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object Variables { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static StartProcessRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<StartProcessRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class SendMessageRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("MessageName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MessageName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Variables", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object Variables { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static SendMessageRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SendMessageRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class BusinessProcessWaitResult 
-    {
-        [Newtonsoft.Json.JsonProperty("HasStateHit", Required = Newtonsoft.Json.Required.Always)]
-        public bool HasStateHit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ProcessEnded", Required = Newtonsoft.Json.Required.Always)]
-        public bool ProcessEnded { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("StateHit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string StateHit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("BusinessProcess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BusinessProcessViewItem BusinessProcess { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BusinessProcessWaitResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitResult>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class DocumentHistoryViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("DocumentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DocumentId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("DocumentVersion", Required = Newtonsoft.Json.Required.Always)]
-        public long DocumentVersion { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("DocumentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DocumentType { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("DocumentDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime DocumentDate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Document", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Document { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Timestamp", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime Timestamp { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public HistoryAudit Audit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Deleted", Required = Newtonsoft.Json.Required.Always)]
-        public bool Deleted { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static DocumentHistoryViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentHistoryViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class HistoryAudit 
-    {
-        [Newtonsoft.Json.JsonProperty("ModificationDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.DateTime ModificationDate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ModifiedByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserItem ModifiedByUser { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static HistoryAudit FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<HistoryAudit>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class DocumentHistoryDifferenceViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("DocumentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DocumentId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("OldDocumentVersion", Required = Newtonsoft.Json.Required.Always)]
-        public long OldDocumentVersion { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("NewDocumentVersion", Required = Newtonsoft.Json.Required.Always)]
-        public long NewDocumentVersion { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("OldValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object OldValues { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("NewValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object NewValues { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static DocumentHistoryDifferenceViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentHistoryDifferenceViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataObjectCreateRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("MetadataObjectId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MetadataObjectId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public MetadataDictionary Metadata { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataObjectCreateRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataObjectCreateRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataObjectDetailViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ContentMetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentMetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public MetadataDictionary Metadata { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("EntityType", Required = Newtonsoft.Json.Required.Always)]
-        public EntityType EntityType { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataObjectDetailViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataObjectDetailViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataObjectAggregationRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("SearchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregationFilter> AggregationFilters { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregatorBase> Aggregators { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("IncludeAllMetadataSchemaChildren", Required = Newtonsoft.Json.Required.Always)]
-        public bool IncludeAllMetadataSchemaChildren { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("DisplayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DisplayLanguage { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("SearchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> SearchLanguages { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataObjectAggregationRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataObjectAggregationRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataObjectSearchRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("SearchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("IncludeAllMetadataSchemaChildren", Required = Newtonsoft.Json.Required.Always)]
-        public bool IncludeAllMetadataSchemaChildren { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("DisplayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DisplayLanguage { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("SearchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> SearchLanguages { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataObjectSearchRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataObjectSearchRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class BaseResultOfMetadataObjectViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("TotalResults", Required = Newtonsoft.Json.Required.Always)]
-        public long TotalResults { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<MetadataObjectViewItem> Results { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("PageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BaseResultOfMetadataObjectViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfMetadataObjectViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataObjectViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ContentMetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentMetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public MetadataDictionary Metadata { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("EntityType", Required = Newtonsoft.Json.Required.Always)]
-        public EntityType EntityType { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataObjectViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataObjectViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataObjectUpdateRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public MetadataDictionary Metadata { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataObjectUpdateRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataObjectUpdateRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataSchemaDetailViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ParentMetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ParentMetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Types", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<MetadataSchemaType> Types { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("FullTextFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> FullTextFields { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("DisplayPatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<DisplayPattern> DisplayPatterns { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Fields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<FieldBase> Fields { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Aggregations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregatorBase> Aggregations { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("SortOrder", Required = Newtonsoft.Json.Required.Always)]
-        public int SortOrder { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("System", Required = Newtonsoft.Json.Required.Always)]
-        public bool System { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("OwnerTokenId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OwnerTokenId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Public", Required = Newtonsoft.Json.Required.Always)]
-        public bool Public { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataPermissionSetIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ReferencedInMetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> ReferencedInMetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("DescendantMetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> DescendantMetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public StoreAudit Audit { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataSchemaDetailViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataSchemaDetailViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public enum MetadataSchemaType
-    {
-        AssetContent = 1,
-    
-        AssetLayer = 2,
-    
-        MetadataContent = 3,
-    
-        MetadataLayer = 4,
-    
-        Struct = 5,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class DisplayPattern 
-    {
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("TemplateEngine", Required = Newtonsoft.Json.Required.Always)]
-        public TemplateEngine TemplateEngine { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("DisplayPatternType", Required = Newtonsoft.Json.Required.Always)]
-        public DisplayPatternType DisplayPatternType { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Templates", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Templates { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static DisplayPattern FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DisplayPattern>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public enum TemplateEngine
-    {
-        DotLiquid = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public enum DisplayPatternType
-    {
-        Thumbnail = 1,
-    
-        List = 2,
-    
-        Detail = 3,
-    
-        Custom = 4,
-    
-        Name = 5,
-    
-    }
-    
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldBase 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("IndexId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string IndexId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("FieldNamespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldNamespace { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Required", Required = Newtonsoft.Json.Required.Always)]
-        public bool Required { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Fixed", Required = Newtonsoft.Json.Required.Always)]
-        public bool Fixed { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Index", Required = Newtonsoft.Json.Required.Always)]
-        public bool Index { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("SimpleSearch", Required = Newtonsoft.Json.Required.Always)]
-        public bool SimpleSearch { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Boost", Required = Newtonsoft.Json.Required.Always)]
-        public double Boost { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldBase FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldBase>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldBoolean : FieldBase
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldBoolean FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldBoolean>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldDate : FieldBase
-    {
-        [Newtonsoft.Json.JsonProperty("Format", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Format { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldDate FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDate>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldDateTime : FieldBase
-    {
-        [Newtonsoft.Json.JsonProperty("Format", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Format { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldDateTime FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDateTime>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldDateTimeArray : FieldDateTime
-    {
-        [Newtonsoft.Json.JsonProperty("UniqueItems", Required = Newtonsoft.Json.Required.Always)]
-        public bool UniqueItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MaximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaximumItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MinimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinimumItems { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldDateTimeArray FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDateTimeArray>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldDecimal : FieldBase
-    {
-        [Newtonsoft.Json.JsonProperty("Pattern", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Pattern { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Minimum", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public decimal? Minimum { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Maximum", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public decimal? Maximum { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldDecimal FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDecimal>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldDictionary : FieldBase
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldDictionary FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDictionary>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldDictionaryArray : FieldDictionary
-    {
-        [Newtonsoft.Json.JsonProperty("UniqueItems", Required = Newtonsoft.Json.Required.Always)]
-        public bool UniqueItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MaximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaximumItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MinimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinimumItems { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldDictionaryArray FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDictionaryArray>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldGeoPoint : FieldBase
-    {
-        [Newtonsoft.Json.JsonProperty("LongitudeNames", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary LongitudeNames { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("LatitudeNames", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary LatitudeNames { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldGeoPoint FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldGeoPoint>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldInteger : FieldBase
-    {
-        [Newtonsoft.Json.JsonProperty("Pattern", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Pattern { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Minimum", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public decimal? Minimum { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Maximum", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public decimal? Maximum { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldInteger FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldInteger>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldIntegerArray : FieldInteger
-    {
-        [Newtonsoft.Json.JsonProperty("UniqueItems", Required = Newtonsoft.Json.Required.Always)]
-        public bool UniqueItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MaximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaximumItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MinimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinimumItems { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldIntegerArray FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldIntegerArray>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldObject : FieldBase
-    {
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MaxRecursion", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxRecursion { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldObject FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldObject>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldObjects : FieldBase
-    {
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MaxRecursion", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxRecursion { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("UniqueItems", Required = Newtonsoft.Json.Required.Always)]
-        public bool UniqueItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MaximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaximumItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MinimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinimumItems { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldObjects FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldObjects>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldSchemaItem : FieldBase
-    {
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MaxRecursion", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxRecursion { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldSchemaItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldSchemaItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldSchemaItems : FieldBase
-    {
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MaxRecursion", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxRecursion { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("UniqueItems", Required = Newtonsoft.Json.Required.Always)]
-        public bool UniqueItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MaximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaximumItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MinimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinimumItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldSchemaItems FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldSchemaItems>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldString : FieldBase
-    {
-        [Newtonsoft.Json.JsonProperty("Template", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Template { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("KeepFieldValue", Required = Newtonsoft.Json.Required.Always)]
-        public bool KeepFieldValue { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Pattern", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Pattern { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MinimumLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinimumLength { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MaximumLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaximumLength { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Analyzers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AnalyzerBase> Analyzers { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MultiLine", Required = Newtonsoft.Json.Required.Always)]
-        public bool MultiLine { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("GrantedValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> GrantedValues { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldString FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldString>(data);
-        }
-    }
-    
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class AnalyzerBase 
-    {
-        [Newtonsoft.Json.JsonProperty("FieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldSuffix { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("SimpleSearch", Required = Newtonsoft.Json.Required.Always)]
-        public bool SimpleSearch { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AnalyzerBase FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AnalyzerBase>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class EdgeNGramAnalyzer : AnalyzerBase
-    {
-        [Newtonsoft.Json.JsonProperty("FieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldSuffix { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static EdgeNGramAnalyzer FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<EdgeNGramAnalyzer>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class LanguageAnalyzer : AnalyzerBase
-    {
-        [Newtonsoft.Json.JsonProperty("FieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldSuffix { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static LanguageAnalyzer FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<LanguageAnalyzer>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class NGramAnalyzer : AnalyzerBase
-    {
-        [Newtonsoft.Json.JsonProperty("FieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldSuffix { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static NGramAnalyzer FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NGramAnalyzer>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class PathHierarchyAnalyzer : AnalyzerBase
-    {
-        [Newtonsoft.Json.JsonProperty("FieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldSuffix { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static PathHierarchyAnalyzer FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<PathHierarchyAnalyzer>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class SimpleAnalyzer : AnalyzerBase
-    {
-        [Newtonsoft.Json.JsonProperty("FieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldSuffix { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static SimpleAnalyzer FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SimpleAnalyzer>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldStringArray : FieldString
-    {
-        [Newtonsoft.Json.JsonProperty("UniqueItems", Required = Newtonsoft.Json.Required.Always)]
-        public bool UniqueItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MaximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaximumItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MinimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinimumItems { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldStringArray FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldStringArray>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldTranslatedString : FieldBase
-    {
-        [Newtonsoft.Json.JsonProperty("Pattern", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Pattern { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MinimumLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinimumLength { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MaximumLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaximumLength { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Analyzers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AnalyzerBase> Analyzers { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MultiLine", Required = Newtonsoft.Json.Required.Always)]
-        public bool MultiLine { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("RequiredMetadataLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> RequiredMetadataLanguages { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Template", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Template { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("KeepFieldValue", Required = Newtonsoft.Json.Required.Always)]
-        public bool KeepFieldValue { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldTranslatedString FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldTranslatedString>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldRelation : FieldBase
-    {
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("RelationTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<RelationType> RelationTypes { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MaxRecursion", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxRecursion { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldRelation FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldRelation>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class RelationType 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("TargetContext", Required = Newtonsoft.Json.Required.Always)]
-        public TargetContext TargetContext { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static RelationType FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<RelationType>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public enum TargetContext
-    {
-        Asset = 1,
-    
-        MetadataObject = 2,
-    
-        User = 3,
-    
-        Custom = 4,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class FieldRelations : FieldBase
-    {
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("RelationTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<RelationType> RelationTypes { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MaxRecursion", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxRecursion { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("UniqueItems", Required = Newtonsoft.Json.Required.Always)]
-        public bool UniqueItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MaximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MaximumItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MinimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? MinimumItems { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FieldRelations FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldRelations>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class ExistsResponse 
-    {
-        [Newtonsoft.Json.JsonProperty("Exists", Required = Newtonsoft.Json.Required.Always)]
-        public bool Exists { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ExistsResponse FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ExistsResponse>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataSchemaCreateRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ParentMetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ParentMetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Types", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<MetadataSchemaType> Types { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Descriptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Descriptions { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("DisplayPatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<DisplayPattern> DisplayPatterns { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("FullTextFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> FullTextFields { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Fields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<FieldBase> Fields { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Aggregations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregatorBase> Aggregations { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("SortOrder", Required = Newtonsoft.Json.Required.Always)]
-        public int SortOrder { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Public", Required = Newtonsoft.Json.Required.Always)]
-        public bool Public { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataPermissionSetIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ReferencedInMetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> ReferencedInMetadataSchemaIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataSchemaCreateRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataSchemaCreateRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataSchemaUpdateRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Descriptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Descriptions { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("DisplayPatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<DisplayPattern> DisplayPatterns { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("FullTextFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> FullTextFields { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Fields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<FieldBase> Fields { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Aggregations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregatorBase> Aggregations { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("SortOrder", Required = Newtonsoft.Json.Required.Always)]
-        public int SortOrder { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Public", Required = Newtonsoft.Json.Required.Always)]
-        public bool Public { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataPermissionSetIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ReferencedInMetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> ReferencedInMetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Types", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<MetadataSchemaType> Types { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataSchemaUpdateRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataSchemaUpdateRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataSchemaSearchRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("SearchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataSchemaSearchRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataSchemaSearchRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class BaseResultOfMetadataSchemaViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("TotalResults", Required = Newtonsoft.Json.Required.Always)]
-        public long TotalResults { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<MetadataSchemaViewItem> Results { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("PageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BaseResultOfMetadataSchemaViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfMetadataSchemaViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataSchemaViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ParentMetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ParentMetadataSchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Types", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<MetadataSchemaType> Types { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Descriptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Descriptions { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("FieldCount", Required = Newtonsoft.Json.Required.Always)]
-        public int FieldCount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ChildCount", Required = Newtonsoft.Json.Required.Always)]
-        public int ChildCount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Level", Required = Newtonsoft.Json.Required.Always)]
-        public int Level { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("System", Required = Newtonsoft.Json.Required.Always)]
-        public bool System { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataSchemaViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataSchemaViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class PermissionSetSearchRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("SearchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static PermissionSetSearchRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetSearchRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class BaseResultOfPermissionSetViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("TotalResults", Required = Newtonsoft.Json.Required.Always)]
-        public long TotalResults { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<PermissionSetViewItem> Results { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("PageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BaseResultOfPermissionSetViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfPermissionSetViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class PermissionSetSearchResult : BaseResultOfPermissionSetViewItem
-    {
-        [Newtonsoft.Json.JsonProperty("AggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ElapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
-        public long ElapsedMilliseconds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static PermissionSetSearchResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetSearchResult>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class PermissionSetViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Trashed", Required = Newtonsoft.Json.Required.Always)]
-        public bool Trashed { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static PermissionSetViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class PermissionSetDetailViewItemOfAssetRight 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Trashed", Required = Newtonsoft.Json.Required.Always)]
-        public bool Trashed { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("UserRolesRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<UserRoleRightsViewItemOfAssetRight> UserRolesRights { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("UserRolesPermissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<UserRoleRightsViewItemOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Exclusive", Required = Newtonsoft.Json.Required.Always)]
-        public bool Exclusive { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static PermissionSetDetailViewItemOfAssetRight FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetDetailViewItemOfAssetRight>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class AssetPermissionSetDetailViewItem : PermissionSetDetailViewItemOfAssetRight
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AssetPermissionSetDetailViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetPermissionSetDetailViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class UserRoleRightsViewItemOfAssetRight 
-    {
-        [Newtonsoft.Json.JsonProperty("UserRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string UserRoleId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Rights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AssetRight> Rights { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static UserRoleRightsViewItemOfAssetRight FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleRightsViewItemOfAssetRight>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public enum AssetRight
-    {
-        View = 1,
-    
-        Edit = 2,
-    
-        Update = 3,
-    
-        Manage = 4,
-    
-        Trash = 5,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class UserRoleRightsViewItemOfPermissionSetRight 
-    {
-        [Newtonsoft.Json.JsonProperty("UserRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string UserRoleId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Rights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<PermissionSetRight> Rights { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static UserRoleRightsViewItemOfPermissionSetRight FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleRightsViewItemOfPermissionSetRight>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public enum PermissionSetRight
-    {
-        Apply = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class PermissionSetDetailViewItemOfMetadataRight 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Trashed", Required = Newtonsoft.Json.Required.Always)]
-        public bool Trashed { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("UserRolesRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<UserRoleRightsViewItemOfMetadataRight> UserRolesRights { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("UserRolesPermissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<UserRoleRightsViewItemOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Exclusive", Required = Newtonsoft.Json.Required.Always)]
-        public bool Exclusive { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static PermissionSetDetailViewItemOfMetadataRight FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetDetailViewItemOfMetadataRight>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MetadataPermissionSetDetailViewItem : PermissionSetDetailViewItemOfMetadataRight
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MetadataPermissionSetDetailViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataPermissionSetDetailViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class UserRoleRightsViewItemOfMetadataRight 
-    {
-        [Newtonsoft.Json.JsonProperty("UserRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string UserRoleId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Rights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<MetadataRight> Rights { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static UserRoleRightsViewItemOfMetadataRight FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleRightsViewItemOfMetadataRight>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public enum MetadataRight
-    {
-        View = 1,
-    
-        Edit = 2,
-    
-        Manage = 3,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class ShareDetailViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Description { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public StoreAudit Audit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("EntityType", Required = Newtonsoft.Json.Required.Always)]
-        public EntityType EntityType { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AssetSelections", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AssetSelection> AssetSelections { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("TemplateId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TemplateId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ExpirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime? ExpirationDate { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ShareDetailViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDetailViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class BasicShareDetailViewItem : ShareDetailViewItem
-    {
-        [Newtonsoft.Json.JsonProperty("MailRecipients", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<MailRecipientViewItem> MailRecipients { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("InternalRecipients", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<InternalRecipientViewItem> InternalRecipients { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("LanguageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LanguageCode { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BasicShareDetailViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BasicShareDetailViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class MailRecipientViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("UserEmail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserEmail UserEmail { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Url { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static MailRecipientViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MailRecipientViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class UserEmail 
-    {
-        [Newtonsoft.Json.JsonProperty("FirstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FirstName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("LastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LastName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("EmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string EmailAddress { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static UserEmail FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserEmail>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class InternalRecipientViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Recipient", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserItem Recipient { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Url { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static InternalRecipientViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<InternalRecipientViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class AssetSelection 
-    {
-        [Newtonsoft.Json.JsonProperty("Asset", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AssetViewItem Asset { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Outputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<OutputViewItem> Outputs { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AssetSelection FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetSelection>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class ShareAggregationRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("SearchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregationFilter> AggregationFilters { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregatorBase> Aggregators { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("DisplayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DisplayLanguage { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ShareAggregationRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareAggregationRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class BasicShareCreateItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Description { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ExpirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime? ExpirationDate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("RecipientsEmail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<UserEmail> RecipientsEmail { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("RecipientsUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<UserItem> RecipientsUser { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("RecipientsGroup", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<UserRoleViewItem> RecipientsGroup { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Assets", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<ShareAssetItem> Assets { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("TemplateId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TemplateId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BasicShareCreateItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BasicShareCreateItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class UserRoleViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Trashed", Required = Newtonsoft.Json.Required.Always)]
-        public bool Trashed { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("IsSuperUser", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsSuperUser { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("UserRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<UserRight> UserRights { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static UserRoleViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public enum UserRight
-    {
-        ManageContent = 1,
-    
-        ManageSharings = 2,
-    
-        ManageDrives = 3,
-    
-        ManageDropzone = 4,
-    
-        ManageAnalytics = 5,
-    
-        ManageChannels = 6,
-    
-        ManageMetadataSchemas = 7,
-    
-        ManageUsers = 8,
-    
-        ManageUserRoles = 9,
-    
-        ManagePermissions = 10,
-    
-        ManageSearchIndexes = 11,
-    
-        ManageRecipients = 12,
-    
-        ManageCollections = 13,
-    
-        ManageComments = 14,
-    
-        ManageMetadataObjects = 15,
-    
-        ManageServiceProviders = 16,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class ShareAssetItem 
-    {
-        [Newtonsoft.Json.JsonProperty("AssetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AssetId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("OutputFormatIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> OutputFormatIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ShareAssetItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareAssetItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class CreateShareResult 
-    {
-        [Newtonsoft.Json.JsonProperty("ShareId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ShareId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static CreateShareResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CreateShareResult>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class EmbedShareCreateItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ShareAssetItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<ShareAssetItem> ShareAssetItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ExpirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime? ExpirationDate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Description { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static EmbedShareCreateItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<EmbedShareCreateItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class EmbedShareDetailViewItem : ShareDetailViewItem
-    {
-        [Newtonsoft.Json.JsonProperty("EmbedAssetItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<EmbedAssetViewItem> EmbedAssetItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Url { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static EmbedShareDetailViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<EmbedShareDetailViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class EmbedAssetViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("AssetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AssetId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("OutputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputFormatId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Url { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static EmbedAssetViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<EmbedAssetViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class BaseResultOfShareViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("TotalResults", Required = Newtonsoft.Json.Required.Always)]
-        public long TotalResults { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<ShareViewItem> Results { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("PageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BaseResultOfShareViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfShareViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
-    public partial class ShareViewItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AssetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> AssetIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public StoreAudit Audit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("EntityType", Required = Newtonsoft.Json.Required.Always)]
-        public EntityType EntityType { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ShareViewItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
     public partial class CreateTransferRequest 
     {
         [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -5344,6 +2261,60 @@ namespace Picturepark.SDK.V1.Contract
         public static TransferDetailViewItem FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<TransferDetailViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class StoreAudit 
+    {
+        [Newtonsoft.Json.JsonProperty("CreationDate", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.DateTime CreationDate { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("CreatedByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserItem CreatedByUser { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ModificationDate", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.DateTime ModificationDate { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ModifiedByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserItem ModifiedByUser { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static StoreAudit FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StoreAudit>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class UserItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("FirstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FirstName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("LastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LastName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("EmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string EmailAddress { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserItem>(data);
         }
     }
     
@@ -9678,6 +6649,20 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataDictionary : System.Collections.Generic.Dictionary<string, object>
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataDictionary FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataDictionary>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
     public partial class FileTransferPartial2AssetCreateRequest 
     {
         [Newtonsoft.Json.JsonProperty("TransferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9885,9 +6870,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("EntityType", Required = Newtonsoft.Json.Required.Always)]
         public EntityType EntityType { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("AssetStoreItemId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AssetStoreItemId { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -9896,6 +6878,2996 @@ namespace Picturepark.SDK.V1.Contract
         public static FileTransferViewItem FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<FileTransferViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class ShareAggregationRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("SearchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("AggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregationFilter> AggregationFilters { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregatorBase> Aggregators { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("DisplayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DisplayLanguage { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareAggregationRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareAggregationRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class ObjectAggregationResult 
+    {
+        [Newtonsoft.Json.JsonProperty("ElapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("AggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ObjectAggregationResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectAggregationResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class AggregationResult 
+    {
+        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("SumOtherDocCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? SumOtherDocCount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("AggregationResultItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregationResultItem> AggregationResultItems { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AggregationResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class AggregationResultItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Count", Required = Newtonsoft.Json.Required.Always)]
+        public long Count { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public AggregationFilter Filter { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Active", Required = Newtonsoft.Json.Required.Always)]
+        public bool Active { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("AggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AggregationResultItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResultItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class ShareDetailViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Description { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public StoreAudit Audit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("EntityType", Required = Newtonsoft.Json.Required.Always)]
+        public EntityType EntityType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("AssetSelections", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AssetSelection> AssetSelections { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("TemplateId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TemplateId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ExpirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? ExpirationDate { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareDetailViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDetailViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class AssetSelection 
+    {
+        [Newtonsoft.Json.JsonProperty("Asset", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public AssetViewItem Asset { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Outputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<OutputViewItem> Outputs { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AssetSelection FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetSelection>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class AssetViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public StoreAudit Audit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("EntityType", Required = Newtonsoft.Json.Required.Always)]
+        public EntityType EntityType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ContentMetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentMetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataDictionary Metadata { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AssetViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class OutputViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("OutputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("AssetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AssetId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("FileExtension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileExtension { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("FileName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("FileSizeInBytes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? FileSizeInBytes { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class BasicShareCreateItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Description { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ExpirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? ExpirationDate { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("RecipientsEmail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<UserEmail> RecipientsEmail { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("RecipientsUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<UserItem> RecipientsUser { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("RecipientsGroup", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<UserRoleViewItem> RecipientsGroup { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Assets", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<ShareAssetItem> Assets { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("TemplateId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TemplateId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BasicShareCreateItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BasicShareCreateItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class UserEmail 
+    {
+        [Newtonsoft.Json.JsonProperty("FirstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FirstName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("LastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LastName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("EmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string EmailAddress { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserEmail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserEmail>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class UserRoleViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Trashed", Required = Newtonsoft.Json.Required.Always)]
+        public bool Trashed { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("IsSuperUser", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsSuperUser { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("UserRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<UserRight> UserRights { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserRoleViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public enum UserRight
+    {
+        ManageContent = 1,
+    
+        ManageSharings = 2,
+    
+        ManageDrives = 3,
+    
+        ManageDropzone = 4,
+    
+        ManageAnalytics = 5,
+    
+        ManageChannels = 6,
+    
+        ManageMetadataSchemas = 7,
+    
+        ManageUsers = 8,
+    
+        ManageUserRoles = 9,
+    
+        ManagePermissions = 10,
+    
+        ManageSearchIndexes = 11,
+    
+        ManageRecipients = 12,
+    
+        ManageCollections = 13,
+    
+        ManageComments = 14,
+    
+        ManageMetadataObjects = 15,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class ShareAssetItem 
+    {
+        [Newtonsoft.Json.JsonProperty("AssetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AssetId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("OutputFormatIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> OutputFormatIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareAssetItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareAssetItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class CreateShareResult 
+    {
+        [Newtonsoft.Json.JsonProperty("ShareId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ShareId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CreateShareResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CreateShareResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class EmbedShareCreateItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ShareAssetItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<ShareAssetItem> ShareAssetItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ExpirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? ExpirationDate { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Description { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static EmbedShareCreateItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EmbedShareCreateItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class BasicShareDetailViewItem : ShareDetailViewItem
+    {
+        [Newtonsoft.Json.JsonProperty("MailRecipients", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<MailRecipientViewItem> MailRecipients { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("InternalRecipients", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<InternalRecipientViewItem> InternalRecipients { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("LanguageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LanguageCode { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BasicShareDetailViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BasicShareDetailViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MailRecipientViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("UserEmail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserEmail UserEmail { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Token { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MailRecipientViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MailRecipientViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class InternalRecipientViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Recipient", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserItem Recipient { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Token { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static InternalRecipientViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InternalRecipientViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class EmbedShareDetailViewItem : ShareDetailViewItem
+    {
+        [Newtonsoft.Json.JsonProperty("EmbedAssetItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<EmbedAssetViewItem> EmbedAssetItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Token { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static EmbedShareDetailViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EmbedShareDetailViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class EmbedAssetViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("AssetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AssetId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("OutputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Token { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static EmbedAssetViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EmbedAssetViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class AssetSearchRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("ChannelIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> ChannelIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("DisplayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DisplayLanguage { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("SearchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> SearchLanguages { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("CollectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CollectionId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("SearchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("LifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
+        public LifeCycleFilter LifeCycleFilter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AssetSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetSearchRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public enum LifeCycleFilter
+    {
+        ActiveOnly = 0,
+    
+        All = 1,
+    
+        InactiveOnly = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class BaseResultOfShareViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("TotalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<ShareViewItem> Results { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("PageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfShareViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfShareViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class ShareViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("AssetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> AssetIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public StoreAudit Audit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("EntityType", Required = Newtonsoft.Json.Required.Always)]
+        public EntityType EntityType { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class PermissionSetSearchRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("SearchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionSetSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetSearchRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class BaseResultOfPermissionSetViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("TotalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<PermissionSetViewItem> Results { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("PageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfPermissionSetViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfPermissionSetViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class PermissionSetSearchResult : BaseResultOfPermissionSetViewItem
+    {
+        [Newtonsoft.Json.JsonProperty("AggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ElapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionSetSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetSearchResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class PermissionSetViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Trashed", Required = Newtonsoft.Json.Required.Always)]
+        public bool Trashed { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionSetViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class PermissionSetDetailViewItemOfAssetRight 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Trashed", Required = Newtonsoft.Json.Required.Always)]
+        public bool Trashed { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("UserRolesRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<UserRoleRightsViewItemOfAssetRight> UserRolesRights { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("UserRolesPermissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<UserRoleRightsViewItemOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Exclusive", Required = Newtonsoft.Json.Required.Always)]
+        public bool Exclusive { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionSetDetailViewItemOfAssetRight FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetDetailViewItemOfAssetRight>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class AssetPermissionSetDetailViewItem : PermissionSetDetailViewItemOfAssetRight
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AssetPermissionSetDetailViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetPermissionSetDetailViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class UserRoleRightsViewItemOfAssetRight 
+    {
+        [Newtonsoft.Json.JsonProperty("UserRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string UserRoleId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Rights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AssetRight> Rights { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserRoleRightsViewItemOfAssetRight FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleRightsViewItemOfAssetRight>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public enum AssetRight
+    {
+        View = 1,
+    
+        Edit = 2,
+    
+        Update = 3,
+    
+        Manage = 4,
+    
+        Trash = 5,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class UserRoleRightsViewItemOfPermissionSetRight 
+    {
+        [Newtonsoft.Json.JsonProperty("UserRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string UserRoleId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Rights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<PermissionSetRight> Rights { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserRoleRightsViewItemOfPermissionSetRight FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleRightsViewItemOfPermissionSetRight>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public enum PermissionSetRight
+    {
+        Apply = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class PermissionSetDetailViewItemOfMetadataRight 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Trashed", Required = Newtonsoft.Json.Required.Always)]
+        public bool Trashed { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("UserRolesRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<UserRoleRightsViewItemOfMetadataRight> UserRolesRights { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("UserRolesPermissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<UserRoleRightsViewItemOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Exclusive", Required = Newtonsoft.Json.Required.Always)]
+        public bool Exclusive { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionSetDetailViewItemOfMetadataRight FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetDetailViewItemOfMetadataRight>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataPermissionSetDetailViewItem : PermissionSetDetailViewItemOfMetadataRight
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataPermissionSetDetailViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataPermissionSetDetailViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class UserRoleRightsViewItemOfMetadataRight 
+    {
+        [Newtonsoft.Json.JsonProperty("UserRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string UserRoleId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Rights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<MetadataRight> Rights { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserRoleRightsViewItemOfMetadataRight FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleRightsViewItemOfMetadataRight>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public enum MetadataRight
+    {
+        View = 1,
+    
+        Edit = 2,
+    
+        Manage = 3,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataSchemaDetailViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ParentMetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ParentMetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Types", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<MetadataSchemaType> Types { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("FullTextFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> FullTextFields { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("DisplayPatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<DisplayPattern> DisplayPatterns { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Fields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<FieldBase> Fields { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Aggregations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregatorBase> Aggregations { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("SortOrder", Required = Newtonsoft.Json.Required.Always)]
+        public int SortOrder { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("System", Required = Newtonsoft.Json.Required.Always)]
+        public bool System { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("OwnerTokenId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OwnerTokenId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Public", Required = Newtonsoft.Json.Required.Always)]
+        public bool Public { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> MetadataPermissionSetIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ReferencedInMetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> ReferencedInMetadataSchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public StoreAudit Audit { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataSchemaDetailViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataSchemaDetailViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public enum MetadataSchemaType
+    {
+        AssetContent = 1,
+    
+        AssetLayer = 2,
+    
+        MetadataContent = 3,
+    
+        MetadataLayer = 4,
+    
+        Struct = 5,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class DisplayPattern 
+    {
+        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("TemplateEngine", Required = Newtonsoft.Json.Required.Always)]
+        public TemplateEngine TemplateEngine { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("DisplayPatternType", Required = Newtonsoft.Json.Required.Always)]
+        public DisplayPatternType DisplayPatternType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Templates", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Templates { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DisplayPattern FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DisplayPattern>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public enum TemplateEngine
+    {
+        DotLiquid = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public enum DisplayPatternType
+    {
+        Thumbnail = 1,
+    
+        List = 2,
+    
+        Detail = 3,
+    
+        Custom = 4,
+    
+        Name = 5,
+    
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldBase 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("IndexId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string IndexId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("FieldNamespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldNamespace { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Required", Required = Newtonsoft.Json.Required.Always)]
+        public bool Required { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Fixed", Required = Newtonsoft.Json.Required.Always)]
+        public bool Fixed { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Index", Required = Newtonsoft.Json.Required.Always)]
+        public bool Index { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("SimpleSearch", Required = Newtonsoft.Json.Required.Always)]
+        public bool SimpleSearch { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Boost", Required = Newtonsoft.Json.Required.Always)]
+        public double Boost { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldBase>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldBoolean : FieldBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldBoolean FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldBoolean>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldDate : FieldBase
+    {
+        [Newtonsoft.Json.JsonProperty("Format", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Format { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldDate FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDate>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldDateTime : FieldBase
+    {
+        [Newtonsoft.Json.JsonProperty("Format", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Format { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldDateTime FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDateTime>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldDateTimeArray : FieldDateTime
+    {
+        [Newtonsoft.Json.JsonProperty("UniqueItems", Required = Newtonsoft.Json.Required.Always)]
+        public bool UniqueItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MaximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaximumItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MinimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MinimumItems { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldDateTimeArray FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDateTimeArray>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldDecimal : FieldBase
+    {
+        [Newtonsoft.Json.JsonProperty("Pattern", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Pattern { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Minimum", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public decimal? Minimum { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Maximum", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public decimal? Maximum { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldDecimal FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDecimal>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldDictionary : FieldBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldDictionary FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDictionary>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldDictionaryArray : FieldDictionary
+    {
+        [Newtonsoft.Json.JsonProperty("UniqueItems", Required = Newtonsoft.Json.Required.Always)]
+        public bool UniqueItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MaximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaximumItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MinimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MinimumItems { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldDictionaryArray FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDictionaryArray>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldGeoPoint : FieldBase
+    {
+        [Newtonsoft.Json.JsonProperty("LongitudeNames", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary LongitudeNames { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("LatitudeNames", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary LatitudeNames { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldGeoPoint FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldGeoPoint>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldInteger : FieldBase
+    {
+        [Newtonsoft.Json.JsonProperty("Pattern", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Pattern { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Minimum", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public decimal? Minimum { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Maximum", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public decimal? Maximum { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldInteger FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldInteger>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldIntegerArray : FieldInteger
+    {
+        [Newtonsoft.Json.JsonProperty("UniqueItems", Required = Newtonsoft.Json.Required.Always)]
+        public bool UniqueItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MaximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaximumItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MinimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MinimumItems { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldIntegerArray FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldIntegerArray>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldObject : FieldBase
+    {
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MaxRecursion", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxRecursion { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldObject FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldObject>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldObjects : FieldBase
+    {
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MaxRecursion", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxRecursion { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("UniqueItems", Required = Newtonsoft.Json.Required.Always)]
+        public bool UniqueItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MaximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaximumItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MinimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MinimumItems { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldObjects FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldObjects>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldSchemaItem : FieldBase
+    {
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MaxRecursion", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxRecursion { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldSchemaItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldSchemaItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldSchemaItems : FieldBase
+    {
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MaxRecursion", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxRecursion { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("UniqueItems", Required = Newtonsoft.Json.Required.Always)]
+        public bool UniqueItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MaximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaximumItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MinimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MinimumItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldSchemaItems FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldSchemaItems>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldString : FieldBase
+    {
+        [Newtonsoft.Json.JsonProperty("Template", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Template { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("KeepFieldValue", Required = Newtonsoft.Json.Required.Always)]
+        public bool KeepFieldValue { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Pattern", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Pattern { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MinimumLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MinimumLength { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MaximumLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaximumLength { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Analyzers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AnalyzerBase> Analyzers { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MultiLine", Required = Newtonsoft.Json.Required.Always)]
+        public bool MultiLine { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("GrantedValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> GrantedValues { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldString FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldString>(data);
+        }
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class AnalyzerBase 
+    {
+        [Newtonsoft.Json.JsonProperty("FieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldSuffix { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("SimpleSearch", Required = Newtonsoft.Json.Required.Always)]
+        public bool SimpleSearch { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AnalyzerBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AnalyzerBase>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class EdgeNGramAnalyzer : AnalyzerBase
+    {
+        [Newtonsoft.Json.JsonProperty("FieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldSuffix { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static EdgeNGramAnalyzer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EdgeNGramAnalyzer>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class LanguageAnalyzer : AnalyzerBase
+    {
+        [Newtonsoft.Json.JsonProperty("FieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldSuffix { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static LanguageAnalyzer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LanguageAnalyzer>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class NGramAnalyzer : AnalyzerBase
+    {
+        [Newtonsoft.Json.JsonProperty("FieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldSuffix { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static NGramAnalyzer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NGramAnalyzer>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class PathHierarchyAnalyzer : AnalyzerBase
+    {
+        [Newtonsoft.Json.JsonProperty("FieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldSuffix { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PathHierarchyAnalyzer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PathHierarchyAnalyzer>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class SimpleAnalyzer : AnalyzerBase
+    {
+        [Newtonsoft.Json.JsonProperty("FieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldSuffix { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SimpleAnalyzer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SimpleAnalyzer>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldStringArray : FieldString
+    {
+        [Newtonsoft.Json.JsonProperty("UniqueItems", Required = Newtonsoft.Json.Required.Always)]
+        public bool UniqueItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MaximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaximumItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MinimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MinimumItems { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldStringArray FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldStringArray>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldTranslatedString : FieldBase
+    {
+        [Newtonsoft.Json.JsonProperty("Pattern", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Pattern { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MinimumLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MinimumLength { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MaximumLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaximumLength { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Analyzers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AnalyzerBase> Analyzers { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MultiLine", Required = Newtonsoft.Json.Required.Always)]
+        public bool MultiLine { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("RequiredMetadataLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> RequiredMetadataLanguages { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Template", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Template { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("KeepFieldValue", Required = Newtonsoft.Json.Required.Always)]
+        public bool KeepFieldValue { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldTranslatedString FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldTranslatedString>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldRelation : FieldBase
+    {
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("RelationTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<RelationType> RelationTypes { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MaxRecursion", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxRecursion { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldRelation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldRelation>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class RelationType 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("TargetContext", Required = Newtonsoft.Json.Required.Always)]
+        public TargetContext TargetContext { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static RelationType FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RelationType>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public enum TargetContext
+    {
+        Asset = 1,
+    
+        MetadataObject = 2,
+    
+        User = 3,
+    
+        Custom = 4,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FieldRelations : FieldBase
+    {
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("RelationTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<RelationType> RelationTypes { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MaxRecursion", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxRecursion { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("UniqueItems", Required = Newtonsoft.Json.Required.Always)]
+        public bool UniqueItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MaximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaximumItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MinimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MinimumItems { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldRelations FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldRelations>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class ExistsResponse 
+    {
+        [Newtonsoft.Json.JsonProperty("Exists", Required = Newtonsoft.Json.Required.Always)]
+        public bool Exists { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ExistsResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ExistsResponse>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataSchemaCreateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ParentMetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ParentMetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Types", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<MetadataSchemaType> Types { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Descriptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Descriptions { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("DisplayPatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<DisplayPattern> DisplayPatterns { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("FullTextFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> FullTextFields { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Fields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<FieldBase> Fields { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Aggregations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregatorBase> Aggregations { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("SortOrder", Required = Newtonsoft.Json.Required.Always)]
+        public int SortOrder { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Public", Required = Newtonsoft.Json.Required.Always)]
+        public bool Public { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> MetadataPermissionSetIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ReferencedInMetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> ReferencedInMetadataSchemaIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataSchemaCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataSchemaCreateRequest>(data);
+        }
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class BusinessProcessViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ProcessDefinitionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ProcessDefinitionId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ReferenceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ReferenceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("StartDate", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.DateTime StartDate { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("EndDate", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.DateTime EndDate { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("StateHistory", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<BusinessProcessStateItem> StateHistory { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class BusinessProcessStateItem 
+    {
+        [Newtonsoft.Json.JsonProperty("State", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string State { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Timestamp", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.DateTime Timestamp { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ErrorResponse Error { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessStateItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessStateItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class ErrorResponse 
+    {
+        [Newtonsoft.Json.JsonProperty("Exception", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Exception { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("TraceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TraceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("TraceJobId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TraceJobId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ErrorResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ErrorResponse>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class BusinessProcessBulkResponseViewItem : BusinessProcessViewItem
+    {
+        [Newtonsoft.Json.JsonProperty("Response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BulkResponseViewItem Response { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessBulkResponseViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessBulkResponseViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class BulkResponseViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Rows", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<BulkResponseRowViewItem> Rows { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BulkResponseViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BulkResponseViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class BulkResponseRowViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Version", Required = Newtonsoft.Json.Required.Always)]
+        public long Version { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Error { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Reason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Reason { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Succeeded", Required = Newtonsoft.Json.Required.Always)]
+        public bool Succeeded { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BulkResponseRowViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BulkResponseRowViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataSchemaUpdateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Descriptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Descriptions { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("DisplayPatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<DisplayPattern> DisplayPatterns { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("FullTextFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> FullTextFields { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Fields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<FieldBase> Fields { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Aggregations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregatorBase> Aggregations { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("SortOrder", Required = Newtonsoft.Json.Required.Always)]
+        public int SortOrder { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Public", Required = Newtonsoft.Json.Required.Always)]
+        public bool Public { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> MetadataPermissionSetIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ReferencedInMetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> ReferencedInMetadataSchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Types", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<MetadataSchemaType> Types { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataSchemaUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataSchemaUpdateRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataSchemaSearchRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("SearchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataSchemaSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataSchemaSearchRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class BaseResultOfMetadataSchemaViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("TotalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<MetadataSchemaViewItem> Results { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("PageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfMetadataSchemaViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfMetadataSchemaViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataSchemaViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ParentMetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ParentMetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Types", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<MetadataSchemaType> Types { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Descriptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Descriptions { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("FieldCount", Required = Newtonsoft.Json.Required.Always)]
+        public int FieldCount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ChildCount", Required = Newtonsoft.Json.Required.Always)]
+        public int ChildCount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Level", Required = Newtonsoft.Json.Required.Always)]
+        public int Level { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("System", Required = Newtonsoft.Json.Required.Always)]
+        public bool System { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataSchemaViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataSchemaViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataObjectCreateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("MetadataObjectId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MetadataObjectId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataDictionary Metadata { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataObjectCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataObjectCreateRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataObjectDetailViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ContentMetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentMetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataDictionary Metadata { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("EntityType", Required = Newtonsoft.Json.Required.Always)]
+        public EntityType EntityType { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataObjectDetailViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataObjectDetailViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataObjectAggregationRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("SearchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("AggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregationFilter> AggregationFilters { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregatorBase> Aggregators { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("IncludeAllMetadataSchemaChildren", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeAllMetadataSchemaChildren { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("DisplayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DisplayLanguage { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("SearchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> SearchLanguages { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataObjectAggregationRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataObjectAggregationRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataObjectSearchRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("SearchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("IncludeAllMetadataSchemaChildren", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeAllMetadataSchemaChildren { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("DisplayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DisplayLanguage { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("SearchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> SearchLanguages { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataObjectSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataObjectSearchRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class BaseResultOfMetadataObjectViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("TotalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<MetadataObjectViewItem> Results { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("PageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfMetadataObjectViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfMetadataObjectViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataObjectViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ContentMetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentMetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataDictionary Metadata { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("EntityType", Required = Newtonsoft.Json.Required.Always)]
+        public EntityType EntityType { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataObjectViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataObjectViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataObjectUpdateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataDictionary Metadata { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataObjectUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataObjectUpdateRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class BusinessProcessWaitResult 
+    {
+        [Newtonsoft.Json.JsonProperty("HasStateHit", Required = Newtonsoft.Json.Required.Always)]
+        public bool HasStateHit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ProcessEnded", Required = Newtonsoft.Json.Required.Always)]
+        public bool ProcessEnded { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("StateHit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StateHit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("BusinessProcess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BusinessProcessViewItem BusinessProcess { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessWaitResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class DocumentHistoryViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("DocumentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DocumentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("DocumentVersion", Required = Newtonsoft.Json.Required.Always)]
+        public long DocumentVersion { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("DocumentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DocumentType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("DocumentDate", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.DateTime DocumentDate { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Document", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Document { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Timestamp", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.DateTime Timestamp { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public HistoryAudit Audit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Deleted", Required = Newtonsoft.Json.Required.Always)]
+        public bool Deleted { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DocumentHistoryViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentHistoryViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class HistoryAudit 
+    {
+        [Newtonsoft.Json.JsonProperty("ModificationDate", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.DateTime ModificationDate { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ModifiedByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserItem ModifiedByUser { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static HistoryAudit FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<HistoryAudit>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class DocumentHistoryDifferenceViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("DocumentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DocumentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("OldDocumentVersion", Required = Newtonsoft.Json.Required.Always)]
+        public long OldDocumentVersion { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("NewDocumentVersion", Required = Newtonsoft.Json.Required.Always)]
+        public long NewDocumentVersion { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("OldValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object OldValues { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("NewValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object NewValues { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DocumentHistoryDifferenceViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentHistoryDifferenceViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class AssetAggregationRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("SearchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("AggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregationFilter> AggregationFilters { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregatorBase> Aggregators { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ChannelId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ChannelId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("DisplayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DisplayLanguage { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("SearchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> SearchLanguages { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("CollectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CollectionId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("LifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
+        public LifeCycleFilter LifeCycleFilter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AssetAggregationRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetAggregationRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class AssetBatchDownloadRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("Assets", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<Asset> Assets { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AssetBatchDownloadRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetBatchDownloadRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class Asset 
+    {
+        [Newtonsoft.Json.JsonProperty("AssetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AssetId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("OutputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static Asset FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Asset>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class DownloadItem 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DownloadItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DownloadItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class AssetBatchDownloadItem : DownloadItem
+    {
+        [Newtonsoft.Json.JsonProperty("DownloadToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DownloadToken { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("DownloadUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DownloadUrl { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AssetBatchDownloadItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetBatchDownloadItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class CreateVirtualAssetRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("ContentMetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentMetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataDictionary Metadata { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("AssetPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> AssetPermissionSetIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CreateVirtualAssetRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CreateVirtualAssetRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class AssetDetailViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("AssetTypeId", Required = Newtonsoft.Json.Required.Always)]
+        public int AssetTypeId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Trashed", Required = Newtonsoft.Json.Required.Always)]
+        public bool Trashed { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("EntityType", Required = Newtonsoft.Json.Required.Always)]
+        public EntityType EntityType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ContentMetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentMetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataDictionary Metadata { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("AssetPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> AssetPermissionSetIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Outputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<OutputViewItem> Outputs { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public StoreAudit Audit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("OwnerTokenId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OwnerTokenId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("AssetType", Required = Newtonsoft.Json.Required.Always)]
+        public AssetType AssetType { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AssetDetailViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetDetailViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public enum AssetType
+    {
+        Unknown = 1,
+    
+        Bitmap = 2,
+    
+        VectorGraphic = 3,
+    
+        RawImage = 4,
+    
+        InterchangeDocument = 5,
+    
+        WordProcessingDocument = 6,
+    
+        TextDocument = 7,
+    
+        DesktopPublishingDocument = 8,
+    
+        Presentation = 9,
+    
+        Spreadsheet = 10,
+    
+        Archive = 11,
+    
+        Audio = 12,
+    
+        Video = 13,
+    
+        Font = 14,
+    
+        Multimedia = 15,
+    
+        Application = 16,
+    
+        SourceCode = 17,
+    
+        Database = 18,
+    
+        Cad = 19,
+    
+        Model3d = 20,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public enum ThumbnailSize
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Small")]
+        Small = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Medium")]
+        Medium = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Large")]
+        Large = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class UpdateAssetPermissionsRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("AssetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AssetId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("AssetPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> AssetPermissionSetIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UpdateAssetPermissionsRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UpdateAssetPermissionsRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class BaseResultOfAssetViewItem 
+    {
+        [Newtonsoft.Json.JsonProperty("TotalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AssetViewItem> Results { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("PageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfAssetViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfAssetViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class AssetSearchResult : BaseResultOfAssetViewItem
+    {
+        [Newtonsoft.Json.JsonProperty("AggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ElapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AssetSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetSearchResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class UpdateAssetMetadataRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> MetadataSchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataDictionary Metadata { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UpdateAssetMetadataRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UpdateAssetMetadataRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class AssetDeactivationRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("AssetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> AssetIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AssetDeactivationRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetDeactivationRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class AssetReactivationRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("AssetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> AssetIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AssetReactivationRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetReactivationRequest>(data);
+        }
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataValuesChangeRequestBase 
+    {
+        [Newtonsoft.Json.JsonProperty("ChangeCommands", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<MetadataValuesChangeCommandBase> ChangeCommands { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesChangeRequestBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesChangeRequestBase>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class AssetsMetadataUpdateRequest : MetadataValuesChangeRequestBase
+    {
+        [Newtonsoft.Json.JsonProperty("AssetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> AssetIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AssetsMetadataUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetsMetadataUpdateRequest>(data);
+        }
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataValuesChangeCommandBase 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesChangeCommandBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesChangeCommandBase>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataValuesSchemaUpdateCommand : MetadataValuesChangeCommandBase
+    {
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataDictionary Value { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesSchemaUpdateCommand FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesSchemaUpdateCommand>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataValuesSchemaUpsertCommand : MetadataValuesChangeCommandBase
+    {
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MetadataSchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataDictionary Value { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesSchemaUpsertCommand FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesSchemaUpsertCommand>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataValuesSchemaRemoveCommand : MetadataValuesChangeCommandBase
+    {
+        [Newtonsoft.Json.JsonProperty("MetadataSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MetadataSchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesSchemaRemoveCommand FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesSchemaRemoveCommand>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataValuesFieldRemoveCommand : MetadataValuesChangeCommandBase
+    {
+        [Newtonsoft.Json.JsonProperty("FieldNamespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldNamespace { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesFieldRemoveCommand FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesFieldRemoveCommand>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataValuesSchemaItemAddCommand : MetadataValuesChangeCommandBase
+    {
+        [Newtonsoft.Json.JsonProperty("FieldNamespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldNamespace { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ReferenceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ReferenceId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesSchemaItemAddCommand FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesSchemaItemAddCommand>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class MetadataValuesSchemaItemRemoveCommand : MetadataValuesChangeCommandBase
+    {
+        [Newtonsoft.Json.JsonProperty("FieldNamespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldNamespace { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ReferenceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ReferenceId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesSchemaItemRemoveCommand FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesSchemaItemRemoveCommand>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class FilterAssetsMetadataUpdateRequest : MetadataValuesChangeRequestBase
+    {
+        [Newtonsoft.Json.JsonProperty("AssetSearchRequest", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public AssetSearchRequest AssetSearchRequest { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("TotalItemsCount", Required = Newtonsoft.Json.Required.Always)]
+        public int TotalItemsCount { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FilterAssetsMetadataUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FilterAssetsMetadataUpdateRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class StartProcessRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("Variables", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Variables { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static StartProcessRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StartProcessRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class SendMessageRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("MessageName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MessageName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Variables", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Variables { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SendMessageRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SendMessageRequest>(data);
         }
     }
     
