@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1.Authentication
 {
@@ -19,11 +20,11 @@ namespace Picturepark.SDK.V1.Authentication
 		{
 		}
 
-		/// <summary>Initializes a new instance of the <see cref="AccessTokenRefresher" /> class.</summary>
-		/// <param name="authClient">The authentication client.</param>
-		/// <param name="refreshInterval">The refresh interval.</param>
-		/// <exception cref="ArgumentNullException"><paramref name="authClient"/> is <see langword="null"/></exception>
-		public AccessTokenRefresher(IAuthClient authClient, TimeSpan refreshInterval)
+        /// <summary>Initializes a new instance of the <see cref="AccessTokenRefresher" /> class.</summary>
+        /// <param name="authClient">The authentication client.</param>
+        /// <param name="refreshInterval">The refresh interval.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="authClient"/> is <see langword="null"/></exception>
+        public AccessTokenRefresher(IAuthClient authClient, TimeSpan refreshInterval)
 		{
 			if (authClient == null)
 				throw new ArgumentNullException(nameof(authClient));
@@ -37,10 +38,13 @@ namespace Picturepark.SDK.V1.Authentication
 			Dispose();
 		}
 
-		/// <summary>Gets the access token.</summary>
-		/// <returns>The access token.</returns>
-		/// <exception cref="ObjectDisposedException">The object has been disposed.</exception>
-		public Task<string> GetAccessTokenAsync()
+        /// <summary>Gets the base URL of the Picturepark authentication server.</summary>
+        public string BaseUrl => _authClient.BaseUrl;
+
+        /// <summary>Gets the access token.</summary>
+        /// <returns>The access token.</returns>
+        /// <exception cref="ObjectDisposedException">The object has been disposed.</exception>
+        public Task<string> GetAccessTokenAsync()
 		{
 			if (_authClient == null)
 				throw new ObjectDisposedException("authClient");
@@ -59,7 +63,8 @@ namespace Picturepark.SDK.V1.Authentication
 			return _authClient.RefreshAccessTokenAsync();
 		}
 
-		public void Dispose()
+        /// <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
+        public void Dispose()
 		{
 			if (_timer != null)
 			{

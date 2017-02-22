@@ -30,7 +30,7 @@
     },
     "swaggerToCSharpClient": {
       "clientBaseClass": "ClientBase",
-      "configurationClass": "Picturepark.SDK.V1.Authentication.IAuthClient",
+      "configurationClass": "Picturepark.SDK.V1.Contract.Authentication.IAuthClient",
       "generateClientClasses": true,
       "generateClientInterfaces": true,
       "generateDtoTypes": true,

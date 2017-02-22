@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1.Authentication
 {

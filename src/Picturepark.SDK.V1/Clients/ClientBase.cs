@@ -3,6 +3,7 @@ using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Authentication;
+using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1
 {

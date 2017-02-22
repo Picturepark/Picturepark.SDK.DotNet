@@ -5,6 +5,7 @@
 //----------------------
 
 using Picturepark.SDK.V1.Contract;
+using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1.Clients
 {
@@ -15,7 +16,7 @@ namespace Picturepark.SDK.V1.Clients
     {
         private string _baseUrl = "";
         
-        public UsersClientBase(Picturepark.SDK.V1.Authentication.IAuthClient configuration) : base(configuration)
+        public UsersClientBase(IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -123,7 +124,7 @@ namespace Picturepark.SDK.V1.Clients
     {
         private string _baseUrl = "";
         
-        public TransfersClientBase(Picturepark.SDK.V1.Authentication.IAuthClient configuration) : base(configuration)
+        public TransfersClientBase(IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -1054,7 +1055,7 @@ namespace Picturepark.SDK.V1.Clients
     {
         private string _baseUrl = "";
         
-        public SharesClientBase(Picturepark.SDK.V1.Authentication.IAuthClient configuration) : base(configuration)
+        public SharesClientBase(IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -1708,7 +1709,7 @@ namespace Picturepark.SDK.V1.Clients
     {
         private string _baseUrl = "";
         
-        public PublicAccessClientBase(Picturepark.SDK.V1.Authentication.IAuthClient configuration) : base(configuration)
+        public PublicAccessClientBase(IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -1819,7 +1820,7 @@ namespace Picturepark.SDK.V1.Clients
     {
         private string _baseUrl = "";
         
-        public PermissionsClientBase(Picturepark.SDK.V1.Authentication.IAuthClient configuration) : base(configuration)
+        public PermissionsClientBase(IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -2202,7 +2203,7 @@ namespace Picturepark.SDK.V1.Clients
     {
         private string _baseUrl = "";
         
-        public MetadataSchemasClientBase(Picturepark.SDK.V1.Authentication.IAuthClient configuration) : base(configuration)
+        public MetadataSchemasClientBase(IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -2773,7 +2774,7 @@ namespace Picturepark.SDK.V1.Clients
     {
         private string _baseUrl = "";
         
-        public MetadataObjectsClientBase(Picturepark.SDK.V1.Authentication.IAuthClient configuration) : base(configuration)
+        public MetadataObjectsClientBase(IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -3911,7 +3912,7 @@ namespace Picturepark.SDK.V1.Clients
     {
         private string _baseUrl = "";
         
-        public DocumentHistoryClientBase(Picturepark.SDK.V1.Authentication.IAuthClient configuration) : base(configuration)
+        public DocumentHistoryClientBase(IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -4312,7 +4313,7 @@ namespace Picturepark.SDK.V1.Clients
     {
         private string _baseUrl = "";
         
-        public JsonSchemasClientBase(Picturepark.SDK.V1.Authentication.IAuthClient configuration) : base(configuration)
+        public JsonSchemasClientBase(IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -4424,7 +4425,7 @@ namespace Picturepark.SDK.V1.Clients
     {
         private string _baseUrl = "";
         
-        public AssetsClientBase(Picturepark.SDK.V1.Authentication.IAuthClient configuration) : base(configuration)
+        public AssetsClientBase(IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -6189,7 +6190,7 @@ namespace Picturepark.SDK.V1.Clients
     {
         private string _baseUrl = "";
         
-        public BusinessProcessesClientBase(Picturepark.SDK.V1.Authentication.IAuthClient configuration) : base(configuration)
+        public BusinessProcessesClientBase(IAuthClient configuration) : base(configuration)
         {
         }
     

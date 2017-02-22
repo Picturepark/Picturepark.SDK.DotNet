@@ -5,6 +5,7 @@
 //----------------------
 
 using Picturepark.SDK.V1.CloudManager.Contract;
+using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1.CloudManager
 {
@@ -15,7 +16,7 @@ namespace Picturepark.SDK.V1.CloudManager
     {
         private string _baseUrl = "http://localhost:42651";
         
-        public CustomersClientBase(Picturepark.SDK.V1.Authentication.IAuthClient configuration) : base(configuration)
+        public CustomersClientBase(IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -611,7 +612,7 @@ namespace Picturepark.SDK.V1.CloudManager
     {
         private string _baseUrl = "http://localhost:42651";
         
-        public ServicesClientBase(Picturepark.SDK.V1.Authentication.IAuthClient configuration) : base(configuration)
+        public ServicesClientBase(IAuthClient configuration) : base(configuration)
         {
         }
     

@@ -4,6 +4,7 @@
 // </auto-generated>
 //----------------------
 
+using Picturepark.SDK.V1.Contract.Authentication;
 using Picturepark.SDK.V1.ServiceProvider.Contract;
 
 namespace Picturepark.SDK.V1.ServiceProvider
@@ -15,7 +16,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
     {
         private string _baseUrl = "http://localhost:5000";
         
-        public ServiceProvidersClientBase(Picturepark.SDK.V1.Authentication.IAuthClient configuration) : base(configuration)
+        public ServiceProvidersClientBase(IAuthClient configuration) : base(configuration)
         {
         }
     

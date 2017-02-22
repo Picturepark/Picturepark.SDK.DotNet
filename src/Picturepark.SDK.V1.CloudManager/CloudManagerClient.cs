@@ -1,5 +1,6 @@
 ﻿using System;
 using Picturepark.SDK.V1.Authentication;
+using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1.CloudManager
 {
