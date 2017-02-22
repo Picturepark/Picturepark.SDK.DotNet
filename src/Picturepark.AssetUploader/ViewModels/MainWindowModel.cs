@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
+using Microsoft.Win32;
 using MyToolkit.Command;
 using MyToolkit.Dialogs;
 using MyToolkit.Mvvm;
@@ -26,9 +28,16 @@ namespace Picturepark.AssetUploader.ViewModels
                 !string.IsNullOrEmpty(FilePath));
 
             PropertyChanged += (sender, args) => UploadCommand.RaiseCanExecuteChanged();
-        }
 
+            RegisterContextMenuCommand = new AsyncRelayCommand(RegisterContextMenuAsync);
+            UnregisterContextMenuCommand = new AsyncRelayCommand(UnregisterContextMenuAsync);
+        }
+        
         public AsyncRelayCommand UploadCommand { get; }
+
+        public AsyncRelayCommand RegisterContextMenuCommand { get; }
+
+        public AsyncRelayCommand UnregisterContextMenuCommand { get; }
 
         public string Server
         {
@@ -52,6 +61,11 @@ namespace Picturepark.AssetUploader.ViewModels
         {
             get { return _filePath; }
             set { Set(ref _filePath, value); }
+        }
+
+        public override void HandleException(Exception exception)
+        {
+            ExceptionBox.Show("An error occurred", exception, Application.Current.MainWindow);
         }
 
         private async Task UploadAsync()
@@ -79,9 +93,24 @@ namespace Picturepark.AssetUploader.ViewModels
             }
         }
 
-        public override void HandleException(Exception exception)
+        private async Task RegisterContextMenuAsync()
         {
-            ExceptionBox.Show("An error occurred", exception, Application.Current.MainWindow);
+            await RunTaskAsync(() =>
+            {
+                using (var key = Registry.ClassesRoot.CreateSubKey(@"*\shell\PictureparkAssetUploader"))
+                    key.SetValue("", "Upload to Picturepark server");
+
+                using (var key = Registry.ClassesRoot.CreateSubKey(@"*\shell\PictureparkAssetUploader\command"))
+                    key.SetValue("", "\"" + Assembly.GetEntryAssembly().Location + "\" %1");
+            });
+        }
+
+        private async Task UnregisterContextMenuAsync()
+        {
+            await RunTaskAsync(() =>
+            {
+                Registry.ClassesRoot.DeleteSubKeyTree(@"*\shell\PictureparkAssetUploader");
+            });
         }
     }
 }
