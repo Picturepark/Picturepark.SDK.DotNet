@@ -10,7 +10,7 @@
     },
     "version": "V1"
   },
-  "host": "localhost:42651",
+  "host": "localhost:5000",
   "basePath": "",
   "schemes": [
     "http",
@@ -33,6 +33,7 @@
           {
             "name": "createRequest",
             "in": "body",
+            "required": true,
             "schema": {
               "$ref": "#/definitions/CustomerCreateRequest"
             },
@@ -63,6 +64,7 @@
           {
             "name": "updateRequest",
             "in": "body",
+            "required": true,
             "schema": {
               "$ref": "#/definitions/CustomerUpdateRequest"
             },
@@ -184,6 +186,7 @@
           {
             "name": "searchRequest",
             "in": "body",
+            "required": true,
             "schema": {
               "$ref": "#/definitions/CustomerSearchRequest"
             },
@@ -257,6 +260,7 @@
           {
             "name": "addRequest",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "array",
               "items": {
@@ -381,6 +385,7 @@
       "additionalProperties": false,
       "required": [
         "Enabled",
+        "BackupEnabled",
         "CacheRetentionTimeInMinutes",
         "UseSsl",
         "ElasticSearchNumberOfShards",
@@ -389,7 +394,7 @@
         "RootSearchIndexNumberOfReplicas"
       ],
       "properties": {
-        "Id": {
+        "Alias": {
           "type": "string"
         },
         "Name": {
@@ -398,29 +403,11 @@
         "Enabled": {
           "type": "boolean"
         },
-        "DeactivationComment": {
-          "type": "string"
+        "DeactivationMessage": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
         },
-        "InitialCatalog": {
-          "type": "string"
-        },
-        "MetadataCatalog": {
-          "type": "string"
-        },
-        "StatisticsCatalog": {
-          "type": "string"
-        },
-        "DocumentHistoryCatalog": {
-          "type": "string"
-        },
-        "LiveStreamCatalog": {
-          "type": "string"
-        },
-        "CacheCatalog": {
-          "type": "string"
-        },
-        "DatabaseVersion": {
-          "type": "string"
+        "BackupEnabled": {
+          "type": "boolean"
         },
         "BaseUrl": {
           "type": "string"
@@ -438,13 +425,7 @@
         "CustomerHosts": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
         "UseSsl": {
@@ -460,30 +441,18 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/ExternalProviderItem"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
         "ServiceProviders": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/CustomerServiceProviderItem"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
         "CorsAllowedHosts": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
         "ElasticSearchNumberOfShards": {
@@ -512,9 +481,6 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/OutputFormatStoreItem"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
         "BusinessProcessEngineConnectionString": {
@@ -524,6 +490,18 @@
           "type": "string"
         }
       }
+    },
+    "TranslatedStringDictionary": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      ]
     },
     "ExternalProviderItem": {
       "type": "object",
@@ -548,9 +526,6 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/OAuthServiceApi"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
         "RedirectUri": {
@@ -586,13 +561,7 @@
         "Scopes": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
         "OAuthServiceType": {
@@ -624,34 +593,28 @@
         "Scopes": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
         "AllowedMessages": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/CustomerAllowedMessage"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
         "AllowedCommands": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/CustomerAllowedCommand"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
-        "Configuration": {
+        "UserRoleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Settings": {
           "type": "string"
         }
       }
@@ -684,25 +647,13 @@
         "SystemLanguages": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
         "MetadataLanguages": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
         "DefaultLanguage": {
@@ -785,13 +736,7 @@
         "AllowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
         "Kind": {
@@ -851,9 +796,6 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/ImageActionBase"
-          },
-          "xml": {
-            "wrapped": true
           }
         }
       },
@@ -1153,13 +1095,7 @@
         "AllowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1194,13 +1130,7 @@
         "AllowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1226,13 +1156,7 @@
         "AllowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1266,13 +1190,7 @@
         "AllowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1329,22 +1247,13 @@
         "AllowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
         "Actions": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/IVideoAction"
-          },
-          "xml": {
-            "wrapped": true
           }
         }
       },
@@ -1405,13 +1314,7 @@
         "AllowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1446,13 +1349,7 @@
         "AllowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1475,13 +1372,7 @@
         "AllowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
         "PositionInSeconds": {
@@ -1509,13 +1400,7 @@
         "AllowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
         "Profile": {
@@ -1586,13 +1471,7 @@
         "AllowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1612,13 +1491,7 @@
         "AllowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1638,13 +1511,7 @@
         "AllowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
         "Bitrate": {
@@ -1681,13 +1548,7 @@
         "AllowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1723,13 +1584,7 @@
         "AllowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
         "ExtractFullText": {
@@ -1840,16 +1695,21 @@
         "ElasticSearchNumberOfReplicas",
         "RootSearchIndexNumberOfShards",
         "RootSearchIndexNumberOfReplicas",
-        "RedisDatabaseIndex"
+        "RedisDatabaseIndex",
+        "Enabled",
+        "BackupEnabled"
       ],
       "properties": {
         "Id": {
           "type": "string"
         },
+        "Alias": {
+          "type": "string"
+        },
         "Name": {
           "type": "string"
         },
-        "InitialCatalog": {
+        "MainCatalog": {
           "type": "string"
         },
         "MetadataCatalog": {
@@ -1873,16 +1733,13 @@
         "StoragePath": {
           "type": "string"
         },
+        "ContractVersion": {
+          "type": "string"
+        },
         "CustomerHosts": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
         "UseSsl": {
@@ -1892,18 +1749,12 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/ExternalProviderItem"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
         "ServiceProviders": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/CustomerServiceProviderItem"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
         "SupportContactEmailAddress": {
@@ -1934,13 +1785,7 @@
         "CorsAllowedHosts": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
         "NoReplyEmailAddress": {
@@ -1958,6 +1803,15 @@
         "RedisDatabaseIndex": {
           "type": "integer",
           "format": "int32"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "DeactivationMessage": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "BackupEnabled": {
+          "type": "boolean"
         }
       }
     },
@@ -1966,6 +1820,7 @@
       "additionalProperties": false,
       "required": [
         "Enabled",
+        "BackupEnabled",
         "CacheRetentionTimeInMinutes",
         "UseSsl"
       ],
@@ -1979,16 +1834,16 @@
         "Enabled": {
           "type": "boolean"
         },
+        "DeactivationMessage": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "BackupEnabled": {
+          "type": "boolean"
+        },
         "CustomerHosts": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
         "CacheRetentionTimeInMinutes": {
@@ -2007,13 +1862,7 @@
         "CorsAllowedHosts": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
         "NoReplyEmailAddress": {
@@ -2045,9 +1894,6 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/CustomerViewItem"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
         "PageToken": {
@@ -2062,6 +1908,9 @@
         "Id": {
           "type": "string"
         },
+        "Alias": {
+          "type": "string"
+        },
         "Name": {
           "type": "string"
         },
@@ -2071,19 +1920,13 @@
         "CustomerHosts": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
-        "InitialCatalog": {
+        "MainCatalog": {
           "type": "string"
         },
-        "DatabaseVersion": {
+        "ContractVersion": {
           "type": "string"
         },
         "StoragePath": {
@@ -2101,13 +1944,7 @@
         "UserRoleIds": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -2132,9 +1969,6 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/SortInfo"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
         "Start": {
@@ -2198,9 +2032,6 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/FilterBase"
-          },
-          "xml": {
-            "wrapped": true
           }
         }
       },
@@ -2218,9 +2049,6 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/FilterBase"
-          },
-          "xml": {
-            "wrapped": true
           }
         }
       },
@@ -2275,18 +2103,6 @@
           "type": "string"
         }
       }
-    },
-    "TranslatedStringDictionary": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        }
-      ]
     },
     "ExistsFilter": {
       "type": "object",
@@ -2482,13 +2298,7 @@
         "Terms": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },

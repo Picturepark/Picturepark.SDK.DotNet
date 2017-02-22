@@ -13,7 +13,7 @@ namespace Picturepark.SDK.V1.CloudManager
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
     public partial class CustomersClientBase : ClientBase
     {
-        private string _baseUrl = "http://localhost:42651";
+        private string _baseUrl = "http://localhost:5000";
         
         public CustomersClientBase(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
         {
@@ -609,7 +609,7 @@ namespace Picturepark.SDK.V1.CloudManager
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.5.6261.39684")]
     public partial class ServicesClientBase : ClientBase
     {
-        private string _baseUrl = "http://localhost:42651";
+        private string _baseUrl = "http://localhost:5000";
         
         public ServicesClientBase(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
         {

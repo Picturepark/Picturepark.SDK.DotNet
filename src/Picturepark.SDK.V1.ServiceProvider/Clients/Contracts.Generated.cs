@@ -479,6 +479,23 @@ namespace Picturepark.SDK.V1.ServiceProvider.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
+    public partial class InvalidStateTransitionException : InvalidStateException
+    {
+        [Newtonsoft.Json.JsonProperty("Transition", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Transition { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static InvalidStateTransitionException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidStateTransitionException>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.5.6255.20253")]
     public partial class InvalidUserOrPasswordException : PictureparkException
     {
         [Newtonsoft.Json.JsonProperty("CustomerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -891,8 +908,11 @@ namespace Picturepark.SDK.V1.ServiceProvider.Contract
         [Newtonsoft.Json.JsonProperty("AllowedCommands", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<CustomerAllowedCommand> AllowedCommands { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("Configuration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Configuration { get; set; }
+        [Newtonsoft.Json.JsonProperty("UserRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> UserRoleIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Settings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Settings { get; set; }
     
         public string ToJson() 
         {
@@ -951,8 +971,11 @@ namespace Picturepark.SDK.V1.ServiceProvider.Contract
         [Newtonsoft.Json.JsonProperty("ServiceProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ServiceProviderId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("Configuration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Configuration { get; set; }
+        [Newtonsoft.Json.JsonProperty("Settings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Settings { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("UserRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> UserRoleIds { get; set; }
     
         public string ToJson() 
         {
