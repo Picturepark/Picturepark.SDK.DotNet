@@ -309,7 +309,7 @@ namespace Picturepark.SDK.V1.Tests
 				Limit = 8
 			};
 
-			AssetSearchResult result = await _client.Assets.SearchByChannelAsync(request, channelId);
+			AssetSearchResult result = await _client.Assets.SearchByChannelAsync(channelId, request);
 			Assert.True(result.Results.Count > 0);
 		}
 
