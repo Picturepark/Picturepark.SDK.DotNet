@@ -11,6 +11,7 @@ using Picturepark.SDK.V1.Contract;
 using Newtonsoft.Json.Linq;
 using System.Collections.Specialized;
 using System.IO;
+using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Tests.Fixtures;
 
 namespace Picturepark.SDK.V1.Tests

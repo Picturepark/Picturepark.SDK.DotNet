@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Authentication;
+using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Contract.Interfaces;
 
 namespace Picturepark.SDK.V1

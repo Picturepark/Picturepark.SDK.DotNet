@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Authentication;
+using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Conversion;
 
 namespace Picturepark.SDK.V1

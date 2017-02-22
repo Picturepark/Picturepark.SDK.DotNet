@@ -1,9 +1,8 @@
-﻿using Picturepark.SDK.V1.Contract;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Picturepark.SDK.V1
+namespace Picturepark.SDK.V1.Contract.Extensions
 {
     public static class FilterExtensions
     {

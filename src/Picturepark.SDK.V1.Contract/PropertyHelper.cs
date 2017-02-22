@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Text;
 
-namespace Picturepark.SDK.V1
+namespace Picturepark.SDK.V1.Contract
 {
 	public static class PropertyHelper
 	{

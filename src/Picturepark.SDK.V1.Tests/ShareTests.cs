@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
+using Picturepark.SDK.V1.Contract.Extensions;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Fixtures;
 

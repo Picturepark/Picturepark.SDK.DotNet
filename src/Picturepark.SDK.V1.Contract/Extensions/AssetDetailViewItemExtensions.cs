@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
-using Picturepark.SDK.V1.Contract;
 
-namespace Picturepark.SDK.V1
+namespace Picturepark.SDK.V1.Contract.Extensions
 {
     public static class AssetDetailViewItemExtensions
     {
