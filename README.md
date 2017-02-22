@@ -71,7 +71,7 @@ ServicePointManager.SecurityProtocol =
     SecurityProtocolType.Tls;
 ```
 
-## Packages
+## NuGet Packages
 
 All packages support the following target frameworks: 
 
