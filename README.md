@@ -81,9 +81,9 @@ All packages support the following target frameworks:
 
 **Public APIs**: 
 
-- Picturepark.SDK.V1
-- Picturepark.SDK.V1.Contract
-- Picturepark.SDK.V1.Localization
+- **Picturepark.SDK.V1:** Client implementations to access the Picturepark server
+- **Picturepark.SDK.V1.Contract:** DTO classes and client interfaces 
+- **Picturepark.SDK.V1.Localization:** Utilities to translate server messages
 
 **Management APIs**: 
 
