@@ -74,7 +74,7 @@ ServicePointManager.SecurityProtocol =
 
 ## Packages
 
-All packages can provide the support the following target frameworks: 
+All packages support the following target frameworks: 
 
 - .NET 4.5+
 - .NET Standard 1.3+
