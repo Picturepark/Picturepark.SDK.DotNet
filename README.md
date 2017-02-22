@@ -21,12 +21,25 @@ Install required NuGet package:
     
 Create new `PictureparkClient` and access remote PCP server: 
 
-```cs
-using (var authClient = new UsernamePasswordAuthClient("http://mypcpserver.com", username, password))
+```csharp
+var authClient = new UsernamePasswordAuthClient("http://mypcpserver.com", username, password);
+
 using (var client = new PictureparkClient(authClient))
 {
     var asset = await client.Assets.GetAsync("myAssetId");
 }
+```
+
+### .NET 4.5.x
+
+For .NET 4.5.x targets you need to enable TLS 1.2: 
+
+```csharp
+ServicePointManager.SecurityProtocol = 
+    SecurityProtocolType.Ssl3 | 
+    SecurityProtocolType.Tls12 | 
+    SecurityProtocolType.Tls11 | 
+    SecurityProtocolType.Tls;
 ```
 
 ## Packages
