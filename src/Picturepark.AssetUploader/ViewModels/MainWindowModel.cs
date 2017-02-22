@@ -85,9 +85,8 @@ namespace Picturepark.AssetUploader.ViewModels
                             Files = new List<TransferUploadFile> { new TransferUploadFile { FileName = fileName, Identifier = fileName } }
                         });
 
-                        var fileSize = new FileInfo(FilePath);
                         using (var stream = File.OpenRead(FilePath))
-                            await client.Transfers.UploadFileAsync(transfer.Id, fileName, new FileParameter(stream, fileName), fileName, 1, fileSize.Length, fileSize.Length, 1);
+                            await client.Transfers.UploadFileAsync(transfer.Id, fileName, new FileParameter(stream, fileName), fileName, 1, stream.Length, stream.Length, 1);
                     }
                 });
             }
