@@ -29,14 +29,14 @@ namespace Picturepark.SDK.V1.Tests
 			string channelId = "RootChannel";
 
 			var request = new AssetAggregationRequest() { SearchString = string.Empty };
-			ObjectAggregationResult result = await _client.Assets.AggregateByChannelAsync(request, channelId);
+			ObjectAggregationResult result = await _client.Assets.AggregateByChannelAsync(channelId, request);
 
 			request.Aggregators = new List<AggregatorBase>()
 			{
 				new TermsAggregator { Name = "Test", Field = "AssetType", Size = 10 }
 			};
 
-			result = await _client.Assets.AggregateByChannelAsync(request, channelId);
+			result = await _client.Assets.AggregateByChannelAsync(channelId, request);
 		}
 
 		[Fact]
