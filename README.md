@@ -102,6 +102,8 @@ AppVeyor CI Build: https://ci.appveyor.com/project/Picturepark/picturepark-sdk-d
 
 ### Release Builds
 
+Branch: master
+
 NuGet Feed: https://www.nuget.org/packages?q=Picturepark
 
 AppVeyor Build: https://ci.appveyor.com/project/Picturepark/picturepark-sdk-dotnet
