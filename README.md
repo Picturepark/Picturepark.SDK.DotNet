@@ -30,7 +30,7 @@ using (var client = new PictureparkClient(authClient))
 
 ### ASP.NET Core
 
-Register Picturepark services in the ASP.NET Core dependency injection system (`Startup.cs`): 
+Register the Picturepark .NET service classes in the ASP.NET Core dependency injection system (`Startup.cs`): 
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
