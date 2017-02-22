@@ -4,18 +4,16 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Picturepark.SDK.V1.Authentication;
-using Picturepark.SDK.V1.Clients;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1
 {
-    public class TransferClient : TransfersClientBase
+    public partial class TransfersClient
     {
-        private readonly BusinessProcessClient _businessProcessClient;
+        private readonly BusinessProcessesClient _businessProcessClient;
 
-        public TransferClient(BusinessProcessClient businessProcessClient, IAuthClient authClient)
+        public TransfersClient(BusinessProcessesClient businessProcessClient, IAuthClient authClient)
             : base(authClient)
         {
             BaseUrl = businessProcessClient.BaseUrl;

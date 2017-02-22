@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using Picturepark.SDK.V1.Authentication;
-using Picturepark.SDK.V1.Clients;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1
 {
-	public class AssetClient : AssetsClientBase
+	public partial class AssetsClient
     {
-        public AssetClient(string baseUrl, IAuthClient configuration) : base(configuration)
+        public AssetsClient(string baseUrl, IAuthClient authClient) : this(authClient)
         {
             BaseUrl = baseUrl;
         }
@@ -72,12 +70,6 @@ namespace Picturepark.SDK.V1
         public AssetDetailViewItem Reactivate(string assetId, bool resolve = true, int timeout = 60000)
         {
             return Task.Run(async () => await ReactivateAsync(assetId, resolve, timeout)).GetAwaiter().GetResult();
-        }
-
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<FileResponse> DownloadAsync(string assetId, string outputFormatId, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return await DownloadAsync(assetId, outputFormatId, string.Empty, cancellationToken);
         }
 
         public async Task DownloadFilesAsync(

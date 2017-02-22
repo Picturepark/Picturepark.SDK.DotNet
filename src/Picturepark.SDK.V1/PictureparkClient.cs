@@ -1,9 +1,10 @@
 ﻿using System;
+using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1
 {
-    public class PictureparkClient : IDisposable
+    public class PictureparkClient : IDisposable, IPictureparkClient
     {
         /// <summary>Initializes a new instance of the <see cref="PictureparkClient"/> class and uses the <see cref="IAuthClient.BaseUrl"/> of the <paramref name="authClient"/> as Picturepark server URL.</summary>
         /// <param name="authClient">The authentication client.</param>
@@ -17,40 +18,40 @@ namespace Picturepark.SDK.V1
         /// <param name="authClient">The authentication client.</param>
         public PictureparkClient(string baseUrl, IAuthClient authClient)
         {
-            Assets = new AssetClient(baseUrl, authClient);
-            BusinessProcesses = new BusinessProcessClient(baseUrl, authClient);
+            Assets = new AssetsClient(baseUrl, authClient);
+            BusinessProcesses = new BusinessProcessesClient(baseUrl, authClient);
             DocumentHistory = new DocumentHistoryClient(baseUrl, authClient);
-            JsonSchemas = new JsonSchemaClient(baseUrl, authClient);
-            Permissions = new PermissionClient(baseUrl, authClient);
+            JsonSchemas = new JsonSchemasClient(baseUrl, authClient);
+            Permissions = new PermissionsClient(baseUrl, authClient);
             PublicAccess = new PublicAccessClient(baseUrl, authClient);
-            Shares = new ShareClient(baseUrl, authClient);
-            Users = new UserClient(baseUrl, authClient);
-            Schemas = new MetadataSchemaClient(BusinessProcesses, authClient);
-            Transfers = new TransferClient(BusinessProcesses, authClient);
-            MetadataObjects = new MetadataObjectClient(Transfers, authClient);
+            Shares = new SharesClient(baseUrl, authClient);
+            Users = new UsersClient(baseUrl, authClient);
+            Schemas = new MetadataSchemasClient((BusinessProcessesClient)BusinessProcesses, authClient);
+            Transfers = new TransfersClient((BusinessProcessesClient)BusinessProcesses, authClient);
+            MetadataObjects = new MetadataObjectsClient((TransfersClient)Transfers, authClient);
         }
 
-        public MetadataSchemaClient Schemas { get; }
+        public IMetadataSchemasClient Schemas { get; }
 
-        public AssetClient Assets { get; }
+        public IAssetsClient Assets { get; }
 
-        public BusinessProcessClient BusinessProcesses { get; }
+        public IBusinessProcessesClient BusinessProcesses { get; }
 
-        public DocumentHistoryClient DocumentHistory { get; }
+        public IDocumentHistoryClient DocumentHistory { get; }
 
-        public JsonSchemaClient JsonSchemas { get; }
+        public IJsonSchemasClient JsonSchemas { get; }
 
-        public MetadataObjectClient MetadataObjects { get; }
+        public IMetadataObjectsClient MetadataObjects { get; }
 
-        public PermissionClient Permissions { get; }
+        public IPermissionsClient Permissions { get; }
 
-        public PublicAccessClient PublicAccess { get; }
+        public IPublicAccessClient PublicAccess { get; }
 
-        public ShareClient Shares { get; }
+        public ISharesClient Shares { get; }
 
-        public TransferClient Transfers { get; }
+        public ITransfersClient Transfers { get; }
 
-        public UserClient Users { get; }
+        public IUsersClient Users { get; }
 
         public void Dispose()
         {

@@ -1,24 +1,22 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Picturepark.SDK.V1.Authentication;
-using Picturepark.SDK.V1.Clients;
 using Newtonsoft.Json.Linq;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1
 {
-    public class JsonSchemaClient : JsonSchemasClientBase
+    public partial class JsonSchemasClient
     {
-        public JsonSchemaClient(string baseUrl, IAuthClient configuration) : base(configuration)
+        public JsonSchemasClient(string baseUrl, IAuthClient authClient) : this(authClient)
         {
             BaseUrl = baseUrl;
         }
 
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<JObject> GetAsync(string schemaId, CancellationToken? cancellationToken = null)
+        public async Task<JObject> GetAsync(string schemaId, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await GetCoreAsync(schemaId, cancellationToken ?? CancellationToken.None) as JObject;
+            return await GetCoreAsync(schemaId, cancellationToken) as JObject;
         }
 
         /// <exception cref="ApiException">A server side error occurred.</exception>

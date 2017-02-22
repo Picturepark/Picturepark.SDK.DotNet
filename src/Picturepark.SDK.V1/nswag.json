@@ -36,23 +36,23 @@
       "generateDtoTypes": true,
       "injectHttpClient": false,
       "protectedMethods": [
-        "MetadataObjectsClientBase.CreateManyAsync",
-        "MetadataSchemasClientBase.UpdateAsync",
-        "MetadataSchemasClientBase.DeleteAsync",
-        "JsonSchemasClientBase.GetAsync"
+        "MetadataObjectsClient.CreateManyAsync",
+        "MetadataSchemasClient.UpdateAsync",
+        "MetadataSchemasClient.DeleteAsync",
+        "JsonSchemasClient.GetAsync"
       ],
       "generateExceptionClasses": true,
       "exceptionClass": "ApiException",
       "useHttpClientCreationMethod": true,
       "useHttpRequestMessageCreationMethod": false,
-      "useBaseUrl": true,
+      "useBaseUrl": false,
       "generateSyncMethods": true,
-      "clientClassAccessModifier": "public abstract",
+      "clientClassAccessModifier": "public",
       "generateContractsOutput": true,
       "contractsNamespace": "Picturepark.SDK.V1.Contract",
       "contractsOutputFilePath": "../Picturepark.SDK.V1.Contract/Contracts.Generated.cs",
-      "className": "{controller}ClientBase",
-      "namespace": "Picturepark.SDK.V1.Clients",
+      "className": "{controller}Client",
+      "namespace": "Picturepark.SDK.V1",
       "additionalNamespaceUsages": [],
       "generateOptionalParameters": true,
       "requiredPropertiesMustBeDefined": true,
@@ -70,7 +70,7 @@
       "wrapResponses": false,
       "generateResponseClasses": true,
       "responseClass": "SwaggerResponse",
-      "output": "Clients/Clients.Generated.cs"
+      "output": "Generated/Clients.Generated.cs"
     },
     "swaggerToCSharpController": {
       "className": "{controller}",

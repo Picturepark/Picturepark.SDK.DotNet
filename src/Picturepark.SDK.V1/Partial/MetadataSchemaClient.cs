@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Picturepark.SDK.V1.Authentication;
-using Picturepark.SDK.V1.Clients;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Authentication;
 using Picturepark.SDK.V1.Conversion;
 
 namespace Picturepark.SDK.V1
 {
-    public class MetadataSchemaClient : MetadataSchemasClientBase
+    public partial class MetadataSchemasClient
     {
-        private readonly BusinessProcessClient _businessProcessesClient;
+        private readonly BusinessProcessesClient _businessProcessesClient;
 
-        public MetadataSchemaClient(BusinessProcessClient businessProcessesClient, IAuthClient authClient)
+        public MetadataSchemasClient(BusinessProcessesClient businessProcessesClient, IAuthClient authClient)
             : base(authClient)
         {
             BaseUrl = businessProcessesClient.BaseUrl;
