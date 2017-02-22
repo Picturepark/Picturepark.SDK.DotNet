@@ -62,7 +62,7 @@ public class MyController : Controller
 
 ### Target .NET 4.5.x
 
-For .NET 4.5.x targets you need to enable TLS 1.2: 
+When installing the SDK in .NET 4.5.x targets you need to globally enable TLS 1.2: 
 
 ```csharp
 ServicePointManager.SecurityProtocol = 
@@ -74,13 +74,18 @@ ServicePointManager.SecurityProtocol =
 
 ## Packages
 
-Public APIs: 
+All packages support the following target frameworks: 
+
+- .NET 4.5+
+- .NET Standard 1.3+
+
+**Public APIs**: 
 
 - Picturepark.SDK.V1
 - Picturepark.SDK.V1.Contract
 - Picturepark.SDK.V1.Localization
 
-Management APIs: 
+**Management APIs**: 
 
 - Picturepark.SDK.V1.CloudManager
 - Picturepark.SDK.V1.ServiceProvider
