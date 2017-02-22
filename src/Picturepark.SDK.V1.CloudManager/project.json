@@ -1,5 +1,11 @@
 {
-  "version": "0.12.0-*",
+  "title": "Picturepark.SDK.V1.CloudManager",
+  "version": "0.14.0",
+  "description": "Picturepark DotNet SDK Localization",
+  "packOptions": {
+    "iconUrl": "https://bitbucket.vit.ch:8443/projects/PP9/repos/picturepark.public/browse/picturepark-240px.png?raw",
+    "licenseUrl": "https://bitbucket.vit.ch:8443/projects/PP9/repos/Picturepark.SDK.DotNet"
+  },
 
   "dependencies": {
     "Newtonsoft.Json": "9.0.1",
