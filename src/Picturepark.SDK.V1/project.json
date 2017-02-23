@@ -1,6 +1,6 @@
 {
   "title": "Picturepark.SDK.V1",
-  "version": "0.21.0",
+  "version": "0.22.0",
   "description": "Picturepark DotNet SDK",
   "packOptions": {
     "iconUrl": "https://bitbucket.vit.ch:8443/projects/PP9/repos/picturepark.public/browse/picturepark-240px.png?raw",
