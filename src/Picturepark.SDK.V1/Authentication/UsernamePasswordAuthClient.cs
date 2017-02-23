@@ -15,12 +15,8 @@ namespace Picturepark.SDK.V1.Authentication
         private string _username;
         private string _password;
 
-        private string _accessToken;
-        private string _refreshToken;
-
         private Task _accessTokenTask;
         private Task _refreshTokenTask;
-        private DateTime _tokenExpiryTime;
 
         /// <summary>Initializes a new instance of the <see cref="UsernamePasswordAuthClient" /> class.</summary>
         /// <param name="baseUrl">The base URL.</param>
@@ -43,6 +39,15 @@ namespace Picturepark.SDK.V1.Authentication
         /// <summary>Gets the base URL.</summary>
         public string BaseUrl { get; }
 
+        /// <summary>Gets the currently loaded access token.</summary>
+        public string AccessToken { get; private set; }
+
+        /// <summary>Gets the currently loaded refresh token.</summary>
+        public string RefreshToken { get; private set; }
+
+        /// <summary>Gets the currently loaded token expiry token.</summary>
+        public DateTime TokenExpiryTime { get; private set; }
+
         /// <summary>Retrieves the access token for the given username and password.</summary>
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
@@ -62,15 +67,15 @@ namespace Picturepark.SDK.V1.Authentication
         /// <returns>The access token.</returns>
         public async Task<string> GetAccessTokenAsync()
         {
-            if (_accessToken == null || _tokenExpiryTime < DateTime.Now)
+            if (AccessToken == null || TokenExpiryTime < DateTime.Now)
             {
-                if (_refreshToken != null)
+                if (RefreshToken != null)
                     await RefreshAccessTokenAsync();
                 else
                     await LoadAccessTokenAsync(false);
             }
 
-            return _accessToken;
+            return AccessToken;
         }
 
         /// <summary>Refreshes the access token.</summary>
@@ -91,12 +96,12 @@ namespace Picturepark.SDK.V1.Authentication
         {
             try
             {
-                var response = await GetTokenAsync("refresh_token", _refreshToken, null, null, "Picturepark.Application");
+                var response = await GetTokenAsync("refresh_token", RefreshToken, null, null, "Picturepark.Application");
                 lock (_lock)
                 {
-                    _accessToken = response.AccessToken;
-                    _refreshToken = response.RefreshToken;
-                    _tokenExpiryTime = DateTime.Now.AddSeconds(response.ExpiresIn - 60);
+                    AccessToken = response.AccessToken;
+                    RefreshToken = response.RefreshToken;
+                    TokenExpiryTime = DateTime.Now.AddSeconds(response.ExpiresIn - 60);
                     _refreshTokenTask = null;
                 }
             }
@@ -130,9 +135,9 @@ namespace Picturepark.SDK.V1.Authentication
             var response = await getAccessTokenTask;
             lock (_lock)
             {
-                _accessToken = response.AccessToken;
-                _refreshToken = response.RefreshToken;
-                _tokenExpiryTime = DateTime.Now.AddSeconds(response.ExpiresIn - 60);
+                AccessToken = response.AccessToken;
+                RefreshToken = response.RefreshToken;
+                TokenExpiryTime = DateTime.Now.AddSeconds(response.ExpiresIn - 60);
                 _accessTokenTask = null;
             }
         }
