@@ -42,8 +42,8 @@ using (var client = new PictureparkClient(tokenRefresher))
 - [x] Remove DotLiquid and GetText dependency (create seperate Package)
 - [x] Enable Stylecop for .NET Core Projects (http://stackoverflow.com/questions/37482483/stylecop-analyzers-in-aspnetcore-application-and-own-rules-set)
 - [ ] Configurable HTTP timeout (currently set to 1 minute)
-- [ ] Use StringEnumConverter (needs backend change in Nancy)
-- [ ] Fix CI (run x-unit tests, use dotnet pack to publish to NuGet)
+- [x] Use StringEnumConverter (needs backend change in Nancy)
+- [x] Fix CI (run x-unit tests, use dotnet pack to publish to NuGet)
 - [ ] Chunked Upload support (Helper)
 - [ ] Better Query (Filter) builder
 

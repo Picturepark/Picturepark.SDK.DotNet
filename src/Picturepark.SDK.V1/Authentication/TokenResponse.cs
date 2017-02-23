@@ -13,7 +13,7 @@ namespace Picturepark.SDK.V1.Authentication
 		public string TokenType { get; set; }
 
 		[JsonProperty("expires_in")]
-		public int? ExpiresIn { get; set; }
+		public int ExpiresIn { get; set; }
 
 		[JsonProperty("refresh_token")]
 		public string RefreshToken { get; set; }
