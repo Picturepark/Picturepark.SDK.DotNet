@@ -40,13 +40,13 @@ namespace Picturepark.SDK.V1.Authentication
         public string BaseUrl { get; }
 
         /// <summary>Gets the currently loaded access token.</summary>
-        public string AccessToken { get; private set; }
+        public string AccessToken { get; protected set; }
 
         /// <summary>Gets the currently loaded refresh token.</summary>
-        public string RefreshToken { get; private set; }
+        public string RefreshToken { get; protected set; }
 
         /// <summary>Gets the currently loaded token expiry token.</summary>
-        public DateTime TokenExpiryTime { get; private set; }
+        public DateTime TokenExpiryTime { get; protected set; }
 
         /// <summary>Retrieves the access token for the given username and password.</summary>
         /// <param name="username">The username.</param>
@@ -73,20 +73,9 @@ namespace Picturepark.SDK.V1.Authentication
             };
         }
 
-        private async Task<string> GetAccessTokenAsync()
-        {
-            if (AccessToken == null || TokenExpiryTime < DateTime.Now)
-            {
-                if (RefreshToken != null)
-                    await RefreshAccessTokenAsync();
-                else
-                    await LoadAccessTokenAsync(false);
-            }
-
-            return AccessToken;
-        }
-
-        private Task RefreshAccessTokenAsync()
+        /// <summary>Refreshes the access token.</summary>
+        /// <returns>The task.</returns>
+        protected virtual Task RefreshAccessTokenAsync()
         {
             lock (_lock)
             {
@@ -115,6 +104,19 @@ namespace Picturepark.SDK.V1.Authentication
             {
                 await LoadAccessTokenAsync(true);
             }
+        }
+
+        private async Task<string> GetAccessTokenAsync()
+        {
+            if (AccessToken == null || TokenExpiryTime < DateTime.Now)
+            {
+                if (RefreshToken != null)
+                    await RefreshAccessTokenAsync();
+                else
+                    await LoadAccessTokenAsync(false);
+            }
+
+            return AccessToken;
         }
 
         private Task LoadAccessTokenAsync(bool force)
