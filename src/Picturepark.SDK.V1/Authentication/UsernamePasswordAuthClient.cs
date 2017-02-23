@@ -49,7 +49,11 @@ namespace Picturepark.SDK.V1.Authentication
         /// <summary>Gets or sets a value indicating whether to automatically refresh the access token.</summary>
         public bool AutoRefreshAccessToken
         {
-            get { return _accessTokenRefresher != null; }
+            get
+            {
+                return _accessTokenRefresher != null;
+            }
+
             set
             {
                 if (AutoRefreshAccessToken != value)
@@ -97,6 +101,13 @@ namespace Picturepark.SDK.V1.Authentication
                 _refreshTokenTask = RefreshTokenInternalAsync();
                 return _refreshTokenTask;
             }
+        }
+
+        /// <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
+        public void Dispose()
+        {
+            _accessTokenRefresher?.Dispose();
+            _accessTokenRefresher = null;
         }
 
         private Task LoadAccessTokenAsync(bool force)
@@ -181,13 +192,6 @@ namespace Picturepark.SDK.V1.Authentication
                     }
                 }
             }
-        }
-
-        /// <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
-        public void Dispose()
-        {
-            _accessTokenRefresher?.Dispose();
-            _accessTokenRefresher = null;
         }
     }
 }
