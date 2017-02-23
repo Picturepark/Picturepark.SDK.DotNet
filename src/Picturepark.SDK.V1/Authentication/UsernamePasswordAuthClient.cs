@@ -8,7 +8,7 @@ using Picturepark.SDK.V1.Contract.Authentication;
 namespace Picturepark.SDK.V1.Authentication
 {
     /// <summary>Authenticates the clients with a username and password.</summary>
-    public class UsernamePasswordAuthClient : IAuthClient
+    public class UsernamePasswordAuthClient : IAuthClient, IDisposable
     {
         private readonly object _lock = new object();
 
@@ -20,20 +20,24 @@ namespace Picturepark.SDK.V1.Authentication
 
         private Task _accessTokenTask;
         private Task _refreshTokenTask;
+        private AccessTokenRefresher _accessTokenRefresher = null;
 
-        /// <summary>Initializes a new instance of the <see cref="UsernamePasswordAuthClient"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="UsernamePasswordAuthClient" /> class.</summary>
         /// <param name="baseUrl">The base URL.</param>
-        public UsernamePasswordAuthClient(string baseUrl)
+        /// <param name="autoRefreshAccessToken">if set to <c>true</c> automatically refreshes access token.</param>
+        public UsernamePasswordAuthClient(string baseUrl, bool autoRefreshAccessToken = true)
         {
             BaseUrl = baseUrl;
+            AutoRefreshAccessToken = autoRefreshAccessToken;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="UsernamePasswordAuthClient"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="UsernamePasswordAuthClient" /> class.</summary>
         /// <param name="baseUrl">The base URL.</param>
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
-        public UsernamePasswordAuthClient(string baseUrl, string username, string password)
-            : this(baseUrl)
+        /// <param name="autoRefreshAccessToken">if set to <c>true</c> automatically refreshes access token.</param>
+        public UsernamePasswordAuthClient(string baseUrl, string username, string password, bool autoRefreshAccessToken = true)
+            : this(baseUrl, autoRefreshAccessToken)
         {
             _username = username;
             _password = password;
@@ -41,6 +45,20 @@ namespace Picturepark.SDK.V1.Authentication
 
         /// <summary>Gets the base URL.</summary>
         public string BaseUrl { get; }
+
+        /// <summary>Gets or sets a value indicating whether to automatically refresh the access token.</summary>
+        public bool AutoRefreshAccessToken
+        {
+            get { return _accessTokenRefresher != null; }
+            set
+            {
+                if (AutoRefreshAccessToken != value)
+                {
+                    _accessTokenRefresher?.Dispose();
+                    _accessTokenRefresher = value ? new AccessTokenRefresher(this) : null;
+                }
+            }
+        }
 
         /// <summary>Retrieves the access token for the given username and password.</summary>
         /// <param name="username">The username.</param>
@@ -113,12 +131,19 @@ namespace Picturepark.SDK.V1.Authentication
 
         private async Task RefreshTokenInternalAsync()
         {
-            var response = await GetTokenAsync("refresh_token", _refreshToken, null, null, "Picturepark.Application");
-            lock (_lock)
+            try
             {
-                _accessToken = response.AccessToken;
-                _refreshToken = response.RefreshToken;
-                _refreshTokenTask = null;
+                var response = await GetTokenAsync("refresh_token", _refreshToken, null, null, "Picturepark.Application");
+                lock (_lock)
+                {
+                    _accessToken = response.AccessToken;
+                    _refreshToken = response.RefreshToken;
+                    _refreshTokenTask = null;
+                }
+            }
+            catch
+            {
+                await LoadAccessTokenAsync(true);
             }
         }
 
@@ -156,6 +181,13 @@ namespace Picturepark.SDK.V1.Authentication
                     }
                 }
             }
+        }
+
+        /// <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
+        public void Dispose()
+        {
+            _accessTokenRefresher?.Dispose();
+            _accessTokenRefresher = null;
         }
     }
 }

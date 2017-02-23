@@ -1,12 +1,11 @@
 using System;
 using System.Threading;
-using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1.Authentication
 {
 	/// <summary>Periodically refreshes the access token of the given authentication client.</summary>
-	public class AccessTokenRefresher : IAuthClient, IDisposable
+	public class AccessTokenRefresher : IDisposable
 	{
 		private readonly object _lock = new object();
 		private readonly IAuthClient _authClient;
@@ -30,37 +29,12 @@ namespace Picturepark.SDK.V1.Authentication
 				throw new ArgumentNullException(nameof(authClient));
 
 			_authClient = authClient;
-			_timer = new Timer(OnRefreshAccesToken, null, refreshInterval, refreshInterval);
+			_timer = new Timer(OnRefreshAccessToken, null, refreshInterval, refreshInterval);
 		}
 
 		~AccessTokenRefresher()
 		{
 			Dispose();
-		}
-
-        /// <summary>Gets the base URL of the Picturepark authentication server.</summary>
-        public string BaseUrl => _authClient.BaseUrl;
-
-        /// <summary>Gets the access token.</summary>
-        /// <returns>The access token.</returns>
-        /// <exception cref="ObjectDisposedException">The object has been disposed.</exception>
-        public Task<string> GetAccessTokenAsync()
-		{
-			if (_authClient == null)
-				throw new ObjectDisposedException("authClient");
-
-			return _authClient.GetAccessTokenAsync();
-		}
-
-		/// <summary>Refreshes the access token.</summary>
-		/// <returns>The task.</returns>
-		/// <exception cref="ObjectDisposedException">The object has been disposed.</exception>
-		public Task RefreshAccessTokenAsync()
-		{
-			if (_authClient == null)
-				throw new ObjectDisposedException("authClient");
-
-			return _authClient.RefreshAccessTokenAsync();
 		}
 
         /// <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
@@ -81,7 +55,7 @@ namespace Picturepark.SDK.V1.Authentication
 			GC.SuppressFinalize(this);
 		}
 
-		private void OnRefreshAccesToken(object state)
+		private void OnRefreshAccessToken(object state)
 		{
 			if (_authClient == null)
 				throw new ObjectDisposedException("authClient");
