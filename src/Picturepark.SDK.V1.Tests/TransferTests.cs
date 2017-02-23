@@ -27,9 +27,9 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldCreateBatchAndUploadFiles()
 		{
 			var filePaths = new List<string>();
-			filePaths.Add(Path.Combine(_fixture.Configuration.ExampleFilesBasePath, "0322_ERSauUNQ3ag.jpg"));
-			filePaths.Add(Path.Combine(_fixture.Configuration.ExampleFilesBasePath, "0314_JYFmYif4n70.jpg"));
-			filePaths.Add(Path.Combine(_fixture.Configuration.ExampleFilesBasePath, "0050_6qORI5j_6n8.jpg"));
+			filePaths.Add(Path.Combine(_fixture.ExampleFilesBasePath, "0322_ERSauUNQ3ag.jpg"));
+			filePaths.Add(Path.Combine(_fixture.ExampleFilesBasePath, "0314_JYFmYif4n70.jpg"));
+			filePaths.Add(Path.Combine(_fixture.ExampleFilesBasePath, "0050_6qORI5j_6n8.jpg"));
 
 			string batchName = nameof(ShouldCreateBatchAndUploadFiles) + "-" + new Random().Next(1000, 9999).ToString();
 			List<string> fileNames = filePaths.Select(file => Path.GetFileName(file)).ToList();
@@ -71,7 +71,7 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldCreateBatchFromFiles()
 		{
 			string batchName = new Random().Next(1000, 9999).ToString();
-			var files = new List<string>() { Path.Combine(_fixture.Configuration.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg") };
+			var files = new List<string>() { Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg") };
 
 			TransferViewItem result = await _client.Transfers.CreateBatchAsync(files, batchName);
 		}
@@ -148,7 +148,7 @@ namespace Picturepark.SDK.V1.Tests
 			int desiredUploadFiles = 10;
 			string batchName = nameof(ShouldUploadAndImportFiles) + "-" + new Random().Next(1000, 9999).ToString();
 
-			var filesInDirectory = Directory.GetFiles(_fixture.Configuration.ExampleFilesBasePath, "*").ToList();
+			var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, "*").ToList();
 
 			int numberOfFilesInDir = filesInDirectory.Count;
 			int numberOfUploadFiles = Math.Min(desiredUploadFiles, numberOfFilesInDir);
@@ -160,7 +160,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			await _client.Transfers.UploadFilesAsync(
 				importFilePaths,
-				_fixture.Configuration.ExampleFilesBasePath,
+				_fixture.ExampleFilesBasePath,
 				transfer,
 				successDelegate: (file) =>
 				{

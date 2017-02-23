@@ -1,8 +1,8 @@
 ﻿{
-	"Server": "https://devnext.preview-picturepark.com",
-	"Username": "",
-	"Password": "",
-	
+	"Server": "{Server}",
+	"Username": "{Username}",
+	"Password": "{Password}",
+
 	"EmailRecipient": {
 		"FirstName": "Firstname",
 		"LastName": "Lastname",

@@ -10,22 +10,29 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
     public class SDKClientFixture : IDisposable
     {
         private readonly PictureparkClient _client;
-        private readonly Configuration _configuration;
+        private readonly TestConfiguration _configuration;
 
         public SDKClientFixture()
         {
             ProjectDirectory = Path.GetFullPath(Path.GetDirectoryName(typeof(SDKClientFixture).GetTypeInfo().Assembly.Location) + "/../../../");
 
-            var configurationJson = File.ReadAllText(ProjectDirectory + "Configuration.json");
-            _configuration = JsonConvert.DeserializeObject<Configuration>(configurationJson);
+            if (!Directory.Exists(TempDirectory))
+                Directory.CreateDirectory(TempDirectory);
 
-            var authClient = new UsernamePasswordAuthClient(_configuration.ApiBaseUrl, _configuration.ApiEmail, _configuration.ApiPassword);
-            _client = new PictureparkClient(_configuration.ApiBaseUrl, authClient);
+            var configurationJson = File.ReadAllText(ProjectDirectory + "Configuration.json");
+            _configuration = JsonConvert.DeserializeObject<TestConfiguration>(configurationJson);
+
+            var authClient = new UsernamePasswordAuthClient(_configuration.Server, _configuration.Username, _configuration.Password);
+            _client = new PictureparkClient(_configuration.Server, authClient);
         }
 
         public string ProjectDirectory { get; }
 
-        public Configuration Configuration => _configuration;
+        public string TempDirectory => ProjectDirectory + "/Temp";
+
+        public string ExampleFilesBasePath => ProjectDirectory + "/ExampleData/Pool";
+
+        public TestConfiguration Configuration => _configuration;
 
         public PictureparkClient Client => _client;
 

@@ -135,7 +135,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			await _client.Assets.DownloadFilesAsync(
 				result,
-				_fixture.Configuration.TempPath,
+				_fixture.TempDirectory,
 				true,
 				successDelegate: (asset) =>
 				{
@@ -157,7 +157,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			var fileMetadata = assetDetail.GetFileMetadata();
 			var fileName = new Random().Next(0, 999999).ToString() + "-" + fileMetadata.FileName + ".jpg";
-			var filePath = Path.Combine(_fixture.Configuration.TempPath, fileName);
+			var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
 			if (File.Exists(filePath))
 				File.Delete(filePath);
@@ -183,7 +183,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			var fileMetadata = assetDetail.GetFileMetadata();
 			var fileName = new Random().Next(0, 999999).ToString() + "-" + fileMetadata.FileName + ".jpg";
-			var filePath = Path.Combine(_fixture.Configuration.TempPath, fileName);
+			var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
 			if (File.Exists(filePath))
 				File.Delete(filePath);
@@ -205,7 +205,7 @@ namespace Picturepark.SDK.V1.Tests
 			Assert.False(string.IsNullOrEmpty(assetId));
 
 			var fileName = new Random().Next(0, 999999).ToString() + "-" + assetId + ".jpg";
-			var filePath = Path.Combine(_fixture.Configuration.TempPath, fileName);
+			var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
 			if (File.Exists(filePath))
 				File.Delete(filePath);
