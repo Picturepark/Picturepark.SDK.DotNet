@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Contract.Authentication
 {
@@ -8,8 +9,8 @@ namespace Picturepark.SDK.V1.Contract.Authentication
         /// <summary>Gets the server URL of the Picturepark authentication server.</summary>
         string BaseUrl { get; }
 
-        /// <summary>Gets the access token.</summary>
-        /// <returns>The access token.</returns>
-        Task<string> GetAccessTokenAsync();
+        /// <summary>Gets the authentication headers.</summary>
+        /// <returns>The headers.</returns>
+        Task<IDictionary<string, string>> GetAuthenticationHeadersAsync();
     }
 }

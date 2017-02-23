@@ -32,8 +32,11 @@ namespace Picturepark.SDK.V1
             client.BaseAddress = new Uri(BaseUrl, UriKind.Absolute);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            if (_authClient != null)
-				client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", await _authClient.GetAccessTokenAsync());
+		    if (_authClient != null)
+		    {
+		        foreach (var header in await _authClient.GetAuthenticationHeadersAsync())
+		            client.DefaultRequestHeaders.TryAddWithoutValidation(header.Key, header.Value);
+		    }
 
             return client;
 		}

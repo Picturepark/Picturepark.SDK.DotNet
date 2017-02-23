@@ -63,9 +63,17 @@ namespace Picturepark.SDK.V1.Authentication
             await LoadAccessTokenAsync(true);
         }
 
-        /// <summary>Gets the access token.</summary>
-        /// <returns>The access token.</returns>
-        public async Task<string> GetAccessTokenAsync()
+        /// <summary>Gets the authentication headers.</summary>
+        /// <returns>The headers.</returns>
+        public async Task<IDictionary<string, string>> GetAuthenticationHeadersAsync()
+        {
+            return new Dictionary<string, string>
+            {
+                { "Authorization", "Bearer " + await GetAccessTokenAsync() }
+            };
+        }
+
+        private async Task<string> GetAccessTokenAsync()
         {
             if (AccessToken == null || TokenExpiryTime < DateTime.Now)
             {
