@@ -78,9 +78,7 @@ namespace Picturepark.SDK.V1.Authentication
             return AccessToken;
         }
 
-        /// <summary>Refreshes the access token.</summary>
-        /// <returns>The task.</returns>
-        public Task RefreshAccessTokenAsync()
+        private Task RefreshAccessTokenAsync()
         {
             lock (_lock)
             {
