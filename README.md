@@ -6,11 +6,7 @@
 [![Build status](https://img.shields.io/appveyor/ci/Picturepark/picturepark-sdk-dotnet-y10cr.svg?label=CI+build)](https://ci.appveyor.com/project/Picturepark/picturepark-sdk-dotnet-y10cr)
 [![MyGet CI](https://img.shields.io/myget/picturepark-sdk-dotnet-ci/vpre/Picturepark.SDK.V1.svg)](https://www.myget.org/gallery/picturepark-sdk-dotnet-ci)
 
-Links: 
-
-- [Documentation](docs/README.md)
-- [Build Scripts](build/README.md)
-- [Sources](src/)
+[API Documentation](docs/README.md)
 
 ## Usage
 
@@ -89,6 +85,11 @@ All packages support the following target frameworks:
 - Picturepark.SDK.V1.ServiceProvider
 
 ## Development
+
+Links: 
+
+- [Build Scripts](build/README.md)
+- [Sources](src/)
 
 ### CI Builds
 
