@@ -10,9 +10,9 @@ Links:
 - [Picturepark Website](https://picturepark.com/)
 - [API Documentation](docs/README.md)
 
-## Usage
+## SDK Usage
 
-Install required NuGet package: 
+Install the Picturepark SDK NuGet package in your .NET project (supports .NET 4.5+ and .NET Standard 1.3+): 
 
     Install-Package Picturepark.SDK.V1
     
@@ -26,7 +26,7 @@ using (var client = new PictureparkClient(authClient))
 }
 ```
 
-### ASP.NET Core
+### Usage in ASP.NET Core
 
 Register the Picturepark .NET service classes in the ASP.NET Core dependency injection system (`Startup.cs`): 
 
@@ -56,7 +56,7 @@ public class MyController : Controller
     ...
 ```
 
-### Target .NET 4.5.x
+### Usage with .NET 4.5.x framework
 
 When installing the SDK in .NET 4.5.x targets you need to globally enable TLS 1.2: 
 
@@ -86,7 +86,7 @@ All packages support the following target frameworks:
 - Picturepark.SDK.V1.CloudManager
 - Picturepark.SDK.V1.ServiceProvider
 
-## Development
+## SDK Development
 
 Links: 
 
