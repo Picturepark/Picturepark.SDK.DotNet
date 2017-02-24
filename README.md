@@ -21,7 +21,7 @@ Install required NuGet package:
 Create new `PictureparkClient` and access remote PCP server: 
 
 ```csharp
-using (var authClient = new UsernamePasswordAuthClient("http://mypcpserver.com", username, password))
+var authClient = new UsernamePasswordAuthClient("http://mypcpserver.com", username, password); 
 using (var client = new PictureparkClient(authClient))
 {
     var asset = await client.Assets.GetAsync("myAssetId");

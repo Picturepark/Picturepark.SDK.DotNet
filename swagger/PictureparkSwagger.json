@@ -9713,6 +9713,12 @@
         "DisplayLanguage": {
           "type": "string"
         },
+        "DisplayPatternIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "SearchLanguages": {
           "type": "array",
           "items": {
@@ -10208,7 +10214,7 @@
         "DisplayPatternType"
       ],
       "properties": {
-        "Name": {
+        "Id": {
           "type": "string"
         },
         "TemplateEngine": {
@@ -11349,10 +11355,25 @@
         "Metadata": {
           "$ref": "#/definitions/MetadataDictionary"
         },
+        "DisplayValues": {
+          "$ref": "#/definitions/DisplayValueViewItem"
+        },
         "EntityType": {
           "$ref": "#/definitions/EntityType"
         }
       }
+    },
+    "DisplayValueViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      ]
     },
     "MetadataObjectAggregationRequest": {
       "type": "object",
@@ -11411,7 +11432,8 @@
       "required": [
         "Start",
         "Limit",
-        "IncludeAllMetadataSchemaChildren"
+        "IncludeAllMetadataSchemaChildren",
+        "IncludeMetadata"
       ],
       "properties": {
         "SearchString": {
@@ -11446,11 +11468,20 @@
         "DisplayLanguage": {
           "type": "string"
         },
+        "DisplayPatternIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "SearchLanguages": {
           "type": "array",
           "items": {
             "type": "string"
           }
+        },
+        "IncludeMetadata": {
+          "type": "boolean"
         }
       }
     },
@@ -11494,6 +11525,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "DisplayValues": {
+          "$ref": "#/definitions/DisplayValueViewItem"
         },
         "Metadata": {
           "$ref": "#/definitions/MetadataDictionary"
@@ -11799,6 +11833,9 @@
         },
         "AssetType": {
           "$ref": "#/definitions/AssetType"
+        },
+        "DisplayValues": {
+          "$ref": "#/definitions/DisplayValueViewItem"
         }
       }
     },
