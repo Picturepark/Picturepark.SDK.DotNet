@@ -120,9 +120,7 @@ namespace Picturepark.SDK.V1
                                     {
                                         using (var fileStream = File.Create(filePath))
                                         {
-                                            response.Stream.Seek(0, SeekOrigin.Begin);
                                             response.Stream.CopyTo(fileStream);
-                                            //// Dispose closes the stream fileStream.Close();
                                         }
                                     }
                                     if (successDelegate != null)
