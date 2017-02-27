@@ -93,7 +93,7 @@ namespace Picturepark.SDK.V1.Conversion
 				var displayPattern = new DisplayPattern
 				{
 					DisplayPatternType = displayPatternAttribute.Type,
-					Name = displayPatternAttribute.Type.ToString(),
+					Id = displayPatternAttribute.Type.ToString(),
 					TemplateEngine = displayPatternAttribute.TemplateEngine,
 					Templates = new TranslatedStringDictionary { { "x-default", displayPatternAttribute.DisplayPattern } }
 				};
