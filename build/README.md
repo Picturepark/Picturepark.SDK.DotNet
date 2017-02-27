@@ -2,7 +2,7 @@
 
 Globally installs the NSwag NPM module (C# client generator)
 
-**01_RunNSwag.bat**
+**01_GenerateClientCode.bat**
 
 Regenerates all clients based on the Swagger specifications located in the "/swagger" directory
 
