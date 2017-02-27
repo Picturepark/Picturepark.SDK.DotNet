@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Picturepark.SDK.V1.ServiceProvider.Example", "Picturepark.SDK.V1.ServiceProvider.Example\Picturepark.SDK.V1.ServiceProvider.Example.csproj", "{461D6B14-EFAC-4996-8ED1-EAB9E2C5A0C0}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B3412393-9444-4901-9F57-46015BC30766}"
 	ProjectSection(SolutionItems) = preProject
 		Picturepark.SDK.DotNet.ruleset = Picturepark.SDK.DotNet.ruleset
@@ -30,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{1442
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Picturepark.AssetUploader", "Picturepark.AssetUploader\Picturepark.AssetUploader.csproj", "{6B970F42-4FB4-4654-9C20-E2A3CBDE5076}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Picturepark.SDK.V1.ServiceProvider.Example", "Picturepark.SDK.V1.ServiceProvider.Example\Picturepark.SDK.V1.ServiceProvider.Example.xproj", "{01A8F881-B37A-409C-BF76-6D492C67AC9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,12 +38,6 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{461D6B14-EFAC-4996-8ED1-EAB9E2C5A0C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{461D6B14-EFAC-4996-8ED1-EAB9E2C5A0C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{461D6B14-EFAC-4996-8ED1-EAB9E2C5A0C0}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{461D6B14-EFAC-4996-8ED1-EAB9E2C5A0C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{461D6B14-EFAC-4996-8ED1-EAB9E2C5A0C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{461D6B14-EFAC-4996-8ED1-EAB9E2C5A0C0}.Release|x64.ActiveCfg = Release|Any CPU
 		{F7E87671-10C3-4090-A10A-70E359F8A26D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F7E87671-10C3-4090-A10A-70E359F8A26D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7E87671-10C3-4090-A10A-70E359F8A26D}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -96,16 +90,24 @@ Global
 		{6B970F42-4FB4-4654-9C20-E2A3CBDE5076}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6B970F42-4FB4-4654-9C20-E2A3CBDE5076}.Release|x64.ActiveCfg = Release|Any CPU
 		{6B970F42-4FB4-4654-9C20-E2A3CBDE5076}.Release|x64.Build.0 = Release|Any CPU
+		{01A8F881-B37A-409C-BF76-6D492C67AC9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01A8F881-B37A-409C-BF76-6D492C67AC9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01A8F881-B37A-409C-BF76-6D492C67AC9F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{01A8F881-B37A-409C-BF76-6D492C67AC9F}.Debug|x64.Build.0 = Debug|Any CPU
+		{01A8F881-B37A-409C-BF76-6D492C67AC9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01A8F881-B37A-409C-BF76-6D492C67AC9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01A8F881-B37A-409C-BF76-6D492C67AC9F}.Release|x64.ActiveCfg = Release|Any CPU
+		{01A8F881-B37A-409C-BF76-6D492C67AC9F}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{461D6B14-EFAC-4996-8ED1-EAB9E2C5A0C0} = {14422565-17C9-4451-A987-3DAF5795073C}
 		{F7E87671-10C3-4090-A10A-70E359F8A26D} = {4B2AA4DC-FA39-4146-8AA2-50D1908601AB}
 		{732DCFB5-7614-4E04-A2EA-9D9DEB6A2470} = {4B2AA4DC-FA39-4146-8AA2-50D1908601AB}
 		{BEFC853A-CF61-4CE7-A6A1-8DDB54A9AD8C} = {4B2AA4DC-FA39-4146-8AA2-50D1908601AB}
 		{D64ABD48-6CAE-4DDD-B9EA-857DEAC2047B} = {4B2AA4DC-FA39-4146-8AA2-50D1908601AB}
 		{6B970F42-4FB4-4654-9C20-E2A3CBDE5076} = {14422565-17C9-4451-A987-3DAF5795073C}
+		{01A8F881-B37A-409C-BF76-6D492C67AC9F} = {14422565-17C9-4451-A987-3DAF5795073C}
 	EndGlobalSection
 EndGlobal

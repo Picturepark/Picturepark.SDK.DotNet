@@ -1,5 +1,4 @@
-﻿using log4net;
-using Picturepark.SDK.V1.ServiceProvider.Contract;
+﻿using Picturepark.SDK.V1.ServiceProvider.Contract;
 using System;
 using System.Reactive.Linq;
 
@@ -7,8 +6,6 @@ namespace Picturepark.SDK.V1.ServiceProvider.Example
 {
 	public class MinimalLiveStreamDemo : IDisposable
 	{
-		private static readonly ILog s_logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
 		private ServiceProviderClient _client;
 
 		public void Dispose()
@@ -35,7 +32,7 @@ namespace Picturepark.SDK.V1.ServiceProvider.Example
 			// all handler
 			observer.Subscribe(a =>
 			{
-				s_logger.Debug($"All-Handler: {a.EventArgs.Message.Id} : {a.EventArgs.Message.Timestamp} : {a.EventArgs.Message.Scope}");
+				Console.WriteLine($"All-Handler: {a.EventArgs.Message.Id} : {a.EventArgs.Message.Timestamp} : {a.EventArgs.Message.Scope}");
 
 				System.Threading.Thread.Sleep(10);
 
