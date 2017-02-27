@@ -153,16 +153,18 @@
             "type": "integer",
             "name": "timeout",
             "in": "query",
-            "required": true,
-            "x-nullable": false,
+            "x-nullable": true,
             "format": "int32"
           },
           {
-            "type": "string",
-            "name": "pattern",
+            "type": "array",
+            "name": "patterns",
             "in": "query",
-            "required": true,
-            "x-nullable": true
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "items": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -362,11 +364,14 @@
             "x-nullable": false
           },
           {
-            "type": "string",
-            "name": "pattern",
+            "type": "array",
+            "name": "patterns",
             "in": "query",
-            "required": true,
-            "x-nullable": true
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "items": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -426,16 +431,18 @@
             "type": "integer",
             "name": "timeout",
             "in": "query",
-            "required": true,
-            "x-nullable": false,
+            "x-nullable": true,
             "format": "int32"
           },
           {
-            "type": "string",
-            "name": "pattern",
+            "type": "array",
+            "name": "patterns",
             "in": "query",
-            "required": true,
-            "x-nullable": true
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "items": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -490,16 +497,18 @@
             "type": "integer",
             "name": "timeout",
             "in": "query",
-            "required": true,
-            "x-nullable": false,
+            "x-nullable": true,
             "format": "int32"
           },
           {
-            "type": "string",
-            "name": "pattern",
+            "type": "array",
+            "name": "patterns",
             "in": "query",
-            "required": true,
-            "x-nullable": true
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "items": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -659,16 +668,18 @@
             "type": "integer",
             "name": "timeout",
             "in": "query",
-            "required": true,
-            "x-nullable": false,
+            "x-nullable": true,
             "format": "int32"
           },
           {
-            "type": "string",
-            "name": "pattern",
+            "type": "array",
+            "name": "patterns",
             "in": "query",
-            "required": true,
-            "x-nullable": true
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "items": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1239,16 +1250,18 @@
             "type": "integer",
             "name": "timeout",
             "in": "query",
-            "required": true,
-            "x-nullable": false,
+            "x-nullable": true,
             "format": "int32"
           },
           {
-            "type": "string",
-            "name": "pattern",
+            "type": "array",
+            "name": "patterns",
             "in": "query",
-            "required": true,
-            "x-nullable": true
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "items": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1495,6 +1508,23 @@
             "in": "path",
             "required": true,
             "x-nullable": false
+          },
+          {
+            "type": "boolean",
+            "name": "resolve",
+            "in": "query",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "type": "array",
+            "name": "patterns",
+            "in": "query",
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "items": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1550,49 +1580,18 @@
             "type": "integer",
             "name": "timeout",
             "in": "query",
-            "required": true,
-            "x-nullable": false,
+            "x-nullable": true,
             "format": "int32"
           },
           {
-            "type": "string",
-            "name": "pattern",
+            "type": "array",
+            "name": "patterns",
             "in": "query",
-            "required": true,
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/MetadataObjectDetailViewItem"
-            },
-            "x-nullable": true
-          }
-        }
-      }
-    },
-    "/Service/MetadataObjects/{ObjectId}/Resolved": {
-      "get": {
-        "tags": [
-          "MetadataObjects"
-        ],
-        "operationId": "MetadataObjects_GetResolved",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "ObjectId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "items": {
+              "type": "string"
+            }
           }
         ],
         "responses": {

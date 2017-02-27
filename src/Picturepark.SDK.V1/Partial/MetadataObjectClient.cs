@@ -27,7 +27,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async Task<MetadataObjectDetailViewItem> CreateAsync(MetadataObjectCreateRequest metadataObject, bool resolve = false, int timeout = 60000)
         {
-            return await CreateAsync(metadataObject, resolve, timeout, string.Empty);
+            return await CreateAsync(metadataObject, resolve, timeout, null);
         }
 
         public MetadataObjectDetailViewItem Create(MetadataObjectCreateRequest metadataObject, bool resolve = false, int timeout = 60000)
@@ -52,15 +52,15 @@ namespace Picturepark.SDK.V1
 			Task.Run(async () => await DeleteAsync(objectId)).GetAwaiter().GetResult();
 		}
 
-        public MetadataObjectDetailViewItem Update(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve = false, string pattern = "", int timeout = 60000)
+        public MetadataObjectDetailViewItem Update(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve = false, List<string> patterns = null, int timeout = 60000)
 		{
-			return Task.Run(async () => await UpdateAsync(objectId, updateRequest, resolve, timeout, pattern)).GetAwaiter().GetResult();
+			return Task.Run(async () => await UpdateAsync(objectId, updateRequest, resolve, timeout, patterns)).GetAwaiter().GetResult();
 		}
 
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<MetadataObjectDetailViewItem> UpdateAsync(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve = false, string pattern = "", int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<MetadataObjectDetailViewItem> UpdateAsync(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve = false, List<string> patterns = null, int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await UpdateAsync(objectId, updateRequest, resolve, timeout, pattern, cancellationToken);
+            return await UpdateAsync(objectId, updateRequest, resolve, timeout, patterns, cancellationToken);
         }
 
         public async Task<List<MetadataObjectViewItem>> CreateFromPOCO(object obj, string schemaId)
@@ -155,7 +155,7 @@ namespace Picturepark.SDK.V1
 
 		public async Task<T> GetObjectAsync<T>(string objectId)
 		{
-			var metadataViewItem = await GetAsync(objectId);
+			var metadataViewItem = await GetAsync(objectId, true);
 			return metadataViewItem.Metadata.Get<T>();
 		}
 

@@ -314,26 +314,23 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public AssetDetailViewItem CreateVirtualAssets(CreateVirtualAssetRequest createVirtualAssetRequest, bool resolve, int timeout, string pattern)
+        public AssetDetailViewItem CreateVirtualAssets(CreateVirtualAssetRequest createVirtualAssetRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await CreateVirtualAssetsAsync(createVirtualAssetRequest, resolve, timeout, pattern, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await CreateVirtualAssetsAsync(createVirtualAssetRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<AssetDetailViewItem> CreateVirtualAssetsAsync(CreateVirtualAssetRequest createVirtualAssetRequest, bool resolve, int timeout, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AssetDetailViewItem> CreateVirtualAssetsAsync(CreateVirtualAssetRequest createVirtualAssetRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
     
-            if (timeout == null)
-                throw new System.ArgumentNullException("timeout");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("Service/Assets?");
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(resolve.ToString())).Append("&");
-            urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.ToString())).Append("&");
-            if (pattern != null) urlBuilder_.Append("pattern=").Append(System.Uri.EscapeDataString(pattern.ToString())).Append("&");
+            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.Value.ToString())).Append("&");
+            if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
             urlBuilder_.Length--;
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -727,14 +724,14 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public AssetDetailViewItem Get(string assetId, bool resolve, string pattern)
+        public AssetDetailViewItem Get(string assetId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetAsync(assetId, resolve, pattern, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetAsync(assetId, resolve, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<AssetDetailViewItem> GetAsync(string assetId, bool resolve, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AssetDetailViewItem> GetAsync(string assetId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (assetId == null)
                 throw new System.ArgumentNullException("assetId");
@@ -746,7 +743,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("Service/Assets/{AssetId}?");
             urlBuilder_.Replace("{AssetId}", System.Uri.EscapeDataString(assetId.ToString()));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(resolve.ToString())).Append("&");
-            if (pattern != null) urlBuilder_.Append("pattern=").Append(System.Uri.EscapeDataString(pattern.ToString())).Append("&");
+            if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
             urlBuilder_.Length--;
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -843,14 +840,14 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public AssetDetailViewItem UpdateMetadata(string assetId, UpdateAssetMetadataRequest updateRequest, bool resolve, int timeout, string pattern)
+        public AssetDetailViewItem UpdateMetadata(string assetId, UpdateAssetMetadataRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await UpdateMetadataAsync(assetId, updateRequest, resolve, timeout, pattern, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await UpdateMetadataAsync(assetId, updateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<AssetDetailViewItem> UpdateMetadataAsync(string assetId, UpdateAssetMetadataRequest updateRequest, bool resolve, int timeout, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AssetDetailViewItem> UpdateMetadataAsync(string assetId, UpdateAssetMetadataRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (assetId == null)
                 throw new System.ArgumentNullException("assetId");
@@ -858,15 +855,12 @@ namespace Picturepark.SDK.V1
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
     
-            if (timeout == null)
-                throw new System.ArgumentNullException("timeout");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("Service/Assets/{AssetId}?");
             urlBuilder_.Replace("{AssetId}", System.Uri.EscapeDataString(assetId.ToString()));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(resolve.ToString())).Append("&");
-            urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.ToString())).Append("&");
-            if (pattern != null) urlBuilder_.Append("pattern=").Append(System.Uri.EscapeDataString(pattern.ToString())).Append("&");
+            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.Value.ToString())).Append("&");
+            if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
             urlBuilder_.Length--;
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -951,14 +945,14 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public AssetDetailViewItem UpdatePermissions(string assetId, UpdateAssetPermissionsRequest updateRequest, bool resolve, int timeout, string pattern)
+        public AssetDetailViewItem UpdatePermissions(string assetId, UpdateAssetPermissionsRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await UpdatePermissionsAsync(assetId, updateRequest, resolve, timeout, pattern, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await UpdatePermissionsAsync(assetId, updateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<AssetDetailViewItem> UpdatePermissionsAsync(string assetId, UpdateAssetPermissionsRequest updateRequest, bool resolve, int timeout, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AssetDetailViewItem> UpdatePermissionsAsync(string assetId, UpdateAssetPermissionsRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (assetId == null)
                 throw new System.ArgumentNullException("assetId");
@@ -966,15 +960,12 @@ namespace Picturepark.SDK.V1
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
     
-            if (timeout == null)
-                throw new System.ArgumentNullException("timeout");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("Service/Assets/{AssetId}/Permissions?");
             urlBuilder_.Replace("{AssetId}", System.Uri.EscapeDataString(assetId.ToString()));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(resolve.ToString())).Append("&");
-            urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.ToString())).Append("&");
-            if (pattern != null) urlBuilder_.Append("pattern=").Append(System.Uri.EscapeDataString(pattern.ToString())).Append("&");
+            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.Value.ToString())).Append("&");
+            if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
             urlBuilder_.Length--;
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -1341,14 +1332,14 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public AssetDetailViewItem Reactivate(string assetId, bool resolve, int timeout, string pattern)
+        public AssetDetailViewItem Reactivate(string assetId, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await ReactivateAsync(assetId, resolve, timeout, pattern, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await ReactivateAsync(assetId, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<AssetDetailViewItem> ReactivateAsync(string assetId, bool resolve, int timeout, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AssetDetailViewItem> ReactivateAsync(string assetId, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (assetId == null)
                 throw new System.ArgumentNullException("assetId");
@@ -1356,15 +1347,12 @@ namespace Picturepark.SDK.V1
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
     
-            if (timeout == null)
-                throw new System.ArgumentNullException("timeout");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("Service/Assets/{AssetId}/Reactivate?");
             urlBuilder_.Replace("{AssetId}", System.Uri.EscapeDataString(assetId.ToString()));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(resolve.ToString())).Append("&");
-            urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.ToString())).Append("&");
-            if (pattern != null) urlBuilder_.Append("pattern=").Append(System.Uri.EscapeDataString(pattern.ToString())).Append("&");
+            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.Value.ToString())).Append("&");
+            if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
             urlBuilder_.Length--;
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -2822,26 +2810,23 @@ namespace Picturepark.SDK.V1
         partial void ProcessResponse(System.Net.Http.HttpClient request, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public MetadataObjectDetailViewItem Create(MetadataObjectCreateRequest metadataObject, bool resolve, int timeout, string pattern)
+        public MetadataObjectDetailViewItem Create(MetadataObjectCreateRequest metadataObject, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await CreateAsync(metadataObject, resolve, timeout, pattern, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await CreateAsync(metadataObject, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<MetadataObjectDetailViewItem> CreateAsync(MetadataObjectCreateRequest metadataObject, bool resolve, int timeout, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MetadataObjectDetailViewItem> CreateAsync(MetadataObjectCreateRequest metadataObject, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
     
-            if (timeout == null)
-                throw new System.ArgumentNullException("timeout");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("Service/MetadataObjects?");
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(resolve.ToString())).Append("&");
-            urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.ToString())).Append("&");
-            if (pattern != null) urlBuilder_.Append("pattern=").Append(System.Uri.EscapeDataString(pattern.ToString())).Append("&");
+            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.Value.ToString())).Append("&");
+            if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
             urlBuilder_.Length--;
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -3483,21 +3468,27 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public MetadataObjectDetailViewItem Get(string objectId)
+        public MetadataObjectDetailViewItem Get(string objectId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetAsync(objectId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetAsync(objectId, resolve, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<MetadataObjectDetailViewItem> GetAsync(string objectId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MetadataObjectDetailViewItem> GetAsync(string objectId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (objectId == null)
                 throw new System.ArgumentNullException("objectId");
     
+            if (resolve == null)
+                throw new System.ArgumentNullException("resolve");
+    
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataObjects/{ObjectId}");
+            urlBuilder_.Append("Service/MetadataObjects/{ObjectId}?");
             urlBuilder_.Replace("{ObjectId}", System.Uri.EscapeDataString(objectId.ToString()));
+            urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(resolve.ToString())).Append("&");
+            if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
+            urlBuilder_.Length--;
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3584,14 +3575,14 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public MetadataObjectDetailViewItem Update(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve, int timeout, string pattern)
+        public MetadataObjectDetailViewItem Update(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await UpdateAsync(objectId, updateRequest, resolve, timeout, pattern, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await UpdateAsync(objectId, updateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<MetadataObjectDetailViewItem> UpdateAsync(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve, int timeout, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<MetadataObjectDetailViewItem> UpdateAsync(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (objectId == null)
                 throw new System.ArgumentNullException("objectId");
@@ -3599,15 +3590,12 @@ namespace Picturepark.SDK.V1
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
     
-            if (timeout == null)
-                throw new System.ArgumentNullException("timeout");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("Service/MetadataObjects/{ObjectId}?");
             urlBuilder_.Replace("{ObjectId}", System.Uri.EscapeDataString(objectId.ToString()));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(resolve.ToString())).Append("&");
-            urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.ToString())).Append("&");
-            if (pattern != null) urlBuilder_.Append("pattern=").Append(System.Uri.EscapeDataString(pattern.ToString())).Append("&");
+            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.Value.ToString())).Append("&");
+            if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
             urlBuilder_.Length--;
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -3623,101 +3611,6 @@ namespace Picturepark.SDK.V1
                     content_.Headers.ContentType.MediaType = "application/json";
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("PUT");
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("ResponseData", responseData_);
-                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(MetadataObjectDetailViewItem); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataObjectDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(MetadataObjectDetailViewItem);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public MetadataObjectDetailViewItem GetResolved(string objectId)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await GetResolvedAsync(objectId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<MetadataObjectDetailViewItem> GetResolvedAsync(string objectId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (objectId == null)
-                throw new System.ArgumentNullException("objectId");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataObjects/{ObjectId}/Resolved");
-            urlBuilder_.Replace("{ObjectId}", System.Uri.EscapeDataString(objectId.ToString()));
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    PrepareRequest(client_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    PrepareRequest(client_, url_);
-    
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                     var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);

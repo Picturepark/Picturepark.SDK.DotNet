@@ -39,11 +39,11 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<AssetBatchDownloadItem> CreateBatchAssetDownloadAsync(AssetBatchDownloadRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        AssetDetailViewItem CreateVirtualAssets(CreateVirtualAssetRequest createVirtualAssetRequest, bool resolve, int timeout, string pattern);
+        AssetDetailViewItem CreateVirtualAssets(CreateVirtualAssetRequest createVirtualAssetRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<AssetDetailViewItem> CreateVirtualAssetsAsync(CreateVirtualAssetRequest createVirtualAssetRequest, bool resolve, int timeout, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AssetDetailViewItem> CreateVirtualAssetsAsync(CreateVirtualAssetRequest createVirtualAssetRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         FileResponse Download(string assetId, string outputFormatId, string range = null);
@@ -73,25 +73,25 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<FileResponse> DownloadResizedAsync(string assetId, string outputFormatId, int width, int height, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        AssetDetailViewItem Get(string assetId, bool resolve, string pattern);
+        AssetDetailViewItem Get(string assetId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<AssetDetailViewItem> GetAsync(string assetId, bool resolve, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AssetDetailViewItem> GetAsync(string assetId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        AssetDetailViewItem UpdateMetadata(string assetId, UpdateAssetMetadataRequest updateRequest, bool resolve, int timeout, string pattern);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<AssetDetailViewItem> UpdateMetadataAsync(string assetId, UpdateAssetMetadataRequest updateRequest, bool resolve, int timeout, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        AssetDetailViewItem UpdatePermissions(string assetId, UpdateAssetPermissionsRequest updateRequest, bool resolve, int timeout, string pattern);
+        AssetDetailViewItem UpdateMetadata(string assetId, UpdateAssetMetadataRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<AssetDetailViewItem> UpdatePermissionsAsync(string assetId, UpdateAssetPermissionsRequest updateRequest, bool resolve, int timeout, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AssetDetailViewItem> UpdateMetadataAsync(string assetId, UpdateAssetMetadataRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        AssetDetailViewItem UpdatePermissions(string assetId, UpdateAssetPermissionsRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<AssetDetailViewItem> UpdatePermissionsAsync(string assetId, UpdateAssetPermissionsRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         AssetSearchResult Search(AssetSearchRequest assetSearchRequest);
@@ -115,11 +115,11 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task DeactivateAsync(string assetId, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        AssetDetailViewItem Reactivate(string assetId, bool resolve, int timeout, string pattern);
+        AssetDetailViewItem Reactivate(string assetId, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<AssetDetailViewItem> ReactivateAsync(string assetId, bool resolve, int timeout, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AssetDetailViewItem> ReactivateAsync(string assetId, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         BusinessProcessViewItem DeactivateMany(AssetDeactivationRequest deactivationRequest);
@@ -233,11 +233,11 @@ namespace Picturepark.SDK.V1.Contract
     public partial interface IMetadataObjectsClient
     {
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        MetadataObjectDetailViewItem Create(MetadataObjectCreateRequest metadataObject, bool resolve, int timeout, string pattern);
+        MetadataObjectDetailViewItem Create(MetadataObjectCreateRequest metadataObject, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<MetadataObjectDetailViewItem> CreateAsync(MetadataObjectCreateRequest metadataObject, bool resolve, int timeout, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<MetadataObjectDetailViewItem> CreateAsync(MetadataObjectCreateRequest metadataObject, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         BusinessProcessViewItem DeleteMany(System.Collections.Generic.IEnumerable<string> ids = null);
@@ -275,25 +275,18 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task DeleteAsync(string objectId, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        MetadataObjectDetailViewItem Get(string objectId);
+        MetadataObjectDetailViewItem Get(string objectId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<MetadataObjectDetailViewItem> GetAsync(string objectId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<MetadataObjectDetailViewItem> GetAsync(string objectId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        MetadataObjectDetailViewItem Update(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve, int timeout, string pattern);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<MetadataObjectDetailViewItem> UpdateAsync(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve, int timeout, string pattern, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        MetadataObjectDetailViewItem GetResolved(string objectId);
+        MetadataObjectDetailViewItem Update(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<MetadataObjectDetailViewItem> GetResolvedAsync(string objectId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<MetadataObjectDetailViewItem> UpdateAsync(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         BusinessProcessWaitResult WaitForStates(string processId, int timeout, System.Collections.Generic.IEnumerable<string> states = null);

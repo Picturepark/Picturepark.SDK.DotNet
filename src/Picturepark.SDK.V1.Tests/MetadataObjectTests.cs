@@ -73,7 +73,7 @@ namespace Picturepark.SDK.V1.Tests
 			await _client.MetadataObjects.DeleteAsync(viewItem.Id);
 
 			// TODO: Throw specific 404 exception
-			await Assert.ThrowsAsync<ApiException>(async () => await _client.MetadataObjects.GetAsync(viewItem.Id));
+			await Assert.ThrowsAsync<ApiException>(async () => await _client.MetadataObjects.GetAsync(viewItem.Id, true));
 		}
 
 		[Fact]
@@ -239,7 +239,7 @@ namespace Picturepark.SDK.V1.Tests
 			};
 
 			MetadataObjectViewItem viewItem = await _client.MetadataObjects.CreateAbcAsync(createRequest);
-			var result = await _client.MetadataObjects.GetAsync(viewItem.Id);
+			var result = await _client.MetadataObjects.GetAsync(viewItem.Id, true);
 		}
 
 		[Fact]
@@ -271,7 +271,7 @@ namespace Picturepark.SDK.V1.Tests
 			}
 
 			Assert.False(string.IsNullOrEmpty(objectId));
-			await _client.MetadataObjects.GetResolvedAsync(objectId);
+			await _client.MetadataObjects.GetAsync(objectId, true);
 		}
 
 		[Fact]
@@ -334,7 +334,7 @@ namespace Picturepark.SDK.V1.Tests
 			Assert.True(players.Results.Count() > 0);
 			var playerObjectId = players.Results.First().Id;
 
-			var playerViewItem = await _client.MetadataObjects.GetResolvedAsync(playerObjectId);
+			var playerViewItem = await _client.MetadataObjects.GetAsync(playerObjectId, true);
 
 			// Convert first result item to CLR
 			var player = playerViewItem.ConvertToType<SoccerPlayer>(nameof(SoccerPlayer));

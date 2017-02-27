@@ -23,7 +23,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async Task<AssetDetailViewItem> GetAsync(string assetId, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await GetAsync(assetId, true, string.Empty, cancellationToken);
+            return await GetAsync(assetId, true, null, cancellationToken);
         }
 
         // TODO(ubr): Describe resolve parameter
@@ -36,7 +36,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async Task<AssetDetailViewItem> GetAsync(string assetId, bool resolve, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await GetAsync(assetId, resolve, string.Empty, cancellationToken);
+            return await GetAsync(assetId, resolve, null, cancellationToken);
         }
 
         /// <summary>Deactivates the an asset.</summary>
@@ -59,7 +59,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async Task<AssetDetailViewItem> ReactivateAsync(string assetId, bool resolve = true, int timeout = 60000)
         {
-            return await ReactivateAsync(assetId, resolve, timeout, string.Empty);
+            return await ReactivateAsync(assetId, resolve, timeout, null);
         }
 
         /// <summary>Reactivates the specified asset identifier.</summary>

@@ -8,8 +8,6 @@ namespace Picturepark.SDK.V1.Contract
     {
         Task<AssetDetailViewItem> GetAsync(string assetId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<AssetDetailViewItem> GetAsync(string assetId, bool resolve, CancellationToken cancellationToken = default(CancellationToken));
-
         Task DeactivateAsync(string assetId, CancellationToken cancellationToken = default(CancellationToken));
 
         Task<AssetDetailViewItem> ReactivateAsync(string assetId, bool resolve = true, int timeout = 60000);
