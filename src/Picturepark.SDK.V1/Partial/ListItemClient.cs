@@ -14,31 +14,31 @@ using Picturepark.SDK.V1.Contract.Interfaces;
 
 namespace Picturepark.SDK.V1
 {
-    public partial class MetadataObjectsClient
-    {
-        private readonly TransfersClient _transferClient;
+	public partial class ListItemClient
+	{
+		private readonly TransferClient _transferClient;
 
-        public MetadataObjectsClient(TransfersClient transferClient, IAuthClient authClient) : this(authClient)
-        {
-            _transferClient = transferClient;
-            BaseUrl = transferClient.BaseUrl;
-        }
-
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<MetadataObjectDetailViewItem> CreateAsync(MetadataObjectCreateRequest metadataObject, bool resolve = false, int timeout = 60000)
-        {
-            return await CreateAsync(metadataObject, resolve, timeout, null);
-        }
-
-        public MetadataObjectDetailViewItem Create(MetadataObjectCreateRequest metadataObject, bool resolve = false, int timeout = 60000)
-        {
-            return Task.Run(async () => await CreateAsync(metadataObject, resolve: resolve, timeout: timeout)).GetAwaiter().GetResult();
-        }
-
-        // TODO(rsu): Rename
-        public async Task<MetadataObjectViewItem> CreateAbcAsync(MetadataObjectCreateRequest createRequest)
+		public ListItemClient(TransferClient transferClient, IAuthClient authClient) : this(authClient)
 		{
-			var result = await CreateManyAsync(new List<MetadataObjectCreateRequest> { createRequest });
+			_transferClient = transferClient;
+			BaseUrl = transferClient.BaseUrl;
+		}
+
+		/// <exception cref="ApiException">A server side error occurred.</exception>
+		public async Task<ListItemDetailViewItem> CreateAsync(ListItemCreateRequest listItem, bool resolve = false, int timeout = 60000)
+		{
+			return await CreateAsync(listItem, resolve, timeout, null);
+		}
+
+		public ListItemDetailViewItem Create(ListItemCreateRequest listItem, bool resolve = false, int timeout = 60000)
+		{
+			return Task.Run(async () => await CreateAsync(listItem, resolve: resolve, timeout: timeout)).GetAwaiter().GetResult();
+		}
+
+		// TODO(rsu): Rename
+		public async Task<ListItemViewItem> CreateAbcAsync(ListItemCreateRequest createRequest)
+		{
+			var result = await CreateManyAsync(new List<ListItemCreateRequest> { createRequest });
 			return result.First();
 		}
 
@@ -52,47 +52,47 @@ namespace Picturepark.SDK.V1
 			Task.Run(async () => await DeleteAsync(objectId)).GetAwaiter().GetResult();
 		}
 
-        public MetadataObjectDetailViewItem Update(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve = false, List<string> patterns = null, int timeout = 60000)
+		public ListItemDetailViewItem Update(string objectId, ListItemUpdateRequest updateRequest, bool resolve = false, List<string> patterns = null, int timeout = 60000)
 		{
 			return Task.Run(async () => await UpdateAsync(objectId, updateRequest, resolve, timeout, patterns)).GetAwaiter().GetResult();
 		}
 
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<MetadataObjectDetailViewItem> UpdateAsync(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve = false, List<string> patterns = null, int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return await UpdateAsync(objectId, updateRequest, resolve, timeout, patterns, cancellationToken);
-        }
-
-        public async Task<List<MetadataObjectViewItem>> CreateFromPOCO(object obj, string schemaId)
+		/// <exception cref="ApiException">A server side error occurred.</exception>
+		public async Task<ListItemDetailViewItem> UpdateAsync(string objectId, ListItemUpdateRequest updateRequest, bool resolve = false, List<string> patterns = null, int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var metadataObjects = new List<MetadataObjectCreateRequest>();
+			return await UpdateAsync(objectId, updateRequest, resolve, timeout, patterns, cancellationToken);
+		}
+
+		public async Task<List<ListItemViewItem>> CreateFromPOCO(object obj, string schemaId)
+		{
+			var listItems = new List<ListItemCreateRequest>();
 			var metadata = new MetadataDictionary();
 			metadata[schemaId] = obj;
 
 			var referencedObjects = await CreateReferencedObjects(obj);
 
-			metadataObjects.Add(new MetadataObjectCreateRequest
+			listItems.Add(new ListItemCreateRequest
 			{
-				MetadataSchemaId = schemaId,
+				SchemaId = schemaId,
 				Metadata = metadata
 			});
-			var objectResult = await CreateManyAsync(metadataObjects);
+			var objectResult = await CreateManyAsync(listItems);
 
 			var allResults = objectResult.Concat(referencedObjects).ToList();
 			return allResults;
 		}
 
-		public IEnumerable<MetadataObjectViewItem> CreateMany(IEnumerable<MetadataObjectCreateRequest> objects)
+		public IEnumerable<ListItemViewItem> CreateMany(IEnumerable<ListItemCreateRequest> objects)
 		{
 			return Task.Run(async () => await CreateManyAsync(objects)).GetAwaiter().GetResult();
 		}
 
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<IEnumerable<MetadataObjectViewItem>> CreateManyAsync(IEnumerable<MetadataObjectCreateRequest> metadataObjects, CancellationToken? cancellationToken = null)
+		/// <exception cref="ApiException">A server side error occurred.</exception>
+		public async Task<IEnumerable<ListItemViewItem>> CreateManyAsync(IEnumerable<ListItemCreateRequest> listItems, CancellationToken? cancellationToken = null)
 		{
-			if (metadataObjects.Any())
+			if (listItems.Any())
 			{
-				var createRequest = await CreateManyCoreAsync(metadataObjects, cancellationToken ?? CancellationToken.None);
+				var createRequest = await CreateManyCoreAsync(listItems, cancellationToken ?? CancellationToken.None);
 				var result = await createRequest.Wait4MetadataAsync(this);
 
 				var bulkResult = result.BusinessProcess as BusinessProcessBulkResponseViewItem;
@@ -100,7 +100,7 @@ namespace Picturepark.SDK.V1
 					throw new Exception("Could not save all objects");
 
 				// Fetch created objects
-				var searchResult = await SearchAsync(new MetadataObjectSearchRequest
+				var searchResult = await SearchAsync(new ListItemSearchRequest
 				{
 					Start = 0,
 					Limit = 1000,
@@ -115,48 +115,48 @@ namespace Picturepark.SDK.V1
 			}
 			else
 			{
-				return new List<MetadataObjectViewItem>();
+				return new List<ListItemViewItem>();
 			}
 		}
 
-		public async Task UpdateMetadataObjectAsync(MetadataObjectUpdateRequest updateRequest)
+		public async Task UpdateListItemAsync(ListItemUpdateRequest updateRequest)
 		{
-			var result = await UpdateManyAsync(new List<MetadataObjectUpdateRequest>() { updateRequest });
+			var result = await UpdateManyAsync(new List<ListItemUpdateRequest>() { updateRequest });
 			var wait = await result.Wait4MetadataAsync(this);
 		}
 
-		public async Task UpdateMetadataObjectAsync(MetadataObjectDetailViewItem metadataObject, object obj, string schemaId)
+		public async Task UpdateListItemAsync(ListItemDetailViewItem listItem, object obj, string schemaId)
 		{
-			var convertedObject = new MetadataObjectViewItem
+			var convertedObject = new ListItemViewItem
 			{
-				ContentMetadataSchemaId = metadataObject.ContentMetadataSchemaId,
-				EntityType = metadataObject.EntityType,
-				Id = metadataObject.Id,
-				Metadata = metadataObject.Metadata,
-				MetadataSchemaIds = metadataObject.MetadataSchemaIds
+				ContentSchemaId = listItem.ContentSchemaId,
+				EntityType = listItem.EntityType,
+				Id = listItem.Id,
+				Metadata = listItem.Metadata,
+				SchemaIds = listItem.SchemaIds
 			};
-			await UpdateMetadataObjectAsync(convertedObject, obj, schemaId);
+			await UpdateListItemAsync(convertedObject, obj, schemaId);
 		}
 
-		public async Task UpdateMetadataObjectAsync(MetadataObjectViewItem metadataObject, object obj, string schemaId)
+		public async Task UpdateListItemAsync(ListItemViewItem listItem, object obj, string schemaId)
 		{
 			var metadata = new MetadataDictionary();
 			metadata[schemaId] = obj;
 
-			var request = new MetadataObjectUpdateRequest()
+			var request = new ListItemUpdateRequest()
 			{
-				Id = metadataObject.Id,
+				Id = listItem.Id,
 				Metadata = metadata,
-				MetadataSchemaIds = metadataObject.MetadataSchemaIds
+				SchemaIds = listItem.SchemaIds
 			};
 
-			await UpdateMetadataObjectAsync(request);
+			await UpdateListItemAsync(request);
 		}
 
-		public async Task<T> GetObjectAsync<T>(string objectId)
+		public async Task<T> GetObjectAsync<T>(string objectId, string schemaId)
 		{
 			var metadataViewItem = await GetAsync(objectId, true);
-			return metadataViewItem.Metadata.Get<T>();
+			return metadataViewItem.Metadata.Get<T>(schemaId);
 		}
 
 		public async Task ImportFromJsonAsync(string jsonFilePath, bool includeObjects)
@@ -202,30 +202,30 @@ namespace Picturepark.SDK.V1
 				Convert.GetTypeCode(type) != TypeCode.Object;
 		}
 
-		private async Task<IEnumerable<MetadataObjectViewItem>> CreateReferencedObjects(object obj)
+		private async Task<IEnumerable<ListItemViewItem>> CreateReferencedObjects(object obj)
 		{
-			var referencedMetadataObjects = new List<MetadataObjectCreateRequest>();
-			BuildReferencedMetadataObjects(obj, referencedMetadataObjects);
+			var referencedListItems = new List<ListItemCreateRequest>();
+			BuildReferencedListItems(obj, referencedListItems);
 
 			// Assign Ids on ObjectCreation
-			foreach (var referencedObject in referencedMetadataObjects)
+			foreach (var referencedObject in referencedListItems)
 			{
-				referencedObject.MetadataObjectId = Guid.NewGuid().ToString("N");
+				referencedObject.ListItemId = Guid.NewGuid().ToString("N");
 			}
 
-			var results = await CreateManyAsync(referencedMetadataObjects);
+			var results = await CreateManyAsync(referencedListItems);
 
 			foreach (var result in results)
 			{
-				var object2Update = referencedMetadataObjects.SingleOrDefault(i => i.MetadataObjectId == result.Id);
-				var reference = (object2Update.Metadata as Dictionary<string, object>)[object2Update.MetadataSchemaId] as IReference;
+				var object2Update = referencedListItems.SingleOrDefault(i => i.ListItemId == result.Id);
+				var reference = (object2Update.Metadata as Dictionary<string, object>)[object2Update.SchemaId] as IReference;
 				reference.refId = result.Id;
 			}
 
 			return results;
 		}
 
-		private void BuildReferencedMetadataObjects(object obj, List<MetadataObjectCreateRequest> referencedMetadataObjects)
+		private void BuildReferencedListItems(object obj, List<ListItemCreateRequest> referencedListItems)
 		{
 			// Scan child properties for references
 			var nonReferencedProperties = obj.GetType().GetProperties().Where(i => !typeof(IReference).IsAssignableFrom(i.PropertyType.GenericTypeArguments.FirstOrDefault()) && !typeof(IReference).IsAssignableFrom(i.PropertyType));
@@ -235,12 +235,12 @@ namespace Picturepark.SDK.V1
 				{
 					foreach (var value in (IList)property.GetValue(obj))
 					{
-						BuildReferencedMetadataObjects(value, referencedMetadataObjects);
+						BuildReferencedListItems(value, referencedListItems);
 					}
 				}
 				else
 				{
-					BuildReferencedMetadataObjects(property.GetValue(obj), referencedMetadataObjects);
+					BuildReferencedListItems(property.GetValue(obj), referencedListItems);
 				}
 			}
 
@@ -263,11 +263,11 @@ namespace Picturepark.SDK.V1
 								metadata[schemaId] = value;
 
 								// Add metadata object if it does not already exist
-								if (referencedMetadataObjects.Where(i => i.MetadataSchemaId == schemaId).Select(i => i.Metadata).All(i => i[schemaId] != value))
+								if (referencedListItems.Where(i => i.SchemaId == schemaId).Select(i => i.Metadata).All(i => i[schemaId] != value))
 								{
-									referencedMetadataObjects.Insert(0, new MetadataObjectCreateRequest
+									referencedListItems.Insert(0, new ListItemCreateRequest
 									{
-										MetadataSchemaId = schemaId,
+										SchemaId = schemaId,
 										Metadata = metadata
 									});
 								}
@@ -289,11 +289,11 @@ namespace Picturepark.SDK.V1
 							metadata[schemaId] = value;
 
 							// Add metadata object if it does not already exist
-							if (referencedMetadataObjects.Where(i => i.MetadataSchemaId == schemaId).Select(i => i.Metadata).All(i => i[schemaId] != value))
+							if (referencedListItems.Where(i => i.SchemaId == schemaId).Select(i => i.Metadata).All(i => i[schemaId] != value))
 							{
-								referencedMetadataObjects.Insert(0, new MetadataObjectCreateRequest
+								referencedListItems.Insert(0, new ListItemCreateRequest
 								{
-									MetadataSchemaId = schemaId,
+									SchemaId = schemaId,
 									Metadata = metadata
 								});
 							}

@@ -2,12 +2,12 @@
 
 namespace Picturepark.SDK.V1
 {
-	public partial class PermissionsClient
-    {
-		public PermissionsClient(string baseUrl, IAuthClient authClient)
-            : base(authClient)
+	public partial class PermissionClient
+	{
+		public PermissionClient(string baseUrl, IAuthClient authClient)
+			: base(authClient)
 		{
-            BaseUrl = baseUrl;
+			BaseUrl = baseUrl;
 		}
 	}
 }

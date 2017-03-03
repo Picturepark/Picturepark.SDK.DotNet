@@ -11,9 +11,9 @@ namespace Picturepark.SDK.V1
     #pragma warning disable // Disable all warnings
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.6.6264.40734")]
-    public partial class AssetsClient : ClientBase, IAssetsClient
+    public partial class ContentClient : ClientBase, IContentClient
     {
-        public AssetsClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
+        public ContentClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -22,23 +22,23 @@ namespace Picturepark.SDK.V1
         partial void ProcessResponse(System.Net.Http.HttpClient request, System.Net.Http.HttpResponseMessage response);
     
         /// <summary>Aggregate fields</summary>
-        /// <param name="assetAggregationRequest">Aggregation request. Required.</param>
+        /// <param name="contentAggregationRequest">Aggregation request. Required.</param>
         /// <returns>Aggregation results.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public ObjectAggregationResult Aggregate(AssetAggregationRequest assetAggregationRequest)
+        public ObjectAggregationResult Aggregate(ContentAggregationRequest contentAggregationRequest)
         {
-            return System.Threading.Tasks.Task.Run(async () => await AggregateAsync(assetAggregationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await AggregateAsync(contentAggregationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Aggregate fields</summary>
-        /// <param name="assetAggregationRequest">Aggregation request. Required.</param>
+        /// <param name="contentAggregationRequest">Aggregation request. Required.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Aggregation results.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(AssetAggregationRequest assetAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ContentAggregationRequest contentAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/Aggregate");
+            urlBuilder_.Append("Service/Contents/Aggregate");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -49,7 +49,7 @@ namespace Picturepark.SDK.V1
                     var url_ = urlBuilder_.ToString();
                     PrepareRequest(client_, url_);
     
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(assetAggregationRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentAggregationRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
                     content_.Headers.ContentType.MediaType = "application/json";
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -122,20 +122,20 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public ObjectAggregationResult AggregateByChannel(string channelId, AssetAggregationRequest assetAggregationRequest)
+        public ObjectAggregationResult AggregateByChannel(string channelId, ContentAggregationRequest contentAggregationRequest)
         {
-            return System.Threading.Tasks.Task.Run(async () => await AggregateByChannelAsync(channelId, assetAggregationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await AggregateByChannelAsync(channelId, contentAggregationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateByChannelAsync(string channelId, AssetAggregationRequest assetAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateByChannelAsync(string channelId, ContentAggregationRequest contentAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (channelId == null)
                 throw new System.ArgumentNullException("channelId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/{ChannelId}/Aggregate");
+            urlBuilder_.Append("Service/Contents/{ChannelId}/Aggregate");
             urlBuilder_.Replace("{ChannelId}", System.Uri.EscapeDataString(channelId.ToString()));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -147,7 +147,7 @@ namespace Picturepark.SDK.V1
                     var url_ = urlBuilder_.ToString();
                     PrepareRequest(client_, url_);
     
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(assetAggregationRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentAggregationRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
                     content_.Headers.ContentType.MediaType = "application/json";
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -220,17 +220,17 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public AssetBatchDownloadItem CreateBatchAssetDownload(AssetBatchDownloadRequest request)
+        public ContentBatchDownloadItem CreateBatchContentDownload(ContentBatchDownloadRequest request)
         {
-            return System.Threading.Tasks.Task.Run(async () => await CreateBatchAssetDownloadAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await CreateBatchContentDownloadAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<AssetBatchDownloadItem> CreateBatchAssetDownloadAsync(AssetBatchDownloadRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentBatchDownloadItem> CreateBatchContentDownloadAsync(ContentBatchDownloadRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/CreateBatchAssetDownload");
+            urlBuilder_.Append("Service/Contents/CreateBatchContentDownload");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -279,10 +279,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(AssetBatchDownloadItem); 
+                            var result_ = default(ContentBatchDownloadItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<AssetBatchDownloadItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBatchDownloadItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -297,7 +297,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(AssetBatchDownloadItem);
+                        return default(ContentBatchDownloadItem);
                     }
                     finally
                     {
@@ -314,20 +314,20 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public AssetDetailViewItem CreateVirtualAssets(CreateVirtualAssetRequest createVirtualAssetRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
+        public ContentDetailViewItem CreateVirtualContents(CreateVirtualContentRequest createVirtualContentRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await CreateVirtualAssetsAsync(createVirtualAssetRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await CreateVirtualContentsAsync(createVirtualContentRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<AssetDetailViewItem> CreateVirtualAssetsAsync(CreateVirtualAssetRequest createVirtualAssetRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentDetailViewItem> CreateVirtualContentsAsync(CreateVirtualContentRequest createVirtualContentRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets?");
+            urlBuilder_.Append("Service/Contents?");
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(resolve.ToString())).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.Value.ToString())).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
@@ -342,7 +342,7 @@ namespace Picturepark.SDK.V1
                     var url_ = urlBuilder_.ToString();
                     PrepareRequest(client_, url_);
     
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(createVirtualAssetRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(createVirtualContentRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
                     content_.Headers.ContentType.MediaType = "application/json";
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -380,10 +380,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(AssetDetailViewItem); 
+                            var result_ = default(ContentDetailViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<AssetDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -398,7 +398,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(AssetDetailViewItem);
+                        return default(ContentDetailViewItem);
                     }
                     finally
                     {
@@ -415,24 +415,24 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public FileResponse Download(string assetId, string outputFormatId, string range = null)
+        public FileResponse Download(string contentId, string outputFormatId, string range = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await DownloadAsync(assetId, outputFormatId, range, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await DownloadAsync(contentId, outputFormatId, range, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<FileResponse> DownloadAsync(string assetId, string outputFormatId, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileResponse> DownloadAsync(string contentId, string outputFormatId, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (assetId == null)
-                throw new System.ArgumentNullException("assetId");
+            if (contentId == null)
+                throw new System.ArgumentNullException("contentId");
     
             if (outputFormatId == null)
                 throw new System.ArgumentNullException("outputFormatId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/Downloads/{AssetId}/{OutputFormatId}");
-            urlBuilder_.Replace("{AssetId}", System.Uri.EscapeDataString(assetId.ToString()));
+            urlBuilder_.Append("Service/Contents/Downloads/{ContentId}/{OutputFormatId}");
+            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(contentId.ToString()));
             urlBuilder_.Replace("{OutputFormatId}", System.Uri.EscapeDataString(outputFormatId.ToString()));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -513,31 +513,31 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Provides a lightweight endpoint to get asset thumbnails</summary>
-        /// <param name="assetId">Asset id</param>
+        /// <summary>Provides a lightweight endpoint to get content thumbnails</summary>
+        /// <param name="contentId">Content id</param>
         /// <param name="size">Thumbnail size. Either small, medium or large</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public FileResponse DownloadThumbnail(string assetId, ThumbnailSize size)
+        public FileResponse DownloadThumbnail(string contentId, ThumbnailSize size)
         {
-            return System.Threading.Tasks.Task.Run(async () => await DownloadThumbnailAsync(assetId, size, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await DownloadThumbnailAsync(contentId, size, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
-        /// <summary>Provides a lightweight endpoint to get asset thumbnails</summary>
-        /// <param name="assetId">Asset id</param>
+        /// <summary>Provides a lightweight endpoint to get content thumbnails</summary>
+        /// <param name="contentId">Content id</param>
         /// <param name="size">Thumbnail size. Either small, medium or large</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<FileResponse> DownloadThumbnailAsync(string assetId, ThumbnailSize size, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileResponse> DownloadThumbnailAsync(string contentId, ThumbnailSize size, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (assetId == null)
-                throw new System.ArgumentNullException("assetId");
+            if (contentId == null)
+                throw new System.ArgumentNullException("contentId");
     
             if (size == null)
                 throw new System.ArgumentNullException("size");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/Thumbnails/{AssetId}/{Size}");
-            urlBuilder_.Replace("{AssetId}", System.Uri.EscapeDataString(assetId.ToString()));
+            urlBuilder_.Append("Service/Contents/Thumbnails/{ContentId}/{Size}");
+            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(contentId.ToString()));
             urlBuilder_.Replace("{Size}", System.Uri.EscapeDataString(size.ToString()));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -618,17 +618,17 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public FileResponse DownloadResized(string assetId, string outputFormatId, int width, int height)
+        public FileResponse DownloadResized(string contentId, string outputFormatId, int width, int height)
         {
-            return System.Threading.Tasks.Task.Run(async () => await DownloadResizedAsync(assetId, outputFormatId, width, height, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await DownloadResizedAsync(contentId, outputFormatId, width, height, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<FileResponse> DownloadResizedAsync(string assetId, string outputFormatId, int width, int height, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileResponse> DownloadResizedAsync(string contentId, string outputFormatId, int width, int height, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (assetId == null)
-                throw new System.ArgumentNullException("assetId");
+            if (contentId == null)
+                throw new System.ArgumentNullException("contentId");
     
             if (outputFormatId == null)
                 throw new System.ArgumentNullException("outputFormatId");
@@ -640,8 +640,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("height");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/Downloads/{AssetId}/{OutputFormatId}/{Width}/{Height}");
-            urlBuilder_.Replace("{AssetId}", System.Uri.EscapeDataString(assetId.ToString()));
+            urlBuilder_.Append("Service/Contents/Downloads/{ContentId}/{OutputFormatId}/{Width}/{Height}");
+            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(contentId.ToString()));
             urlBuilder_.Replace("{OutputFormatId}", System.Uri.EscapeDataString(outputFormatId.ToString()));
             urlBuilder_.Replace("{Width}", System.Uri.EscapeDataString(width.ToString()));
             urlBuilder_.Replace("{Height}", System.Uri.EscapeDataString(height.ToString()));
@@ -724,24 +724,24 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public AssetDetailViewItem Get(string assetId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null)
+        public ContentDetailViewItem Get(string contentId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetAsync(assetId, resolve, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetAsync(contentId, resolve, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<AssetDetailViewItem> GetAsync(string assetId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentDetailViewItem> GetAsync(string contentId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (assetId == null)
-                throw new System.ArgumentNullException("assetId");
+            if (contentId == null)
+                throw new System.ArgumentNullException("contentId");
     
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/{AssetId}?");
-            urlBuilder_.Replace("{AssetId}", System.Uri.EscapeDataString(assetId.ToString()));
+            urlBuilder_.Append("Service/Contents/{ContentId}?");
+            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(contentId.ToString()));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(resolve.ToString())).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
             urlBuilder_.Length--;
@@ -790,25 +790,25 @@ namespace Picturepark.SDK.V1
                         if (status_ == "404") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(AssetNotFoundException); 
+                            var result_ = default(ContentNotFoundException); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<AssetNotFoundException>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentNotFoundException>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                             } 
                             catch (System.Exception exception) 
                             {
                                 throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
                             }
-                            throw new ApiException<AssetNotFoundException>("A server side error occurred.", status_, responseData_, headers_, result_, null);
+                            throw new ApiException<ContentNotFoundException>("A server side error occurred.", status_, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(AssetDetailViewItem); 
+                            var result_ = default(ContentDetailViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<AssetDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -823,7 +823,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(AssetDetailViewItem);
+                        return default(ContentDetailViewItem);
                     }
                     finally
                     {
@@ -840,24 +840,24 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public AssetDetailViewItem UpdateMetadata(string assetId, UpdateAssetMetadataRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
+        public ContentDetailViewItem UpdateMetadata(string contentId, UpdateContentMetadataRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await UpdateMetadataAsync(assetId, updateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await UpdateMetadataAsync(contentId, updateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<AssetDetailViewItem> UpdateMetadataAsync(string assetId, UpdateAssetMetadataRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentDetailViewItem> UpdateMetadataAsync(string contentId, UpdateContentMetadataRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (assetId == null)
-                throw new System.ArgumentNullException("assetId");
+            if (contentId == null)
+                throw new System.ArgumentNullException("contentId");
     
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/{AssetId}?");
-            urlBuilder_.Replace("{AssetId}", System.Uri.EscapeDataString(assetId.ToString()));
+            urlBuilder_.Append("Service/Contents/{ContentId}?");
+            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(contentId.ToString()));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(resolve.ToString())).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.Value.ToString())).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
@@ -910,10 +910,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(AssetDetailViewItem); 
+                            var result_ = default(ContentDetailViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<AssetDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -928,7 +928,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(AssetDetailViewItem);
+                        return default(ContentDetailViewItem);
                     }
                     finally
                     {
@@ -945,24 +945,24 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public AssetDetailViewItem UpdatePermissions(string assetId, UpdateAssetPermissionsRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
+        public ContentDetailViewItem UpdatePermissions(string contentId, UpdateContentPermissionsRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await UpdatePermissionsAsync(assetId, updateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await UpdatePermissionsAsync(contentId, updateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<AssetDetailViewItem> UpdatePermissionsAsync(string assetId, UpdateAssetPermissionsRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentDetailViewItem> UpdatePermissionsAsync(string contentId, UpdateContentPermissionsRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (assetId == null)
-                throw new System.ArgumentNullException("assetId");
+            if (contentId == null)
+                throw new System.ArgumentNullException("contentId");
     
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/{AssetId}/Permissions?");
-            urlBuilder_.Replace("{AssetId}", System.Uri.EscapeDataString(assetId.ToString()));
+            urlBuilder_.Append("Service/Contents/{ContentId}/Permissions?");
+            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(contentId.ToString()));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(resolve.ToString())).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.Value.ToString())).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
@@ -1015,10 +1015,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(AssetDetailViewItem); 
+                            var result_ = default(ContentDetailViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<AssetDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -1033,7 +1033,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(AssetDetailViewItem);
+                        return default(ContentDetailViewItem);
                     }
                     finally
                     {
@@ -1050,17 +1050,17 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public AssetSearchResult Search(AssetSearchRequest assetSearchRequest)
+        public ContentSearchResult Search(ContentSearchRequest contentSearchRequest)
         {
-            return System.Threading.Tasks.Task.Run(async () => await SearchAsync(assetSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await SearchAsync(contentSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<AssetSearchResult> SearchAsync(AssetSearchRequest assetSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentSearchResult> SearchAsync(ContentSearchRequest contentSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/Search");
+            urlBuilder_.Append("Service/Contents/Search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1071,7 +1071,7 @@ namespace Picturepark.SDK.V1
                     var url_ = urlBuilder_.ToString();
                     PrepareRequest(client_, url_);
     
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(assetSearchRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentSearchRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
                     content_.Headers.ContentType.MediaType = "application/json";
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -1109,10 +1109,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(AssetSearchResult); 
+                            var result_ = default(ContentSearchResult); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<AssetSearchResult>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSearchResult>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -1127,7 +1127,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(AssetSearchResult);
+                        return default(ContentSearchResult);
                     }
                     finally
                     {
@@ -1144,20 +1144,20 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public AssetSearchResult SearchByChannel(string channelId, AssetSearchRequest assetSearchRequest)
+        public ContentSearchResult SearchByChannel(string channelId, ContentSearchRequest contentSearchRequest)
         {
-            return System.Threading.Tasks.Task.Run(async () => await SearchByChannelAsync(channelId, assetSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await SearchByChannelAsync(channelId, contentSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<AssetSearchResult> SearchByChannelAsync(string channelId, AssetSearchRequest assetSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentSearchResult> SearchByChannelAsync(string channelId, ContentSearchRequest contentSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (channelId == null)
                 throw new System.ArgumentNullException("channelId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/{ChannelId}/Search");
+            urlBuilder_.Append("Service/Contents/{ChannelId}/Search");
             urlBuilder_.Replace("{ChannelId}", System.Uri.EscapeDataString(channelId.ToString()));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -1169,7 +1169,7 @@ namespace Picturepark.SDK.V1
                     var url_ = urlBuilder_.ToString();
                     PrepareRequest(client_, url_);
     
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(assetSearchRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentSearchRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
                     content_.Headers.ContentType.MediaType = "application/json";
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -1207,10 +1207,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(AssetSearchResult); 
+                            var result_ = default(ContentSearchResult); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<AssetSearchResult>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSearchResult>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -1225,7 +1225,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(AssetSearchResult);
+                        return default(ContentSearchResult);
                     }
                     finally
                     {
@@ -1242,24 +1242,24 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public void Deactivate(string assetId, int timeout)
+        public void Deactivate(string contentId, int timeout)
         {
-            System.Threading.Tasks.Task.Run(async () => await DeactivateAsync(assetId, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await DeactivateAsync(contentId, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task DeactivateAsync(string assetId, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeactivateAsync(string contentId, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (assetId == null)
-                throw new System.ArgumentNullException("assetId");
+            if (contentId == null)
+                throw new System.ArgumentNullException("contentId");
     
             if (timeout == null)
                 throw new System.ArgumentNullException("timeout");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/{AssetId}/Deactivate?");
-            urlBuilder_.Replace("{AssetId}", System.Uri.EscapeDataString(assetId.ToString()));
+            urlBuilder_.Append("Service/Contents/{ContentId}/Deactivate?");
+            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(contentId.ToString()));
             urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.ToString())).Append("&");
             urlBuilder_.Length--;
     
@@ -1332,24 +1332,24 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public AssetDetailViewItem Reactivate(string assetId, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
+        public ContentDetailViewItem Reactivate(string contentId, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await ReactivateAsync(assetId, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await ReactivateAsync(contentId, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<AssetDetailViewItem> ReactivateAsync(string assetId, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentDetailViewItem> ReactivateAsync(string contentId, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (assetId == null)
-                throw new System.ArgumentNullException("assetId");
+            if (contentId == null)
+                throw new System.ArgumentNullException("contentId");
     
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/{AssetId}/Reactivate?");
-            urlBuilder_.Replace("{AssetId}", System.Uri.EscapeDataString(assetId.ToString()));
+            urlBuilder_.Append("Service/Contents/{ContentId}/Reactivate?");
+            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(contentId.ToString()));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(resolve.ToString())).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.Value.ToString())).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
@@ -1401,10 +1401,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(AssetDetailViewItem); 
+                            var result_ = default(ContentDetailViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<AssetDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -1419,7 +1419,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(AssetDetailViewItem);
+                        return default(ContentDetailViewItem);
                     }
                     finally
                     {
@@ -1436,17 +1436,17 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public BusinessProcessViewItem DeactivateMany(AssetDeactivationRequest deactivationRequest)
+        public BusinessProcessViewItem DeactivateMany(ContentDeactivationRequest deactivationRequest)
         {
             return System.Threading.Tasks.Task.Run(async () => await DeactivateManyAsync(deactivationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BusinessProcessViewItem> DeactivateManyAsync(AssetDeactivationRequest deactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BusinessProcessViewItem> DeactivateManyAsync(ContentDeactivationRequest deactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/Many/Deactivate");
+            urlBuilder_.Append("Service/Contents/Many/Deactivate");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1530,17 +1530,17 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public BusinessProcessViewItem ReactivateMany(AssetReactivationRequest reactivationRequest)
+        public BusinessProcessViewItem ReactivateMany(ContentReactivationRequest reactivationRequest)
         {
             return System.Threading.Tasks.Task.Run(async () => await ReactivateManyAsync(reactivationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BusinessProcessViewItem> ReactivateManyAsync(AssetReactivationRequest reactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BusinessProcessViewItem> ReactivateManyAsync(ContentReactivationRequest reactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/Many/Reactivate");
+            urlBuilder_.Append("Service/Contents/Many/Reactivate");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1624,17 +1624,17 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public BusinessProcessViewItem UpdateMetadataMany(AssetsMetadataUpdateRequest updateRequest)
+        public BusinessProcessViewItem UpdateMetadataMany(ContentsMetadataUpdateRequest updateRequest)
         {
             return System.Threading.Tasks.Task.Run(async () => await UpdateMetadataManyAsync(updateRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BusinessProcessViewItem> UpdateMetadataManyAsync(AssetsMetadataUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BusinessProcessViewItem> UpdateMetadataManyAsync(ContentsMetadataUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/Many/Metadata");
+            urlBuilder_.Append("Service/Contents/Many/Metadata");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1718,17 +1718,17 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public BusinessProcessViewItem UpdatePermissionsMany(System.Collections.Generic.IEnumerable<UpdateAssetPermissionsRequest> updateRequest)
+        public BusinessProcessViewItem UpdatePermissionsMany(System.Collections.Generic.IEnumerable<UpdateContentPermissionsRequest> updateRequest)
         {
             return System.Threading.Tasks.Task.Run(async () => await UpdatePermissionsManyAsync(updateRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BusinessProcessViewItem> UpdatePermissionsManyAsync(System.Collections.Generic.IEnumerable<UpdateAssetPermissionsRequest> updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BusinessProcessViewItem> UpdatePermissionsManyAsync(System.Collections.Generic.IEnumerable<UpdateContentPermissionsRequest> updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Assets/Many/Permissions");
+            urlBuilder_.Append("Service/Contents/Many/Permissions");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1814,9 +1814,9 @@ namespace Picturepark.SDK.V1
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.6.6264.40734")]
-    public partial class BusinessProcessesClient : ClientBase, IBusinessProcessesClient
+    public partial class BusinessProcessClient : ClientBase, IBusinessProcessClient
     {
-        public BusinessProcessesClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
+        public BusinessProcessClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -2691,9 +2691,9 @@ namespace Picturepark.SDK.V1
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.6.6264.40734")]
-    public partial class JsonSchemasClient : ClientBase, IJsonSchemasClient
+    public partial class JsonSchemaClient : ClientBase, IJsonSchemaClient
     {
-        public JsonSchemasClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
+        public JsonSchemaClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -2799,9 +2799,9 @@ namespace Picturepark.SDK.V1
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.6.6264.40734")]
-    public partial class MetadataObjectsClient : ClientBase, IMetadataObjectsClient
+    public partial class ListItemClient : ClientBase, IListItemClient
     {
-        public MetadataObjectsClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
+        public ListItemClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -2810,20 +2810,20 @@ namespace Picturepark.SDK.V1
         partial void ProcessResponse(System.Net.Http.HttpClient request, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public MetadataObjectDetailViewItem Create(MetadataObjectCreateRequest metadataObject, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
+        public ListItemDetailViewItem Create(ListItemCreateRequest listItem, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await CreateAsync(metadataObject, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await CreateAsync(listItem, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<MetadataObjectDetailViewItem> CreateAsync(MetadataObjectCreateRequest metadataObject, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListItemDetailViewItem> CreateAsync(ListItemCreateRequest listItem, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataObjects?");
+            urlBuilder_.Append("Service/ListItems?");
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(resolve.ToString())).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.Value.ToString())).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
@@ -2838,7 +2838,7 @@ namespace Picturepark.SDK.V1
                     var url_ = urlBuilder_.ToString();
                     PrepareRequest(client_, url_);
     
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(metadataObject, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(listItem, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
                     content_.Headers.ContentType.MediaType = "application/json";
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -2876,10 +2876,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(MetadataObjectDetailViewItem); 
+                            var result_ = default(ListItemDetailViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataObjectDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -2894,7 +2894,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(MetadataObjectDetailViewItem);
+                        return default(ListItemDetailViewItem);
                     }
                     finally
                     {
@@ -2911,17 +2911,17 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        protected BusinessProcessViewItem CreateManyCore(System.Collections.Generic.IEnumerable<MetadataObjectCreateRequest> objects)
+        protected BusinessProcessViewItem CreateManyCore(System.Collections.Generic.IEnumerable<ListItemCreateRequest> objects)
         {
             return System.Threading.Tasks.Task.Run(async () => await CreateManyCoreAsync(objects, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        protected async System.Threading.Tasks.Task<BusinessProcessViewItem> CreateManyCoreAsync(System.Collections.Generic.IEnumerable<MetadataObjectCreateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        protected async System.Threading.Tasks.Task<BusinessProcessViewItem> CreateManyCoreAsync(System.Collections.Generic.IEnumerable<ListItemCreateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataObjects/Many");
+            urlBuilder_.Append("Service/ListItems/Many");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3015,7 +3015,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcessViewItem> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataObjects/Many?");
+            urlBuilder_.Append("Service/ListItems/Many?");
             if (ids != null) foreach (var item_ in ids) { urlBuilder_.Append("ids=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
             urlBuilder_.Length--;
     
@@ -3098,17 +3098,17 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public BusinessProcessViewItem UpdateMany(System.Collections.Generic.IEnumerable<MetadataObjectUpdateRequest> objects)
+        public BusinessProcessViewItem UpdateMany(System.Collections.Generic.IEnumerable<ListItemUpdateRequest> objects)
         {
             return System.Threading.Tasks.Task.Run(async () => await UpdateManyAsync(objects, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BusinessProcessViewItem> UpdateManyAsync(System.Collections.Generic.IEnumerable<MetadataObjectUpdateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BusinessProcessViewItem> UpdateManyAsync(System.Collections.Generic.IEnumerable<ListItemUpdateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataObjects/Many");
+            urlBuilder_.Append("Service/ListItems/Many");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3192,17 +3192,17 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public ObjectAggregationResult Aggregate(MetadataObjectAggregationRequest metadataObjectAggregationRequest)
+        public ObjectAggregationResult Aggregate(ListItemAggregationRequest listItemAggregationRequest)
         {
-            return System.Threading.Tasks.Task.Run(async () => await AggregateAsync(metadataObjectAggregationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await AggregateAsync(listItemAggregationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(MetadataObjectAggregationRequest metadataObjectAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ListItemAggregationRequest listItemAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataObjects/Aggregate");
+            urlBuilder_.Append("Service/ListItems/Aggregate");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3213,7 +3213,7 @@ namespace Picturepark.SDK.V1
                     var url_ = urlBuilder_.ToString();
                     PrepareRequest(client_, url_);
     
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(metadataObjectAggregationRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(listItemAggregationRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
                     content_.Headers.ContentType.MediaType = "application/json";
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -3286,17 +3286,17 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public BaseResultOfMetadataObjectViewItem Search(MetadataObjectSearchRequest metadataObjectSearchRequest)
+        public BaseResultOfListItemViewItem Search(ListItemSearchRequest listItemSearchRequest)
         {
-            return System.Threading.Tasks.Task.Run(async () => await SearchAsync(metadataObjectSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await SearchAsync(listItemSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BaseResultOfMetadataObjectViewItem> SearchAsync(MetadataObjectSearchRequest metadataObjectSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BaseResultOfListItemViewItem> SearchAsync(ListItemSearchRequest listItemSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataObjects/Search");
+            urlBuilder_.Append("Service/ListItems/Search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3307,7 +3307,7 @@ namespace Picturepark.SDK.V1
                     var url_ = urlBuilder_.ToString();
                     PrepareRequest(client_, url_);
     
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(metadataObjectSearchRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(listItemSearchRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
                     content_.Headers.ContentType.MediaType = "application/json";
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -3345,10 +3345,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BaseResultOfMetadataObjectViewItem); 
+                            var result_ = default(BaseResultOfListItemViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfMetadataObjectViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfListItemViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -3363,7 +3363,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(BaseResultOfMetadataObjectViewItem);
+                        return default(BaseResultOfListItemViewItem);
                     }
                     finally
                     {
@@ -3396,7 +3396,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("timeout");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataObjects/{ObjectId}?");
+            urlBuilder_.Append("Service/ListItems/{ObjectId}?");
             urlBuilder_.Replace("{ObjectId}", System.Uri.EscapeDataString(objectId.ToString()));
             urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.ToString())).Append("&");
             urlBuilder_.Length--;
@@ -3468,24 +3468,24 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public MetadataObjectDetailViewItem Get(string objectId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null)
+        public ListItemDetailViewItem Get(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetAsync(objectId, resolve, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetAsync(listItemId, resolve, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<MetadataObjectDetailViewItem> GetAsync(string objectId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListItemDetailViewItem> GetAsync(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (objectId == null)
-                throw new System.ArgumentNullException("objectId");
+            if (listItemId == null)
+                throw new System.ArgumentNullException("listItemId");
     
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataObjects/{ObjectId}?");
-            urlBuilder_.Replace("{ObjectId}", System.Uri.EscapeDataString(objectId.ToString()));
+            urlBuilder_.Append("Service/ListItems/{ListItemId}?");
+            urlBuilder_.Replace("{ListItemId}", System.Uri.EscapeDataString(listItemId.ToString()));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(resolve.ToString())).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
             urlBuilder_.Length--;
@@ -3534,10 +3534,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(MetadataObjectDetailViewItem); 
+                            var result_ = default(ListItemDetailViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataObjectDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -3558,7 +3558,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(MetadataObjectDetailViewItem);
+                        return default(ListItemDetailViewItem);
                     }
                     finally
                     {
@@ -3575,24 +3575,24 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public MetadataObjectDetailViewItem Update(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
+        public ListItemDetailViewItem Update(string listItemId, ListItemUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await UpdateAsync(objectId, updateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await UpdateAsync(listItemId, updateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<MetadataObjectDetailViewItem> UpdateAsync(string objectId, MetadataObjectUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListItemDetailViewItem> UpdateAsync(string listItemId, ListItemUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (objectId == null)
-                throw new System.ArgumentNullException("objectId");
+            if (listItemId == null)
+                throw new System.ArgumentNullException("listItemId");
     
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataObjects/{ObjectId}?");
-            urlBuilder_.Replace("{ObjectId}", System.Uri.EscapeDataString(objectId.ToString()));
+            urlBuilder_.Append("Service/ListItems/{ListItemId}?");
+            urlBuilder_.Replace("{ListItemId}", System.Uri.EscapeDataString(listItemId.ToString()));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(resolve.ToString())).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.Value.ToString())).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
@@ -3645,10 +3645,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(MetadataObjectDetailViewItem); 
+                            var result_ = default(ListItemDetailViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataObjectDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -3663,7 +3663,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(MetadataObjectDetailViewItem);
+                        return default(ListItemDetailViewItem);
                     }
                     finally
                     {
@@ -3696,7 +3696,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("timeout");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataObjects/{ProcessId}/Wait?");
+            urlBuilder_.Append("Service/ListItems/{ProcessId}/Wait?");
             urlBuilder_.Replace("{ProcessId}", System.Uri.EscapeDataString(processId.ToString()));
             urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout.ToString())).Append("&");
             if (states != null) foreach (var item_ in states) { urlBuilder_.Append("States=").Append(System.Uri.EscapeDataString(item_.ToString())).Append("&"); }
@@ -3781,21 +3781,21 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public void Import(string assetId, string fileTransferId, bool includeObjects)
+        public void Import(string contentId, string fileTransferId, bool includeObjects)
         {
-            System.Threading.Tasks.Task.Run(async () => await ImportAsync(assetId, fileTransferId, includeObjects, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await ImportAsync(contentId, fileTransferId, includeObjects, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task ImportAsync(string assetId, string fileTransferId, bool includeObjects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task ImportAsync(string contentId, string fileTransferId, bool includeObjects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (includeObjects == null)
                 throw new System.ArgumentNullException("includeObjects");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataObjects/Import?");
-            if (assetId != null) urlBuilder_.Append("assetId=").Append(System.Uri.EscapeDataString(assetId.ToString())).Append("&");
+            urlBuilder_.Append("Service/ListItems/Import?");
+            if (contentId != null) urlBuilder_.Append("contentId=").Append(System.Uri.EscapeDataString(contentId.ToString())).Append("&");
             if (fileTransferId != null) urlBuilder_.Append("fileTransferId=").Append(System.Uri.EscapeDataString(fileTransferId.ToString())).Append("&");
             urlBuilder_.Append("includeObjects=").Append(System.Uri.EscapeDataString(includeObjects.ToString())).Append("&");
             urlBuilder_.Length--;
@@ -3869,9 +3869,9 @@ namespace Picturepark.SDK.V1
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.6.6264.40734")]
-    public partial class MetadataSchemasClient : ClientBase, IMetadataSchemasClient
+    public partial class SchemaClient : ClientBase, ISchemaClient
     {
-        public MetadataSchemasClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
+        public SchemaClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -3880,20 +3880,20 @@ namespace Picturepark.SDK.V1
         partial void ProcessResponse(System.Net.Http.HttpClient request, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public MetadataSchemaDetailViewItem Get(string schemaId)
+        public SchemaDetailViewItem Get(string schemaId)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetAsync(schemaId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<MetadataSchemaDetailViewItem> GetAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SchemaDetailViewItem> GetAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (schemaId == null)
                 throw new System.ArgumentNullException("schemaId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataSchemas/{SchemaId}");
+            urlBuilder_.Append("Service/Schemas/{SchemaId}");
             urlBuilder_.Replace("{SchemaId}", System.Uri.EscapeDataString(schemaId.ToString()));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -3940,10 +3940,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(MetadataSchemaDetailViewItem); 
+                            var result_ = default(SchemaDetailViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataSchemaDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -3958,7 +3958,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(MetadataSchemaDetailViewItem);
+                        return default(SchemaDetailViewItem);
                     }
                     finally
                     {
@@ -3975,20 +3975,20 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        protected BusinessProcessViewItem UpdateCore(string schemaId, MetadataSchemaUpdateRequest schema)
+        protected BusinessProcessViewItem UpdateCore(string schemaId, SchemaUpdateRequest schema)
         {
             return System.Threading.Tasks.Task.Run(async () => await UpdateCoreAsync(schemaId, schema, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        protected async System.Threading.Tasks.Task<BusinessProcessViewItem> UpdateCoreAsync(string schemaId, MetadataSchemaUpdateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        protected async System.Threading.Tasks.Task<BusinessProcessViewItem> UpdateCoreAsync(string schemaId, SchemaUpdateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (schemaId == null)
                 throw new System.ArgumentNullException("schemaId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataSchemas/{SchemaId}");
+            urlBuilder_.Append("Service/Schemas/{SchemaId}");
             urlBuilder_.Replace("{SchemaId}", System.Uri.EscapeDataString(schemaId.ToString()));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -4086,7 +4086,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("schemaId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataSchemas/{SchemaId}");
+            urlBuilder_.Append("Service/Schemas/{SchemaId}");
             urlBuilder_.Replace("{SchemaId}", System.Uri.EscapeDataString(schemaId.ToString()));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -4181,7 +4181,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("schemaId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataSchemas/{SchemaId}/Exists?");
+            urlBuilder_.Append("Service/Schemas/{SchemaId}/Exists?");
             urlBuilder_.Replace("{SchemaId}", System.Uri.EscapeDataString(schemaId.ToString()));
             if (fieldId != null) urlBuilder_.Append("fieldId=").Append(System.Uri.EscapeDataString(fieldId.ToString())).Append("&");
             urlBuilder_.Length--;
@@ -4265,17 +4265,17 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public BusinessProcessViewItem Create(MetadataSchemaCreateRequest schema)
+        public BusinessProcessViewItem Create(SchemaCreateRequest schema)
         {
             return System.Threading.Tasks.Task.Run(async () => await CreateAsync(schema, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BusinessProcessViewItem> CreateAsync(MetadataSchemaCreateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BusinessProcessViewItem> CreateAsync(SchemaCreateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataSchemas");
+            urlBuilder_.Append("Service/Schemas");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -4359,17 +4359,17 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public BaseResultOfMetadataSchemaViewItem Search(MetadataSchemaSearchRequest metadataSchemaSearchRequest)
+        public BaseResultOfSchemaViewItem Search(SchemaSearchRequest schemaSearchRequest)
         {
-            return System.Threading.Tasks.Task.Run(async () => await SearchAsync(metadataSchemaSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await SearchAsync(schemaSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BaseResultOfMetadataSchemaViewItem> SearchAsync(MetadataSchemaSearchRequest metadataSchemaSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BaseResultOfSchemaViewItem> SearchAsync(SchemaSearchRequest schemaSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/MetadataSchemas/Search");
+            urlBuilder_.Append("Service/Schemas/Search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -4380,7 +4380,7 @@ namespace Picturepark.SDK.V1
                     var url_ = urlBuilder_.ToString();
                     PrepareRequest(client_, url_);
     
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(metadataSchemaSearchRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(schemaSearchRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
                     content_.Headers.ContentType.MediaType = "application/json";
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -4418,10 +4418,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BaseResultOfMetadataSchemaViewItem); 
+                            var result_ = default(BaseResultOfSchemaViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfMetadataSchemaViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfSchemaViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -4436,7 +4436,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(BaseResultOfMetadataSchemaViewItem);
+                        return default(BaseResultOfSchemaViewItem);
                     }
                     finally
                     {
@@ -4455,9 +4455,9 @@ namespace Picturepark.SDK.V1
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.6.6264.40734")]
-    public partial class PermissionsClient : ClientBase, IPermissionsClient
+    public partial class PermissionClient : ClientBase, IPermissionClient
     {
-        public PermissionsClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
+        public PermissionClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -4466,17 +4466,17 @@ namespace Picturepark.SDK.V1
         partial void ProcessResponse(System.Net.Http.HttpClient request, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public PermissionSetSearchResult SearchAssetPermissions(PermissionSetSearchRequest request)
+        public PermissionSetSearchResult SearchContentPermissions(PermissionSetSearchRequest request)
         {
-            return System.Threading.Tasks.Task.Run(async () => await SearchAssetPermissionsAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await SearchContentPermissionsAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<PermissionSetSearchResult> SearchAssetPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PermissionSetSearchResult> SearchContentPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Permission/AssetPermissionSets/Search");
+            urlBuilder_.Append("Service/Permission/ContentPermissionSets/Search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -4560,20 +4560,20 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public AssetPermissionSetDetailViewItem GetAssetPermissions(string permissionSetId)
+        public ContentPermissionSetDetailViewItem GetContentPermissions(string permissionSetId)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetAssetPermissionsAsync(permissionSetId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetContentPermissionsAsync(permissionSetId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<AssetPermissionSetDetailViewItem> GetAssetPermissionsAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentPermissionSetDetailViewItem> GetContentPermissionsAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (permissionSetId == null)
                 throw new System.ArgumentNullException("permissionSetId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Permission/AssetPermissionSets/{PermissionSetId}");
+            urlBuilder_.Append("Service/Permission/ContentPermissionSets/{PermissionSetId}");
             urlBuilder_.Replace("{PermissionSetId}", System.Uri.EscapeDataString(permissionSetId.ToString()));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -4620,10 +4620,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(AssetPermissionSetDetailViewItem); 
+                            var result_ = default(ContentPermissionSetDetailViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<AssetPermissionSetDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -4638,7 +4638,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(AssetPermissionSetDetailViewItem);
+                        return default(ContentPermissionSetDetailViewItem);
                     }
                     finally
                     {
@@ -4952,9 +4952,9 @@ namespace Picturepark.SDK.V1
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.6.6264.40734")]
-    public partial class SharesClient : ClientBase, ISharesClient
+    public partial class ShareClient : ClientBase, IShareClient
     {
-        public SharesClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
+        public ShareClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -5530,14 +5530,14 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public BaseResultOfShareViewItem Search(AssetSearchRequest request)
+        public BaseResultOfShareViewItem Search(ContentSearchRequest request)
         {
             return System.Threading.Tasks.Task.Run(async () => await SearchAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BaseResultOfShareViewItem> SearchAsync(AssetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BaseResultOfShareViewItem> SearchAsync(ContentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("Service/Shares/Search");
@@ -5626,9 +5626,9 @@ namespace Picturepark.SDK.V1
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.6.6264.40734")]
-    public partial class TransfersClient : ClientBase, ITransfersClient
+    public partial class TransferClient : ClientBase, ITransferClient
     {
-        public TransfersClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
+        public TransferClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
         {
         }
     
@@ -6089,14 +6089,14 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public TransferViewItem ImportBatch(string transferId, FileTransfer2AssetCreateRequest request)
+        public TransferViewItem ImportBatch(string transferId, FileTransfer2ContentCreateRequest request)
         {
             return System.Threading.Tasks.Task.Run(async () => await ImportBatchAsync(transferId, request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<TransferViewItem> ImportBatchAsync(string transferId, FileTransfer2AssetCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransferViewItem> ImportBatchAsync(string transferId, FileTransfer2ContentCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (transferId == null)
                 throw new System.ArgumentNullException("transferId");
@@ -6187,14 +6187,14 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public TransferViewItem PartialImport(string transferId, FileTransferPartial2AssetCreateRequest request)
+        public TransferViewItem PartialImport(string transferId, FileTransferPartial2ContentCreateRequest request)
         {
             return System.Threading.Tasks.Task.Run(async () => await PartialImportAsync(transferId, request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<TransferViewItem> PartialImportAsync(string transferId, FileTransferPartial2AssetCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<TransferViewItem> PartialImportAsync(string transferId, FileTransferPartial2ContentCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (transferId == null)
                 throw new System.ArgumentNullException("transferId");
@@ -6584,9 +6584,9 @@ namespace Picturepark.SDK.V1
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.6.6264.40734")]
-    public partial class UsersClient : ClientBase, IUsersClient
+    public partial class UserClient : ClientBase, IUserClient
     {
-        public UsersClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
+        public UserClient(Picturepark.SDK.V1.Contract.Authentication.IAuthClient configuration) : base(configuration)
         {
         }
     

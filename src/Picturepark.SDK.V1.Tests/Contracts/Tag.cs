@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
 {
-	[PictureparkSchemaType(MetadataSchemaType.MetadataContent)]
+	[PictureparkSchemaType(SchemaType.List)]
 	public class Tag
 	{
 		public string Name { get; set; }

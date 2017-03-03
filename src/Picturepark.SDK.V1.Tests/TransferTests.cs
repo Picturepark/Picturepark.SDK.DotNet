@@ -176,12 +176,12 @@ namespace Picturepark.SDK.V1.Tests
 
 		internal async Task ImportBatchAsync(TransferViewItem transfer, string collectionName)
 		{
-			var request = new FileTransfer2AssetCreateRequest
+			var request = new FileTransfer2ContentCreateRequest
 			{
 				TransferId = transfer.Id,
-				AssetPermissionSetIds = new List<string>(),
+				ContentPermissionSetIds = new List<string>(),
 				Metadata = null,
-				MetadataSchemaIds = new List<string>()
+				SchemaIds = new List<string>()
 			};
 
 			await _client.Transfers.ImportBatchAsync(transfer, request);

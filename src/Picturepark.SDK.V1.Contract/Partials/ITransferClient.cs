@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Contract
 {
-    public partial interface ITransfersClient
+    public partial interface ITransferClient
     {
         Task UploadFilesAsync(
             IEnumerable<string> files,
@@ -16,7 +16,7 @@ namespace Picturepark.SDK.V1.Contract
             Action<Exception> errorDelegate = null
         );
 
-        Task ImportBatchAsync(TransferViewItem transfer, FileTransfer2AssetCreateRequest createRequest);
+        Task ImportBatchAsync(TransferViewItem transfer, FileTransfer2ContentCreateRequest createRequest);
 
         Task<TransferViewItem> CreateBatchAsync(CreateTransferRequest request);
 

@@ -24,7 +24,7 @@ To install `Picturepark.SDK`, run the following command in the Package Manager C
 var authClient = new UsernamePasswordAuthClient(basePath, username, password);
 using (var client = new PictureparkClient(tokenRefresher))
 {
-	var asset = await client.Assets.GetAsync(assetId);
+	var content = await client.Contents.GetAsync(contentId);
 }
 ```
 

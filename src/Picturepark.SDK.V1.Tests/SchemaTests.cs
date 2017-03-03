@@ -10,22 +10,22 @@ using Newtonsoft.Json;
 
 namespace Picturepark.SDK.V1.Tests
 {
-	public class MetadataSchemaTests : IClassFixture<SDKClientFixture>
+	public class SchemaTests : IClassFixture<SDKClientFixture>
 	{
 		private readonly SDKClientFixture _fixture;
 		private readonly PictureparkClient _client;
 
-		public MetadataSchemaTests(SDKClientFixture fixture)
+		public SchemaTests(SDKClientFixture fixture)
 		{
 			_fixture = fixture;
 			_client = _fixture.Client;
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataSchema")]
+		[Trait("Stack", "Schema")]
 		public async Task ShouldCreateAllTypesSchemaFromClass()
 		{
-			var schemas = new List<MetadataSchemaDetailViewItem>();
+			var schemas = new List<SchemaDetailViewItem>();
 
 			var allTypes = _client.Schemas.GenerateSchemaFromPOCO(typeof(AllDataTypesContract), schemas, true);
 
@@ -39,10 +39,10 @@ namespace Picturepark.SDK.V1.Tests
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataSchema")]
+		[Trait("Stack", "Schema")]
 		public async Task ShouldCreateFromClass()
 		{
-			var schemas = new List<MetadataSchemaDetailViewItem>();
+			var schemas = new List<SchemaDetailViewItem>();
 
 			var person = _client.Schemas.GenerateSchemaFromPOCO(typeof(Person), schemas, true);
 
@@ -58,9 +58,9 @@ namespace Picturepark.SDK.V1.Tests
 			}
 
 			var generatedPersonSchema = await _client.Schemas.GetAsync("Person");
-			Assert.Contains(generatedPersonSchema.Types, i => i == MetadataSchemaType.MetadataContent || i == MetadataSchemaType.Struct );
+			Assert.Contains(generatedPersonSchema.Types, i => i == SchemaType.List || i == SchemaType.Struct );
 
-			var schemasFromPersonShot = new List<MetadataSchemaDetailViewItem>();
+			var schemasFromPersonShot = new List<SchemaDetailViewItem>();
 			var personShot = _client.Schemas.GenerateSchemaFromPOCO(typeof(PersonShot), schemasFromPersonShot, true);
 
 			// Expect child schemas and referenced schemas to exist
@@ -76,10 +76,10 @@ namespace Picturepark.SDK.V1.Tests
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataSchema")]
+		[Trait("Stack", "Schema")]
 		public async Task ShouldDelete()
 		{
-			var schemas = new List<MetadataSchemaDetailViewItem>();
+			var schemas = new List<SchemaDetailViewItem>();
 			var tags = _client.Schemas.GenerateSchemaFromPOCO(typeof(Tag), schemas, true);
 
 			Assert.Equal(tags.Count, 1);
@@ -89,15 +89,15 @@ namespace Picturepark.SDK.V1.Tests
 
 			await _client.Schemas.CreateAsync(tag, false);
 
-			string metadataSchemaId = tag.Id;
+			string schemaId = tag.Id;
 
-			MetadataSchemaDetailViewItem schemaDetailViewItem = await _client.Schemas.GetAsync(metadataSchemaId);
+			SchemaDetailViewItem schemaDetailViewItem = await _client.Schemas.GetAsync(schemaId);
 			await _client.Schemas.DeleteAsync(schemaDetailViewItem.Id);
-			MetadataSchemaDetailViewItem deletedSchemaDetailViewItem = null;
+			SchemaDetailViewItem deletedSchemaDetailViewItem = null;
 
 			try
 			{
-				deletedSchemaDetailViewItem = await _client.Schemas.GetAsync(metadataSchemaId);
+				deletedSchemaDetailViewItem = await _client.Schemas.GetAsync(schemaId);
 			}
 			catch (Exception)
 			{
@@ -108,12 +108,12 @@ namespace Picturepark.SDK.V1.Tests
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataSchema")]
+		[Trait("Stack", "Schema")]
 		public async Task ShouldExist()
 		{
-			string metadataSchemaId = _fixture.GetRandomMetadataSchemaId(20);
+			string schemaId = _fixture.GetRandomSchemaId(20);
 
-			bool schemaExists = await _client.Schemas.ExistsAsync(metadataSchemaId);
+			bool schemaExists = await _client.Schemas.ExistsAsync(schemaId);
 			Assert.True(schemaExists);
 
 			schemaExists = await _client.Schemas.ExistsAsync("abcabcabcabc");
@@ -121,55 +121,55 @@ namespace Picturepark.SDK.V1.Tests
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataSchema")]
+		[Trait("Stack", "Schema")]
 		public async Task ShouldGet()
 		{
-			var request = new MetadataSchemaSearchRequest() { Start = 0, Limit = 100 };
-			BaseResultOfMetadataSchemaViewItem result = _client.Schemas.SearchAsync(request).Result;
+			var request = new SchemaSearchRequest() { Start = 0, Limit = 100 };
+			BaseResultOfSchemaViewItem result = _client.Schemas.SearchAsync(request).Result;
 			Assert.True(result.Results.Any());
 
-			List<string> metadataSchemaIds = result.Results.Select(i => i.Id).OrderBy(i => i).ToList();
-			var metadataSchemaIdsOk = new List<string>();
-			var metadataSchemaIdsNotOk = new List<string>();
+			List<string> schemaIds = result.Results.Select(i => i.Id).OrderBy(i => i).ToList();
+			var schemaIdsOk = new List<string>();
+			var schemaIdsNotOk = new List<string>();
 
-			foreach (var metadataSchemaId in metadataSchemaIds)
+			foreach (var schemaId in schemaIds)
 			{
 				try
 				{
-					var schema = await _client.Schemas.GetAsync(metadataSchemaId);
-					metadataSchemaIdsOk.Add(schema.Id);
+					var schema = await _client.Schemas.GetAsync(schemaId);
+					schemaIdsOk.Add(schema.Id);
 				}
 				catch
 				{
-					metadataSchemaIdsNotOk.Add(metadataSchemaId);
+					schemaIdsNotOk.Add(schemaId);
 				}
 			}
 
-			Assert.False(metadataSchemaIdsNotOk.Count > 0);
-			Assert.True(metadataSchemaIdsOk.Count > 0);
+			Assert.False(schemaIdsNotOk.Count > 0);
+			Assert.True(schemaIdsOk.Count > 0);
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataSchema")]
+		[Trait("Stack", "Schema")]
 		public async Task ShouldGetJsonValidationSchema()
 		{
-			var metadataSchemaId = _fixture.GetRandomMetadataSchemaId(20);
-			Assert.False(string.IsNullOrEmpty(metadataSchemaId));
+			var schemaId = _fixture.GetRandomSchemaId(20);
+			Assert.False(string.IsNullOrEmpty(schemaId));
 
-			var result = await _client.JsonSchemas.GetAsync(metadataSchemaId);
+			var result = await _client.JsonSchemas.GetAsync(schemaId);
 			var stringResult = result.ToString(Formatting.Indented);
 			Assert.NotNull(result);
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataSchema")]
+		[Trait("Stack", "Schema")]
 		public async Task ShouldCreateSchemaAndValidateFilter()
 		{
 			await ShouldCreateFromClassGeneric<SoccerPlayer>();
 
 			var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("SoccerPlayer");
 
-			string filterString = "{\"Kind\":\"TermFilter\",\"Field\":\"AssetType\",\"Term\":\"FC Aarau\"}";
+			string filterString = "{\"Kind\":\"TermFilter\",\"Field\":\"ContentType\",\"Term\":\"FC Aarau\"}";
 
 			var jsonConvertedField = generatedSoccerPlayerSchema.Fields[0].ToJson();
 
@@ -179,7 +179,7 @@ namespace Picturepark.SDK.V1.Tests
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataSchema")]
+		[Trait("Stack", "Schema")]
 		public async Task ShouldCreateSchemaAndValidateMultiline()
 		{
 			await ShouldCreateFromClassGeneric<Person>();
@@ -196,50 +196,50 @@ namespace Picturepark.SDK.V1.Tests
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataSchema")]
+		[Trait("Stack", "Schema")]
 		public async Task ShouldCreateSchemaAndValidateMaxRecursion()
 		{
 			await ShouldCreateFromClassGeneric<Person>();
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataSchema")]
+		[Trait("Stack", "Schema")]
 		public async Task ShouldSearch()
 		{
-			var searchRequest = new MetadataSchemaSearchRequest
+			var searchRequest = new SchemaSearchRequest
 			{
 				Limit = 12,
 				SearchString = "D*"
 			};
 
-			BaseResultOfMetadataSchemaViewItem result = await _client.Schemas.SearchAsync(searchRequest);
+			BaseResultOfSchemaViewItem result = await _client.Schemas.SearchAsync(searchRequest);
 			Assert.True(result.Results.Any());
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataSchema")]
+		[Trait("Stack", "Schema")]
 		public async Task ShouldUpdate()
 		{
-			string metadataSchemaId = _fixture.GetRandomMetadataSchemaId(20);
-			MetadataSchemaDetailViewItem schemaDetailViewItem = await _client.Schemas.GetAsync(metadataSchemaId);
+			string schemaId = _fixture.GetRandomSchemaId(20);
+			SchemaDetailViewItem schemaDetailViewItem = await _client.Schemas.GetAsync(schemaId);
 
 			string outString;
 			string language = "es";
 
 			schemaDetailViewItem.Names.Remove(language);
-			schemaDetailViewItem.Names.Add(language, metadataSchemaId);
+			schemaDetailViewItem.Names.Add(language, schemaId);
 
 			await _client.Schemas.UpdateAsync(schemaDetailViewItem);
 
-			MetadataSchemaDetailViewItem updatedSchema = await _client.Schemas.GetAsync(metadataSchemaId);
+			SchemaDetailViewItem updatedSchema = await _client.Schemas.GetAsync(schemaId);
 
 			updatedSchema.Names.TryGetValue(language, out outString);
-			Assert.True(outString == metadataSchemaId);
+			Assert.True(outString == schemaId);
 		}
 
 		public async Task ShouldCreateFromClassGeneric<T>() where T : class
 		{
-			var schemas = new List<MetadataSchemaDetailViewItem>();
+			var schemas = new List<SchemaDetailViewItem>();
 
 			var childSchemas = _client.Schemas.GenerateSchemaFromPOCO(typeof(T), schemas, true);
 
@@ -252,7 +252,7 @@ namespace Picturepark.SDK.V1.Tests
 			}
 
 			var generatedPersonSchema = await _client.Schemas.GetAsync(typeof(T).Name);
-			Assert.Contains(generatedPersonSchema.Types, i => i == MetadataSchemaType.MetadataContent || i == MetadataSchemaType.Struct);
+			Assert.Contains(generatedPersonSchema.Types, i => i == SchemaType.List || i == SchemaType.Struct);
 		}
 	}
 }

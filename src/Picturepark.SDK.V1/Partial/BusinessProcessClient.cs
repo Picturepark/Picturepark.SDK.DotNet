@@ -2,9 +2,9 @@
 
 namespace Picturepark.SDK.V1
 {
-	public partial class BusinessProcessesClient
+	public partial class BusinessProcessClient
     {
-        public BusinessProcessesClient(string baseUrl, IAuthClient authClient) : this(authClient)
+        public BusinessProcessClient(string baseUrl, IAuthClient authClient) : this(authClient)
         {
             BaseUrl = baseUrl;
         }

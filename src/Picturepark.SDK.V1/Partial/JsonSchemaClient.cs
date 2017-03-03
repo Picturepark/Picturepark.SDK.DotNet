@@ -6,9 +6,9 @@ using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1
 {
-    public partial class JsonSchemasClient
+    public partial class JsonSchemaClient
     {
-        public JsonSchemasClient(string baseUrl, IAuthClient authClient) : this(authClient)
+        public JsonSchemaClient(string baseUrl, IAuthClient authClient) : this(authClient)
         {
             BaseUrl = baseUrl;
         }

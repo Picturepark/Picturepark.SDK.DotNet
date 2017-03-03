@@ -2,12 +2,12 @@
 
 namespace Picturepark.SDK.V1
 {
-    public partial class SharesClient
-    {
-        public SharesClient(string baseUrl, IAuthClient authClient)
-            : base(authClient)
-        {
-            BaseUrl = baseUrl;
-        }
-    }
+	public partial class ShareClient
+	{
+		public ShareClient(string baseUrl, IAuthClient authClient)
+			: base(authClient)
+		{
+			BaseUrl = baseUrl;
+		}
+	}
 }

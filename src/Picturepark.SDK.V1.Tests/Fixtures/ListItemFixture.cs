@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Tests.Fixtures
 {
-	public class MetadataObjectFixture : SDKClientFixture
+	public class ListItemFixture : SDKClientFixture
 	{
-		public MetadataObjectFixture() : base()
+		public ListItemFixture() : base()
 		{
 			Setup().Wait();
 		}
@@ -16,7 +16,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 		{
 			if (await Client.Schemas.ExistsAsync(nameof(Tag)) == false)
 			{
-				var schema = Client.Schemas.GenerateSchemaFromPOCO(typeof(Tag), new List<Contract.MetadataSchemaDetailViewItem> { });
+				var schema = Client.Schemas.GenerateSchemaFromPOCO(typeof(Tag), new List<Contract.SchemaDetailViewItem> { });
 				await Client.Schemas.CreateAsync(schema.First(), true);
 			}
 		}

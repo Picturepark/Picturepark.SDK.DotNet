@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows;
-using Picturepark.AssetUploader.ViewModels;
+using Picturepark.ContentUploader.ViewModels;
 
-namespace Picturepark.AssetUploader.Views
+namespace Picturepark.ContentUploader.Views
 {
     public partial class MainWindow : Window
     {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
 {
-	[PictureparkSchemaType(MetadataSchemaType.AssetLayer)]
+	[PictureparkSchemaType(SchemaType.Layer)]
 	public class PersonShot
 	{
 		public List<Person> Persons { get; set; }

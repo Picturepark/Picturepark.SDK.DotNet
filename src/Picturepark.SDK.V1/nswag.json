@@ -14,10 +14,10 @@
       "generateDtoTypes": true,
       "injectHttpClient": false,
       "protectedMethods": [
-        "MetadataObjectsClient.CreateManyAsync",
-        "MetadataSchemasClient.UpdateAsync",
-        "MetadataSchemasClient.DeleteAsync",
-        "JsonSchemasClient.GetAsync"
+        "ListItemClient.CreateManyAsync",
+        "SchemaClient.UpdateAsync",
+        "SchemaClient.DeleteAsync",
+        "JsonSchemaClient.GetAsync"
       ],
       "generateExceptionClasses": true,
       "exceptionClass": "ApiException",

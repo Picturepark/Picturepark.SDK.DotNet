@@ -53,10 +53,10 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			var outputFormatIds = new List<string>() { "Original" };
 
-			var shareAssetItems = new List<ShareAssetItem>()
+			var shareContentItems = new List<ShareContent>()
 			{
-				new ShareAssetItem() { AssetId = _fixture.GetRandomAssetId(string.Empty, 30), OutputFormatIds = outputFormatIds },
-				new ShareAssetItem() { AssetId = _fixture.GetRandomAssetId(string.Empty, 30), OutputFormatIds = outputFormatIds }
+				new ShareContent() { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds },
+				new ShareContent() { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds }
 			};
 
 			var recipients = new List<UserEmail>()
@@ -66,7 +66,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			var request = new BasicShareCreateItem()
 			{
-				Assets = shareAssetItems,
+				Contents = shareContentItems,
 				Description = "Description of Basic share aaa",
 				ExpirationDate = new DateTime(2020, 12, 31),
 				Name = "Basic share aaa",
@@ -82,15 +82,15 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			var outputFormatIds = new List<string>() { "Original" };
 
-			var shareAssetItems = new List<ShareAssetItem>
+			var shareContentItems = new List<ShareContent>
 			{
-				new ShareAssetItem() { AssetId = _fixture.GetRandomAssetId(string.Empty, 30), OutputFormatIds = outputFormatIds },
-				new ShareAssetItem() { AssetId = _fixture.GetRandomAssetId(string.Empty, 30), OutputFormatIds = outputFormatIds }
+				new ShareContent() { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds },
+				new ShareContent() { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds }
 			};
 
 			var request = new EmbedShareCreateItem()
 			{
-				ShareAssetItems = shareAssetItems,
+				ShareContentItems = shareContentItems,
 				Description = "Description of Embed share bbb",
 				ExpirationDate = new DateTime(2020, 12, 31),
 				Name = "Embed share bbb"
@@ -123,7 +123,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			var shareViewItems = new List<ShareViewItem>();
 
-			var request = new AssetSearchRequest() { Start = 1, Limit = 100 };
+			var request = new ContentSearchRequest() { Start = 1, Limit = 100 };
 			request.Filter = new TermFilter() { Field = "EntityType" };
 
 			BaseResultOfShareViewItem result = await _client.Shares.SearchAsync(request);

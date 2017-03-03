@@ -9,24 +9,24 @@ using Picturepark.SDK.V1.Conversion;
 
 namespace Picturepark.SDK.V1
 {
-    public partial class MetadataSchemasClient
+    public partial class SchemaClient
     {
-        private readonly BusinessProcessesClient _businessProcessesClient;
+        private readonly BusinessProcessClient _businessProcessClient;
 
-        public MetadataSchemasClient(BusinessProcessesClient businessProcessesClient, IAuthClient authClient)
+        public SchemaClient(BusinessProcessClient businessProcessesClient, IAuthClient authClient)
             : base(authClient)
         {
             BaseUrl = businessProcessesClient.BaseUrl;
-            _businessProcessesClient = businessProcessesClient;
+            _businessProcessClient = businessProcessesClient;
         }
 
-        public List<MetadataSchemaDetailViewItem> GenerateSchemaFromPOCO(Type type, List<MetadataSchemaDetailViewItem> schemaList, bool generateDependencySchema = true)
+        public List<SchemaDetailViewItem> GenerateSchemaFromPOCO(Type type, List<SchemaDetailViewItem> schemaList, bool generateDependencySchema = true)
         {
             var schemaConverter = new ClassToSchemaConverter();
             return schemaConverter.Generate(type, schemaList, generateDependencySchema);
         }
 
-        public async Task CreateOrUpdateAsync(MetadataSchemaDetailViewItem metadataSchema)
+        public async Task CreateOrUpdateAsync(SchemaDetailViewItem metadataSchema)
         {
             if (await ExistsAsync(metadataSchema.Id))
             {
@@ -38,15 +38,15 @@ namespace Picturepark.SDK.V1
             }
         }
 
-        public void CreateOrUpdate(MetadataSchemaDetailViewItem metadataSchema)
+        public void CreateOrUpdate(SchemaDetailViewItem metadataSchema)
         {
             Task.Run(async () => await CreateOrUpdateAsync(metadataSchema)).GetAwaiter().GetResult();
         }
 
-        public async Task CreateAsync(MetadataSchemaDetailViewItem metadataSchema, bool enableForBinaryFiles)
+        public async Task CreateAsync(SchemaDetailViewItem metadataSchema, bool enableForBinaryFiles)
         {
             // Map schema to binary schemas
-            if (enableForBinaryFiles && metadataSchema.Types.Contains(MetadataSchemaType.AssetLayer))
+            if (enableForBinaryFiles && metadataSchema.Types.Contains(SchemaType.Layer))
             {
                 var binarySchemas = new List<string>
                 {
@@ -56,33 +56,33 @@ namespace Picturepark.SDK.V1
                     nameof(ImageMetadata),
                     nameof(VideoMetadata),
                 };
-                metadataSchema.ReferencedInMetadataSchemaIds = binarySchemas;
+                metadataSchema.ReferencedInSchemaIds = binarySchemas;
             }
 
             await CreateAsync(metadataSchema);
         }
 
-        public void Create(MetadataSchemaDetailViewItem metadataSchema, bool enableForBinaryFiles)
+        public void Create(SchemaDetailViewItem metadataSchema, bool enableForBinaryFiles)
         {
             Task.Run(async () => await CreateAsync(metadataSchema, enableForBinaryFiles)).GetAwaiter().GetResult();
         }
 
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task CreateAsync(MetadataSchemaDetailViewItem metadataSchema)
+        public async Task CreateAsync(SchemaDetailViewItem metadataSchema)
         {
-            var process = await CreateAsync(new MetadataSchemaCreateRequest
+            var process = await CreateAsync(new SchemaCreateRequest
             {
                 Aggregations = metadataSchema.Aggregations,
-                Descriptions = new TranslatedStringDictionary { }, //// TODO
+                Descriptions = metadataSchema.Descriptions,
                 DisplayPatterns = metadataSchema.DisplayPatterns,
                 Fields = metadataSchema.Fields,
                 FullTextFields = metadataSchema.FullTextFields,
                 Id = metadataSchema.Id,
                 MetadataPermissionSetIds = metadataSchema.MetadataPermissionSetIds,
                 Names = metadataSchema.Names,
-                ParentMetadataSchemaId = metadataSchema.ParentMetadataSchemaId,
+                ParentSchemaId = metadataSchema.ParentSchemaId,
                 Public = metadataSchema.Public,
-                ReferencedInMetadataSchemaIds = metadataSchema.ReferencedInMetadataSchemaIds,
+                ReferencedInSchemaIds = metadataSchema.ReferencedInSchemaIds,
                 Sort = metadataSchema.Sort,
                 SortOrder = metadataSchema.SortOrder,
                 Types = metadataSchema.Types
@@ -91,7 +91,7 @@ namespace Picturepark.SDK.V1
         }
 
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public void Create(MetadataSchemaDetailViewItem metadataSchema)
+        public void Create(SchemaDetailViewItem metadataSchema)
         {
             Task.Run(async () => await CreateAsync(metadataSchema)).GetAwaiter().GetResult();
         }
@@ -110,9 +110,9 @@ namespace Picturepark.SDK.V1
         }
 
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task UpdateAsync(MetadataSchemaDetailViewItem metadataSchema)
+        public async Task UpdateAsync(SchemaDetailViewItem metadataSchema)
         {
-            await UpdateAsync(metadataSchema.Id, new MetadataSchemaUpdateRequest
+            await UpdateAsync(metadataSchema.Id, new SchemaUpdateRequest
             {
                 Aggregations = metadataSchema.Aggregations,
                 Descriptions = new TranslatedStringDictionary { }, //// TODO
@@ -122,23 +122,23 @@ namespace Picturepark.SDK.V1
                 MetadataPermissionSetIds = metadataSchema.MetadataPermissionSetIds,
                 Names = metadataSchema.Names,
                 Public = metadataSchema.Public,
-                ReferencedInMetadataSchemaIds = metadataSchema.ReferencedInMetadataSchemaIds,
+                ReferencedInSchemaIds = metadataSchema.ReferencedInSchemaIds,
                 Sort = metadataSchema.Sort,
                 SortOrder = metadataSchema.SortOrder,
                 Types = metadataSchema.Types,
-                MetadataSchemaIds = metadataSchema.MetadataSchemaIds
+                SchemaIds = metadataSchema.SchemaIds
             });
         }
 
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task UpdateAsync(string schemaId, MetadataSchemaUpdateRequest updateRequest)
+        public async Task UpdateAsync(string schemaId, SchemaUpdateRequest updateRequest)
         {
             var process = await UpdateCoreAsync(schemaId, updateRequest);
             await WaitForCompletionAsync(process);
         }
 
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public void Update(string schemaId, MetadataSchemaUpdateRequest updateRequest)
+        public void Update(string schemaId, SchemaUpdateRequest updateRequest)
         {
             Task.Run(async () => await UpdateAsync(schemaId, updateRequest)).GetAwaiter().GetResult();
         }
@@ -156,7 +156,7 @@ namespace Picturepark.SDK.V1
 
         private async Task WaitForCompletionAsync(BusinessProcessViewItem process)
         {
-            var wait = await process.Wait4StateAsync("Completed", _businessProcessesClient);
+            var wait = await process.Wait4StateAsync("Completed", _businessProcessClient);
 
             var errors = wait.BusinessProcess.StateHistory?
                 .Where(i => i.Error != null)

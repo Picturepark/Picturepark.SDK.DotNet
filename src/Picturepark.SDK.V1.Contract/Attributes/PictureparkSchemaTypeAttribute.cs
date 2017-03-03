@@ -5,11 +5,11 @@ namespace Picturepark.SDK.V1.Contract.Attributes
 	[AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
 	public class PictureparkSchemaTypeAttribute : Attribute, IPictureparkAttribute
 	{
-		public PictureparkSchemaTypeAttribute(MetadataSchemaType metadataType)
+		public PictureparkSchemaTypeAttribute(SchemaType metadataType)
 		{
-			MetadataType = metadataType;
+			SchemaType = metadataType;
 		}
 
-		public MetadataSchemaType MetadataType { get; }
+		public SchemaType SchemaType { get; }
 	}
 }

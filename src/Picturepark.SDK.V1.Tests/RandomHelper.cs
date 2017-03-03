@@ -9,36 +9,36 @@ namespace Picturepark.SDK.V1.Tests
 {
 	public class RandomHelper
 	{
-		public static AssetSearchResult GetRandomAssets(PictureparkClient client, string searchString, int limit)
+		public static ContentSearchResult GetRandomContents(PictureparkClient client, string searchString, int limit)
 		{
-			var request = new AssetSearchRequest() { SearchString = searchString, Limit = limit };
-			return client.Assets.Search(request);
+			var request = new ContentSearchRequest() { SearchString = searchString, Limit = limit };
+			return client.Contents.Search(request);
 		}
 
-		public static string GetRandomAssetId(PictureparkClient client, string searchString, int limit)
+		public static string GetRandomContentId(PictureparkClient client, string searchString, int limit)
 		{
-			string assetId = string.Empty;
-			AssetSearchRequest request = new AssetSearchRequest() { Limit = limit };
+			string contentId = string.Empty;
+			ContentSearchRequest request = new ContentSearchRequest() { Limit = limit };
 
 			if (!string.IsNullOrEmpty(searchString))
 				request.SearchString = searchString;
 
-			AssetSearchResult result = client.Assets.Search(request);
+			ContentSearchResult result = client.Contents.Search(request);
 
 			if (result.Results.Count > 0)
 			{
 				int randomNumber = new Random().Next(0, result.Results.Count);
-				assetId = result.Results.Skip(randomNumber).First().Id;
+				contentId = result.Results.Skip(randomNumber).First().Id;
 			}
 
-			return assetId;
+			return contentId;
 		}
 
-		public static string GetRandomAssetPermissionSetId(PictureparkClient client, int limit)
+		public static string GetRandomContentPermissionSetId(PictureparkClient client, int limit)
 		{
 			string permissionSetId = string.Empty;
 			PermissionSetSearchRequest request = new PermissionSetSearchRequest() { Limit = limit };
-			PermissionSetSearchResult result = client.Permissions.SearchAssetPermissionsAsync(request).Result;
+			PermissionSetSearchResult result = client.Permissions.SearchContentPermissionsAsync(request).Result;
 
 			if (result.Results.Count > 0)
 			{
@@ -103,32 +103,32 @@ namespace Picturepark.SDK.V1.Tests
 			return permissionSetId;
 		}
 
-		public static string GetRandomMetadataSchemaId(PictureparkClient client, int limit)
+		public static string GetRandomSchemaId(PictureparkClient client, int limit)
 		{
-			string metadataSchemaId = string.Empty;
-			var request = new MetadataSchemaSearchRequest() { Limit = limit };
-			BaseResultOfMetadataSchemaViewItem result = client.Schemas.Search(request);
+			string schemaId = string.Empty;
+			var request = new SchemaSearchRequest() { Limit = limit };
+			BaseResultOfSchemaViewItem result = client.Schemas.Search(request);
 
 			if (result.Results.Count > 0)
 			{
 				int randomNumber = new Random().Next(0, result.Results.Count);
-				metadataSchemaId = result.Results.Skip(randomNumber).First().Id;
+				schemaId = result.Results.Skip(randomNumber).First().Id;
 			}
 
-			return metadataSchemaId;
+			return schemaId;
 		}
 
-		public static string GetRandomObjectId(PictureparkClient client, string metadataSchemaId, int limit)
+		public static string GetRandomObjectId(PictureparkClient client, string schemaId, int limit)
 		{
 			string objectId = string.Empty;
 
-			MetadataObjectSearchRequest request = new MetadataObjectSearchRequest()
+			ListItemSearchRequest request = new ListItemSearchRequest()
 			{
 				Limit = limit,
-				MetadataSchemaIds = new List<string> { metadataSchemaId }
+				SchemaIds = new List<string> { schemaId }
 			};
 
-			var result = client.MetadataObjects.SearchAsync(request).Result;
+			var result = client.ListItems.SearchAsync(request).Result;
 
 			if (result.Results.Count > 0)
 			{
@@ -143,7 +143,7 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			string shareId = string.Empty;
 
-			var request = new AssetSearchRequest()
+			var request = new ContentSearchRequest()
 			{
 				Limit = limit,
 				Filter = new TermFilter() { Field = "EntityType", Term = entityType.ToString() }

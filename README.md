@@ -22,7 +22,7 @@ Create new `PictureparkClient` and access remote PCP server:
 var authClient = new UsernamePasswordAuthClient("http://mypcpserver.com", username, password); 
 using (var client = new PictureparkClient(authClient))
 {
-    var asset = await client.Assets.GetAsync("myAssetId");
+    var content = await client.Contents.GetAsync("myContentId");
 }
 ```
 

@@ -9,11 +9,10 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
 {
-	[PictureparkSchemaType(MetadataSchemaType.AssetContent)]
-	[PictureparkSchemaType(MetadataSchemaType.AssetLayer)]
-	[PictureparkSchemaType(MetadataSchemaType.MetadataContent)]
-	[PictureparkSchemaType(MetadataSchemaType.MetadataLayer)]
-	[PictureparkSchemaType(MetadataSchemaType.Struct)]
+	[PictureparkSchemaType(SchemaType.Content)]
+	[PictureparkSchemaType(SchemaType.Layer)]
+	[PictureparkSchemaType(SchemaType.List)]
+	[PictureparkSchemaType(SchemaType.Struct)]
 	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{Metadata.AllDataTypesContract.StringField}}")]
 	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{Metadata.AllDataTypesContract.StringField}}")]
 	[PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{Metadata.AllDataTypesContract.StringField}}: {{Metadata.AllDataTypesContract.IntegerField}}")]
@@ -60,9 +59,9 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 		// TODO: Use correct contract
 		////public Dictionary<string, string> TranslatedStringField { get; set; }
 
-		[PictureparkAssetRelation(
+		[PictureparkContentRelation(
 			"RelationName",
-			"{ 'Kind': 'TermFilter', 'Field': 'AssetType', Term: 'Bitmap' }"
+			"{ 'Kind': 'TermFilter', 'Field': 'ContentType', Term: 'Bitmap' }"
 		)]
 		public SimpleRelation RelationField { get; set; }
 
@@ -70,7 +69,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 		////public List<SimpleRelation> RelationsField { get; set; }
 	}
 
-	[PictureparkSchemaType(MetadataSchemaType.MetadataContent)]
+	[PictureparkSchemaType(SchemaType.List)]
 	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{Metadata.SimpleReferenceObject.NameField}}")]
 	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{Metadata.SimpleReferenceObject.NameField}}")]
 	public class SimpleReferenceObject : IReference
@@ -80,14 +79,14 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 		public string refId { get; set; }
 	}
 
-	[PictureparkSchemaType(MetadataSchemaType.Struct)]
+	[PictureparkSchemaType(SchemaType.Struct)]
 	public class SimpleObject
 	{
 		public string Name { get; set; }
 	}
 
 	// TODO: Use correct contract
-	[PictureparkSchemaType(MetadataSchemaType.Struct)]
+	[PictureparkSchemaType(SchemaType.Struct)]
 	public class SimpleRelation
 	{
 		public string RelationInfo { get; set; }

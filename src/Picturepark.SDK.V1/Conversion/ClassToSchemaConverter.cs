@@ -12,14 +12,14 @@ namespace Picturepark.SDK.V1.Conversion
 {
 	public class ClassToSchemaConverter
 	{
-		private List<MetadataSchemaDetailViewItem> _createdSchemasList;
+		private List<SchemaDetailViewItem> _createdSchemasList;
 
 		public ClassToSchemaConverter()
 		{
 			InitializeTemplates();
 		}
 
-		public List<MetadataSchemaDetailViewItem> Generate(Type type, List<MetadataSchemaDetailViewItem> schemaList, bool generateDependencySchema = true)
+		public List<SchemaDetailViewItem> Generate(Type type, List<SchemaDetailViewItem> schemaList, bool generateDependencySchema = true)
 		{
 			_createdSchemasList = schemaList;
 
@@ -27,7 +27,7 @@ namespace Picturepark.SDK.V1.Conversion
 
 			var schema = SchemaCreate(contractPropertiesInfo, type, string.Empty, 0, generateDependencySchema);
 
-			var sortedList = new List<MetadataSchemaDetailViewItem>();
+			var sortedList = new List<SchemaDetailViewItem>();
 
 			foreach (var schemaItem in _createdSchemasList)
 			{
@@ -61,11 +61,11 @@ namespace Picturepark.SDK.V1.Conversion
 		{
 		}
 
-		private MetadataSchemaDetailViewItem SchemaCreate(List<ContractPropertyInfo> contractPropertyInfos, Type contractType, string parentSchemaId, int levelOfCall = 0, bool generateDependencySchema = true)
+		private SchemaDetailViewItem SchemaCreate(List<ContractPropertyInfo> contractPropertyInfos, Type contractType, string parentSchemaId, int levelOfCall = 0, bool generateDependencySchema = true)
 		{
 			var schemaId = contractType.Name;
 
-			var types = new List<MetadataSchemaType>();
+			var types = new List<SchemaType>();
 
 			var typeAttributes = contractType.GetTypeInfo().GetCustomAttributes(typeof(PictureparkSchemaTypeAttribute), true).Select(i => i as PictureparkSchemaTypeAttribute).ToList();
 
@@ -74,14 +74,14 @@ namespace Picturepark.SDK.V1.Conversion
 
 			foreach (var typeAttribute in typeAttributes)
 			{
-				types.Add(typeAttribute.MetadataType);
+				types.Add(typeAttribute.SchemaType);
 			}
 
-			var schemaItem = new MetadataSchemaDetailViewItem()
+			var schemaItem = new SchemaDetailViewItem()
 			{
 				Id = schemaId,
 				Fields = new List<FieldBase> { },
-				ParentMetadataSchemaId = parentSchemaId,
+				ParentSchemaId = parentSchemaId,
 				Names = new TranslatedStringDictionary { { "x-default", schemaId } },
 				Types = types,
 				DisplayPatterns = new List<DisplayPattern>()
@@ -459,7 +459,7 @@ namespace Picturepark.SDK.V1.Conversion
 			else
 			{
 				var schemaItemInfos = contractPropertyInfo.PictureparkAttributes.Where(i => i is PictureparkSchemaItemAttribute).Select(i => i as PictureparkSchemaItemAttribute).SingleOrDefault();
-				var relationInfos = contractPropertyInfo.PictureparkAttributes.Where(i => i is PictureparkAssetRelationAttribute).Select(i => i as PictureparkAssetRelationAttribute);
+				var relationInfos = contractPropertyInfo.PictureparkAttributes.Where(i => i is PictureparkContentRelationAttribute).Select(i => i as PictureparkContentRelationAttribute);
 				var maxRecursionInfos = contractPropertyInfo.PictureparkAttributes.Where(i => i is PictureparkMaximumRecursionAttribute).Select(i => i as PictureparkMaximumRecursionAttribute).SingleOrDefault();
 				List<RelationType> relationTypes = new List<RelationType>();
 				if (relationInfos.Any())
@@ -477,33 +477,33 @@ namespace Picturepark.SDK.V1.Conversion
 				{
 					if (relationInfos.Any())
 					{
-						fieldData = new FieldRelations
+						fieldData = new FieldMultiRelation
 						{
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
 							RelationTypes = relationTypes,
-							MetadataSchemaId = contractPropertyInfo.TypeName,
+							SchemaId = contractPropertyInfo.TypeName,
 							Index = true
 						};
 					}
 					else if (contractPropertyInfo.IsReference)
 					{
-						fieldData = new FieldSchemaItems
+						fieldData = new FieldMultiTagbox
 						{
 							Index = true,
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
 							SimpleSearch = true,
-							MetadataSchemaId = contractPropertyInfo.TypeName,
+							SchemaId = contractPropertyInfo.TypeName,
 							Filter = schemaItemInfos?.Filter
 						};
 					}
 					else
 					{
-						fieldData = new FieldObjects
+						fieldData = new FieldMultiFieldset
 						{
 							Index = true,
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
 							SimpleSearch = true,
-							MetadataSchemaId = contractPropertyInfo.TypeName
+							SchemaId = contractPropertyInfo.TypeName
 						};
 					}
 				}
@@ -511,13 +511,13 @@ namespace Picturepark.SDK.V1.Conversion
 				{
 					if (relationInfos.Any())
 					{
-						fieldData = new FieldRelation
+						fieldData = new FieldSingleRelation
 						{
 							Index = true,
 							SimpleSearch = true,
 							RelationTypes = relationTypes,
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
-							MetadataSchemaId = contractPropertyInfo.TypeName
+							SchemaId = contractPropertyInfo.TypeName
 						};
 					}
 					else if (contractPropertyInfo.TypeName == "GeoPoint")
@@ -529,23 +529,23 @@ namespace Picturepark.SDK.V1.Conversion
 					}
 					else if (contractPropertyInfo.IsReference)
 					{
-						fieldData = new FieldSchemaItem
+						fieldData = new FieldSingleTagbox
 						{
 							Index = true,
 							SimpleSearch = true,
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
-							MetadataSchemaId = contractPropertyInfo.TypeName,
+							SchemaId = contractPropertyInfo.TypeName,
 							Filter = schemaItemInfos?.Filter
 						};
 					}
 					else
 					{
-						fieldData = new FieldObject
+						fieldData = new FieldSingleFieldset
 						{
 							Index = true,
 							SimpleSearch = true,
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
-							MetadataSchemaId = contractPropertyInfo.TypeName
+							SchemaId = contractPropertyInfo.TypeName
 						};
 					}
 				}

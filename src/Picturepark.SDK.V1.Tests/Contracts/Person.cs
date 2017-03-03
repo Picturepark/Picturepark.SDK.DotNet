@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Contract.Interfaces;
 using System;
@@ -14,8 +15,8 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 	[JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
 	[KnownType(typeof(SoccerPlayer))]
 	[KnownType(typeof(SoccerTrainer))]
-	[PictureparkSchemaType(Contract.MetadataSchemaType.MetadataContent)]
-	[PictureparkSchemaType(Contract.MetadataSchemaType.Struct)]
+	[PictureparkSchemaType(SchemaType.List)]
+	[PictureparkSchemaType(SchemaType.Struct)]
 	[PictureparkDisplayPattern(Contract.DisplayPatternType.Name, Contract.TemplateEngine.DotLiquid, "{{Metadata.Person.Firstname}} {{Metadata.Person.LastName}}")]
 	[PictureparkDisplayPattern(Contract.DisplayPatternType.List, Contract.TemplateEngine.DotLiquid, "{{Metadata.Person.Firstname}} {{Metadata.Person.LastName}}, {{Metadata.Person.EmailAddress}}")]
 	[PictureparkDisplayPattern(Contract.DisplayPatternType.Thumbnail, Contract.TemplateEngine.DotLiquid, "{{Metadata.Person.Firstname}} {{Metadata.Person.LastName}}")]
@@ -53,10 +54,10 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
 	public class SoccerPlayer : Person
 	{
-		[PictureparkSchemaItem("{ 'Kind': 'TermFilter', 'Field': 'AssetType', Term: 'FC Aarau' }")]
+		[PictureparkSchemaItem("{ 'Kind': 'TermFilter', 'Field': 'ContentType', Term: 'FC Aarau' }")]
 		public Club Club { get; set; }
 
-		[PictureparkSchemaItem("{ 'Kind': 'TermFilter', 'Field': 'AssetType', Term: 'Krummbein' }")]
+		[PictureparkSchemaItem("{ 'Kind': 'TermFilter', 'Field': 'ContentType', Term: 'Krummbein' }")]
 		public List<Pet> OwnsPets { get; set; }
 
 		public List<Addresses> Addresses { get; set; }
@@ -69,7 +70,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 		public List<Club> PreviousClubs { get; set; }
 	}
 
-	[PictureparkSchemaType(Contract.MetadataSchemaType.Struct)]
+	[PictureparkSchemaType(SchemaType.Struct)]
 	public class Addresses
 	{
 		[PictureparkRequired]
@@ -78,7 +79,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 		public Pet SecurityPet { get; set; }
 	}
 
-	[PictureparkSchemaType(Contract.MetadataSchemaType.MetadataContent)]
+	[PictureparkSchemaType(SchemaType.List)]
 	public class Club : IReference
 	{
 		[MaxLength(10)]
@@ -91,7 +92,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 	}
 
 	[JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
-	[PictureparkSchemaType(Contract.MetadataSchemaType.MetadataContent)]
+	[PictureparkSchemaType(SchemaType.List)]
 	public class Pet : IReference
 	{
 		public string Name { get; set; }

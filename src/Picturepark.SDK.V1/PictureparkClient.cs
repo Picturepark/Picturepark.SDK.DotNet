@@ -18,40 +18,40 @@ namespace Picturepark.SDK.V1
         /// <param name="authClient">The authentication client.</param>
         public PictureparkClient(string baseUrl, IAuthClient authClient)
         {
-            Assets = new AssetsClient(baseUrl, authClient);
-            BusinessProcesses = new BusinessProcessesClient(baseUrl, authClient);
+            Contents = new ContentClient(baseUrl, authClient);
+            BusinessProcesses = new BusinessProcessClient(baseUrl, authClient);
             DocumentHistory = new DocumentHistoryClient(baseUrl, authClient);
-            JsonSchemas = new JsonSchemasClient(baseUrl, authClient);
-            Permissions = new PermissionsClient(baseUrl, authClient);
+            JsonSchemas = new JsonSchemaClient(baseUrl, authClient);
+            Permissions = new PermissionClient(baseUrl, authClient);
             PublicAccess = new PublicAccessClient(baseUrl, authClient);
-            Shares = new SharesClient(baseUrl, authClient);
-            Users = new UsersClient(baseUrl, authClient);
-            Schemas = new MetadataSchemasClient((BusinessProcessesClient)BusinessProcesses, authClient);
-            Transfers = new TransfersClient((BusinessProcessesClient)BusinessProcesses, authClient);
-            MetadataObjects = new MetadataObjectsClient((TransfersClient)Transfers, authClient);
+            Shares = new ShareClient(baseUrl, authClient);
+            Users = new UserClient(baseUrl, authClient);
+            Schemas = new SchemaClient((BusinessProcessClient)BusinessProcesses, authClient);
+            Transfers = new TransferClient((BusinessProcessClient)BusinessProcesses, authClient);
+            ListItems = new ListItemClient((TransferClient)Transfers, authClient);
         }
 
-        public IMetadataSchemasClient Schemas { get; }
+        public ISchemaClient Schemas { get; }
 
-        public IAssetsClient Assets { get; }
+        public IContentClient Contents { get; }
 
-        public IBusinessProcessesClient BusinessProcesses { get; }
+        public IBusinessProcessClient BusinessProcesses { get; }
 
         public IDocumentHistoryClient DocumentHistory { get; }
 
-        public IJsonSchemasClient JsonSchemas { get; }
+        public IJsonSchemaClient JsonSchemas { get; }
 
-        public IMetadataObjectsClient MetadataObjects { get; }
+        public IListItemClient ListItems { get; }
 
-        public IPermissionsClient Permissions { get; }
+        public IPermissionClient Permissions { get; }
 
         public IPublicAccessClient PublicAccess { get; }
 
-        public ISharesClient Shares { get; }
+        public IShareClient Shares { get; }
 
-        public ITransfersClient Transfers { get; }
+        public ITransferClient Transfers { get; }
 
-        public IUsersClient Users { get; }
+        public IUserClient Users { get; }
 
         public void Dispose()
         {

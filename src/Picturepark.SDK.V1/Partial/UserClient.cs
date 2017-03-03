@@ -2,12 +2,12 @@
 
 namespace Picturepark.SDK.V1
 {
-	public partial class UsersClient
-    {
-		public UsersClient(string baseUrl, IAuthClient authClient)
-            : base(authClient)
+	public partial class UserClient
+	{
+		public UserClient(string baseUrl, IAuthClient authClient)
+			: base(authClient)
 		{
-		    BaseUrl = baseUrl;
+			BaseUrl = baseUrl;
 		}
 	}
 }

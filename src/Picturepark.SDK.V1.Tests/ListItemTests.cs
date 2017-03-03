@@ -16,26 +16,26 @@ using Picturepark.SDK.V1.Tests.Fixtures;
 
 namespace Picturepark.SDK.V1.Tests
 {
-	public class MetadataObjectTests : IClassFixture<MetadataObjectFixture>
+	public class ListItemTests : IClassFixture<ListItemFixture>
 	{
 		private SDKClientFixture _fixture;
 		private PictureparkClient _client;
 
-		public MetadataObjectTests(MetadataObjectFixture fixture)
+		public ListItemTests(ListItemFixture fixture)
 		{
 			_fixture = fixture;
 			_client = _fixture.Client;
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataObject")]
+		[Trait("Stack", "ListItem")]
 		public async Task ShouldAggregateObjects()
 		{
 			var fieldName = nameof(Country) + "." + nameof(Country.RegionCode);
 
-			var request = new MetadataObjectAggregationRequest()
+			var request = new ListItemAggregationRequest()
 			{
-				MetadataSchemaIds = new List<string> { nameof(Country) },
+				SchemaIds = new List<string> { nameof(Country) },
 				Aggregators = new List<AggregatorBase>
 				{
 					{ new TermsAggregator { Name = fieldName, Field = fieldName, Size = 20 } }
@@ -43,7 +43,7 @@ namespace Picturepark.SDK.V1.Tests
 				SearchString = "*"
 			};
 
-			ObjectAggregationResult result = await _client.MetadataObjects.AggregateAsync(request);
+			ObjectAggregationResult result = await _client.ListItems.AggregateAsync(request);
 
 			var aggregation = result.GetByName(fieldName);
 
@@ -53,31 +53,31 @@ namespace Picturepark.SDK.V1.Tests
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataObject")]
+		[Trait("Stack", "ListItem")]
 		public async Task ShouldCreateAndDeleteObject()
 		{
 			string objectName = "ThisObjectA" + new Random().Next(0, 999999).ToString();
 
-			var createRequest = new MetadataObjectCreateRequest
+			var createRequest = new ListItemCreateRequest
 			{
-				MetadataSchemaId = nameof(Tag),
+				SchemaId = nameof(Tag),
 				Metadata = new MetadataDictionary
 				{
 					{ "Tag", new Tag { Name = objectName } }
 				}
 			};
 
-			MetadataObjectViewItem viewItem = await _client.MetadataObjects.CreateAbcAsync(createRequest);
+			ListItemViewItem viewItem = await _client.ListItems.CreateAbcAsync(createRequest);
 			Assert.False(string.IsNullOrEmpty(viewItem.Id));
 
-			await _client.MetadataObjects.DeleteAsync(viewItem.Id);
+			await _client.ListItems.DeleteAsync(viewItem.Id);
 
 			// TODO: Throw specific 404 exception
-			await Assert.ThrowsAsync<ApiException>(async () => await _client.MetadataObjects.GetAsync(viewItem.Id, true));
+			await Assert.ThrowsAsync<ApiException>(async () => await _client.ListItems.GetAsync(viewItem.Id, true));
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataObject")]
+		[Trait("Stack", "ListItem")]
 		public async Task ShouldCreateAndUpdateObject()
 		{
 			// ---------------------------------------------------------------------------
@@ -85,11 +85,11 @@ namespace Picturepark.SDK.V1.Tests
 			// ---------------------------------------------------------------------------
 			string objectName = "ThisObjectD" + new Random().Next(0, 999999).ToString();
 
-			var objects = new List<MetadataObjectCreateRequest>()
+			var objects = new List<ListItemCreateRequest>()
 			{
-				new MetadataObjectCreateRequest
+				new ListItemCreateRequest
 				{
-					MetadataSchemaId = nameof(Tag),
+					SchemaId = nameof(Tag),
 					Metadata = new MetadataDictionary
 					{
 						{ "Tag", new Tag { Name = objectName } }
@@ -97,13 +97,13 @@ namespace Picturepark.SDK.V1.Tests
 				}
 			};
 
-			IEnumerable<MetadataObjectViewItem> results = await _client.MetadataObjects.CreateManyAsync(objects);
+			IEnumerable<ListItemViewItem> results = await _client.ListItems.CreateManyAsync(objects);
 			Assert.Equal(results.Count(), 1);
 
 			var result = results.First();
 
 			// Update object, assign MetadataSchemaIds
-			var request = new MetadataObjectUpdateRequest()
+			var request = new ListItemUpdateRequest()
 			{
 				Id = result.Id,
 				Metadata = new MetadataDictionary
@@ -112,36 +112,36 @@ namespace Picturepark.SDK.V1.Tests
 				}
 			};
 
-			var requests = new List<MetadataObjectUpdateRequest>() { request };
+			var requests = new List<ListItemUpdateRequest>() { request };
 
-			await _client.MetadataObjects.UpdateMetadataObjectAsync(request);
+			await _client.ListItems.UpdateListItemAsync(request);
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataObject")]
+		[Trait("Stack", "ListItem")]
 		public async Task ShouldCreateObject()
 		{
 			string objectName = "ThisObjectB" + new Random().Next(0, 999999).ToString();
 
-			var metadataObject = new MetadataObjectCreateRequest
+			var listItem = new ListItemCreateRequest
 			{
-				MetadataSchemaId = nameof(Tag),
+				SchemaId = nameof(Tag),
 				Metadata = new MetadataDictionary
 				{
 					{ "Tag", new Tag { Name = objectName } }
 				}
 			};
 
-			MetadataObjectDetailViewItem result = await _client.MetadataObjects.CreateAsync(metadataObject);
+			ListItemDetailViewItem result = await _client.ListItems.CreateAsync(listItem);
 			Assert.False(string.IsNullOrEmpty(result.Id));
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataObject")]
+		[Trait("Stack", "ListItem")]
 		public async Task ShouldCreateObjectWithHelper()
 		{
 			// Using Helper method
-			var createdObject = await _client.MetadataObjects.CreateFromPOCO(
+			var createdObject = await _client.ListItems.CreateFromPOCO(
 				new Tag
 				{
 					Name = "ThisObjectB" + new Random().Next(0, 999999).ToString()
@@ -149,14 +149,14 @@ namespace Picturepark.SDK.V1.Tests
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataObject")]
+		[Trait("Stack", "ListItem")]
 		public async Task ShouldCreateComplexObjectWithHelper()
 		{
 			// Reusable as reference
 			var dog = new Dog { Name = "Dogname1", PlaysCatch = true };
 
 			// Using Helper method
-			var soccerPlayerTree = await _client.MetadataObjects.CreateFromPOCO(
+			var soccerPlayerTree = await _client.ListItems.CreateFromPOCO(
 				new SoccerPlayer
 				{
 					BirthDate = DateTime.Now,
@@ -178,7 +178,7 @@ namespace Picturepark.SDK.V1.Tests
 					}
 				}, nameof(SoccerPlayer));
 
-			var soccerTrainerTree = await _client.MetadataObjects.CreateFromPOCO(
+			var soccerTrainerTree = await _client.ListItems.CreateFromPOCO(
 				new SoccerTrainer
 				{
 					BirthDate = DateTime.Now,
@@ -188,7 +188,7 @@ namespace Picturepark.SDK.V1.Tests
 					TrainerSince = new DateTime(2000, 1, 1)
 				}, nameof(SoccerTrainer));
 
-			var person = await _client.MetadataObjects.CreateFromPOCO(
+			var person = await _client.ListItems.CreateFromPOCO(
 				new Person
 				{
 					BirthDate = DateTime.Now,
@@ -199,14 +199,14 @@ namespace Picturepark.SDK.V1.Tests
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataObject")]
+		[Trait("Stack", "ListItem")]
 		public async Task ShouldCreateObjectWithoutHelper()
 		{
 			// Create SoccerPlayer
-			var createRequest = await _client.MetadataObjects.CreateAsync(
-				new MetadataObjectCreateRequest
+			var createRequest = await _client.ListItems.CreateAsync(
+				new ListItemCreateRequest
 				{
-					MetadataSchemaId = "SoccerPlayer",
+					SchemaId = "SoccerPlayer",
 					Metadata = new MetadataDictionary
 					{
 						{
@@ -224,38 +224,38 @@ namespace Picturepark.SDK.V1.Tests
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataObject")]
+		[Trait("Stack", "ListItem")]
 		public async Task ShouldGetObject()
 		{
 			string objectName = "ThisObjectC" + new Random().Next(0, 999999).ToString();
 
-			var createRequest = new MetadataObjectCreateRequest
+			var createRequest = new ListItemCreateRequest
 			{
-				MetadataSchemaId = nameof(Tag),
+				SchemaId = nameof(Tag),
 				Metadata = new MetadataDictionary
 				{
 					{ "Tag", new Tag { Name = objectName } }
 				}
 			};
 
-			MetadataObjectViewItem viewItem = await _client.MetadataObjects.CreateAbcAsync(createRequest);
-			var result = await _client.MetadataObjects.GetAsync(viewItem.Id, true);
+			ListItemViewItem viewItem = await _client.ListItems.CreateAbcAsync(createRequest);
+			var result = await _client.ListItems.GetAsync(viewItem.Id, true);
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataObject")]
+		[Trait("Stack", "ListItem")]
 		public async Task ShouldGetObjectResolved()
 		{
-			var request = new MetadataSchemaSearchRequest()
+			var request = new SchemaSearchRequest()
 			{
 				Limit = 100,
 				Filter = new TermFilter()
 				{
 					Field = "Types",
-					Term = MetadataSchemaType.MetadataContent.ToString()
+					Term = SchemaType.List.ToString()
 				}
 			};
-			BaseResultOfMetadataSchemaViewItem result = _client.Schemas.Search(request);
+			BaseResultOfSchemaViewItem result = _client.Schemas.Search(request);
 			Assert.True(result.Results.Count() > 0);
 
 			string objectId = null;
@@ -271,37 +271,37 @@ namespace Picturepark.SDK.V1.Tests
 			}
 
 			Assert.False(string.IsNullOrEmpty(objectId));
-			await _client.MetadataObjects.GetAsync(objectId, true);
+			await _client.ListItems.GetAsync(objectId, true);
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataObject")]
+		[Trait("Stack", "ListItem")]
 		public async Task ShouldSearchObjects()
 		{
 			// ---------------------------------------------------------------------------
 			// Get a list of MetadataSchemaIds
 			// ---------------------------------------------------------------------------
-			var searchRequestSchema = new MetadataSchemaSearchRequest() { Start = 0, Limit = 999, Filter = new TermFilter() { Field = "Types", Term = MetadataSchemaType.MetadataContent.ToString() } };
-			BaseResultOfMetadataSchemaViewItem searchResultSchema = _client.Schemas.Search(searchRequestSchema);
+			var searchRequestSchema = new SchemaSearchRequest() { Start = 0, Limit = 999, Filter = new TermFilter() { Field = "Types", Term = SchemaType.List.ToString() } };
+			BaseResultOfSchemaViewItem searchResultSchema = _client.Schemas.Search(searchRequestSchema);
 			Assert.True(searchResultSchema.Results.Count() > 0);
 
 			List<string> metadataSchemaIds = searchResultSchema.Results.Select(i => i.Id).OrderBy(i => i).ToList();
 
-			var searchRequestObject = new MetadataObjectSearchRequest() { Start = 0, Limit = 100 };
-			var viewItems = new List<MetadataObjectViewItem>();
+			var searchRequestObject = new ListItemSearchRequest() { Start = 0, Limit = 100 };
+			var viewItems = new List<ListItemViewItem>();
 			List<string> failedMetadataSchemaIds = new List<string>();
-			BaseResultOfMetadataObjectViewItem searchResultObject;
+			BaseResultOfListItemViewItem searchResultObject;
 
 			// ---------------------------------------------------------------------------
 			// Loop over all metadataSchemaIds and make a search for each metadataSchemaId
 			// ---------------------------------------------------------------------------
 			foreach (string metadataSchemaId in metadataSchemaIds)
 			{
-				searchRequestObject.MetadataSchemaIds = new List<string> { metadataSchemaId };
+				searchRequestObject.SchemaIds = new List<string> { metadataSchemaId };
 
 				try
 				{
-					searchResultObject = await _client.MetadataObjects.SearchAsync(searchRequestObject);
+					searchResultObject = await _client.ListItems.SearchAsync(searchRequestObject);
 
 					if (searchResultObject.Results.Count() > 0)
 						viewItems.AddRange(searchResultObject.Results);
@@ -320,21 +320,21 @@ namespace Picturepark.SDK.V1.Tests
 		}
 
 		[Fact]
-		[Trait("Stack", "MetadataObject")]
+		[Trait("Stack", "ListItem")]
 		public async Task ShouldUpdateObject()
 		{
 			// Search players
-			var players = await _client.MetadataObjects.SearchAsync(new MetadataObjectSearchRequest
+			var players = await _client.ListItems.SearchAsync(new ListItemSearchRequest
 			{
 				Limit = 20,
 				SearchString = "-ivorejvioe",
-				MetadataSchemaIds = new List<string> { "SoccerPlayer" }
+				SchemaIds = new List<string> { "SoccerPlayer" }
 			});
 
 			Assert.True(players.Results.Count() > 0);
 			var playerObjectId = players.Results.First().Id;
 
-			var playerViewItem = await _client.MetadataObjects.GetAsync(playerObjectId, true);
+			var playerViewItem = await _client.ListItems.GetAsync(playerObjectId, true);
 
 			// Convert first result item to CLR
 			var player = playerViewItem.ConvertToType<SoccerPlayer>(nameof(SoccerPlayer));
@@ -343,7 +343,7 @@ namespace Picturepark.SDK.V1.Tests
 			player.Firstname = "xy jviorej ivorejvioe";
 
 			// Update on server
-			await _client.MetadataObjects.UpdateMetadataObjectAsync(playerViewItem, player, nameof(SoccerPlayer));
+			await _client.ListItems.UpdateListItemAsync(playerViewItem, player, nameof(SoccerPlayer));
 		}
 
 		[Fact(Skip = "Broken")] // TODO: Fix
@@ -351,7 +351,7 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldImport()
 		{
 			string jsonFilePath = Path.GetFullPath(_fixture.ProjectDirectory + "ExampleData/Corporate.json");
-			await _client.MetadataObjects.ImportFromJsonAsync(jsonFilePath, includeObjects: false);
+			await _client.ListItems.ImportFromJsonAsync(jsonFilePath, includeObjects: false);
 		}
 	}
 }

@@ -36,19 +36,19 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         public PictureparkClient Client => _client;
 
-        public Contract.AssetSearchResult GetRandomAssets(string searchString, int limit)
+        public Contract.ContentSearchResult GetRandomContents(string searchString, int limit)
         {
-            return RandomHelper.GetRandomAssets(_client, searchString, limit);
+            return RandomHelper.GetRandomContents(_client, searchString, limit);
         }
 
-        public string GetRandomAssetId(string searchString, int limit)
+        public string GetRandomContentId(string searchString, int limit)
         {
-            return RandomHelper.GetRandomAssetId(_client, searchString, limit);
+            return RandomHelper.GetRandomContentId(_client, searchString, limit);
         }
 
-        public string GetRandomAssetPermissionSetId(int limit)
+        public string GetRandomContentPermissionSetId(int limit)
         {
-            return RandomHelper.GetRandomAssetPermissionSetId(_client, limit);
+            return RandomHelper.GetRandomContentPermissionSetId(_client, limit);
         }
 
         public string GetRandomBatchTransferId(TransferState? transferState, int limit)
@@ -66,9 +66,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             return RandomHelper.GetRandomMetadataPermissionSetId(_client, limit);
         }
 
-        public string GetRandomMetadataSchemaId(int limit)
+        public string GetRandomSchemaId(int limit)
         {
-            return RandomHelper.GetRandomMetadataSchemaId(_client, limit);
+            return RandomHelper.GetRandomSchemaId(_client, limit);
         }
 
         public string GetRandomObjectId(string metadataSchemaId, int limit)

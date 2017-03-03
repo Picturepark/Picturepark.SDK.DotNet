@@ -12,20 +12,20 @@
     "application/json"
   ],
   "paths": {
-    "/Service/Assets/Aggregate": {
+    "/Service/Contents/Aggregate": {
       "post": {
         "tags": [
-          "Assets"
+          "Content"
         ],
         "summary": "Aggregate fields",
-        "operationId": "Assets_Aggregate",
+        "operationId": "Content_Aggregate",
         "parameters": [
           {
-            "name": "assetAggregationRequest",
+            "name": "contentAggregationRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AssetAggregationRequest"
+              "$ref": "#/definitions/ContentAggregationRequest"
             },
             "x-nullable": true,
             "description": "Aggregation request. Required."
@@ -49,12 +49,12 @@
         }
       }
     },
-    "/Service/Assets/{ChannelId}/Aggregate": {
+    "/Service/Contents/{ChannelId}/Aggregate": {
       "post": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "operationId": "Assets_AggregateByChannel",
+        "operationId": "Content_AggregateByChannel",
         "parameters": [
           {
             "type": "string",
@@ -64,11 +64,11 @@
             "x-nullable": false
           },
           {
-            "name": "assetAggregationRequest",
+            "name": "contentAggregationRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AssetAggregationRequest"
+              "$ref": "#/definitions/ContentAggregationRequest"
             },
             "x-nullable": true
           }
@@ -91,19 +91,19 @@
         }
       }
     },
-    "/Service/Assets/CreateBatchAssetDownload": {
+    "/Service/Contents/CreateBatchContentDownload": {
       "post": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "operationId": "Assets_CreateBatchAssetDownload",
+        "operationId": "Content_CreateBatchContentDownload",
         "parameters": [
           {
             "name": "request",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AssetBatchDownloadRequest"
+              "$ref": "#/definitions/ContentBatchDownloadRequest"
             },
             "x-nullable": true
           }
@@ -119,26 +119,26 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/AssetBatchDownloadItem"
+              "$ref": "#/definitions/ContentBatchDownloadItem"
             },
             "x-nullable": true
           }
         }
       }
     },
-    "/Service/Assets": {
+    "/Service/Contents": {
       "post": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "operationId": "Assets_CreateVirtualAssets",
+        "operationId": "Content_CreateVirtualContents",
         "parameters": [
           {
-            "name": "createVirtualAssetRequest",
+            "name": "createVirtualContentRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/CreateVirtualAssetRequest"
+              "$ref": "#/definitions/CreateVirtualContentRequest"
             },
             "x-nullable": true
           },
@@ -178,23 +178,23 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/AssetDetailViewItem"
+              "$ref": "#/definitions/ContentDetailViewItem"
             },
             "x-nullable": true
           }
         }
       }
     },
-    "/Service/Assets/Downloads/{AssetId}/{OutputFormatId}": {
+    "/Service/Contents/Downloads/{ContentId}/{OutputFormatId}": {
       "get": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "operationId": "Assets_Download",
+        "operationId": "Content_Download",
         "parameters": [
           {
             "type": "string",
-            "name": "AssetId",
+            "name": "ContentId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -234,21 +234,21 @@
         }
       }
     },
-    "/Service/Assets/Thumbnails/{AssetId}/{Size}": {
+    "/Service/Contents/Thumbnails/{ContentId}/{Size}": {
       "get": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "summary": "Provides a lightweight endpoint to get asset thumbnails",
-        "operationId": "Assets_DownloadThumbnail",
+        "summary": "Provides a lightweight endpoint to get content thumbnails",
+        "operationId": "Content_DownloadThumbnail",
         "parameters": [
           {
             "type": "string",
-            "name": "AssetId",
+            "name": "ContentId",
             "in": "path",
             "required": true,
             "x-nullable": false,
-            "description": "Asset id"
+            "description": "Content id"
           },
           {
             "type": "string",
@@ -283,16 +283,16 @@
         }
       }
     },
-    "/Service/Assets/Downloads/{AssetId}/{OutputFormatId}/{Width}/{Height}": {
+    "/Service/Contents/Downloads/{ContentId}/{OutputFormatId}/{Width}/{Height}": {
       "get": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "operationId": "Assets_DownloadResized",
+        "operationId": "Content_DownloadResized",
         "parameters": [
           {
             "type": "string",
-            "name": "AssetId",
+            "name": "ContentId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -342,16 +342,16 @@
         }
       }
     },
-    "/Service/Assets/{AssetId}": {
+    "/Service/Contents/{ContentId}": {
       "get": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "operationId": "Assets_Get",
+        "operationId": "Content_Get",
         "parameters": [
           {
             "type": "string",
-            "name": "AssetId",
+            "name": "ContentId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -385,14 +385,14 @@
           "404": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/AssetNotFoundException"
+              "$ref": "#/definitions/ContentNotFoundException"
             },
             "x-nullable": true
           },
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/AssetDetailViewItem"
+              "$ref": "#/definitions/ContentDetailViewItem"
             },
             "x-nullable": true
           }
@@ -400,13 +400,13 @@
       },
       "put": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "operationId": "Assets_UpdateMetadata",
+        "operationId": "Content_UpdateMetadata",
         "parameters": [
           {
             "type": "string",
-            "name": "AssetId",
+            "name": "ContentId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -416,7 +416,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateAssetMetadataRequest"
+              "$ref": "#/definitions/UpdateContentMetadataRequest"
             },
             "x-nullable": true
           },
@@ -456,23 +456,23 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/AssetDetailViewItem"
+              "$ref": "#/definitions/ContentDetailViewItem"
             },
             "x-nullable": true
           }
         }
       }
     },
-    "/Service/Assets/{AssetId}/Permissions": {
+    "/Service/Contents/{ContentId}/Permissions": {
       "put": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "operationId": "Assets_UpdatePermissions",
+        "operationId": "Content_UpdatePermissions",
         "parameters": [
           {
             "type": "string",
-            "name": "AssetId",
+            "name": "ContentId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -482,7 +482,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateAssetPermissionsRequest"
+              "$ref": "#/definitions/UpdateContentPermissionsRequest"
             },
             "x-nullable": true
           },
@@ -522,26 +522,26 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/AssetDetailViewItem"
+              "$ref": "#/definitions/ContentDetailViewItem"
             },
             "x-nullable": true
           }
         }
       }
     },
-    "/Service/Assets/Search": {
+    "/Service/Contents/Search": {
       "post": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "operationId": "Assets_Search",
+        "operationId": "Content_Search",
         "parameters": [
           {
-            "name": "assetSearchRequest",
+            "name": "contentSearchRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AssetSearchRequest"
+              "$ref": "#/definitions/ContentSearchRequest"
             },
             "x-nullable": true
           }
@@ -557,19 +557,19 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/AssetSearchResult"
+              "$ref": "#/definitions/ContentSearchResult"
             },
             "x-nullable": true
           }
         }
       }
     },
-    "/Service/Assets/{ChannelId}/Search": {
+    "/Service/Contents/{ChannelId}/Search": {
       "post": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "operationId": "Assets_SearchByChannel",
+        "operationId": "Content_SearchByChannel",
         "parameters": [
           {
             "type": "string",
@@ -579,11 +579,11 @@
             "x-nullable": false
           },
           {
-            "name": "assetSearchRequest",
+            "name": "contentSearchRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AssetSearchRequest"
+              "$ref": "#/definitions/ContentSearchRequest"
             },
             "x-nullable": true
           }
@@ -599,23 +599,23 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/AssetSearchResult"
+              "$ref": "#/definitions/ContentSearchResult"
             },
             "x-nullable": true
           }
         }
       }
     },
-    "/Service/Assets/{AssetId}/Deactivate": {
+    "/Service/Contents/{ContentId}/Deactivate": {
       "put": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "operationId": "Assets_Deactivate",
+        "operationId": "Content_Deactivate",
         "parameters": [
           {
             "type": "string",
-            "name": "AssetId",
+            "name": "ContentId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -643,16 +643,16 @@
         }
       }
     },
-    "/Service/Assets/{AssetId}/Reactivate": {
+    "/Service/Contents/{ContentId}/Reactivate": {
       "put": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "operationId": "Assets_Reactivate",
+        "operationId": "Content_Reactivate",
         "parameters": [
           {
             "type": "string",
-            "name": "AssetId",
+            "name": "ContentId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -693,26 +693,26 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/AssetDetailViewItem"
+              "$ref": "#/definitions/ContentDetailViewItem"
             },
             "x-nullable": true
           }
         }
       }
     },
-    "/Service/Assets/Many/Deactivate": {
+    "/Service/Contents/Many/Deactivate": {
       "post": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "operationId": "Assets_DeactivateMany",
+        "operationId": "Content_DeactivateMany",
         "parameters": [
           {
             "name": "deactivationRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AssetDeactivationRequest"
+              "$ref": "#/definitions/ContentDeactivationRequest"
             },
             "x-nullable": true
           }
@@ -735,19 +735,19 @@
         }
       }
     },
-    "/Service/Assets/Many/Reactivate": {
+    "/Service/Contents/Many/Reactivate": {
       "post": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "operationId": "Assets_ReactivateMany",
+        "operationId": "Content_ReactivateMany",
         "parameters": [
           {
             "name": "reactivationRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AssetReactivationRequest"
+              "$ref": "#/definitions/ContentReactivationRequest"
             },
             "x-nullable": true
           }
@@ -770,19 +770,19 @@
         }
       }
     },
-    "/Service/Assets/Many/Metadata": {
+    "/Service/Contents/Many/Metadata": {
       "put": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "operationId": "Assets_UpdateMetadataMany",
+        "operationId": "Content_UpdateMetadataMany",
         "parameters": [
           {
             "name": "updateRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AssetsMetadataUpdateRequest"
+              "$ref": "#/definitions/ContentsMetadataUpdateRequest"
             },
             "x-nullable": true
           }
@@ -805,12 +805,12 @@
         }
       }
     },
-    "/Service/Assets/Many/Permissions": {
+    "/Service/Contents/Many/Permissions": {
       "put": {
         "tags": [
-          "Assets"
+          "Content"
         ],
-        "operationId": "Assets_UpdatePermissionsMany",
+        "operationId": "Content_UpdatePermissionsMany",
         "parameters": [
           {
             "name": "updateRequest",
@@ -819,7 +819,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/UpdateAssetPermissionsRequest"
+                "$ref": "#/definitions/UpdateContentPermissionsRequest"
               }
             },
             "x-nullable": true
@@ -846,9 +846,9 @@
     "/API/V1/BusinessProcesses/ProcessDefinitions/{ProcessDefinitionId}/Start": {
       "post": {
         "tags": [
-          "BusinessProcesses"
+          "BusinessProcess"
         ],
-        "operationId": "BusinessProcesses_Start",
+        "operationId": "BusinessProcess_Start",
         "parameters": [
           {
             "type": "string",
@@ -888,9 +888,9 @@
     "/API/V1/BusinessProcesses/Processes/{ProcessId}/MarkAsEnded": {
       "post": {
         "tags": [
-          "BusinessProcesses"
+          "BusinessProcess"
         ],
-        "operationId": "BusinessProcesses_MarkAsEnded",
+        "operationId": "BusinessProcess_MarkAsEnded",
         "parameters": [
           {
             "type": "string",
@@ -917,9 +917,9 @@
     "/API/V1/BusinessProcesses/Processes/{ProcessId}/MarkAsStarted": {
       "post": {
         "tags": [
-          "BusinessProcesses"
+          "BusinessProcess"
         ],
-        "operationId": "BusinessProcesses_MarkAsStarted",
+        "operationId": "BusinessProcess_MarkAsStarted",
         "parameters": [
           {
             "type": "string",
@@ -946,9 +946,9 @@
     "/API/V1/BusinessProcesses/Processes/{ProcessId}/Message": {
       "post": {
         "tags": [
-          "BusinessProcesses"
+          "BusinessProcess"
         ],
-        "operationId": "BusinessProcesses_SendMessage",
+        "operationId": "BusinessProcess_SendMessage",
         "parameters": [
           {
             "type": "string",
@@ -984,9 +984,9 @@
     "/API/V1/BusinessProcesses/{ProcessId}/Wait": {
       "get": {
         "tags": [
-          "BusinessProcesses"
+          "BusinessProcess"
         ],
-        "operationId": "BusinessProcesses_WaitForStates",
+        "operationId": "BusinessProcess_WaitForStates",
         "parameters": [
           {
             "type": "string",
@@ -1195,9 +1195,9 @@
     "/Service/JsonSchemas/{SchemaId}": {
       "get": {
         "tags": [
-          "JsonSchemas"
+          "JsonSchema"
         ],
-        "operationId": "JsonSchemas_Get",
+        "operationId": "JsonSchema_Get",
         "parameters": [
           {
             "type": "string",
@@ -1223,19 +1223,19 @@
         }
       }
     },
-    "/Service/MetadataObjects": {
+    "/Service/ListItems": {
       "post": {
         "tags": [
-          "MetadataObjects"
+          "ListItem"
         ],
-        "operationId": "MetadataObjects_Create",
+        "operationId": "ListItem_Create",
         "parameters": [
           {
-            "name": "metadataObject",
+            "name": "listItem",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/MetadataObjectCreateRequest"
+              "$ref": "#/definitions/ListItemCreateRequest"
             },
             "x-nullable": true
           },
@@ -1275,19 +1275,19 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/MetadataObjectDetailViewItem"
+              "$ref": "#/definitions/ListItemDetailViewItem"
             },
             "x-nullable": true
           }
         }
       }
     },
-    "/Service/MetadataObjects/Many": {
+    "/Service/ListItems/Many": {
       "post": {
         "tags": [
-          "MetadataObjects"
+          "ListItem"
         ],
-        "operationId": "MetadataObjects_CreateMany",
+        "operationId": "ListItem_CreateMany",
         "parameters": [
           {
             "name": "objects",
@@ -1296,7 +1296,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/MetadataObjectCreateRequest"
+                "$ref": "#/definitions/ListItemCreateRequest"
               }
             },
             "x-nullable": true
@@ -1321,9 +1321,9 @@
       },
       "delete": {
         "tags": [
-          "MetadataObjects"
+          "ListItem"
         ],
-        "operationId": "MetadataObjects_DeleteMany",
+        "operationId": "ListItem_DeleteMany",
         "parameters": [
           {
             "type": "array",
@@ -1355,9 +1355,9 @@
       },
       "put": {
         "tags": [
-          "MetadataObjects"
+          "ListItem"
         ],
-        "operationId": "MetadataObjects_UpdateMany",
+        "operationId": "ListItem_UpdateMany",
         "parameters": [
           {
             "name": "objects",
@@ -1366,7 +1366,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/MetadataObjectUpdateRequest"
+                "$ref": "#/definitions/ListItemUpdateRequest"
               }
             },
             "x-nullable": true
@@ -1390,19 +1390,19 @@
         }
       }
     },
-    "/Service/MetadataObjects/Aggregate": {
+    "/Service/ListItems/Aggregate": {
       "post": {
         "tags": [
-          "MetadataObjects"
+          "ListItem"
         ],
-        "operationId": "MetadataObjects_Aggregate",
+        "operationId": "ListItem_Aggregate",
         "parameters": [
           {
-            "name": "metadataObjectAggregationRequest",
+            "name": "listItemAggregationRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/MetadataObjectAggregationRequest"
+              "$ref": "#/definitions/ListItemAggregationRequest"
             },
             "x-nullable": true
           }
@@ -1425,19 +1425,19 @@
         }
       }
     },
-    "/Service/MetadataObjects/Search": {
+    "/Service/ListItems/Search": {
       "post": {
         "tags": [
-          "MetadataObjects"
+          "ListItem"
         ],
-        "operationId": "MetadataObjects_Search",
+        "operationId": "ListItem_Search",
         "parameters": [
           {
-            "name": "metadataObjectSearchRequest",
+            "name": "listItemSearchRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/MetadataObjectSearchRequest"
+              "$ref": "#/definitions/ListItemSearchRequest"
             },
             "x-nullable": true
           }
@@ -1453,19 +1453,19 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/BaseResultOfMetadataObjectViewItem"
+              "$ref": "#/definitions/BaseResultOfListItemViewItem"
             },
             "x-nullable": true
           }
         }
       }
     },
-    "/Service/MetadataObjects/{ObjectId}": {
+    "/Service/ListItems/{ObjectId}": {
       "delete": {
         "tags": [
-          "MetadataObjects"
+          "ListItem"
         ],
-        "operationId": "MetadataObjects_Delete",
+        "operationId": "ListItem_Delete",
         "parameters": [
           {
             "type": "string",
@@ -1495,16 +1495,18 @@
             "description": ""
           }
         }
-      },
+      }
+    },
+    "/Service/ListItems/{ListItemId}": {
       "get": {
         "tags": [
-          "MetadataObjects"
+          "ListItem"
         ],
-        "operationId": "MetadataObjects_Get",
+        "operationId": "ListItem_Get",
         "parameters": [
           {
             "type": "string",
-            "name": "ObjectId",
+            "name": "ListItemId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -1538,7 +1540,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/MetadataObjectDetailViewItem"
+              "$ref": "#/definitions/ListItemDetailViewItem"
             },
             "x-nullable": true
           },
@@ -1549,13 +1551,13 @@
       },
       "put": {
         "tags": [
-          "MetadataObjects"
+          "ListItem"
         ],
-        "operationId": "MetadataObjects_Update",
+        "operationId": "ListItem_Update",
         "parameters": [
           {
             "type": "string",
-            "name": "ObjectId",
+            "name": "ListItemId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -1565,7 +1567,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/MetadataObjectUpdateRequest"
+              "$ref": "#/definitions/ListItemUpdateRequest"
             },
             "x-nullable": true
           },
@@ -1605,19 +1607,19 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/MetadataObjectDetailViewItem"
+              "$ref": "#/definitions/ListItemDetailViewItem"
             },
             "x-nullable": true
           }
         }
       }
     },
-    "/Service/MetadataObjects/{ProcessId}/Wait": {
+    "/Service/ListItems/{ProcessId}/Wait": {
       "get": {
         "tags": [
-          "MetadataObjects"
+          "ListItem"
         ],
-        "operationId": "MetadataObjects_WaitForStates",
+        "operationId": "ListItem_WaitForStates",
         "parameters": [
           {
             "type": "string",
@@ -1663,16 +1665,16 @@
         }
       }
     },
-    "/Service/MetadataObjects/Import": {
+    "/Service/ListItems/Import": {
       "get": {
         "tags": [
-          "MetadataObjects"
+          "ListItem"
         ],
-        "operationId": "MetadataObjects_Import",
+        "operationId": "ListItem_Import",
         "parameters": [
           {
             "type": "string",
-            "name": "assetId",
+            "name": "contentId",
             "in": "query",
             "required": true,
             "x-nullable": true
@@ -1706,12 +1708,12 @@
         }
       }
     },
-    "/Service/MetadataSchemas/{SchemaId}": {
+    "/Service/Schemas/{SchemaId}": {
       "get": {
         "tags": [
-          "MetadataSchemas"
+          "Schema"
         ],
-        "operationId": "MetadataSchemas_Get",
+        "operationId": "Schema_Get",
         "parameters": [
           {
             "type": "string",
@@ -1732,7 +1734,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/MetadataSchemaDetailViewItem"
+              "$ref": "#/definitions/SchemaDetailViewItem"
             },
             "x-nullable": true
           }
@@ -1740,9 +1742,9 @@
       },
       "put": {
         "tags": [
-          "MetadataSchemas"
+          "Schema"
         ],
-        "operationId": "MetadataSchemas_Update",
+        "operationId": "Schema_Update",
         "parameters": [
           {
             "type": "string",
@@ -1756,7 +1758,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/MetadataSchemaUpdateRequest"
+              "$ref": "#/definitions/SchemaUpdateRequest"
             },
             "x-nullable": true
           }
@@ -1780,9 +1782,9 @@
       },
       "delete": {
         "tags": [
-          "MetadataSchemas"
+          "Schema"
         ],
-        "operationId": "MetadataSchemas_Delete",
+        "operationId": "Schema_Delete",
         "parameters": [
           {
             "type": "string",
@@ -1810,12 +1812,12 @@
         }
       }
     },
-    "/Service/MetadataSchemas/{SchemaId}/Exists": {
+    "/Service/Schemas/{SchemaId}/Exists": {
       "get": {
         "tags": [
-          "MetadataSchemas"
+          "Schema"
         ],
-        "operationId": "MetadataSchemas_Exists",
+        "operationId": "Schema_Exists",
         "parameters": [
           {
             "type": "string",
@@ -1850,19 +1852,19 @@
         }
       }
     },
-    "/Service/MetadataSchemas": {
+    "/Service/Schemas": {
       "post": {
         "tags": [
-          "MetadataSchemas"
+          "Schema"
         ],
-        "operationId": "MetadataSchemas_Create",
+        "operationId": "Schema_Create",
         "parameters": [
           {
             "name": "schema",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/MetadataSchemaCreateRequest"
+              "$ref": "#/definitions/SchemaCreateRequest"
             },
             "x-nullable": true
           }
@@ -1885,19 +1887,19 @@
         }
       }
     },
-    "/Service/MetadataSchemas/Search": {
+    "/Service/Schemas/Search": {
       "post": {
         "tags": [
-          "MetadataSchemas"
+          "Schema"
         ],
-        "operationId": "MetadataSchemas_Search",
+        "operationId": "Schema_Search",
         "parameters": [
           {
-            "name": "metadataSchemaSearchRequest",
+            "name": "schemaSearchRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/MetadataSchemaSearchRequest"
+              "$ref": "#/definitions/SchemaSearchRequest"
             },
             "x-nullable": true
           }
@@ -1913,19 +1915,19 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/BaseResultOfMetadataSchemaViewItem"
+              "$ref": "#/definitions/BaseResultOfSchemaViewItem"
             },
             "x-nullable": true
           }
         }
       }
     },
-    "/Service/Permission/AssetPermissionSets/Search": {
+    "/Service/Permission/ContentPermissionSets/Search": {
       "post": {
         "tags": [
-          "Permissions"
+          "Permission"
         ],
-        "operationId": "Permissions_SearchAssetPermissions",
+        "operationId": "Permission_SearchContentPermissions",
         "parameters": [
           {
             "name": "request",
@@ -1955,12 +1957,12 @@
         }
       }
     },
-    "/Service/Permission/AssetPermissionSets/{PermissionSetId}": {
+    "/Service/Permission/ContentPermissionSets/{PermissionSetId}": {
       "get": {
         "tags": [
-          "Permissions"
+          "Permission"
         ],
-        "operationId": "Permissions_GetAssetPermissions",
+        "operationId": "Permission_GetContentPermissions",
         "parameters": [
           {
             "type": "string",
@@ -1981,7 +1983,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/AssetPermissionSetDetailViewItem"
+              "$ref": "#/definitions/ContentPermissionSetDetailViewItem"
             },
             "x-nullable": true
           }
@@ -1991,9 +1993,9 @@
     "/Service/Permission/MetadataPermissionSets/Search": {
       "post": {
         "tags": [
-          "Permissions"
+          "Permission"
         ],
-        "operationId": "Permissions_SearchMetadataPermissions",
+        "operationId": "Permission_SearchMetadataPermissions",
         "parameters": [
           {
             "name": "request",
@@ -2026,9 +2028,9 @@
     "/Service/Permission/MetadataPermissionSets/{PermissionSetId}": {
       "get": {
         "tags": [
-          "Permissions"
+          "Permission"
         ],
-        "operationId": "Permissions_GetMetadataPermissions",
+        "operationId": "Permission_GetMetadataPermissions",
         "parameters": [
           {
             "type": "string",
@@ -2092,9 +2094,9 @@
     "/Service/Shares/Aggregate": {
       "post": {
         "tags": [
-          "Shares"
+          "Share"
         ],
-        "operationId": "Shares_Aggregate",
+        "operationId": "Share_Aggregate",
         "parameters": [
           {
             "name": "request",
@@ -2127,9 +2129,9 @@
     "/Service/Shares/{Token}": {
       "get": {
         "tags": [
-          "Shares"
+          "Share"
         ],
-        "operationId": "Shares_GetShareByToken",
+        "operationId": "Share_GetShareByToken",
         "parameters": [
           {
             "type": "string",
@@ -2160,9 +2162,9 @@
     "/Service/Shares/Basic": {
       "post": {
         "tags": [
-          "Shares"
+          "Share"
         ],
-        "operationId": "Shares_CreateBasicShare",
+        "operationId": "Share_CreateBasicShare",
         "parameters": [
           {
             "name": "request",
@@ -2195,9 +2197,9 @@
     "/Service/Shares/Embed": {
       "post": {
         "tags": [
-          "Shares"
+          "Share"
         ],
-        "operationId": "Shares_CreateEmbedShare",
+        "operationId": "Share_CreateEmbedShare",
         "parameters": [
           {
             "name": "request",
@@ -2230,9 +2232,9 @@
     "/Service/Shares/Basic/{ShareId}": {
       "get": {
         "tags": [
-          "Shares"
+          "Share"
         ],
-        "operationId": "Shares_GetBasicShare",
+        "operationId": "Share_GetBasicShare",
         "parameters": [
           {
             "type": "string",
@@ -2263,9 +2265,9 @@
     "/Service/Shares/Embed/{ShareId}": {
       "get": {
         "tags": [
-          "Shares"
+          "Share"
         ],
-        "operationId": "Shares_GetEmbedShare",
+        "operationId": "Share_GetEmbedShare",
         "parameters": [
           {
             "type": "string",
@@ -2296,16 +2298,16 @@
     "/Service/Shares/Search": {
       "post": {
         "tags": [
-          "Shares"
+          "Share"
         ],
-        "operationId": "Shares_Search",
+        "operationId": "Share_Search",
         "parameters": [
           {
             "name": "request",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AssetSearchRequest"
+              "$ref": "#/definitions/ContentSearchRequest"
             },
             "x-nullable": true
           }
@@ -2331,10 +2333,10 @@
     "/Service/Transfers/{TransferId}/Cancel": {
       "get": {
         "tags": [
-          "Transfers"
+          "Transfer"
         ],
         "summary": "Cancels an active batch. Valid states: TODO",
-        "operationId": "Transfers_CancelBatch",
+        "operationId": "Transfer_CancelBatch",
         "parameters": [
           {
             "type": "string",
@@ -2361,9 +2363,9 @@
     "/Service/Transfers": {
       "post": {
         "tags": [
-          "Transfers"
+          "Transfer"
         ],
-        "operationId": "Transfers_Create",
+        "operationId": "Transfer_Create",
         "parameters": [
           {
             "name": "request",
@@ -2396,9 +2398,9 @@
     "/Service/Transfers/{TransferId}": {
       "delete": {
         "tags": [
-          "Transfers"
+          "Transfer"
         ],
-        "operationId": "Transfers_Delete",
+        "operationId": "Transfer_Delete",
         "parameters": [
           {
             "type": "string",
@@ -2423,9 +2425,9 @@
       },
       "get": {
         "tags": [
-          "Transfers"
+          "Transfer"
         ],
-        "operationId": "Transfers_Get",
+        "operationId": "Transfer_Get",
         "parameters": [
           {
             "type": "string",
@@ -2456,9 +2458,9 @@
     "/Service/Transfers/Files/{FileTransferId}": {
       "get": {
         "tags": [
-          "Transfers"
+          "Transfer"
         ],
-        "operationId": "Transfers_GetFile",
+        "operationId": "Transfer_GetFile",
         "parameters": [
           {
             "type": "string",
@@ -2489,9 +2491,9 @@
     "/Service/Transfers/{TransferId}/Import": {
       "post": {
         "tags": [
-          "Transfers"
+          "Transfer"
         ],
-        "operationId": "Transfers_ImportBatch",
+        "operationId": "Transfer_ImportBatch",
         "parameters": [
           {
             "type": "string",
@@ -2505,7 +2507,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/FileTransfer2AssetCreateRequest"
+              "$ref": "#/definitions/FileTransfer2ContentCreateRequest"
             },
             "x-nullable": true
           }
@@ -2531,9 +2533,9 @@
     "/Service/Transfers/{TransferId}/PartialImport": {
       "post": {
         "tags": [
-          "Transfers"
+          "Transfer"
         ],
-        "operationId": "Transfers_PartialImport",
+        "operationId": "Transfer_PartialImport",
         "parameters": [
           {
             "type": "string",
@@ -2547,7 +2549,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/FileTransferPartial2AssetCreateRequest"
+              "$ref": "#/definitions/FileTransferPartial2ContentCreateRequest"
             },
             "x-nullable": true
           }
@@ -2573,9 +2575,9 @@
     "/Service/Transfers/Search": {
       "post": {
         "tags": [
-          "Transfers"
+          "Transfer"
         ],
-        "operationId": "Transfers_Search",
+        "operationId": "Transfer_Search",
         "parameters": [
           {
             "name": "request",
@@ -2608,9 +2610,9 @@
     "/Service/Transfers/Files/Search": {
       "post": {
         "tags": [
-          "Transfers"
+          "Transfer"
         ],
-        "operationId": "Transfers_SearchFiles",
+        "operationId": "Transfer_SearchFiles",
         "parameters": [
           {
             "name": "request",
@@ -2643,9 +2645,9 @@
     "/Service/Transfers/{TransferId}/Files/{Identifier}/Upload": {
       "post": {
         "tags": [
-          "Transfers"
+          "Transfer"
         ],
-        "operationId": "Transfers_UploadFile",
+        "operationId": "Transfer_UploadFile",
         "consumes": [
           "multipart/form-data"
         ],
@@ -2722,9 +2724,9 @@
     "/Service/Users/Channels": {
       "get": {
         "tags": [
-          "Users"
+          "User"
         ],
-        "operationId": "Users_GetChannels",
+        "operationId": "User_GetChannels",
         "parameters": [],
         "responses": {
           "500": {
@@ -2749,7 +2751,7 @@
     }
   },
   "definitions": {
-    "AssetAggregationRequest": {
+    "ContentAggregationRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -3319,15 +3321,15 @@
     "TermsRelationAggregatorDocumentType": {
       "type": "string",
       "x-enumNames": [
-        "Asset",
-        "MetadataObject",
-        "MetadataSchema",
+        "Content",
+        "ListItem",
+        "Schema",
         "User"
       ],
       "enum": [
-        "Asset",
-        "MetadataObject",
-        "MetadataSchema",
+        "Content",
+        "ListItem",
+        "Schema",
         "User"
       ],
       "description": ""
@@ -3469,11 +3471,11 @@
         }
       ]
     },
-    "AssetNotFoundException": {
+    "ContentNotFoundException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "AssetId": {
+        "ContentId": {
           "type": "string"
         }
       },
@@ -3912,7 +3914,7 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "AssetId": {
+        "ContentId": {
           "type": "string"
         },
         "OutputFormatId": {
@@ -4097,7 +4099,7 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "AssetPermissionSetId": {
+        "ContentPermissionSetId": {
           "type": "string"
         }
       },
@@ -4174,23 +4176,23 @@
         }
       }
     },
-    "AssetBatchDownloadRequest": {
+    "ContentBatchDownloadRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Assets": {
+        "Contents": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Asset"
+            "$ref": "#/definitions/Content"
           }
         }
       }
     },
-    "Asset": {
+    "Content": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "AssetId": {
+        "ContentId": {
           "type": "string"
         },
         "OutputFormatId": {
@@ -4198,7 +4200,7 @@
         }
       }
     },
-    "AssetBatchDownloadItem": {
+    "ContentBatchDownloadItem": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -4219,14 +4221,14 @@
       "type": "object",
       "additionalProperties": false
     },
-    "CreateVirtualAssetRequest": {
+    "CreateVirtualContentRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "ContentMetadataSchemaId": {
+        "ContentSchemaId": {
           "type": "string"
         },
-        "MetadataSchemaIds": {
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -4235,7 +4237,7 @@
         "Metadata": {
           "$ref": "#/definitions/MetadataDictionary"
         },
-        "AssetPermissionSetIds": {
+        "ContentPermissionSetIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -4253,17 +4255,17 @@
         }
       ]
     },
-    "AssetDetailViewItem": {
+    "ContentDetailViewItem": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "AssetTypeId",
+        "ContentTypeId",
         "Trashed",
         "EntityType",
-        "AssetType"
+        "ContentType"
       ],
       "properties": {
-        "AssetTypeId": {
+        "ContentTypeId": {
           "type": "integer",
           "format": "int32"
         },
@@ -4273,10 +4275,10 @@
         "EntityType": {
           "$ref": "#/definitions/EntityType"
         },
-        "ContentMetadataSchemaId": {
+        "ContentSchemaId": {
           "type": "string"
         },
-        "MetadataSchemaIds": {
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -4288,7 +4290,7 @@
         "Id": {
           "type": "string"
         },
-        "AssetPermissionSetIds": {
+        "ContentPermissionSetIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -4306,8 +4308,8 @@
         "OwnerTokenId": {
           "type": "string"
         },
-        "AssetType": {
-          "$ref": "#/definitions/AssetType"
+        "ContentType": {
+          "$ref": "#/definitions/ContentType"
         },
         "DisplayValues": {
           "$ref": "#/definitions/DisplayValueViewItem"
@@ -4317,14 +4319,14 @@
     "EntityType": {
       "type": "string",
       "x-enumNames": [
-        "Asset",
+        "Content",
         "BasicShare",
         "EmbedShare",
         "Metadata",
         "FileTransfer"
       ],
       "enum": [
-        "Asset",
+        "Content",
         "BasicShare",
         "EmbedShare",
         "Metadata",
@@ -4342,7 +4344,7 @@
         "OutputFormatId": {
           "type": "string"
         },
-        "AssetId": {
+        "ContentId": {
           "type": "string"
         },
         "FileExtension": {
@@ -4399,7 +4401,7 @@
         }
       }
     },
-    "AssetType": {
+    "ContentType": {
       "type": "string",
       "x-enumNames": [
         "Unknown",
@@ -4473,14 +4475,14 @@
       ],
       "description": ""
     },
-    "UpdateAssetPermissionsRequest": {
+    "UpdateContentPermissionsRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "AssetId": {
+        "ContentId": {
           "type": "string"
         },
-        "AssetPermissionSetIds": {
+        "ContentPermissionSetIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -4488,7 +4490,7 @@
         }
       }
     },
-    "AssetSearchRequest": {
+    "ContentSearchRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -4546,7 +4548,7 @@
         }
       }
     },
-    "AssetSearchResult": {
+    "ContentSearchResult": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -4566,11 +4568,11 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/BaseResultOfAssetViewItem"
+          "$ref": "#/definitions/BaseResultOfContentViewItem"
         }
       ]
     },
-    "BaseResultOfAssetViewItem": {
+    "BaseResultOfContentViewItem": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -4584,7 +4586,7 @@
         "Results": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/AssetViewItem"
+            "$ref": "#/definitions/ContentViewItem"
           }
         },
         "PageToken": {
@@ -4592,7 +4594,7 @@
         }
       }
     },
-    "AssetViewItem": {
+    "ContentViewItem": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -4605,10 +4607,10 @@
         "EntityType": {
           "$ref": "#/definitions/EntityType"
         },
-        "ContentMetadataSchemaId": {
+        "ContentSchemaId": {
           "type": "string"
         },
-        "MetadataSchemaIds": {
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -4622,14 +4624,14 @@
         }
       }
     },
-    "UpdateAssetMetadataRequest": {
+    "UpdateContentMetadataRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "Id": {
           "type": "string"
         },
-        "MetadataSchemaIds": {
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -4640,11 +4642,11 @@
         }
       }
     },
-    "AssetDeactivationRequest": {
+    "ContentDeactivationRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "AssetIds": {
+        "ContentIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -4776,11 +4778,11 @@
         }
       }
     },
-    "AssetReactivationRequest": {
+    "ContentReactivationRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "AssetIds": {
+        "ContentIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -4788,11 +4790,11 @@
         }
       }
     },
-    "AssetsMetadataUpdateRequest": {
+    "ContentsMetadataUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "AssetIds": {
+        "ContentIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -4841,7 +4843,7 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "MetadataSchemaId": {
+        "SchemaId": {
           "type": "string"
         },
         "Value": {
@@ -4858,7 +4860,7 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "MetadataSchemaId": {
+        "SchemaId": {
           "type": "string"
         },
         "Value": {
@@ -4875,7 +4877,7 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "MetadataSchemaId": {
+        "SchemaId": {
           "type": "string"
         }
       },
@@ -4933,15 +4935,15 @@
         }
       ]
     },
-    "FilterAssetsMetadataUpdateRequest": {
+    "FilterContentsMetadataUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
         "TotalItemsCount"
       ],
       "properties": {
-        "AssetSearchRequest": {
-          "$ref": "#/definitions/AssetSearchRequest"
+        "ContentSearchRequest": {
+          "$ref": "#/definitions/ContentSearchRequest"
         },
         "TotalItemsCount": {
           "type": "integer",
@@ -5074,17 +5076,17 @@
         "NewValues": {}
       }
     },
-    "MetadataObjectCreateRequest": {
+    "ListItemCreateRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "MetadataObjectId": {
+        "ListItemId": {
           "type": "string"
         },
-        "MetadataSchemaId": {
+        "SchemaId": {
           "type": "string"
         },
-        "MetadataSchemaIds": {
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -5095,7 +5097,7 @@
         }
       }
     },
-    "MetadataObjectDetailViewItem": {
+    "ListItemDetailViewItem": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -5105,10 +5107,10 @@
         "Id": {
           "type": "string"
         },
-        "ContentMetadataSchemaId": {
+        "ContentSchemaId": {
           "type": "string"
         },
-        "MetadataSchemaIds": {
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -5125,11 +5127,11 @@
         }
       }
     },
-    "MetadataObjectAggregationRequest": {
+    "ListItemAggregationRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "IncludeAllMetadataSchemaChildren"
+        "IncludeAllSchemaChildren"
       ],
       "properties": {
         "SearchString": {
@@ -5156,10 +5158,10 @@
             "$ref": "#/definitions/AggregatorBase"
           }
         },
-        "IncludeAllMetadataSchemaChildren": {
+        "IncludeAllSchemaChildren": {
           "type": "boolean"
         },
-        "MetadataSchemaIds": {
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -5176,13 +5178,13 @@
         }
       }
     },
-    "MetadataObjectSearchRequest": {
+    "ListItemSearchRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
         "Start",
         "Limit",
-        "IncludeAllMetadataSchemaChildren",
+        "IncludeAllSchemaChildren",
         "IncludeMetadata"
       ],
       "properties": {
@@ -5206,10 +5208,10 @@
         "Filter": {
           "$ref": "#/definitions/FilterBase"
         },
-        "IncludeAllMetadataSchemaChildren": {
+        "IncludeAllSchemaChildren": {
           "type": "boolean"
         },
-        "MetadataSchemaIds": {
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -5235,7 +5237,7 @@
         }
       }
     },
-    "BaseResultOfMetadataObjectViewItem": {
+    "BaseResultOfListItemViewItem": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -5249,7 +5251,7 @@
         "Results": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/MetadataObjectViewItem"
+            "$ref": "#/definitions/ListItemViewItem"
           }
         },
         "PageToken": {
@@ -5257,7 +5259,7 @@
         }
       }
     },
-    "MetadataObjectViewItem": {
+    "ListItemViewItem": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -5267,10 +5269,10 @@
         "Id": {
           "type": "string"
         },
-        "ContentMetadataSchemaId": {
+        "ContentSchemaId": {
           "type": "string"
         },
-        "MetadataSchemaIds": {
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -5287,14 +5289,14 @@
         }
       }
     },
-    "MetadataObjectUpdateRequest": {
+    "ListItemUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "Id": {
           "type": "string"
         },
-        "MetadataSchemaIds": {
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -5305,7 +5307,7 @@
         }
       }
     },
-    "MetadataSchemaDetailViewItem": {
+    "SchemaDetailViewItem": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -5317,19 +5319,22 @@
         "Id": {
           "type": "string"
         },
-        "ParentMetadataSchemaId": {
+        "ParentSchemaId": {
           "type": "string"
         },
         "Types": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/MetadataSchemaType"
+            "$ref": "#/definitions/SchemaType"
           }
         },
         "Names": {
           "$ref": "#/definitions/TranslatedStringDictionary"
         },
-        "MetadataSchemaIds": {
+        "Descriptions": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -5384,13 +5389,13 @@
             "type": "string"
           }
         },
-        "ReferencedInMetadataSchemaIds": {
+        "ReferencedInSchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "DescendantMetadataSchemaIds": {
+        "DescendantSchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -5401,20 +5406,18 @@
         }
       }
     },
-    "MetadataSchemaType": {
+    "SchemaType": {
       "type": "string",
       "x-enumNames": [
-        "AssetContent",
-        "AssetLayer",
-        "MetadataContent",
-        "MetadataLayer",
+        "Content",
+        "Layer",
+        "List",
         "Struct"
       ],
       "enum": [
-        "AssetContent",
-        "AssetLayer",
-        "MetadataContent",
-        "MetadataLayer",
+        "Content",
+        "Layer",
+        "List",
         "Struct"
       ],
       "description": ""
@@ -5697,14 +5700,14 @@
         }
       ]
     },
-    "FieldObject": {
+    "FieldSingleFieldset": {
       "type": "object",
       "additionalProperties": false,
       "required": [
         "MaxRecursion"
       ],
       "properties": {
-        "MetadataSchemaId": {
+        "SchemaId": {
           "type": "string"
         },
         "MaxRecursion": {
@@ -5718,7 +5721,7 @@
         }
       ]
     },
-    "FieldObjects": {
+    "FieldMultiFieldset": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -5726,7 +5729,7 @@
         "UniqueItems"
       ],
       "properties": {
-        "MetadataSchemaId": {
+        "SchemaId": {
           "type": "string"
         },
         "MaxRecursion": {
@@ -5751,14 +5754,14 @@
         }
       ]
     },
-    "FieldSchemaItem": {
+    "FieldSingleTagbox": {
       "type": "object",
       "additionalProperties": false,
       "required": [
         "MaxRecursion"
       ],
       "properties": {
-        "MetadataSchemaId": {
+        "SchemaId": {
           "type": "string"
         },
         "MaxRecursion": {
@@ -5775,7 +5778,7 @@
         }
       ]
     },
-    "FieldSchemaItems": {
+    "FieldMultiTagbox": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -5783,7 +5786,7 @@
         "UniqueItems"
       ],
       "properties": {
-        "MetadataSchemaId": {
+        "SchemaId": {
           "type": "string"
         },
         "MaxRecursion": {
@@ -6020,14 +6023,14 @@
         }
       ]
     },
-    "FieldRelation": {
+    "FieldSingleRelation": {
       "type": "object",
       "additionalProperties": false,
       "required": [
         "MaxRecursion"
       ],
       "properties": {
-        "MetadataSchemaId": {
+        "SchemaId": {
           "type": "string"
         },
         "RelationTypes": {
@@ -6063,7 +6066,7 @@
         "TargetContext": {
           "$ref": "#/definitions/TargetContext"
         },
-        "MetadataSchemaId": {
+        "SchemaId": {
           "type": "string"
         },
         "Filter": {
@@ -6074,20 +6077,20 @@
     "TargetContext": {
       "type": "string",
       "x-enumNames": [
-        "Asset",
-        "MetadataObject",
+        "Content",
+        "ListItem",
         "User",
         "Custom"
       ],
       "enum": [
-        "Asset",
-        "MetadataObject",
+        "Content",
+        "ListItem",
         "User",
         "Custom"
       ],
       "description": ""
     },
-    "FieldRelations": {
+    "FieldMultiRelation": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -6095,7 +6098,7 @@
         "UniqueItems"
       ],
       "properties": {
-        "MetadataSchemaId": {
+        "SchemaId": {
           "type": "string"
         },
         "RelationTypes": {
@@ -6138,7 +6141,7 @@
         }
       }
     },
-    "MetadataSchemaCreateRequest": {
+    "SchemaCreateRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -6149,13 +6152,13 @@
         "Id": {
           "type": "string"
         },
-        "ParentMetadataSchemaId": {
+        "ParentSchemaId": {
           "type": "string"
         },
         "Types": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/MetadataSchemaType"
+            "$ref": "#/definitions/SchemaType"
           }
         },
         "Names": {
@@ -6207,13 +6210,13 @@
             "type": "string"
           }
         },
-        "MetadataSchemaIds": {
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "ReferencedInMetadataSchemaIds": {
+        "ReferencedInSchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -6221,7 +6224,7 @@
         }
       }
     },
-    "MetadataSchemaUpdateRequest": {
+    "SchemaUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -6278,13 +6281,13 @@
             "type": "string"
           }
         },
-        "MetadataSchemaIds": {
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "ReferencedInMetadataSchemaIds": {
+        "ReferencedInSchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -6293,12 +6296,12 @@
         "Types": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/MetadataSchemaType"
+            "$ref": "#/definitions/SchemaType"
           }
         }
       }
     },
-    "MetadataSchemaSearchRequest": {
+    "SchemaSearchRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -6328,7 +6331,7 @@
         }
       }
     },
-    "BaseResultOfMetadataSchemaViewItem": {
+    "BaseResultOfSchemaViewItem": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -6342,7 +6345,7 @@
         "Results": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/MetadataSchemaViewItem"
+            "$ref": "#/definitions/SchemaViewItem"
           }
         },
         "PageToken": {
@@ -6350,7 +6353,7 @@
         }
       }
     },
-    "MetadataSchemaViewItem": {
+    "SchemaViewItem": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -6363,13 +6366,13 @@
         "Id": {
           "type": "string"
         },
-        "ParentMetadataSchemaId": {
+        "ParentSchemaId": {
           "type": "string"
         },
         "Types": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/MetadataSchemaType"
+            "$ref": "#/definitions/SchemaType"
           }
         },
         "Names": {
@@ -6378,7 +6381,7 @@
         "Descriptions": {
           "$ref": "#/definitions/TranslatedStringDictionary"
         },
-        "MetadataSchemaIds": {
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -6495,16 +6498,16 @@
         }
       }
     },
-    "AssetPermissionSetDetailViewItem": {
+    "ContentPermissionSetDetailViewItem": {
       "type": "object",
       "additionalProperties": false,
       "allOf": [
         {
-          "$ref": "#/definitions/PermissionSetDetailViewItemOfAssetRight"
+          "$ref": "#/definitions/PermissionSetDetailViewItemOfContentRight"
         }
       ]
     },
-    "PermissionSetDetailViewItemOfAssetRight": {
+    "PermissionSetDetailViewItemOfContentRight": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -6524,7 +6527,7 @@
         "UserRolesRights": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/UserRoleRightsViewItemOfAssetRight"
+            "$ref": "#/definitions/UserRoleRightsViewItemOfContentRight"
           }
         },
         "UserRolesPermissionSetRights": {
@@ -6538,7 +6541,7 @@
         }
       }
     },
-    "UserRoleRightsViewItemOfAssetRight": {
+    "UserRoleRightsViewItemOfContentRight": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -6551,12 +6554,12 @@
         "Rights": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/AssetRight"
+            "$ref": "#/definitions/ContentRight"
           }
         }
       }
     },
-    "AssetRight": {
+    "ContentRight": {
       "type": "string",
       "x-enumNames": [
         "View",
@@ -6770,10 +6773,10 @@
         "EntityType": {
           "$ref": "#/definitions/EntityType"
         },
-        "AssetSelections": {
+        "ContentSelections": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/AssetSelection"
+            "$ref": "#/definitions/ContentSelection"
           }
         },
         "TemplateId": {
@@ -6785,12 +6788,12 @@
         }
       }
     },
-    "AssetSelection": {
+    "ContentSelection": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Asset": {
-          "$ref": "#/definitions/AssetViewItem"
+        "Content": {
+          "$ref": "#/definitions/ContentViewItem"
         },
         "Outputs": {
           "type": "array",
@@ -6865,10 +6868,10 @@
             "$ref": "#/definitions/UserRoleViewItem"
           }
         },
-        "Assets": {
+        "Contents": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ShareAssetItem"
+            "$ref": "#/definitions/ShareContent"
           }
         },
         "TemplateId": {
@@ -6913,7 +6916,7 @@
         "ManageDropzone",
         "ManageAnalytics",
         "ManageChannels",
-        "ManageMetadataSchemas",
+        "ManageSchemas",
         "ManageUsers",
         "ManageUserRoles",
         "ManagePermissions",
@@ -6921,7 +6924,7 @@
         "ManageRecipients",
         "ManageCollections",
         "ManageComments",
-        "ManageMetadataObjects",
+        "ManageListItems",
         "ManageServiceProviders"
       ],
       "enum": [
@@ -6931,7 +6934,7 @@
         "ManageDropzone",
         "ManageAnalytics",
         "ManageChannels",
-        "ManageMetadataSchemas",
+        "ManageSchemas",
         "ManageUsers",
         "ManageUserRoles",
         "ManagePermissions",
@@ -6939,16 +6942,16 @@
         "ManageRecipients",
         "ManageCollections",
         "ManageComments",
-        "ManageMetadataObjects",
+        "ManageListItems",
         "ManageServiceProviders"
       ],
       "description": ""
     },
-    "ShareAssetItem": {
+    "ShareContent": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "AssetId": {
+        "ContentId": {
           "type": "string"
         },
         "OutputFormatIds": {
@@ -6975,10 +6978,10 @@
         "Name": {
           "type": "string"
         },
-        "ShareAssetItems": {
+        "ShareContentItems": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ShareAssetItem"
+            "$ref": "#/definitions/ShareContent"
           }
         },
         "ExpirationDate": {
@@ -6994,10 +6997,10 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "EmbedAssetItems": {
+        "EmbedContentItems": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/EmbedAssetViewItem"
+            "$ref": "#/definitions/EmbedContentViewItem"
           }
         },
         "Token": {
@@ -7013,11 +7016,11 @@
         }
       ]
     },
-    "EmbedAssetViewItem": {
+    "EmbedContentViewItem": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "AssetId": {
+        "ContentId": {
           "type": "string"
         },
         "OutputFormatId": {
@@ -7063,7 +7066,7 @@
         "Name": {
           "type": "string"
         },
-        "AssetIds": {
+        "ContentIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -7352,7 +7355,7 @@
             "$ref": "#/definitions/OutputItem"
           }
         },
-        "AssetStoreItemId": {
+        "ContentStoreItemId": {
           "type": "string"
         }
       }
@@ -11896,14 +11899,14 @@
       ],
       "description": ""
     },
-    "FileTransfer2AssetCreateRequest": {
+    "FileTransfer2ContentCreateRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "TransferId": {
           "type": "string"
         },
-        "MetadataSchemaIds": {
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -11912,7 +11915,7 @@
         "Metadata": {
           "$ref": "#/definitions/MetadataDictionary"
         },
-        "AssetPermissionSetIds": {
+        "ContentPermissionSetIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -11920,7 +11923,7 @@
         }
       }
     },
-    "FileTransferPartial2AssetCreateRequest": {
+    "FileTransferPartial2ContentCreateRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -11942,7 +11945,7 @@
         "FileId": {
           "type": "string"
         },
-        "MetadataSchemaIds": {
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -11951,7 +11954,7 @@
         "Metadata": {
           "$ref": "#/definitions/MetadataDictionary"
         },
-        "AssetPermissionSetIds": {
+        "ContentPermissionSetIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -12128,7 +12131,7 @@
         "EntityType": {
           "$ref": "#/definitions/EntityType"
         },
-        "AssetStoreItemId": {
+        "ContentStoreItemId": {
           "type": "string"
         }
       }
@@ -12154,7 +12157,7 @@
         "EntityType": {
           "$ref": "#/definitions/EntityType"
         },
-        "MetadataSchemaIds": {
+        "SchemaIds": {
           "type": "array",
           "items": {
             "type": "string"

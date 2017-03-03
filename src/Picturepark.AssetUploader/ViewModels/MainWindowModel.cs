@@ -13,7 +13,7 @@ using Picturepark.SDK.V1;
 using Picturepark.SDK.V1.Authentication;
 using Picturepark.SDK.V1.Contract;
 
-namespace Picturepark.AssetUploader.ViewModels
+namespace Picturepark.ContentUploader.ViewModels
 {
     public class MainWindowModel : ViewModelBase
     {
@@ -96,10 +96,10 @@ namespace Picturepark.AssetUploader.ViewModels
         {
             await RunTaskAsync(() =>
             {
-                using (var key = Registry.ClassesRoot.CreateSubKey(@"*\shell\PictureparkAssetUploader"))
+                using (var key = Registry.ClassesRoot.CreateSubKey(@"*\shell\PictureparkContentUploader"))
                     key.SetValue("", "Upload to Picturepark server");
 
-                using (var key = Registry.ClassesRoot.CreateSubKey(@"*\shell\PictureparkAssetUploader\command"))
+                using (var key = Registry.ClassesRoot.CreateSubKey(@"*\shell\PictureparkContentUploader\command"))
                     key.SetValue("", "\"" + Assembly.GetEntryAssembly().Location + "\" %1");
             });
         }
@@ -108,7 +108,7 @@ namespace Picturepark.AssetUploader.ViewModels
         {
             await RunTaskAsync(() =>
             {
-                Registry.ClassesRoot.DeleteSubKeyTree(@"*\shell\PictureparkAssetUploader");
+                Registry.ClassesRoot.DeleteSubKeyTree(@"*\shell\PictureparkContentUploader");
             });
         }
     }

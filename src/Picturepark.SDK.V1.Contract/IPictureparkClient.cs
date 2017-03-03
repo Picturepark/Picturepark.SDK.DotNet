@@ -2,26 +2,26 @@ namespace Picturepark.SDK.V1.Contract
 {
     public interface IPictureparkClient
     {
-        IMetadataSchemasClient Schemas { get; }
+        ISchemaClient Schemas { get; }
 
-        IAssetsClient Assets { get; }
+        IContentClient Contents { get; }
 
-        IBusinessProcessesClient BusinessProcesses { get; }
+        IBusinessProcessClient BusinessProcesses { get; }
 
         IDocumentHistoryClient DocumentHistory { get; }
 
-        IJsonSchemasClient JsonSchemas { get; }
+        IJsonSchemaClient JsonSchemas { get; }
 
-        IMetadataObjectsClient MetadataObjects { get; }
+        IListItemClient ListItems { get; }
 
-        IPermissionsClient Permissions { get; }
+        IPermissionClient Permissions { get; }
 
         IPublicAccessClient PublicAccess { get; }
 
-        ISharesClient Shares { get; }
+        IShareClient Shares { get; }
 
-        ITransfersClient Transfers { get; }
+        ITransferClient Transfers { get; }
 
-        IUsersClient Users { get; }
+        IUserClient Users { get; }
     }
 }
