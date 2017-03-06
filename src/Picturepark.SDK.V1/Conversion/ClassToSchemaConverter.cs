@@ -12,26 +12,36 @@ namespace Picturepark.SDK.V1.Conversion
 {
 	public class ClassToSchemaConverter
 	{
-		private List<SchemaDetailViewItem> _createdSchemasList;
-
-		public ClassToSchemaConverter()
+		/// <summary>
+		/// Convert a C# POCO to a picturepark schema definition
+		/// </summary>
+		/// <param name="type">Type of poco to convert</param>
+		/// <param name="generateRelatedSchemas">Generates related schemas as well. E.g. referenced pocos in lists.</param>
+		/// <returns>List of schemas</returns>
+		public List<SchemaDetailViewItem> Generate(Type type, bool generateRelatedSchemas = true)
 		{
-			InitializeTemplates();
+			var schemaList = new List<SchemaDetailViewItem>();
+			return Generate(type, schemaList, true);
 		}
 
-		public List<SchemaDetailViewItem> Generate(Type type, List<SchemaDetailViewItem> schemaList, bool generateDependencySchema = true)
+		/// <summary>
+		/// Convert a C# POCO to a picturepark schema definition
+		/// </summary>
+		/// <param name="type">Type of poco to convert</param>
+		/// <param name="schemaList">Existing list of schemas. Pass if you need to convert several pocos and they reference the same dependant schemas (used to exclude existing schemas).</param>
+		/// <param name="generateRelatedSchemas">Generates related schemas as well. E.g. referenced pocos in lists.</param>
+		/// <returns>List of schemas</returns>
+		public List<SchemaDetailViewItem> Generate(Type type, List<SchemaDetailViewItem> schemaList, bool generateRelatedSchemas = true)
 		{
-			_createdSchemasList = schemaList;
-
 			var contractPropertiesInfo = GetProperties(type);
 
-			var schema = SchemaCreate(contractPropertiesInfo, type, string.Empty, 0, generateDependencySchema);
+			var schema = SchemaCreate(contractPropertiesInfo, type, string.Empty, schemaList, 0, generateRelatedSchemas);
 
 			var sortedList = new List<SchemaDetailViewItem>();
 
-			foreach (var schemaItem in _createdSchemasList)
+			foreach (var schemaItem in schemaList)
 			{
-				var dependencyList = _createdSchemasList.FindAll(s => s.Dependencies.Any(d => d.Id == schemaItem.Id));
+				var dependencyList = schemaList.FindAll(s => s.Dependencies.Any(d => d.Id == schemaItem.Id));
 
 				int? index = null;
 
@@ -57,11 +67,7 @@ namespace Picturepark.SDK.V1.Conversion
 			return sortedList;
 		}
 
-		private void InitializeTemplates()
-		{
-		}
-
-		private SchemaDetailViewItem SchemaCreate(List<ContractPropertyInfo> contractPropertyInfos, Type contractType, string parentSchemaId, int levelOfCall = 0, bool generateDependencySchema = true)
+		private SchemaDetailViewItem SchemaCreate(List<ContractPropertyInfo> contractPropertyInfos, Type contractType, string parentSchemaId, List<SchemaDetailViewItem> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
 		{
 			var schemaId = contractType.Name;
 
@@ -106,7 +112,7 @@ namespace Picturepark.SDK.V1.Conversion
 			{
 				foreach (var customType in customTypes)
 				{
-					if (_createdSchemasList.Any(d => d.Id == customType.TypeName))
+					if (schemaList.Any(d => d.Id == customType.TypeName))
 						continue;
 
 					// Exclusion, if the customType is the contractType (it would create itself again with zero fields)
@@ -119,15 +125,15 @@ namespace Picturepark.SDK.V1.Conversion
 					// Exclude system schemas from creation
 					if (!type.GetTypeInfo().GetCustomAttributes(typeof(PictureparkSystemSchemaAttribute), true).Any())
 					{
-						var dependencySchema = SchemaCreate(customType.TypeProperties, type, string.Empty, subLevelOfcall, generateDependencySchema);
+						var dependencySchema = SchemaCreate(customType.TypeProperties, type, string.Empty, schemaList, subLevelOfcall, generateDependencySchema);
 
 						// the schema can be alredy added as dependency
 						if (schemaItem.Dependencies.Any(d => d.Id == customType.TypeName) == false)
 							schemaItem.Dependencies.Add(dependencySchema);
 
 						// the schema can be alredy created
-						if (_createdSchemasList.Any(d => d.Id == customType.TypeName) == false && generateDependencySchema)
-							_createdSchemasList.Add(dependencySchema);
+						if (schemaList.Any(d => d.Id == customType.TypeName) == false && generateDependencySchema)
+							schemaList.Add(dependencySchema);
 					}
 				}
 			}
@@ -164,15 +170,15 @@ namespace Picturepark.SDK.V1.Conversion
 			if (generateDependencySchema || (!generateDependencySchema && levelOfCall == 0))
 			{
 				// the schema can be alredy created
-				if (_createdSchemasList.Find(s => s.Id == schemaItem.Id) == null)
-					_createdSchemasList.Add(schemaItem);
+				if (schemaList.Find(s => s.Id == schemaItem.Id) == null)
+					schemaList.Add(schemaItem);
 			}
 
 			// Create schemas for all subtypes
 			var subtypes = contractType.GetTypeInfo().Assembly.GetTypes().Where(t => t.GetTypeInfo().IsSubclassOf(contractType));
 			foreach (var subtype in subtypes)
 			{
-				SchemaCreate(GetProperties(subtype), subtype, schemaId);
+				SchemaCreate(GetProperties(subtype), subtype, schemaId, schemaList);
 			}
 
 			return schemaItem;
