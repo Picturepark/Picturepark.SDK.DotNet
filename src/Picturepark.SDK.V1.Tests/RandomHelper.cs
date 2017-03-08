@@ -149,9 +149,9 @@ namespace Picturepark.SDK.V1.Tests
 				Filter = new TermFilter() { Field = "EntityType", Term = entityType.ToString() }
 			};
 
-			BaseResultOfShareViewItem result = client.Shares.SearchAsync(request).Result;
+			BaseResultOfShareBaseViewItem result = client.Shares.SearchAsync(request).Result;
 
-			List<ShareViewItem> shareViewItems = new List<ShareViewItem>();
+			List<ShareBaseViewItem> shareViewItems = new List<ShareBaseViewItem>();
 			foreach (var item in result.Results)
 			{
 				if (item.EntityType == entityType)

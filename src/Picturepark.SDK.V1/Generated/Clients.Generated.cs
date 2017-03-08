@@ -4857,14 +4857,14 @@ namespace Picturepark.SDK.V1
         partial void ProcessResponse(System.Net.Http.HttpClient request, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public BasicShareDetailViewItem GetShare(string token)
+        public ShareBaseDetailViewItem GetShare(string token)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetShareAsync(token, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BasicShareDetailViewItem> GetShareAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ShareBaseDetailViewItem> GetShareAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("Service/PublicAccess/GetShare?");
@@ -4915,10 +4915,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BasicShareDetailViewItem); 
+                            var result_ = default(ShareBaseDetailViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BasicShareDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ShareBaseDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -4933,7 +4933,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(BasicShareDetailViewItem);
+                        return default(ShareBaseDetailViewItem);
                     }
                     finally
                     {
@@ -5057,21 +5057,21 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public ShareDetailViewItem GetShareByToken(string token)
+        public ShareBaseDetailViewItem Get(string id)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetShareByTokenAsync(token, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<ShareDetailViewItem> GetShareByTokenAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ShareBaseDetailViewItem> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (token == null)
-                throw new System.ArgumentNullException("token");
+            if (id == null)
+                throw new System.ArgumentNullException("id");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Shares/{Token}");
-            urlBuilder_.Replace("{Token}", System.Uri.EscapeDataString(token.ToString()));
+            urlBuilder_.Append("Service/Shares/{Id}");
+            urlBuilder_.Replace("{Id}", System.Uri.EscapeDataString(id.ToString()));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -5117,10 +5117,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(ShareDetailViewItem); 
+                            var result_ = default(ShareBaseDetailViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ShareBaseDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -5135,7 +5135,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(ShareDetailViewItem);
+                        return default(ShareBaseDetailViewItem);
                     }
                     finally
                     {
@@ -5152,17 +5152,17 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public CreateShareResult CreateBasicShare(BasicShareCreateItem request)
+        public CreateShareResult Create(ShareBaseCreateRequest request)
         {
-            return System.Threading.Tasks.Task.Run(async () => await CreateBasicShareAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await CreateAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<CreateShareResult> CreateBasicShareAsync(BasicShareCreateItem request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CreateShareResult> CreateAsync(ShareBaseCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Shares/Basic");
+            urlBuilder_.Append("Service/Shares");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -5246,298 +5246,14 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public CreateShareResult CreateEmbedShare(EmbedShareCreateItem request)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await CreateEmbedShareAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<CreateShareResult> CreateEmbedShareAsync(EmbedShareCreateItem request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Shares/Embed");
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    PrepareRequest(client_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    PrepareRequest(client_, url_);
-    
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
-                    content_.Headers.ContentType.MediaType = "application/json";
-                    request_.Content = content_;
-                    request_.Method = new System.Net.Http.HttpMethod("POST");
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("ResponseData", responseData_);
-                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(CreateShareResult); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<CreateShareResult>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(CreateShareResult);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public BasicShareDetailViewItem GetBasicShare(string shareId)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await GetBasicShareAsync(shareId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BasicShareDetailViewItem> GetBasicShareAsync(string shareId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (shareId == null)
-                throw new System.ArgumentNullException("shareId");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Shares/Basic/{ShareId}");
-            urlBuilder_.Replace("{ShareId}", System.Uri.EscapeDataString(shareId.ToString()));
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    PrepareRequest(client_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    PrepareRequest(client_, url_);
-    
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("ResponseData", responseData_);
-                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BasicShareDetailViewItem); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BasicShareDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(BasicShareDetailViewItem);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public EmbedShareDetailViewItem GetEmbedShare(string shareId)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await GetEmbedShareAsync(shareId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<EmbedShareDetailViewItem> GetEmbedShareAsync(string shareId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (shareId == null)
-                throw new System.ArgumentNullException("shareId");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("Service/Shares/Embed/{ShareId}");
-            urlBuilder_.Replace("{ShareId}", System.Uri.EscapeDataString(shareId.ToString()));
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    PrepareRequest(client_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    PrepareRequest(client_, url_);
-    
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("ResponseData", responseData_);
-                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(EmbedShareDetailViewItem); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<EmbedShareDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(EmbedShareDetailViewItem);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public BaseResultOfShareViewItem Search(ContentSearchRequest request)
+        public BaseResultOfShareBaseViewItem Search(ContentSearchRequest request)
         {
             return System.Threading.Tasks.Task.Run(async () => await SearchAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BaseResultOfShareViewItem> SearchAsync(ContentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BaseResultOfShareBaseViewItem> SearchAsync(ContentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("Service/Shares/Search");
@@ -5589,10 +5305,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BaseResultOfShareViewItem); 
+                            var result_ = default(BaseResultOfShareBaseViewItem); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfShareViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfShareBaseViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -5607,7 +5323,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(BaseResultOfShareViewItem);
+                        return default(BaseResultOfShareBaseViewItem);
                     }
                     finally
                     {

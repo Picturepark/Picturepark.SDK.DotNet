@@ -33,7 +33,7 @@ namespace Picturepark.SDK.V1.Tests
 				{
 					new TermsAggregator
 					{
-						Field = PropertyHelper.GetName<ShareViewItem>(i => i.EntityType),
+						Field = PropertyHelper.GetName<ShareBaseViewItem>(i => i.EntityType),
 						Size = 10,
 						Name = "EntityType"
 					}
@@ -64,7 +64,7 @@ namespace Picturepark.SDK.V1.Tests
 				_fixture.Configuration.EmailRecipient
 			};
 
-			var request = new BasicShareCreateItem()
+			var request = new ShareBasicCreateRequest()
 			{
 				Contents = shareContentItems,
 				Description = "Description of Basic share aaa",
@@ -73,7 +73,7 @@ namespace Picturepark.SDK.V1.Tests
 				RecipientsEmail = recipients
 			};
 
-			var result = await _client.Shares.CreateBasicShareAsync(request);
+			var result = await _client.Shares.CreateAsync(request);
 		}
 
 		[Fact]
@@ -93,7 +93,7 @@ namespace Picturepark.SDK.V1.Tests
 				_fixture.Configuration.EmailRecipient
 			};
 
-			var request = new BasicShareCreateItem()
+			var request = new ShareBasicCreateRequest()
 			{
 				Contents = shareContentItems,
 				Description = "Description of share with wrong content ids",
@@ -104,7 +104,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			await Assert.ThrowsAsync<ApiException>(async () =>
 			{
-				var result = await _client.Shares.CreateBasicShareAsync(request);
+				var result = await _client.Shares.CreateAsync(request);
 			});
 		}
 
@@ -120,15 +120,15 @@ namespace Picturepark.SDK.V1.Tests
 				new ShareContent() { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds }
 			};
 
-			var request = new EmbedShareCreateItem()
+			var request = new ShareEmbedCreateRequest()
 			{
-				ShareContentItems = shareContentItems,
+				Contents = shareContentItems,
 				Description = "Description of Embed share bbb",
 				ExpirationDate = new DateTime(2020, 12, 31),
 				Name = "Embed share bbb"
 			};
 
-			var result = await _client.Shares.CreateEmbedShareAsync(request);
+			var result = await _client.Shares.CreateAsync(request);
 		}
 
 		[Fact]
@@ -136,7 +136,7 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldGetBasicShare()
 		{
 			string shareId = _fixture.GetRandomShareId(EntityType.BasicShare, 20);
-			var result = await _client.Shares.GetBasicShareAsync(shareId);
+			var result = await _client.Shares.GetAsync(shareId);
 		}
 
 		[Fact]
@@ -144,7 +144,7 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldGetEmbedShare()
 		{
 			string shareId = _fixture.GetRandomShareId(EntityType.EmbedShare, 200);
-			var result = await _client.Shares.GetEmbedShareAsync(shareId);
+			var result = await _client.Shares.GetAsync(shareId);
 		}
 
 		[Fact]
@@ -153,12 +153,12 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			var entityType = EntityType.BasicShare;
 
-			var shareViewItems = new List<ShareViewItem>();
+			var shareViewItems = new List<ShareBaseViewItem>();
 
 			var request = new ContentSearchRequest() { Start = 1, Limit = 100 };
 			request.Filter = new TermFilter() { Field = "EntityType" };
 
-			BaseResultOfShareViewItem result = await _client.Shares.SearchAsync(request);
+			BaseResultOfShareBaseViewItem result = await _client.Shares.SearchAsync(request);
 
 			foreach (var item in result.Results)
 			{

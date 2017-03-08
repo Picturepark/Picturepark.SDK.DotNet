@@ -2084,7 +2084,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/BasicShareDetailViewItem"
+              "$ref": "#/definitions/ShareBaseDetailViewItem"
             },
             "x-nullable": true
           }
@@ -2126,16 +2126,16 @@
         }
       }
     },
-    "/Service/Shares/{Token}": {
+    "/Service/Shares/{Id}": {
       "get": {
         "tags": [
           "Share"
         ],
-        "operationId": "Share_GetShareByToken",
+        "operationId": "Share_Get",
         "parameters": [
           {
             "type": "string",
-            "name": "Token",
+            "name": "Id",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -2152,26 +2152,26 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/ShareDetailViewItem"
+              "$ref": "#/definitions/ShareBaseDetailViewItem"
             },
             "x-nullable": true
           }
         }
       }
     },
-    "/Service/Shares/Basic": {
+    "/Service/Shares": {
       "post": {
         "tags": [
           "Share"
         ],
-        "operationId": "Share_CreateBasicShare",
+        "operationId": "Share_Create",
         "parameters": [
           {
             "name": "request",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/BasicShareCreateItem"
+              "$ref": "#/definitions/ShareBaseCreateRequest"
             },
             "x-nullable": true
           }
@@ -2188,107 +2188,6 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/CreateShareResult"
-            },
-            "x-nullable": true
-          }
-        }
-      }
-    },
-    "/Service/Shares/Embed": {
-      "post": {
-        "tags": [
-          "Share"
-        ],
-        "operationId": "Share_CreateEmbedShare",
-        "parameters": [
-          {
-            "name": "request",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/EmbedShareCreateItem"
-            },
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CreateShareResult"
-            },
-            "x-nullable": true
-          }
-        }
-      }
-    },
-    "/Service/Shares/Basic/{ShareId}": {
-      "get": {
-        "tags": [
-          "Share"
-        ],
-        "operationId": "Share_GetBasicShare",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "ShareId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BasicShareDetailViewItem"
-            },
-            "x-nullable": true
-          }
-        }
-      }
-    },
-    "/Service/Shares/Embed/{ShareId}": {
-      "get": {
-        "tags": [
-          "Share"
-        ],
-        "operationId": "Share_GetEmbedShare",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "ShareId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/EmbedShareDetailViewItem"
             },
             "x-nullable": true
           }
@@ -2323,7 +2222,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/BaseResultOfShareViewItem"
+              "$ref": "#/definitions/BaseResultOfShareBaseViewItem"
             },
             "x-nullable": true
           }
@@ -6655,7 +6554,64 @@
       ],
       "description": ""
     },
-    "BasicShareDetailViewItem": {
+    "ShareBaseDetailViewItem": {
+      "type": "object",
+      "discriminator": "Kind",
+      "additionalProperties": false,
+      "required": [
+        "EntityType",
+        "Kind"
+      ],
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "Audit": {
+          "$ref": "#/definitions/StoreAudit"
+        },
+        "EntityType": {
+          "$ref": "#/definitions/EntityType"
+        },
+        "ContentSelections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContentSelection"
+          }
+        },
+        "TemplateId": {
+          "type": "string"
+        },
+        "ExpirationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Kind": {
+          "type": "string"
+        }
+      }
+    },
+    "ContentSelection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Content": {
+          "$ref": "#/definitions/ContentViewItem"
+        },
+        "Outputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OutputViewItem"
+          }
+        }
+      }
+    },
+    "ShareBasicDetailViewItem": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -6677,7 +6633,7 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/ShareDetailViewItem"
+          "$ref": "#/definitions/ShareBaseDetailViewItem"
         }
       ]
     },
@@ -6726,55 +6682,44 @@
         }
       }
     },
-    "ShareDetailViewItem": {
+    "ShareEmbedDetailViewItem": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "EntityType"
-      ],
       "properties": {
-        "Id": {
-          "type": "string"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "Description": {
-          "type": "string"
-        },
-        "Audit": {
-          "$ref": "#/definitions/StoreAudit"
-        },
-        "EntityType": {
-          "$ref": "#/definitions/EntityType"
-        },
-        "ContentSelections": {
+        "EmbedContentItems": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ContentSelection"
+            "$ref": "#/definitions/EmbedContentViewItem"
           }
         },
-        "TemplateId": {
+        "Token": {
           "type": "string"
         },
-        "ExpirationDate": {
-          "type": "string",
-          "format": "date-time"
+        "Url": {
+          "type": "string"
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareBaseDetailViewItem"
+        }
+      ]
     },
-    "ContentSelection": {
+    "EmbedContentViewItem": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Content": {
-          "$ref": "#/definitions/ContentViewItem"
+        "ContentId": {
+          "type": "string"
         },
-        "Outputs": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OutputViewItem"
-          }
+        "OutputFormatId": {
+          "type": "string"
+        },
+        "Token": {
+          "type": "string"
+        },
+        "Url": {
+          "type": "string"
         }
       }
     },
@@ -6811,9 +6756,13 @@
         }
       }
     },
-    "BasicShareCreateItem": {
+    "ShareBaseCreateRequest": {
       "type": "object",
+      "discriminator": "Kind",
       "additionalProperties": false,
+      "required": [
+        "Kind"
+      ],
       "properties": {
         "Name": {
           "type": "string"
@@ -6825,6 +6774,36 @@
           "type": "string",
           "format": "date-time"
         },
+        "Contents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShareContent"
+          }
+        },
+        "Kind": {
+          "type": "string"
+        }
+      }
+    },
+    "ShareContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ContentId": {
+          "type": "string"
+        },
+        "OutputFormatIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ShareBasicCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
         "RecipientsEmail": {
           "type": "array",
           "items": {
@@ -6843,16 +6822,15 @@
             "$ref": "#/definitions/UserRoleViewItem"
           }
         },
-        "Contents": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ShareContent"
-          }
-        },
         "TemplateId": {
           "type": "string"
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareBaseCreateRequest"
+        }
+      ]
     },
     "UserRoleViewItem": {
       "type": "object",
@@ -6922,20 +6900,14 @@
       ],
       "description": ""
     },
-    "ShareContent": {
+    "ShareEmbedCreateRequest": {
       "type": "object",
       "additionalProperties": false,
-      "properties": {
-        "ContentId": {
-          "type": "string"
-        },
-        "OutputFormatIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareBaseCreateRequest"
         }
-      }
+      ]
     },
     "CreateShareResult": {
       "type": "object",
@@ -6946,70 +6918,7 @@
         }
       }
     },
-    "EmbedShareCreateItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Name": {
-          "type": "string"
-        },
-        "ShareContentItems": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ShareContent"
-          }
-        },
-        "ExpirationDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "Description": {
-          "type": "string"
-        }
-      }
-    },
-    "EmbedShareDetailViewItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "EmbedContentItems": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/EmbedContentViewItem"
-          }
-        },
-        "Token": {
-          "type": "string"
-        },
-        "Url": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareDetailViewItem"
-        }
-      ]
-    },
-    "EmbedContentViewItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "ContentId": {
-          "type": "string"
-        },
-        "OutputFormatId": {
-          "type": "string"
-        },
-        "Token": {
-          "type": "string"
-        },
-        "Url": {
-          "type": "string"
-        }
-      }
-    },
-    "BaseResultOfShareViewItem": {
+    "BaseResultOfShareBaseViewItem": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -7023,7 +6932,7 @@
         "Results": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ShareViewItem"
+            "$ref": "#/definitions/ShareBaseViewItem"
           }
         },
         "PageToken": {
@@ -7031,11 +6940,13 @@
         }
       }
     },
-    "ShareViewItem": {
+    "ShareBaseViewItem": {
       "type": "object",
+      "discriminator": "Kind",
       "additionalProperties": false,
       "required": [
-        "EntityType"
+        "EntityType",
+        "Kind"
       ],
       "properties": {
         "Name": {
@@ -7055,8 +6966,46 @@
         },
         "EntityType": {
           "$ref": "#/definitions/EntityType"
+        },
+        "Kind": {
+          "type": "string"
         }
       }
+    },
+    "ShareBasicViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "MailRecipients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MailRecipientViewItem"
+          }
+        },
+        "InternalRecipients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InternalRecipientViewItem"
+          }
+        },
+        "Description": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareBaseViewItem"
+        }
+      ]
+    },
+    "ShareEmbedViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareBaseViewItem"
+        }
+      ]
     },
     "CreateTransferRequest": {
       "type": "object",
