@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Picturepark DotNet SDK Localization</Description>
+    <AssemblyTitle>Picturepark.SDK.V1.CloudManager</AssemblyTitle>
+    <VersionPrefix>0.27.0</VersionPrefix>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Picturepark.SDK.V1.CloudManager</AssemblyName>
+    <PackageId>Picturepark.SDK.V1.CloudManager</PackageId>
+    <PackageIconUrl>https://bitbucket.vit.ch:8443/projects/PP9/repos/picturepark.public/browse/picturepark-240px.png?raw</PackageIconUrl>
+    <PackageLicenseUrl>https://bitbucket.vit.ch:8443/projects/PP9/repos/Picturepark.SDK.DotNet</PackageLicenseUrl>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <CodeAnalysisRuleSet>../Picturepark.SDK.DotNet.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Picturepark.SDK.V1\Picturepark.SDK.V1.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.0.0">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+</Project>
