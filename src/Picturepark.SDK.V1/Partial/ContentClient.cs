@@ -21,7 +21,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The content details.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<ContentDetailViewItem> GetAsync(string contentId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentDetail> GetAsync(string contentId, CancellationToken cancellationToken = default(CancellationToken))
         {
             return await GetAsync(contentId, true, null, cancellationToken);
         }
@@ -34,7 +34,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The content details.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<ContentDetailViewItem> GetAsync(string contentId, bool resolve, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentDetail> GetAsync(string contentId, bool resolve, CancellationToken cancellationToken = default(CancellationToken))
         {
             return await GetAsync(contentId, resolve, null, cancellationToken);
         }
@@ -57,7 +57,7 @@ namespace Picturepark.SDK.V1
         /// <param name="timeout">The timeout.</param>
         /// <returns>The task.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<ContentDetailViewItem> ReactivateAsync(string contentId, bool resolve = true, int timeout = 60000)
+        public async Task<ContentDetail> ReactivateAsync(string contentId, bool resolve = true, int timeout = 60000)
         {
             return await ReactivateAsync(contentId, resolve, timeout, null);
         }
@@ -68,7 +68,7 @@ namespace Picturepark.SDK.V1
         /// <param name="timeout">The timeout.</param>
         /// <returns></returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public ContentDetailViewItem Reactivate(string contentId, bool resolve = true, int timeout = 60000)
+        public ContentDetail Reactivate(string contentId, bool resolve = true, int timeout = 60000)
         {
             return Task.Run(async () => await ReactivateAsync(contentId, resolve, timeout)).GetAwaiter().GetResult();
         }
@@ -80,7 +80,7 @@ namespace Picturepark.SDK.V1
             int concurrentDownloads = 4,
             string outputFormat = "Original",
             string outputExtension = "",
-            Action<ContentDetailViewItem> successDelegate = null,
+            Action<ContentDetail> successDelegate = null,
             Action<Exception> errorDelegate = null)
         {
             List<Task> allTasks = new List<Task>();

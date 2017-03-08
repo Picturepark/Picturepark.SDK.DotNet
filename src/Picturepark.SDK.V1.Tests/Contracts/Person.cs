@@ -17,10 +17,10 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 	[KnownType(typeof(SoccerTrainer))]
 	[PictureparkSchemaType(SchemaType.List)]
 	[PictureparkSchemaType(SchemaType.Struct)]
-	[PictureparkDisplayPattern(Contract.DisplayPatternType.Name, Contract.TemplateEngine.DotLiquid, "{{Metadata.Person.Firstname}} {{Metadata.Person.LastName}}")]
-	[PictureparkDisplayPattern(Contract.DisplayPatternType.List, Contract.TemplateEngine.DotLiquid, "{{Metadata.Person.Firstname}} {{Metadata.Person.LastName}}, {{Metadata.Person.EmailAddress}}")]
-	[PictureparkDisplayPattern(Contract.DisplayPatternType.Thumbnail, Contract.TemplateEngine.DotLiquid, "{{Metadata.Person.Firstname}} {{Metadata.Person.LastName}}")]
-	[PictureparkDisplayPattern(Contract.DisplayPatternType.Detail, Contract.TemplateEngine.DotLiquid, "{{Metadata.Person.Firstname}} {{Metadata.Person.LastName}}")]
+	[PictureparkDisplayPattern(Contract.DisplayPatternType.Name, Contract.TemplateEngine.DotLiquid, "{{Data.Person.Firstname}} {{Data.Person.LastName}}")]
+	[PictureparkDisplayPattern(Contract.DisplayPatternType.List, Contract.TemplateEngine.DotLiquid, "{{Data.Person.Firstname}} {{Data.Person.LastName}}, {{Data.Person.EmailAddress}}")]
+	[PictureparkDisplayPattern(Contract.DisplayPatternType.Thumbnail, Contract.TemplateEngine.DotLiquid, "{{Data.Person.Firstname}} {{Data.Person.LastName}}")]
+	[PictureparkDisplayPattern(Contract.DisplayPatternType.Detail, Contract.TemplateEngine.DotLiquid, "{{Data.Person.Firstname}} {{Data.Person.LastName}}")]
 	public class Person : IReference
 	{
 		[PictureparkSearch(Index = true, SimpleSearch = true, Boost = 10)]

@@ -107,7 +107,7 @@ namespace Picturepark.SDK.V1.Tests
 			if (contentId1 != contentId2)
 				request.Contents.Add(new Content() { ContentId = contentId2, OutputFormatId = "Original" });
 
-			ContentBatchDownloadItem result = await _client.Contents.CreateBatchContentDownloadAsync(request);
+			ContentBatchDownloadItem result = await _client.Contents.CreateDownloadLinkAsync(request);
 			Assert.True(result.DownloadToken != null);
 		}
 
@@ -153,7 +153,7 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
-			ContentDetailViewItem contentDetail = await _client.Contents.GetAsync(contentId);
+			ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);
 
 			var fileMetadata = contentDetail.GetFileMetadata();
 			var fileName = new Random().Next(0, 999999).ToString() + "-" + fileMetadata.FileName + ".jpg";
@@ -179,7 +179,7 @@ namespace Picturepark.SDK.V1.Tests
 			// Download a resized version of an image file
 			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
-			ContentDetailViewItem contentDetail = await _client.Contents.GetAsync(contentId);
+			ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);
 
 			var fileMetadata = contentDetail.GetFileMetadata();
 			var fileName = new Random().Next(0, 999999).ToString() + "-" + fileMetadata.FileName + ".jpg";
@@ -226,7 +226,7 @@ namespace Picturepark.SDK.V1.Tests
 			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
 
-			ContentDetailViewItem result = await _client.Contents.GetAsync(contentId);
+			ContentDetail result = await _client.Contents.GetAsync(contentId);
 			Assert.True(result.EntityType == EntityType.Content);
 		}
 
@@ -239,7 +239,7 @@ namespace Picturepark.SDK.V1.Tests
 				contentId = _fixture.GetRandomContentId("*.docx", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
 
-			ContentDetailViewItem result = await _client.Contents.GetAsync(contentId);
+			ContentDetail result = await _client.Contents.GetAsync(contentId);
 
 			FileMetadata fileMetadata = result.GetFileMetadata();
 			Assert.False(string.IsNullOrEmpty(fileMetadata.FileName));
@@ -250,7 +250,7 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldGetResolved()
 		{
 			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
-			ContentDetailViewItem result = await _client.Contents.GetAsync(contentId, true);
+			ContentDetail result = await _client.Contents.GetAsync(contentId, true);
 		}
 
 		[Fact]
@@ -263,7 +263,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			var sortInfos = new List<SortInfo>
 			{
-				new SortInfo { Direction = SortDirection.Asc, Field = PropertyHelper.GetName<ContentDetailViewItem>(i => i.Audit.CreationDate) }
+				new SortInfo { Direction = SortDirection.Asc, Field = PropertyHelper.GetName<ContentDetail>(i => i.Audit.CreationDate) }
 			};
 
 			var filter = new TermFilter { Field = "MetadataSchemaIds", Term = "Base" };
@@ -337,7 +337,7 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
 
-			ContentDetailViewItem content = await _client.Contents.GetAsync(contentId);
+			ContentDetail content = await _client.Contents.GetAsync(contentId);
 
 			var updateRequest = new ContentsMetadataUpdateRequest
 			{
@@ -347,7 +347,7 @@ namespace Picturepark.SDK.V1.Tests
 					new MetadataValuesSchemaUpsertCommand
 					{
 							SchemaId = "Drive",
-							Value = new MetadataDictionary
+							Value = new DataDictionary
 							{
 								{ "Location", "testlocation" }
 							}
@@ -369,7 +369,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			Assert.False(string.IsNullOrEmpty(contentId));
 
-			ContentDetailViewItem contentDetail = await _client.Contents.GetAsync(contentId);
+			ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);
 			Assert.True(contentDetail.EntityType == EntityType.Content);
 
 			var contentPermissionSetIds = new List<string>() { "aaa" + new Random().Next(0, 999).ToString(), "bbb" + new Random().Next(0, 999).ToString() };

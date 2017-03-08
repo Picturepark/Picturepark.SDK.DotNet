@@ -34,12 +34,12 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Permissions")]
-		public async Task ShouldGetMetadataPermissions()
+		public async Task ShouldGetSchemaPermissions()
 		{
 			string permissionSetId = _fixture.GetRandomMetadataPermissionSetId(20);
 			Assert.False(string.IsNullOrEmpty(permissionSetId));
 
-			MetadataPermissionSetDetailViewItem result = await _client.Permissions.GetMetadataPermissionsAsync(permissionSetId);
+			SchemaPermissionSetDetailViewItem result = await _client.Permissions.GetSchemaPermissionsAsync(permissionSetId);
 			Assert.False(string.IsNullOrEmpty(result.Id));
 		}
 
@@ -58,7 +58,7 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldSearchMetadataPermissions()
 		{
 			var request = new PermissionSetSearchRequest() { Limit = 20 };
-			PermissionSetSearchResult result = await _client.Permissions.SearchMetadataPermissionsAsync(request);
+			PermissionSetSearchResult result = await _client.Permissions.SearchSchemaPermissionsAsync(request);
 
 			Assert.True(result.Results.Count() > 0);
 		}

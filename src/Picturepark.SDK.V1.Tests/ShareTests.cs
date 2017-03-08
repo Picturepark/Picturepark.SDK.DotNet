@@ -78,6 +78,38 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Shares")]
+		public async Task ShouldCreateBasicShareWithWrongContentsAndFail()
+		{
+			var outputFormatIds = new List<string>() { "Original" };
+
+			var shareContentItems = new List<ShareContent>()
+			{
+				new ShareContent() { ContentId = "NonExistingId1", OutputFormatIds = outputFormatIds },
+				new ShareContent() { ContentId = "NonExistingId2", OutputFormatIds = outputFormatIds }
+			};
+
+			var recipients = new List<UserEmail>()
+			{
+				_fixture.Configuration.EmailRecipient
+			};
+
+			var request = new BasicShareCreateItem()
+			{
+				Contents = shareContentItems,
+				Description = "Description of share with wrong content ids",
+				ExpirationDate = new DateTime(2020, 12, 31),
+				Name = "Share with wrong content ids",
+				RecipientsEmail = recipients
+			};
+
+			await Assert.ThrowsAsync<ApiException>(async () =>
+			{
+				var result = await _client.Shares.CreateBasicShareAsync(request);
+			});
+		}
+
+		[Fact]
+		[Trait("Stack", "Shares")]
 		public async Task ShouldCreateEmbedShare()
 		{
 			var outputFormatIds = new List<string>() { "Original" };

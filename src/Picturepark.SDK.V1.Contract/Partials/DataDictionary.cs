@@ -2,7 +2,7 @@
 
 namespace Picturepark.SDK.V1.Contract
 {
-	public partial class MetadataDictionary
+	public partial class DataDictionary
 	{
 		/// <summary>
 		/// Gets a specific item (schemaId) from the dictionary and deserializes the object to a c# poco

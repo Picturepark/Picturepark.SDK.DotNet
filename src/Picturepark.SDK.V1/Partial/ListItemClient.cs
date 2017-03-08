@@ -11,6 +11,7 @@ using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Authentication;
 using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Contract.Interfaces;
+using Newtonsoft.Json.Linq;
 
 namespace Picturepark.SDK.V1
 {
@@ -25,18 +26,18 @@ namespace Picturepark.SDK.V1
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task<ListItemDetailViewItem> CreateAsync(ListItemCreateRequest listItem, bool resolve = false, int timeout = 60000)
+		public async Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItem, bool resolve = false, int timeout = 60000)
 		{
 			return await CreateAsync(listItem, resolve, timeout, null);
 		}
 
-		public ListItemDetailViewItem Create(ListItemCreateRequest listItem, bool resolve = false, int timeout = 60000)
+		public ListItemDetail Create(ListItemCreateRequest listItem, bool resolve = false, int timeout = 60000)
 		{
 			return Task.Run(async () => await CreateAsync(listItem, resolve: resolve, timeout: timeout)).GetAwaiter().GetResult();
 		}
 
 		// TODO(rsu): Rename
-		public async Task<ListItemViewItem> CreateAbcAsync(ListItemCreateRequest createRequest)
+		public async Task<ListItem> CreateAbcAsync(ListItemCreateRequest createRequest)
 		{
 			var result = await CreateManyAsync(new List<ListItemCreateRequest> { createRequest });
 			return result.First();
@@ -52,29 +53,27 @@ namespace Picturepark.SDK.V1
 			Task.Run(async () => await DeleteAsync(objectId)).GetAwaiter().GetResult();
 		}
 
-		public ListItemDetailViewItem Update(string objectId, ListItemUpdateRequest updateRequest, bool resolve = false, List<string> patterns = null, int timeout = 60000)
+		public ListItemDetail Update(string objectId, ListItemUpdateRequest updateRequest, bool resolve = false, List<string> patterns = null, int timeout = 60000)
 		{
 			return Task.Run(async () => await UpdateAsync(objectId, updateRequest, resolve, timeout, patterns)).GetAwaiter().GetResult();
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task<ListItemDetailViewItem> UpdateAsync(string objectId, ListItemUpdateRequest updateRequest, bool resolve = false, List<string> patterns = null, int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task<ListItemDetail> UpdateAsync(string objectId, ListItemUpdateRequest updateRequest, bool resolve = false, List<string> patterns = null, int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			return await UpdateAsync(objectId, updateRequest, resolve, timeout, patterns, cancellationToken);
 		}
 
-		public async Task<List<ListItemViewItem>> CreateFromPOCO(object obj, string schemaId)
+		public async Task<List<ListItem>> CreateFromPOCO(object obj, string schemaId)
 		{
 			var listItems = new List<ListItemCreateRequest>();
-			var metadata = new MetadataDictionary();
-			metadata[schemaId] = obj;
 
 			var referencedObjects = await CreateReferencedObjects(obj);
 
 			listItems.Add(new ListItemCreateRequest
 			{
-				SchemaId = schemaId,
-				Metadata = metadata
+				ContentSchemaId = schemaId,
+				Content = obj
 			});
 			var objectResult = await CreateManyAsync(listItems);
 
@@ -82,13 +81,13 @@ namespace Picturepark.SDK.V1
 			return allResults;
 		}
 
-		public IEnumerable<ListItemViewItem> CreateMany(IEnumerable<ListItemCreateRequest> objects)
+		public IEnumerable<ListItem> CreateMany(IEnumerable<ListItemCreateRequest> objects)
 		{
 			return Task.Run(async () => await CreateManyAsync(objects)).GetAwaiter().GetResult();
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task<IEnumerable<ListItemViewItem>> CreateManyAsync(IEnumerable<ListItemCreateRequest> listItems, CancellationToken? cancellationToken = null)
+		public async Task<IEnumerable<ListItem>> CreateManyAsync(IEnumerable<ListItemCreateRequest> listItems, CancellationToken? cancellationToken = null)
 		{
 			if (listItems.Any())
 			{
@@ -115,7 +114,7 @@ namespace Picturepark.SDK.V1
 			}
 			else
 			{
-				return new List<ListItemViewItem>();
+				return new List<ListItem>();
 			}
 		}
 
@@ -125,29 +124,24 @@ namespace Picturepark.SDK.V1
 			var wait = await result.Wait4MetadataAsync(this);
 		}
 
-		public async Task UpdateListItemAsync(ListItemDetailViewItem listItem, object obj, string schemaId)
+		public async Task UpdateListItemAsync(ListItemDetail listItem, object obj, string schemaId)
 		{
-			var convertedObject = new ListItemViewItem
+			var convertedObject = new ListItem
 			{
 				ContentSchemaId = listItem.ContentSchemaId,
 				EntityType = listItem.EntityType,
 				Id = listItem.Id,
-				Metadata = listItem.Metadata,
-				SchemaIds = listItem.SchemaIds
+				Content = listItem.Content
 			};
 			await UpdateListItemAsync(convertedObject, obj, schemaId);
 		}
 
-		public async Task UpdateListItemAsync(ListItemViewItem listItem, object obj, string schemaId)
+		public async Task UpdateListItemAsync(ListItem listItem, object obj, string schemaId)
 		{
-			var metadata = new MetadataDictionary();
-			metadata[schemaId] = obj;
-
 			var request = new ListItemUpdateRequest()
 			{
 				Id = listItem.Id,
-				Metadata = metadata,
-				SchemaIds = listItem.SchemaIds
+				Content = obj
 			};
 
 			await UpdateListItemAsync(request);
@@ -155,8 +149,8 @@ namespace Picturepark.SDK.V1
 
 		public async Task<T> GetObjectAsync<T>(string objectId, string schemaId)
 		{
-			var metadataViewItem = await GetAsync(objectId, true);
-			return metadataViewItem.Metadata.Get<T>(schemaId);
+			var listItem = await GetAsync(objectId, true);
+			return (listItem.Content as JObject).ToObject<T>();
 		}
 
 		public async Task ImportFromJsonAsync(string jsonFilePath, bool includeObjects)
@@ -202,7 +196,7 @@ namespace Picturepark.SDK.V1
 				Convert.GetTypeCode(type) != TypeCode.Object;
 		}
 
-		private async Task<IEnumerable<ListItemViewItem>> CreateReferencedObjects(object obj)
+		private async Task<IEnumerable<ListItem>> CreateReferencedObjects(object obj)
 		{
 			var referencedListItems = new List<ListItemCreateRequest>();
 			BuildReferencedListItems(obj, referencedListItems);
@@ -218,7 +212,7 @@ namespace Picturepark.SDK.V1
 			foreach (var result in results)
 			{
 				var object2Update = referencedListItems.SingleOrDefault(i => i.ListItemId == result.Id);
-				var reference = (object2Update.Metadata as Dictionary<string, object>)[object2Update.SchemaId] as IReference;
+				var reference = object2Update.Content as IReference;
 				reference.refId = result.Id;
 			}
 
@@ -259,16 +253,14 @@ namespace Picturepark.SDK.V1
 							if (string.IsNullOrEmpty(refIdValue))
 							{
 								var schemaId = value.GetType().Name;
-								var metadata = new MetadataDictionary();
-								metadata[schemaId] = value;
 
 								// Add metadata object if it does not already exist
-								if (referencedListItems.Where(i => i.SchemaId == schemaId).Select(i => i.Metadata).All(i => i[schemaId] != value))
+								if (referencedListItems.Where(i => i.ContentSchemaId == schemaId).Select(i => i.Content).All(i => i != value))
 								{
 									referencedListItems.Insert(0, new ListItemCreateRequest
 									{
-										SchemaId = schemaId,
-										Metadata = metadata
+										ContentSchemaId = schemaId,
+										Content = value
 									});
 								}
 							}
@@ -285,16 +277,14 @@ namespace Picturepark.SDK.V1
 						if (value != null)
 						{
 							var schemaId = value.GetType().Name;
-							var metadata = new MetadataDictionary();
-							metadata[schemaId] = value;
 
 							// Add metadata object if it does not already exist
-							if (referencedListItems.Where(i => i.SchemaId == schemaId).Select(i => i.Metadata).All(i => i[schemaId] != value))
+							if (referencedListItems.Where(i => i.ContentSchemaId == schemaId).Select(i => i.Content).All(i => i != value))
 							{
 								referencedListItems.Insert(0, new ListItemCreateRequest
 								{
-									SchemaId = schemaId,
-									Metadata = metadata
+									ContentSchemaId = schemaId,
+									Content = value
 								});
 							}
 						}

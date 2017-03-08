@@ -13,9 +13,9 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 	[PictureparkSchemaType(SchemaType.Layer)]
 	[PictureparkSchemaType(SchemaType.List)]
 	[PictureparkSchemaType(SchemaType.Struct)]
-	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{Metadata.AllDataTypesContract.StringField}}")]
-	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{Metadata.AllDataTypesContract.StringField}}")]
-	[PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{Metadata.AllDataTypesContract.StringField}}: {{Metadata.AllDataTypesContract.IntegerField}}")]
+	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{Data.AllDataTypesContract.StringField}}")]
+	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{Data.AllDataTypesContract.StringField}}")]
+	[PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{Data.AllDataTypesContract.StringField}}: {{Data.AllDataTypesContract.IntegerField}}")]
 
 	public class AllDataTypesContract
 	{
@@ -70,8 +70,8 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 	}
 
 	[PictureparkSchemaType(SchemaType.List)]
-	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{Metadata.SimpleReferenceObject.NameField}}")]
-	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{Metadata.SimpleReferenceObject.NameField}}")]
+	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{Data.SimpleReferenceObject.NameField}}")]
+	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{Data.SimpleReferenceObject.NameField}}")]
 	public class SimpleReferenceObject : IReference
 	{
 		public string NameField { get; set; }

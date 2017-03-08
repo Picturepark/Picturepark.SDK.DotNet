@@ -77,7 +77,7 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			string fileTransferId = string.Empty;
 			FileTransferSearchRequest request = new FileTransferSearchRequest() { Limit = limit };
-			FileTransferSearchResult result = client.Transfers.SearchFilesAsync(request).Result;
+			FileTransferSearchResult result = client.Transfers.SearchFiles(request);
 
 			if (result.Results.Count > 0)
 			{
@@ -92,7 +92,7 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			string permissionSetId = string.Empty;
 			var request = new PermissionSetSearchRequest() { Limit = limit };
-			PermissionSetSearchResult result = client.Permissions.SearchMetadataPermissionsAsync(request).Result;
+			PermissionSetSearchResult result = client.Permissions.SearchSchemaPermissions(request);
 
 			if (result.Results.Count > 0)
 			{

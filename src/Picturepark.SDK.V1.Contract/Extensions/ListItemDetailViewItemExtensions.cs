@@ -2,11 +2,11 @@
 
 namespace Picturepark.SDK.V1.Contract.Extensions
 {
-    public static class ListItemDetailViewItemExtensions
-    {
-        public static T ConvertToType<T>(this ListItemDetailViewItem listItem, string schemaId)
-        {
-            return ((JObject)listItem.Metadata[schemaId]).ToObject<T>();
-        }
-    }
+	public static class ListItemDetailViewItemExtensions
+	{
+		public static T ConvertToType<T>(this ListItemDetail listItem, string schemaId)
+		{
+			return (listItem.Content as JObject).ToObject<T>();
+		}
+	}
 }

@@ -60,14 +60,11 @@ namespace Picturepark.SDK.V1.Tests
 
 			var createRequest = new ListItemCreateRequest
 			{
-				SchemaId = nameof(Tag),
-				Metadata = new MetadataDictionary
-				{
-					{ "Tag", new Tag { Name = objectName } }
-				}
+				ContentSchemaId = nameof(Tag),
+				Content = new Tag { Name = objectName }
 			};
 
-			ListItemViewItem viewItem = await _client.ListItems.CreateAbcAsync(createRequest);
+			ListItem viewItem = await _client.ListItems.CreateAbcAsync(createRequest);
 			Assert.False(string.IsNullOrEmpty(viewItem.Id));
 
 			await _client.ListItems.DeleteAsync(viewItem.Id);
@@ -89,15 +86,12 @@ namespace Picturepark.SDK.V1.Tests
 			{
 				new ListItemCreateRequest
 				{
-					SchemaId = nameof(Tag),
-					Metadata = new MetadataDictionary
-					{
-						{ "Tag", new Tag { Name = objectName } }
-					}
+					ContentSchemaId = nameof(Tag),
+					Content = new Tag { Name = objectName }
 				}
 			};
 
-			IEnumerable<ListItemViewItem> results = await _client.ListItems.CreateManyAsync(objects);
+			IEnumerable<ListItem> results = await _client.ListItems.CreateManyAsync(objects);
 			Assert.Equal(results.Count(), 1);
 
 			var result = results.First();
@@ -106,10 +100,7 @@ namespace Picturepark.SDK.V1.Tests
 			var request = new ListItemUpdateRequest()
 			{
 				Id = result.Id,
-				Metadata = new MetadataDictionary
-				{
-					{ "Tag", new Tag { Name = objectName } }
-				}
+				Content = new Tag { Name = objectName }
 			};
 
 			var requests = new List<ListItemUpdateRequest>() { request };
@@ -125,14 +116,11 @@ namespace Picturepark.SDK.V1.Tests
 
 			var listItem = new ListItemCreateRequest
 			{
-				SchemaId = nameof(Tag),
-				Metadata = new MetadataDictionary
-				{
-					{ "Tag", new Tag { Name = objectName } }
-				}
+				ContentSchemaId = nameof(Tag),
+				Content = new Tag { Name = objectName }
 			};
 
-			ListItemDetailViewItem result = await _client.ListItems.CreateAsync(listItem);
+			ListItemDetail result = await _client.ListItems.CreateAsync(listItem);
 			Assert.False(string.IsNullOrEmpty(result.Id));
 		}
 
@@ -206,19 +194,13 @@ namespace Picturepark.SDK.V1.Tests
 			var createRequest = await _client.ListItems.CreateAsync(
 				new ListItemCreateRequest
 				{
-					SchemaId = "SoccerPlayer",
-					Metadata = new MetadataDictionary
+					ContentSchemaId = "SoccerPlayer",
+					Content = new SoccerPlayer
 					{
-						{
-							"SoccerPlayer",
-							new SoccerPlayer
-							{
-								BirthDate = DateTime.Now,
-								EmailAddress = "test@test.com",
-								Firstname = "Urs",
-								LastName = "Brogle"
-							}
-						}
+						BirthDate = DateTime.Now,
+						EmailAddress = "test@test.com",
+						Firstname = "Urs",
+						LastName = "Brogle"
 					}
 				});
 		}
@@ -231,14 +213,11 @@ namespace Picturepark.SDK.V1.Tests
 
 			var createRequest = new ListItemCreateRequest
 			{
-				SchemaId = nameof(Tag),
-				Metadata = new MetadataDictionary
-				{
-					{ "Tag", new Tag { Name = objectName } }
-				}
+				ContentSchemaId = nameof(Tag),
+				Content = new Tag { Name = objectName }
 			};
 
-			ListItemViewItem viewItem = await _client.ListItems.CreateAbcAsync(createRequest);
+			ListItem viewItem = await _client.ListItems.CreateAbcAsync(createRequest);
 			var result = await _client.ListItems.GetAsync(viewItem.Id, true);
 		}
 
@@ -288,9 +267,9 @@ namespace Picturepark.SDK.V1.Tests
 			List<string> metadataSchemaIds = searchResultSchema.Results.Select(i => i.Id).OrderBy(i => i).ToList();
 
 			var searchRequestObject = new ListItemSearchRequest() { Start = 0, Limit = 100 };
-			var viewItems = new List<ListItemViewItem>();
+			var viewItems = new List<ListItem>();
 			List<string> failedMetadataSchemaIds = new List<string>();
-			BaseResultOfListItemViewItem searchResultObject;
+			BaseResultOfListItem searchResultObject;
 
 			// ---------------------------------------------------------------------------
 			// Loop over all metadataSchemaIds and make a search for each metadataSchemaId

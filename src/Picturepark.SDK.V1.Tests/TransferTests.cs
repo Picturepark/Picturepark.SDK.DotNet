@@ -181,7 +181,7 @@ namespace Picturepark.SDK.V1.Tests
 				TransferId = transfer.Id,
 				ContentPermissionSetIds = new List<string>(),
 				Metadata = null,
-				SchemaIds = new List<string>()
+				LayerSchemaIds = new List<string>()
 			};
 
 			await _client.Transfers.ImportBatchAsync(transfer, request);
