@@ -2164,6 +2164,7 @@
         "tags": [
           "Share"
         ],
+        "summary": "Create a new share (basic or embed).",
         "operationId": "Share_Create",
         "parameters": [
           {
@@ -2173,7 +2174,8 @@
             "schema": {
               "$ref": "#/definitions/ShareBaseCreateRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "Polymorph create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest"
           }
         ],
         "responses": {
@@ -2185,9 +2187,16 @@
             "x-nullable": true
           },
           "200": {
-            "description": "",
+            "description": "Create result",
             "schema": {
               "$ref": "#/definitions/CreateShareResult"
+            },
+            "x-nullable": true
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ContentNotFoundException"
             },
             "x-nullable": true
           }
