@@ -20,7 +20,8 @@ Create new `PictureparkClient` and access remote PCP server:
 
 ```csharp
 var authClient = new UsernamePasswordAuthClient("http://mypcpserver.com", username, password); 
-using (var client = new PictureparkClient(authClient))
+var settings = new PictureparkClientSettings(authClient);
+using (var client = new PictureparkClient(settings))
 {
     var content = await client.Contents.GetAsync("myContentId");
 }
@@ -36,7 +37,8 @@ public void ConfigureServices(IServiceCollection services)
 	services.AddApplicationInsightsTelemetry(Configuration);
 	services.AddMvc();
 
-	services.AddSingleton<IAuthClient>(new UsernamePasswordAuthClient("myUrl", "myUsername", "myPassword"));
+	services.AddSingleton<IPictureparkClientSettings>(
+		new PictureparkClientSettings(new UsernamePasswordAuthClient("myUrl", "myUsername", "myPassword")));
 	services.AddScoped<IPictureparkClient, PictureparkClient>();
 }
 ```
