@@ -1,34 +1,25 @@
 ﻿using System;
 using Picturepark.SDK.V1.Contract;
-using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1
 {
     public class PictureparkClient : IDisposable, IPictureparkClient
     {
-        /// <summary>Initializes a new instance of the <see cref="PictureparkClient"/> class and uses the <see cref="IAuthClient.BaseUrl"/> of the <paramref name="authClient"/> as Picturepark server URL.</summary>
-        /// <param name="authClient">The authentication client.</param>
-        public PictureparkClient(IAuthClient authClient)
-            : this(authClient.BaseUrl, authClient)
+        /// <summary>Initializes a new instance of the <see cref="PictureparkClient"/> class and uses the <see cref="IPictureparkClientSettings.BaseUrl"/> of the <paramref name="settings"/> as Picturepark server URL.</summary>
+        /// <param name="settings">The client settings.</param>
+        public PictureparkClient(IPictureparkClientSettings settings)
         {
-        }
-
-        /// <summary>Initializes a new instance of the <see cref="PictureparkClient"/> class.</summary>
-        /// <param name="baseUrl">The base URL.</param>
-        /// <param name="authClient">The authentication client.</param>
-        public PictureparkClient(string baseUrl, IAuthClient authClient)
-        {
-            Contents = new ContentClient(baseUrl, authClient);
-            BusinessProcesses = new BusinessProcessClient(baseUrl, authClient);
-            DocumentHistory = new DocumentHistoryClient(baseUrl, authClient);
-            JsonSchemas = new JsonSchemaClient(baseUrl, authClient);
-            Permissions = new PermissionClient(baseUrl, authClient);
-            PublicAccess = new PublicAccessClient(baseUrl, authClient);
-            Shares = new ShareClient(baseUrl, authClient);
-            Users = new UserClient(baseUrl, authClient);
-            Schemas = new SchemaClient((BusinessProcessClient)BusinessProcesses, authClient);
-            Transfers = new TransferClient((BusinessProcessClient)BusinessProcesses, authClient);
-            ListItems = new ListItemClient((TransferClient)Transfers, authClient);
+            Contents = new ContentClient(settings);
+            BusinessProcesses = new BusinessProcessClient(settings);
+            DocumentHistory = new DocumentHistoryClient(settings);
+            JsonSchemas = new JsonSchemaClient(settings);
+            Permissions = new PermissionClient(settings);
+            PublicAccess = new PublicAccessClient(settings);
+            Shares = new ShareClient(settings);
+            Users = new UserClient(settings);
+            Schemas = new SchemaClient((BusinessProcessClient)BusinessProcesses, settings);
+            Transfers = new TransferClient((BusinessProcessClient)BusinessProcesses, settings);
+            ListItems = new ListItemClient((TransferClient)Transfers, settings);
         }
 
         public ISchemaClient Schemas { get; }

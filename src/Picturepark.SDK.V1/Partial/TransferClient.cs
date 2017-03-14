@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
-using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1
 {
@@ -13,9 +12,8 @@ namespace Picturepark.SDK.V1
 	{
 		private readonly BusinessProcessClient _businessProcessClient;
 
-		public TransferClient(BusinessProcessClient businessProcessClient, IAuthClient authClient)
-			: base(authClient)
-		{
+		public TransferClient(BusinessProcessClient businessProcessClient, IPictureparkClientSettings settings) : this(settings)
+        {
 			BaseUrl = businessProcessClient.BaseUrl;
 			_businessProcessClient = businessProcessClient;
 		}

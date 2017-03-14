@@ -4,18 +4,12 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
-using Picturepark.SDK.V1.Contract.Authentication;
 using Picturepark.SDK.V1.Contract.Extensions;
 
 namespace Picturepark.SDK.V1
 {
 	public partial class ContentClient
     {
-        public ContentClient(string baseUrl, IAuthClient authClient) : this(authClient)
-        {
-            BaseUrl = baseUrl;
-        }
-
         /// <summary>Gets an content.</summary>
         /// <param name="contentId">The content identifier.</param>
         /// <param name="cancellationToken">The cancellation token.</param>

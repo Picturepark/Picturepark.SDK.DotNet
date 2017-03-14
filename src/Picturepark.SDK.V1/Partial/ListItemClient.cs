@@ -8,7 +8,6 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
-using Picturepark.SDK.V1.Contract.Authentication;
 using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Contract.Interfaces;
 using Newtonsoft.Json.Linq;
@@ -19,7 +18,7 @@ namespace Picturepark.SDK.V1
 	{
 		private readonly TransferClient _transferClient;
 
-		public ListItemClient(TransferClient transferClient, IAuthClient authClient) : this(authClient)
+		public ListItemClient(TransferClient transferClient, IPictureparkClientSettings settings) : this(settings)
 		{
 			_transferClient = transferClient;
 			BaseUrl = transferClient.BaseUrl;

@@ -23,7 +23,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             _configuration = JsonConvert.DeserializeObject<TestConfiguration>(configurationJson);
 
             var authClient = new UsernamePasswordAuthClient(_configuration.Server, _configuration.Username, _configuration.Password);
-            _client = new PictureparkClient(_configuration.Server, authClient);
+            _client = new PictureparkClient(new PictureparkClientSettings(authClient));
         }
 
         public string ProjectDirectory { get; }

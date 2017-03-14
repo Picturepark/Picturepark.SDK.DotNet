@@ -1,20 +1,19 @@
 ﻿using System;
-using Picturepark.SDK.V1.Authentication;
-using Picturepark.SDK.V1.Contract.Authentication;
+using Picturepark.SDK.V1.Contract;
 
 namespace Picturepark.SDK.V1.CloudManager
 {
 	public class CloudManagerClient : IDisposable
 	{
-		public CloudManagerClient(string baseUrl, IAuthClient authClient)
+		public CloudManagerClient(IPictureparkClientSettings settings)
 		{
-			Customers = new CustomersClientBase(authClient) { BaseUrl = baseUrl };
-			Services = new ServicesClientBase(authClient) { BaseUrl = baseUrl };
+			Customers = new CustomersClient(settings);
+			Services = new ServicesClient(settings);
 		}
 
-		public CustomersClientBase Customers { get; }
+		public CustomersClient Customers { get; }
 
-		public ServicesClientBase Services { get; }
+		public ServicesClient Services { get; }
 
 		public void Dispose()
 		{
