@@ -21,7 +21,9 @@
       ],
       "generateExceptionClasses": true,
       "exceptionClass": "ApiException",
+      "wrapDtoExceptions": false,
       "useHttpClientCreationMethod": true,
+      "httpClientType": "System.Net.Http.HttpClient",
       "useHttpRequestMessageCreationMethod": false,
       "useBaseUrl": false,
       "generateSyncMethods": true,
@@ -48,6 +50,7 @@
       "wrapResponses": false,
       "generateResponseClasses": true,
       "responseClass": "SwaggerResponse",
+      "handleReferences": false,
       "generateImmutableArrayProperties": false,
       "generateImmutableDictionaryProperties": false,
       "output": "Generated/Clients.Generated.cs"
