@@ -325,7 +325,7 @@ namespace Picturepark.SDK.V1.Tests
 			// Trash
 			await _client.Contents.DeactivateAsync(contentId);
 
-			await Assert.ThrowsAsync<ApiException<ContentNotFoundException>>(async () => await _client.Contents.GetAsync(contentId));
+			await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Contents.GetAsync(contentId));
 
 			// UnTrash
 			var reactivatedContent = await _client.Contents.ReactivateAsync(contentId, resolve: false, timeout: 60000);

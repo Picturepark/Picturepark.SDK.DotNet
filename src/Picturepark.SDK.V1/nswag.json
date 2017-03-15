@@ -8,7 +8,7 @@
   "codeGenerators": {
     "swaggerToCSharpClient": {
       "clientBaseClass": "ClientBase",
-      "configurationClass": "Picturepark.SDK.V1.Contract.Authentication.IAuthClient",
+      "configurationClass": "Picturepark.SDK.V1.Contract.IPictureparkClientSettings",
       "generateClientClasses": true,
       "generateClientInterfaces": true,
       "generateDtoTypes": true,
@@ -21,7 +21,9 @@
       ],
       "generateExceptionClasses": true,
       "exceptionClass": "ApiException",
+      "wrapDtoExceptions": false,
       "useHttpClientCreationMethod": true,
+      "httpClientType": "System.Net.Http.HttpClient",
       "useHttpRequestMessageCreationMethod": false,
       "useBaseUrl": false,
       "generateSyncMethods": true,
@@ -48,6 +50,7 @@
       "wrapResponses": false,
       "generateResponseClasses": true,
       "responseClass": "SwaggerResponse",
+      "handleReferences": false,
       "generateImmutableArrayProperties": false,
       "generateImmutableDictionaryProperties": false,
       "output": "Generated/Clients.Generated.cs"

@@ -8,6 +8,7 @@ using System.Reactive;
 using System.Reactive.Linq;
 using System.Text;
 using Picturepark.SDK.V1.Authentication;
+using Picturepark.SDK.V1.Contract;
 
 namespace Picturepark.SDK.V1.ServiceProvider
 {
@@ -20,14 +21,14 @@ namespace Picturepark.SDK.V1.ServiceProvider
 		private readonly IModel _requestMessageModel;
 		private readonly LiveStreamBuffer _liveStreamBuffer;
 
-		private readonly Dictionary<string, ServiceProvidersClientBase> _serviceProviderCache;
+		private readonly Dictionary<string, ServiceProvidersClient> _serviceProviderCache;
 
 		private LiveStreamConsumer _liveStreamConsumer;
 
 		public ServiceProviderClient(Configuration configuration)
 		{
 			_configuration = configuration;
-			_serviceProviderCache = new Dictionary<string, ServiceProvidersClientBase>();
+			_serviceProviderCache = new Dictionary<string, ServiceProvidersClient>();
 
 			ConnectionFactory factory = new ConnectionFactory();
 
@@ -115,7 +116,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
 			);
 		}
 
-		public ServiceProvidersClientBase GetConfigurationClient(string baseUrl, string username, string password)
+		public ServiceProvidersClient GetConfigurationClient(string baseUrl, string username, string password)
 		{
 			// TODO BRO: Lock
 			if (_serviceProviderCache.ContainsKey(baseUrl))
@@ -124,7 +125,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
 			}
 			else
 			{
-				var client = new ServiceProvidersClientBase(new UsernamePasswordAuthClient(baseUrl, username, password));
+				var client = new ServiceProvidersClient(new PictureparkClientSettings(new UsernamePasswordAuthClient(baseUrl, username, password)));
 				client.BaseUrl = baseUrl;
 
 				_serviceProviderCache[baseUrl] = client;

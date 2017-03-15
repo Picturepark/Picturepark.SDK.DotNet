@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
-using Picturepark.SDK.V1.Contract.Authentication;
 using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Conversion;
 
@@ -13,9 +12,8 @@ namespace Picturepark.SDK.V1
 	{
 		private readonly BusinessProcessClient _businessProcessClient;
 
-		public SchemaClient(BusinessProcessClient businessProcessesClient, IAuthClient authClient)
-			: base(authClient)
-		{
+		public SchemaClient(BusinessProcessClient businessProcessesClient, IPictureparkClientSettings settings) : this(settings)
+        {
 			BaseUrl = businessProcessesClient.BaseUrl;
 			_businessProcessClient = businessProcessesClient;
 		}
