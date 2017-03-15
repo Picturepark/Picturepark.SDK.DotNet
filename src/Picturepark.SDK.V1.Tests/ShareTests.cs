@@ -102,7 +102,7 @@ namespace Picturepark.SDK.V1.Tests
 				RecipientsEmail = recipients
 			};
 
-			await Assert.ThrowsAsync<ApiException<ContentNotFoundException>>(async () =>
+			await Assert.ThrowsAsync<ContentNotFoundException>(async () =>
 			{
 				var result = await _client.Shares.CreateAsync(request);
 			});

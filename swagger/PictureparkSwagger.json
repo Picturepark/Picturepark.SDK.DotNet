@@ -2096,6 +2096,7 @@
         "tags": [
           "Share"
         ],
+        "summary": "Aggregates own shares",
         "operationId": "Share_Aggregate",
         "parameters": [
           {
@@ -2105,23 +2106,27 @@
             "schema": {
               "$ref": "#/definitions/ShareAggregationRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "Aggregation request"
           }
         ],
         "responses": {
+          "200": {
+            "description": "AggregationResult",
+            "schema": {
+              "$ref": "#/definitions/ObjectAggregationResult"
+            },
+            "x-nullable": true
+          },
           "500": {
-            "description": "",
+            "description": "Internal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           },
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ObjectAggregationResult"
-            },
-            "x-nullable": true
+          "401": {
+            "description": "Not authorized"
           }
         }
       }
@@ -2131,6 +2136,7 @@
         "tags": [
           "Share"
         ],
+        "summary": "Get share by id (basic or embed)",
         "operationId": "Share_Get",
         "parameters": [
           {
@@ -2138,23 +2144,27 @@
             "name": "Id",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "Share Id (not token, use PublicAccess to get share by token)"
           }
         ],
         "responses": {
+          "200": {
+            "description": "Polymorph share",
+            "schema": {
+              "$ref": "#/definitions/ShareBaseDetailViewItem"
+            },
+            "x-nullable": true
+          },
           "500": {
-            "description": "",
+            "description": "Internal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           },
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ShareBaseDetailViewItem"
-            },
-            "x-nullable": true
+          "401": {
+            "description": "Not authorized"
           }
         }
       }
@@ -2179,8 +2189,15 @@
           }
         ],
         "responses": {
+          "404": {
+            "description": "Submited content could not be found",
+            "schema": {
+              "$ref": "#/definitions/ContentNotFoundException"
+            },
+            "x-nullable": true
+          },
           "500": {
-            "description": "",
+            "description": "Internal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
@@ -2193,12 +2210,8 @@
             },
             "x-nullable": true
           },
-          "404": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ContentNotFoundException"
-            },
-            "x-nullable": true
+          "401": {
+            "description": "Not authorized"
           }
         }
       }
@@ -2208,6 +2221,7 @@
         "tags": [
           "Share"
         ],
+        "summary": "Search shares",
         "operationId": "Share_Search",
         "parameters": [
           {
@@ -2217,23 +2231,27 @@
             "schema": {
               "$ref": "#/definitions/ContentSearchRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "Search request"
           }
         ],
         "responses": {
+          "200": {
+            "description": "Share search result",
+            "schema": {
+              "$ref": "#/definitions/BaseResultOfShareBaseViewItem"
+            },
+            "x-nullable": true
+          },
           "500": {
-            "description": "",
+            "description": "Internal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           },
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BaseResultOfShareBaseViewItem"
-            },
-            "x-nullable": true
+          "401": {
+            "description": "Not authorized"
           }
         }
       }
