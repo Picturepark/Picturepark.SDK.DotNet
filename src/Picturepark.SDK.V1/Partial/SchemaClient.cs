@@ -13,7 +13,7 @@ namespace Picturepark.SDK.V1
 		private readonly BusinessProcessClient _businessProcessClient;
 
 		public SchemaClient(BusinessProcessClient businessProcessesClient, IPictureparkClientSettings settings) : this(settings)
-        {
+		{
 			BaseUrl = businessProcessesClient.BaseUrl;
 			_businessProcessClient = businessProcessesClient;
 		}
@@ -24,21 +24,21 @@ namespace Picturepark.SDK.V1
 			return schemaConverter.Generate(type, schemaList, generateDependencySchema);
 		}
 
-		public async Task CreateOrUpdateAsync(SchemaDetailViewItem metadataSchema)
+		public async Task CreateOrUpdateAsync(SchemaDetailViewItem metadataSchema, bool enableForBinaryFiles)
 		{
 			if (await ExistsAsync(metadataSchema.Id))
 			{
-				await UpdateAsync(metadataSchema);
+				await UpdateAsync(metadataSchema, enableForBinaryFiles);
 			}
 			else
 			{
-				await CreateAsync(metadataSchema);
+				await CreateAsync(metadataSchema, enableForBinaryFiles);
 			}
 		}
 
-		public void CreateOrUpdate(SchemaDetailViewItem metadataSchema)
+		public void CreateOrUpdate(SchemaDetailViewItem metadataSchema, bool enableForBinaryFiles)
 		{
-			Task.Run(async () => await CreateOrUpdateAsync(metadataSchema)).GetAwaiter().GetResult();
+			Task.Run(async () => await CreateOrUpdateAsync(metadataSchema, enableForBinaryFiles)).GetAwaiter().GetResult();
 		}
 
 		public async Task CreateAsync(SchemaDetailViewItem metadataSchema, bool enableForBinaryFiles)
@@ -109,23 +109,36 @@ namespace Picturepark.SDK.V1
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task UpdateAsync(SchemaDetailViewItem metadataSchema)
+		public async Task UpdateAsync(SchemaDetailViewItem schema, bool enableForBinaryFiles)
 		{
-			await UpdateAsync(metadataSchema.Id, new SchemaUpdateRequest
+			if (enableForBinaryFiles && schema.Types.Contains(SchemaType.Layer))
 			{
-				Aggregations = metadataSchema.Aggregations,
-				Descriptions = metadataSchema.Descriptions,
-				DisplayPatterns = metadataSchema.DisplayPatterns,
-				Fields = metadataSchema.Fields,
-				FullTextFields = metadataSchema.FullTextFields,
-				SchemaPermissionSetIds = metadataSchema.SchemaPermissionSetIds,
-				Names = metadataSchema.Names,
-				Public = metadataSchema.Public,
-				ReferencedInContentSchemaIds = metadataSchema.ReferencedInContentSchemaIds,
-				Sort = metadataSchema.Sort,
-				SortOrder = metadataSchema.SortOrder,
-				Types = metadataSchema.Types,
-				LayerSchemaIds = metadataSchema.LayerSchemaIds
+				var binarySchemas = new List<string>
+				{
+					nameof(FileMetadata),
+					nameof(AudioMetadata),
+					nameof(DocumentMetadata),
+					nameof(ImageMetadata),
+					nameof(VideoMetadata),
+				};
+				schema.ReferencedInContentSchemaIds = binarySchemas;
+			}
+
+			await UpdateAsync(schema.Id, new SchemaUpdateRequest
+			{
+				Aggregations = schema.Aggregations,
+				Descriptions = schema.Descriptions,
+				DisplayPatterns = schema.DisplayPatterns,
+				Fields = schema.Fields,
+				FullTextFields = schema.FullTextFields,
+				SchemaPermissionSetIds = schema.SchemaPermissionSetIds,
+				Names = schema.Names,
+				Public = schema.Public,
+				ReferencedInContentSchemaIds = schema.ReferencedInContentSchemaIds,
+				Sort = schema.Sort,
+				SortOrder = schema.SortOrder,
+				Types = schema.Types,
+				LayerSchemaIds = schema.LayerSchemaIds
 			});
 		}
 

@@ -89,6 +89,7 @@ namespace Picturepark.SDK.V1.Conversion
 				Fields = new List<FieldBase> { },
 				ParentSchemaId = parentSchemaId,
 				Names = new TranslatedStringDictionary { { "x-default", schemaId } },
+				Descriptions = new TranslatedStringDictionary { },
 				Types = types,
 				DisplayPatterns = new List<DisplayPattern>()
 			};
@@ -104,6 +105,20 @@ namespace Picturepark.SDK.V1.Conversion
 					Templates = new TranslatedStringDictionary { { "x-default", displayPatternAttribute.DisplayPattern } }
 				};
 				schemaItem.DisplayPatterns.Add(displayPattern);
+			}
+
+			// Assign name translations
+			var nameTranslationAttributes = contractType.GetTypeInfo().GetCustomAttributes(typeof(PictureparkNameTranslationAttribute), true).Select(i => i as PictureparkNameTranslationAttribute).ToList();
+			foreach (var translationAttribute in nameTranslationAttributes)
+			{
+				schemaItem.Names[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
+			}
+
+			// Assign description translations
+			var descriptionTranslationAttributes = contractType.GetTypeInfo().GetCustomAttributes(typeof(PictureparkDescriptionTranslationAttribute), true).Select(i => i as PictureparkDescriptionTranslationAttribute).ToList();
+			foreach (var translationAttribute in descriptionTranslationAttributes)
+			{
+				schemaItem.Descriptions[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
 			}
 
 			var customTypes = contractPropertyInfos.FindAll(c => c.IsCustomType);
@@ -580,6 +595,15 @@ namespace Picturepark.SDK.V1.Conversion
 				if (attribute is PictureparkPatternAttribute)
 				{
 					fieldData.GetType().GetRuntimeProperty("Pattern").SetValue(fieldData, ((PictureparkPatternAttribute)attribute).Pattern);
+				}
+
+				if (attribute is PictureparkNameTranslationAttribute)
+				{
+					var translationAttribute = attribute as PictureparkNameTranslationAttribute;
+					if (fieldData.Names == null)
+						fieldData.Names = new TranslatedStringDictionary();
+
+					fieldData.Names[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
 				}
 			}
 

@@ -17,8 +17,16 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{Data.AllDataTypesContract.StringField}}")]
 	[PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{Data.AllDataTypesContract.StringField}}: {{Data.AllDataTypesContract.IntegerField}}")]
 
+	[
+		PictureparkNameTranslation("x-default", "All datatypes"),
+		PictureparkNameTranslation("de", "Alle datatypen"),
+		PictureparkDescriptionTranslation("x-default", "All datatypes for testing"),
+		PictureparkDescriptionTranslation("de", "Alle Datentypen für Testing")
+	]
+
 	public class AllDataTypesContract
 	{
+		[PictureparkNameTranslation("x-default", "Yes or no")]
 		public bool BooleanField { get; set; }
 
 		// TODO: How to limit to date?

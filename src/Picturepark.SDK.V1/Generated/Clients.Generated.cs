@@ -324,15 +324,15 @@ namespace Picturepark.SDK.V1
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
-        public ContentDetail CreateContent(CreateContentRequest createVirtualContentRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
+        public ContentDetail CreateContent(CreateContentRequest createRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await CreateContentAsync(createVirtualContentRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await CreateContentAsync(createRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<ContentDetail> CreateContentAsync(CreateContentRequest createVirtualContentRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentDetail> CreateContentAsync(CreateContentRequest createRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
@@ -353,7 +353,7 @@ namespace Picturepark.SDK.V1
                     var url_ = urlBuilder_.ToString();
                     PrepareRequest(client_, url_);
     
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(createVirtualContentRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(createRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
                     content_.Headers.ContentType.MediaType = "application/json";
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");

@@ -134,7 +134,7 @@
         "operationId": "Content_CreateContent",
         "parameters": [
           {
-            "name": "createVirtualContentRequest",
+            "name": "createRequest",
             "in": "body",
             "required": true,
             "schema": {
@@ -4160,9 +4160,7 @@
             "type": "string"
           }
         },
-        "Content": {
-          "$ref": "#/definitions/DataDictionary"
-        },
+        "Content": {},
         "Metadata": {
           "$ref": "#/definitions/DataDictionary"
         },

@@ -23,6 +23,7 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Schema")]
+
 		public async Task ShouldCreateAllTypesSchemaFromClass()
 		{
 			var schemas = new List<SchemaDetailViewItem>();
@@ -31,10 +32,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			foreach (var schema in allTypes)
 			{
-				if (await _client.Schemas.ExistsAsync(schema.Id) == false)
-				{
-					await _client.Schemas.CreateAsync(schema, true);
-				}
+				await _client.Schemas.CreateOrUpdateAsync(schema, true);
 			}
 		}
 
@@ -229,7 +227,7 @@ namespace Picturepark.SDK.V1.Tests
 			schemaDetailViewItem.Names.Remove(language);
 			schemaDetailViewItem.Names.Add(language, schemaId);
 
-			await _client.Schemas.UpdateAsync(schemaDetailViewItem);
+			await _client.Schemas.UpdateAsync(schemaDetailViewItem, false);
 
 			SchemaDetailViewItem updatedSchema = await _client.Schemas.GetAsync(schemaId);
 
