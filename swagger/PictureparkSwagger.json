@@ -2197,11 +2197,25 @@
             "x-nullable": true
           },
           "500": {
-            "description": "Internal server error",
+            "description": "No permission to share content\nor\nInternal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "x-expectedSchemas": [
+              {
+                "description": "No permission to share content",
+                "schema": {
+                  "$ref": "#/definitions/PermissionException"
+                }
+              },
+              {
+                "description": "Internal server error",
+                "schema": {
+                  "$ref": "#/definitions/PictureparkException"
+                }
+              }
+            ]
           },
           "200": {
             "description": "Create result",
@@ -6626,13 +6640,77 @@
       "additionalProperties": false,
       "properties": {
         "Content": {
-          "$ref": "#/definitions/ContentViewItem"
+          "$ref": "#/definitions/ContentDetailViewItem"
         },
         "Outputs": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/OutputViewItem"
           }
+        }
+      }
+    },
+    "ContentDetailViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ContentTypeId",
+        "Trashed",
+        "EntityType",
+        "ContentType"
+      ],
+      "properties": {
+        "ContentTypeId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Trashed": {
+          "type": "boolean"
+        },
+        "EntityType": {
+          "$ref": "#/definitions/EntityType"
+        },
+        "ContentSchemaId": {
+          "type": "string"
+        },
+        "LayerSchemaIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Content": {
+          "$ref": "#/definitions/DataDictionary"
+        },
+        "Metadata": {
+          "$ref": "#/definitions/DataDictionary"
+        },
+        "Id": {
+          "type": "string"
+        },
+        "ContentPermissionSetIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Outputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OutputViewItem"
+          }
+        },
+        "Audit": {
+          "$ref": "#/definitions/StoreAudit"
+        },
+        "OwnerTokenId": {
+          "type": "string"
+        },
+        "ContentType": {
+          "$ref": "#/definitions/ContentType"
+        },
+        "DisplayValues": {
+          "$ref": "#/definitions/DisplayValueViewItem"
         }
       }
     },
@@ -7304,7 +7382,7 @@
             "$ref": "#/definitions/OutputItem"
           }
         },
-        "ContentStoreItemId": {
+        "ContentId": {
           "type": "string"
         }
       }
@@ -12080,7 +12158,7 @@
         "EntityType": {
           "$ref": "#/definitions/EntityType"
         },
-        "ContentStoreItemId": {
+        "ContentId": {
           "type": "string"
         }
       }

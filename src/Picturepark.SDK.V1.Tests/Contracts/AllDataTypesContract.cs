@@ -73,8 +73,11 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 		)]
 		public SimpleRelation RelationField { get; set; }
 
-		// TODO: Use correct contract
-		////public List<SimpleRelation> RelationsField { get; set; }
+		[PictureparkContentRelation(
+			"RelationsName",
+			"{ 'Kind': 'TermFilter', 'Field': 'ContentType', Term: 'Bitmap' }"
+		)]
+		public List<SimpleRelation> RelationsField { get; set; }
 	}
 
 	[PictureparkSchemaType(SchemaType.List)]
