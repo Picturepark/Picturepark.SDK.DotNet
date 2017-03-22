@@ -6,6 +6,5 @@ if (!(Test-Path "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Configuration.jso
 	Set-Content "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Configuration.json"
 }
 
-Remove-Item "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/project.lock.json"
 dotnet restore "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/" --no-cache
 dotnet test "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Picturepark.SDK.V1.Tests.csproj" -c RELEASE
