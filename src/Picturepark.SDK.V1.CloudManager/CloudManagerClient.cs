@@ -7,13 +7,16 @@ namespace Picturepark.SDK.V1.CloudManager
 	{
 		public CloudManagerClient(IPictureparkClientSettings settings)
 		{
-			Customers = new CustomersClient(settings);
-			Services = new ServicesClient(settings);
+			Customers = new CustomerClient(settings);
+			Services = new ServiceClient(settings);
+			Updates = new UpdateClient(settings);
 		}
 
-		public CustomersClient Customers { get; }
+		public CustomerClient Customers { get; }
 
-		public ServicesClient Services { get; }
+		public ServiceClient Services { get; }
+
+		public UpdateClient Updates { get; }
 
 		public void Dispose()
 		{

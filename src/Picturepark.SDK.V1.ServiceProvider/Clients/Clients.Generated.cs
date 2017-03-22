@@ -11,11 +11,11 @@ namespace Picturepark.SDK.V1.ServiceProvider
     #pragma warning disable // Disable all warnings
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.12.6284.29969")]
-    public partial class ServiceProvidersClient : ClientBase, IServiceProvidersClient
+    public partial class ServiceProviderRestClient : ClientBase, IServiceProviderRestClient
     {
-        private string _baseUrl = "http://localhost:5000";
+        private string _baseUrl = "";
         
-        public ServiceProvidersClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        public ServiceProviderRestClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
         {
         }
     

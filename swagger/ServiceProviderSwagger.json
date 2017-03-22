@@ -1,21 +1,10 @@
 ﻿{
   "swagger": "2.0",
   "info": {
-    "title": "Picturepark 9 API",
-    "description": "Picturepark 9 Api Description",
-    "termsOfService": "Terms of service",
-    "contact": {
-      "name": "Picturepark",
-      "email": "sales@picturepark.com"
-    },
-    "version": "V1"
+    "title": "Web API Swagger specification",
+    "version": "1.0.0"
   },
-  "host": "localhost:5000",
-  "basePath": "",
-  "schemes": [
-    "http",
-    "https"
-  ],
+  "schemes": [],
   "consumes": [
     "application/json"
   ],
@@ -26,9 +15,9 @@
     "/API/V1/ServiceProviders/{ServiceProviderId}/Message": {
       "post": {
         "tags": [
-          "ServiceProviders"
+          "ServiceProviderRest"
         ],
-        "operationId": "ServiceProviders_SendMessage",
+        "operationId": "ServiceProviderRest_SendMessage",
         "parameters": [
           {
             "type": "string",
@@ -58,20 +47,15 @@
           "204": {
             "description": ""
           }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
+        }
       }
     },
     "/API/V1/ServiceProviders/{ServiceProviderId}/Configuration": {
       "get": {
         "tags": [
-          "ServiceProviders"
+          "ServiceProviderRest"
         ],
-        "operationId": "ServiceProviders_GetConfiguration",
+        "operationId": "ServiceProviderRest_GetConfiguration",
         "parameters": [
           {
             "type": "string",
@@ -96,18 +80,13 @@
             },
             "x-nullable": true
           }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
+        }
       },
       "put": {
         "tags": [
-          "ServiceProviders"
+          "ServiceProviderRest"
         ],
-        "operationId": "ServiceProviders_UpdateConfiguration",
+        "operationId": "ServiceProviderRest_UpdateConfiguration",
         "parameters": [
           {
             "type": "string",
@@ -141,12 +120,7 @@
             },
             "x-nullable": true
           }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
+        }
       }
     }
   },
@@ -198,7 +172,7 @@
       ]
     },
     "TraceLevel": {
-      "type": "integer",
+      "type": "string",
       "x-enumNames": [
         "Critical",
         "Error",
@@ -207,11 +181,11 @@
         "Verbose"
       ],
       "enum": [
-        1,
-        2,
-        3,
-        4,
-        5
+        "Critical",
+        "Error",
+        "Warning",
+        "Information",
+        "Verbose"
       ],
       "description": ""
     },
@@ -249,6 +223,9 @@
         "CustomerId": {
           "type": "string"
         },
+        "CustomerAlias": {
+          "type": "string"
+        },
         "UserId": {
           "type": "string"
         }
@@ -273,11 +250,11 @@
         }
       ]
     },
-    "AssetNotFoundException": {
+    "ContentNotFoundException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "AssetId": {
+        "ContentId": {
           "type": "string"
         }
       },
@@ -716,7 +693,7 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "AssetId": {
+        "ContentId": {
           "type": "string"
         },
         "OutputFormatId": {
@@ -901,7 +878,7 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "AssetPermissionSetId": {
+        "ContentPermissionSetId": {
           "type": "string"
         }
       },
@@ -956,25 +933,5 @@
   },
   "parameters": {},
   "responses": {},
-  "securityDefinitions": {
-    "oauth2": {
-      "type": "oauth2",
-      "description": "Foo",
-      "flow": "password",
-      "tokenUrl": "/token",
-      "scopes": {
-        "read": "Read access to protected resources",
-        "write": "Write access to protected resources"
-      }
-    },
-    "Bearer": {
-      "type": "apiKey",
-      "name": "Authorization",
-      "in": "header",
-      "scopes": {
-        "read": "Read access to protected resources",
-        "write": "Write access to protected resources"
-      }
-    }
-  }
+  "securityDefinitions": {}
 }

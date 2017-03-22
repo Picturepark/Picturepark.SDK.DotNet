@@ -21,14 +21,14 @@ namespace Picturepark.SDK.V1.ServiceProvider
 		private readonly IModel _requestMessageModel;
 		private readonly LiveStreamBuffer _liveStreamBuffer;
 
-		private readonly Dictionary<string, ServiceProvidersClient> _serviceProviderCache;
+		private readonly Dictionary<string, ServiceProviderRestClient> _serviceProviderCache;
 
 		private LiveStreamConsumer _liveStreamConsumer;
 
 		public ServiceProviderClient(Configuration configuration)
 		{
 			_configuration = configuration;
-			_serviceProviderCache = new Dictionary<string, ServiceProvidersClient>();
+			_serviceProviderCache = new Dictionary<string, ServiceProviderRestClient>();
 
 			ConnectionFactory factory = new ConnectionFactory();
 
@@ -116,7 +116,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
 			);
 		}
 
-		public ServiceProvidersClient GetConfigurationClient(string baseUrl, string username, string password)
+		public ServiceProviderRestClient GetConfigurationClient(string baseUrl, string username, string password)
 		{
 			// TODO BRO: Lock
 			if (_serviceProviderCache.ContainsKey(baseUrl))
@@ -125,7 +125,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
 			}
 			else
 			{
-				var client = new ServiceProvidersClient(new PictureparkClientSettings(new UsernamePasswordAuthClient(baseUrl, username, password)));
+				var client = new ServiceProviderRestClient(new PictureparkClientSettings(new UsernamePasswordAuthClient(baseUrl, username, password)));
 				client.BaseUrl = baseUrl;
 
 				_serviceProviderCache[baseUrl] = client;

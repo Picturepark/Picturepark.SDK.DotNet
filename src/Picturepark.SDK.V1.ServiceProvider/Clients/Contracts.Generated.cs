@@ -9,7 +9,7 @@ namespace Picturepark.SDK.V1.ServiceProvider.Contract
     #pragma warning disable // Disable all warnings
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.12.6284.29969")]
-    public partial interface IServiceProvidersClient
+    public partial interface IServiceProviderRestClient
     {
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
@@ -70,6 +70,8 @@ namespace Picturepark.SDK.V1.ServiceProvider.Contract
     public partial class PictureparkException : System.Exception
     {
         [Newtonsoft.Json.JsonProperty("TraceLevel", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TraceLevel TraceLevel { get; set; }
     
         [Newtonsoft.Json.JsonProperty("TraceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -95,15 +97,20 @@ namespace Picturepark.SDK.V1.ServiceProvider.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
     public enum TraceLevel
     {
-        Critical = 1,
+        [System.Runtime.Serialization.EnumMember(Value = "Critical")]
+        Critical = 0,
     
-        Error = 2,
+        [System.Runtime.Serialization.EnumMember(Value = "Error")]
+        Error = 1,
     
-        Warning = 3,
+        [System.Runtime.Serialization.EnumMember(Value = "Warning")]
+        Warning = 2,
     
-        Information = 4,
+        [System.Runtime.Serialization.EnumMember(Value = "Information")]
+        Information = 3,
     
-        Verbose = 5,
+        [System.Runtime.Serialization.EnumMember(Value = "Verbose")]
+        Verbose = 4,
     
     }
     
@@ -112,6 +119,9 @@ namespace Picturepark.SDK.V1.ServiceProvider.Contract
     {
         [Newtonsoft.Json.JsonProperty("CustomerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomerId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("CustomerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerAlias { get; set; }
     
         [Newtonsoft.Json.JsonProperty("UserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string UserId { get; set; }
@@ -159,19 +169,19 @@ namespace Picturepark.SDK.V1.ServiceProvider.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
-    public partial class AssetNotFoundException : PictureparkBusinessException
+    public partial class ContentNotFoundException : PictureparkBusinessException
     {
-        [Newtonsoft.Json.JsonProperty("AssetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AssetId { get; set; }
+        [Newtonsoft.Json.JsonProperty("ContentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static AssetNotFoundException FromJson(string data)
+        public static ContentNotFoundException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssetNotFoundException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentNotFoundException>(data);
         }
     }
     
@@ -679,8 +689,8 @@ namespace Picturepark.SDK.V1.ServiceProvider.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
     public partial class OutputNotFoundException : PictureparkBusinessException
     {
-        [Newtonsoft.Json.JsonProperty("AssetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AssetId { get; set; }
+        [Newtonsoft.Json.JsonProperty("ContentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("OutputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OutputFormatId { get; set; }
@@ -909,8 +919,8 @@ namespace Picturepark.SDK.V1.ServiceProvider.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
     public partial class UserRolesRightsAssignedException : PictureparkBusinessException
     {
-        [Newtonsoft.Json.JsonProperty("AssetPermissionSetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AssetPermissionSetId { get; set; }
+        [Newtonsoft.Json.JsonProperty("ContentPermissionSetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentPermissionSetId { get; set; }
     
         public string ToJson() 
         {

@@ -21,9 +21,9 @@ namespace Picturepark.SDK.V1
         partial void PrepareRequest(System.Net.Http.HttpClient request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient request, System.Net.Http.HttpResponseMessage response);
     
-        /// <summary>Aggregate fields</summary>
-        /// <param name="contentAggregationRequest">Aggregation request. Required.</param>
-        /// <returns>Aggregation results.</returns>
+        /// <summary>Aggregate</summary>
+        /// <param name="contentAggregationRequest">The aggregation request.</param>
+        /// <returns>ObjectAggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public ObjectAggregationResult Aggregate(ContentAggregationRequest contentAggregationRequest)
@@ -31,10 +31,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await AggregateAsync(contentAggregationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
-        /// <summary>Aggregate fields</summary>
-        /// <param name="contentAggregationRequest">Aggregation request. Required.</param>
+        /// <summary>Aggregate</summary>
+        /// <param name="contentAggregationRequest">The aggregation request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>Aggregation results.</returns>
+        /// <returns>ObjectAggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ContentAggregationRequest contentAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -124,6 +124,10 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Aggregate By Channel</summary>
+        /// <param name="channelId">The channel id</param>
+        /// <param name="contentAggregationRequest">The content aggregation request.</param>
+        /// <returns>ObjectAggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public ObjectAggregationResult AggregateByChannel(string channelId, ContentAggregationRequest contentAggregationRequest)
@@ -131,7 +135,11 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await AggregateByChannelAsync(channelId, contentAggregationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Aggregate By Channel</summary>
+        /// <param name="channelId">The channel id</param>
+        /// <param name="contentAggregationRequest">The content aggregation request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ObjectAggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateByChannelAsync(string channelId, ContentAggregationRequest contentAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -322,6 +330,11 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Create Single</summary>
+        /// <param name="createRequest">The content create request.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public ContentDetail CreateContent(CreateContentRequest createRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
@@ -329,6 +342,11 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await CreateContentAsync(createRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Create Single</summary>
+        /// <param name="createRequest">The content create request.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
@@ -528,9 +546,10 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Provides a lightweight endpoint to get content thumbnails</summary>
-        /// <param name="contentId">Content id</param>
+        /// <summary>Get Thumbnail</summary>
+        /// <param name="contentId">The Content id</param>
         /// <param name="size">Thumbnail size. Either small, medium or large</param>
+        /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public FileResponse DownloadThumbnail(string contentId, ThumbnailSize size)
@@ -538,10 +557,11 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await DownloadThumbnailAsync(contentId, size, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
-        /// <summary>Provides a lightweight endpoint to get content thumbnails</summary>
-        /// <param name="contentId">Content id</param>
+        /// <summary>Get Thumbnail</summary>
+        /// <param name="contentId">The Content id</param>
         /// <param name="size">Thumbnail size. Either small, medium or large</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<FileResponse> DownloadThumbnailAsync(string contentId, ThumbnailSize size, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -744,6 +764,11 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Get Single</summary>
+        /// <param name="contentId">The content id.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
+        /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         /// <exception cref="ContentNotFoundException">A server side error occurred.</exception>
@@ -752,7 +777,12 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await GetAsync(contentId, resolve, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Get Single</summary>
+        /// <param name="contentId">The content id.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         /// <exception cref="ContentNotFoundException">A server side error occurred.</exception>
@@ -870,6 +900,13 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Update Single - Metadata</summary>
+        /// <param name="contentId">The content id.</param>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
+        /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public ContentDetail UpdateMetadata(string contentId, UpdateContentMetadataRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
@@ -877,7 +914,14 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await UpdateMetadataAsync(contentId, updateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Update Single - Metadata</summary>
+        /// <param name="contentId">The content id.</param>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, UpdateContentMetadataRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -978,6 +1022,13 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Update Single - Permissions</summary>
+        /// <param name="contentId">The content id.</param>
+        /// <param name="updateRequest">The content permission update request.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
+        /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public ContentDetail UpdatePermissions(string contentId, UpdateContentPermissionsRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
@@ -985,7 +1036,14 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await UpdatePermissionsAsync(contentId, updateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Update Single - Permissions</summary>
+        /// <param name="contentId">The content id.</param>
+        /// <param name="updateRequest">The content permission update request.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string contentId, UpdateContentPermissionsRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1086,6 +1144,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Search</summary>
+        /// <param name="contentSearchRequest">The content search request.</param>
+        /// <returns>ContentSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public ContentSearchResult Search(ContentSearchRequest contentSearchRequest)
@@ -1093,7 +1154,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await SearchAsync(contentSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Search</summary>
+        /// <param name="contentSearchRequest">The content search request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ContentSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<ContentSearchResult> SearchAsync(ContentSearchRequest contentSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1183,6 +1247,10 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Search By Channel</summary>
+        /// <param name="channelId">The channel id.</param>
+        /// <param name="contentSearchRequest">The content search request.</param>
+        /// <returns>ContentSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public ContentSearchResult SearchByChannel(string channelId, ContentSearchRequest contentSearchRequest)
@@ -1190,7 +1258,11 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await SearchByChannelAsync(channelId, contentSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Search By Channel</summary>
+        /// <param name="channelId">The channel id.</param>
+        /// <param name="contentSearchRequest">The content search request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ContentSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<ContentSearchResult> SearchByChannelAsync(string channelId, ContentSearchRequest contentSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1678,6 +1750,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Update Many - Metadata</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public BusinessProcessViewItem UpdateMetadataMany(ContentsMetadataUpdateRequest updateRequest)
@@ -1685,7 +1760,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await UpdateMetadataManyAsync(updateRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Update Many - Metadata</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<BusinessProcessViewItem> UpdateMetadataManyAsync(ContentsMetadataUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1775,6 +1853,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Update Many - Permissions</summary>
+        /// <param name="updateRequest">The permissions update request.</param>
+        /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public BusinessProcessViewItem UpdatePermissionsMany(System.Collections.Generic.IEnumerable<UpdateContentPermissionsRequest> updateRequest)
@@ -1782,7 +1863,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await UpdatePermissionsManyAsync(updateRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Update Many - Permissions</summary>
+        /// <param name="updateRequest">The permissions update request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<BusinessProcessViewItem> UpdatePermissionsManyAsync(System.Collections.Generic.IEnumerable<UpdateContentPermissionsRequest> updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -2789,6 +2873,9 @@ namespace Picturepark.SDK.V1
         partial void PrepareRequest(System.Net.Http.HttpClient request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient request, System.Net.Http.HttpResponseMessage response);
     
+        /// <summary>Get Json Schema</summary>
+        /// <param name="schemaId">Schema Id</param>
+        /// <returns>JsonSchemaViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         protected object GetCore(string schemaId)
@@ -2796,7 +2883,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await GetCoreAsync(schemaId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Get Json Schema</summary>
+        /// <param name="schemaId">Schema Id</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>JsonSchemaViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         protected async System.Threading.Tasks.Task<object> GetCoreAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -2900,6 +2990,12 @@ namespace Picturepark.SDK.V1
         partial void PrepareRequest(System.Net.Http.HttpClient request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient request, System.Net.Http.HttpResponseMessage response);
     
+        /// <summary>Create Single</summary>
+        /// <param name="listItem">List item create request.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
+        /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public ListItemDetail Create(ListItemCreateRequest listItem, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
@@ -2907,7 +3003,13 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await CreateAsync(listItem, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Create Single</summary>
+        /// <param name="listItem">List item create request.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItem, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -3004,6 +3106,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Create Many</summary>
+        /// <param name="objects">A list of ListItemCreateRequests.</param>
+        /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         protected BusinessProcessViewItem CreateManyCore(System.Collections.Generic.IEnumerable<ListItemCreateRequest> objects)
@@ -3011,7 +3116,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await CreateManyCoreAsync(objects, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Create Many</summary>
+        /// <param name="objects">A list of ListItemCreateRequests.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         protected async System.Threading.Tasks.Task<BusinessProcessViewItem> CreateManyCoreAsync(System.Collections.Generic.IEnumerable<ListItemCreateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -3101,6 +3209,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Delete Many</summary>
+        /// <param name="ids">The list item id list.</param>
+        /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public BusinessProcessViewItem DeleteMany(System.Collections.Generic.IEnumerable<string> ids = null)
@@ -3108,7 +3219,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await DeleteManyAsync(ids, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Delete Many</summary>
+        /// <param name="ids">The list item id list.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<BusinessProcessViewItem> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -3197,6 +3311,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Update Many</summary>
+        /// <param name="objects">A list of ListItemUpdateRequests.</param>
+        /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public BusinessProcessViewItem UpdateMany(System.Collections.Generic.IEnumerable<ListItemUpdateRequest> objects)
@@ -3204,7 +3321,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await UpdateManyAsync(objects, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Update Many</summary>
+        /// <param name="objects">A list of ListItemUpdateRequests.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<BusinessProcessViewItem> UpdateManyAsync(System.Collections.Generic.IEnumerable<ListItemUpdateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -3294,6 +3414,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Aggregate</summary>
+        /// <param name="listItemAggregationRequest">The list item aggregation request.</param>
+        /// <returns>ObjectAggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public ObjectAggregationResult Aggregate(ListItemAggregationRequest listItemAggregationRequest)
@@ -3301,7 +3424,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await AggregateAsync(listItemAggregationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Aggregate</summary>
+        /// <param name="listItemAggregationRequest">The list item aggregation request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ObjectAggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ListItemAggregationRequest listItemAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -3391,6 +3517,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Search</summary>
+        /// <param name="listItemSearchRequest">The list item search request.</param>
+        /// <returns>List item result set.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public BaseResultOfListItem Search(ListItemSearchRequest listItemSearchRequest)
@@ -3398,7 +3527,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await SearchAsync(listItemSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Search</summary>
+        /// <param name="listItemSearchRequest">The list item search request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>List item result set.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<BaseResultOfListItem> SearchAsync(ListItemSearchRequest listItemSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -3488,6 +3620,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Delete Single</summary>
+        /// <param name="objectId">The list item id.</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public void Delete(string objectId, int timeout)
@@ -3495,6 +3630,9 @@ namespace Picturepark.SDK.V1
             System.Threading.Tasks.Task.Run(async () => await DeleteAsync(objectId, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Delete Single</summary>
+        /// <param name="objectId">The list item id.</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
@@ -3579,6 +3717,10 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Get Single</summary>
+        /// <param name="listItemId">The list item id.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public ListItemDetail Get(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null)
@@ -3586,6 +3728,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await GetAsync(listItemId, resolve, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Get Single</summary>
+        /// <param name="listItemId">The list item id.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
@@ -3689,6 +3835,13 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Update Single</summary>
+        /// <param name="listItemId">The list item id.</param>
+        /// <param name="updateRequest">The list item update request.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
+        /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public ListItemDetail Update(string listItemId, ListItemUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
@@ -3696,7 +3849,14 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await UpdateAsync(listItemId, updateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Update Single</summary>
+        /// <param name="listItemId">The list item id.</param>
+        /// <param name="updateRequest">The list item update request.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<ListItemDetail> UpdateAsync(string listItemId, ListItemUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -3797,6 +3957,11 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Wait For States</summary>
+        /// <param name="processId">The business process id.</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="states">Comma-separated list of business process states to wait for.</param>
+        /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public BusinessProcessWaitResult WaitForStates(string processId, int timeout, System.Collections.Generic.IEnumerable<string> states = null)
@@ -3804,7 +3969,12 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await WaitForStatesAsync(processId, timeout, states, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Wait For States</summary>
+        /// <param name="processId">The business process id.</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="states">Comma-separated list of business process states to wait for.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, int timeout, System.Collections.Generic.IEnumerable<string> states = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -3901,6 +4071,10 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Import</summary>
+        /// <param name="contentId">The content id.</param>
+        /// <param name="fileTransferId">The file transfer id.</param>
+        /// <param name="includeObjects">Imports list items defined in the json import file.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public void Import(string contentId, string fileTransferId, bool includeObjects)
@@ -3908,6 +4082,10 @@ namespace Picturepark.SDK.V1
             System.Threading.Tasks.Task.Run(async () => await ImportAsync(contentId, fileTransferId, includeObjects, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Import</summary>
+        /// <param name="contentId">The content id.</param>
+        /// <param name="fileTransferId">The file transfer id.</param>
+        /// <param name="includeObjects">Imports list items defined in the json import file.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
@@ -4003,6 +4181,9 @@ namespace Picturepark.SDK.V1
         partial void PrepareRequest(System.Net.Http.HttpClient request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient request, System.Net.Http.HttpResponseMessage response);
     
+        /// <summary>Get Single</summary>
+        /// <param name="schemaId">The schema id.</param>
+        /// <returns>SchemaDetailViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public SchemaDetailViewItem Get(string schemaId)
@@ -4010,7 +4191,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await GetAsync(schemaId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Get Single</summary>
+        /// <param name="schemaId">The schema id.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>SchemaDetailViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<SchemaDetailViewItem> GetAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -4101,6 +4285,10 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Update Single</summary>
+        /// <param name="schemaId">The schema id.</param>
+        /// <param name="schema">The schema update request.</param>
+        /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         protected BusinessProcessViewItem UpdateCore(string schemaId, SchemaUpdateRequest schema)
@@ -4108,7 +4296,11 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await UpdateCoreAsync(schemaId, schema, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Update Single</summary>
+        /// <param name="schemaId">The schema id.</param>
+        /// <param name="schema">The schema update request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         protected async System.Threading.Tasks.Task<BusinessProcessViewItem> UpdateCoreAsync(string schemaId, SchemaUpdateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -4202,6 +4394,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Delete Single</summary>
+        /// <param name="schemaId">The schema id.</param>
+        /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         protected BusinessProcessViewItem DeleteCore(string schemaId)
@@ -4209,7 +4404,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await DeleteCoreAsync(schemaId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Delete Single</summary>
+        /// <param name="schemaId">The schema id.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         protected async System.Threading.Tasks.Task<BusinessProcessViewItem> DeleteCoreAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -4300,6 +4498,10 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Exists</summary>
+        /// <param name="schemaId">The schema id.</param>
+        /// <param name="fieldId">The optional field id.</param>
+        /// <returns>ExistsResponse</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public ExistsResponse Exists(string schemaId, string fieldId)
@@ -4307,7 +4509,11 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await ExistsAsync(schemaId, fieldId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Exists</summary>
+        /// <param name="schemaId">The schema id.</param>
+        /// <param name="fieldId">The optional field id.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ExistsResponse</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<ExistsResponse> ExistsAsync(string schemaId, string fieldId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -4400,6 +4606,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Create Single</summary>
+        /// <param name="schema">The schema create request.</param>
+        /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public BusinessProcessViewItem Create(SchemaCreateRequest schema)
@@ -4407,7 +4616,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await CreateAsync(schema, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Create Single</summary>
+        /// <param name="schema">The schema create request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<BusinessProcessViewItem> CreateAsync(SchemaCreateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -4497,6 +4709,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Search</summary>
+        /// <param name="schemaSearchRequest">The schema search request.</param>
+        /// <returns>Schema result set.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public BaseResultOfSchemaViewItem Search(SchemaSearchRequest schemaSearchRequest)
@@ -4504,7 +4719,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await SearchAsync(schemaSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Search</summary>
+        /// <param name="schemaSearchRequest">The schema search request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Schema result set.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<BaseResultOfSchemaViewItem> SearchAsync(SchemaSearchRequest schemaSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -4607,6 +4825,9 @@ namespace Picturepark.SDK.V1
         partial void PrepareRequest(System.Net.Http.HttpClient request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient request, System.Net.Http.HttpResponseMessage response);
     
+        /// <summary>Search Content Permissions</summary>
+        /// <param name="request">The permission search request.</param>
+        /// <returns>PermissionSetSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public PermissionSetSearchResult SearchContentPermissions(PermissionSetSearchRequest request)
@@ -4614,7 +4835,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await SearchContentPermissionsAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Search Content Permissions</summary>
+        /// <param name="request">The permission search request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>PermissionSetSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<PermissionSetSearchResult> SearchContentPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -4704,6 +4928,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Get Content Permission Single</summary>
+        /// <param name="permissionSetId">The content permission set id.</param>
+        /// <returns>ContentPermissionSetDetailViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public ContentPermissionSetDetailViewItem GetContentPermissions(string permissionSetId)
@@ -4711,7 +4938,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await GetContentPermissionsAsync(permissionSetId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Get Content Permission Single</summary>
+        /// <param name="permissionSetId">The content permission set id.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ContentPermissionSetDetailViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<ContentPermissionSetDetailViewItem> GetContentPermissionsAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -4802,6 +5032,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Search Schema Permissions</summary>
+        /// <param name="request">The permission search request.</param>
+        /// <returns>PermissionSetSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public PermissionSetSearchResult SearchSchemaPermissions(PermissionSetSearchRequest request)
@@ -4809,7 +5042,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await SearchSchemaPermissionsAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Search Schema Permissions</summary>
+        /// <param name="request">The permission search request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>PermissionSetSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<PermissionSetSearchResult> SearchSchemaPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -4899,6 +5135,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Get Schema Permission Single</summary>
+        /// <param name="permissionSetId">The schema permission set id.</param>
+        /// <returns>SchemaPermissionSetDetailViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public SchemaPermissionSetDetailViewItem GetSchemaPermissions(string permissionSetId)
@@ -4906,7 +5145,10 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await GetSchemaPermissionsAsync(permissionSetId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Get Schema Permission Single</summary>
+        /// <param name="permissionSetId">The schema permission set id.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>SchemaPermissionSetDetailViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<SchemaPermissionSetDetailViewItem> GetSchemaPermissionsAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
