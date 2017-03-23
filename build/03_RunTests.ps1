@@ -1,3 +1,4 @@
+Write-Host "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/bin/Configuration.json"
 if (!(Test-Path "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/bin/Configuration.json")) { 
 	(Get-Content "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Configuration_template.json") | 
 	ForEach-Object { $_ -replace "{Server}", "$env:TestServer" } | 
