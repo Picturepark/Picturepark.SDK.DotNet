@@ -9,12 +9,13 @@
     <AssemblyName>Picturepark.SDK.V1</AssemblyName>
     <PackageId>Picturepark.SDK.V1</PackageId>
     <PackageIconUrl>https://bitbucket.vit.ch:8443/projects/PP9/repos/picturepark.public/browse/picturepark-240px.png?raw</PackageIconUrl>
-    <PackageLicenseUrl>https://bitbucket.vit.ch:8443/projects/PP9/repos/Picturepark.SDK.DotNet</PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/LICENSE.md</PackageLicenseUrl>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <CodeAnalysisRuleSet>../Picturepark.SDK.DotNet.ruleset</CodeAnalysisRuleSet>
-    <Version>0.31.0</Version>
+    <Version>0.32.0</Version>
+    <PackageProjectUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>

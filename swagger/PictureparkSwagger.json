@@ -7588,13 +7588,15 @@
         "FileUpload",
         "DriveImport",
         "DriveExport",
-        "WebDownload"
+        "WebDownload",
+        "SchemaImport"
       ],
       "enum": [
         "FileUpload",
         "DriveImport",
         "DriveExport",
-        "WebDownload"
+        "WebDownload",
+        "SchemaImport"
       ],
       "description": ""
     },

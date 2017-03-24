@@ -67,6 +67,13 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<CustomerConfigurationItem> AddExternalProvidersAsync(string customerId, System.Collections.Generic.IEnumerable<ExternalProviderItem> addRequest, System.Threading.CancellationToken cancellationToken);
     
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task RestoreAsync(string customerAlias);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task RestoreAsync(string customerAlias, System.Threading.CancellationToken cancellationToken);
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.12.6284.29969")]

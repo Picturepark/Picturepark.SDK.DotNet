@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		Picturepark.SDK.DotNet.ruleset = Picturepark.SDK.DotNet.ruleset
-		..\README.md = ..\README.md
-		..\TASKS.md = ..\TASKS.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Public API", "Public API", "{4B2AA4DC-FA39-4146-8AA2-50D1908601AB}"
@@ -32,6 +30,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Picturepark.ContentUploader", "Picturepark.ContentUploader\Picturepark.ContentUploader.csproj", "{6B970F42-4FB4-4654-9C20-E2A3CBDE5076}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Management API", "Management API", "{88E65D30-2F71-46D3-AA5B-542EFDD0D57C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{99AB8223-6232-4A34-910C-42F116B29AF7}"
+	ProjectSection(SolutionItems) = preProject
+		..\LICENSE.md = ..\LICENSE.md
+		..\README.md = ..\README.md
+		..\TASKS.md = ..\TASKS.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

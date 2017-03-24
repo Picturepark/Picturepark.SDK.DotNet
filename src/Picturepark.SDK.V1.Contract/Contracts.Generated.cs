@@ -6025,6 +6025,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "WebDownload")]
         WebDownload = 3,
     
+        [System.Runtime.Serialization.EnumMember(Value = "SchemaImport")]
+        SchemaImport = 4,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]

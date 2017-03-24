@@ -635,6 +635,72 @@ namespace Picturepark.SDK.V1.CloudManager
             }
         }
     
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task RestoreAsync(string customerAlias)
+        {
+            return RestoreAsync(customerAlias, System.Threading.CancellationToken.None);
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public async System.Threading.Tasks.Task RestoreAsync(string customerAlias, System.Threading.CancellationToken cancellationToken)
+        {
+            if (customerAlias == null)
+                throw new System.ArgumentNullException("customerAlias");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl).Append("/Customer/{CustomerAlias}/Restore");
+            urlBuilder_.Replace("{CustomerAlias}", System.Uri.EscapeDataString(customerAlias.ToString()));
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    PrepareRequest(client_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    PrepareRequest(client_, url_);
+    
+                    var content_ = new System.Net.Http.StringContent(string.Empty);
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            return;
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "9.12.6284.29969")]

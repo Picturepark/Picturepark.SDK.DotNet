@@ -235,6 +235,28 @@
         }
       }
     },
+    "/Customer/{CustomerAlias}/Restore": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_Restore",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "CustomerAlias",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/Services/ShutdownAll": {
       "post": {
         "tags": [
