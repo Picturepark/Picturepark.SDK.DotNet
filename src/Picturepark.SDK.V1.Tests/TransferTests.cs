@@ -26,16 +26,17 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldCreateBatchAndUploadFiles()
 		{
-			var filePaths = new List<string>();
-			filePaths.Add(Path.Combine(_fixture.ExampleFilesBasePath, "0322_ERSauUNQ3ag.jpg"));
-			filePaths.Add(Path.Combine(_fixture.ExampleFilesBasePath, "0314_JYFmYif4n70.jpg"));
-			filePaths.Add(Path.Combine(_fixture.ExampleFilesBasePath, "0050_6qORI5j_6n8.jpg"));
-
-			string batchName = nameof(ShouldCreateBatchAndUploadFiles) + "-" + new Random().Next(1000, 9999).ToString();
+			var filePaths = new List<string>
+			{
+				Path.Combine(_fixture.ExampleFilesBasePath, "0322_ERSauUNQ3ag.jpg"),
+				Path.Combine(_fixture.ExampleFilesBasePath, "0314_JYFmYif4n70.jpg"),
+				Path.Combine(_fixture.ExampleFilesBasePath, "0050_6qORI5j_6n8.jpg")
+			};
+			string transferName = nameof(ShouldCreateBatchAndUploadFiles) + "-" + new Random().Next(1000, 9999).ToString();
 			List<string> fileNames = filePaths.Select(file => Path.GetFileName(file)).ToList();
 
 			// Create batch
-			TransferViewItem transfer = await _client.Transfers.CreateBatchAsync(fileNames, batchName);
+			TransferViewItem transfer = await _client.Transfers.CreateBatchAsync(fileNames, transferName);
 
 			// Upload files
 			string directoryPath = Path.GetDirectoryName(filePaths.First());
@@ -55,7 +56,7 @@ namespace Picturepark.SDK.V1.Tests
 			);
 
 			// Import batch
-			await ImportBatchAsync(transfer, batchName);
+			await ImportBatchAsync(transfer, transferName);
 
 			// Import metadata
 			var request = new FileTransferSearchRequest() { Limit = 1000 };
@@ -82,12 +83,13 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			string batchName = "UrlImport " + new Random().Next(1000, 9999).ToString();
 
-			var urls = new List<string>();
-			urls.Add("https://picturepark.com/wp-content/uploads/2013/06/home-marquee.jpg");
-			urls.Add("http://cdn1.spiegel.de/images/image-733178-900_breitwand_180x67-zgpe-733178.jpg");
-			urls.Add("http://cdn3.spiegel.de/images/image-1046236-700_poster_16x9-ymle-1046236.jpg");
-			urls.Add("https://dgpcopy.next-picturepark.com/Go/A6ZYegLz/D/15/1");
-
+			var urls = new List<string>
+			{
+				"https://picturepark.com/wp-content/uploads/2013/06/home-marquee.jpg",
+				"http://cdn1.spiegel.de/images/image-733178-900_breitwand_180x67-zgpe-733178.jpg",
+				"http://cdn3.spiegel.de/images/image-1046236-700_poster_16x9-ymle-1046236.jpg",
+				"https://dgpcopy.next-picturepark.com/Go/A6ZYegLz/D/15/1"
+			};
 			var request = new CreateTransferRequest()
 			{
 				Name = batchName,

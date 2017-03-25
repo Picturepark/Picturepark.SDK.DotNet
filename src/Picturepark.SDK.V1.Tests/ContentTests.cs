@@ -46,10 +46,10 @@ namespace Picturepark.SDK.V1.Tests
 			//// TODO: finds one content, but logic is not clear. Must be extended and asserted with useful data
 
 			var request = new ContentAggregationRequest() { SearchString = string.Empty };
-			request.Aggregators = new List<AggregatorBase>();
-
-			// First Aggregator
-			request.Aggregators.Add(new TermsAggregator { Name = "Aggregator1", Field = "ContentType", Size = 10 });
+			request.Aggregators = new List<AggregatorBase>
+			{
+				new TermsAggregator { Name = "Aggregator1", Field = "ContentType", Size = 10 }
+			};
 
 			// Second Aggregator
 			var ranges = new List<NumericRange>()
@@ -96,9 +96,10 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldCreateBatchContentDownload()
 		{
-			var request = new ContentBatchDownloadRequest();
-			request.Contents = new List<Content>();
-
+			var request = new ContentBatchDownloadRequest()
+			{
+				Contents = new List<Content>()
+			};
 			string contentId1 = _fixture.GetRandomContentId("*.jpg", 50);
 			string contentId2 = _fixture.GetRandomContentId("*.jpg", 50);
 			Assert.False(string.IsNullOrEmpty(contentId1));
@@ -332,6 +333,57 @@ namespace Picturepark.SDK.V1.Tests
 			Assert.True(reactivatedContent != null);
 		}
 
+		[Fact]
+		[Trait("Stack", "Contents")]
+		public async Task ShouldUpdateFile()
+		{
+			string contentId = _fixture.GetRandomContentId("*.jpg -0030_JabLtzJl8bc", 20);
+
+			ContentDetail content = await _client.Contents.GetAsync(contentId);
+
+			// Create transfer
+			var filePaths = new List<string>
+			{
+				Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
+			};
+			var directoryPath = Path.GetDirectoryName(filePaths.First());
+			string transferName = nameof(ShouldUpdateFile) + "-" + new Random().Next(1000, 9999).ToString();
+			TransferViewItem transfer = await _client.Transfers.CreateBatchAsync(filePaths.Select(file => Path.GetFileName(file)).ToList(), transferName);
+
+			// Upload file
+			await _client.Transfers.UploadFilesAsync(
+				filePaths,
+				directoryPath,
+				transfer,
+				successDelegate: (file) =>
+				{
+					Console.WriteLine(file);
+				},
+				errorDelegate: (error) =>
+				{
+					Console.WriteLine(error);
+				}
+			);
+
+			// Search filetransfers to get id
+			var request = new FileTransferSearchRequest() { Limit = 20, SearchString = "*", Filter = new TermFilter { Field = "TransferId", Term = transfer.Id } };
+			FileTransferSearchResult result = await _client.Transfers.SearchFilesAsync(request);
+
+			Assert.Equal(result.TotalResults, 1);
+
+			var updateRequest = new ContentFileUpdateRequest
+			{
+				ContentId = contentId,
+				FileTransferId = result.Results.First().Id
+			};
+
+			BusinessProcessViewItem updateResult = await _client.Contents.UpdateFileAsync(contentId, updateRequest);
+			BusinessProcessWaitResult waitResult = await updateResult.Wait4StateAsync("Completed", _client.BusinessProcesses);
+
+			Assert.True(waitResult.HasStateHit);
+		}
+
+		[Fact]
 		[Trait("Stack", "Contents")]
 		public async Task ShouldUpdateMetadata()
 		{

@@ -33,17 +33,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "ObjectAggregationResult",
             "schema": {
               "$ref": "#/definitions/ObjectAggregationResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -79,17 +79,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "ObjectAggregationResult",
             "schema": {
               "$ref": "#/definitions/ObjectAggregationResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -114,17 +114,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "",
             "schema": {
               "$ref": "#/definitions/ContentBatchDownloadItem"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -179,17 +179,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "",
             "schema": {
               "$ref": "#/definitions/ContentDetail"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -232,15 +232,15 @@
             },
             "x-nullable": true
           },
+          "404": {
+            "description": ""
+          },
           "500": {
-            "description": "",
+            "description": "Internal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
-          },
-          "404": {
-            "description": ""
           }
         }
       }
@@ -282,15 +282,15 @@
             },
             "x-nullable": true
           },
+          "404": {
+            "description": ""
+          },
           "500": {
-            "description": "",
+            "description": "Internal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
-          },
-          "404": {
-            "description": ""
           }
         }
       }
@@ -341,15 +341,15 @@
             },
             "x-nullable": true
           },
+          "404": {
+            "description": ""
+          },
           "500": {
-            "description": "",
+            "description": "Internal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
-          },
-          "404": {
-            "description": ""
           }
         }
       }
@@ -392,13 +392,6 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "404": {
             "description": "",
             "schema": {
@@ -410,6 +403,13 @@
             "description": "ContentDetail",
             "schema": {
               "$ref": "#/definitions/ContentDetail"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -470,17 +470,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "ContentDetail",
             "schema": {
               "$ref": "#/definitions/ContentDetail"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -543,17 +543,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "ContentDetail",
             "schema": {
               "$ref": "#/definitions/ContentDetail"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -581,17 +581,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "ContentSearchResult",
             "schema": {
               "$ref": "#/definitions/ContentSearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -627,17 +627,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "ContentSearchResult",
             "schema": {
               "$ref": "#/definitions/ContentSearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -668,15 +668,61 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": ""
+          },
           "500": {
-            "description": "",
+            "description": "Internal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
+          }
+        }
+      }
+    },
+    "/Service/Contents/{ContentId}/File": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Update file",
+        "description": "Update binary file of existing content",
+        "operationId": "Content_UpdateFile",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "ContentId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The id of the content to replace"
           },
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentFileUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "Update request"
+          }
+        ],
+        "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessViewItem"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -721,17 +767,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "",
             "schema": {
               "$ref": "#/definitions/ContentDetail"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -756,17 +802,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "",
             "schema": {
               "$ref": "#/definitions/BusinessProcessViewItem"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -791,17 +837,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "",
             "schema": {
               "$ref": "#/definitions/BusinessProcessViewItem"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -829,17 +875,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "BusinessProcessViewItem",
             "schema": {
               "$ref": "#/definitions/BusinessProcessViewItem"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -870,17 +916,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "BusinessProcessViewItem",
             "schema": {
               "$ref": "#/definitions/BusinessProcessViewItem"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -3476,6 +3522,73 @@
       ],
       "description": ""
     },
+    "ObjectAggregationResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ElapsedMilliseconds"
+      ],
+      "properties": {
+        "ElapsedMilliseconds": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "AggregationResults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregationResult"
+          }
+        }
+      }
+    },
+    "AggregationResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "SumOtherDocCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "AggregationResultItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregationResultItem"
+          }
+        }
+      }
+    },
+    "AggregationResultItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Count",
+        "Active"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Count": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Filter": {
+          "$ref": "#/definitions/AggregationFilter"
+        },
+        "Active": {
+          "type": "boolean"
+        },
+        "AggregationResults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregationResult"
+          }
+        }
+      }
+    },
     "PictureparkException": {
       "type": "object",
       "discriminator": "Kind",
@@ -4226,73 +4339,6 @@
         }
       ]
     },
-    "ObjectAggregationResult": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "ElapsedMilliseconds"
-      ],
-      "properties": {
-        "ElapsedMilliseconds": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "AggregationResults": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationResult"
-          }
-        }
-      }
-    },
-    "AggregationResult": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Name": {
-          "type": "string"
-        },
-        "SumOtherDocCount": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "AggregationResultItems": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationResultItem"
-          }
-        }
-      }
-    },
-    "AggregationResultItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "Count",
-        "Active"
-      ],
-      "properties": {
-        "Name": {
-          "type": "string"
-        },
-        "Count": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "Filter": {
-          "$ref": "#/definitions/AggregationFilter"
-        },
-        "Active": {
-          "type": "boolean"
-        },
-        "AggregationResults": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationResult"
-          }
-        }
-      }
-    },
     "ContentBatchDownloadRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -4815,36 +4861,15 @@
         }
       }
     },
-    "UpdateContentMetadataRequest": {
+    "ContentFileUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Id": {
-          "type": "string",
-          "description": "The content id."
+        "ContentId": {
+          "type": "string"
         },
-        "SchemaIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "An id list of schemas with schema type content or layer."
-        },
-        "Metadata": {
-          "description": "The dynamic data structure matching the field schematics of the schemas with schema type content or layer.",
-          "$ref": "#/definitions/DataDictionary"
-        }
-      }
-    },
-    "ContentDeactivationRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "ContentIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "FileTransferId": {
+          "type": "string"
         }
       }
     },
@@ -4969,6 +4994,39 @@
         },
         "Succeeded": {
           "type": "boolean"
+        }
+      }
+    },
+    "UpdateContentMetadataRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Id": {
+          "type": "string",
+          "description": "The content id."
+        },
+        "SchemaIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "An id list of schemas with schema type content or layer."
+        },
+        "Metadata": {
+          "description": "The dynamic data structure matching the field schematics of the schemas with schema type content or layer.",
+          "$ref": "#/definitions/DataDictionary"
+        }
+      }
+    },
+    "ContentDeactivationRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ContentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },

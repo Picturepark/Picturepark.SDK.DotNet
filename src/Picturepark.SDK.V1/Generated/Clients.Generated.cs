@@ -25,7 +25,7 @@ namespace Picturepark.SDK.V1
         /// <param name="contentAggregationRequest">The aggregation request.</param>
         /// <returns>ObjectAggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public ObjectAggregationResult Aggregate(ContentAggregationRequest contentAggregationRequest)
         {
             return System.Threading.Tasks.Task.Run(async () => await AggregateAsync(contentAggregationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -36,7 +36,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ObjectAggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ContentAggregationRequest contentAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -67,6 +67,21 @@ namespace Picturepark.SDK.V1
                         ProcessResponse(client_, response_);
     
                         var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(ObjectAggregationResult); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectAggregationResult>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -85,21 +100,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(ObjectAggregationResult); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectAggregationResult>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -129,7 +129,7 @@ namespace Picturepark.SDK.V1
         /// <param name="contentAggregationRequest">The content aggregation request.</param>
         /// <returns>ObjectAggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public ObjectAggregationResult AggregateByChannel(string channelId, ContentAggregationRequest contentAggregationRequest)
         {
             return System.Threading.Tasks.Task.Run(async () => await AggregateByChannelAsync(channelId, contentAggregationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -141,7 +141,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ObjectAggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateByChannelAsync(string channelId, ContentAggregationRequest contentAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (channelId == null)
@@ -176,6 +176,21 @@ namespace Picturepark.SDK.V1
                         ProcessResponse(client_, response_);
     
                         var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(ObjectAggregationResult); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectAggregationResult>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -194,21 +209,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(ObjectAggregationResult); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectAggregationResult>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -234,7 +234,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public ContentBatchDownloadItem CreateDownloadLink(ContentBatchDownloadRequest request)
         {
             return System.Threading.Tasks.Task.Run(async () => await CreateDownloadLinkAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -242,7 +242,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<ContentBatchDownloadItem> CreateDownloadLinkAsync(ContentBatchDownloadRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -273,6 +273,21 @@ namespace Picturepark.SDK.V1
                         ProcessResponse(client_, response_);
     
                         var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(ContentBatchDownloadItem); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBatchDownloadItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -291,21 +306,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(ContentBatchDownloadItem); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBatchDownloadItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -336,7 +336,7 @@ namespace Picturepark.SDK.V1
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public ContentDetail CreateContent(CreateContentRequest createRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await CreateContentAsync(createRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -349,7 +349,7 @@ namespace Picturepark.SDK.V1
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<ContentDetail> CreateContentAsync(CreateContentRequest createRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resolve == null)
@@ -387,6 +387,21 @@ namespace Picturepark.SDK.V1
                         ProcessResponse(client_, response_);
     
                         var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(ContentDetail); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetail>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -405,21 +420,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(ContentDetail); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetail>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -445,7 +445,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public FileResponse Download(string contentId, string outputFormatId, string range = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await DownloadAsync(contentId, outputFormatId, range, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -453,7 +453,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<FileResponse> DownloadAsync(string contentId, string outputFormatId, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
@@ -498,6 +498,12 @@ namespace Picturepark.SDK.V1
                             return fileResponse_;
                         }
                         else
+                        if (status_ == "404") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("A server side error occurred.", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -516,12 +522,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "404") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("A server side error occurred.", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -551,7 +551,7 @@ namespace Picturepark.SDK.V1
         /// <param name="size">Thumbnail size. Either small, medium or large</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public FileResponse DownloadThumbnail(string contentId, ThumbnailSize size)
         {
             return System.Threading.Tasks.Task.Run(async () => await DownloadThumbnailAsync(contentId, size, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -563,7 +563,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<FileResponse> DownloadThumbnailAsync(string contentId, ThumbnailSize size, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
@@ -607,6 +607,12 @@ namespace Picturepark.SDK.V1
                             return fileResponse_;
                         }
                         else
+                        if (status_ == "404") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("A server side error occurred.", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -625,12 +631,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "404") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("A server side error occurred.", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -656,7 +656,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public FileResponse DownloadResized(string contentId, string outputFormatId, int width, int height)
         {
             return System.Threading.Tasks.Task.Run(async () => await DownloadResizedAsync(contentId, outputFormatId, width, height, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -664,7 +664,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<FileResponse> DownloadResizedAsync(string contentId, string outputFormatId, int width, int height, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
@@ -716,6 +716,12 @@ namespace Picturepark.SDK.V1
                             return fileResponse_;
                         }
                         else
+                        if (status_ == "404") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("A server side error occurred.", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -734,12 +740,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "404") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("A server side error occurred.", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -770,8 +770,8 @@ namespace Picturepark.SDK.V1
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
         /// <exception cref="ContentNotFoundException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public ContentDetail Get(string contentId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetAsync(contentId, resolve, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -784,8 +784,8 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
         /// <exception cref="ContentNotFoundException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<ContentDetail> GetAsync(string contentId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
@@ -823,26 +823,6 @@ namespace Picturepark.SDK.V1
                         ProcessResponse(client_, response_);
     
                         var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
                         if (status_ == "404") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -878,6 +858,26 @@ namespace Picturepark.SDK.V1
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -908,7 +908,7 @@ namespace Picturepark.SDK.V1
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public ContentDetail UpdateMetadata(string contentId, UpdateContentMetadataRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await UpdateMetadataAsync(contentId, updateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -923,7 +923,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, UpdateContentMetadataRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
@@ -965,6 +965,21 @@ namespace Picturepark.SDK.V1
                         ProcessResponse(client_, response_);
     
                         var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(ContentDetail); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetail>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -983,21 +998,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(ContentDetail); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetail>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -1030,7 +1030,7 @@ namespace Picturepark.SDK.V1
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public ContentDetail UpdatePermissions(string contentId, UpdateContentPermissionsRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await UpdatePermissionsAsync(contentId, updateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -1045,7 +1045,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string contentId, UpdateContentPermissionsRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
@@ -1087,6 +1087,21 @@ namespace Picturepark.SDK.V1
                         ProcessResponse(client_, response_);
     
                         var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(ContentDetail); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetail>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1105,21 +1120,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(ContentDetail); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetail>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -1148,7 +1148,7 @@ namespace Picturepark.SDK.V1
         /// <param name="contentSearchRequest">The content search request.</param>
         /// <returns>ContentSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public ContentSearchResult Search(ContentSearchRequest contentSearchRequest)
         {
             return System.Threading.Tasks.Task.Run(async () => await SearchAsync(contentSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -1159,7 +1159,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ContentSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<ContentSearchResult> SearchAsync(ContentSearchRequest contentSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1190,6 +1190,21 @@ namespace Picturepark.SDK.V1
                         ProcessResponse(client_, response_);
     
                         var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(ContentSearchResult); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSearchResult>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1208,21 +1223,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(ContentSearchResult); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSearchResult>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -1252,7 +1252,7 @@ namespace Picturepark.SDK.V1
         /// <param name="contentSearchRequest">The content search request.</param>
         /// <returns>ContentSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public ContentSearchResult SearchByChannel(string channelId, ContentSearchRequest contentSearchRequest)
         {
             return System.Threading.Tasks.Task.Run(async () => await SearchByChannelAsync(channelId, contentSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -1264,7 +1264,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ContentSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<ContentSearchResult> SearchByChannelAsync(string channelId, ContentSearchRequest contentSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (channelId == null)
@@ -1299,6 +1299,21 @@ namespace Picturepark.SDK.V1
                         ProcessResponse(client_, response_);
     
                         var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(ContentSearchResult); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSearchResult>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1317,21 +1332,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(ContentSearchResult); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSearchResult>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -1357,7 +1357,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public void Deactivate(string contentId, int timeout)
         {
             System.Threading.Tasks.Task.Run(async () => await DeactivateAsync(contentId, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -1365,7 +1365,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task DeactivateAsync(string contentId, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
@@ -1404,6 +1404,11 @@ namespace Picturepark.SDK.V1
                         ProcessResponse(client_, response_);
     
                         var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            return;
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1422,11 +1427,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            return;
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -1449,8 +1449,115 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Update file</summary>
+        /// <param name="contentId">The id of the content to replace</param>
+        /// <param name="updateRequest">Update request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public BusinessProcessViewItem UpdateFile(string contentId, ContentFileUpdateRequest updateRequest)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await UpdateFileAsync(contentId, updateRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Update file</summary>
+        /// <param name="contentId">The id of the content to replace</param>
+        /// <param name="updateRequest">Update request</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task<BusinessProcessViewItem> UpdateFileAsync(string contentId, ContentFileUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (contentId == null)
+                throw new System.ArgumentNullException("contentId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("Service/Contents/{ContentId}/File");
+            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(contentId.ToString()));
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    PrepareRequest(client_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    PrepareRequest(client_, url_);
+    
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(updateRequest, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() }));
+                    content_.Headers.ContentType.MediaType = "application/json";
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("PUT");
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(BusinessProcessViewItem); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(BusinessProcessViewItem);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public ContentDetail Reactivate(string contentId, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await ReactivateAsync(contentId, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -1458,7 +1565,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<ContentDetail> ReactivateAsync(string contentId, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
@@ -1499,6 +1606,21 @@ namespace Picturepark.SDK.V1
                         ProcessResponse(client_, response_);
     
                         var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(ContentDetail); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetail>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1517,21 +1639,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(ContentDetail); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetail>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -1557,7 +1664,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public BusinessProcessViewItem DeactivateMany(ContentDeactivationRequest deactivationRequest)
         {
             return System.Threading.Tasks.Task.Run(async () => await DeactivateManyAsync(deactivationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -1565,7 +1672,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<BusinessProcessViewItem> DeactivateManyAsync(ContentDeactivationRequest deactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1596,6 +1703,21 @@ namespace Picturepark.SDK.V1
                         ProcessResponse(client_, response_);
     
                         var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(BusinessProcessViewItem); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1614,21 +1736,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BusinessProcessViewItem); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -1654,7 +1761,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public BusinessProcessViewItem ReactivateMany(ContentReactivationRequest reactivationRequest)
         {
             return System.Threading.Tasks.Task.Run(async () => await ReactivateManyAsync(reactivationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -1662,7 +1769,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<BusinessProcessViewItem> ReactivateManyAsync(ContentReactivationRequest reactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1693,6 +1800,21 @@ namespace Picturepark.SDK.V1
                         ProcessResponse(client_, response_);
     
                         var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(BusinessProcessViewItem); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1711,21 +1833,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BusinessProcessViewItem); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -1754,7 +1861,7 @@ namespace Picturepark.SDK.V1
         /// <param name="updateRequest">The metadata update request.</param>
         /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public BusinessProcessViewItem UpdateMetadataMany(ContentsMetadataUpdateRequest updateRequest)
         {
             return System.Threading.Tasks.Task.Run(async () => await UpdateMetadataManyAsync(updateRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -1765,7 +1872,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<BusinessProcessViewItem> UpdateMetadataManyAsync(ContentsMetadataUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1796,6 +1903,21 @@ namespace Picturepark.SDK.V1
                         ProcessResponse(client_, response_);
     
                         var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(BusinessProcessViewItem); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1814,21 +1936,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BusinessProcessViewItem); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -1857,7 +1964,7 @@ namespace Picturepark.SDK.V1
         /// <param name="updateRequest">The permissions update request.</param>
         /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public BusinessProcessViewItem UpdatePermissionsMany(System.Collections.Generic.IEnumerable<UpdateContentPermissionsRequest> updateRequest)
         {
             return System.Threading.Tasks.Task.Run(async () => await UpdatePermissionsManyAsync(updateRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
@@ -1868,7 +1975,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<BusinessProcessViewItem> UpdatePermissionsManyAsync(System.Collections.Generic.IEnumerable<UpdateContentPermissionsRequest> updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1899,6 +2006,21 @@ namespace Picturepark.SDK.V1
                         ProcessResponse(client_, response_);
     
                         var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(BusinessProcessViewItem); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1917,21 +2039,6 @@ namespace Picturepark.SDK.V1
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw result_;
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BusinessProcessViewItem); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
                         }
                         else
                         if (status_ != "200" && status_ != "204")

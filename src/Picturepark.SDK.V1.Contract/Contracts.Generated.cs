@@ -15,7 +15,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="contentAggregationRequest">The aggregation request.</param>
         /// <returns>ObjectAggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ObjectAggregationResult Aggregate(ContentAggregationRequest contentAggregationRequest);
     
         /// <summary>Aggregate</summary>
@@ -23,7 +23,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ObjectAggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ContentAggregationRequest contentAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Aggregate By Channel</summary>
@@ -31,7 +31,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="contentAggregationRequest">The content aggregation request.</param>
         /// <returns>ObjectAggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ObjectAggregationResult AggregateByChannel(string channelId, ContentAggregationRequest contentAggregationRequest);
     
         /// <summary>Aggregate By Channel</summary>
@@ -40,16 +40,16 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ObjectAggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateByChannelAsync(string channelId, ContentAggregationRequest contentAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ContentBatchDownloadItem CreateDownloadLink(ContentBatchDownloadRequest request);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentBatchDownloadItem> CreateDownloadLinkAsync(ContentBatchDownloadRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Create Single</summary>
@@ -58,7 +58,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ContentDetail CreateContent(CreateContentRequest createRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <summary>Create Single</summary>
@@ -68,16 +68,16 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentDetail> CreateContentAsync(CreateContentRequest createRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         FileResponse Download(string contentId, string outputFormatId, string range = null);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileResponse> DownloadAsync(string contentId, string outputFormatId, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get Thumbnail</summary>
@@ -85,7 +85,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="size">Thumbnail size. Either small, medium or large</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         FileResponse DownloadThumbnail(string contentId, ThumbnailSize size);
     
         /// <summary>Get Thumbnail</summary>
@@ -94,16 +94,16 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileResponse> DownloadThumbnailAsync(string contentId, ThumbnailSize size, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         FileResponse DownloadResized(string contentId, string outputFormatId, int width, int height);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileResponse> DownloadResizedAsync(string contentId, string outputFormatId, int width, int height, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get Single</summary>
@@ -112,8 +112,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
         /// <exception cref="ContentNotFoundException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ContentDetail Get(string contentId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <summary>Get Single</summary>
@@ -123,8 +123,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
         /// <exception cref="ContentNotFoundException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentDetail> GetAsync(string contentId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update Single - Metadata</summary>
@@ -135,7 +135,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ContentDetail UpdateMetadata(string contentId, UpdateContentMetadataRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <summary>Update Single - Metadata</summary>
@@ -147,7 +147,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, UpdateContentMetadataRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update Single - Permissions</summary>
@@ -158,7 +158,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ContentDetail UpdatePermissions(string contentId, UpdateContentPermissionsRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <summary>Update Single - Permissions</summary>
@@ -170,14 +170,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string contentId, UpdateContentPermissionsRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Search</summary>
         /// <param name="contentSearchRequest">The content search request.</param>
         /// <returns>ContentSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ContentSearchResult Search(ContentSearchRequest contentSearchRequest);
     
         /// <summary>Search</summary>
@@ -185,7 +185,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ContentSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentSearchResult> SearchAsync(ContentSearchRequest contentSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Search By Channel</summary>
@@ -193,7 +193,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="contentSearchRequest">The content search request.</param>
         /// <returns>ContentSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ContentSearchResult SearchByChannel(string channelId, ContentSearchRequest contentSearchRequest);
     
         /// <summary>Search By Channel</summary>
@@ -202,50 +202,65 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ContentSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentSearchResult> SearchByChannelAsync(string channelId, ContentSearchRequest contentSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         void Deactivate(string contentId, int timeout);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeactivateAsync(string contentId, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Update file</summary>
+        /// <param name="contentId">The id of the content to replace</param>
+        /// <param name="updateRequest">Update request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcessViewItem UpdateFile(string contentId, ContentFileUpdateRequest updateRequest);
+    
+        /// <summary>Update file</summary>
+        /// <param name="contentId">The id of the content to replace</param>
+        /// <param name="updateRequest">Update request</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcessViewItem> UpdateFileAsync(string contentId, ContentFileUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ContentDetail Reactivate(string contentId, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentDetail> ReactivateAsync(string contentId, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         BusinessProcessViewItem DeactivateMany(ContentDeactivationRequest deactivationRequest);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcessViewItem> DeactivateManyAsync(ContentDeactivationRequest deactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         BusinessProcessViewItem ReactivateMany(ContentReactivationRequest reactivationRequest);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcessViewItem> ReactivateManyAsync(ContentReactivationRequest reactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update Many - Metadata</summary>
         /// <param name="updateRequest">The metadata update request.</param>
         /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         BusinessProcessViewItem UpdateMetadataMany(ContentsMetadataUpdateRequest updateRequest);
     
         /// <summary>Update Many - Metadata</summary>
@@ -253,14 +268,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcessViewItem> UpdateMetadataManyAsync(ContentsMetadataUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update Many - Permissions</summary>
         /// <param name="updateRequest">The permissions update request.</param>
         /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         BusinessProcessViewItem UpdatePermissionsMany(System.Collections.Generic.IEnumerable<UpdateContentPermissionsRequest> updateRequest);
     
         /// <summary>Update Many - Permissions</summary>
@@ -268,7 +283,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>BusinessProcessViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcessViewItem> UpdatePermissionsManyAsync(System.Collections.Generic.IEnumerable<UpdateContentPermissionsRequest> updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -1589,6 +1604,78 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
+    public partial class ObjectAggregationResult 
+    {
+        [Newtonsoft.Json.JsonProperty("ElapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("AggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ObjectAggregationResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectAggregationResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
+    public partial class AggregationResult 
+    {
+        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("SumOtherDocCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? SumOtherDocCount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("AggregationResultItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregationResultItem> AggregationResultItems { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AggregationResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
+    public partial class AggregationResultItem 
+    {
+        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Count", Required = Newtonsoft.Json.Required.Always)]
+        public long Count { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public AggregationFilter Filter { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("Active", Required = Newtonsoft.Json.Required.Always)]
+        public bool Active { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("AggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AggregationResultItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResultItem>(data);
+        }
+    }
+    
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
     public partial class PictureparkException : System.Exception
@@ -2458,78 +2545,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
-    public partial class ObjectAggregationResult 
-    {
-        [Newtonsoft.Json.JsonProperty("ElapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
-        public long ElapsedMilliseconds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ObjectAggregationResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectAggregationResult>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
-    public partial class AggregationResult 
-    {
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("SumOtherDocCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? SumOtherDocCount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AggregationResultItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregationResultItem> AggregationResultItems { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AggregationResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResult>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
-    public partial class AggregationResultItem 
-    {
-        [Newtonsoft.Json.JsonProperty("Name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Count", Required = Newtonsoft.Json.Required.Always)]
-        public long Count { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AggregationFilter Filter { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Active", Required = Newtonsoft.Json.Required.Always)]
-        public bool Active { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AggregationResultItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResultItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
     public partial class ContentBatchDownloadRequest 
     {
         [Newtonsoft.Json.JsonProperty("Contents", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3122,45 +3137,22 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
-    public partial class UpdateContentMetadataRequest 
+    public partial class ContentFileUpdateRequest 
     {
-        /// <summary>The content id.</summary>
-        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
+        [Newtonsoft.Json.JsonProperty("ContentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
     
-        /// <summary>An id list of schemas with schema type content or layer.</summary>
-        [Newtonsoft.Json.JsonProperty("SchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> SchemaIds { get; set; }
-    
-        /// <summary>The dynamic data structure matching the field schematics of the schemas with schema type content or layer.</summary>
-        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DataDictionary Metadata { get; set; }
+        [Newtonsoft.Json.JsonProperty("FileTransferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileTransferId { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static UpdateContentMetadataRequest FromJson(string data)
+        public static ContentFileUpdateRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UpdateContentMetadataRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
-    public partial class ContentDeactivationRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("ContentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> ContentIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ContentDeactivationRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDeactivationRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFileUpdateRequest>(data);
         }
     }
     
@@ -3306,6 +3298,49 @@ namespace Picturepark.SDK.V1.Contract
         public static BulkResponseRowViewItem FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BulkResponseRowViewItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
+    public partial class UpdateContentMetadataRequest 
+    {
+        /// <summary>The content id.</summary>
+        [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        /// <summary>An id list of schemas with schema type content or layer.</summary>
+        [Newtonsoft.Json.JsonProperty("SchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> SchemaIds { get; set; }
+    
+        /// <summary>The dynamic data structure matching the field schematics of the schemas with schema type content or layer.</summary>
+        [Newtonsoft.Json.JsonProperty("Metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public DataDictionary Metadata { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UpdateContentMetadataRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UpdateContentMetadataRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
+    public partial class ContentDeactivationRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("ContentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> ContentIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentDeactivationRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDeactivationRequest>(data);
         }
     }
     
