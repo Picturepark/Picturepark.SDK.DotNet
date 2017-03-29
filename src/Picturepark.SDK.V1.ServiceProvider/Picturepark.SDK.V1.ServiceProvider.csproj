@@ -14,7 +14,7 @@
 		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
 		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
 		<CodeAnalysisRuleSet>../Picturepark.SDK.DotNet.ruleset</CodeAnalysisRuleSet>
-		<Version>0.32.0</Version>
+		<Version>0.33.0</Version>
 		<PackageProjectUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet</PackageProjectUrl>
 	</PropertyGroup>
 

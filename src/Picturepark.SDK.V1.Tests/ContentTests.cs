@@ -339,8 +339,6 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			string contentId = _fixture.GetRandomContentId("*.jpg -0030_JabLtzJl8bc", 20);
 
-			ContentDetail content = await _client.Contents.GetAsync(contentId);
-
 			// Create transfer
 			var filePaths = new List<string>
 			{

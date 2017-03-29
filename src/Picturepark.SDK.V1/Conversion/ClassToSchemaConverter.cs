@@ -163,13 +163,16 @@ namespace Picturepark.SDK.V1.Conversion
 				if (!string.IsNullOrEmpty(parentSchemaId))
 					fieldData.FieldNamespace = $"{parentSchemaId}_{fieldData.FieldNamespace}";
 
-				// TODO: Use customer defined languages and add Attribute for Translations
+				// TODO: Use customer defined languages
 				if (fieldData.Names == null)
-					fieldData.Names = new TranslatedStringDictionary();
-
-				fieldData.Names["en"] = fieldName;
-				fieldData.Names["fr"] = fieldName;
-				fieldData.Names["de"] = fieldName;
+				{
+					fieldData.Names = new TranslatedStringDictionary
+					{
+						["en"] = fieldName,
+						["fr"] = fieldName,
+						["de"] = fieldName
+					};
+				}
 
 				var fieldAnalyzers = contractPropertyInfo.PictureparkAttributes
 					.OfType<PictureparkAnalyzerAttribute>()
