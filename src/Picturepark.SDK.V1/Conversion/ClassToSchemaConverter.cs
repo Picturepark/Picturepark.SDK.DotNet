@@ -7,11 +7,14 @@ using System.Linq;
 using System.Reflection;
 using Picturepark.SDK.V1.Contract.Attributes.Analyzer;
 using Picturepark.SDK.V1.Contract.Interfaces;
+using Newtonsoft.Json;
 
 namespace Picturepark.SDK.V1.Conversion
 {
 	public class ClassToSchemaConverter
 	{
+		private List<string> _ignoredProperties = new List<string> { "refId", "_relId", "_relationType", "_targetContext", "_targetId" };
+
 		/// <summary>
 		/// Convert a C# POCO to a picturepark schema definition
 		/// </summary>
@@ -33,9 +36,9 @@ namespace Picturepark.SDK.V1.Conversion
 		/// <returns>List of schemas</returns>
 		public List<SchemaDetailViewItem> Generate(Type type, List<SchemaDetailViewItem> schemaList, bool generateRelatedSchemas = true)
 		{
-			var contractPropertiesInfo = GetProperties(type);
+			var classProperties = GetClassProperties(type);
 
-			var schema = SchemaCreate(contractPropertiesInfo, type, string.Empty, schemaList, 0, generateRelatedSchemas);
+			var schema = SchemaCreate(classProperties, type, string.Empty, schemaList, 0, generateRelatedSchemas);
 
 			var sortedList = new List<SchemaDetailViewItem>();
 
@@ -67,7 +70,7 @@ namespace Picturepark.SDK.V1.Conversion
 			return sortedList;
 		}
 
-		private SchemaDetailViewItem SchemaCreate(List<ContractPropertyInfo> contractPropertyInfos, Type contractType, string parentSchemaId, List<SchemaDetailViewItem> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
+		private SchemaDetailViewItem SchemaCreate(List<ContractPropertyInfo> classProperties, Type contractType, string parentSchemaId, List<SchemaDetailViewItem> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
 		{
 			var schemaId = contractType.Name;
 
@@ -121,7 +124,7 @@ namespace Picturepark.SDK.V1.Conversion
 				schemaItem.Descriptions[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
 			}
 
-			var customTypes = contractPropertyInfos.FindAll(c => c.IsCustomType);
+			var customTypes = classProperties.FindAll(c => c.IsCustomType);
 
 			if (customTypes.Any())
 			{
@@ -153,7 +156,7 @@ namespace Picturepark.SDK.V1.Conversion
 				}
 			}
 
-			foreach (var contractPropertyInfo in contractPropertyInfos)
+			foreach (var contractPropertyInfo in classProperties)
 			{
 				var fieldName = contractPropertyInfo.Name;
 				var fieldData = GetFieldData(contractPropertyInfo);
@@ -196,138 +199,152 @@ namespace Picturepark.SDK.V1.Conversion
 			var subtypes = contractType.GetTypeInfo().Assembly.GetTypes().Where(t => t.GetTypeInfo().IsSubclassOf(contractType));
 			foreach (var subtype in subtypes)
 			{
-				SchemaCreate(GetProperties(subtype), subtype, schemaId, schemaList);
+				SchemaCreate(GetClassProperties(subtype), subtype, schemaId, schemaList);
 			}
 
 			return schemaItem;
 		}
 
-		private List<ContractPropertyInfo> GetProperties(Type objType)
+		private List<ContractPropertyInfo> GetClassProperties(Type objType)
 		{
 			var contactPropertiesInfo = new List<ContractPropertyInfo>();
 
-			PropertyInfo[] properties = objType
+			var properties = objType
 				.GetRuntimeProperties()
-				.Where(i => i.Name != "refId")
-				.ToArray();
+				.Where(i => _ignoredProperties.Contains(i.Name) == false)
+				.ToList();
+
+			// Exclude properties with JsonIgnore attribute
+			properties = properties.Where(property => property.GetCustomAttributes(false).OfType<JsonIgnoreAttribute>().Any() == false).ToList();
 
 			foreach (PropertyInfo property in properties)
 			{
-				var contactPropertyInfo = new ContractPropertyInfo();
+				var typeInfo = property.PropertyType.GetTypeInfo();
+
+				var name = property.Name;
+
+				// Check if name is overridden by JsonProperty attribute
+				var jsonProperty = property.GetCustomAttributes(false).OfType<JsonPropertyAttribute>().FirstOrDefault();
+				if (jsonProperty != null)
+					name = jsonProperty.PropertyName;
+
+				// Skip ignored properties
+				if (_ignoredProperties.Contains(name))
+					continue;
+
+				var propertyInfo = new ContractPropertyInfo()
+				{
+					Name = name
+				};
 
 				if (IsSimpleType(property.PropertyType))
 				{
-					contactPropertyInfo = HandleSimpleTypes(property);
+					HandleSimpleTypes(property, propertyInfo);
 				}
 				else
 				{
 					// either list or dictionary
-					if (typeof(IEnumerable).GetTypeInfo().IsAssignableFrom(property.PropertyType.GetTypeInfo()))
+					if (typeof(IEnumerable).GetTypeInfo().IsAssignableFrom(typeInfo))
 					{
-						if (property.PropertyType.GetTypeInfo().ImplementedInterfaces.Contains(typeof(IDictionary)) ||
-							(property.PropertyType.GetTypeInfo().GenericTypeArguments.Any() && property.PropertyType.GetTypeInfo().GenericTypeArguments.First().GetTypeInfo().ImplementedInterfaces.Contains(typeof(IDictionary)) == true))
+						if (typeInfo.ImplementedInterfaces.Contains(typeof(IDictionary)) ||
+							(typeInfo.GenericTypeArguments.Any() && typeInfo.GenericTypeArguments.First().GetTypeInfo().ImplementedInterfaces.Contains(typeof(IDictionary)) == true))
 						{
-							contactPropertyInfo.IsArray = property.PropertyType.GetTypeInfo().ImplementedInterfaces.Contains(typeof(IList));
-							contactPropertyInfo.Name = property.Name;
-							contactPropertyInfo.IsDictionary = true;
-							contactPropertyInfo.TypeName = property.PropertyType.Name;
+							propertyInfo.IsArray = typeInfo.ImplementedInterfaces.Contains(typeof(IList));
+							propertyInfo.IsDictionary = true;
+							propertyInfo.TypeName = property.PropertyType.Name;
 						}
 						else
 						{
-							var propertyGenericArg = property.PropertyType.GetTypeInfo().GenericTypeArguments.First();
+							var propertyGenericArg = typeInfo.GenericTypeArguments.First();
 
 							if (IsSimpleType(propertyGenericArg))
 							{
-								contactPropertyInfo = HandleSimpleTypes(property);
+								HandleSimpleTypes(property, propertyInfo);
 							}
 							else
 							{
-								contactPropertyInfo.IsCustomType = true;
-								contactPropertyInfo.Name = property.Name;
-								contactPropertyInfo.TypeName = propertyGenericArg.Name;
-								contactPropertyInfo.FullName = propertyGenericArg.FullName;
-								contactPropertyInfo.AssemblyFullName = propertyGenericArg.GetTypeInfo().Assembly.FullName;
+								propertyInfo.IsCustomType = true;
+								propertyInfo.TypeName = propertyGenericArg.Name;
+								propertyInfo.FullName = propertyGenericArg.FullName;
+								propertyInfo.AssemblyFullName = propertyGenericArg.GetTypeInfo().Assembly.FullName;
 
 								// Check for prevention of an infinite loop
 								if (propertyGenericArg.FullName != objType.FullName)
 								{
-									contactPropertyInfo.TypeProperties.AddRange(
-										GetProperties(propertyGenericArg));
+									propertyInfo.TypeProperties.AddRange(
+										GetClassProperties(propertyGenericArg));
 								}
 							}
 
-							contactPropertyInfo.IsArray = true;
+							propertyInfo.IsArray = true;
 
 							if (property.PropertyType.GenericTypeArguments.Any() && typeof(IReference).GetTypeInfo().IsAssignableFrom(property.PropertyType.GenericTypeArguments.First().GetTypeInfo()))
 							{
-								contactPropertyInfo.IsReference = true;
+								propertyInfo.IsReference = true;
 							}
 						}
 					}
 					else
 					{
-						contactPropertyInfo.IsCustomType = true;
-						contactPropertyInfo.Name = property.Name;
-						contactPropertyInfo.TypeName = property.PropertyType.Name;
-						contactPropertyInfo.FullName = property.PropertyType.FullName;
-						contactPropertyInfo.AssemblyFullName = property.PropertyType.GetTypeInfo().Assembly.FullName;
+						propertyInfo.IsCustomType = true;
+						propertyInfo.TypeName = property.PropertyType.Name;
+						propertyInfo.FullName = property.PropertyType.FullName;
+						propertyInfo.AssemblyFullName = typeInfo.Assembly.FullName;
 
-						if (typeof(IReference).GetTypeInfo().IsAssignableFrom(property.PropertyType.GetTypeInfo()))
+						if (typeof(IReference).GetTypeInfo().IsAssignableFrom(typeInfo))
 						{
-							contactPropertyInfo.IsReference = true;
+							propertyInfo.IsReference = true;
 						}
 
 						// Check for prevention of an infinite loop
 						if (property.PropertyType.FullName != objType.FullName)
 						{
-							contactPropertyInfo.TypeProperties.AddRange(
-								GetProperties(property.PropertyType));
+							propertyInfo.TypeProperties.AddRange(
+								GetClassProperties(property.PropertyType));
 						}
 					}
 				}
 
 				var customAttributes = property.GetCustomAttributes(true);
 				var searchAttribute = customAttributes.Where(i => i.GetType().GetTypeInfo().ImplementedInterfaces.Any(j => j == typeof(IPictureparkAttribute))).Select(i => i as IPictureparkAttribute).ToList();
-				contactPropertyInfo.PictureparkAttributes = searchAttribute;
-				contactPropertiesInfo.Add(contactPropertyInfo);
+				propertyInfo.PictureparkAttributes = searchAttribute;
+				contactPropertiesInfo.Add(propertyInfo);
 			}
 
 			return contactPropertiesInfo;
 		}
 
-		private ContractPropertyInfo HandleSimpleTypes(PropertyInfo property)
+		private void HandleSimpleTypes(PropertyInfo property, ContractPropertyInfo propertyInfo)
 		{
-			var contactPropertyInfo = new ContractPropertyInfo()
-			{
-				Name = property.Name,
-				IsSimpleType = true
-			};
+			var typeInfo = property.PropertyType.GetTypeInfo();
+
+			propertyInfo.IsSimpleType = true;
 
 			// it's a case of: nullable / enum type property
-			if (property.PropertyType.GetTypeInfo().GenericTypeArguments != null && property.PropertyType.GetTypeInfo().GenericTypeArguments.Length > 0)
+			if (typeInfo.GenericTypeArguments != null && typeInfo.GenericTypeArguments.Length > 0)
 			{
 				var propertyGenericArg = property.PropertyType.GenericTypeArguments.First();
 				var underlyingType = Nullable.GetUnderlyingType(propertyGenericArg);
 				propertyGenericArg = underlyingType ?? propertyGenericArg;
 
-				contactPropertyInfo.FullName = propertyGenericArg.FullName;
-				contactPropertyInfo.AssemblyFullName = propertyGenericArg.GetTypeInfo().Assembly.FullName;
+				propertyInfo.FullName = propertyGenericArg.FullName;
+				propertyInfo.AssemblyFullName = propertyGenericArg.GetTypeInfo().Assembly.FullName;
 
 				if (propertyGenericArg.GetTypeInfo().IsEnum)
 				{
-					contactPropertyInfo.IsEnum = true;
-					contactPropertyInfo.TypeName = propertyGenericArg.Name;
+					propertyInfo.IsEnum = true;
+					propertyInfo.TypeName = propertyGenericArg.Name;
 				}
 				else
 				{
 					if (propertyGenericArg == typeof(DateTimeOffset))
 					{
-						contactPropertyInfo.TypeName = TypeCode.DateTime.ToString();
+						propertyInfo.TypeName = TypeCode.DateTime.ToString();
 					}
 					else
 					{
 						// TODO: Find better solution for this
-						contactPropertyInfo.TypeName = typeof(Type).GetRuntimeMethod("GetTypeCode", new[] { typeof(Type) })
+						propertyInfo.TypeName = typeof(Type).GetRuntimeMethod("GetTypeCode", new[] { typeof(Type) })
 						.Invoke(null, new object[] { propertyGenericArg }).ToString();
 					}
 				}
@@ -336,19 +353,17 @@ namespace Picturepark.SDK.V1.Conversion
 			{
 				if (property.GetType() == typeof(DateTimeOffset))
 				{
-					contactPropertyInfo.TypeName = TypeCode.DateTime.ToString();
+					propertyInfo.TypeName = TypeCode.DateTime.ToString();
 				}
 				else
 				{
-					contactPropertyInfo.TypeName = typeof(Type).GetRuntimeMethod("GetTypeCode", new[] { typeof(Type) })
+					propertyInfo.TypeName = typeof(Type).GetRuntimeMethod("GetTypeCode", new[] { typeof(Type) })
 						.Invoke(null, new object[] { property.PropertyType }).ToString();
 				}
 
-				contactPropertyInfo.FullName = property.PropertyType.FullName;
-				contactPropertyInfo.AssemblyFullName = property.PropertyType.GetTypeInfo().Assembly.FullName;
+				propertyInfo.FullName = property.PropertyType.FullName;
+				propertyInfo.AssemblyFullName = typeInfo.Assembly.FullName;
 			}
-
-			return contactPropertyInfo;
 		}
 
 		private FieldBase GetFieldData(ContractPropertyInfo contractPropertyInfo)

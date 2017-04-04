@@ -1,6 +1,8 @@
-﻿using Picturepark.SDK.V1.Contract;
+﻿using Newtonsoft.Json;
+using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Contract.Interfaces;
+using Picturepark.SDK.V1.Contract.SystemTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -98,7 +100,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
 	// TODO: Use correct contract
 	[PictureparkSchemaType(SchemaType.Struct)]
-	public class SimpleRelation
+	public class SimpleRelation : Relation
 	{
 		public string RelationInfo { get; set; }
 	}
