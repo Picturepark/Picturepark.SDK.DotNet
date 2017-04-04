@@ -2600,6 +2600,9 @@
         "Filter": {
           "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.",
           "$ref": "#/definitions/FilterBase"
+        },
+        "TemporaryAggregatorRequestId": {
+          "type": "string"
         }
       },
       "allOf": [
@@ -2617,12 +2620,12 @@
       ],
       "properties": {
         "UpdateVersion": {
-          "description": "The version of the update command.",
-          "$ref": "#/definitions/Version"
+          "type": "string",
+          "description": "The version of the update command."
         },
         "ObjectStoreVersion": {
-          "description": "The version of the object store (elastic search) at the time of the update command creation.",
-          "$ref": "#/definitions/Version"
+          "type": "string",
+          "description": "The version of the object store (elastic search) at the time of the update command creation."
         },
         "CreationDate": {
           "type": "string",
@@ -2639,42 +2642,6 @@
         }
       },
       "description": "The UpdateInfoViewItem is the view item for update commands."
-    },
-    "Version": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "Major",
-        "Minor",
-        "Build",
-        "Revision",
-        "MajorRevision",
-        "MinorRevision"
-      ],
-      "properties": {
-        "Major": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "Minor": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "Build": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "Revision": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "MajorRevision": {
-          "type": "integer"
-        },
-        "MinorRevision": {
-          "type": "integer"
-        }
-      }
     },
     "VersionInfoViewItem": {
       "type": "object",

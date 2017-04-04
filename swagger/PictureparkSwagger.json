@@ -3279,6 +3279,9 @@
         "Filter": {
           "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.",
           "$ref": "#/definitions/FilterBase"
+        },
+        "TemporaryAggregatorRequestId": {
+          "type": "string"
         }
       },
       "allOf": [
@@ -3551,6 +3554,9 @@
         "SumOtherDocCount": {
           "type": "integer",
           "format": "int64"
+        },
+        "TemporaryRequestId": {
+          "type": "string"
         },
         "AggregationResultItems": {
           "type": "array",
@@ -7459,7 +7465,7 @@
         "ManageContent",
         "ManageSharings",
         "ManageDrives",
-        "ManageDropzone",
+        "ManageTransfer",
         "ManageAnalytics",
         "ManageChannels",
         "ManageSchemas",
@@ -7477,7 +7483,7 @@
         "ManageContent",
         "ManageSharings",
         "ManageDrives",
-        "ManageDropzone",
+        "ManageTransfer",
         "ManageAnalytics",
         "ManageChannels",
         "ManageSchemas",

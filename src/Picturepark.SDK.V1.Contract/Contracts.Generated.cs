@@ -1352,6 +1352,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("TemporaryAggregatorRequestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TemporaryAggregatorRequestId { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -1632,6 +1635,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("SumOtherDocCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? SumOtherDocCount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("TemporaryRequestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TemporaryRequestId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("AggregationResultItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<AggregationResultItem> AggregationResultItems { get; set; }
@@ -5844,8 +5850,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "ManageDrives")]
         ManageDrives = 2,
     
-        [System.Runtime.Serialization.EnumMember(Value = "ManageDropzone")]
-        ManageDropzone = 3,
+        [System.Runtime.Serialization.EnumMember(Value = "ManageTransfer")]
+        ManageTransfer = 3,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageAnalytics")]
         ManageAnalytics = 4,

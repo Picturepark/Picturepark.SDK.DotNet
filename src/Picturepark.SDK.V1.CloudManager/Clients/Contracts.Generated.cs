@@ -2253,6 +2253,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("TemporaryAggregatorRequestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TemporaryAggregatorRequestId { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -2270,11 +2273,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     {
         /// <summary>The version of the update command.</summary>
         [Newtonsoft.Json.JsonProperty("UpdateVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Version UpdateVersion { get; set; }
+        public string UpdateVersion { get; set; }
     
         /// <summary>The version of the object store (elastic search) at the time of the update command creation.</summary>
         [Newtonsoft.Json.JsonProperty("ObjectStoreVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Version ObjectStoreVersion { get; set; }
+        public string ObjectStoreVersion { get; set; }
     
         /// <summary>The creation date of the update command.</summary>
         [Newtonsoft.Json.JsonProperty("CreationDate", Required = Newtonsoft.Json.Required.Always)]
@@ -2297,38 +2300,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static UpdateInfoViewItem FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UpdateInfoViewItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.11.6284.26855")]
-    public partial class Version 
-    {
-        [Newtonsoft.Json.JsonProperty("Major", Required = Newtonsoft.Json.Required.Always)]
-        public int Major { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Minor", Required = Newtonsoft.Json.Required.Always)]
-        public int Minor { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Build", Required = Newtonsoft.Json.Required.Always)]
-        public int Build { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("Revision", Required = Newtonsoft.Json.Required.Always)]
-        public int Revision { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MajorRevision", Required = Newtonsoft.Json.Required.Always)]
-        public int MajorRevision { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("MinorRevision", Required = Newtonsoft.Json.Required.Always)]
-        public int MinorRevision { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static Version FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Version>(data);
         }
     }
     
