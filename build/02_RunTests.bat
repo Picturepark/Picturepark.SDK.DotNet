@@ -1,1 +1,0 @@
-PowerShell -File "%~dp0/03_RunTests.ps1"
