@@ -8,7 +8,6 @@
 
 Links: 
 - [Picturepark Website](https://picturepark.com/)
-- [Build scripts](SCRIPTS.md)
 - [API Documentation](docs/README.md)
 
 ## SDK Usage
@@ -93,7 +92,7 @@ All packages support the following target frameworks:
 
 Links: 
 
-- [Build Scripts](build/README.md)
+- [Build scripts](SCRIPTS.md)
 - [Sources](src/)
 
 ### CI Builds
