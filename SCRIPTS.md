@@ -1,15 +1,19 @@
-**00_InstallNSwag.bat**
+# Build scripts
 
-Globally installs the NSwag NPM module (C# client generator)
+First, install the node modules:
 
-**01_GenerateClientCode.bat**
+    npm install
+
+Then, run one of the following scripts:
+
+    npm run nswag
 
 Regenerates all clients based on the Swagger specifications located in the "/swagger" directory
 
-**02_BuildAndCreatePackages.bat**
+    npm run build
 
 Compiles all projects and creates NuGet packages in the directory "/build/Packages"
 
-**03_RunTests.bat**
+    npm run tests
 
 Runs the unit tests in the "Picturepark.SDK.V1.Tests" project

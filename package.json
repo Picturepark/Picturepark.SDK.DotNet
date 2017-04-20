@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "nswag": "nswag run \"src/Picturepark.SDK.V1/nswag.json\" && nswag run \"src/Picturepark.SDK.V1.CloudManager/nswag.json\" && nswag run \"src/Picturepark.SDK.V1.ServiceProvider/nswag.json\"", 
+    "build": "call \"build/01_BuildAndCreatePackages\"", 
+    "tests": "PowerShell -File \"build/02_RunTests.ps1\""
+  },
+  "devDependencies": {
+    "nswag": "^10.3.0"
+  }
+}

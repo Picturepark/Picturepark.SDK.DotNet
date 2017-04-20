@@ -8,6 +8,7 @@
 
 Links: 
 - [Picturepark Website](https://picturepark.com/)
+- [Build scripts](SCRIPTS.md)
 - [API Documentation](docs/README.md)
 
 ## SDK Usage
