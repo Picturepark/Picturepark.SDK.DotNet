@@ -2,14 +2,6 @@
 
 **[SDK Documentation](https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/docs/README.md)**
 
-**NuGet Packages:**
-
-- [Picturepark.SDK.V1](https://www.nuget.org/packages/Picturepark.SDK.V1/)
-- [Picturepark.SDK.V1.Contract](https://www.nuget.org/packages/Picturepark.SDK.V1.Contract/)
-- [Picturepark.SDK.V1.Localization](https://www.nuget.org/packages/Picturepark.SDK.V1.Localization/)
-- [Picturepark.SDK.V1.CloudManager](https://www.nuget.org/packages/Picturepark.SDK.V1.CloudManager/)
-- [Picturepark.SDK.V1.ServiceProvider](https://www.nuget.org/packages/Picturepark.SDK.V1.ServiceProvider/)
-
 **Clients:**
 
 - [ContentClient](api/Picturepark.SDK.V1.ContentClient.html)
