@@ -1,4 +1,5 @@
-# Picturepark.SDK.DotNet Documentation
+# Picturepark Content Platform .NET SDK
+## Documentation
 
 **[API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/index.html)**
 
