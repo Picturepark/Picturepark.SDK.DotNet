@@ -1,3 +1,3 @@
 # API Documentation
 
-- [Picturepark.SDK.V1](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/Picturepark.SDK.V1/api/index.html)
+- [Picturepark.SDK.V1](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/index.html)
