@@ -1,6 +1,6 @@
 # Picturepark.SDK.V1 API
 
-**[Picturepark.SDK.DotNet Documentation](https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/docs/README.md)**
+**[SDK Documentation](https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/docs/README.md)**
 
 **NuGet Packages:**
 
