@@ -258,7 +258,7 @@
       }
     },
     "/Services/ShutdownAll": {
-      "post": {
+      "get": {
         "tags": [
           "Service"
         ],
@@ -272,7 +272,7 @@
       }
     },
     "/Services/RestartAll": {
-      "post": {
+      "get": {
         "tags": [
           "Service"
         ],
@@ -286,7 +286,7 @@
       }
     },
     "/Services/{ServiceName}/Restart": {
-      "post": {
+      "get": {
         "tags": [
           "Service"
         ],
@@ -308,7 +308,7 @@
       }
     },
     "/Services/{ServiceName}/Shutdown": {
-      "post": {
+      "get": {
         "tags": [
           "Service"
         ],
@@ -325,6 +325,41 @@
         "responses": {
           "200": {
             "description": ""
+          }
+        }
+      }
+    },
+    "/Services/PingAllActiveNodes": {
+      "get": {
+        "tags": [
+          "Service"
+        ],
+        "operationId": "Service_PingAllActiveNodes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/Services/GetAllActiveNodes": {
+      "get": {
+        "tags": [
+          "Service"
+        ],
+        "operationId": "Service_GetAllActiveNodes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NodeInfoDoc"
+              }
+            },
+            "x-nullable": true
           }
         }
       }
@@ -2611,6 +2646,37 @@
         }
       ],
       "description": "An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition."
+    },
+    "NodeInfoDoc": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "LastResponseTime"
+      ],
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "HostName": {
+          "type": "string"
+        },
+        "LastResponseTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ServiceName": {
+          "type": "string"
+        },
+        "Version": {
+          "type": "string"
+        },
+        "VersionInfo": {
+          "type": "string"
+        },
+        "Release": {
+          "type": "string"
+        }
+      }
     },
     "UpdateInfoViewItem": {
       "type": "object",

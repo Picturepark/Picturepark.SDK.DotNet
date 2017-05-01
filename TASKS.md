@@ -45,7 +45,7 @@ using (var client = new PictureparkClient(tokenRefresher))
 - [x] Fix CI (run x-unit tests, use dotnet pack to publish to NuGet)
 - [ ] Chunked Upload support (Helper)
 - [ ] Better Query (Filter) builder
-- [ ] Setup Docfx
+- [x] Setup Docfx
 - [x] Optimized exception documentation generation
 
 ## NSwag extensions

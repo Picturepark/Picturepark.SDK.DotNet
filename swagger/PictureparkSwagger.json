@@ -232,6 +232,13 @@
             },
             "x-nullable": true
           },
+          "206": {
+            "description": "",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          },
           "404": {
             "description": ""
           },
