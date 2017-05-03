@@ -638,8 +638,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Enabled",
-        "BackupEnabled",
         "CacheRetentionTimeInMinutes",
         "UseSsl",
         "ElasticSearchNumberOfShards",
@@ -654,14 +652,8 @@
         "Name": {
           "type": "string"
         },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "DeactivationMessage": {
-          "$ref": "#/definitions/TranslatedStringDictionary"
-        },
-        "BackupEnabled": {
-          "type": "boolean"
+        "Prefix": {
+          "type": "string"
         },
         "BaseUrl": {
           "type": "string"
@@ -744,19 +736,6 @@
           "type": "string"
         }
       }
-    },
-    "TranslatedStringDictionary": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        }
-      ],
-      "description": "A custom dictionary type to distinguish language specific class properties."
     },
     "ExternalProviderItem": {
       "type": "object",
@@ -1899,16 +1878,9 @@
     "BaseDoc": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "Version"
-      ],
       "properties": {
         "Id": {
           "type": "string"
-        },
-        "Version": {
-          "type": "integer",
-          "format": "int64"
         },
         "Audit": {
           "$ref": "#/definitions/StoreAudit"
@@ -1967,11 +1939,13 @@
         "RootSearchIndexNumberOfShards",
         "RootSearchIndexNumberOfReplicas",
         "RedisDatabaseIndex",
-        "Enabled",
-        "BackupEnabled"
+        "LifeCycle"
       ],
       "properties": {
         "Id": {
+          "type": "string"
+        },
+        "Namespace": {
           "type": "string"
         },
         "Alias": {
@@ -2075,22 +2049,48 @@
           "type": "integer",
           "format": "int32"
         },
-        "Enabled": {
-          "type": "boolean"
+        "LifeCycle": {
+          "$ref": "#/definitions/LifeCycle"
         },
         "DeactivationMessage": {
           "$ref": "#/definitions/TranslatedStringDictionary"
-        },
-        "BackupEnabled": {
-          "type": "boolean"
         }
       }
+    },
+    "LifeCycle": {
+      "type": "string",
+      "x-enumNames": [
+        "Draft",
+        "Active",
+        "Inactive",
+        "Deleted"
+      ],
+      "enum": [
+        "Draft",
+        "Active",
+        "Inactive",
+        "Deleted"
+      ],
+      "description": ""
+    },
+    "TranslatedStringDictionary": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      ],
+      "description": "A custom dictionary type to distinguish language specific class properties."
     },
     "CustomerUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Enabled",
+        "LifeCycle",
         "BackupEnabled",
         "CacheRetentionTimeInMinutes",
         "UseSsl"
@@ -2102,8 +2102,8 @@
         "Name": {
           "type": "string"
         },
-        "Enabled": {
-          "type": "boolean"
+        "LifeCycle": {
+          "$ref": "#/definitions/LifeCycle"
         },
         "DeactivationMessage": {
           "$ref": "#/definitions/TranslatedStringDictionary"
@@ -2251,6 +2251,9 @@
           "format": "int32"
         },
         "Filter": {
+          "$ref": "#/definitions/FilterBase"
+        },
+        "FilterState": {
           "$ref": "#/definitions/FilterBase"
         }
       }
@@ -2674,6 +2677,9 @@
           "type": "string"
         },
         "Release": {
+          "type": "string"
+        },
+        "LogLevel": {
           "type": "string"
         }
       }

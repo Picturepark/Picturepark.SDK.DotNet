@@ -35,13 +35,6 @@ namespace Picturepark.SDK.V1
 			return Task.Run(async () => await CreateAsync(listItem, resolve: resolve, timeout: timeout)).GetAwaiter().GetResult();
 		}
 
-		// TODO(rsu): Rename
-		public async Task<ListItem> CreateAbcAsync(ListItemCreateRequest createRequest)
-		{
-			var result = await CreateManyAsync(new List<ListItemCreateRequest> { createRequest });
-			return result.First();
-		}
-
 		public async Task DeleteAsync(string objectId, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			await DeleteAsync(objectId, 60000, cancellationToken);

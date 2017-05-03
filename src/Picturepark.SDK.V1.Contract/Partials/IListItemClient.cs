@@ -11,8 +11,6 @@ namespace Picturepark.SDK.V1.Contract
 
 		ListItemDetail Create(ListItemCreateRequest listItem, bool resolve = false, int timeout = 60000);
 
-		Task<ListItem> CreateAbcAsync(ListItemCreateRequest createRequest);
-
 		Task DeleteAsync(string objectId, CancellationToken cancellationToken = default(CancellationToken));
 
 		void Delete(string objectId);

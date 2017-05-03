@@ -4650,17 +4650,167 @@
         "ContentId": {
           "type": "string"
         },
+        "Detail": {
+          "$ref": "#/definitions/OutputDetailBase"
+        }
+      }
+    },
+    "OutputDetailBase": {
+      "type": "object",
+      "discriminator": "Kind",
+      "additionalProperties": false,
+      "required": [
+        "Kind"
+      ],
+      "properties": {
         "FileExtension": {
           "type": "string"
         },
         "FileName": {
           "type": "string"
         },
+        "FilePath": {
+          "type": "string"
+        },
         "FileSizeInBytes": {
           "type": "integer",
           "format": "int64"
+        },
+        "Sha1Hash": {
+          "type": "string"
+        },
+        "Kind": {
+          "type": "string"
         }
       }
+    },
+    "OutputDetailImage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Width",
+        "Height"
+      ],
+      "properties": {
+        "Width": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Height": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDetailBase"
+        }
+      ]
+    },
+    "OutputDetailAudio": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "DurationInSeconds": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDetailBase"
+        }
+      ]
+    },
+    "OutputDetailVideo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "DurationInSeconds",
+        "Width",
+        "Height"
+      ],
+      "properties": {
+        "DurationInSeconds": {
+          "type": "number",
+          "format": "double"
+        },
+        "Width": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Height": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Sprites": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Sprite"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDetailBase"
+        }
+      ]
+    },
+    "Sprite": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Width",
+        "Height",
+        "Y",
+        "X",
+        "Start",
+        "End"
+      ],
+      "properties": {
+        "Width": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Height": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Y": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "X": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Start": {
+          "type": "string",
+          "format": "time-span"
+        },
+        "End": {
+          "type": "string",
+          "format": "time-span"
+        }
+      }
+    },
+    "OutputDetailDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "PageCount"
+      ],
+      "properties": {
+        "PageCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDetailBase"
+        }
+      ]
     },
     "ThumbnailSize": {
       "type": "string",
@@ -5959,16 +6109,6 @@
     "FieldGeoPoint": {
       "type": "object",
       "additionalProperties": false,
-      "properties": {
-        "LongitudeNames": {
-          "description": "Language specific longitude names.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
-        },
-        "LatitudeNames": {
-          "description": "Language specific latitude names.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/FieldBase"
@@ -6840,6 +6980,9 @@
         },
         "Filter": {
           "$ref": "#/definitions/FilterBase"
+        },
+        "FilterState": {
+          "$ref": "#/definitions/FilterBase"
         }
       }
     },
@@ -7118,7 +7261,7 @@
         "ContentSelections": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ContentSelection"
+            "$ref": "#/definitions/ContentDetailViewItem"
           }
         },
         "TemplateId": {
@@ -7130,21 +7273,6 @@
         },
         "Kind": {
           "type": "string"
-        }
-      }
-    },
-    "ContentSelection": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Content": {
-          "$ref": "#/definitions/ContentDetailViewItem"
-        },
-        "Outputs": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OutputViewItem"
-          }
         }
       }
     },
@@ -7817,6 +7945,9 @@
         },
         "State": {
           "$ref": "#/definitions/TransferState"
+        },
+        "BusinessProcessId": {
+          "type": "string"
         },
         "TransferType": {
           "$ref": "#/definitions/TransferType"
@@ -12529,6 +12660,9 @@
         },
         "Filter": {
           "$ref": "#/definitions/FilterBase"
+        },
+        "FilterState": {
+          "$ref": "#/definitions/FilterBase"
         }
       }
     },
@@ -12598,6 +12732,9 @@
           "format": "int32"
         },
         "Filter": {
+          "$ref": "#/definitions/FilterBase"
+        },
+        "FilterState": {
           "$ref": "#/definitions/FilterBase"
         }
       }

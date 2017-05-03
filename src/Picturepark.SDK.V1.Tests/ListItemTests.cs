@@ -64,13 +64,13 @@ namespace Picturepark.SDK.V1.Tests
 				Content = new Tag { Name = objectName }
 			};
 
-			ListItem viewItem = await _client.ListItems.CreateAbcAsync(createRequest);
-			Assert.False(string.IsNullOrEmpty(viewItem.Id));
+			ListItemDetail listItem = await _client.ListItems.CreateAsync(createRequest);
+			Assert.False(string.IsNullOrEmpty(listItem.Id));
 
-			await _client.ListItems.DeleteAsync(viewItem.Id);
+			await _client.ListItems.DeleteAsync(listItem.Id);
 
 			// TODO: Throw specific 404 exception
-			await Assert.ThrowsAsync<ApiException>(async () => await _client.ListItems.GetAsync(viewItem.Id, true));
+			await Assert.ThrowsAsync<ApiException>(async () => await _client.ListItems.GetAsync(listItem.Id, true));
 		}
 
 		[Fact]
@@ -217,8 +217,8 @@ namespace Picturepark.SDK.V1.Tests
 				Content = new Tag { Name = objectName }
 			};
 
-			ListItem viewItem = await _client.ListItems.CreateAbcAsync(createRequest);
-			var result = await _client.ListItems.GetAsync(viewItem.Id, true);
+			ListItemDetail listItem = await _client.ListItems.CreateAsync(createRequest);
+			var result = await _client.ListItems.GetAsync(listItem.Id, true);
 		}
 
 		[Fact]
