@@ -30,25 +30,6 @@ using (var client = new PictureparkClient(tokenRefresher))
 
 ## Roadmap
 
-- [x] SchemaHelper.CreateOrUpdate()
-- [x] .Net Core compatibility
-- [x] Remove Reactive Extensions dependency
-- [x] Local NuGet Config (VIT Package Server)
-- [x] Range Headers for Downloads (Swagger)
-- [x] Create packages Picturepark.SDK.V1.Contract & Picturepark.SDK.V1
-- [x] Refactoring: Inject AuthClient into generated clients
-- [x] Completly wrap generated endpoints
-- [x] Remove DotLiquid and GetText dependency (create seperate Package)
-- [x] Enable Stylecop for .NET Core Projects (http://stackoverflow.com/questions/37482483/stylecop-analyzers-in-aspnetcore-application-and-own-rules-set)
-- [x] Configurable HTTP timeout (currently set to 1 minute)
-- [x] Use StringEnumConverter (needs backend change in Nancy)
-- [x] Fix CI (run x-unit tests, use dotnet pack to publish to NuGet)
 - [ ] Chunked Upload support (Helper)
 - [ ] Better Query (Filter) builder
-- [x] Setup Docfx
-- [x] Optimized exception documentation generation
-
-## NSwag extensions
-- [x] Use Streams for Downloads (NSwag)
-- [x] [JsonObject(MemberSerialization.OptIn)] for Dictionary<string, string> (NSwag)
 
