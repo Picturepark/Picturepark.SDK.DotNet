@@ -431,7 +431,7 @@ namespace Picturepark.SDK.V1.Conversion
 						case TypeCode.Int16:
 						case TypeCode.Int32:
 						case TypeCode.Int64:
-							fieldData = new FieldIntegerArray
+							fieldData = new FieldLongArray
 							{
 								Index = true
 							};
@@ -477,7 +477,7 @@ namespace Picturepark.SDK.V1.Conversion
 						case TypeCode.Int16:
 						case TypeCode.Int32:
 						case TypeCode.Int64:
-							fieldData = new FieldInteger
+							fieldData = new FieldLong
 							{
 								Index = true
 							};

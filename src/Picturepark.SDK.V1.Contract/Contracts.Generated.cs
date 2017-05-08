@@ -2656,7 +2656,7 @@ namespace Picturepark.SDK.V1.Contract
         }
     }
     
-    /// <summary>A custom implementation of Dictionary<string, object>.</summary>
+    /// <summary>A custom implementation of Dictionary{string, object}</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.33.6323.36213")]
     public partial class DataDictionary : System.Collections.Generic.Dictionary<string, object>
     {
@@ -3069,6 +3069,20 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.33.6323.36213")]
+    public partial class OutputDetailDefault : OutputDetailBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputDetailDefault FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDetailDefault>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.33.6323.36213")]
     public enum ThumbnailSize
     {
         [System.Runtime.Serialization.EnumMember(Value = "Small")]
@@ -3323,6 +3337,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("StateHistory", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<BusinessProcessStateItem> StateHistory { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ProcessDefinitionName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ProcessDefinitionName { get; set; }
     
         public string ToJson() 
         {
@@ -4484,7 +4501,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.33.6323.36213")]
-    public partial class FieldInteger : FieldBase
+    public partial class FieldLong : FieldBase
     {
         [Newtonsoft.Json.JsonProperty("Pattern", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Pattern { get; set; }
@@ -4502,15 +4519,15 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static FieldInteger FromJson(string data)
+        public static FieldLong FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldInteger>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldLong>(data);
         }
     }
     
     /// <summary>For internal use only (system schemas)</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.33.6323.36213")]
-    public partial class FieldIntegerArray : FieldInteger
+    public partial class FieldLongArray : FieldLong
     {
         [Newtonsoft.Json.JsonProperty("UniqueItems", Required = Newtonsoft.Json.Required.Always)]
         public bool UniqueItems { get; set; }
@@ -4526,9 +4543,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static FieldIntegerArray FromJson(string data)
+        public static FieldLongArray FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldIntegerArray>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldLongArray>(data);
         }
     }
     

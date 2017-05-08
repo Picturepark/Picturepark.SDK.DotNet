@@ -631,6 +631,202 @@
           }
         }
       }
+    },
+    "/Backup/Customer/Repository": {
+      "put": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_CreateRepository",
+        "parameters": [
+          {
+            "name": "snapshotRepositoryCustomerCreateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotRepositoryCustomerCreateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SnapshotRepositoryViewItem"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
+    "/Backup/Customer/Snapshot": {
+      "put": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_CreateSnapshot",
+        "parameters": [
+          {
+            "name": "snapshotCustomerCreateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotCustomerCreateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SnapshotViewItem"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
+    "/Backup/Customer/Restore": {
+      "post": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_RestoreSnapshot",
+        "parameters": [
+          {
+            "name": "snapshotCustomerRestoreRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotCustomerRestoreRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SnapshotRestoreViewItem"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
+    "/Backup/Environment/Repository": {
+      "put": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_CreateRepository2",
+        "parameters": [
+          {
+            "name": "snapshotRepositoryEnvironmentCreateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotRepositoryEnvironmentCreateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SnapshotRepositoryViewItem"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
+    "/Backup/Environment/Snapshot": {
+      "put": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_CreateSnapshot2",
+        "parameters": [
+          {
+            "name": "snapshotEnvironmentCreateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotEnvironmentCreateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SnapshotViewItem"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
+    "/Backup/Environment/Restore": {
+      "post": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_RestoreSnapshot2",
+        "parameters": [
+          {
+            "name": "snapshotEnvironmentRestoreRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotEnvironmentRestoreRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SnapshotRestoreViewItem"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
+    "/Backup/Customer/Snapshot/Search": {
+      "post": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_Search",
+        "parameters": [
+          {
+            "name": "snapshotCustomerSearchRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotCustomerSearchRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SnapshotCustomerSearchResult"
+            },
+            "x-nullable": true
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -2826,6 +3022,380 @@
         "CreateSnapshot": {
           "type": "boolean",
           "description": "Creates a snapshot of the customer's indices prior to an update.\nExcluded from the snapshot are livestream and documenthistory indices as well as search indices other than the root search index."
+        }
+      }
+    },
+    "SnapshotRepositoryCustomerCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "CustomerAlias": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/SnapshotRepositoryBaseCreateRequest"
+        }
+      ]
+    },
+    "SnapshotRepositoryBaseCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "RepositoryName": {
+          "type": "string"
+        }
+      }
+    },
+    "SnapshotRepositoryViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "EntityType"
+      ],
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "EntityId": {
+          "type": "string"
+        },
+        "EntityType": {
+          "$ref": "#/definitions/BackupEntityType"
+        }
+      }
+    },
+    "BackupEntityType": {
+      "type": "string",
+      "x-enumNames": [
+        "Enviroment",
+        "Customer"
+      ],
+      "enum": [
+        "Enviroment",
+        "Customer"
+      ],
+      "description": ""
+    },
+    "SnapshotCustomerCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "CustomerAlias": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/SnapshotBaseCreateRequest"
+        }
+      ]
+    },
+    "SnapshotBaseCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Reason"
+      ],
+      "properties": {
+        "SnapshotName": {
+          "type": "string",
+          "description": "The SnapshotName. Must be unique.\nThe name usually will be enriched with Reason, ContractVersion and DateTime information."
+        },
+        "RepositoryName": {
+          "type": "string",
+          "description": "The Repository in which the snapshot will be created."
+        },
+        "Indices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The Indices being part of the snapshot."
+        },
+        "Reason": {
+          "description": "The snapshot backup reason will be added to the snapshot name.",
+          "$ref": "#/definitions/BackupReason"
+        }
+      }
+    },
+    "BackupReason": {
+      "type": "string",
+      "x-enumNames": [
+        "Custom",
+        "Update",
+        "Deletion"
+      ],
+      "enum": [
+        "Custom",
+        "Update",
+        "Deletion"
+      ],
+      "description": ""
+    },
+    "SnapshotViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "DurationInMilliseconds",
+        "EndTime",
+        "EndTimeInMilliseconds",
+        "StartTime",
+        "StartTimeInMilliseconds",
+        "EntityType",
+        "RestoreDate"
+      ],
+      "properties": {
+        "DurationInMilliseconds": {
+          "type": "integer",
+          "description": "The snapshot creation DurationInMilliseconds.",
+          "format": "int64"
+        },
+        "EndTime": {
+          "type": "string",
+          "description": "The snapshot EndTime.",
+          "format": "date-time"
+        },
+        "EndTimeInMilliseconds": {
+          "type": "integer",
+          "description": "The snapshot EndTimeInMilliseconds.",
+          "format": "int64"
+        },
+        "Failures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SnapshotShardFailure"
+          },
+          "description": "The snapshot elastic search shard Falures."
+        },
+        "Indices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The snapshot Indices."
+        },
+        "Name": {
+          "type": "string",
+          "description": "The snapshot Name."
+        },
+        "RepositoryName": {
+          "type": "string",
+          "description": "The repository name."
+        },
+        "StartTime": {
+          "type": "string",
+          "description": "The snapshot StartTime.",
+          "format": "date-time"
+        },
+        "StartTimeInMilliseconds": {
+          "type": "integer",
+          "description": "The snapshot StartTimeInMilliseconds.",
+          "format": "int64"
+        },
+        "State": {
+          "type": "string",
+          "description": "The snapshot State."
+        },
+        "EntityId": {
+          "type": "string"
+        },
+        "EntityType": {
+          "$ref": "#/definitions/BackupEntityType"
+        },
+        "RestoreDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "SnapshotShardFailure": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Index": {
+          "type": "string",
+          "description": "The Index having the shard failure."
+        },
+        "NodeId": {
+          "type": "string",
+          "description": "The elastic search NodeId."
+        },
+        "Reason": {
+          "type": "string",
+          "description": "The elastic serach shard failure Reason."
+        },
+        "ShardId": {
+          "type": "string",
+          "description": "The failing elastic search ShardId."
+        },
+        "Status": {
+          "type": "string",
+          "description": "The snapshot failure status."
+        }
+      }
+    },
+    "SnapshotCustomerRestoreRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "CustomerAlias": {
+          "type": "string"
+        },
+        "CustomerId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/SnapshotBaseRestoreRequest"
+        }
+      ]
+    },
+    "SnapshotBaseRestoreRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "SnapshotName": {
+          "type": "string"
+        },
+        "RepositoryName": {
+          "type": "string"
+        },
+        "Indices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SnapshotRestoreViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "RestoreDate"
+      ],
+      "properties": {
+        "RestoreDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "RepositoryName": {
+          "type": "string"
+        },
+        "SnapshotName": {
+          "type": "string"
+        },
+        "Indices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SnapshotRepositoryEnvironmentCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/SnapshotRepositoryBaseCreateRequest"
+        }
+      ]
+    },
+    "SnapshotEnvironmentCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/SnapshotBaseCreateRequest"
+        }
+      ]
+    },
+    "SnapshotEnvironmentRestoreRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/SnapshotBaseRestoreRequest"
+        }
+      ]
+    },
+    "SnapshotCustomerSearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Start",
+        "Limit"
+      ],
+      "properties": {
+        "SearchString": {
+          "type": "string"
+        },
+        "Sort": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        },
+        "Start": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "CustomerAlias": {
+          "type": "string"
+        },
+        "CustomerId": {
+          "type": "string"
+        }
+      }
+    },
+    "SnapshotCustomerSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ElapsedMilliseconds"
+      ],
+      "properties": {
+        "ElapsedMilliseconds": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfSnapshotViewItem"
+        }
+      ]
+    },
+    "BaseResultOfSnapshotViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "TotalResults"
+      ],
+      "properties": {
+        "TotalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SnapshotViewItem"
+          }
+        },
+        "PageToken": {
+          "type": "string"
         }
       }
     }

@@ -4438,7 +4438,7 @@
           "additionalProperties": {}
         }
       ],
-      "description": "A custom implementation of Dictionary<string, object>."
+      "description": "A custom implementation of Dictionary{string, object}"
     },
     "ContentDetail": {
       "type": "object",
@@ -4812,6 +4812,15 @@
         }
       ]
     },
+    "OutputDetailDefault": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDetailBase"
+        }
+      ]
+    },
     "ThumbnailSize": {
       "type": "string",
       "x-enumNames": [
@@ -5068,6 +5077,9 @@
           "items": {
             "$ref": "#/definitions/BusinessProcessStateItem"
           }
+        },
+        "ProcessDefinitionName": {
+          "type": "string"
         },
         "Kind": {
           "type": "string"
@@ -6115,7 +6127,7 @@
         }
       ]
     },
-    "FieldInteger": {
+    "FieldLong": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -6139,7 +6151,7 @@
         }
       ]
     },
-    "FieldIntegerArray": {
+    "FieldLongArray": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -6160,7 +6172,7 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/FieldInteger"
+          "$ref": "#/definitions/FieldLong"
         }
       ],
       "description": "For internal use only (system schemas)"
