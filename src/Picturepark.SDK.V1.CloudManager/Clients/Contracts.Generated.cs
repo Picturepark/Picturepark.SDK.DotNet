@@ -1891,9 +1891,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("FilterState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase FilterState { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -2347,6 +2344,52 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static AggregationFilter FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationFilter>(data);
+        }
+    }
+    
+    /// <summary>The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.33.6323.36213")]
+    public partial class ChildFilter : FilterBase
+    {
+        /// <summary>The elastic search index type to filter as a child.</summary>
+        [Newtonsoft.Json.JsonProperty("ChildType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ChildType { get; set; }
+    
+        /// <summary>The filter to apply on the child entity. It accepts all filters.</summary>
+        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ChildFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ChildFilter>(data);
+        }
+    }
+    
+    /// <summary>The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.33.6323.36213")]
+    public partial class ParentFilter : FilterBase
+    {
+        /// <summary>The elastic search index type to filter as a parent.</summary>
+        [Newtonsoft.Json.JsonProperty("ParentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ParentType { get; set; }
+    
+        /// <summary>The filter to apply on the child entity. It accepts all filters.</summary>
+        [Newtonsoft.Json.JsonProperty("Filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ParentFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ParentFilter>(data);
         }
     }
     

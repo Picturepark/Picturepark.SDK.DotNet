@@ -2448,9 +2448,6 @@
         },
         "Filter": {
           "$ref": "#/definitions/FilterBase"
-        },
-        "FilterState": {
-          "$ref": "#/definitions/FilterBase"
         }
       }
     },
@@ -2845,6 +2842,46 @@
         }
       ],
       "description": "An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition."
+    },
+    "ChildFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ChildType": {
+          "type": "string",
+          "description": "The elastic search index type to filter as a child."
+        },
+        "Filter": {
+          "description": "The filter to apply on the child entity. It accepts all filters.",
+          "$ref": "#/definitions/FilterBase"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ],
+      "description": "The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document."
+    },
+    "ParentFilter": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ParentType": {
+          "type": "string",
+          "description": "The elastic search index type to filter as a parent."
+        },
+        "Filter": {
+          "description": "The filter to apply on the child entity. It accepts all filters.",
+          "$ref": "#/definitions/FilterBase"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ],
+      "description": "The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document."
     },
     "NodeInfoDoc": {
       "type": "object",
