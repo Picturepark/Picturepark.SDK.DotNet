@@ -1,6 +1,6 @@
 # Picturepark.SDK.V1 API
 
-**[SDK Documentation](https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/docs/README.md)**
+... back to the [SDK Documentation (GitHub)](https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/docs/README.md)
 
 **Clients:**
 
