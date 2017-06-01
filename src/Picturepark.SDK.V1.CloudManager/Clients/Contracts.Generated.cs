@@ -257,6 +257,13 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<SnapshotCustomerSearchResult> SearchAsync(SnapshotCustomerSearchRequest snapshotCustomerSearchRequest, System.Threading.CancellationToken cancellationToken);
     
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.List<string>> SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest searchRequest);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.List<string>> SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken);
+    
     }
     
     
@@ -3006,6 +3013,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("Limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("RepositoryNames", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> RepositoryNames { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("CustomerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomerAlias { get; set; }
     
@@ -3060,6 +3070,26 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SnapshotCustomerSearchResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotCustomerSearchResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.33.6323.36213")]
+    public partial class SnapshotRepositoryCustomerSearchRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("CustomerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("CustomerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerAlias { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SnapshotRepositoryCustomerSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRepositoryCustomerSearchRequest>(data);
         }
     }
     

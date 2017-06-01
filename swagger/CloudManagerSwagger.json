@@ -827,6 +827,37 @@
           }
         }
       }
+    },
+    "/Backup//Customer/Snapshot/SearchRepositories": {
+      "post": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_SearchRepositories",
+        "parameters": [
+          {
+            "name": "searchRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotRepositoryCustomerSearchRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-nullable": true
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -3388,6 +3419,12 @@
           "type": "integer",
           "format": "int32"
         },
+        "RepositoryNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "CustomerAlias": {
           "type": "string"
         },
@@ -3432,6 +3469,18 @@
           }
         },
         "PageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "SnapshotRepositoryCustomerSearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "CustomerId": {
+          "type": "string"
+        },
+        "CustomerAlias": {
           "type": "string"
         }
       }

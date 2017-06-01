@@ -6,6 +6,8 @@ namespace Picturepark.SDK.V1.Contract
 
 		IContentClient Contents { get; }
 
+		IOutputClient Outputs { get; }
+
 		IBusinessProcessClient BusinessProcesses { get; }
 
 		IDocumentHistoryClient DocumentHistory { get; }

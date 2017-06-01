@@ -7091,6 +7091,146 @@ namespace Picturepark.SDK.V1
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "10.6.6324.32485")]
+    public partial class OutputClient : ClientBase, IOutputClient
+    {
+        public OutputClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        {
+        }
+    
+        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
+        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
+        partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
+    
+        /// <summary>Get Single</summary>
+        /// <param name="outputId">The output id.</param>
+        /// <returns>OutputDetail</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="OutputNotFoundException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public OutputDetailViewItem Get(string outputId)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetAsync(outputId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Get Single</summary>
+        /// <param name="outputId">The output id.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OutputDetail</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="OutputNotFoundException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task<OutputDetailViewItem> GetAsync(string outputId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (outputId == null)
+                throw new System.ArgumentNullException("outputId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("Service/Outputs/{OutputId}");
+            urlBuilder_.Replace("{OutputId}", System.Uri.EscapeDataString(outputId.ToString()));
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "404") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(OutputNotFoundException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<OutputNotFoundException>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new OutputNotFoundException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(OutputDetailViewItem); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDetailViewItem>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() });
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(OutputDetailViewItem);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+    }
+    
     
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "10.6.6324.32485")]
