@@ -887,6 +887,28 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "10.6.6324.32485")]
+    public partial interface IOutputClient
+    {
+        /// <summary>Get Single</summary>
+        /// <param name="outputId">The output id.</param>
+        /// <returns>OutputDetail</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="OutputNotFoundException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        OutputDetailViewItem Get(string outputId);
+    
+        /// <summary>Get Single</summary>
+        /// <param name="outputId">The output id.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OutputDetail</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="OutputNotFoundException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<OutputDetailViewItem> GetAsync(string outputId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.33.6323.36213")]
@@ -2944,6 +2966,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.33.6323.36213")]
     public partial class OutputViewItem 
     {
@@ -3125,6 +3148,20 @@ namespace Picturepark.SDK.V1.Contract
         public static OutputDetailDefault FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDetailDefault>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.33.6323.36213")]
+    public partial class OutputDetailViewItem : OutputViewItem
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputDetailViewItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDetailViewItem>(data);
         }
     }
     
@@ -3376,6 +3413,16 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("ReferenceDocType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReferenceDocType { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("BusinessProcessScope", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BusinessProcessScope BusinessProcessScope { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("LifeCycle", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BusinessProcessLifeCylce LifeCycle { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("StartDate", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime StartDate { get; set; }
@@ -3390,6 +3437,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("ProcessDefinitionName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ProcessDefinitionName { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("CurrentState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CurrentState { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -3399,6 +3449,31 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessViewItem>(data);
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.33.6323.36213")]
+    public enum BusinessProcessScope
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "System")]
+        System = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "User")]
+        User = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.33.6323.36213")]
+    public enum BusinessProcessLifeCylce
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Draft")]
+        Draft = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Started")]
+        Started = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Ended")]
+        Ended = 2,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "8.33.6323.36213")]
@@ -6346,6 +6421,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("BusinessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BusinessProcessId { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("FileTransferCount", Required = Newtonsoft.Json.Required.Always)]
+        public long FileTransferCount { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -6446,6 +6524,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("LastProgressStamp", Required = Newtonsoft.Json.Required.Always)]
         public long LastProgressStamp { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("FileTransferCount", Required = Newtonsoft.Json.Required.Always)]
+        public long FileTransferCount { get; set; }
     
         public string ToJson() 
         {

@@ -2865,6 +2865,49 @@
           }
         }
       }
+    },
+    "/Service/Outputs/{OutputId}": {
+      "get": {
+        "tags": [
+          "Output"
+        ],
+        "summary": "Get Single",
+        "description": "Gets a output document by id.",
+        "operationId": "Output_Get",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "OutputId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The output id."
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/OutputNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "200": {
+            "description": "OutputDetail",
+            "schema": {
+              "$ref": "#/definitions/OutputDetailViewItem"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -4679,7 +4722,11 @@
     },
     "OutputViewItem": {
       "type": "object",
+      "discriminator": "Kind",
       "additionalProperties": false,
+      "required": [
+        "Kind"
+      ],
       "properties": {
         "Id": {
           "type": "string"
@@ -4692,6 +4739,9 @@
         },
         "Detail": {
           "$ref": "#/definitions/OutputDetailBase"
+        },
+        "Kind": {
+          "type": "string"
         }
       }
     },
@@ -4858,6 +4908,15 @@
       "allOf": [
         {
           "$ref": "#/definitions/OutputDetailBase"
+        }
+      ]
+    },
+    "OutputDetailViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputViewItem"
         }
       ]
     },
@@ -5090,6 +5149,8 @@
       "discriminator": "Kind",
       "additionalProperties": false,
       "required": [
+        "BusinessProcessScope",
+        "LifeCycle",
         "StartDate",
         "EndDate",
         "Kind"
@@ -5106,6 +5167,12 @@
         },
         "ReferenceDocType": {
           "type": "string"
+        },
+        "BusinessProcessScope": {
+          "$ref": "#/definitions/BusinessProcessScope"
+        },
+        "LifeCycle": {
+          "$ref": "#/definitions/BusinessProcessLifeCylce"
         },
         "StartDate": {
           "type": "string",
@@ -5124,10 +5191,39 @@
         "ProcessDefinitionName": {
           "type": "string"
         },
+        "CurrentState": {
+          "type": "string"
+        },
         "Kind": {
           "type": "string"
         }
       }
+    },
+    "BusinessProcessScope": {
+      "type": "string",
+      "x-enumNames": [
+        "System",
+        "User"
+      ],
+      "enum": [
+        "System",
+        "User"
+      ],
+      "description": ""
+    },
+    "BusinessProcessLifeCylce": {
+      "type": "string",
+      "x-enumNames": [
+        "Draft",
+        "Started",
+        "Ended"
+      ],
+      "enum": [
+        "Draft",
+        "Started",
+        "Ended"
+      ],
+      "description": ""
     },
     "BusinessProcessStateItem": {
       "type": "object",
@@ -7916,7 +8012,8 @@
       "additionalProperties": false,
       "required": [
         "State",
-        "TransferType"
+        "TransferType",
+        "FileTransferCount"
       ],
       "properties": {
         "Id": {
@@ -7933,6 +8030,10 @@
         },
         "BusinessProcessId": {
           "type": "string"
+        },
+        "FileTransferCount": {
+          "type": "integer",
+          "format": "int64"
         }
       }
     },
@@ -7982,7 +8083,8 @@
         "ItemCount",
         "ItemsFailed",
         "ItemsCancelled",
-        "LastProgressStamp"
+        "LastProgressStamp",
+        "FileTransferCount"
       ],
       "properties": {
         "Id": {
@@ -8023,6 +8125,10 @@
           "format": "int64"
         },
         "LastProgressStamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "FileTransferCount": {
           "type": "integer",
           "format": "int64"
         }

@@ -2,10 +2,25 @@
 	"Server": "https://devnext.preview-picturepark.com",
 	"Username": "",
 	"Password": "",
-	
+
 	"EmailRecipient": {
 		"FirstName": "Firstname",
 		"LastName": "Lastname",
 		"EmailAddress": "email"
 	}
 }
+
+"Configuration": {
+		"Server": "localhost",
+		"Port": "5672",
+		"User": "contentbackup",
+		"Password": "123456",
+		"CustomerConfigurations": {
+									"localdev": {
+										"StorageName": "LocalBackup",
+										"BaseUrl": "http://localhost:8080",
+										"Email": "picturepark.admin@acme.xxx",
+										"Password": "cGljdHVyZXBhcmsuYWRtaW5AYWNtZS54eHg="
+									}
+		}
+	}
