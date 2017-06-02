@@ -5,6 +5,7 @@
 **Clients:**
 
 - [ContentClient](api/Picturepark.SDK.V1.ContentClient.html)
+- [OutputClient](api/Picturepark.SDK.V1.OutputClient.html)
 - [BusinessProcessClient](api/Picturepark.SDK.V1.BusinessProcessClient.html)
 - [DocumentHistoryClient](api/Picturepark.SDK.V1.DocumentHistoryClient.html)
 - [JsonSchemaClient](api/Picturepark.SDK.V1.JsonSchemaClient.html)
