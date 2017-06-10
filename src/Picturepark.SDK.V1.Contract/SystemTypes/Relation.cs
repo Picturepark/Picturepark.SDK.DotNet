@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,6 +15,7 @@ namespace Picturepark.SDK.V1.Contract.SystemTypes
 		public string RelationType { get; set; }
 
 		[JsonProperty("_targetContext")]
+		[JsonConverter(typeof(StringEnumConverter))]
 		public TargetContext TargetContext { get; set; }
 
 		[JsonProperty("_targetId")]
