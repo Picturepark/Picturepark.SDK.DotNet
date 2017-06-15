@@ -2,7 +2,7 @@
 	"Server": "https://devnext.preview-picturepark.com",
 	"Username": "",
 	"Password": "",
-
+	"AccessToken": "",
 	"EmailRecipient": {
 		"FirstName": "Firstname",
 		"LastName": "Lastname",
