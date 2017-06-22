@@ -45,7 +45,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
                 throw new System.ArgumentNullException("serviceProviderId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/API/V1/ServiceProviders/{ServiceProviderId}/Message");
+            urlBuilder_.Append(BaseUrl).Append("/V1/ServiceProviders/{ServiceProviderId}/Message");
             urlBuilder_.Replace("{ServiceProviderId}", System.Uri.EscapeDataString(serviceProviderId.ToString()));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -134,7 +134,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
                 throw new System.ArgumentNullException("serviceProviderId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/API/V1/ServiceProviders/{ServiceProviderId}/Configuration");
+            urlBuilder_.Append(BaseUrl).Append("/V1/ServiceProviders/{ServiceProviderId}/Configuration");
             urlBuilder_.Replace("{ServiceProviderId}", System.Uri.EscapeDataString(serviceProviderId.ToString()));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -233,7 +233,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
                 throw new System.ArgumentNullException("serviceProviderId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/API/V1/ServiceProviders/{ServiceProviderId}/Configuration");
+            urlBuilder_.Append(BaseUrl).Append("/V1/ServiceProviders/{ServiceProviderId}/Configuration");
             urlBuilder_.Replace("{ServiceProviderId}", System.Uri.EscapeDataString(serviceProviderId.ToString()));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);

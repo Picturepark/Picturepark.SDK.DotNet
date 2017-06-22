@@ -12,7 +12,7 @@
     "application/json"
   ],
   "paths": {
-    "/Service/Contents/Aggregate": {
+    "/V1/Contents/Aggregate": {
       "post": {
         "tags": [
           "Content"
@@ -50,7 +50,7 @@
         }
       }
     },
-    "/Service/Contents/{ChannelId}/Aggregate": {
+    "/V1/Contents/{ChannelId}/Aggregate": {
       "post": {
         "tags": [
           "Content"
@@ -96,7 +96,7 @@
         }
       }
     },
-    "/Service/Contents/CreateBatchContentDownload": {
+    "/V1/Contents/CreateBatchContentDownload": {
       "post": {
         "tags": [
           "Content"
@@ -131,7 +131,7 @@
         }
       }
     },
-    "/Service/Contents": {
+    "/V1/Contents": {
       "post": {
         "tags": [
           "Content"
@@ -196,7 +196,7 @@
         }
       }
     },
-    "/Service/Contents/Downloads/{ContentId}/{OutputFormatId}": {
+    "/V1/Contents/Downloads/{ContentId}/{OutputFormatId}": {
       "get": {
         "tags": [
           "Content"
@@ -252,7 +252,7 @@
         }
       }
     },
-    "/Service/Contents/Thumbnails/{ContentId}/{Size}": {
+    "/V1/Contents/Thumbnails/{ContentId}/{Size}": {
       "get": {
         "tags": [
           "Content"
@@ -302,7 +302,7 @@
         }
       }
     },
-    "/Service/Contents/Downloads/{ContentId}/{OutputFormatId}/{Width}/{Height}": {
+    "/V1/Contents/Downloads/{ContentId}/{OutputFormatId}/{Width}/{Height}": {
       "get": {
         "tags": [
           "Content"
@@ -361,7 +361,7 @@
         }
       }
     },
-    "/Service/Contents/{ContentId}": {
+    "/V1/Contents/{ContentId}": {
       "get": {
         "tags": [
           "Content"
@@ -494,7 +494,7 @@
         }
       }
     },
-    "/Service/Contents/{ContentId}/Permissions": {
+    "/V1/Contents/{ContentId}/Permissions": {
       "put": {
         "tags": [
           "Content"
@@ -567,7 +567,7 @@
         }
       }
     },
-    "/Service/Contents/Search": {
+    "/V1/Contents/Search": {
       "post": {
         "tags": [
           "Content"
@@ -605,7 +605,7 @@
         }
       }
     },
-    "/Service/Contents/{ChannelId}/Search": {
+    "/V1/Contents/{ChannelId}/Search": {
       "post": {
         "tags": [
           "Content"
@@ -651,7 +651,7 @@
         }
       }
     },
-    "/Service/Contents/{ContentId}/Deactivate": {
+    "/V1/Contents/{ContentId}/Deactivate": {
       "put": {
         "tags": [
           "Content"
@@ -688,7 +688,7 @@
         }
       }
     },
-    "/Service/Contents/{ContentId}/File": {
+    "/V1/Contents/{ContentId}/File": {
       "put": {
         "tags": [
           "Content"
@@ -734,7 +734,7 @@
         }
       }
     },
-    "/Service/Contents/{ContentId}/Reactivate": {
+    "/V1/Contents/{ContentId}/Reactivate": {
       "put": {
         "tags": [
           "Content"
@@ -791,7 +791,7 @@
         }
       }
     },
-    "/Service/Contents/Many/Deactivate": {
+    "/V1/Contents/Many/Deactivate": {
       "post": {
         "tags": [
           "Content"
@@ -826,7 +826,7 @@
         }
       }
     },
-    "/Service/Contents/Many/Reactivate": {
+    "/V1/Contents/Many/Reactivate": {
       "post": {
         "tags": [
           "Content"
@@ -861,7 +861,7 @@
         }
       }
     },
-    "/Service/Contents/Many/Metadata": {
+    "/V1/Contents/Many/Metadata": {
       "put": {
         "tags": [
           "Content"
@@ -899,7 +899,7 @@
         }
       }
     },
-    "/Service/Contents/Many/Permissions": {
+    "/V1/Contents/Many/Permissions": {
       "put": {
         "tags": [
           "Content"
@@ -940,7 +940,7 @@
         }
       }
     },
-    "/API/V1/BusinessProcesses/ProcessDefinitions/{ProcessDefinitionId}/Start": {
+    "/V1/BusinessProcesses/ProcessDefinitions/{ProcessDefinitionId}/Start": {
       "post": {
         "tags": [
           "BusinessProcess"
@@ -982,7 +982,7 @@
         }
       }
     },
-    "/API/V1/BusinessProcesses/Processes/{ProcessId}/MarkAsEnded": {
+    "/V1/BusinessProcesses/Processes/{ProcessId}/MarkAsEnded": {
       "post": {
         "tags": [
           "BusinessProcess"
@@ -1011,7 +1011,7 @@
         }
       }
     },
-    "/API/V1/BusinessProcesses/Processes/{ProcessId}/MarkAsStarted": {
+    "/V1/BusinessProcesses/Processes/{ProcessId}/MarkAsStarted": {
       "post": {
         "tags": [
           "BusinessProcess"
@@ -1040,7 +1040,7 @@
         }
       }
     },
-    "/API/V1/BusinessProcesses/Processes/{ProcessId}/Message": {
+    "/V1/BusinessProcesses/Processes/{ProcessId}/Message": {
       "post": {
         "tags": [
           "BusinessProcess"
@@ -1078,7 +1078,7 @@
         }
       }
     },
-    "/API/V1/BusinessProcesses/{ProcessId}/Wait": {
+    "/V1/BusinessProcesses/{ProcessId}/Wait": {
       "get": {
         "tags": [
           "BusinessProcess"
@@ -1126,7 +1126,7 @@
         }
       }
     },
-    "/Service/History/{Id}": {
+    "/V1/History/{Id}": {
       "get": {
         "tags": [
           "DocumentHistory"
@@ -1159,7 +1159,7 @@
         }
       }
     },
-    "/Service/History/{Id}/{Version}": {
+    "/V1/History/{Id}/{Version}": {
       "get": {
         "tags": [
           "DocumentHistory"
@@ -1199,7 +1199,7 @@
         }
       }
     },
-    "/Service/History/{Id}/Difference/{OldVersion}": {
+    "/V1/History/{Id}/Difference/{OldVersion}": {
       "get": {
         "tags": [
           "DocumentHistory"
@@ -1240,7 +1240,7 @@
         }
       }
     },
-    "/Service/History/{Id}/Difference/{OldVersion}/{NewVersion}": {
+    "/V1/History/{Id}/Difference/{OldVersion}/{NewVersion}": {
       "get": {
         "tags": [
           "DocumentHistory"
@@ -1289,7 +1289,7 @@
         }
       }
     },
-    "/Service/JsonSchemas/{SchemaId}": {
+    "/V1/JsonSchemas/{SchemaId}": {
       "get": {
         "tags": [
           "JsonSchema"
@@ -1323,7 +1323,7 @@
         }
       }
     },
-    "/Service/ListItems": {
+    "/V1/ListItems": {
       "post": {
         "tags": [
           "ListItem"
@@ -1388,7 +1388,7 @@
         }
       }
     },
-    "/Service/ListItems/Many": {
+    "/V1/ListItems/Many": {
       "post": {
         "tags": [
           "ListItem"
@@ -1505,7 +1505,7 @@
         }
       }
     },
-    "/Service/ListItems/Aggregate": {
+    "/V1/ListItems/Aggregate": {
       "post": {
         "tags": [
           "ListItem"
@@ -1543,7 +1543,7 @@
         }
       }
     },
-    "/Service/ListItems/Search": {
+    "/V1/ListItems/Search": {
       "post": {
         "tags": [
           "ListItem"
@@ -1581,7 +1581,7 @@
         }
       }
     },
-    "/Service/ListItems/{ObjectId}": {
+    "/V1/ListItems/{ObjectId}": {
       "delete": {
         "tags": [
           "ListItem"
@@ -1622,7 +1622,7 @@
         }
       }
     },
-    "/Service/ListItems/{ListItemId}": {
+    "/V1/ListItems/{ListItemId}": {
       "get": {
         "tags": [
           "ListItem"
@@ -1749,7 +1749,7 @@
         }
       }
     },
-    "/Service/ListItems/{ProcessId}/Wait": {
+    "/V1/ListItems/{ProcessId}/Wait": {
       "get": {
         "tags": [
           "ListItem"
@@ -1805,7 +1805,7 @@
         }
       }
     },
-    "/Service/ListItems/Import": {
+    "/V1/ListItems/Import": {
       "get": {
         "tags": [
           "ListItem"
@@ -1853,7 +1853,7 @@
         }
       }
     },
-    "/Service/Schemas/{SchemaId}": {
+    "/V1/Schemas/{SchemaId}": {
       "get": {
         "tags": [
           "Schema"
@@ -1967,7 +1967,7 @@
         }
       }
     },
-    "/Service/Schemas/{SchemaId}/Exists": {
+    "/V1/Schemas/{SchemaId}/Exists": {
       "get": {
         "tags": [
           "Schema"
@@ -2011,7 +2011,7 @@
         }
       }
     },
-    "/Service/Schemas": {
+    "/V1/Schemas": {
       "post": {
         "tags": [
           "Schema"
@@ -2049,7 +2049,7 @@
         }
       }
     },
-    "/Service/Schemas/Search": {
+    "/V1/Schemas/Search": {
       "post": {
         "tags": [
           "Schema"
@@ -2087,7 +2087,7 @@
         }
       }
     },
-    "/Service/Permission/ContentPermissionSets/Search": {
+    "/V1/Permission/ContentPermissionSets/Search": {
       "post": {
         "tags": [
           "Permission"
@@ -2125,7 +2125,7 @@
         }
       }
     },
-    "/Service/Permission/ContentPermissionSets/{PermissionSetId}": {
+    "/V1/Permission/ContentPermissionSets/{PermissionSetId}": {
       "get": {
         "tags": [
           "Permission"
@@ -2161,7 +2161,7 @@
         }
       }
     },
-    "/Service/Permission/SchemaPermissionSets/Search": {
+    "/V1/Permission/SchemaPermissionSets/Search": {
       "post": {
         "tags": [
           "Permission"
@@ -2199,7 +2199,7 @@
         }
       }
     },
-    "/Service/Permission/SchemaPermissionSets/{PermissionSetId}": {
+    "/V1/Permission/SchemaPermissionSets/{PermissionSetId}": {
       "get": {
         "tags": [
           "Permission"
@@ -2235,7 +2235,7 @@
         }
       }
     },
-    "/Service/PublicAccess/GetShare": {
+    "/V1/PublicAccess/GetShare": {
       "get": {
         "tags": [
           "PublicAccess"
@@ -2268,7 +2268,7 @@
         }
       }
     },
-    "/Service/Shares/Aggregate": {
+    "/V1/Shares/Aggregate": {
       "post": {
         "tags": [
           "Share"
@@ -2308,7 +2308,7 @@
         }
       }
     },
-    "/Service/Shares/{Id}": {
+    "/V1/Shares/{Id}": {
       "get": {
         "tags": [
           "Share"
@@ -2346,7 +2346,7 @@
         }
       }
     },
-    "/Service/Shares": {
+    "/V1/Shares": {
       "post": {
         "tags": [
           "Share"
@@ -2407,7 +2407,7 @@
         }
       }
     },
-    "/Service/Shares/Search": {
+    "/V1/Shares/Search": {
       "post": {
         "tags": [
           "Share"
@@ -2447,7 +2447,7 @@
         }
       }
     },
-    "/Service/Transfers/{TransferId}/Cancel": {
+    "/V1/Transfers/{TransferId}/Cancel": {
       "get": {
         "tags": [
           "Transfer"
@@ -2477,7 +2477,7 @@
         }
       }
     },
-    "/Service/Transfers": {
+    "/V1/Transfers": {
       "post": {
         "tags": [
           "Transfer"
@@ -2512,7 +2512,7 @@
         }
       }
     },
-    "/Service/Transfers/{TransferId}": {
+    "/V1/Transfers/{TransferId}": {
       "delete": {
         "tags": [
           "Transfer"
@@ -2572,7 +2572,7 @@
         }
       }
     },
-    "/Service/Transfers/Files/{FileTransferId}": {
+    "/V1/Transfers/Files/{FileTransferId}": {
       "get": {
         "tags": [
           "Transfer"
@@ -2605,7 +2605,7 @@
         }
       }
     },
-    "/Service/Transfers/{TransferId}/Import": {
+    "/V1/Transfers/{TransferId}/Import": {
       "post": {
         "tags": [
           "Transfer"
@@ -2647,7 +2647,7 @@
         }
       }
     },
-    "/Service/Transfers/{TransferId}/PartialImport": {
+    "/V1/Transfers/{TransferId}/PartialImport": {
       "post": {
         "tags": [
           "Transfer"
@@ -2689,7 +2689,7 @@
         }
       }
     },
-    "/Service/Transfers/Search": {
+    "/V1/Transfers/Search": {
       "post": {
         "tags": [
           "Transfer"
@@ -2724,7 +2724,7 @@
         }
       }
     },
-    "/Service/Transfers/Files/Search": {
+    "/V1/Transfers/Files/Search": {
       "post": {
         "tags": [
           "Transfer"
@@ -2759,7 +2759,7 @@
         }
       }
     },
-    "/Service/Transfers/{TransferId}/Files/{Identifier}/Upload": {
+    "/V1/Transfers/{TransferId}/Files/{Identifier}/Upload": {
       "post": {
         "tags": [
           "Transfer"
@@ -2838,7 +2838,7 @@
         }
       }
     },
-    "/Service/Users/Channels": {
+    "/V1/Users/Channels": {
       "get": {
         "tags": [
           "User"
@@ -2866,7 +2866,7 @@
         }
       }
     },
-    "/Service/Outputs/{OutputId}": {
+    "/V1/Outputs/{OutputId}": {
       "get": {
         "tags": [
           "Output"

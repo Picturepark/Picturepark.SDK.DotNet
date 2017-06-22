@@ -12,7 +12,7 @@
     "application/json"
   ],
   "paths": {
-    "/API/V1/ServiceProviders/{ServiceProviderId}/Message": {
+    "/V1/ServiceProviders/{ServiceProviderId}/Message": {
       "post": {
         "tags": [
           "ServiceProviderRest"
@@ -50,7 +50,7 @@
         }
       }
     },
-    "/API/V1/ServiceProviders/{ServiceProviderId}/Configuration": {
+    "/V1/ServiceProviders/{ServiceProviderId}/Configuration": {
       "get": {
         "tags": [
           "ServiceProviderRest"
