@@ -1,4 +1,5 @@
 ﻿{
+  "x-generator": "NSwag v11.1.2.0 (NJsonSchema v9.2.0.0)",
   "swagger": "2.0",
   "info": {
     "title": "Web API Swagger specification",
@@ -858,6 +859,34 @@
           }
         }
       }
+    },
+    "/Backup//Customer/Clone": {
+      "post": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_CloneCustomer",
+        "parameters": [
+          {
+            "name": "cloneRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotCustomerCloneRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerViewItem"
+            },
+            "x-nullable": true
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -870,7 +899,8 @@
         "ElasticSearchNumberOfShards",
         "ElasticSearchNumberOfReplicas",
         "RootSearchIndexNumberOfShards",
-        "RootSearchIndexNumberOfReplicas"
+        "RootSearchIndexNumberOfReplicas",
+        "IndexedFieldThreshold"
       ],
       "properties": {
         "Alias": {
@@ -944,6 +974,10 @@
           "type": "integer",
           "format": "int32"
         },
+        "IndexedFieldThreshold": {
+          "type": "integer",
+          "format": "int32"
+        },
         "NoReplyEmailAddress": {
           "type": "string"
         },
@@ -996,6 +1030,7 @@
     },
     "ExternalProviderName": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "Google",
         "Windows",
@@ -1009,8 +1044,7 @@
         "Dropbox",
         "Buffer",
         "Picturepark"
-      ],
-      "description": ""
+      ]
     },
     "OAuthServiceApi": {
       "type": "object",
@@ -1032,6 +1066,7 @@
     },
     "OAuthServiceType": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "Drive",
         "SocialMedia",
@@ -1041,8 +1076,7 @@
         "Drive",
         "SocialMedia",
         "ContentStore"
-      ],
-      "description": ""
+      ]
     },
     "CustomerServiceProviderItem": {
       "type": "object",
@@ -1103,28 +1137,28 @@
     },
     "LanguageConfigurationItem": {
       "type": "object",
+      "description": "The customer's language configuration.",
       "additionalProperties": false,
       "properties": {
         "SystemLanguages": {
           "type": "array",
+          "description": "A list of languages serving as system languages.",
           "items": {
             "type": "string"
-          },
-          "description": "A list of languages serving as system languages."
+          }
         },
         "MetadataLanguages": {
           "type": "array",
+          "description": "A list of languages serving as metadata languages.",
           "items": {
             "type": "string"
-          },
-          "description": "A list of languages serving as metadata languages."
+          }
         },
         "DefaultLanguage": {
           "type": "string",
           "description": "The default language. Not the be confused with the metadata fallback language x-default."
         }
-      },
-      "description": "The customer's language configuration."
+      }
     },
     "OutputFormatDoc": {
       "type": "object",
@@ -1195,15 +1229,6 @@
         "Kind"
       ],
       "properties": {
-        "DefaultOutputExtension": {
-          "type": "string"
-        },
-        "AllowedOutputExtensions": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "Kind": {
           "type": "string"
         }
@@ -1272,6 +1297,7 @@
     },
     "ColorProfile": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "AdobeRgb1998",
         "AppleRgb",
@@ -1335,11 +1361,11 @@
         "WebCoatedSwop2006Grade5",
         "Isonewspaper26v4",
         "Isonewspaper26v4Grey"
-      ],
-      "description": ""
+      ]
     },
     "ColorTransformationIntent": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "RelativeColorimetricBpc",
         "AbsoluteColorimetric",
@@ -1353,11 +1379,11 @@
         "Perceptual",
         "RelativeColorimetric",
         "Saturation"
-      ],
-      "description": ""
+      ]
     },
     "ResizeAction": {
       "type": "object",
+      "description": "Does not implement the IImageAction interface. The ResizeAction is directly exposed within ImageFormat.",
       "additionalProperties": false,
       "required": [
         "Width",
@@ -1376,11 +1402,11 @@
         "ResizeMode": {
           "$ref": "#/definitions/ResizeMode"
         }
-      },
-      "description": "Does not implement the IImageAction interface. The ResizeAction is directly exposed within ImageFormat."
+      }
     },
     "ResizeMode": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "Fit",
         "Shrink",
@@ -1390,8 +1416,7 @@
         "Fit",
         "Shrink",
         "Resize"
-      ],
-      "description": ""
+      ]
     },
     "ImageActionBase": {
       "type": "object",
@@ -1428,6 +1453,7 @@
     },
     "AlphaHandling": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "DiscardAlpha",
         "ReplaceAlpha",
@@ -1437,8 +1463,7 @@
         "DiscardAlpha",
         "ReplaceAlpha",
         "ReplaceInvertedAlpha"
-      ],
-      "description": ""
+      ]
     },
     "CropAction": {
       "type": "object",
@@ -1668,6 +1693,7 @@
     },
     "CompressionType": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "None",
         "Lzw",
@@ -1679,8 +1705,7 @@
         "Lzw",
         "Rle",
         "Zip"
-      ],
-      "description": ""
+      ]
     },
     "VideoFormatBase": {
       "type": "object",
@@ -1764,6 +1789,7 @@
     },
     "Preset": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "ultrafast",
         "superfast",
@@ -1783,8 +1809,7 @@
         "medium",
         "slow",
         "slower"
-      ],
-      "description": ""
+      ]
     },
     "IVideoAction": {
       "type": "object",
@@ -1927,6 +1952,7 @@
     },
     "Profile": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "aac_low",
         "mpeg2_aac_low",
@@ -1938,11 +1964,11 @@
         "mpeg2_aac_low",
         "aac_ltp",
         "aac_main"
-      ],
-      "description": ""
+      ]
     },
     "Coder": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "twoloop",
         "anmr",
@@ -1952,8 +1978,7 @@
         "twoloop",
         "anmr",
         "fast"
-      ],
-      "description": ""
+      ]
     },
     "AudioPresetFormat": {
       "type": "object",
@@ -2165,11 +2190,15 @@
         "ElasticSearchNumberOfReplicas",
         "RootSearchIndexNumberOfShards",
         "RootSearchIndexNumberOfReplicas",
+        "IndexedFieldThreshold",
         "RedisDatabaseIndex",
         "LifeCycle"
       ],
       "properties": {
         "Id": {
+          "type": "string"
+        },
+        "LifelineId": {
           "type": "string"
         },
         "Namespace": {
@@ -2254,6 +2283,10 @@
           "type": "integer",
           "format": "int32"
         },
+        "IndexedFieldThreshold": {
+          "type": "integer",
+          "format": "int32"
+        },
         "CorsAllowedHosts": {
           "type": "array",
           "items": {
@@ -2286,6 +2319,7 @@
     },
     "LifeCycle": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "Draft",
         "Active",
@@ -2297,11 +2331,11 @@
         "Active",
         "Inactive",
         "Deleted"
-      ],
-      "description": ""
+      ]
     },
     "TranslatedStringDictionary": {
       "type": "object",
+      "description": "A custom dictionary type to distinguish language specific class properties.",
       "additionalProperties": false,
       "allOf": [
         {
@@ -2310,8 +2344,7 @@
             "type": "string"
           }
         }
-      ],
-      "description": "A custom dictionary type to distinguish language specific class properties."
+      ]
     },
     "CustomerUpdateRequest": {
       "type": "object",
@@ -2365,6 +2398,10 @@
         },
         "NoReplyEmailAddress": {
           "type": "string"
+        },
+        "IndexedFieldThreshold": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -2402,6 +2439,9 @@
     "CustomerViewItem": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "LifeCycle"
+      ],
       "properties": {
         "Id": {
           "type": "string"
@@ -2432,6 +2472,9 @@
         },
         "WatermarkPath": {
           "type": "string"
+        },
+        "LifeCycle": {
+          "$ref": "#/definitions/LifeCycle"
         }
       }
     },
@@ -2501,6 +2544,7 @@
     },
     "SortDirection": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "Asc",
         "Desc"
@@ -2508,12 +2552,12 @@
       "enum": [
         "Asc",
         "Desc"
-      ],
-      "description": ""
+      ]
     },
     "FilterBase": {
       "type": "object",
       "discriminator": "Kind",
+      "description": "The FilterBase is the base class for all filters.",
       "additionalProperties": false,
       "required": [
         "Kind"
@@ -2522,49 +2566,49 @@
         "Kind": {
           "type": "string"
         }
-      },
-      "description": "The FilterBase is the base class for all filters."
+      }
     },
     "AndFilter": {
       "type": "object",
+      "description": "The AndFilter> is a compound filter and returns documents that match all of the specified filters.",
       "additionalProperties": false,
       "properties": {
         "Filters": {
           "type": "array",
+          "description": "Accepts all filters.",
           "items": {
             "$ref": "#/definitions/FilterBase"
-          },
-          "description": "Accepts all filters."
+          }
         }
       },
       "allOf": [
         {
           "$ref": "#/definitions/FilterBase"
         }
-      ],
-      "description": "The AndFilter> is a compound filter and returns documents that match all of the specified filters."
+      ]
     },
     "OrFilter": {
       "type": "object",
+      "description": "The OrFilter is a compound filter and returns documents that match any of the specified filters.",
       "additionalProperties": false,
       "properties": {
         "Filters": {
           "type": "array",
+          "description": "Accepts all filters.",
           "items": {
             "$ref": "#/definitions/FilterBase"
-          },
-          "description": "Accepts all filters."
+          }
         }
       },
       "allOf": [
         {
           "$ref": "#/definitions/FilterBase"
         }
-      ],
-      "description": "The OrFilter is a compound filter and returns documents that match any of the specified filters."
+      ]
     },
     "NotFilter": {
       "type": "object",
+      "description": "The NotFilter is a compound filter and returns documents that do not match the specified filter.",
       "additionalProperties": false,
       "properties": {
         "Filter": {
@@ -2576,11 +2620,11 @@
         {
           "$ref": "#/definitions/FilterBase"
         }
-      ],
-      "description": "The NotFilter is a compound filter and returns documents that do not match the specified filter."
+      ]
     },
     "DateRangeFilter": {
       "type": "object",
+      "description": "The DateRangeFilter returns documents with fields that have date values within a certain range.",
       "additionalProperties": false,
       "properties": {
         "Field": {
@@ -2596,11 +2640,11 @@
         {
           "$ref": "#/definitions/FilterBase"
         }
-      ],
-      "description": "The DateRangeFilter returns documents with fields that have date values within a certain range."
+      ]
     },
     "DateRange": {
       "type": "object",
+      "description": "The date range class used in aggregators and filters.",
       "additionalProperties": false,
       "properties": {
         "Names": {
@@ -2615,11 +2659,11 @@
           "type": "string",
           "description": "The to value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
         }
-      },
-      "description": "The date range class used in aggregators and filters."
+      }
     },
     "ExistsFilter": {
       "type": "object",
+      "description": "The ExistsFilter returns documents that have at least one non-null value in the original field.",
       "additionalProperties": false,
       "properties": {
         "Field": {
@@ -2631,11 +2675,11 @@
         {
           "$ref": "#/definitions/FilterBase"
         }
-      ],
-      "description": "The ExistsFilter returns documents that have at least one non-null value in the original field."
+      ]
     },
     "GeoBoundingBoxFilter": {
       "type": "object",
+      "description": "The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.",
       "additionalProperties": false,
       "properties": {
         "Field": {
@@ -2655,8 +2699,7 @@
         {
           "$ref": "#/definitions/FilterBase"
         }
-      ],
-      "description": "The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box."
+      ]
     },
     "GeoLocation": {
       "type": "object",
@@ -2678,6 +2721,7 @@
     },
     "GeoDistanceFilter": {
       "type": "object",
+      "description": "The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point.",
       "additionalProperties": false,
       "required": [
         "Distance"
@@ -2701,11 +2745,11 @@
         {
           "$ref": "#/definitions/FilterBase"
         }
-      ],
-      "description": "The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point."
+      ]
     },
     "GeoDistanceRangeFilter": {
       "type": "object",
+      "description": "The GeoDistanceRangeFilter returns documents that exists within a range from a specific point.",
       "additionalProperties": false,
       "properties": {
         "Field": {
@@ -2725,8 +2769,7 @@
         {
           "$ref": "#/definitions/FilterBase"
         }
-      ],
-      "description": "The GeoDistanceRangeFilter returns documents that exists within a range from a specific point."
+      ]
     },
     "NumericRange": {
       "type": "object",
@@ -2750,6 +2793,7 @@
     },
     "NestedFilter": {
       "type": "object",
+      "description": "The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.",
       "additionalProperties": false,
       "properties": {
         "Path": {
@@ -2765,11 +2809,11 @@
         {
           "$ref": "#/definitions/FilterBase"
         }
-      ],
-      "description": "The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter."
+      ]
     },
     "NumericRangeFilter": {
       "type": "object",
+      "description": "The NumericRangeFilter returns documents with fields that have numeric values within a certain range.",
       "additionalProperties": false,
       "properties": {
         "Field": {
@@ -2785,11 +2829,11 @@
         {
           "$ref": "#/definitions/FilterBase"
         }
-      ],
-      "description": "The NumericRangeFilter returns documents with fields that have numeric values within a certain range."
+      ]
     },
     "PrefixFilter": {
       "type": "object",
+      "description": "The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).",
       "additionalProperties": false,
       "properties": {
         "Field": {
@@ -2805,11 +2849,11 @@
         {
           "$ref": "#/definitions/FilterBase"
         }
-      ],
-      "description": "The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed)."
+      ]
     },
     "TermFilter": {
       "type": "object",
+      "description": "The TermFilter returns documents that contain the exact term specified in the inverted index.",
       "additionalProperties": false,
       "properties": {
         "Field": {
@@ -2825,11 +2869,11 @@
         {
           "$ref": "#/definitions/FilterBase"
         }
-      ],
-      "description": "The TermFilter returns documents that contain the exact term specified in the inverted index."
+      ]
     },
     "TermsFilter": {
       "type": "object",
+      "description": "The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).",
       "additionalProperties": false,
       "properties": {
         "Field": {
@@ -2838,21 +2882,21 @@
         },
         "Terms": {
           "type": "array",
+          "description": "A list of OR combined terms.",
           "items": {
             "type": "string"
-          },
-          "description": "A list of OR combined terms."
+          }
         }
       },
       "allOf": [
         {
           "$ref": "#/definitions/FilterBase"
         }
-      ],
-      "description": "The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed)."
+      ]
     },
     "AggregationFilter": {
       "type": "object",
+      "description": "An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition.",
       "additionalProperties": false,
       "properties": {
         "AggregationName": {
@@ -2871,11 +2915,11 @@
         {
           "$ref": "#/definitions/FilterBase"
         }
-      ],
-      "description": "An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition."
+      ]
     },
     "ChildFilter": {
       "type": "object",
+      "description": "The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.",
       "additionalProperties": false,
       "properties": {
         "ChildType": {
@@ -2891,11 +2935,11 @@
         {
           "$ref": "#/definitions/FilterBase"
         }
-      ],
-      "description": "The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document."
+      ]
     },
     "ParentFilter": {
       "type": "object",
+      "description": "The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.",
       "additionalProperties": false,
       "properties": {
         "ParentType": {
@@ -2911,8 +2955,7 @@
         {
           "$ref": "#/definitions/FilterBase"
         }
-      ],
-      "description": "The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document."
+      ]
     },
     "NodeInfoDoc": {
       "type": "object",
@@ -2950,6 +2993,7 @@
     },
     "UpdateInfoViewItem": {
       "type": "object",
+      "description": "The UpdateInfoViewItem is the view item for update commands.",
       "additionalProperties": false,
       "required": [
         "CreationDate"
@@ -2976,11 +3020,11 @@
           "type": "string",
           "description": "The creator of the update command."
         }
-      },
-      "description": "The UpdateInfoViewItem is the view item for update commands."
+      }
     },
     "VersionInfoViewItem": {
       "type": "object",
+      "description": "The version view item for the environment.",
       "additionalProperties": false,
       "properties": {
         "FileVersion": {
@@ -2999,8 +3043,7 @@
           "type": "string",
           "description": "The bamboo release version. Only provided on bamboo deployments."
         }
-      },
-      "description": "The version view item for the environment."
+      }
     },
     "ReactivationEnvironmentRequest": {
       "type": "object",
@@ -3019,21 +3062,16 @@
     "UpdateEnvironmentRequest": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "CreateSnapshot"
-      ],
       "properties": {
         "TargetVersion": {
           "type": "string",
           "description": "The maximal target version.\nIn case the highest available update version is lower than the desired target version, the environments's contract version will be raised to the highest available update version."
-        },
-        "CreateSnapshot": {
-          "type": "boolean"
         }
       }
     },
     "CustomerVersionInfoViewItem": {
       "type": "object",
+      "description": "The version view item for the customer.",
       "additionalProperties": false,
       "properties": {
         "CustomerId": {
@@ -3045,8 +3083,7 @@
         {
           "$ref": "#/definitions/VersionInfoViewItem"
         }
-      ],
-      "description": "The version view item for the customer."
+      ]
     },
     "ReactivationCustomerRequest": {
       "type": "object",
@@ -3075,9 +3112,6 @@
     "UpdateCustomerRequest": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "CreateSnapshot"
-      ],
       "properties": {
         "TargetVersion": {
           "type": "string",
@@ -3086,10 +3120,6 @@
         "CustomerId": {
           "type": "string",
           "description": "The customer id."
-        },
-        "CreateSnapshot": {
-          "type": "boolean",
-          "description": "Creates a snapshot of the customer's indices prior to an update.\nExcluded from the snapshot are livestream and documenthistory indices as well as search indices other than the root search index."
         }
       }
     },
@@ -3139,6 +3169,7 @@
     },
     "BackupEntityType": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "Enviroment",
         "Customer"
@@ -3146,8 +3177,7 @@
       "enum": [
         "Enviroment",
         "Customer"
-      ],
-      "description": ""
+      ]
     },
     "SnapshotCustomerCreateRequest": {
       "type": "object",
@@ -3167,7 +3197,8 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Reason"
+        "Reason",
+        "Timestamp"
       ],
       "properties": {
         "SnapshotName": {
@@ -3180,19 +3211,25 @@
         },
         "Indices": {
           "type": "array",
+          "description": "The Indices being part of the snapshot.",
           "items": {
             "type": "string"
-          },
-          "description": "The Indices being part of the snapshot."
+          }
         },
         "Reason": {
           "description": "The snapshot backup reason will be added to the snapshot name.",
           "$ref": "#/definitions/BackupReason"
+        },
+        "Timestamp": {
+          "type": "string",
+          "description": "Timestamp when creating the requst (utc). If there is a more recent snapshot in the repository, it will keep/return the latest one,\ninstead of creating a new one.",
+          "format": "date-time"
         }
       }
     },
     "BackupReason": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "Custom",
         "Update",
@@ -3202,8 +3239,7 @@
         "Custom",
         "Update",
         "Deletion"
-      ],
-      "description": ""
+      ]
     },
     "SnapshotViewItem": {
       "type": "object",
@@ -3235,17 +3271,17 @@
         },
         "Failures": {
           "type": "array",
+          "description": "The snapshot elastic search shard Falures.",
           "items": {
             "$ref": "#/definitions/SnapshotShardFailure"
-          },
-          "description": "The snapshot elastic search shard Falures."
+          }
         },
         "Indices": {
           "type": "array",
+          "description": "The snapshot Indices.",
           "items": {
             "type": "string"
-          },
-          "description": "The snapshot Indices."
+          }
         },
         "Name": {
           "type": "string",
@@ -3481,6 +3517,51 @@
           "type": "string"
         },
         "CustomerAlias": {
+          "type": "string"
+        }
+      }
+    },
+    "SnapshotCustomerCloneRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "SnapshotName": {
+          "type": "string"
+        },
+        "RepositoryName": {
+          "type": "string"
+        },
+        "SourceCustomerAlias": {
+          "type": "string"
+        },
+        "CustomerName": {
+          "type": "string"
+        },
+        "CustomerAlias": {
+          "type": "string"
+        },
+        "CustomerHosts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "CorsAllowedHosts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "StoragePath": {
+          "type": "string"
+        },
+        "WatermarkPath": {
+          "type": "string"
+        },
+        "BaseUrl": {
+          "type": "string"
+        },
+        "RedirectUri": {
           "type": "string"
         }
       }

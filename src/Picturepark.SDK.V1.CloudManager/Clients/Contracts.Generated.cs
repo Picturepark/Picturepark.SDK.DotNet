@@ -264,6 +264,13 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.List<string>> SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken);
     
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<CustomerViewItem> CloneCustomerAsync(SnapshotCustomerCloneRequest cloneRequest);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<CustomerViewItem> CloneCustomerAsync(SnapshotCustomerCloneRequest cloneRequest, System.Threading.CancellationToken cancellationToken);
+    
     }
     
     
@@ -324,6 +331,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("RootSearchIndexNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
         public int RootSearchIndexNumberOfReplicas { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("IndexedFieldThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public int IndexedFieldThreshold { get; set; }
     
         [Newtonsoft.Json.JsonProperty("NoReplyEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string NoReplyEmailAddress { get; set; }
@@ -625,12 +635,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.2.0.0")]
     public partial class FormatBase 
     {
-        [Newtonsoft.Json.JsonProperty("DefaultOutputExtension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DefaultOutputExtension { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("AllowedOutputExtensions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> AllowedOutputExtensions { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -1595,6 +1599,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("Id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("LifelineId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LifelineId { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("Namespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Namespace { get; set; }
     
@@ -1663,6 +1670,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("RootSearchIndexNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
         public int RootSearchIndexNumberOfReplicas { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("IndexedFieldThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public int IndexedFieldThreshold { get; set; }
     
         [Newtonsoft.Json.JsonProperty("CorsAllowedHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<string> CorsAllowedHosts { get; set; }
@@ -1774,6 +1784,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("NoReplyEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string NoReplyEmailAddress { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("IndexedFieldThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? IndexedFieldThreshold { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -1851,6 +1864,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("WatermarkPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string WatermarkPath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("LifeCycle", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public LifeCycle LifeCycle { get; set; }
     
         public string ToJson() 
         {
@@ -2546,9 +2564,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("TargetVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TargetVersion { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("CreateSnapshot", Required = Newtonsoft.Json.Required.Always)]
-        public bool CreateSnapshot { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -2630,11 +2645,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <summary>The customer id.</summary>
         [Newtonsoft.Json.JsonProperty("CustomerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomerId { get; set; }
-    
-        /// <summary>Creates a snapshot of the customer's indices prior to an update.
-        /// Excluded from the snapshot are livestream and documenthistory indices as well as search indices other than the root search index.</summary>
-        [Newtonsoft.Json.JsonProperty("CreateSnapshot", Required = Newtonsoft.Json.Required.Always)]
-        public bool CreateSnapshot { get; set; }
     
         public string ToJson() 
         {
@@ -2741,6 +2751,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BackupReason Reason { get; set; }
+    
+        /// <summary>Timestamp when creating the requst (utc). If there is a more recent snapshot in the repository, it will keep/return the latest one,
+        /// instead of creating a new one.</summary>
+        [Newtonsoft.Json.JsonProperty("Timestamp", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.DateTime Timestamp { get; set; }
     
         public string ToJson() 
         {
@@ -3090,6 +3106,53 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SnapshotRepositoryCustomerSearchRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRepositoryCustomerSearchRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.2.0.0")]
+    public partial class SnapshotCustomerCloneRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("SnapshotName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SnapshotName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("RepositoryName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RepositoryName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("SourceCustomerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SourceCustomerAlias { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("CustomerName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("CustomerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerAlias { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("CustomerHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> CustomerHosts { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("CorsAllowedHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> CorsAllowedHosts { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("StoragePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StoragePath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("WatermarkPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string WatermarkPath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("BaseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BaseUrl { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("RedirectUri", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RedirectUri { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SnapshotCustomerCloneRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotCustomerCloneRequest>(data);
         }
     }
     
