@@ -337,6 +337,24 @@ references:
   commentId: Overload:Picturepark.SDK.V1.CloudManager.CloudBackupClient.BaseUrl
   fullName: Picturepark.SDK.V1.CloudManager.CloudBackupClient.BaseUrl
   nameWithType: CloudBackupClient.BaseUrl
+- uid: Picturepark.SDK.V1.CloudManager.CloudBackupClient.CloneCustomerAsync(SnapshotCustomerCloneRequest)
+  name: CloneCustomerAsync(SnapshotCustomerCloneRequest)
+  href: api/Picturepark.SDK.V1.CloudManager.CloudBackupClient.html#Picturepark_SDK_V1_CloudManager_CloudBackupClient_CloneCustomerAsync_SnapshotCustomerCloneRequest_
+  commentId: M:Picturepark.SDK.V1.CloudManager.CloudBackupClient.CloneCustomerAsync(SnapshotCustomerCloneRequest)
+  fullName: Picturepark.SDK.V1.CloudManager.CloudBackupClient.CloneCustomerAsync(SnapshotCustomerCloneRequest)
+  nameWithType: CloudBackupClient.CloneCustomerAsync(SnapshotCustomerCloneRequest)
+- uid: Picturepark.SDK.V1.CloudManager.CloudBackupClient.CloneCustomerAsync(SnapshotCustomerCloneRequest,System.Threading.CancellationToken)
+  name: CloneCustomerAsync(SnapshotCustomerCloneRequest, CancellationToken)
+  href: api/Picturepark.SDK.V1.CloudManager.CloudBackupClient.html#Picturepark_SDK_V1_CloudManager_CloudBackupClient_CloneCustomerAsync_SnapshotCustomerCloneRequest_System_Threading_CancellationToken_
+  commentId: M:Picturepark.SDK.V1.CloudManager.CloudBackupClient.CloneCustomerAsync(SnapshotCustomerCloneRequest,System.Threading.CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.CloudBackupClient.CloneCustomerAsync(SnapshotCustomerCloneRequest, System.Threading.CancellationToken)
+  nameWithType: CloudBackupClient.CloneCustomerAsync(SnapshotCustomerCloneRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.CloudBackupClient.CloneCustomerAsync*
+  name: CloneCustomerAsync
+  href: api/Picturepark.SDK.V1.CloudManager.CloudBackupClient.html#Picturepark_SDK_V1_CloudManager_CloudBackupClient_CloneCustomerAsync_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.CloudBackupClient.CloneCustomerAsync
+  fullName: Picturepark.SDK.V1.CloudManager.CloudBackupClient.CloneCustomerAsync
+  nameWithType: CloudBackupClient.CloneCustomerAsync
 - uid: Picturepark.SDK.V1.CloudManager.CloudBackupClient.CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest)
   name: CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest)
   href: api/Picturepark.SDK.V1.CloudManager.CloudBackupClient.html#Picturepark_SDK_V1_CloudManager_CloudBackupClient_CreateRepository2Async_SnapshotRepositoryEnvironmentCreateRequest_
@@ -2032,6 +2050,18 @@ references:
   commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.Id
   fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.Id
   nameWithType: CustomerConfigurationItem.Id
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.IndexedFieldThreshold
+  name: IndexedFieldThreshold
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerConfigurationItem_IndexedFieldThreshold
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.IndexedFieldThreshold
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.IndexedFieldThreshold
+  nameWithType: CustomerConfigurationItem.IndexedFieldThreshold
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.IndexedFieldThreshold*
+  name: IndexedFieldThreshold
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerConfigurationItem_IndexedFieldThreshold_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.IndexedFieldThreshold
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.IndexedFieldThreshold
+  nameWithType: CustomerConfigurationItem.IndexedFieldThreshold
 - uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.LanguageConfiguration
   name: LanguageConfiguration
   href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerConfigurationItem_LanguageConfiguration
@@ -2056,6 +2086,18 @@ references:
   commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.LifeCycle
   fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.LifeCycle
   nameWithType: CustomerConfigurationItem.LifeCycle
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.LifelineId
+  name: LifelineId
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerConfigurationItem_LifelineId
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.LifelineId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.LifelineId
+  nameWithType: CustomerConfigurationItem.LifelineId
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.LifelineId*
+  name: LifelineId
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerConfigurationItem_LifelineId_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.LifelineId
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.LifelineId
+  nameWithType: CustomerConfigurationItem.LifelineId
 - uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.LiveStreamCatalog
   name: LiveStreamCatalog
   href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerConfigurationItem.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerConfigurationItem_LiveStreamCatalog
@@ -2398,6 +2440,18 @@ references:
   commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.FromJson
   fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.FromJson
   nameWithType: CustomerCreateRequest.FromJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.IndexedFieldThreshold
+  name: IndexedFieldThreshold
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerCreateRequest_IndexedFieldThreshold
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.IndexedFieldThreshold
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.IndexedFieldThreshold
+  nameWithType: CustomerCreateRequest.IndexedFieldThreshold
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.IndexedFieldThreshold*
+  name: IndexedFieldThreshold
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerCreateRequest_IndexedFieldThreshold_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.IndexedFieldThreshold
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.IndexedFieldThreshold
+  nameWithType: CustomerCreateRequest.IndexedFieldThreshold
 - uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.LanguageConfiguration
   name: LanguageConfiguration
   href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerCreateRequest_LanguageConfiguration
@@ -2878,6 +2932,18 @@ references:
   commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.Id
   fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.Id
   nameWithType: CustomerUpdateRequest.Id
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.IndexedFieldThreshold
+  name: IndexedFieldThreshold
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerUpdateRequest_IndexedFieldThreshold
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.IndexedFieldThreshold
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.IndexedFieldThreshold
+  nameWithType: CustomerUpdateRequest.IndexedFieldThreshold
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.IndexedFieldThreshold*
+  name: IndexedFieldThreshold
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerUpdateRequest_IndexedFieldThreshold_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.IndexedFieldThreshold
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.IndexedFieldThreshold
+  nameWithType: CustomerUpdateRequest.IndexedFieldThreshold
 - uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.LifeCycle
   name: LifeCycle
   href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerUpdateRequest_LifeCycle
@@ -3070,6 +3136,18 @@ references:
   commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CustomerViewItem.Id
   fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerViewItem.Id
   nameWithType: CustomerViewItem.Id
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerViewItem.LifeCycle
+  name: LifeCycle
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerViewItem.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerViewItem_LifeCycle
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.CustomerViewItem.LifeCycle
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerViewItem.LifeCycle
+  nameWithType: CustomerViewItem.LifeCycle
+- uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerViewItem.LifeCycle*
+  name: LifeCycle
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerViewItem.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerViewItem_LifeCycle_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.CustomerViewItem.LifeCycle
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.CustomerViewItem.LifeCycle
+  nameWithType: CustomerViewItem.LifeCycle
 - uid: Picturepark.SDK.V1.CloudManager.Contract.CustomerViewItem.MainCatalog
   name: MainCatalog
   href: api/Picturepark.SDK.V1.CloudManager.Contract.CustomerViewItem.html#Picturepark_SDK_V1_CloudManager_Contract_CustomerViewItem_MainCatalog
@@ -3646,30 +3724,6 @@ references:
   commentId: T:Picturepark.SDK.V1.CloudManager.Contract.FormatBase
   fullName: Picturepark.SDK.V1.CloudManager.Contract.FormatBase
   nameWithType: FormatBase
-- uid: Picturepark.SDK.V1.CloudManager.Contract.FormatBase.AllowedOutputExtensions
-  name: AllowedOutputExtensions
-  href: api/Picturepark.SDK.V1.CloudManager.Contract.FormatBase.html#Picturepark_SDK_V1_CloudManager_Contract_FormatBase_AllowedOutputExtensions
-  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.FormatBase.AllowedOutputExtensions
-  fullName: Picturepark.SDK.V1.CloudManager.Contract.FormatBase.AllowedOutputExtensions
-  nameWithType: FormatBase.AllowedOutputExtensions
-- uid: Picturepark.SDK.V1.CloudManager.Contract.FormatBase.AllowedOutputExtensions*
-  name: AllowedOutputExtensions
-  href: api/Picturepark.SDK.V1.CloudManager.Contract.FormatBase.html#Picturepark_SDK_V1_CloudManager_Contract_FormatBase_AllowedOutputExtensions_
-  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.FormatBase.AllowedOutputExtensions
-  fullName: Picturepark.SDK.V1.CloudManager.Contract.FormatBase.AllowedOutputExtensions
-  nameWithType: FormatBase.AllowedOutputExtensions
-- uid: Picturepark.SDK.V1.CloudManager.Contract.FormatBase.DefaultOutputExtension
-  name: DefaultOutputExtension
-  href: api/Picturepark.SDK.V1.CloudManager.Contract.FormatBase.html#Picturepark_SDK_V1_CloudManager_Contract_FormatBase_DefaultOutputExtension
-  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.FormatBase.DefaultOutputExtension
-  fullName: Picturepark.SDK.V1.CloudManager.Contract.FormatBase.DefaultOutputExtension
-  nameWithType: FormatBase.DefaultOutputExtension
-- uid: Picturepark.SDK.V1.CloudManager.Contract.FormatBase.DefaultOutputExtension*
-  name: DefaultOutputExtension
-  href: api/Picturepark.SDK.V1.CloudManager.Contract.FormatBase.html#Picturepark_SDK_V1_CloudManager_Contract_FormatBase_DefaultOutputExtension_
-  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.FormatBase.DefaultOutputExtension
-  fullName: Picturepark.SDK.V1.CloudManager.Contract.FormatBase.DefaultOutputExtension
-  nameWithType: FormatBase.DefaultOutputExtension
 - uid: Picturepark.SDK.V1.CloudManager.Contract.FormatBase.FromJson(System.String)
   name: FromJson(String)
   href: api/Picturepark.SDK.V1.CloudManager.Contract.FormatBase.html#Picturepark_SDK_V1_CloudManager_Contract_FormatBase_FromJson_System_String_
@@ -3952,6 +4006,24 @@ references:
   commentId: T:Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient
   fullName: Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient
   nameWithType: ICloudBackupClient
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneCustomerAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest)
+  name: CloneCustomerAsync(SnapshotCustomerCloneRequest)
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.html#Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneCustomerAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneCustomerAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneCustomerAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest)
+  nameWithType: ICloudBackupClient.CloneCustomerAsync(SnapshotCustomerCloneRequest)
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneCustomerAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest,System.Threading.CancellationToken)
+  name: CloneCustomerAsync(SnapshotCustomerCloneRequest, CancellationToken)
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.html#Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneCustomerAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_System_Threading_CancellationToken_
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneCustomerAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest,System.Threading.CancellationToken)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneCustomerAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest, System.Threading.CancellationToken)
+  nameWithType: ICloudBackupClient.CloneCustomerAsync(SnapshotCustomerCloneRequest, CancellationToken)
+- uid: Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneCustomerAsync*
+  name: CloneCustomerAsync
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.html#Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneCustomerAsync_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneCustomerAsync
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneCustomerAsync
+  nameWithType: ICloudBackupClient.CloneCustomerAsync
 - uid: Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepository2Async(Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryEnvironmentCreateRequest)
   name: CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest)
   href: api/Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.html#Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepository2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryEnvironmentCreateRequest_
@@ -6502,6 +6574,18 @@ references:
   commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotBaseCreateRequest.SnapshotName
   fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotBaseCreateRequest.SnapshotName
   nameWithType: SnapshotBaseCreateRequest.SnapshotName
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotBaseCreateRequest.Timestamp
+  name: Timestamp
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotBaseCreateRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotBaseCreateRequest_Timestamp
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotBaseCreateRequest.Timestamp
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotBaseCreateRequest.Timestamp
+  nameWithType: SnapshotBaseCreateRequest.Timestamp
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotBaseCreateRequest.Timestamp*
+  name: Timestamp
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotBaseCreateRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotBaseCreateRequest_Timestamp_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotBaseCreateRequest.Timestamp
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotBaseCreateRequest.Timestamp
+  nameWithType: SnapshotBaseCreateRequest.Timestamp
 - uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotBaseCreateRequest.ToJson
   name: ToJson()
   href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotBaseCreateRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotBaseCreateRequest_ToJson
@@ -6580,6 +6664,168 @@ references:
   commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotBaseRestoreRequest.ToJson
   fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotBaseRestoreRequest.ToJson
   nameWithType: SnapshotBaseRestoreRequest.ToJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest
+  name: SnapshotCustomerCloneRequest
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html
+  commentId: T:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest
+  nameWithType: SnapshotCustomerCloneRequest
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.BaseUrl
+  name: BaseUrl
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_BaseUrl
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.BaseUrl
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.BaseUrl
+  nameWithType: SnapshotCustomerCloneRequest.BaseUrl
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.BaseUrl*
+  name: BaseUrl
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_BaseUrl_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.BaseUrl
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.BaseUrl
+  nameWithType: SnapshotCustomerCloneRequest.BaseUrl
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CorsAllowedHosts
+  name: CorsAllowedHosts
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_CorsAllowedHosts
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CorsAllowedHosts
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CorsAllowedHosts
+  nameWithType: SnapshotCustomerCloneRequest.CorsAllowedHosts
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CorsAllowedHosts*
+  name: CorsAllowedHosts
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_CorsAllowedHosts_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CorsAllowedHosts
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CorsAllowedHosts
+  nameWithType: SnapshotCustomerCloneRequest.CorsAllowedHosts
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerAlias
+  name: CustomerAlias
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_CustomerAlias
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerAlias
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerAlias
+  nameWithType: SnapshotCustomerCloneRequest.CustomerAlias
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerAlias*
+  name: CustomerAlias
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_CustomerAlias_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerAlias
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerAlias
+  nameWithType: SnapshotCustomerCloneRequest.CustomerAlias
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerHosts
+  name: CustomerHosts
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_CustomerHosts
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerHosts
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerHosts
+  nameWithType: SnapshotCustomerCloneRequest.CustomerHosts
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerHosts*
+  name: CustomerHosts
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_CustomerHosts_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerHosts
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerHosts
+  nameWithType: SnapshotCustomerCloneRequest.CustomerHosts
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerName
+  name: CustomerName
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_CustomerName
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerName
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerName
+  nameWithType: SnapshotCustomerCloneRequest.CustomerName
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerName*
+  name: CustomerName
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_CustomerName_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerName
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.CustomerName
+  nameWithType: SnapshotCustomerCloneRequest.CustomerName
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.FromJson(System.String)
+  name: FromJson(String)
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_FromJson_System_String_
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.FromJson(System.String)
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.FromJson(System.String)
+  nameWithType: SnapshotCustomerCloneRequest.FromJson(String)
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.FromJson*
+  name: FromJson
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_FromJson_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.FromJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.FromJson
+  nameWithType: SnapshotCustomerCloneRequest.FromJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.RedirectUri
+  name: RedirectUri
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_RedirectUri
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.RedirectUri
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.RedirectUri
+  nameWithType: SnapshotCustomerCloneRequest.RedirectUri
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.RedirectUri*
+  name: RedirectUri
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_RedirectUri_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.RedirectUri
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.RedirectUri
+  nameWithType: SnapshotCustomerCloneRequest.RedirectUri
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.RepositoryName
+  name: RepositoryName
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_RepositoryName
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.RepositoryName
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.RepositoryName
+  nameWithType: SnapshotCustomerCloneRequest.RepositoryName
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.RepositoryName*
+  name: RepositoryName
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_RepositoryName_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.RepositoryName
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.RepositoryName
+  nameWithType: SnapshotCustomerCloneRequest.RepositoryName
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.SnapshotName
+  name: SnapshotName
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_SnapshotName
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.SnapshotName
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.SnapshotName
+  nameWithType: SnapshotCustomerCloneRequest.SnapshotName
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.SnapshotName*
+  name: SnapshotName
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_SnapshotName_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.SnapshotName
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.SnapshotName
+  nameWithType: SnapshotCustomerCloneRequest.SnapshotName
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.SourceCustomerAlias
+  name: SourceCustomerAlias
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_SourceCustomerAlias
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.SourceCustomerAlias
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.SourceCustomerAlias
+  nameWithType: SnapshotCustomerCloneRequest.SourceCustomerAlias
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.SourceCustomerAlias*
+  name: SourceCustomerAlias
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_SourceCustomerAlias_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.SourceCustomerAlias
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.SourceCustomerAlias
+  nameWithType: SnapshotCustomerCloneRequest.SourceCustomerAlias
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.StoragePath
+  name: StoragePath
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_StoragePath
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.StoragePath
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.StoragePath
+  nameWithType: SnapshotCustomerCloneRequest.StoragePath
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.StoragePath*
+  name: StoragePath
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_StoragePath_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.StoragePath
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.StoragePath
+  nameWithType: SnapshotCustomerCloneRequest.StoragePath
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.ToJson
+  name: ToJson()
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_ToJson
+  commentId: M:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.ToJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.ToJson()
+  nameWithType: SnapshotCustomerCloneRequest.ToJson()
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.ToJson*
+  name: ToJson
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_ToJson_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.ToJson
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.ToJson
+  nameWithType: SnapshotCustomerCloneRequest.ToJson
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.WatermarkPath
+  name: WatermarkPath
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_WatermarkPath
+  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.WatermarkPath
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.WatermarkPath
+  nameWithType: SnapshotCustomerCloneRequest.WatermarkPath
+- uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.WatermarkPath*
+  name: WatermarkPath
+  href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html#Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_WatermarkPath_
+  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.WatermarkPath
+  fullName: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.WatermarkPath
+  nameWithType: SnapshotCustomerCloneRequest.WatermarkPath
 - uid: Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCreateRequest
   name: SnapshotCustomerCreateRequest
   href: api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCreateRequest.html
@@ -8020,18 +8266,6 @@ references:
   commentId: T:Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest
   fullName: Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest
   nameWithType: UpdateCustomerRequest
-- uid: Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest.CreateSnapshot
-  name: CreateSnapshot
-  href: api/Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest.html#Picturepark_SDK_V1_CloudManager_Contract_UpdateCustomerRequest_CreateSnapshot
-  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest.CreateSnapshot
-  fullName: Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest.CreateSnapshot
-  nameWithType: UpdateCustomerRequest.CreateSnapshot
-- uid: Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest.CreateSnapshot*
-  name: CreateSnapshot
-  href: api/Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest.html#Picturepark_SDK_V1_CloudManager_Contract_UpdateCustomerRequest_CreateSnapshot_
-  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest.CreateSnapshot
-  fullName: Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest.CreateSnapshot
-  nameWithType: UpdateCustomerRequest.CreateSnapshot
 - uid: Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest.CustomerId
   name: CustomerId
   href: api/Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest.html#Picturepark_SDK_V1_CloudManager_Contract_UpdateCustomerRequest_CustomerId
@@ -8086,18 +8320,6 @@ references:
   commentId: T:Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest
   fullName: Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest
   nameWithType: UpdateEnvironmentRequest
-- uid: Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest.CreateSnapshot
-  name: CreateSnapshot
-  href: api/Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest.html#Picturepark_SDK_V1_CloudManager_Contract_UpdateEnvironmentRequest_CreateSnapshot
-  commentId: P:Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest.CreateSnapshot
-  fullName: Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest.CreateSnapshot
-  nameWithType: UpdateEnvironmentRequest.CreateSnapshot
-- uid: Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest.CreateSnapshot*
-  name: CreateSnapshot
-  href: api/Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest.html#Picturepark_SDK_V1_CloudManager_Contract_UpdateEnvironmentRequest_CreateSnapshot_
-  commentId: Overload:Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest.CreateSnapshot
-  fullName: Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest.CreateSnapshot
-  nameWithType: UpdateEnvironmentRequest.CreateSnapshot
 - uid: Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest.FromJson(System.String)
   name: FromJson(String)
   href: api/Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest.html#Picturepark_SDK_V1_CloudManager_Contract_UpdateEnvironmentRequest_FromJson_System_String_
@@ -10273,18 +10495,6 @@ references:
   commentId: T:Picturepark.SDK.V1.Contract.AnalyzerBase
   fullName: Picturepark.SDK.V1.Contract.AnalyzerBase
   nameWithType: AnalyzerBase
-- uid: Picturepark.SDK.V1.Contract.AnalyzerBase.FieldSuffix
-  name: FieldSuffix
-  href: api/Picturepark.SDK.V1.Contract.AnalyzerBase.html#Picturepark_SDK_V1_Contract_AnalyzerBase_FieldSuffix
-  commentId: P:Picturepark.SDK.V1.Contract.AnalyzerBase.FieldSuffix
-  fullName: Picturepark.SDK.V1.Contract.AnalyzerBase.FieldSuffix
-  nameWithType: AnalyzerBase.FieldSuffix
-- uid: Picturepark.SDK.V1.Contract.AnalyzerBase.FieldSuffix*
-  name: FieldSuffix
-  href: api/Picturepark.SDK.V1.Contract.AnalyzerBase.html#Picturepark_SDK_V1_Contract_AnalyzerBase_FieldSuffix_
-  commentId: Overload:Picturepark.SDK.V1.Contract.AnalyzerBase.FieldSuffix
-  fullName: Picturepark.SDK.V1.Contract.AnalyzerBase.FieldSuffix
-  nameWithType: AnalyzerBase.FieldSuffix
 - uid: Picturepark.SDK.V1.Contract.AnalyzerBase.FromJson(System.String)
   name: FromJson(String)
   href: api/Picturepark.SDK.V1.Contract.AnalyzerBase.html#Picturepark_SDK_V1_Contract_AnalyzerBase_FromJson_System_String_
@@ -12352,6 +12562,12 @@ references:
   commentId: T:Picturepark.SDK.V1.Contract.BusinessProcessLifeCylce
   fullName: Picturepark.SDK.V1.Contract.BusinessProcessLifeCylce
   nameWithType: BusinessProcessLifeCylce
+- uid: Picturepark.SDK.V1.Contract.BusinessProcessLifeCylce.Cancelled
+  name: Cancelled
+  href: api/Picturepark.SDK.V1.Contract.BusinessProcessLifeCylce.html#Picturepark_SDK_V1_Contract_BusinessProcessLifeCylce_Cancelled
+  commentId: F:Picturepark.SDK.V1.Contract.BusinessProcessLifeCylce.Cancelled
+  fullName: Picturepark.SDK.V1.Contract.BusinessProcessLifeCylce.Cancelled
+  nameWithType: BusinessProcessLifeCylce.Cancelled
 - uid: Picturepark.SDK.V1.Contract.BusinessProcessLifeCylce.Draft
   name: Draft
   href: api/Picturepark.SDK.V1.Contract.BusinessProcessLifeCylce.html#Picturepark_SDK_V1_Contract_BusinessProcessLifeCylce_Draft
@@ -14644,6 +14860,60 @@ references:
   commentId: Overload:Picturepark.SDK.V1.Contract.ContentSearchResult.ToJson
   fullName: Picturepark.SDK.V1.Contract.ContentSearchResult.ToJson
   nameWithType: ContentSearchResult.ToJson
+- uid: Picturepark.SDK.V1.Contract.ContentSelection
+  name: ContentSelection
+  href: api/Picturepark.SDK.V1.Contract.ContentSelection.html
+  commentId: T:Picturepark.SDK.V1.Contract.ContentSelection
+  fullName: Picturepark.SDK.V1.Contract.ContentSelection
+  nameWithType: ContentSelection
+- uid: Picturepark.SDK.V1.Contract.ContentSelection.Content
+  name: Content
+  href: api/Picturepark.SDK.V1.Contract.ContentSelection.html#Picturepark_SDK_V1_Contract_ContentSelection_Content
+  commentId: P:Picturepark.SDK.V1.Contract.ContentSelection.Content
+  fullName: Picturepark.SDK.V1.Contract.ContentSelection.Content
+  nameWithType: ContentSelection.Content
+- uid: Picturepark.SDK.V1.Contract.ContentSelection.Content*
+  name: Content
+  href: api/Picturepark.SDK.V1.Contract.ContentSelection.html#Picturepark_SDK_V1_Contract_ContentSelection_Content_
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentSelection.Content
+  fullName: Picturepark.SDK.V1.Contract.ContentSelection.Content
+  nameWithType: ContentSelection.Content
+- uid: Picturepark.SDK.V1.Contract.ContentSelection.FromJson(System.String)
+  name: FromJson(String)
+  href: api/Picturepark.SDK.V1.Contract.ContentSelection.html#Picturepark_SDK_V1_Contract_ContentSelection_FromJson_System_String_
+  commentId: M:Picturepark.SDK.V1.Contract.ContentSelection.FromJson(System.String)
+  fullName: Picturepark.SDK.V1.Contract.ContentSelection.FromJson(System.String)
+  nameWithType: ContentSelection.FromJson(String)
+- uid: Picturepark.SDK.V1.Contract.ContentSelection.FromJson*
+  name: FromJson
+  href: api/Picturepark.SDK.V1.Contract.ContentSelection.html#Picturepark_SDK_V1_Contract_ContentSelection_FromJson_
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentSelection.FromJson
+  fullName: Picturepark.SDK.V1.Contract.ContentSelection.FromJson
+  nameWithType: ContentSelection.FromJson
+- uid: Picturepark.SDK.V1.Contract.ContentSelection.Outputs
+  name: Outputs
+  href: api/Picturepark.SDK.V1.Contract.ContentSelection.html#Picturepark_SDK_V1_Contract_ContentSelection_Outputs
+  commentId: P:Picturepark.SDK.V1.Contract.ContentSelection.Outputs
+  fullName: Picturepark.SDK.V1.Contract.ContentSelection.Outputs
+  nameWithType: ContentSelection.Outputs
+- uid: Picturepark.SDK.V1.Contract.ContentSelection.Outputs*
+  name: Outputs
+  href: api/Picturepark.SDK.V1.Contract.ContentSelection.html#Picturepark_SDK_V1_Contract_ContentSelection_Outputs_
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentSelection.Outputs
+  fullName: Picturepark.SDK.V1.Contract.ContentSelection.Outputs
+  nameWithType: ContentSelection.Outputs
+- uid: Picturepark.SDK.V1.Contract.ContentSelection.ToJson
+  name: ToJson()
+  href: api/Picturepark.SDK.V1.Contract.ContentSelection.html#Picturepark_SDK_V1_Contract_ContentSelection_ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.ContentSelection.ToJson
+  fullName: Picturepark.SDK.V1.Contract.ContentSelection.ToJson()
+  nameWithType: ContentSelection.ToJson()
+- uid: Picturepark.SDK.V1.Contract.ContentSelection.ToJson*
+  name: ToJson
+  href: api/Picturepark.SDK.V1.Contract.ContentSelection.html#Picturepark_SDK_V1_Contract_ContentSelection_ToJson_
+  commentId: Overload:Picturepark.SDK.V1.Contract.ContentSelection.ToJson
+  fullName: Picturepark.SDK.V1.Contract.ContentSelection.ToJson
+  nameWithType: ContentSelection.ToJson
 - uid: Picturepark.SDK.V1.Contract.ContentsMetadataUpdateRequest
   name: ContentsMetadataUpdateRequest
   href: api/Picturepark.SDK.V1.Contract.ContentsMetadataUpdateRequest.html
@@ -20287,6 +20557,138 @@ references:
   commentId: Overload:Picturepark.SDK.V1.Contract.FieldGeoPoint.ToJson
   fullName: Picturepark.SDK.V1.Contract.FieldGeoPoint.ToJson
   nameWithType: FieldGeoPoint.ToJson
+- uid: Picturepark.SDK.V1.Contract.FieldInteger
+  name: FieldInteger
+  href: api/Picturepark.SDK.V1.Contract.FieldInteger.html
+  commentId: T:Picturepark.SDK.V1.Contract.FieldInteger
+  fullName: Picturepark.SDK.V1.Contract.FieldInteger
+  nameWithType: FieldInteger
+- uid: Picturepark.SDK.V1.Contract.FieldInteger.FromJson(System.String)
+  name: FromJson(String)
+  href: api/Picturepark.SDK.V1.Contract.FieldInteger.html#Picturepark_SDK_V1_Contract_FieldInteger_FromJson_System_String_
+  commentId: M:Picturepark.SDK.V1.Contract.FieldInteger.FromJson(System.String)
+  fullName: Picturepark.SDK.V1.Contract.FieldInteger.FromJson(System.String)
+  nameWithType: FieldInteger.FromJson(String)
+- uid: Picturepark.SDK.V1.Contract.FieldInteger.FromJson*
+  name: FromJson
+  href: api/Picturepark.SDK.V1.Contract.FieldInteger.html#Picturepark_SDK_V1_Contract_FieldInteger_FromJson_
+  commentId: Overload:Picturepark.SDK.V1.Contract.FieldInteger.FromJson
+  fullName: Picturepark.SDK.V1.Contract.FieldInteger.FromJson
+  nameWithType: FieldInteger.FromJson
+- uid: Picturepark.SDK.V1.Contract.FieldInteger.Maximum
+  name: Maximum
+  href: api/Picturepark.SDK.V1.Contract.FieldInteger.html#Picturepark_SDK_V1_Contract_FieldInteger_Maximum
+  commentId: P:Picturepark.SDK.V1.Contract.FieldInteger.Maximum
+  fullName: Picturepark.SDK.V1.Contract.FieldInteger.Maximum
+  nameWithType: FieldInteger.Maximum
+- uid: Picturepark.SDK.V1.Contract.FieldInteger.Maximum*
+  name: Maximum
+  href: api/Picturepark.SDK.V1.Contract.FieldInteger.html#Picturepark_SDK_V1_Contract_FieldInteger_Maximum_
+  commentId: Overload:Picturepark.SDK.V1.Contract.FieldInteger.Maximum
+  fullName: Picturepark.SDK.V1.Contract.FieldInteger.Maximum
+  nameWithType: FieldInteger.Maximum
+- uid: Picturepark.SDK.V1.Contract.FieldInteger.Minimum
+  name: Minimum
+  href: api/Picturepark.SDK.V1.Contract.FieldInteger.html#Picturepark_SDK_V1_Contract_FieldInteger_Minimum
+  commentId: P:Picturepark.SDK.V1.Contract.FieldInteger.Minimum
+  fullName: Picturepark.SDK.V1.Contract.FieldInteger.Minimum
+  nameWithType: FieldInteger.Minimum
+- uid: Picturepark.SDK.V1.Contract.FieldInteger.Minimum*
+  name: Minimum
+  href: api/Picturepark.SDK.V1.Contract.FieldInteger.html#Picturepark_SDK_V1_Contract_FieldInteger_Minimum_
+  commentId: Overload:Picturepark.SDK.V1.Contract.FieldInteger.Minimum
+  fullName: Picturepark.SDK.V1.Contract.FieldInteger.Minimum
+  nameWithType: FieldInteger.Minimum
+- uid: Picturepark.SDK.V1.Contract.FieldInteger.Pattern
+  name: Pattern
+  href: api/Picturepark.SDK.V1.Contract.FieldInteger.html#Picturepark_SDK_V1_Contract_FieldInteger_Pattern
+  commentId: P:Picturepark.SDK.V1.Contract.FieldInteger.Pattern
+  fullName: Picturepark.SDK.V1.Contract.FieldInteger.Pattern
+  nameWithType: FieldInteger.Pattern
+- uid: Picturepark.SDK.V1.Contract.FieldInteger.Pattern*
+  name: Pattern
+  href: api/Picturepark.SDK.V1.Contract.FieldInteger.html#Picturepark_SDK_V1_Contract_FieldInteger_Pattern_
+  commentId: Overload:Picturepark.SDK.V1.Contract.FieldInteger.Pattern
+  fullName: Picturepark.SDK.V1.Contract.FieldInteger.Pattern
+  nameWithType: FieldInteger.Pattern
+- uid: Picturepark.SDK.V1.Contract.FieldInteger.ToJson
+  name: ToJson()
+  href: api/Picturepark.SDK.V1.Contract.FieldInteger.html#Picturepark_SDK_V1_Contract_FieldInteger_ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.FieldInteger.ToJson
+  fullName: Picturepark.SDK.V1.Contract.FieldInteger.ToJson()
+  nameWithType: FieldInteger.ToJson()
+- uid: Picturepark.SDK.V1.Contract.FieldInteger.ToJson*
+  name: ToJson
+  href: api/Picturepark.SDK.V1.Contract.FieldInteger.html#Picturepark_SDK_V1_Contract_FieldInteger_ToJson_
+  commentId: Overload:Picturepark.SDK.V1.Contract.FieldInteger.ToJson
+  fullName: Picturepark.SDK.V1.Contract.FieldInteger.ToJson
+  nameWithType: FieldInteger.ToJson
+- uid: Picturepark.SDK.V1.Contract.FieldIntegerArray
+  name: FieldIntegerArray
+  href: api/Picturepark.SDK.V1.Contract.FieldIntegerArray.html
+  commentId: T:Picturepark.SDK.V1.Contract.FieldIntegerArray
+  fullName: Picturepark.SDK.V1.Contract.FieldIntegerArray
+  nameWithType: FieldIntegerArray
+- uid: Picturepark.SDK.V1.Contract.FieldIntegerArray.FromJson(System.String)
+  name: FromJson(String)
+  href: api/Picturepark.SDK.V1.Contract.FieldIntegerArray.html#Picturepark_SDK_V1_Contract_FieldIntegerArray_FromJson_System_String_
+  commentId: M:Picturepark.SDK.V1.Contract.FieldIntegerArray.FromJson(System.String)
+  fullName: Picturepark.SDK.V1.Contract.FieldIntegerArray.FromJson(System.String)
+  nameWithType: FieldIntegerArray.FromJson(String)
+- uid: Picturepark.SDK.V1.Contract.FieldIntegerArray.FromJson*
+  name: FromJson
+  href: api/Picturepark.SDK.V1.Contract.FieldIntegerArray.html#Picturepark_SDK_V1_Contract_FieldIntegerArray_FromJson_
+  commentId: Overload:Picturepark.SDK.V1.Contract.FieldIntegerArray.FromJson
+  fullName: Picturepark.SDK.V1.Contract.FieldIntegerArray.FromJson
+  nameWithType: FieldIntegerArray.FromJson
+- uid: Picturepark.SDK.V1.Contract.FieldIntegerArray.MaximumItems
+  name: MaximumItems
+  href: api/Picturepark.SDK.V1.Contract.FieldIntegerArray.html#Picturepark_SDK_V1_Contract_FieldIntegerArray_MaximumItems
+  commentId: P:Picturepark.SDK.V1.Contract.FieldIntegerArray.MaximumItems
+  fullName: Picturepark.SDK.V1.Contract.FieldIntegerArray.MaximumItems
+  nameWithType: FieldIntegerArray.MaximumItems
+- uid: Picturepark.SDK.V1.Contract.FieldIntegerArray.MaximumItems*
+  name: MaximumItems
+  href: api/Picturepark.SDK.V1.Contract.FieldIntegerArray.html#Picturepark_SDK_V1_Contract_FieldIntegerArray_MaximumItems_
+  commentId: Overload:Picturepark.SDK.V1.Contract.FieldIntegerArray.MaximumItems
+  fullName: Picturepark.SDK.V1.Contract.FieldIntegerArray.MaximumItems
+  nameWithType: FieldIntegerArray.MaximumItems
+- uid: Picturepark.SDK.V1.Contract.FieldIntegerArray.MinimumItems
+  name: MinimumItems
+  href: api/Picturepark.SDK.V1.Contract.FieldIntegerArray.html#Picturepark_SDK_V1_Contract_FieldIntegerArray_MinimumItems
+  commentId: P:Picturepark.SDK.V1.Contract.FieldIntegerArray.MinimumItems
+  fullName: Picturepark.SDK.V1.Contract.FieldIntegerArray.MinimumItems
+  nameWithType: FieldIntegerArray.MinimumItems
+- uid: Picturepark.SDK.V1.Contract.FieldIntegerArray.MinimumItems*
+  name: MinimumItems
+  href: api/Picturepark.SDK.V1.Contract.FieldIntegerArray.html#Picturepark_SDK_V1_Contract_FieldIntegerArray_MinimumItems_
+  commentId: Overload:Picturepark.SDK.V1.Contract.FieldIntegerArray.MinimumItems
+  fullName: Picturepark.SDK.V1.Contract.FieldIntegerArray.MinimumItems
+  nameWithType: FieldIntegerArray.MinimumItems
+- uid: Picturepark.SDK.V1.Contract.FieldIntegerArray.ToJson
+  name: ToJson()
+  href: api/Picturepark.SDK.V1.Contract.FieldIntegerArray.html#Picturepark_SDK_V1_Contract_FieldIntegerArray_ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.FieldIntegerArray.ToJson
+  fullName: Picturepark.SDK.V1.Contract.FieldIntegerArray.ToJson()
+  nameWithType: FieldIntegerArray.ToJson()
+- uid: Picturepark.SDK.V1.Contract.FieldIntegerArray.ToJson*
+  name: ToJson
+  href: api/Picturepark.SDK.V1.Contract.FieldIntegerArray.html#Picturepark_SDK_V1_Contract_FieldIntegerArray_ToJson_
+  commentId: Overload:Picturepark.SDK.V1.Contract.FieldIntegerArray.ToJson
+  fullName: Picturepark.SDK.V1.Contract.FieldIntegerArray.ToJson
+  nameWithType: FieldIntegerArray.ToJson
+- uid: Picturepark.SDK.V1.Contract.FieldIntegerArray.UniqueItems
+  name: UniqueItems
+  href: api/Picturepark.SDK.V1.Contract.FieldIntegerArray.html#Picturepark_SDK_V1_Contract_FieldIntegerArray_UniqueItems
+  commentId: P:Picturepark.SDK.V1.Contract.FieldIntegerArray.UniqueItems
+  fullName: Picturepark.SDK.V1.Contract.FieldIntegerArray.UniqueItems
+  nameWithType: FieldIntegerArray.UniqueItems
+- uid: Picturepark.SDK.V1.Contract.FieldIntegerArray.UniqueItems*
+  name: UniqueItems
+  href: api/Picturepark.SDK.V1.Contract.FieldIntegerArray.html#Picturepark_SDK_V1_Contract_FieldIntegerArray_UniqueItems_
+  commentId: Overload:Picturepark.SDK.V1.Contract.FieldIntegerArray.UniqueItems
+  fullName: Picturepark.SDK.V1.Contract.FieldIntegerArray.UniqueItems
+  nameWithType: FieldIntegerArray.UniqueItems
 - uid: Picturepark.SDK.V1.Contract.FieldLong
   name: FieldLong
   href: api/Picturepark.SDK.V1.Contract.FieldLong.html
@@ -20641,6 +21043,18 @@ references:
   commentId: Overload:Picturepark.SDK.V1.Contract.FieldMultiTagbox.FromJson
   fullName: Picturepark.SDK.V1.Contract.FieldMultiTagbox.FromJson
   nameWithType: FieldMultiTagbox.FromJson
+- uid: Picturepark.SDK.V1.Contract.FieldMultiTagbox.ListItemCreateTemplate
+  name: ListItemCreateTemplate
+  href: api/Picturepark.SDK.V1.Contract.FieldMultiTagbox.html#Picturepark_SDK_V1_Contract_FieldMultiTagbox_ListItemCreateTemplate
+  commentId: P:Picturepark.SDK.V1.Contract.FieldMultiTagbox.ListItemCreateTemplate
+  fullName: Picturepark.SDK.V1.Contract.FieldMultiTagbox.ListItemCreateTemplate
+  nameWithType: FieldMultiTagbox.ListItemCreateTemplate
+- uid: Picturepark.SDK.V1.Contract.FieldMultiTagbox.ListItemCreateTemplate*
+  name: ListItemCreateTemplate
+  href: api/Picturepark.SDK.V1.Contract.FieldMultiTagbox.html#Picturepark_SDK_V1_Contract_FieldMultiTagbox_ListItemCreateTemplate_
+  commentId: Overload:Picturepark.SDK.V1.Contract.FieldMultiTagbox.ListItemCreateTemplate
+  fullName: Picturepark.SDK.V1.Contract.FieldMultiTagbox.ListItemCreateTemplate
+  nameWithType: FieldMultiTagbox.ListItemCreateTemplate
 - uid: Picturepark.SDK.V1.Contract.FieldMultiTagbox.MaximumItems
   name: MaximumItems
   href: api/Picturepark.SDK.V1.Contract.FieldMultiTagbox.html#Picturepark_SDK_V1_Contract_FieldMultiTagbox_MaximumItems
@@ -20863,6 +21277,18 @@ references:
   commentId: Overload:Picturepark.SDK.V1.Contract.FieldSingleTagbox.FromJson
   fullName: Picturepark.SDK.V1.Contract.FieldSingleTagbox.FromJson
   nameWithType: FieldSingleTagbox.FromJson
+- uid: Picturepark.SDK.V1.Contract.FieldSingleTagbox.ListItemCreateTemplate
+  name: ListItemCreateTemplate
+  href: api/Picturepark.SDK.V1.Contract.FieldSingleTagbox.html#Picturepark_SDK_V1_Contract_FieldSingleTagbox_ListItemCreateTemplate
+  commentId: P:Picturepark.SDK.V1.Contract.FieldSingleTagbox.ListItemCreateTemplate
+  fullName: Picturepark.SDK.V1.Contract.FieldSingleTagbox.ListItemCreateTemplate
+  nameWithType: FieldSingleTagbox.ListItemCreateTemplate
+- uid: Picturepark.SDK.V1.Contract.FieldSingleTagbox.ListItemCreateTemplate*
+  name: ListItemCreateTemplate
+  href: api/Picturepark.SDK.V1.Contract.FieldSingleTagbox.html#Picturepark_SDK_V1_Contract_FieldSingleTagbox_ListItemCreateTemplate_
+  commentId: Overload:Picturepark.SDK.V1.Contract.FieldSingleTagbox.ListItemCreateTemplate
+  fullName: Picturepark.SDK.V1.Contract.FieldSingleTagbox.ListItemCreateTemplate
+  nameWithType: FieldSingleTagbox.ListItemCreateTemplate
 - uid: Picturepark.SDK.V1.Contract.FieldSingleTagbox.MaxRecursion
   name: MaxRecursion
   href: api/Picturepark.SDK.V1.Contract.FieldSingleTagbox.html#Picturepark_SDK_V1_Contract_FieldSingleTagbox_MaxRecursion
@@ -30100,18 +30526,6 @@ references:
   commentId: Overload:Picturepark.SDK.V1.Contract.ObjectStoreException.FromJson
   fullName: Picturepark.SDK.V1.Contract.ObjectStoreException.FromJson
   nameWithType: ObjectStoreException.FromJson
-- uid: Picturepark.SDK.V1.Contract.ObjectStoreException.Message
-  name: Message
-  href: api/Picturepark.SDK.V1.Contract.ObjectStoreException.html#Picturepark_SDK_V1_Contract_ObjectStoreException_Message
-  commentId: P:Picturepark.SDK.V1.Contract.ObjectStoreException.Message
-  fullName: Picturepark.SDK.V1.Contract.ObjectStoreException.Message
-  nameWithType: ObjectStoreException.Message
-- uid: Picturepark.SDK.V1.Contract.ObjectStoreException.Message*
-  name: Message
-  href: api/Picturepark.SDK.V1.Contract.ObjectStoreException.html#Picturepark_SDK_V1_Contract_ObjectStoreException_Message_
-  commentId: Overload:Picturepark.SDK.V1.Contract.ObjectStoreException.Message
-  fullName: Picturepark.SDK.V1.Contract.ObjectStoreException.Message
-  nameWithType: ObjectStoreException.Message
 - uid: Picturepark.SDK.V1.Contract.ObjectStoreException.RowErrorMessages
   name: RowErrorMessages
   href: api/Picturepark.SDK.V1.Contract.ObjectStoreException.html#Picturepark_SDK_V1_Contract_ObjectStoreException_RowErrorMessages
@@ -30286,18 +30700,6 @@ references:
   commentId: Overload:Picturepark.SDK.V1.Contract.OperationTimeoutException.FromJson
   fullName: Picturepark.SDK.V1.Contract.OperationTimeoutException.FromJson
   nameWithType: OperationTimeoutException.FromJson
-- uid: Picturepark.SDK.V1.Contract.OperationTimeoutException.MessageId
-  name: MessageId
-  href: api/Picturepark.SDK.V1.Contract.OperationTimeoutException.html#Picturepark_SDK_V1_Contract_OperationTimeoutException_MessageId
-  commentId: P:Picturepark.SDK.V1.Contract.OperationTimeoutException.MessageId
-  fullName: Picturepark.SDK.V1.Contract.OperationTimeoutException.MessageId
-  nameWithType: OperationTimeoutException.MessageId
-- uid: Picturepark.SDK.V1.Contract.OperationTimeoutException.MessageId*
-  name: MessageId
-  href: api/Picturepark.SDK.V1.Contract.OperationTimeoutException.html#Picturepark_SDK_V1_Contract_OperationTimeoutException_MessageId_
-  commentId: Overload:Picturepark.SDK.V1.Contract.OperationTimeoutException.MessageId
-  fullName: Picturepark.SDK.V1.Contract.OperationTimeoutException.MessageId
-  nameWithType: OperationTimeoutException.MessageId
 - uid: Picturepark.SDK.V1.Contract.OperationTimeoutException.ToJson
   name: ToJson()
   href: api/Picturepark.SDK.V1.Contract.OperationTimeoutException.html#Picturepark_SDK_V1_Contract_OperationTimeoutException_ToJson
@@ -32452,18 +32854,6 @@ references:
   commentId: T:Picturepark.SDK.V1.Contract.PictureparkOperationCanceledException
   fullName: Picturepark.SDK.V1.Contract.PictureparkOperationCanceledException
   nameWithType: PictureparkOperationCanceledException
-- uid: Picturepark.SDK.V1.Contract.PictureparkOperationCanceledException.CancellationToken
-  name: CancellationToken
-  href: api/Picturepark.SDK.V1.Contract.PictureparkOperationCanceledException.html#Picturepark_SDK_V1_Contract_PictureparkOperationCanceledException_CancellationToken
-  commentId: P:Picturepark.SDK.V1.Contract.PictureparkOperationCanceledException.CancellationToken
-  fullName: Picturepark.SDK.V1.Contract.PictureparkOperationCanceledException.CancellationToken
-  nameWithType: PictureparkOperationCanceledException.CancellationToken
-- uid: Picturepark.SDK.V1.Contract.PictureparkOperationCanceledException.CancellationToken*
-  name: CancellationToken
-  href: api/Picturepark.SDK.V1.Contract.PictureparkOperationCanceledException.html#Picturepark_SDK_V1_Contract_PictureparkOperationCanceledException_CancellationToken_
-  commentId: Overload:Picturepark.SDK.V1.Contract.PictureparkOperationCanceledException.CancellationToken
-  fullName: Picturepark.SDK.V1.Contract.PictureparkOperationCanceledException.CancellationToken
-  nameWithType: PictureparkOperationCanceledException.CancellationToken
 - uid: Picturepark.SDK.V1.Contract.PictureparkOperationCanceledException.FromJson(System.String)
   name: FromJson(String)
   href: api/Picturepark.SDK.V1.Contract.PictureparkOperationCanceledException.html#Picturepark_SDK_V1_Contract_PictureparkOperationCanceledException_FromJson_System_String_
@@ -34591,6 +34981,18 @@ references:
   commentId: Overload:Picturepark.SDK.V1.Contract.SchemaDetailViewItem.SchemaPermissionSetIds
   fullName: Picturepark.SDK.V1.Contract.SchemaDetailViewItem.SchemaPermissionSetIds
   nameWithType: SchemaDetailViewItem.SchemaPermissionSetIds
+- uid: Picturepark.SDK.V1.Contract.SchemaDetailViewItem.SearchFieldCount
+  name: SearchFieldCount
+  href: api/Picturepark.SDK.V1.Contract.SchemaDetailViewItem.html#Picturepark_SDK_V1_Contract_SchemaDetailViewItem_SearchFieldCount
+  commentId: P:Picturepark.SDK.V1.Contract.SchemaDetailViewItem.SearchFieldCount
+  fullName: Picturepark.SDK.V1.Contract.SchemaDetailViewItem.SearchFieldCount
+  nameWithType: SchemaDetailViewItem.SearchFieldCount
+- uid: Picturepark.SDK.V1.Contract.SchemaDetailViewItem.SearchFieldCount*
+  name: SearchFieldCount
+  href: api/Picturepark.SDK.V1.Contract.SchemaDetailViewItem.html#Picturepark_SDK_V1_Contract_SchemaDetailViewItem_SearchFieldCount_
+  commentId: Overload:Picturepark.SDK.V1.Contract.SchemaDetailViewItem.SearchFieldCount
+  fullName: Picturepark.SDK.V1.Contract.SchemaDetailViewItem.SearchFieldCount
+  nameWithType: SchemaDetailViewItem.SearchFieldCount
 - uid: Picturepark.SDK.V1.Contract.SchemaDetailViewItem.Sort
   name: Sort
   href: api/Picturepark.SDK.V1.Contract.SchemaDetailViewItem.html#Picturepark_SDK_V1_Contract_SchemaDetailViewItem_Sort
@@ -35125,6 +35527,72 @@ references:
   commentId: Overload:Picturepark.SDK.V1.Contract.SchemaViewItem.Types
   fullName: Picturepark.SDK.V1.Contract.SchemaViewItem.Types
   nameWithType: SchemaViewItem.Types
+- uid: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem
+  name: SearchFieldCountViewItem
+  href: api/Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.html
+  commentId: T:Picturepark.SDK.V1.Contract.SearchFieldCountViewItem
+  fullName: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem
+  nameWithType: SearchFieldCountViewItem
+- uid: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.DataField
+  name: DataField
+  href: api/Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.html#Picturepark_SDK_V1_Contract_SearchFieldCountViewItem_DataField
+  commentId: P:Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.DataField
+  fullName: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.DataField
+  nameWithType: SearchFieldCountViewItem.DataField
+- uid: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.DataField*
+  name: DataField
+  href: api/Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.html#Picturepark_SDK_V1_Contract_SearchFieldCountViewItem_DataField_
+  commentId: Overload:Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.DataField
+  fullName: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.DataField
+  nameWithType: SearchFieldCountViewItem.DataField
+- uid: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.FromJson(System.String)
+  name: FromJson(String)
+  href: api/Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.html#Picturepark_SDK_V1_Contract_SearchFieldCountViewItem_FromJson_System_String_
+  commentId: M:Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.FromJson(System.String)
+  fullName: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.FromJson(System.String)
+  nameWithType: SearchFieldCountViewItem.FromJson(String)
+- uid: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.FromJson*
+  name: FromJson
+  href: api/Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.html#Picturepark_SDK_V1_Contract_SearchFieldCountViewItem_FromJson_
+  commentId: Overload:Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.FromJson
+  fullName: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.FromJson
+  nameWithType: SearchFieldCountViewItem.FromJson
+- uid: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.IndexedField
+  name: IndexedField
+  href: api/Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.html#Picturepark_SDK_V1_Contract_SearchFieldCountViewItem_IndexedField
+  commentId: P:Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.IndexedField
+  fullName: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.IndexedField
+  nameWithType: SearchFieldCountViewItem.IndexedField
+- uid: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.IndexedField*
+  name: IndexedField
+  href: api/Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.html#Picturepark_SDK_V1_Contract_SearchFieldCountViewItem_IndexedField_
+  commentId: Overload:Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.IndexedField
+  fullName: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.IndexedField
+  nameWithType: SearchFieldCountViewItem.IndexedField
+- uid: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.SimpleSearchField
+  name: SimpleSearchField
+  href: api/Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.html#Picturepark_SDK_V1_Contract_SearchFieldCountViewItem_SimpleSearchField
+  commentId: P:Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.SimpleSearchField
+  fullName: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.SimpleSearchField
+  nameWithType: SearchFieldCountViewItem.SimpleSearchField
+- uid: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.SimpleSearchField*
+  name: SimpleSearchField
+  href: api/Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.html#Picturepark_SDK_V1_Contract_SearchFieldCountViewItem_SimpleSearchField_
+  commentId: Overload:Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.SimpleSearchField
+  fullName: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.SimpleSearchField
+  nameWithType: SearchFieldCountViewItem.SimpleSearchField
+- uid: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.ToJson
+  name: ToJson()
+  href: api/Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.html#Picturepark_SDK_V1_Contract_SearchFieldCountViewItem_ToJson
+  commentId: M:Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.ToJson
+  fullName: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.ToJson()
+  nameWithType: SearchFieldCountViewItem.ToJson()
+- uid: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.ToJson*
+  name: ToJson
+  href: api/Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.html#Picturepark_SDK_V1_Contract_SearchFieldCountViewItem_ToJson_
+  commentId: Overload:Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.ToJson
+  fullName: Picturepark.SDK.V1.Contract.SearchFieldCountViewItem.ToJson
+  nameWithType: SearchFieldCountViewItem.ToJson
 - uid: Picturepark.SDK.V1.Contract.SendMessageRequest
   name: SendMessageRequest
   href: api/Picturepark.SDK.V1.Contract.SendMessageRequest.html
@@ -35839,6 +36307,18 @@ references:
   commentId: Overload:Picturepark.SDK.V1.Contract.ShareBaseViewItem.EntityType
   fullName: Picturepark.SDK.V1.Contract.ShareBaseViewItem.EntityType
   nameWithType: ShareBaseViewItem.EntityType
+- uid: Picturepark.SDK.V1.Contract.ShareBaseViewItem.ExpirationDate
+  name: ExpirationDate
+  href: api/Picturepark.SDK.V1.Contract.ShareBaseViewItem.html#Picturepark_SDK_V1_Contract_ShareBaseViewItem_ExpirationDate
+  commentId: P:Picturepark.SDK.V1.Contract.ShareBaseViewItem.ExpirationDate
+  fullName: Picturepark.SDK.V1.Contract.ShareBaseViewItem.ExpirationDate
+  nameWithType: ShareBaseViewItem.ExpirationDate
+- uid: Picturepark.SDK.V1.Contract.ShareBaseViewItem.ExpirationDate*
+  name: ExpirationDate
+  href: api/Picturepark.SDK.V1.Contract.ShareBaseViewItem.html#Picturepark_SDK_V1_Contract_ShareBaseViewItem_ExpirationDate_
+  commentId: Overload:Picturepark.SDK.V1.Contract.ShareBaseViewItem.ExpirationDate
+  fullName: Picturepark.SDK.V1.Contract.ShareBaseViewItem.ExpirationDate
+  nameWithType: ShareBaseViewItem.ExpirationDate
 - uid: Picturepark.SDK.V1.Contract.ShareBaseViewItem.FromJson(System.String)
   name: FromJson(String)
   href: api/Picturepark.SDK.V1.Contract.ShareBaseViewItem.html#Picturepark_SDK_V1_Contract_ShareBaseViewItem_FromJson_System_String_
@@ -35905,6 +36385,18 @@ references:
   commentId: Overload:Picturepark.SDK.V1.Contract.ShareBasicCreateRequest.FromJson
   fullName: Picturepark.SDK.V1.Contract.ShareBasicCreateRequest.FromJson
   nameWithType: ShareBasicCreateRequest.FromJson
+- uid: Picturepark.SDK.V1.Contract.ShareBasicCreateRequest.LanguageCode
+  name: LanguageCode
+  href: api/Picturepark.SDK.V1.Contract.ShareBasicCreateRequest.html#Picturepark_SDK_V1_Contract_ShareBasicCreateRequest_LanguageCode
+  commentId: P:Picturepark.SDK.V1.Contract.ShareBasicCreateRequest.LanguageCode
+  fullName: Picturepark.SDK.V1.Contract.ShareBasicCreateRequest.LanguageCode
+  nameWithType: ShareBasicCreateRequest.LanguageCode
+- uid: Picturepark.SDK.V1.Contract.ShareBasicCreateRequest.LanguageCode*
+  name: LanguageCode
+  href: api/Picturepark.SDK.V1.Contract.ShareBasicCreateRequest.html#Picturepark_SDK_V1_Contract_ShareBasicCreateRequest_LanguageCode_
+  commentId: Overload:Picturepark.SDK.V1.Contract.ShareBasicCreateRequest.LanguageCode
+  fullName: Picturepark.SDK.V1.Contract.ShareBasicCreateRequest.LanguageCode
+  nameWithType: ShareBasicCreateRequest.LanguageCode
 - uid: Picturepark.SDK.V1.Contract.ShareBasicCreateRequest.RecipientsEmail
   name: RecipientsEmail
   href: api/Picturepark.SDK.V1.Contract.ShareBasicCreateRequest.html#Picturepark_SDK_V1_Contract_ShareBasicCreateRequest_RecipientsEmail
@@ -45709,18 +46201,6 @@ references:
   commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Contract.ObjectStoreException.FromJson
   fullName: Picturepark.SDK.V1.ServiceProvider.Contract.ObjectStoreException.FromJson
   nameWithType: ObjectStoreException.FromJson
-- uid: Picturepark.SDK.V1.ServiceProvider.Contract.ObjectStoreException.Message
-  name: Message
-  href: api/Picturepark.SDK.V1.ServiceProvider.Contract.ObjectStoreException.html#Picturepark_SDK_V1_ServiceProvider_Contract_ObjectStoreException_Message
-  commentId: P:Picturepark.SDK.V1.ServiceProvider.Contract.ObjectStoreException.Message
-  fullName: Picturepark.SDK.V1.ServiceProvider.Contract.ObjectStoreException.Message
-  nameWithType: ObjectStoreException.Message
-- uid: Picturepark.SDK.V1.ServiceProvider.Contract.ObjectStoreException.Message*
-  name: Message
-  href: api/Picturepark.SDK.V1.ServiceProvider.Contract.ObjectStoreException.html#Picturepark_SDK_V1_ServiceProvider_Contract_ObjectStoreException_Message_
-  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Contract.ObjectStoreException.Message
-  fullName: Picturepark.SDK.V1.ServiceProvider.Contract.ObjectStoreException.Message
-  nameWithType: ObjectStoreException.Message
 - uid: Picturepark.SDK.V1.ServiceProvider.Contract.ObjectStoreException.RowErrorMessages
   name: RowErrorMessages
   href: api/Picturepark.SDK.V1.ServiceProvider.Contract.ObjectStoreException.html#Picturepark_SDK_V1_ServiceProvider_Contract_ObjectStoreException_RowErrorMessages
@@ -45817,18 +46297,6 @@ references:
   commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Contract.OperationTimeoutException.FromJson
   fullName: Picturepark.SDK.V1.ServiceProvider.Contract.OperationTimeoutException.FromJson
   nameWithType: OperationTimeoutException.FromJson
-- uid: Picturepark.SDK.V1.ServiceProvider.Contract.OperationTimeoutException.MessageId
-  name: MessageId
-  href: api/Picturepark.SDK.V1.ServiceProvider.Contract.OperationTimeoutException.html#Picturepark_SDK_V1_ServiceProvider_Contract_OperationTimeoutException_MessageId
-  commentId: P:Picturepark.SDK.V1.ServiceProvider.Contract.OperationTimeoutException.MessageId
-  fullName: Picturepark.SDK.V1.ServiceProvider.Contract.OperationTimeoutException.MessageId
-  nameWithType: OperationTimeoutException.MessageId
-- uid: Picturepark.SDK.V1.ServiceProvider.Contract.OperationTimeoutException.MessageId*
-  name: MessageId
-  href: api/Picturepark.SDK.V1.ServiceProvider.Contract.OperationTimeoutException.html#Picturepark_SDK_V1_ServiceProvider_Contract_OperationTimeoutException_MessageId_
-  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Contract.OperationTimeoutException.MessageId
-  fullName: Picturepark.SDK.V1.ServiceProvider.Contract.OperationTimeoutException.MessageId
-  nameWithType: OperationTimeoutException.MessageId
 - uid: Picturepark.SDK.V1.ServiceProvider.Contract.OperationTimeoutException.ToJson
   name: ToJson()
   href: api/Picturepark.SDK.V1.ServiceProvider.Contract.OperationTimeoutException.html#Picturepark_SDK_V1_ServiceProvider_Contract_OperationTimeoutException_ToJson
@@ -46267,18 +46735,6 @@ references:
   commentId: T:Picturepark.SDK.V1.ServiceProvider.Contract.PictureparkOperationCanceledException
   fullName: Picturepark.SDK.V1.ServiceProvider.Contract.PictureparkOperationCanceledException
   nameWithType: PictureparkOperationCanceledException
-- uid: Picturepark.SDK.V1.ServiceProvider.Contract.PictureparkOperationCanceledException.CancellationToken
-  name: CancellationToken
-  href: api/Picturepark.SDK.V1.ServiceProvider.Contract.PictureparkOperationCanceledException.html#Picturepark_SDK_V1_ServiceProvider_Contract_PictureparkOperationCanceledException_CancellationToken
-  commentId: P:Picturepark.SDK.V1.ServiceProvider.Contract.PictureparkOperationCanceledException.CancellationToken
-  fullName: Picturepark.SDK.V1.ServiceProvider.Contract.PictureparkOperationCanceledException.CancellationToken
-  nameWithType: PictureparkOperationCanceledException.CancellationToken
-- uid: Picturepark.SDK.V1.ServiceProvider.Contract.PictureparkOperationCanceledException.CancellationToken*
-  name: CancellationToken
-  href: api/Picturepark.SDK.V1.ServiceProvider.Contract.PictureparkOperationCanceledException.html#Picturepark_SDK_V1_ServiceProvider_Contract_PictureparkOperationCanceledException_CancellationToken_
-  commentId: Overload:Picturepark.SDK.V1.ServiceProvider.Contract.PictureparkOperationCanceledException.CancellationToken
-  fullName: Picturepark.SDK.V1.ServiceProvider.Contract.PictureparkOperationCanceledException.CancellationToken
-  nameWithType: PictureparkOperationCanceledException.CancellationToken
 - uid: Picturepark.SDK.V1.ServiceProvider.Contract.PictureparkOperationCanceledException.FromJson(System.String)
   name: FromJson(String)
   href: api/Picturepark.SDK.V1.ServiceProvider.Contract.PictureparkOperationCanceledException.html#Picturepark_SDK_V1_ServiceProvider_Contract_PictureparkOperationCanceledException_FromJson_System_String_
