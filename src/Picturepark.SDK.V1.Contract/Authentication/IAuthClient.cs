@@ -10,6 +10,8 @@ namespace Picturepark.SDK.V1.Contract.Authentication
 		/// <summary>Gets the server URL of the Picturepark authentication server.</summary>
 		string BaseUrl { get; }
 
+		string CustomerAlias { get; }
+
 		/// <summary>Gets the authentication headers.</summary>
 		/// <returns>The headers.</returns>
 		Task<IDictionary<string, string>> GetAuthenticationHeadersAsync();

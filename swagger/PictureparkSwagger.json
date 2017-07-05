@@ -1,4 +1,5 @@
 ﻿{
+  "x-generator": "NSwag v11.2.0.0 (NJsonSchema v9.2.4.0)",
   "swagger": "2.0",
   "info": {
     "title": "Web API Swagger specification",
@@ -12,6 +13,164 @@
     "application/json"
   ],
   "paths": {
+    "/V1/Contents/{ContentId}/Ownership/Transfer": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Update Single - OwnershipTransfer",
+        "description": "The update of content transfer is executed asynchronous. However, for the specified timeout completion of the update process is awaited.\nIf the update process is not completed by reaching the specified timeout, the update process continues, but null is returned.",
+        "operationId": "Content_UpdateTransferOwnership",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "ContentId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The content id."
+          },
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentOwnershipTransferRequest"
+            },
+            "x-nullable": true,
+            "description": "The content ownership transfer request update request."
+          },
+          {
+            "type": "integer",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time in milliseconds to wait for the business process completed state.",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ContentDoc",
+            "schema": {
+              "$ref": "#/definitions/ContentDoc"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
+    "/V1/Contents/Many": {
+      "get": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Get Many",
+        "description": "Getting many of content is executed asynchronous. However, for the specified timeout completion of the process is awaited.\nIf the process is not completed by reaching the specified timeout, the process continues, but null is returned.",
+        "operationId": "Content_GetMany",
+        "parameters": [
+          {
+            "type": "array",
+            "name": "contentIds",
+            "in": "query",
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "Comma-separated list of contentIds",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "type": "boolean",
+            "name": "resolve",
+            "in": "query",
+            "required": true,
+            "x-nullable": false,
+            "description": "Resolves the data of referenced list items into the contents's content."
+          },
+          {
+            "type": "integer",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time in milliseconds to wait for the business process completed state.",
+            "format": "int32"
+          },
+          {
+            "type": "array",
+            "name": "patterns",
+            "in": "query",
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ContentDetail"
+              }
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
+    "/V1/Contents/Many/Ownership/Transfer": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "operationId": "Content_TransferOwnershipMany",
+        "parameters": [
+          {
+            "name": "contentsOwnershipTransferRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentsOwnershipTransferRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessViewItem"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
     "/V1/Contents/Aggregate": {
       "post": {
         "tags": [
@@ -172,10 +331,10 @@
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
+            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
               "type": "string"
-            },
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches."
+            }
           }
         ],
         "responses": {
@@ -392,10 +551,10 @@
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
+            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
               "type": "string"
-            },
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches."
+            }
           }
         ],
         "responses": {
@@ -470,10 +629,10 @@
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
+            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
               "type": "string"
-            },
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches."
+            }
           }
         ],
         "responses": {
@@ -543,10 +702,10 @@
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
+            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
               "type": "string"
-            },
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches."
+            }
           }
         ],
         "responses": {
@@ -940,6 +1099,41 @@
         }
       }
     },
+    "/V1/BusinessProcesses/Search": {
+      "post": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "operationId": "BusinessProcess_Search",
+        "parameters": [
+          {
+            "name": "businessProcessSearchRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessSearchResult"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessSearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
     "/V1/BusinessProcesses/ProcessDefinitions/{ProcessDefinitionId}/Start": {
       "post": {
         "tags": [
@@ -988,35 +1182,6 @@
           "BusinessProcess"
         ],
         "operationId": "BusinessProcess_MarkAsEnded",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "ProcessId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "204": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/V1/BusinessProcesses/Processes/{ProcessId}/MarkAsStarted": {
-      "post": {
-        "tags": [
-          "BusinessProcess"
-        ],
-        "operationId": "BusinessProcess_MarkAsStarted",
         "parameters": [
           {
             "type": "string",
@@ -1120,6 +1285,41 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/BusinessProcessWaitResult"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
+    "/V1/History/Search": {
+      "post": {
+        "tags": [
+          "DocumentHistory"
+        ],
+        "operationId": "DocumentHistory_Search",
+        "parameters": [
+          {
+            "name": "documentHistorySearchRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DocumentHistorySearchRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/DocumentHistorySearchResult"
             },
             "x-nullable": true
           }
@@ -1364,10 +1564,10 @@
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
+            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
               "type": "string"
-            },
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches."
+            }
           }
         ],
         "responses": {
@@ -1442,10 +1642,10 @@
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
+            "description": "The list item id list.",
             "items": {
               "type": "string"
-            },
-            "description": "The list item id list."
+            }
           }
         ],
         "responses": {
@@ -1652,10 +1852,10 @@
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
+            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
               "type": "string"
-            },
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches."
+            }
           }
         ],
         "responses": {
@@ -1725,10 +1925,10 @@
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
+            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
               "type": "string"
-            },
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches."
+            }
           }
         ],
         "responses": {
@@ -1772,10 +1972,10 @@
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
+            "description": "Comma-separated list of business process states to wait for.",
             "items": {
               "type": "string"
-            },
-            "description": "Comma-separated list of business process states to wait for."
+            }
           },
           {
             "type": "integer",
@@ -1849,6 +2049,119 @@
           },
           "204": {
             "description": ""
+          }
+        }
+      }
+    },
+    "/V1/LiveStream/Search": {
+      "post": {
+        "tags": [
+          "LiveStream"
+        ],
+        "operationId": "LiveStream_Search",
+        "parameters": [
+          {
+            "name": "liveStreamSearchRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LiveStreamSearchRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ObjectSearchResult"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
+    "/V1/Schemas": {
+      "get": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Get Many",
+        "description": "Gets the schema detail informations by given schema ids.",
+        "operationId": "Schema_GetAll",
+        "parameters": [
+          {
+            "type": "array",
+            "name": "ids",
+            "in": "query",
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "Comma separated list of schema ids",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "200": {
+            "description": "SchemaDetailViewItem",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SchemaDetailViewItem"
+              }
+            },
+            "x-nullable": true
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Create Single",
+        "description": "The creation of a single schema is executed asynchronous. To keep track of the creation progress a business process is returned.",
+        "operationId": "Schema_Create",
+        "parameters": [
+          {
+            "name": "schema",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SchemaCreateRequest"
+            },
+            "x-nullable": true,
+            "description": "The schema create request."
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "200": {
+            "description": "BusinessProcessViewItem",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessViewItem"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -2011,44 +2324,6 @@
         }
       }
     },
-    "/V1/Schemas": {
-      "post": {
-        "tags": [
-          "Schema"
-        ],
-        "summary": "Create Single",
-        "description": "The creation of a single schema is executed asynchronous. To keep track of the creation progress a business process is returned.",
-        "operationId": "Schema_Create",
-        "parameters": [
-          {
-            "name": "schema",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/SchemaCreateRequest"
-            },
-            "x-nullable": true,
-            "description": "The schema create request."
-          }
-        ],
-        "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "200": {
-            "description": "BusinessProcessViewItem",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcessViewItem"
-            },
-            "x-nullable": true
-          }
-        }
-      }
-    },
     "/V1/Schemas/Search": {
       "post": {
         "tags": [
@@ -2083,6 +2358,45 @@
               "$ref": "#/definitions/BaseResultOfSchemaViewItem"
             },
             "x-nullable": true
+          }
+        }
+      }
+    },
+    "/V1/Permission/UserPermissions/{Permission}": {
+      "get": {
+        "tags": [
+          "Permission"
+        ],
+        "summary": "Get UserRight validation result",
+        "description": "Validates if the User has a given UserRight",
+        "operationId": "Permission_GetUserPermissions",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "Permission",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserRight"
+            },
+            "x-nullable": false,
+            "description": "The UserRight to validate"
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "200": {
+            "description": "Boolean - user has permission",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-nullable": false
           }
         }
       }
@@ -2235,6 +2549,24 @@
         }
       }
     },
+    "/V1/PublicAccess/Version": {
+      "get": {
+        "tags": [
+          "PublicAccess"
+        ],
+        "operationId": "PublicAccess_GetVersion",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/VersionInfoViewItem"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
     "/V1/PublicAccess/GetShare": {
       "get": {
         "tags": [
@@ -2268,6 +2600,151 @@
         }
       }
     },
+    "/V1/Shares/{Id}": {
+      "put": {
+        "tags": [
+          "Share"
+        ],
+        "summary": "Update Single - Share",
+        "description": "The update of share is executed asynchronous. However, for the specified timeout completion of the update process is awaited.\nIf the update process is not completed by reaching the specified timeout, the update process continues, but null is returned.",
+        "operationId": "Share_Update",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The share id."
+          },
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShareBaseUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The share update request."
+          },
+          {
+            "type": "boolean",
+            "name": "resolve",
+            "in": "query",
+            "required": true,
+            "x-nullable": false,
+            "description": "Resolves the data of referenced list items into the shares content."
+          },
+          {
+            "type": "integer",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time in milliseconds to wait for the business process completed state.",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "200": {
+            "description": "ShareViewItem",
+            "schema": {
+              "$ref": "#/definitions/BaseResultOfShareBaseViewItem"
+            },
+            "x-nullable": true
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Share"
+        ],
+        "summary": "Get share by id (basic or embed)",
+        "operationId": "Share_Get",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "Share Id (not token, use PublicAccess to get share by token)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Polymorph share",
+            "schema": {
+              "$ref": "#/definitions/ShareBaseDetailViewItem"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          }
+        }
+      }
+    },
+    "/V1/Shares/DeleteMany": {
+      "post": {
+        "tags": [
+          "Share"
+        ],
+        "summary": "Delete Many",
+        "description": "The delete of multiple shares executed asynchronous. To keep track of the deletion progress a business process is returned.",
+        "operationId": "Share_DeleteMany",
+        "parameters": [
+          {
+            "name": "shareIds",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-nullable": true,
+            "description": "A list of ListItemCreateRequests."
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "200": {
+            "description": "BusinessProcessViewItem",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessViewItem"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
     "/V1/Shares/Aggregate": {
       "post": {
         "tags": [
@@ -2292,44 +2769,6 @@
             "description": "AggregationResult",
             "schema": {
               "$ref": "#/definitions/ObjectAggregationResult"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          }
-        }
-      }
-    },
-    "/V1/Shares/{Id}": {
-      "get": {
-        "tags": [
-          "Share"
-        ],
-        "summary": "Get share by id (basic or embed)",
-        "operationId": "Share_Get",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "Id",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "Share Id (not token, use PublicAccess to get share by token)"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Polymorph share",
-            "schema": {
-              "$ref": "#/definitions/ShareBaseDetailViewItem"
             },
             "x-nullable": true
           },
@@ -2443,6 +2882,65 @@
           },
           "401": {
             "description": "Not authorized"
+          }
+        }
+      }
+    },
+    "/V1/Transfers/Files/Delete": {
+      "post": {
+        "tags": [
+          "Transfer"
+        ],
+        "operationId": "Transfer_DeleteFiles",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FileTransferDeleteRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "200": {
+            "description": ""
+          },
+          "204": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/V1/Transfers/Files/Blacklist": {
+      "get": {
+        "tags": [
+          "Transfer"
+        ],
+        "operationId": "Transfer_GetBlacklist",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Blacklist"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -2838,6 +3336,118 @@
         }
       }
     },
+    "/V1/Users/Search": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_Search",
+        "parameters": [
+          {
+            "name": "searchRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserSearchRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserSearchResult"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
+    "/V1/Users/GetUser/{UserId}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_GetUser",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserDetailViewItem"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
+    "/V1/Users/GetProfile": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_GetProfile",
+        "parameters": [],
+        "responses": {
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserProfileViewItem"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
+    "/V1/Users/Owner/{TokenId}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_GetByOwnerToken",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "TokenId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserDetailViewItem"
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
     "/V1/Users/Channels": {
       "get": {
         "tags": [
@@ -2860,6 +3470,44 @@
               "items": {
                 "$ref": "#/definitions/ChannelViewItem"
               }
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
+    "/V1/Outputs": {
+      "post": {
+        "tags": [
+          "Output"
+        ],
+        "summary": "Get outputs by contentIds",
+        "description": "Gets output documents related for given contentids",
+        "operationId": "Output_GetByContentIds",
+        "parameters": [
+          {
+            "name": "contentsByIdsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentsByIdsRequest"
+            },
+            "x-nullable": true,
+            "description": "Contains the list of contentIds for which the outputs are requested"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Result containing a list of OutputDetailViewItem's",
+            "schema": {
+              "$ref": "#/definitions/BaseResultOfOutputDetailViewItem"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -2911,169 +3559,201 @@
     }
   },
   "definitions": {
-    "ContentAggregationRequest": {
+    "ContentOwnershipTransferRequest": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "LifeCycleFilter"
-      ],
       "properties": {
-        "SearchString": {
+        "ContentId": {
           "type": "string",
-          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
+          "description": "The content id."
         },
-        "Filter": {
-          "description": "An optional search filter. Limits the content document result set.",
-          "$ref": "#/definitions/FilterBase"
-        },
-        "AggregationFilters": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationFilter"
-          },
-          "description": "Special filters used to filter down on a specific aggregated value."
-        },
-        "Aggregators": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregatorBase"
-          },
-          "description": "Defines the aggregation resultset."
-        },
-        "ChannelId": {
+        "TransferUserId": {
           "type": "string",
-          "description": "Limits the simple search fields to the fields available in the specified channel."
-        },
-        "DisplayLanguage": {
-          "type": "string",
-          "description": "Defines the return language of translation values. Defaults to x-default."
-        },
-        "SearchLanguages": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Only searches the specified language values. Defaults to all metadata languages in configured within the customer's language configuration."
-        },
-        "CollectionId": {
-          "type": "string",
-          "description": "The collection id."
-        },
-        "LifeCycleFilter": {
-          "description": "Limits the content document result set to that life cycle state. Defaults to ActiveOnly.",
-          "$ref": "#/definitions/LifeCycleFilter"
+          "description": "The id of the user to whom the content document has to be transfered to."
         }
       }
     },
-    "FilterBase": {
+    "ContentDoc": {
       "type": "object",
-      "discriminator": "Kind",
       "additionalProperties": false,
       "required": [
-        "Kind"
+        "EntityType",
+        "ContentType",
+        "LifeCycle"
       ],
       "properties": {
-        "Kind": {
+        "FileTransferId": {
           "type": "string"
-        }
-      },
-      "description": "The FilterBase is the base class for all filters."
-    },
-    "AndFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Filters": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/FilterBase"
-          },
-          "description": "Accepts all filters."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ],
-      "description": "The AndFilter> is a compound filter and returns documents that match all of the specified filters."
-    },
-    "OrFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Filters": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/FilterBase"
-          },
-          "description": "Accepts all filters."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ],
-      "description": "The OrFilter is a compound filter and returns documents that match any of the specified filters."
-    },
-    "NotFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Filter": {
-          "description": "Limits the result set.",
-          "$ref": "#/definitions/FilterBase"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ],
-      "description": "The NotFilter is a compound filter and returns documents that do not match the specified filter."
-    },
-    "DateRangeFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
         },
-        "Range": {
-          "description": "The date range. Supported pattern: now(+-)(int)(YMDHm).",
-          "$ref": "#/definitions/DateRange"
+        "ContentPermissionSetIds": {
+          "type": "array",
+          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "OwnerTokenId": {
+          "type": "string"
+        },
+        "EntityType": {
+          "description": "The entity type of a content document is content.",
+          "$ref": "#/definitions/EntityType"
+        },
+        "ContentType": {
+          "$ref": "#/definitions/ContentType"
+        },
+        "LifeCycle": {
+          "$ref": "#/definitions/LifeCycle"
         }
       },
       "allOf": [
         {
-          "$ref": "#/definitions/FilterBase"
+          "$ref": "#/definitions/MetadataBaseDoc"
         }
-      ],
-      "description": "The DateRangeFilter returns documents with fields that have date values within a certain range."
+      ]
     },
-    "DateRange": {
+    "EntityType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Content",
+        "BasicShare",
+        "EmbedShare",
+        "Metadata",
+        "FileTransfer"
+      ],
+      "enum": [
+        "Content",
+        "BasicShare",
+        "EmbedShare",
+        "Metadata",
+        "FileTransfer"
+      ]
+    },
+    "ContentType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Unknown",
+        "Bitmap",
+        "VectorGraphic",
+        "RawImage",
+        "InterchangeDocument",
+        "WordProcessingDocument",
+        "TextDocument",
+        "DesktopPublishingDocument",
+        "Presentation",
+        "Spreadsheet",
+        "Archive",
+        "Audio",
+        "Video",
+        "Font",
+        "Multimedia",
+        "Application",
+        "SourceCode",
+        "Database",
+        "Cad",
+        "Model3d"
+      ],
+      "enum": [
+        "Unknown",
+        "Bitmap",
+        "VectorGraphic",
+        "RawImage",
+        "InterchangeDocument",
+        "WordProcessingDocument",
+        "TextDocument",
+        "DesktopPublishingDocument",
+        "Presentation",
+        "Spreadsheet",
+        "Archive",
+        "Audio",
+        "Video",
+        "Font",
+        "Multimedia",
+        "Application",
+        "SourceCode",
+        "Database",
+        "Cad",
+        "Model3d"
+      ]
+    },
+    "LifeCycle": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "Active",
+        "Inactive",
+        "Deleted"
+      ],
+      "enum": [
+        "Draft",
+        "Active",
+        "Inactive",
+        "Deleted"
+      ]
+    },
+    "MetadataBaseDoc": {
+      "type": "object",
+      "description": "The MetadataBaseDoc is the base class for ContentDoc and ListItemDoc.",
+      "additionalProperties": false,
+      "properties": {
+        "ContentSchemaId": {
+          "type": "string",
+          "description": "The id of the schema with schema type content/list."
+        },
+        "LayerSchemaIds": {
+          "type": "array",
+          "description": "An optional id list of schemas with type layer.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Data": {
+          "description": "Contains metadata values of the content schema and all applied layer schemas.",
+          "$ref": "#/definitions/DataDictionary"
+        },
+        "DisplayValues": {
+          "type": "array",
+          "description": "Contains language specific display values, rendered according to the list/content schema's display pattern configuration.",
+          "items": {
+            "$ref": "#/definitions/DisplayValue"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseDoc"
+        }
+      ]
+    },
+    "DataDictionary": {
+      "type": "object",
+      "description": "A custom implementation of Dictionary{string, object}",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": {}
+        }
+      ]
+    },
+    "DisplayValue": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Names": {
-          "description": "Tranlsated range names.",
+        "Id": {
+          "type": "string"
+        },
+        "Values": {
           "$ref": "#/definitions/TranslatedStringDictionary"
-        },
-        "From": {
-          "type": "string",
-          "description": "The from value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
-        },
-        "To": {
-          "type": "string",
-          "description": "The to value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
         }
-      },
-      "description": "The date range class used in aggregators and filters."
+      }
     },
     "TranslatedStringDictionary": {
       "type": "object",
+      "description": "A custom dictionary type to distinguish language specific class properties.",
       "additionalProperties": false,
       "allOf": [
         {
@@ -3082,606 +3762,59 @@
             "type": "string"
           }
         }
-      ],
-      "description": "A custom dictionary type to distinguish language specific class properties."
+      ]
     },
-    "ExistsFilter": {
+    "BaseDoc": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ],
-      "description": "The ExistsFilter returns documents that have at least one non-null value in the original field."
-    },
-    "GeoBoundingBoxFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
+        "Id": {
+          "type": "string"
         },
-        "TopLeft": {
-          "description": "The top left longitude/latitude configuration.",
-          "$ref": "#/definitions/GeoLocation"
-        },
-        "BottomRight": {
-          "description": "The bottom right longitude/latitude configuration.",
-          "$ref": "#/definitions/GeoLocation"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ],
-      "description": "The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box."
-    },
-    "GeoLocation": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "Lat",
-        "Lon"
-      ],
-      "properties": {
-        "Lat": {
-          "type": "number",
-          "format": "double"
-        },
-        "Lon": {
-          "type": "number",
-          "format": "double"
+        "Audit": {
+          "$ref": "#/definitions/StoreAudit"
         }
       }
     },
-    "GeoDistanceFilter": {
+    "StoreAudit": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Distance"
+        "CreationDate",
+        "ModificationDate"
       ],
       "properties": {
-        "Field": {
+        "CreationDate": {
           "type": "string",
-          "description": "The elastic search index field to execute the filter on."
+          "format": "date-time"
         },
-        "Location": {
-          "description": "The longitude/latitude configuration for the point of origin.",
-          "$ref": "#/definitions/GeoLocation"
+        "CreatedByUser": {
+          "$ref": "#/definitions/UserItem"
         },
-        "Distance": {
-          "type": "number",
-          "description": "The range distance in meters.",
-          "format": "double"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ],
-      "description": "The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point."
-    },
-    "GeoDistanceRangeFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Field": {
+        "ModificationDate": {
           "type": "string",
-          "description": "The elastic search index field to execute the filter on."
+          "format": "date-time"
         },
-        "Location": {
-          "description": "The longitude/latitude configuration for the point of origin.",
-          "$ref": "#/definitions/GeoLocation"
-        },
-        "Range": {
-          "description": "The numeric range.",
-          "$ref": "#/definitions/NumericRange"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ],
-      "description": "The GeoDistanceRangeFilter returns documents that exists within a range from a specific point."
-    },
-    "NumericRange": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Names": {
-          "description": "Tranlsated range names.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
-        },
-        "From": {
-          "type": "number",
-          "description": "The from value.",
-          "format": "double"
-        },
-        "To": {
-          "type": "number",
-          "description": "The to value.",
-          "format": "double"
+        "ModifiedByUser": {
+          "$ref": "#/definitions/UserItem"
         }
       }
     },
-    "NestedFilter": {
+    "UserItem": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Path": {
-          "type": "string",
-          "description": "The path pointing to the nested object."
-        },
-        "Filter": {
-          "description": "Limits the result set.",
-          "$ref": "#/definitions/FilterBase"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ],
-      "description": "The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter."
-    },
-    "NumericRangeFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        },
-        "Range": {
-          "description": "The numeric range with from and to properties.",
-          "$ref": "#/definitions/NumericRange"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ],
-      "description": "The NumericRangeFilter returns documents with fields that have numeric values within a certain range."
-    },
-    "PrefixFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        },
-        "Prefix": {
-          "type": "string",
-          "description": "The prefix term to filter on."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ],
-      "description": "The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed)."
-    },
-    "TermFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        },
-        "Term": {
-          "type": "string",
-          "description": "The term to filter on."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ],
-      "description": "The TermFilter returns documents that contain the exact term specified in the inverted index."
-    },
-    "TermsFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        },
-        "Terms": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "A list of OR combined terms."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ],
-      "description": "The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed)."
-    },
-    "AggregationFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "AggregationName": {
-          "type": "string",
-          "description": "The name of the aggregation this filter is connected to."
-        },
-        "Filter": {
-          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.",
-          "$ref": "#/definitions/FilterBase"
-        },
-        "TemporaryAggregatorRequestId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ],
-      "description": "An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition."
-    },
-    "ChildFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "ChildType": {
-          "type": "string",
-          "description": "The elastic search index type to filter as a child."
-        },
-        "Filter": {
-          "description": "The filter to apply on the child entity. It accepts all filters.",
-          "$ref": "#/definitions/FilterBase"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ],
-      "description": "The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document."
-    },
-    "ParentFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "ParentType": {
-          "type": "string",
-          "description": "The elastic search index type to filter as a parent."
-        },
-        "Filter": {
-          "description": "The filter to apply on the child entity. It accepts all filters.",
-          "$ref": "#/definitions/FilterBase"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ],
-      "description": "The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document."
-    },
-    "AggregatorBase": {
-      "type": "object",
-      "discriminator": "Kind",
-      "additionalProperties": false,
-      "required": [
-        "Kind"
-      ],
-      "properties": {
-        "Name": {
-          "type": "string",
-          "description": "The slug name of the aggregation. Must be unique per aggregation request."
-        },
-        "Names": {
-          "description": "The translated names of the aggregation.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
-        },
-        "Aggregators": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregatorBase"
-          },
-          "description": "An optional aggregator list for nested aggregations."
-        },
-        "Kind": {
-          "type": "string"
-        }
-      },
-      "description": "The AggregatorBase is the base class for all aggregators."
-    },
-    "DateRangeAggregator": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the aggregation on."
-        },
-        "Ranges": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/DateRange"
-          },
-          "description": "A list of date ranges. Supported pattern: now(+-)(int)(YMDHm)."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/AggregatorBase"
-        }
-      ],
-      "description": "The DateRangeAggregator is a multi-bucket range aggregation dedicated for date values. Each bucket represents a range."
-    },
-    "FilterAggregator": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Filter": {
-          "description": "Limits the result set.",
-          "$ref": "#/definitions/FilterBase"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/AggregatorBase"
-        }
-      ],
-      "description": "The FilterAggregator is a single bucket aggregation of documents that match a specified filter."
-    },
-    "GeoDistanceAggregator": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the aggregation on."
-        },
-        "Location": {
-          "description": "The latitude/logitude configuration for the point of origin.",
-          "$ref": "#/definitions/GeoLocation"
-        },
-        "Ranges": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/NumericRange"
-          },
-          "description": "A list of numeric ranges in meter."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/AggregatorBase"
-        }
-      ],
-      "description": "The GeoDistanceAggregator is a multi-bucket range aggregation that works on geo_point fields. Each bucket represents a range."
-    },
-    "NestedAggregator": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Path": {
-          "type": "string",
-          "description": "The path pointing to the nested object."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/AggregatorBase"
-        }
-      ],
-      "description": "The NestedAggregator is a special single bucket aggregation that enables aggregating nested documents."
-    },
-    "NumericRangeAggregator": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the aggregation on."
-        },
-        "Ranges": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/NumericRange"
-          },
-          "description": "A list of numeric ranges."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/AggregatorBase"
-        }
-      ],
-      "description": "The NumericRangeAggregator is a multi-bucket range aggregation. Each bucket represents a range."
-    },
-    "TermsAggregator": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Field": {
-          "type": "string",
-          "description": "The elastic search index field (not analyzed) to execute the aggregation on."
-        },
-        "Size": {
-          "type": "integer",
-          "description": "The size parameter can be set to define how many term buckets should be returned out of the overall terms list.",
-          "format": "int32"
-        },
-        "Includes": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Includes values for which buckets will be created. Supports regular expression strings or arrays of exact values."
-        },
-        "Excludes": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Excludes values for which buckets will be created. Supports regular expression strings or arrays of exact values."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/AggregatorBase"
-        }
-      ],
-      "description": "The TermsAggregator is a multi-bucket value aggregation where buckets are dynamically built - one per unique value."
-    },
-    "TermsRelationAggregator": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "DocumentType"
-      ],
-      "properties": {
-        "DocumentType": {
-          "description": "When aggregating on relations ids the DocumentType is needed to resolve the target item translation.",
-          "$ref": "#/definitions/TermsRelationAggregatorDocumentType"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/TermsAggregator"
-        }
-      ],
-      "description": "The TermsRelationAggregator is derived from TermsAggregator and used for aggregations on relation item ids."
-    },
-    "TermsRelationAggregatorDocumentType": {
-      "type": "string",
-      "x-enumNames": [
-        "Content",
-        "ListItem",
-        "Schema",
-        "User"
-      ],
-      "enum": [
-        "Content",
-        "ListItem",
-        "Schema",
-        "User"
-      ],
-      "description": ""
-    },
-    "TermsEnumAggregator": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "EnumType": {
-          "type": "string",
-          "description": "When aggregating on enum fields EnumType is needed to resolve the enum translation."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/TermsAggregator"
-        }
-      ],
-      "description": "The TermsRelationAggregator is derived from the TermsAggregator and used for aggregations on indexed enum values."
-    },
-    "LifeCycleFilter": {
-      "type": "string",
-      "x-enumNames": [
-        "ActiveOnly",
-        "All",
-        "InactiveOnly"
-      ],
-      "enum": [
-        "ActiveOnly",
-        "All",
-        "InactiveOnly"
-      ],
-      "description": ""
-    },
-    "ObjectAggregationResult": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "ElapsedMilliseconds"
-      ],
-      "properties": {
-        "ElapsedMilliseconds": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "AggregationResults": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationResult"
-          }
-        }
-      }
-    },
-    "AggregationResult": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Name": {
+        "Id": {
           "type": "string"
         },
-        "SumOtherDocCount": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "TemporaryRequestId": {
+        "FirstName": {
           "type": "string"
         },
-        "AggregationResultItems": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationResultItem"
-          }
-        }
-      }
-    },
-    "AggregationResultItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "Count",
-        "Active"
-      ],
-      "properties": {
-        "Name": {
+        "LastName": {
           "type": "string"
         },
-        "Count": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "Filter": {
-          "$ref": "#/definitions/AggregationFilter"
-        },
-        "Active": {
-          "type": "boolean"
-        },
-        "AggregationResults": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationResult"
-          }
+        "EmailAddress": {
+          "type": "string"
         }
       }
     },
@@ -3720,6 +3853,7 @@
     },
     "TraceLevel": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "Critical",
         "Error",
@@ -3733,8 +3867,7 @@
         "Warning",
         "Information",
         "Verbose"
-      ],
-      "description": ""
+      ]
     },
     "Exception": {
       "type": "object",
@@ -4180,9 +4313,6 @@
         },
         "ErrorMessage": {
           "type": "string"
-        },
-        "Message": {
-          "type": "string"
         }
       },
       "allOf": [
@@ -4211,11 +4341,6 @@
     "PictureparkOperationCanceledException": {
       "type": "object",
       "additionalProperties": false,
-      "properties": {
-        "CancellationToken": {
-          "type": "string"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
@@ -4225,11 +4350,6 @@
     "OperationTimeoutException": {
       "type": "object",
       "additionalProperties": false,
-      "properties": {
-        "MessageId": {
-          "type": "string"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
@@ -4435,94 +4555,6 @@
         }
       ]
     },
-    "ContentBatchDownloadRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Contents": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Content"
-          }
-        }
-      }
-    },
-    "Content": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "ContentId": {
-          "type": "string"
-        },
-        "OutputFormatId": {
-          "type": "string"
-        }
-      }
-    },
-    "ContentBatchDownloadItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "DownloadToken": {
-          "type": "string"
-        },
-        "DownloadUrl": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/DownloadItem"
-        }
-      ]
-    },
-    "DownloadItem": {
-      "type": "object",
-      "additionalProperties": false
-    },
-    "CreateContentRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "ContentSchemaId": {
-          "type": "string",
-          "description": "The id of a schema with schema type content."
-        },
-        "LayerSchemaIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "An optional id list of schemas with schema type layer."
-        },
-        "Content": {
-          "description": "The content data of the content document."
-        },
-        "Metadata": {
-          "description": "The layer metadata of the content document.",
-          "$ref": "#/definitions/DataDictionary"
-        },
-        "ContentPermissionSetIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "An optional id list of content permission sets. "
-        }
-      },
-      "description": "A request structure for creating a content document."
-    },
-    "DataDictionary": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "type": "object",
-          "additionalProperties": {}
-        }
-      ],
-      "description": "A custom implementation of Dictionary{string, object}"
-    },
     "ContentDetail": {
       "type": "object",
       "additionalProperties": false,
@@ -4542,10 +4574,10 @@
         },
         "ContentPermissionSetIds": {
           "type": "array",
+          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership."
+          }
         },
         "ContentSchemaId": {
           "type": "string",
@@ -4574,10 +4606,10 @@
         },
         "LayerSchemaIds": {
           "type": "array",
+          "description": "An optional id list of schemas with schema type layer.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of schemas with schema type layer."
+          }
         },
         "Metadata": {
           "description": "The layer metadata of the content document.",
@@ -4585,10 +4617,10 @@
         },
         "Outputs": {
           "type": "array",
+          "description": "A list of rendering ouputs for contents with an underlying digital file.",
           "items": {
             "$ref": "#/definitions/OutputViewItem"
-          },
-          "description": "A list of rendering ouputs for contents with an underlying digital file."
+          }
         },
         "OwnerTokenId": {
           "type": "string",
@@ -4599,96 +4631,6 @@
           "description": "The trashed flag."
         }
       }
-    },
-    "StoreAudit": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "CreationDate",
-        "ModificationDate"
-      ],
-      "properties": {
-        "CreationDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "CreatedByUser": {
-          "$ref": "#/definitions/UserItem"
-        },
-        "ModificationDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "ModifiedByUser": {
-          "$ref": "#/definitions/UserItem"
-        }
-      }
-    },
-    "UserItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Id": {
-          "type": "string"
-        },
-        "FirstName": {
-          "type": "string"
-        },
-        "LastName": {
-          "type": "string"
-        },
-        "EmailAddress": {
-          "type": "string"
-        }
-      }
-    },
-    "ContentType": {
-      "type": "string",
-      "x-enumNames": [
-        "Unknown",
-        "Bitmap",
-        "VectorGraphic",
-        "RawImage",
-        "InterchangeDocument",
-        "WordProcessingDocument",
-        "TextDocument",
-        "DesktopPublishingDocument",
-        "Presentation",
-        "Spreadsheet",
-        "Archive",
-        "Audio",
-        "Video",
-        "Font",
-        "Multimedia",
-        "Application",
-        "SourceCode",
-        "Database",
-        "Cad",
-        "Model3d"
-      ],
-      "enum": [
-        "Unknown",
-        "Bitmap",
-        "VectorGraphic",
-        "RawImage",
-        "InterchangeDocument",
-        "WordProcessingDocument",
-        "TextDocument",
-        "DesktopPublishingDocument",
-        "Presentation",
-        "Spreadsheet",
-        "Archive",
-        "Audio",
-        "Video",
-        "Font",
-        "Multimedia",
-        "Application",
-        "SourceCode",
-        "Database",
-        "Cad",
-        "Model3d"
-      ],
-      "description": ""
     },
     "DisplayValueViewItem": {
       "type": "object",
@@ -4701,24 +4643,6 @@
           }
         }
       ]
-    },
-    "EntityType": {
-      "type": "string",
-      "x-enumNames": [
-        "Content",
-        "BasicShare",
-        "EmbedShare",
-        "Metadata",
-        "FileTransfer"
-      ],
-      "enum": [
-        "Content",
-        "BasicShare",
-        "EmbedShare",
-        "Metadata",
-        "FileTransfer"
-      ],
-      "description": ""
     },
     "OutputViewItem": {
       "type": "object",
@@ -4920,227 +4844,20 @@
         }
       ]
     },
-    "ThumbnailSize": {
-      "type": "string",
-      "x-enumNames": [
-        "Small",
-        "Medium",
-        "Large"
-      ],
-      "enum": [
-        "Small",
-        "Medium",
-        "Large"
-      ],
-      "description": ""
-    },
-    "UpdateContentPermissionsRequest": {
+    "ContentsOwnershipTransferRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "ContentId": {
-          "type": "string",
-          "description": "The content id."
-        },
-        "ContentPermissionSetIds": {
+        "ContentIds": {
           "type": "array",
+          "description": "The content ids.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership."
-        }
-      }
-    },
-    "ContentSearchRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "Start",
-        "Limit",
-        "LifeCycleFilter"
-      ],
-      "properties": {
-        "ChannelIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Limits the simple search fields to the fields available in the specified channel."
-        },
-        "DisplayLanguage": {
-          "type": "string",
-          "description": "Defines the return language of translation values. Defaults to x-default."
-        },
-        "DisplayPatternIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Limits the display values included in the search response. Defaults to all display values."
-        },
-        "SearchLanguages": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Only searches the specified language values. Defaults to all metadata languages of the language configuration."
-        },
-        "CollectionId": {
-          "type": "string",
-          "description": "The collection id."
-        },
-        "SearchString": {
-          "type": "string",
-          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
-        },
-        "Sort": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
-          },
-          "description": "Sorts the search results. Sorting on a not indexed field will throw an exception."
-        },
-        "Start": {
-          "type": "integer",
-          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-          "format": "int32"
-        },
-        "Limit": {
-          "type": "integer",
-          "description": "Limits the document count of the result set. Defaults to 30.",
-          "format": "int32"
-        },
-        "Filter": {
-          "description": "An optional search filter. Limits the content document result set.",
-          "$ref": "#/definitions/FilterBase"
-        },
-        "LifeCycleFilter": {
-          "description": "Limits the content document result set to that life cycle state. Defaults to ActiveOnly.",
-          "$ref": "#/definitions/LifeCycleFilter"
-        }
-      }
-    },
-    "SortInfo": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "Direction"
-      ],
-      "properties": {
-        "Field": {
-          "type": "string",
-          "description": "The elastic search index field to sort on."
-        },
-        "Direction": {
-          "description": "The sort direction (Asc/Desc).",
-          "$ref": "#/definitions/SortDirection"
-        }
-      }
-    },
-    "SortDirection": {
-      "type": "string",
-      "x-enumNames": [
-        "Asc",
-        "Desc"
-      ],
-      "enum": [
-        "Asc",
-        "Desc"
-      ],
-      "description": ""
-    },
-    "ContentSearchResult": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "ElapsedMilliseconds"
-      ],
-      "properties": {
-        "AggregationResults": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationResult"
           }
         },
-        "ElapsedMilliseconds": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/BaseResultOfContentViewItem"
-        }
-      ]
-    },
-    "BaseResultOfContentViewItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "TotalResults"
-      ],
-      "properties": {
-        "TotalResults": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "Results": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ContentViewItem"
-          }
-        },
-        "PageToken": {
-          "type": "string"
-        }
-      }
-    },
-    "ContentViewItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "EntityType"
-      ],
-      "properties": {
-        "Audit": {
-          "$ref": "#/definitions/StoreAudit"
-        },
-        "EntityType": {
-          "description": "The entity type of a content document is content.",
-          "$ref": "#/definitions/EntityType"
-        },
-        "ContentSchemaId": {
+        "TransferUserId": {
           "type": "string",
-          "description": "The id of the schema with schema type content."
-        },
-        "LayerSchemaIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "An optional id list of schemas with schema type layer."
-        },
-        "DisplayValues": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "Contains display values of the specified language, rendered according to the content schema's display pattern configuration."
-        },
-        "Id": {
-          "type": "string"
-        }
-      }
-    },
-    "ContentFileUpdateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "ContentId": {
-          "type": "string"
-        },
-        "FileTransferId": {
-          "type": "string"
+          "description": "The id of user to whom the content documents have to be transfered to."
         }
       }
     },
@@ -5201,6 +4918,7 @@
     },
     "BusinessProcessScope": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "System",
         "User"
@@ -5208,22 +4926,23 @@
       "enum": [
         "System",
         "User"
-      ],
-      "description": ""
+      ]
     },
     "BusinessProcessLifeCylce": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "Draft",
         "Started",
-        "Ended"
+        "Ended",
+        "Cancelled"
       ],
       "enum": [
         "Draft",
         "Started",
-        "Ended"
-      ],
-      "description": ""
+        "Ended",
+        "Cancelled"
+      ]
     },
     "BusinessProcessStateItem": {
       "type": "object",
@@ -5311,6 +5030,1068 @@
         }
       }
     },
+    "ContentAggregationRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "LifeCycleFilter"
+      ],
+      "properties": {
+        "SearchString": {
+          "type": "string",
+          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
+        },
+        "Filter": {
+          "description": "An optional search filter. Limits the content document result set.",
+          "$ref": "#/definitions/FilterBase"
+        },
+        "AggregationFilters": {
+          "type": "array",
+          "description": "Special filters used to filter down on a specific aggregated value.",
+          "items": {
+            "$ref": "#/definitions/AggregationFilter"
+          }
+        },
+        "Aggregators": {
+          "type": "array",
+          "description": "Defines the aggregation resultset.",
+          "items": {
+            "$ref": "#/definitions/AggregatorBase"
+          }
+        },
+        "ChannelId": {
+          "type": "string",
+          "description": "Limits the simple search fields to the fields available in the specified channel."
+        },
+        "DisplayLanguage": {
+          "type": "string",
+          "description": "Defines the return language of translation values. Defaults to x-default."
+        },
+        "SearchLanguages": {
+          "type": "array",
+          "description": "Only searches the specified language values. Defaults to all metadata languages in configured within the customer's language configuration.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "CollectionId": {
+          "type": "string",
+          "description": "The collection id."
+        },
+        "LifeCycleFilter": {
+          "description": "Limits the content document result set to that life cycle state. Defaults to ActiveOnly.",
+          "$ref": "#/definitions/LifeCycleFilter"
+        }
+      }
+    },
+    "FilterBase": {
+      "type": "object",
+      "discriminator": "Kind",
+      "description": "The FilterBase is the base class for all filters.",
+      "additionalProperties": false,
+      "required": [
+        "Kind"
+      ],
+      "properties": {
+        "Kind": {
+          "type": "string"
+        }
+      }
+    },
+    "AndFilter": {
+      "type": "object",
+      "description": "The AndFilter> is a compound filter and returns documents that match all of the specified filters.",
+      "additionalProperties": false,
+      "properties": {
+        "Filters": {
+          "type": "array",
+          "description": "Accepts all filters.",
+          "items": {
+            "$ref": "#/definitions/FilterBase"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "OrFilter": {
+      "type": "object",
+      "description": "The OrFilter is a compound filter and returns documents that match any of the specified filters.",
+      "additionalProperties": false,
+      "properties": {
+        "Filters": {
+          "type": "array",
+          "description": "Accepts all filters.",
+          "items": {
+            "$ref": "#/definitions/FilterBase"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "NotFilter": {
+      "type": "object",
+      "description": "The NotFilter is a compound filter and returns documents that do not match the specified filter.",
+      "additionalProperties": false,
+      "properties": {
+        "Filter": {
+          "description": "Limits the result set.",
+          "$ref": "#/definitions/FilterBase"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "DateRangeFilter": {
+      "type": "object",
+      "description": "The DateRangeFilter returns documents with fields that have date values within a certain range.",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "Range": {
+          "description": "The date range. Supported pattern: now(+-)(int)(YMDHm).",
+          "$ref": "#/definitions/DateRange"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "DateRange": {
+      "type": "object",
+      "description": "The date range class used in aggregators and filters.",
+      "additionalProperties": false,
+      "properties": {
+        "Names": {
+          "description": "Tranlsated range names.",
+          "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "From": {
+          "type": "string",
+          "description": "The from value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
+        },
+        "To": {
+          "type": "string",
+          "description": "The to value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
+        }
+      }
+    },
+    "ExistsFilter": {
+      "type": "object",
+      "description": "The ExistsFilter returns documents that have at least one non-null value in the original field.",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "GeoBoundingBoxFilter": {
+      "type": "object",
+      "description": "The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "TopLeft": {
+          "description": "The top left longitude/latitude configuration.",
+          "$ref": "#/definitions/GeoLocation"
+        },
+        "BottomRight": {
+          "description": "The bottom right longitude/latitude configuration.",
+          "$ref": "#/definitions/GeoLocation"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "GeoLocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Lat",
+        "Lon"
+      ],
+      "properties": {
+        "Lat": {
+          "type": "number",
+          "format": "double"
+        },
+        "Lon": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "GeoDistanceFilter": {
+      "type": "object",
+      "description": "The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point.",
+      "additionalProperties": false,
+      "required": [
+        "Distance"
+      ],
+      "properties": {
+        "Field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "Location": {
+          "description": "The longitude/latitude configuration for the point of origin.",
+          "$ref": "#/definitions/GeoLocation"
+        },
+        "Distance": {
+          "type": "number",
+          "description": "The range distance in meters.",
+          "format": "double"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "GeoDistanceRangeFilter": {
+      "type": "object",
+      "description": "The GeoDistanceRangeFilter returns documents that exists within a range from a specific point.",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "Location": {
+          "description": "The longitude/latitude configuration for the point of origin.",
+          "$ref": "#/definitions/GeoLocation"
+        },
+        "Range": {
+          "description": "The numeric range.",
+          "$ref": "#/definitions/NumericRange"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "NumericRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Names": {
+          "description": "Tranlsated range names.",
+          "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "From": {
+          "type": "number",
+          "description": "The from value.",
+          "format": "double"
+        },
+        "To": {
+          "type": "number",
+          "description": "The to value.",
+          "format": "double"
+        }
+      }
+    },
+    "NestedFilter": {
+      "type": "object",
+      "description": "The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.",
+      "additionalProperties": false,
+      "properties": {
+        "Path": {
+          "type": "string",
+          "description": "The path pointing to the nested object."
+        },
+        "Filter": {
+          "description": "Limits the result set.",
+          "$ref": "#/definitions/FilterBase"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "NumericRangeFilter": {
+      "type": "object",
+      "description": "The NumericRangeFilter returns documents with fields that have numeric values within a certain range.",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "Range": {
+          "description": "The numeric range with from and to properties.",
+          "$ref": "#/definitions/NumericRange"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "PrefixFilter": {
+      "type": "object",
+      "description": "The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "Prefix": {
+          "type": "string",
+          "description": "The prefix term to filter on."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "TermFilter": {
+      "type": "object",
+      "description": "The TermFilter returns documents that contain the exact term specified in the inverted index.",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "Term": {
+          "type": "string",
+          "description": "The term to filter on."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "TermsFilter": {
+      "type": "object",
+      "description": "The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "Terms": {
+          "type": "array",
+          "description": "A list of OR combined terms.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "AggregationFilter": {
+      "type": "object",
+      "description": "An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition.",
+      "additionalProperties": false,
+      "properties": {
+        "AggregationName": {
+          "type": "string",
+          "description": "The name of the aggregation this filter is connected to."
+        },
+        "Filter": {
+          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.",
+          "$ref": "#/definitions/FilterBase"
+        },
+        "TemporaryAggregatorRequestId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "ChildFilter": {
+      "type": "object",
+      "description": "The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.",
+      "additionalProperties": false,
+      "properties": {
+        "ChildType": {
+          "type": "string",
+          "description": "The elastic search index type to filter as a child."
+        },
+        "Filter": {
+          "description": "The filter to apply on the child entity. It accepts all filters.",
+          "$ref": "#/definitions/FilterBase"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "ParentFilter": {
+      "type": "object",
+      "description": "The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.",
+      "additionalProperties": false,
+      "properties": {
+        "ParentType": {
+          "type": "string",
+          "description": "The elastic search index type to filter as a parent."
+        },
+        "Filter": {
+          "description": "The filter to apply on the child entity. It accepts all filters.",
+          "$ref": "#/definitions/FilterBase"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "AggregatorBase": {
+      "type": "object",
+      "discriminator": "Kind",
+      "description": "The AggregatorBase is the base class for all aggregators.",
+      "additionalProperties": false,
+      "required": [
+        "Kind"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "The slug name of the aggregation. Must be unique per aggregation request."
+        },
+        "Names": {
+          "description": "The translated names of the aggregation.",
+          "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "Aggregators": {
+          "type": "array",
+          "description": "An optional aggregator list for nested aggregations.",
+          "items": {
+            "$ref": "#/definitions/AggregatorBase"
+          }
+        },
+        "Kind": {
+          "type": "string"
+        }
+      }
+    },
+    "DateRangeAggregator": {
+      "type": "object",
+      "description": "The DateRangeAggregator is a multi-bucket range aggregation dedicated for date values. Each bucket represents a range.",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the aggregation on."
+        },
+        "Ranges": {
+          "type": "array",
+          "description": "A list of date ranges. Supported pattern: now(+-)(int)(YMDHm).",
+          "items": {
+            "$ref": "#/definitions/DateRange"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/AggregatorBase"
+        }
+      ]
+    },
+    "FilterAggregator": {
+      "type": "object",
+      "description": "The FilterAggregator is a single bucket aggregation of documents that match a specified filter.",
+      "additionalProperties": false,
+      "properties": {
+        "Filter": {
+          "description": "Limits the result set.",
+          "$ref": "#/definitions/FilterBase"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/AggregatorBase"
+        }
+      ]
+    },
+    "GeoDistanceAggregator": {
+      "type": "object",
+      "description": "The GeoDistanceAggregator is a multi-bucket range aggregation that works on geo_point fields. Each bucket represents a range.",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the aggregation on."
+        },
+        "Location": {
+          "description": "The latitude/logitude configuration for the point of origin.",
+          "$ref": "#/definitions/GeoLocation"
+        },
+        "Ranges": {
+          "type": "array",
+          "description": "A list of numeric ranges in meter.",
+          "items": {
+            "$ref": "#/definitions/NumericRange"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/AggregatorBase"
+        }
+      ]
+    },
+    "NestedAggregator": {
+      "type": "object",
+      "description": "The NestedAggregator is a special single bucket aggregation that enables aggregating nested documents.",
+      "additionalProperties": false,
+      "properties": {
+        "Path": {
+          "type": "string",
+          "description": "The path pointing to the nested object."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/AggregatorBase"
+        }
+      ]
+    },
+    "NumericRangeAggregator": {
+      "type": "object",
+      "description": "The NumericRangeAggregator is a multi-bucket range aggregation. Each bucket represents a range.",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the aggregation on."
+        },
+        "Ranges": {
+          "type": "array",
+          "description": "A list of numeric ranges.",
+          "items": {
+            "$ref": "#/definitions/NumericRange"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/AggregatorBase"
+        }
+      ]
+    },
+    "TermsAggregator": {
+      "type": "object",
+      "description": "The TermsAggregator is a multi-bucket value aggregation where buckets are dynamically built - one per unique value.",
+      "additionalProperties": false,
+      "properties": {
+        "Field": {
+          "type": "string",
+          "description": "The elastic search index field (not analyzed) to execute the aggregation on."
+        },
+        "Size": {
+          "type": "integer",
+          "description": "The size parameter can be set to define how many term buckets should be returned out of the overall terms list.",
+          "format": "int32"
+        },
+        "Includes": {
+          "type": "array",
+          "description": "Includes values for which buckets will be created. Supports regular expression strings or arrays of exact values.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Excludes": {
+          "type": "array",
+          "description": "Excludes values for which buckets will be created. Supports regular expression strings or arrays of exact values.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/AggregatorBase"
+        }
+      ]
+    },
+    "TermsRelationAggregator": {
+      "type": "object",
+      "description": "The TermsRelationAggregator is derived from TermsAggregator and used for aggregations on relation item ids.",
+      "additionalProperties": false,
+      "required": [
+        "DocumentType"
+      ],
+      "properties": {
+        "DocumentType": {
+          "description": "When aggregating on relations ids the DocumentType is needed to resolve the target item translation.",
+          "$ref": "#/definitions/TermsRelationAggregatorDocumentType"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/TermsAggregator"
+        }
+      ]
+    },
+    "TermsRelationAggregatorDocumentType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Content",
+        "ListItem",
+        "Schema",
+        "User"
+      ],
+      "enum": [
+        "Content",
+        "ListItem",
+        "Schema",
+        "User"
+      ]
+    },
+    "TermsEnumAggregator": {
+      "type": "object",
+      "description": "The TermsRelationAggregator is derived from the TermsAggregator and used for aggregations on indexed enum values.",
+      "additionalProperties": false,
+      "properties": {
+        "EnumType": {
+          "type": "string",
+          "description": "When aggregating on enum fields EnumType is needed to resolve the enum translation."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/TermsAggregator"
+        }
+      ]
+    },
+    "LifeCycleFilter": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "ActiveOnly",
+        "All",
+        "InactiveOnly"
+      ],
+      "enum": [
+        "ActiveOnly",
+        "All",
+        "InactiveOnly"
+      ]
+    },
+    "ObjectAggregationResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ElapsedMilliseconds"
+      ],
+      "properties": {
+        "ElapsedMilliseconds": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "AggregationResults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregationResult"
+          }
+        }
+      }
+    },
+    "AggregationResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "SumOtherDocCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "TemporaryRequestId": {
+          "type": "string"
+        },
+        "AggregationResultItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregationResultItem"
+          }
+        }
+      }
+    },
+    "AggregationResultItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Count",
+        "Active"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Count": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Filter": {
+          "$ref": "#/definitions/AggregationFilter"
+        },
+        "Active": {
+          "type": "boolean"
+        },
+        "AggregationResults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregationResult"
+          }
+        }
+      }
+    },
+    "ContentBatchDownloadRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Contents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Content"
+          }
+        }
+      }
+    },
+    "Content": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ContentId": {
+          "type": "string"
+        },
+        "OutputFormatId": {
+          "type": "string"
+        }
+      }
+    },
+    "ContentBatchDownloadItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "DownloadToken": {
+          "type": "string"
+        },
+        "DownloadUrl": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/DownloadItem"
+        }
+      ]
+    },
+    "DownloadItem": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "CreateContentRequest": {
+      "type": "object",
+      "description": "A request structure for creating a content document.",
+      "additionalProperties": false,
+      "properties": {
+        "ContentSchemaId": {
+          "type": "string",
+          "description": "The id of a schema with schema type content."
+        },
+        "LayerSchemaIds": {
+          "type": "array",
+          "description": "An optional id list of schemas with schema type layer.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Content": {
+          "description": "The content data of the content document."
+        },
+        "Metadata": {
+          "description": "The layer metadata of the content document.",
+          "$ref": "#/definitions/DataDictionary"
+        },
+        "ContentPermissionSetIds": {
+          "type": "array",
+          "description": "An optional id list of content permission sets. ",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ThumbnailSize": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Small",
+        "Medium",
+        "Large"
+      ],
+      "enum": [
+        "Small",
+        "Medium",
+        "Large"
+      ]
+    },
+    "UpdateContentPermissionsRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ContentId": {
+          "type": "string",
+          "description": "The content id."
+        },
+        "ContentPermissionSetIds": {
+          "type": "array",
+          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ContentSearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Start",
+        "Limit",
+        "LifeCycleFilter"
+      ],
+      "properties": {
+        "ChannelIds": {
+          "type": "array",
+          "description": "Limits the simple search fields to the fields available in the specified channel.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "DisplayLanguage": {
+          "type": "string",
+          "description": "Defines the return language of translation values. Defaults to x-default."
+        },
+        "DisplayPatternIds": {
+          "type": "array",
+          "description": "Limits the display values included in the search response. Defaults to all display values.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "SearchLanguages": {
+          "type": "array",
+          "description": "Only searches the specified language values. Defaults to all metadata languages of the language configuration.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "CollectionId": {
+          "type": "string",
+          "description": "The collection id."
+        },
+        "SearchString": {
+          "type": "string",
+          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
+        },
+        "Sort": {
+          "type": "array",
+          "description": "Sorts the search results. Sorting on a not indexed field will throw an exception.",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        },
+        "Start": {
+          "type": "integer",
+          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+          "format": "int32"
+        },
+        "Limit": {
+          "type": "integer",
+          "description": "Limits the document count of the result set. Defaults to 30.",
+          "format": "int32"
+        },
+        "Filter": {
+          "description": "An optional search filter. Limits the content document result set.",
+          "$ref": "#/definitions/FilterBase"
+        },
+        "LifeCycleFilter": {
+          "description": "Limits the content document result set to that life cycle state. Defaults to ActiveOnly.",
+          "$ref": "#/definitions/LifeCycleFilter"
+        }
+      }
+    },
+    "SortInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Direction"
+      ],
+      "properties": {
+        "Field": {
+          "type": "string",
+          "description": "The elastic search index field to sort on."
+        },
+        "Direction": {
+          "description": "The sort direction (Asc/Desc).",
+          "$ref": "#/definitions/SortDirection"
+        }
+      }
+    },
+    "SortDirection": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Asc",
+        "Desc"
+      ],
+      "enum": [
+        "Asc",
+        "Desc"
+      ]
+    },
+    "ContentSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ElapsedMilliseconds"
+      ],
+      "properties": {
+        "AggregationResults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregationResult"
+          }
+        },
+        "ElapsedMilliseconds": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfContentViewItem"
+        }
+      ]
+    },
+    "BaseResultOfContentViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "TotalResults"
+      ],
+      "properties": {
+        "TotalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContentViewItem"
+          }
+        },
+        "PageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "ContentViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "EntityType"
+      ],
+      "properties": {
+        "Audit": {
+          "$ref": "#/definitions/StoreAudit"
+        },
+        "EntityType": {
+          "description": "The entity type of a content document is content.",
+          "$ref": "#/definitions/EntityType"
+        },
+        "ContentSchemaId": {
+          "type": "string",
+          "description": "The id of the schema with schema type content."
+        },
+        "LayerSchemaIds": {
+          "type": "array",
+          "description": "An optional id list of schemas with schema type layer.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "DisplayValues": {
+          "type": "object",
+          "description": "Contains display values of the specified language, rendered according to the content schema's display pattern configuration.",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "Id": {
+          "type": "string"
+        }
+      }
+    },
+    "ContentFileUpdateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ContentId": {
+          "type": "string"
+        },
+        "FileTransferId": {
+          "type": "string"
+        }
+      }
+    },
     "UpdateContentMetadataRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -5321,10 +6102,10 @@
         },
         "SchemaIds": {
           "type": "array",
+          "description": "An id list of schemas with schema type content or layer.",
           "items": {
             "type": "string"
-          },
-          "description": "An id list of schemas with schema type content or layer."
+          }
         },
         "Metadata": {
           "description": "The dynamic data structure matching the field schematics of the schemas with schema type content or layer.",
@@ -5362,10 +6143,10 @@
       "properties": {
         "ContentIds": {
           "type": "array",
+          "description": "The ids of the content documents.",
           "items": {
             "type": "string"
-          },
-          "description": "The ids of the content documents."
+          }
         }
       },
       "allOf": [
@@ -5384,10 +6165,10 @@
       "properties": {
         "ChangeCommands": {
           "type": "array",
+          "description": "A container for all change commads.",
           "items": {
             "$ref": "#/definitions/MetadataValuesChangeCommandBase"
-          },
-          "description": "A container for all change commads."
+          }
         },
         "Kind": {
           "type": "string"
@@ -5397,6 +6178,7 @@
     "MetadataValuesChangeCommandBase": {
       "type": "object",
       "discriminator": "Kind",
+      "description": "The base class for metadata value change commands.",
       "additionalProperties": false,
       "required": [
         "Kind"
@@ -5405,11 +6187,11 @@
         "Kind": {
           "type": "string"
         }
-      },
-      "description": "The base class for metadata value change commands."
+      }
     },
     "MetadataValuesSchemaUpdateCommand": {
       "type": "object",
+      "description": "Updates schema values.",
       "additionalProperties": false,
       "properties": {
         "SchemaId": {
@@ -5425,11 +6207,11 @@
         {
           "$ref": "#/definitions/MetadataValuesChangeCommandBase"
         }
-      ],
-      "description": "Updates schema values."
+      ]
     },
     "MetadataValuesSchemaUpsertCommand": {
       "type": "object",
+      "description": "Adds or updates schema values.",
       "additionalProperties": false,
       "properties": {
         "SchemaId": {
@@ -5445,11 +6227,11 @@
         {
           "$ref": "#/definitions/MetadataValuesChangeCommandBase"
         }
-      ],
-      "description": "Adds or updates schema values."
+      ]
     },
     "MetadataValuesSchemaRemoveCommand": {
       "type": "object",
+      "description": "Removes schema values.",
       "additionalProperties": false,
       "properties": {
         "SchemaId": {
@@ -5461,11 +6243,11 @@
         {
           "$ref": "#/definitions/MetadataValuesChangeCommandBase"
         }
-      ],
-      "description": "Removes schema values."
+      ]
     },
     "MetadataValuesFieldRemoveCommand": {
       "type": "object",
+      "description": "Removes a field and its value from the schema values.",
       "additionalProperties": false,
       "properties": {
         "FieldNamespace": {
@@ -5477,11 +6259,11 @@
         {
           "$ref": "#/definitions/MetadataValuesChangeCommandBase"
         }
-      ],
-      "description": "Removes a field and its value from the schema values."
+      ]
     },
     "MetadataValuesSchemaItemAddCommand": {
       "type": "object",
+      "description": "Adds a list item id reference to a multi tagbox.",
       "additionalProperties": false,
       "properties": {
         "FieldNamespace": {
@@ -5497,11 +6279,11 @@
         {
           "$ref": "#/definitions/MetadataValuesChangeCommandBase"
         }
-      ],
-      "description": "Adds a list item id reference to a multi tagbox."
+      ]
     },
     "MetadataValuesSchemaItemRemoveCommand": {
       "type": "object",
+      "description": "Removes a list item id reference from a multi tagbox.",
       "additionalProperties": false,
       "properties": {
         "FieldNamespace": {
@@ -5517,8 +6299,7 @@
         {
           "$ref": "#/definitions/MetadataValuesChangeCommandBase"
         }
-      ],
-      "description": "Removes a list item id reference from a multi tagbox."
+      ]
     },
     "FilterContentsMetadataUpdateRequest": {
       "type": "object",
@@ -5540,6 +6321,46 @@
           "$ref": "#/definitions/MetadataValuesChangeRequestBase"
         }
       ]
+    },
+    "BusinessProcessSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ElapsedMilliseconds"
+      ],
+      "properties": {
+        "ElapsedMilliseconds": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfBusinessProcessViewItem"
+        }
+      ]
+    },
+    "BaseResultOfBusinessProcessViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "TotalResults"
+      ],
+      "properties": {
+        "TotalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BusinessProcessViewItem"
+          }
+        },
+        "PageToken": {
+          "type": "string"
+        }
+      }
     },
     "StartProcessRequest": {
       "type": "object",
@@ -5577,6 +6398,75 @@
         },
         "BusinessProcess": {
           "$ref": "#/definitions/BusinessProcessViewItem"
+        }
+      }
+    },
+    "DocumentHistorySearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "From",
+        "To",
+        "Start",
+        "Limit",
+        "DocumentVersion"
+      ],
+      "properties": {
+        "From": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "To": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Start": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "PageToken": {
+          "type": "string"
+        },
+        "Id": {
+          "type": "string"
+        },
+        "DocumentId": {
+          "type": "string"
+        },
+        "DocumentVersion": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "DocumentHistorySearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "TotalResults",
+        "ElapsedMilliseconds"
+      ],
+      "properties": {
+        "TotalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DocumentHistoryViewItem"
+          }
+        },
+        "PageToken": {
+          "type": "string"
+        },
+        "ElapsedMilliseconds": {
+          "type": "integer",
+          "format": "int64"
         }
       }
     },
@@ -5663,6 +6553,7 @@
     },
     "ListItemCreateRequest": {
       "type": "object",
+      "description": "A request structure for creating a list item document.",
       "additionalProperties": false,
       "properties": {
         "Content": {
@@ -5676,11 +6567,11 @@
           "type": "string",
           "description": "The list item id. When not provided a Guid is generated."
         }
-      },
-      "description": "A request structure for creating a list item document."
+      }
     },
     "ListItemDetail": {
       "type": "object",
+      "description": "The detail view item for the list item.",
       "additionalProperties": false,
       "required": [
         "EntityType"
@@ -5705,8 +6596,7 @@
           "type": "string",
           "description": "The list item id."
         }
-      },
-      "description": "The detail view item for the list item."
+      }
     },
     "ListItemAggregationRequest": {
       "type": "object",
@@ -5725,17 +6615,17 @@
         },
         "AggregationFilters": {
           "type": "array",
+          "description": "Special filters used to filter down on a specific aggregated value.",
           "items": {
             "$ref": "#/definitions/AggregationFilter"
-          },
-          "description": "Special filters used to filter down on a specific aggregated value."
+          }
         },
         "Aggregators": {
           "type": "array",
+          "description": "Defines the aggregation resultset.",
           "items": {
             "$ref": "#/definitions/AggregatorBase"
-          },
-          "description": "Defines the aggregation resultset."
+          }
         },
         "IncludeAllSchemaChildren": {
           "type": "boolean",
@@ -5743,10 +6633,10 @@
         },
         "SchemaIds": {
           "type": "array",
+          "description": "Limits the aggregation to list items of the provided schemas.",
           "items": {
             "type": "string"
-          },
-          "description": "Limits the aggregation to list items of the provided schemas."
+          }
         },
         "DisplayLanguage": {
           "type": "string",
@@ -5754,10 +6644,10 @@
         },
         "SearchLanguages": {
           "type": "array",
+          "description": "Only searches the specified language values. Defaults to all metadata languages of the language configuration.",
           "items": {
             "type": "string"
-          },
-          "description": "Only searches the specified language values. Defaults to all metadata languages of the language configuration."
+          }
         }
       }
     },
@@ -5777,10 +6667,10 @@
         },
         "Sort": {
           "type": "array",
+          "description": "Sorts the search results. Sorting on a not indexed field will throw an exception.",
           "items": {
             "$ref": "#/definitions/SortInfo"
-          },
-          "description": "Sorts the search results. Sorting on a not indexed field will throw an exception."
+          }
         },
         "Start": {
           "type": "integer",
@@ -5802,10 +6692,10 @@
         },
         "SchemaIds": {
           "type": "array",
+          "description": "Limits the search to list items of the provided schemas.",
           "items": {
             "type": "string"
-          },
-          "description": "Limits the search to list items of the provided schemas."
+          }
         },
         "DisplayLanguage": {
           "type": "string",
@@ -5813,17 +6703,17 @@
         },
         "DisplayPatternIds": {
           "type": "array",
+          "description": "Limits the display values included in the search response. Defaults to all display values.",
           "items": {
             "type": "string"
-          },
-          "description": "Limits the display values included in the search response. Defaults to all display values."
+          }
         },
         "SearchLanguages": {
           "type": "array",
+          "description": "Only searches the specified language values. Defaults to all metadata languages of the language configuration.",
           "items": {
             "type": "string"
-          },
-          "description": "Only searches the specified language values. Defaults to all metadata languages of the language configuration."
+          }
         },
         "IncludeMetadata": {
           "type": "boolean",
@@ -5855,6 +6745,7 @@
     },
     "ListItem": {
       "type": "object",
+      "description": "A document stored in the elastic search metadata index, with fields corresponding to the the schemantics of its underlying list schema.",
       "additionalProperties": false,
       "required": [
         "EntityType"
@@ -5879,11 +6770,11 @@
           "type": "string",
           "description": "The list item id."
         }
-      },
-      "description": "A document stored in the elastic search metadata index, with fields corresponding to the the schemantics of its underlying list schema."
+      }
     },
     "ListItemUpdateRequest": {
       "type": "object",
+      "description": "A request structure for updating a list item.",
       "additionalProperties": false,
       "properties": {
         "Content": {
@@ -5893,8 +6784,76 @@
           "type": "string",
           "description": "The list item id."
         }
+      }
+    },
+    "LiveStreamSearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "From",
+        "To",
+        "Start",
+        "Limit"
+      ],
+      "properties": {
+        "From": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "To": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Start": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "PageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "ObjectSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ElapsedMilliseconds"
+      ],
+      "properties": {
+        "ElapsedMilliseconds": {
+          "type": "integer",
+          "format": "int64"
+        }
       },
-      "description": "A request structure for updating a list item."
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfObject"
+        }
+      ]
+    },
+    "BaseResultOfObject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "TotalResults"
+      ],
+      "properties": {
+        "TotalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Results": {
+          "type": "array",
+          "items": {}
+        },
+        "PageToken": {
+          "type": "string"
+        }
+      }
     },
     "SchemaDetailViewItem": {
       "type": "object",
@@ -5915,10 +6874,10 @@
         },
         "Types": {
           "type": "array",
+          "description": "Types control schema usage.",
           "items": {
             "$ref": "#/definitions/SchemaType"
-          },
-          "description": "Types control schema usage."
+          }
         },
         "Names": {
           "description": "Language specific schema names.",
@@ -5930,38 +6889,38 @@
         },
         "LayerSchemaIds": {
           "type": "array",
+          "description": "An optional id list of schemas with type layer.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of schemas with type layer."
+          }
         },
         "DisplayPatterns": {
           "type": "array",
+          "description": "Language specific DotLiquid templates. These templates will be resolved into display values in content documents and/or list items.",
           "items": {
             "$ref": "#/definitions/DisplayPattern"
-          },
-          "description": "Language specific DotLiquid templates. These templates will be resolved into display values in content documents and/or list items."
+          }
         },
         "Fields": {
           "type": "array",
+          "description": "The schema fields.",
           "items": {
             "$ref": "#/definitions/FieldBase"
-          },
-          "description": "The schema fields."
+          }
         },
         "Sort": {
           "type": "array",
+          "description": "Sorts content documents and/or list items.",
           "items": {
             "$ref": "#/definitions/SortInfo"
-          },
-          "description": "Sorts content documents and/or list items."
+          }
         },
         "Aggregations": {
           "type": "array",
+          "description": "An optional list of aggregations to group content documents and list items.",
           "items": {
             "$ref": "#/definitions/AggregatorBase"
-          },
-          "description": "An optional list of aggregations to group content documents and list items."
+          }
         },
         "SortOrder": {
           "type": "integer",
@@ -5982,32 +6941,37 @@
         },
         "SchemaPermissionSetIds": {
           "type": "array",
+          "description": "An optional id list of schema permission sets which control list item permissions. When not empty Public must be false.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of schema permission sets which control list item permissions. When not empty Public must be false."
+          }
         },
         "ReferencedInContentSchemaIds": {
           "type": "array",
+          "description": "An optional id list of schemas with type content for a schema with type layer.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of schemas with type content for a schema with type layer."
+          }
         },
         "DescendantSchemaIds": {
           "type": "array",
+          "description": "A complete id list of all descendant schemas.",
           "items": {
             "type": "string"
-          },
-          "description": "A complete id list of all descendant schemas."
+          }
         },
         "Audit": {
           "$ref": "#/definitions/StoreAudit"
+        },
+        "SearchFieldCount": {
+          "description": "The number of fields generated by the schema for the Search operations.",
+          "$ref": "#/definitions/SearchFieldCountViewItem"
         }
       }
     },
     "SchemaType": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "Content",
         "Layer",
@@ -6019,8 +6983,7 @@
         "Layer",
         "List",
         "Struct"
-      ],
-      "description": ""
+      ]
     },
     "DisplayPattern": {
       "type": "object",
@@ -6050,16 +7013,17 @@
     },
     "TemplateEngine": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "DotLiquid"
       ],
       "enum": [
         "DotLiquid"
-      ],
-      "description": ""
+      ]
     },
     "DisplayPatternType": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "Thumbnail",
         "List",
@@ -6073,12 +7037,12 @@
         "Detail",
         "Custom",
         "Name"
-      ],
-      "description": ""
+      ]
     },
     "FieldBase": {
       "type": "object",
       "discriminator": "Kind",
+      "description": "The field base class.",
       "additionalProperties": false,
       "required": [
         "Required",
@@ -6129,8 +7093,7 @@
         "Kind": {
           "type": "string"
         }
-      },
-      "description": "The field base class."
+      }
     },
     "FieldBoolean": {
       "type": "object",
@@ -6173,6 +7136,7 @@
     },
     "FieldDateTimeArray": {
       "type": "object",
+      "description": "For internal use only (system schemas)",
       "additionalProperties": false,
       "required": [
         "UniqueItems"
@@ -6194,8 +7158,7 @@
         {
           "$ref": "#/definitions/FieldDateTime"
         }
-      ],
-      "description": "For internal use only (system schemas)"
+      ]
     },
     "FieldDecimal": {
       "type": "object",
@@ -6223,16 +7186,17 @@
     },
     "FieldDictionary": {
       "type": "object",
+      "description": "For internal use only (system schemas)",
       "additionalProperties": false,
       "allOf": [
         {
           "$ref": "#/definitions/FieldBase"
         }
-      ],
-      "description": "For internal use only (system schemas)"
+      ]
     },
     "FieldDictionaryArray": {
       "type": "object",
+      "description": "For internal use only (system schemas)",
       "additionalProperties": false,
       "required": [
         "UniqueItems"
@@ -6254,8 +7218,7 @@
         {
           "$ref": "#/definitions/FieldDictionary"
         }
-      ],
-      "description": "For internal use only (system schemas)"
+      ]
     },
     "FieldGeoPoint": {
       "type": "object",
@@ -6292,6 +7255,7 @@
     },
     "FieldLongArray": {
       "type": "object",
+      "description": "For internal use only (system schemas)",
       "additionalProperties": false,
       "required": [
         "UniqueItems"
@@ -6313,8 +7277,7 @@
         {
           "$ref": "#/definitions/FieldLong"
         }
-      ],
-      "description": "For internal use only (system schemas)"
+      ]
     },
     "FieldSingleFieldset": {
       "type": "object",
@@ -6396,6 +7359,10 @@
         "Filter": {
           "description": "An optional search filter. Limits the list item result set.",
           "$ref": "#/definitions/FilterBase"
+        },
+        "ListItemCreateTemplate": {
+          "type": "string",
+          "description": "Json serialized template used for creating new list item"
         }
       },
       "allOf": [
@@ -6438,6 +7405,10 @@
         "Filter": {
           "description": "An optional search filter. Limits the list item result set.",
           "$ref": "#/definitions/FilterBase"
+        },
+        "ListItemCreateTemplate": {
+          "type": "string",
+          "description": "Json serialized template used for creating new list item"
         }
       },
       "allOf": [
@@ -6478,10 +7449,10 @@
         },
         "Analyzers": {
           "type": "array",
+          "description": "A string field can have multiple analyzers, but only one per analyzer type. To have any effect the Index must be true.",
           "items": {
             "$ref": "#/definitions/AnalyzerBase"
-          },
-          "description": "A string field can have multiple analyzers, but only one per analyzer type. To have any effect the Index must be true."
+          }
         },
         "MultiLine": {
           "type": "boolean",
@@ -6489,10 +7460,10 @@
         },
         "GrantedValues": {
           "type": "array",
+          "description": "Similar to an enumeration valid field values are limited to values of this list.",
           "items": {
             "type": "string"
-          },
-          "description": "Similar to an enumeration valid field values are limited to values of this list."
+          }
         }
       },
       "allOf": [
@@ -6504,16 +7475,13 @@
     "AnalyzerBase": {
       "type": "object",
       "discriminator": "Kind",
+      "description": "The analyzer base class.",
       "additionalProperties": false,
       "required": [
         "SimpleSearch",
         "Kind"
       ],
       "properties": {
-        "FieldSuffix": {
-          "type": "string",
-          "description": "The suffix for the analyzed field, e.g. .simple."
-        },
         "SimpleSearch": {
           "type": "boolean",
           "description": "Includes the analyzed field in the simple search."
@@ -6521,11 +7489,11 @@
         "Kind": {
           "type": "string"
         }
-      },
-      "description": "The analyzer base class."
+      }
     },
     "EdgeNGramAnalyzer": {
       "type": "object",
+      "description": "An analyzer using the EdgeNGram tokenizer.\nhttps://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-edgengram-tokenizer.html",
       "additionalProperties": false,
       "properties": {
         "FieldSuffix": {
@@ -6536,11 +7504,11 @@
         {
           "$ref": "#/definitions/AnalyzerBase"
         }
-      ],
-      "description": "An analyzer using the EdgeNGram tokenizer.\nhttps://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-edgengram-tokenizer.html"
+      ]
     },
     "LanguageAnalyzer": {
       "type": "object",
+      "description": "An analyzer using a language analyzer. Restricted to the languages supported by elastic search.\nhttps://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lang-analyzer.html",
       "additionalProperties": false,
       "properties": {
         "FieldSuffix": {
@@ -6551,11 +7519,11 @@
         {
           "$ref": "#/definitions/AnalyzerBase"
         }
-      ],
-      "description": "An analyzer using a language analyzer. Restricted to the languages supported by elastic search.\nhttps://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lang-analyzer.html"
+      ]
     },
     "NGramAnalyzer": {
       "type": "object",
+      "description": "An analyzer using the NGram tokenizer.\nhttps://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-ngram-tokenizer.html",
       "additionalProperties": false,
       "properties": {
         "FieldSuffix": {
@@ -6566,11 +7534,11 @@
         {
           "$ref": "#/definitions/AnalyzerBase"
         }
-      ],
-      "description": "An analyzer using the NGram tokenizer.\nhttps://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-ngram-tokenizer.html"
+      ]
     },
     "PathHierarchyAnalyzer": {
       "type": "object",
+      "description": "An analyzer using the path hierarchy tokenizer.\nhttps://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pathhierarchy-tokenizer.html",
       "additionalProperties": false,
       "properties": {
         "FieldSuffix": {
@@ -6581,11 +7549,11 @@
         {
           "$ref": "#/definitions/AnalyzerBase"
         }
-      ],
-      "description": "An analyzer using the path hierarchy tokenizer.\nhttps://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pathhierarchy-tokenizer.html"
+      ]
     },
     "SimpleAnalyzer": {
       "type": "object",
+      "description": "An analyzer using a custom pattern tokenizer.\nhttps://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pattern-tokenizer.html",
       "additionalProperties": false,
       "properties": {
         "FieldSuffix": {
@@ -6596,11 +7564,11 @@
         {
           "$ref": "#/definitions/AnalyzerBase"
         }
-      ],
-      "description": "An analyzer using a custom pattern tokenizer.\nhttps://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pattern-tokenizer.html"
+      ]
     },
     "FieldStringArray": {
       "type": "object",
+      "description": "For internal use only (system schemas)",
       "additionalProperties": false,
       "required": [
         "UniqueItems"
@@ -6622,8 +7590,7 @@
         {
           "$ref": "#/definitions/FieldString"
         }
-      ],
-      "description": "For internal use only (system schemas)"
+      ]
     },
     "FieldTranslatedString": {
       "type": "object",
@@ -6649,10 +7616,10 @@
         },
         "Analyzers": {
           "type": "array",
+          "description": "A string field can have multiple analyzers, but only one per analyzer type. To have any effect the Index must be true.",
           "items": {
             "$ref": "#/definitions/AnalyzerBase"
-          },
-          "description": "A string field can have multiple analyzers, but only one per analyzer type. To have any effect the Index must be true."
+          }
         },
         "MultiLine": {
           "type": "boolean",
@@ -6660,10 +7627,10 @@
         },
         "RequiredMetadataLanguages": {
           "type": "array",
+          "description": "Sets the required metadata languages for the translation field. The langauge configuration limits the available metadata languages.\nIf Required is true, the field and all its metadata languages are required, including x-default.\nIf Required is false, the field can be left empty, but as soon as a value is entered all required metadata languages are mandatory, including x-default.",
           "items": {
             "type": "string"
-          },
-          "description": "Sets the required metadata languages for the translation field. The langauge configuration limits the available metadata languages.\nIf Required is true, the field and all its metadata languages are required, including x-default.\nIf Required is false, the field can be left empty, but as soon as a value is entered all required metadata languages are mandatory, including x-default."
+          }
         },
         "Template": {
           "type": "string",
@@ -6693,10 +7660,10 @@
         },
         "RelationTypes": {
           "type": "array",
+          "description": "Defines the relation types supported by the field.",
           "items": {
             "$ref": "#/definitions/RelationType"
-          },
-          "description": "Defines the relation types supported by the field."
+          }
         },
         "MaxRecursion": {
           "type": "integer",
@@ -6741,6 +7708,7 @@
     },
     "TargetContext": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "Content",
         "ListItem",
@@ -6752,8 +7720,7 @@
         "ListItem",
         "User",
         "Custom"
-      ],
-      "description": ""
+      ]
     },
     "FieldMultiRelation": {
       "type": "object",
@@ -6769,10 +7736,10 @@
         },
         "RelationTypes": {
           "type": "array",
+          "description": "Defines the relation types supported by the field.",
           "items": {
             "$ref": "#/definitions/RelationType"
-          },
-          "description": "Defines the relation types supported by the field."
+          }
         },
         "MaxRecursion": {
           "type": "integer",
@@ -6799,6 +7766,33 @@
           "$ref": "#/definitions/FieldBase"
         }
       ]
+    },
+    "SearchFieldCountViewItem": {
+      "type": "object",
+      "description": "Count info of fields for search operations",
+      "additionalProperties": false,
+      "required": [
+        "DataField",
+        "IndexedField",
+        "SimpleSearchField"
+      ],
+      "properties": {
+        "DataField": {
+          "type": "integer",
+          "description": "The number of fields generated by the schema in the Search index.",
+          "format": "int32"
+        },
+        "IndexedField": {
+          "type": "integer",
+          "description": "The number of indexed fields generated by the schema in the Search index.",
+          "format": "int32"
+        },
+        "SimpleSearchField": {
+          "type": "integer",
+          "description": "The number of fields to be queried in the simple search for the schema.",
+          "format": "int32"
+        }
+      }
     },
     "ExistsResponse": {
       "type": "object",
@@ -6830,10 +7824,10 @@
         },
         "Types": {
           "type": "array",
+          "description": "Types control schema usage.",
           "items": {
             "$ref": "#/definitions/SchemaType"
-          },
-          "description": "Types control schema usage."
+          }
         },
         "Names": {
           "description": "Language specific schema names.",
@@ -6845,24 +7839,24 @@
         },
         "DisplayPatterns": {
           "type": "array",
+          "description": "Language specific DotLiquid templates. These templates will be resolved into display values in content documents and/or list items.",
           "items": {
             "$ref": "#/definitions/DisplayPattern"
-          },
-          "description": "Language specific DotLiquid templates. These templates will be resolved into display values in content documents and/or list items."
+          }
         },
         "Fields": {
           "type": "array",
+          "description": "The schema fields. Can be empty.",
           "items": {
             "$ref": "#/definitions/FieldBase"
-          },
-          "description": "The schema fields. Can be empty."
+          }
         },
         "Aggregations": {
           "type": "array",
+          "description": "An optional list of aggregations to group content documents and/or list items.",
           "items": {
             "$ref": "#/definitions/AggregatorBase"
-          },
-          "description": "An optional list of aggregations to group content documents and/or list items."
+          }
         },
         "SortOrder": {
           "type": "integer",
@@ -6871,10 +7865,10 @@
         },
         "Sort": {
           "type": "array",
+          "description": "Sorts content documents and/or list items.",
           "items": {
             "$ref": "#/definitions/SortInfo"
-          },
-          "description": "Sorts content documents and/or list items."
+          }
         },
         "Public": {
           "type": "boolean",
@@ -6882,24 +7876,24 @@
         },
         "SchemaPermissionSetIds": {
           "type": "array",
+          "description": "An optional id list of schema permission sets. Control list item document permissions. When not empty Public must be false.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of schema permission sets. Control list item document permissions. When not empty Public must be false."
+          }
         },
         "LayerSchemaIds": {
           "type": "array",
+          "description": "An optional id list of schemas with type layer.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of schemas with type layer."
+          }
         },
         "ReferencedInContentSchemaIds": {
           "type": "array",
+          "description": "An optional id list of schemas with type content for a schema with type layer.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of schemas with type content for a schema with type layer."
+          }
         }
       }
     },
@@ -6921,24 +7915,24 @@
         },
         "DisplayPatterns": {
           "type": "array",
+          "description": "Language specific DotLiquid templates. These templates will be resolved into display values in content documents and/or list items.",
           "items": {
             "$ref": "#/definitions/DisplayPattern"
-          },
-          "description": "Language specific DotLiquid templates. These templates will be resolved into display values in content documents and/or list items."
+          }
         },
         "Fields": {
           "type": "array",
+          "description": "The schema fields.",
           "items": {
             "$ref": "#/definitions/FieldBase"
-          },
-          "description": "The schema fields."
+          }
         },
         "Aggregations": {
           "type": "array",
+          "description": "An optional list of aggregations to group content documents and list items.",
           "items": {
             "$ref": "#/definitions/AggregatorBase"
-          },
-          "description": "An optional list of aggregations to group content documents and list items."
+          }
         },
         "SortOrder": {
           "type": "integer",
@@ -6947,10 +7941,10 @@
         },
         "Sort": {
           "type": "array",
+          "description": "Sorts content documents and/or list items.",
           "items": {
             "$ref": "#/definitions/SortInfo"
-          },
-          "description": "Sorts content documents and/or list items."
+          }
         },
         "Public": {
           "type": "boolean",
@@ -6958,31 +7952,31 @@
         },
         "SchemaPermissionSetIds": {
           "type": "array",
+          "description": "An optional id list of schema permission sets which control list item permissions. When not empty Public must be false.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of schema permission sets which control list item permissions. When not empty Public must be false."
+          }
         },
         "LayerSchemaIds": {
           "type": "array",
+          "description": "An optional id list of schemas with type layer.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of schemas with type layer."
+          }
         },
         "ReferencedInContentSchemaIds": {
           "type": "array",
+          "description": "An optional id list of schemas with type content for a schema with type layer.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of schemas with type content for a schema with type layer."
+          }
         },
         "Types": {
           "type": "array",
+          "description": "Types control schema usage. Schema types can only be added, but not removed.",
           "items": {
             "$ref": "#/definitions/SchemaType"
-          },
-          "description": "Types control schema usage. Schema types can only be added, but not removed."
+          }
         }
       }
     },
@@ -7000,10 +7994,10 @@
         },
         "Sort": {
           "type": "array",
+          "description": "Sorts the search results. Sorting on a not indexed field will throw an exception.",
           "items": {
             "$ref": "#/definitions/SortInfo"
-          },
-          "description": "Sorts the search results. Sorting on a not indexed field will throw an exception."
+          }
         },
         "Start": {
           "type": "integer",
@@ -7063,10 +8057,10 @@
         },
         "Types": {
           "type": "array",
+          "description": "Types control schema usage.",
           "items": {
             "$ref": "#/definitions/SchemaType"
-          },
-          "description": "Types control schema usage."
+          }
         },
         "Names": {
           "description": "Language specific schema names.",
@@ -7078,10 +8072,10 @@
         },
         "LayerSchemaIds": {
           "type": "array",
+          "description": "An optional id list of schemas with type layer.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of schemas with type layer."
+          }
         },
         "FieldCount": {
           "type": "integer",
@@ -7103,6 +8097,46 @@
           "description": "Is true when schema is system provided."
         }
       }
+    },
+    "UserRight": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "ManageContent",
+        "ManageSharings",
+        "ManageDrives",
+        "ManageTransfer",
+        "ManageAnalytics",
+        "ManageChannels",
+        "ManageSchemas",
+        "ManageUsers",
+        "ManageUserRoles",
+        "ManagePermissions",
+        "ManageSearchIndexes",
+        "ManageRecipients",
+        "ManageCollections",
+        "ManageComments",
+        "ManageListItems",
+        "ManageServiceProviders"
+      ],
+      "enum": [
+        "ManageContent",
+        "ManageSharings",
+        "ManageDrives",
+        "ManageTransfer",
+        "ManageAnalytics",
+        "ManageChannels",
+        "ManageSchemas",
+        "ManageUsers",
+        "ManageUserRoles",
+        "ManagePermissions",
+        "ManageSearchIndexes",
+        "ManageRecipients",
+        "ManageCollections",
+        "ManageComments",
+        "ManageListItems",
+        "ManageServiceProviders"
+      ]
     },
     "PermissionSetSearchRequest": {
       "type": "object",
@@ -7263,6 +8297,7 @@
     },
     "ContentRight": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "View",
         "Edit",
@@ -7276,8 +8311,7 @@
         "Update",
         "Manage",
         "Trash"
-      ],
-      "description": ""
+      ]
     },
     "UserRoleRightsViewItemOfPermissionSetRight": {
       "type": "object",
@@ -7299,13 +8333,13 @@
     },
     "PermissionSetRight": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "Apply"
       ],
       "enum": [
         "Apply"
-      ],
-      "description": ""
+      ]
     },
     "SchemaPermissionSetDetailViewItem": {
       "type": "object",
@@ -7370,6 +8404,7 @@
     },
     "MetadataRight": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "View",
         "Edit",
@@ -7379,8 +8414,30 @@
         "View",
         "Edit",
         "Manage"
-      ],
-      "description": ""
+      ]
+    },
+    "VersionInfoViewItem": {
+      "type": "object",
+      "description": "The version view item for the environment.",
+      "additionalProperties": false,
+      "properties": {
+        "FileVersion": {
+          "type": "string",
+          "description": "The manual file version of Picturepark.Contract.dll."
+        },
+        "FileProductVersion": {
+          "type": "string",
+          "description": "The GitVersionTask generated file product version of Picturepark.Configuration.dll."
+        },
+        "ContractVersion": {
+          "type": "string",
+          "description": "The current contract version stored in CustomerDoc / EnvironmentDoc."
+        },
+        "Release": {
+          "type": "string",
+          "description": "The bamboo release version. Only provided on bamboo deployments."
+        }
+      }
     },
     "ShareBaseDetailViewItem": {
       "type": "object",
@@ -7451,10 +8508,10 @@
         },
         "LayerSchemaIds": {
           "type": "array",
+          "description": "An optional id list of schemas with type layer.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of schemas with type layer."
+          }
         },
         "Content": {
           "$ref": "#/definitions/DataDictionary"
@@ -7467,10 +8524,10 @@
         },
         "ContentPermissionSetIds": {
           "type": "array",
+          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership."
+          }
         },
         "Outputs": {
           "type": "array",
@@ -7605,6 +8662,164 @@
         }
       }
     },
+    "ShareBaseUpdateRequest": {
+      "type": "object",
+      "discriminator": "Kind",
+      "additionalProperties": false,
+      "required": [
+        "Kind"
+      ],
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "ExpirationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Description": {
+          "type": "string"
+        },
+        "ShareContentItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShareContent"
+          }
+        },
+        "Kind": {
+          "type": "string"
+        }
+      }
+    },
+    "ShareContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ContentId": {
+          "type": "string"
+        },
+        "OutputFormatIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ShareBasicUpdateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareBaseUpdateRequest"
+        }
+      ]
+    },
+    "ShareEmbedUpdateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareBaseUpdateRequest"
+        }
+      ]
+    },
+    "BaseResultOfShareBaseViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "TotalResults"
+      ],
+      "properties": {
+        "TotalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShareBaseViewItem"
+          }
+        },
+        "PageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "ShareBaseViewItem": {
+      "type": "object",
+      "discriminator": "Kind",
+      "additionalProperties": false,
+      "required": [
+        "EntityType",
+        "Kind"
+      ],
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "ContentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Id": {
+          "type": "string"
+        },
+        "Audit": {
+          "$ref": "#/definitions/StoreAudit"
+        },
+        "EntityType": {
+          "$ref": "#/definitions/EntityType"
+        },
+        "ExpirationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "Kind": {
+          "type": "string"
+        }
+      }
+    },
+    "ShareBasicViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "MailRecipients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MailRecipientViewItem"
+          }
+        },
+        "InternalRecipients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InternalRecipientViewItem"
+          }
+        },
+        "Description": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareBaseViewItem"
+        }
+      ]
+    },
+    "ShareEmbedViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareBaseViewItem"
+        }
+      ]
+    },
     "ShareAggregationRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -7668,21 +8883,6 @@
         }
       }
     },
-    "ShareContent": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "ContentId": {
-          "type": "string"
-        },
-        "OutputFormatIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
     "ShareBasicCreateRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -7704,6 +8904,9 @@
           "items": {
             "$ref": "#/definitions/UserRoleViewItem"
           }
+        },
+        "LanguageCode": {
+          "type": "string"
         },
         "TemplateId": {
           "type": "string"
@@ -7735,52 +8938,12 @@
         },
         "UserRights": {
           "type": "array",
+          "description": "All user rights for this user role.",
           "items": {
             "$ref": "#/definitions/UserRight"
-          },
-          "description": "All user rights for this user role."
+          }
         }
       }
-    },
-    "UserRight": {
-      "type": "string",
-      "x-enumNames": [
-        "ManageContent",
-        "ManageSharings",
-        "ManageDrives",
-        "ManageTransfer",
-        "ManageAnalytics",
-        "ManageChannels",
-        "ManageSchemas",
-        "ManageUsers",
-        "ManageUserRoles",
-        "ManagePermissions",
-        "ManageSearchIndexes",
-        "ManageRecipients",
-        "ManageCollections",
-        "ManageComments",
-        "ManageListItems",
-        "ManageServiceProviders"
-      ],
-      "enum": [
-        "ManageContent",
-        "ManageSharings",
-        "ManageDrives",
-        "ManageTransfer",
-        "ManageAnalytics",
-        "ManageChannels",
-        "ManageSchemas",
-        "ManageUsers",
-        "ManageUserRoles",
-        "ManagePermissions",
-        "ManageSearchIndexes",
-        "ManageRecipients",
-        "ManageCollections",
-        "ManageComments",
-        "ManageListItems",
-        "ManageServiceProviders"
-      ],
-      "description": ""
     },
     "ShareEmbedCreateRequest": {
       "type": "object",
@@ -7800,94 +8963,44 @@
         }
       }
     },
-    "BaseResultOfShareBaseViewItem": {
+    "FileTransferDeleteRequest": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "TotalResults"
-      ],
       "properties": {
-        "TotalResults": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "Results": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ShareBaseViewItem"
-          }
-        },
-        "PageToken": {
-          "type": "string"
-        }
-      }
-    },
-    "ShareBaseViewItem": {
-      "type": "object",
-      "discriminator": "Kind",
-      "additionalProperties": false,
-      "required": [
-        "EntityType",
-        "Kind"
-      ],
-      "properties": {
-        "Name": {
+        "TransferId": {
           "type": "string"
         },
-        "ContentIds": {
+        "FileTransferIds": {
           "type": "array",
           "items": {
             "type": "string"
           }
-        },
-        "Id": {
-          "type": "string"
-        },
-        "Audit": {
-          "$ref": "#/definitions/StoreAudit"
-        },
-        "EntityType": {
-          "$ref": "#/definitions/EntityType"
-        },
-        "Kind": {
-          "type": "string"
         }
       }
     },
-    "ShareBasicViewItem": {
+    "Blacklist": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "MailRecipients": {
+        "Items": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/MailRecipientViewItem"
+            "$ref": "#/definitions/BlacklistItem"
           }
-        },
-        "InternalRecipients": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/InternalRecipientViewItem"
-          }
-        },
-        "Description": {
-          "type": "string"
         }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareBaseViewItem"
-        }
-      ]
+      }
     },
-    "ShareEmbedViewItem": {
+    "BlacklistItem": {
       "type": "object",
       "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareBaseViewItem"
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Match": {
+          "type": "string"
         }
-      ]
+      }
     },
     "CreateTransferRequest": {
       "type": "object",
@@ -7931,6 +9044,7 @@
     },
     "TransferType": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "FileUpload",
         "DriveImport",
@@ -7944,8 +9058,7 @@
         "DriveExport",
         "WebDownload",
         "SchemaImport"
-      ],
-      "description": ""
+      ]
     },
     "TransferUploadFile": {
       "type": "object",
@@ -8039,6 +9152,7 @@
     },
     "TransferState": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "Draft",
         "UploadInProgress",
@@ -8070,8 +9184,7 @@
         "TransferReady",
         "FileDeleteInProgress",
         "TransferCleanup"
-      ],
-      "description": ""
+      ]
     },
     "TransferDetailViewItem": {
       "type": "object",
@@ -8185,6 +9298,7 @@
     },
     "FileTransferState": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "Draft",
         "UploadInProgress",
@@ -8218,8 +9332,7 @@
         "Deleted",
         "CleanupInProgress",
         "CleanupCompleted"
-      ],
-      "description": ""
+      ]
     },
     "FileMetadata": {
       "type": "object",
@@ -8575,6 +9688,7 @@
     },
     "CropUnit": {
       "type": "string",
+      "description": "Corresponds to crs.CropUnitsChoice",
       "x-enumNames": [
         "Pixels",
         "Inches",
@@ -8584,11 +9698,11 @@
         "Pixels",
         "Inches",
         "Centimeters"
-      ],
-      "description": "Corresponds to crs.CropUnitsChoice"
+      ]
     },
     "ToneCurve": {
       "type": "string",
+      "description": "Corresponds to crs.ToneCurveNameChoice",
       "x-enumNames": [
         "Linear",
         "MediumContrast",
@@ -8600,11 +9714,11 @@
         "MediumContrast",
         "StrongContrast",
         "Custom"
-      ],
-      "description": "Corresponds to crs.ToneCurveNameChoice"
+      ]
     },
     "WhiteBalance": {
       "type": "string",
+      "description": "Corresponds to crs.WhiteBalanceChoice",
       "x-enumNames": [
         "AsShot",
         "Auto",
@@ -8626,8 +9740,7 @@
         "Fluorescent",
         "Flash",
         "Custom"
-      ],
-      "description": "Corresponds to crs.WhiteBalanceChoice"
+      ]
     },
     "IptcCore": {
       "type": "object",
@@ -8779,6 +9892,7 @@
     },
     "ArtworkOrObjectInfo": {
       "type": "object",
+      "description": "Corresponds to Xmp.Structure.ArtworkOrObjectDetails",
       "additionalProperties": false,
       "properties": {
         "CopyrightNotice": {
@@ -8806,8 +9920,7 @@
             "type": "string"
           }
         }
-      },
-      "description": "Corresponds to Xmp.Structure.ArtworkOrObjectDetails"
+      }
     },
     "LocationInfo": {
       "type": "object",
@@ -9178,6 +10291,7 @@
     },
     "ColorMode": {
       "type": "string",
+      "description": "Corresponds to photoshop.ColorModeChoice",
       "x-enumNames": [
         "Bitmap",
         "Grayscale",
@@ -9197,8 +10311,7 @@
         "Multichannel",
         "Duotone",
         "LAB"
-      ],
-      "description": "Corresponds to photoshop.ColorModeChoice"
+      ]
     },
     "PhotoshopLayer": {
       "type": "object",
@@ -9776,6 +10889,7 @@
     },
     "Compression": {
       "type": "string",
+      "description": "Corresponds to tiff.CompressionChoice",
       "x-enumNames": [
         "Uncompressed",
         "CCITT",
@@ -9841,11 +10955,11 @@
         "JBIG2",
         "DCR",
         "PEF"
-      ],
-      "description": "Corresponds to tiff.CompressionChoice"
+      ]
     },
     "Orientation": {
       "type": "string",
+      "description": "Corresponds to tiff.OrientationChoice",
       "x-enumNames": [
         "None",
         "TopRowLeftColumn",
@@ -9869,11 +10983,11 @@
         "RightRowBottomColumn",
         "LeftRowBottomColumn",
         "Unknown"
-      ],
-      "description": "Corresponds to tiff.OrientationChoice"
+      ]
     },
     "PhotometricInterpretation": {
       "type": "string",
+      "description": "Corresponds to tiff.PhotometricInterpretationChoice",
       "x-enumNames": [
         "WhiteIsZero",
         "BlackIsZero",
@@ -9905,11 +11019,11 @@
         "LogL",
         "LogLUV",
         "LinearRaw"
-      ],
-      "description": "Corresponds to tiff.PhotometricInterpretationChoice"
+      ]
     },
     "PlanarConfiguration": {
       "type": "string",
+      "description": "Corresponds to tiff.PlanarConfigurationChoice",
       "x-enumNames": [
         "Chunky",
         "Planar",
@@ -9919,11 +11033,11 @@
         "Chunky",
         "Planar",
         "Line"
-      ],
-      "description": "Corresponds to tiff.PlanarConfigurationChoice"
+      ]
     },
     "ResolutionUnit": {
       "type": "string",
+      "description": "Corresponds to exif.FocalPlaneResolutionUnitChoice",
       "x-enumNames": [
         "None",
         "Inch",
@@ -9933,11 +11047,11 @@
         "None",
         "Inch",
         "Centimeter"
-      ],
-      "description": "Corresponds to exif.FocalPlaneResolutionUnitChoice"
+      ]
     },
     "YCbCrPositioning": {
       "type": "string",
+      "description": "Corresponds to tiff.YCbCrPositioningChoice",
       "x-enumNames": [
         "Centered",
         "Cosited"
@@ -9945,11 +11059,11 @@
       "enum": [
         "Centered",
         "Cosited"
-      ],
-      "description": "Corresponds to tiff.YCbCrPositioningChoice"
+      ]
     },
     "YCbCrSubSampling": {
       "type": "string",
+      "description": "Corresponds to tiff.YCbCrSubSamplingChoice",
       "x-enumNames": [
         "YCbCr111",
         "YCbCr422",
@@ -9959,8 +11073,7 @@
         "YCbCr111",
         "YCbCr422",
         "YCbCr420"
-      ],
-      "description": "Corresponds to tiff.YCbCrSubSamplingChoice"
+      ]
     },
     "Xmp": {
       "type": "object",
@@ -10015,6 +11128,7 @@
     },
     "Rating": {
       "type": "string",
+      "description": "Corresponds to xmp.RatingChoice",
       "x-enumNames": [
         "Rejected",
         "Unrated",
@@ -10032,8 +11146,7 @@
         "Three",
         "Four",
         "Five"
-      ],
-      "description": "Corresponds to xmp.RatingChoice"
+      ]
     },
     "XmpGImg": {
       "type": "object",
@@ -10057,13 +11170,13 @@
     },
     "ImgFormat": {
       "type": "string",
+      "description": "Corresponds to xmpGImg.FormatChoice",
       "x-enumNames": [
         "JPEG"
       ],
       "enum": [
         "JPEG"
-      ],
-      "description": "Corresponds to xmpGImg.FormatChoice"
+      ]
     },
     "XmpBJ": {
       "type": "object",
@@ -10332,6 +11445,7 @@
     },
     "TimeFormat": {
       "type": "string",
+      "description": "Corresponds to Timecode.TimeFormatChoice",
       "x-enumNames": [
         "Timecode24",
         "Timecode25",
@@ -10355,11 +11469,11 @@
         "Timecode5994NonDrop",
         "Timecode60",
         "Timecode23976"
-      ],
-      "description": "Corresponds to Timecode.TimeFormatChoice"
+      ]
     },
     "AudioChannelType": {
       "type": "string",
+      "description": "Corresponds to xmpDM.AudioChannelTypeChoice",
       "x-enumNames": [
         "CHANNEL_MONO",
         "CHANNEL_STEREO",
@@ -10375,11 +11489,11 @@
         "CHANNEL_7_1",
         "CHANNEL_16",
         "CHANNEL_OTHER"
-      ],
-      "description": "Corresponds to xmpDM.AudioChannelTypeChoice"
+      ]
     },
     "AudioSampleType": {
       "type": "string",
+      "description": "Corresponds to xmpDM.AudioSampleTypeChoice",
       "x-enumNames": [
         "SAMPLE_8_INT",
         "SAMPLE_16_INT",
@@ -10399,8 +11513,7 @@
         "SAMPLE_COMPRESSED",
         "SAMPLE_PACKED",
         "SAMPLE_OTHER"
-      ],
-      "description": "Corresponds to xmpDM.AudioSampleTypeChoice"
+      ]
     },
     "BeatSpliceStretch": {
       "type": "object",
@@ -10433,6 +11546,7 @@
     },
     "CameraAngle": {
       "type": "string",
+      "description": "Corresponds to xmpDM.CameraAngleChoice",
       "x-enumNames": [
         "ANGLE_LOW",
         "ANGLE_EYE_LEVEL",
@@ -10454,11 +11568,11 @@
         "ANGLE_POV",
         "ANGLE_OVER_THE_SHOULDER",
         "ANGLE_REACTION_SHOT"
-      ],
-      "description": "Corresponds to xmpDM.CameraAngleChoice"
+      ]
     },
     "CameraMove": {
       "type": "string",
+      "description": "Corresponds to xmpDM.CameraMoveChoice",
       "x-enumNames": [
         "MOVE_AERIAL",
         "MOVE_BOOM_UP",
@@ -10498,8 +11612,7 @@
         "MOVE_TRUCK_RIGHT",
         "MOVE_ZOOM_IN",
         "MOVE_ZOOM_OUT"
-      ],
-      "description": "Corresponds to xmpDM.CameraMoveChoice"
+      ]
     },
     "Media": {
       "type": "object",
@@ -10527,6 +11640,7 @@
     },
     "AudioMusicalKey": {
       "type": "string",
+      "description": "Corresponds to xmpDM.AudioMusicalKeyChoice",
       "x-enumNames": [
         "KEY_C",
         "KEY_C_SHARP",
@@ -10554,8 +11668,7 @@
         "KEY_A",
         "KEY_A_SHARP",
         "KEY_B"
-      ],
-      "description": "Corresponds to xmpDM.AudioMusicalKeyChoice"
+      ]
     },
     "Marker": {
       "type": "object",
@@ -10602,6 +11715,7 @@
     },
     "MarkerType": {
       "type": "string",
+      "description": "Corresponds to Xmp.Media.Marker.TypeChoice",
       "x-enumNames": [
         "Chapter",
         "Cue",
@@ -10615,8 +11729,7 @@
         "Index",
         "Speech",
         "Track"
-      ],
-      "description": "Corresponds to Xmp.Media.Marker.TypeChoice"
+      ]
     },
     "ProjectLink": {
       "type": "object",
@@ -10632,6 +11745,7 @@
     },
     "ProjectLinkType": {
       "type": "string",
+      "description": "Corresponds to Xmp.Media.ProjectLink.TypeChoice",
       "x-enumNames": [
         "Movie",
         "Still",
@@ -10643,11 +11757,11 @@
         "Still",
         "Audio",
         "Custom"
-      ],
-      "description": "Corresponds to Xmp.Media.ProjectLink.TypeChoice"
+      ]
     },
     "VideoPullDown": {
       "type": "string",
+      "description": "Corresponds to xmpDM.VideoPullDownChoice",
       "x-enumNames": [
         "PULLDOWN_WSSWW",
         "PULLDOWN_SSWWW",
@@ -10671,8 +11785,7 @@
         "PULLDOWN_WSWWW",
         "PULLDOWN_SWWWW",
         "PULLDOWN_WWWWS"
-      ],
-      "description": "Corresponds to xmpDM.VideoPullDownChoice"
+      ]
     },
     "ResampleStretch": {
       "type": "object",
@@ -10685,6 +11798,7 @@
     },
     "Quality": {
       "type": "string",
+      "description": "Corresponds to Xmp.Media.resampleStretch.QualityChoice and Xmp.Media.timeScaleStretch.QualityChoice",
       "x-enumNames": [
         "High",
         "Medium",
@@ -10694,11 +11808,11 @@
         "High",
         "Medium",
         "Low"
-      ],
-      "description": "Corresponds to Xmp.Media.resampleStretch.QualityChoice and Xmp.Media.timeScaleStretch.QualityChoice"
+      ]
     },
     "AudioMusicalScaleType": {
       "type": "string",
+      "description": "Corresponds to xmpDM.AudioMusicalScaleTypeChoice",
       "x-enumNames": [
         "SCALE_MAJOR",
         "SCALE_MINOR",
@@ -10710,11 +11824,11 @@
         "SCALE_MINOR",
         "SCALE_BOTH",
         "SCALE_NEITHER"
-      ],
-      "description": "Corresponds to xmpDM.AudioMusicalScaleTypeChoice"
+      ]
     },
     "ShotSize": {
       "type": "string",
+      "description": "Corresponds to xmpDM.ShotSizeChoice",
       "x-enumNames": [
         "SHOT_ECU",
         "SHOT_MCU",
@@ -10732,11 +11846,11 @@
         "SHOT_WS",
         "SHOT_MWS",
         "SHOT_EWS"
-      ],
-      "description": "Corresponds to xmpDM.ShotSizeChoice"
+      ]
     },
     "AudioStretchMode": {
       "type": "string",
+      "description": "Corresponds to xmpDM.AudioStretchModeChoice",
       "x-enumNames": [
         "STRETCH_FIXED_LENGTH",
         "STRETCH_TIME_SCALE",
@@ -10750,8 +11864,7 @@
         "STRETCH_RESAMPLE",
         "STRETCH_BEAT_SPLICE",
         "STRETCH_HYBRID"
-      ],
-      "description": "Corresponds to xmpDM.AudioStretchModeChoice"
+      ]
     },
     "TimeScaleStretch": {
       "type": "object",
@@ -10772,6 +11885,7 @@
     },
     "TimeSignature": {
       "type": "string",
+      "description": "Corresponds to xmpDM.TimeSignatureChoice",
       "x-enumNames": [
         "TIME_2_4",
         "TIME_3_4",
@@ -10793,8 +11907,7 @@
         "TIME_9_8",
         "TIME_12_8",
         "TIME_OTHER"
-      ],
-      "description": "Corresponds to xmpDM.TimeSignatureChoice"
+      ]
     },
     "Track": {
       "type": "object",
@@ -10819,6 +11932,7 @@
     },
     "VideoAlphaMode": {
       "type": "string",
+      "description": "Corresponds to xmpDM.VideoAlphaModeChoice",
       "x-enumNames": [
         "ALPHA_MODE_STRAIGHT",
         "ALPHA_MODE_PREMULTIPLIED",
@@ -10828,8 +11942,7 @@
         "ALPHA_MODE_STRAIGHT",
         "ALPHA_MODE_PREMULTIPLIED",
         "ALPHA_MODE_NONE"
-      ],
-      "description": "Corresponds to xmpDM.VideoAlphaModeChoice"
+      ]
     },
     "XmpG": {
       "type": "object",
@@ -10888,6 +12001,7 @@
     },
     "ColorantMode": {
       "type": "string",
+      "description": "Corresponds to xmpG.ModeChoice",
       "x-enumNames": [
         "CMYK",
         "RGB",
@@ -10897,11 +12011,11 @@
         "CMYK",
         "RGB",
         "LAB"
-      ],
-      "description": "Corresponds to xmpG.ModeChoice"
+      ]
     },
     "ColorantType": {
       "type": "string",
+      "description": "Corresponds to xmpG.TypeChoice",
       "x-enumNames": [
         "Process",
         "Spot"
@@ -10909,11 +12023,11 @@
       "enum": [
         "Process",
         "Spot"
-      ],
-      "description": "Corresponds to xmpG.TypeChoice"
+      ]
     },
     "VideoColorSpace": {
       "type": "string",
+      "description": "Corresponds to xmpDM.VideoColorSpaceChoice",
       "x-enumNames": [
         "COLOR_SPACE_SRGB",
         "COLOR_SPACE_CCIR_601",
@@ -10923,11 +12037,11 @@
         "COLOR_SPACE_SRGB",
         "COLOR_SPACE_CCIR_601",
         "COLOR_SPACE_CCIR_709"
-      ],
-      "description": "Corresponds to xmpDM.VideoColorSpaceChoice"
+      ]
     },
     "VideoFieldOrder": {
       "type": "string",
+      "description": "Corresponds to xmpDM.VideoFieldOrderChoice",
       "x-enumNames": [
         "FIELD_ORDER_UPPER",
         "FIELD_ORDER_LOWER",
@@ -10937,11 +12051,11 @@
         "FIELD_ORDER_UPPER",
         "FIELD_ORDER_LOWER",
         "FIELD_ORDER_PROGRESSIVE"
-      ],
-      "description": "Corresponds to xmpDM.VideoFieldOrderChoice"
+      ]
     },
     "VideoFrameRate": {
       "type": "string",
+      "description": "Corresponds to xmpDM.VideoFrameRateChoice",
       "x-enumNames": [
         "FRAME_RATE_24",
         "FRAME_RATE_NTSC",
@@ -10951,8 +12065,7 @@
         "FRAME_RATE_24",
         "FRAME_RATE_NTSC",
         "FRAME_RATE_PAL"
-      ],
-      "description": "Corresponds to xmpDM.VideoFrameRateChoice"
+      ]
     },
     "Dimension": {
       "type": "object",
@@ -10973,6 +12086,7 @@
     },
     "Unit": {
       "type": "string",
+      "description": "Corresponds to stDim.UnitChoice",
       "x-enumNames": [
         "Inch",
         "Millimeter",
@@ -10988,11 +12102,11 @@
         "Pixel",
         "Pica",
         "Point"
-      ],
-      "description": "Corresponds to stDim.UnitChoice"
+      ]
     },
     "VideoPixelDepth": {
       "type": "string",
+      "description": "Corresponds to xmpDM.VideoPixelDepthChoice",
       "x-enumNames": [
         "PIXEL_DEPTH_8_INT",
         "PIXEL_DEPTH_16_INT",
@@ -11008,8 +12122,7 @@
         "PIXEL_DEPTH_32_INT",
         "PIXEL_DEPTH_32_FLOAT",
         "PIXEL_DEPTH_OTHER"
-      ],
-      "description": "Corresponds to xmpDM.VideoPixelDepthChoice"
+      ]
     },
     "Xmpidq": {
       "type": "object",
@@ -11143,6 +12256,7 @@
     },
     "MaskMarkers": {
       "type": "string",
+      "description": "Corresponds to stRef.MaskMarkersChoice",
       "x-enumNames": [
         "All",
         "None"
@@ -11150,8 +12264,7 @@
       "enum": [
         "All",
         "None"
-      ],
-      "description": "Corresponds to stRef.MaskMarkersChoice"
+      ]
     },
     "Event": {
       "type": "object",
@@ -11180,6 +12293,7 @@
     },
     "EventAction": {
       "type": "string",
+      "description": "Corresponds to stEvt.ActionChoice",
       "x-enumNames": [
         "Converted",
         "Copied",
@@ -11213,8 +12327,7 @@
         "Resized",
         "Saved",
         "Derived"
-      ],
-      "description": "Corresponds to stEvt.ActionChoice"
+      ]
     },
     "VersionInfo": {
       "type": "object",
@@ -11340,6 +12453,7 @@
     },
     "FontType": {
       "type": "string",
+      "description": "Corresponds to stFnt.FontTypeChoice",
       "x-enumNames": [
         "TrueType",
         "Type1",
@@ -11351,8 +12465,7 @@
         "Type1",
         "OpenType",
         "OpenTypeCFF"
-      ],
-      "description": "Corresponds to stFnt.FontTypeChoice"
+      ]
     },
     "ExifMetadata": {
       "type": "object",
@@ -11660,6 +12773,7 @@
     },
     "ColorSpace": {
       "type": "string",
+      "description": "Corresponds to exif.ColorSpaceChoice",
       "x-enumNames": [
         "None",
         "sRGB",
@@ -11671,11 +12785,11 @@
         "sRGB",
         "AdobeRGB",
         "Uncalibrated"
-      ],
-      "description": "Corresponds to exif.ColorSpaceChoice"
+      ]
     },
     "Contrast": {
       "type": "string",
+      "description": "Corresponds to exif.ContrastChoice",
       "x-enumNames": [
         "Normal",
         "Soft",
@@ -11687,11 +12801,11 @@
         "Soft",
         "Hard",
         "Unknown"
-      ],
-      "description": "Corresponds to exif.ContrastChoice"
+      ]
     },
     "CustomRendered": {
       "type": "string",
+      "description": "Corresponds to exif.CustomRenderedChoice",
       "x-enumNames": [
         "NormalProcess",
         "CustomProcess"
@@ -11699,8 +12813,7 @@
       "enum": [
         "NormalProcess",
         "CustomProcess"
-      ],
-      "description": "Corresponds to exif.CustomRenderedChoice"
+      ]
     },
     "DeviceSettings": {
       "type": "object",
@@ -11724,6 +12837,7 @@
     },
     "ExifVersion": {
       "type": "string",
+      "description": "Corresponds to exif.ExifVersionChoice",
       "x-enumNames": [
         "V210",
         "V220",
@@ -11737,11 +12851,11 @@
         "V221",
         "V222",
         "V230"
-      ],
-      "description": "Corresponds to exif.ExifVersionChoice"
+      ]
     },
     "ExposureMode": {
       "type": "string",
+      "description": "Corresponds to exif.ExposureModeChoice",
       "x-enumNames": [
         "Auto",
         "Manual",
@@ -11751,11 +12865,11 @@
         "Auto",
         "Manual",
         "AutoBracket"
-      ],
-      "description": "Corresponds to exif.ExposureModeChoice"
+      ]
     },
     "ExposureProgram": {
       "type": "string",
+      "description": "Corresponds to exif.ExposureProgramChoice",
       "x-enumNames": [
         "Undefined",
         "Manual",
@@ -11779,11 +12893,11 @@
         "PortraitMode",
         "LandscapeMode",
         "Unknown"
-      ],
-      "description": "Corresponds to exif.ExposureProgramChoice"
+      ]
     },
     "FileSource": {
       "type": "string",
+      "description": "Corresponds to exif.FileSourceChoice",
       "x-enumNames": [
         "Other",
         "TransparentScanner",
@@ -11795,8 +12909,7 @@
         "TransparentScanner",
         "ReflexScanner",
         "DSC"
-      ],
-      "description": "Corresponds to exif.FileSourceChoice"
+      ]
     },
     "Flash": {
       "type": "object",
@@ -11821,6 +12934,7 @@
     },
     "FlashReturn": {
       "type": "string",
+      "description": "Corresponds to Xmp.Structure.Flash.ReturnChoice",
       "x-enumNames": [
         "NoStrobeReturnDetection",
         "StrobeReturnLightNotDetected",
@@ -11830,11 +12944,11 @@
         "NoStrobeReturnDetection",
         "StrobeReturnLightNotDetected",
         "StrobeReturnLightDetected"
-      ],
-      "description": "Corresponds to Xmp.Structure.Flash.ReturnChoice"
+      ]
     },
     "FlashMode": {
       "type": "string",
+      "description": "Corresponds to Xmp.Structure.Flash.ModeChoice",
       "x-enumNames": [
         "Unknown",
         "CompulsoryFlashFiring",
@@ -11846,11 +12960,11 @@
         "CompulsoryFlashFiring",
         "CompulsoryFlashSuppression",
         "AutoMode"
-      ],
-      "description": "Corresponds to Xmp.Structure.Flash.ModeChoice"
+      ]
     },
     "FlashpixVersion": {
       "type": "string",
+      "description": "Corresponds to exif.FlashpixVersionChoice",
       "x-enumNames": [
         "V100",
         "V101",
@@ -11860,11 +12974,11 @@
         "V100",
         "V101",
         "V110"
-      ],
-      "description": "Corresponds to exif.FlashpixVersionChoice"
+      ]
     },
     "FocalPlaneResolutionUnit": {
       "type": "string",
+      "description": "Corresponds to exif.FocalPlaneResolutionUnitChoice",
       "x-enumNames": [
         "None",
         "Inch",
@@ -11880,11 +12994,11 @@
         "Centimeter",
         "Millimeter",
         "Micrometer"
-      ],
-      "description": "Corresponds to exif.FocalPlaneResolutionUnitChoice"
+      ]
     },
     "GainControl": {
       "type": "string",
+      "description": "Corresponds to exif.GainControlChoice",
       "x-enumNames": [
         "None",
         "LowGainUp",
@@ -11898,11 +13012,11 @@
         "HighGainUp",
         "LowGainDown",
         "HighGainDown"
-      ],
-      "description": "Corresponds to exif.GainControlChoice"
+      ]
     },
     "GPSAltitudeRef": {
       "type": "string",
+      "description": "Corresponds to exif.GPSAltitudeRefChoice",
       "x-enumNames": [
         "AboveSeaLevel",
         "BelowSeaLevel"
@@ -11910,11 +13024,11 @@
       "enum": [
         "AboveSeaLevel",
         "BelowSeaLevel"
-      ],
-      "description": "Corresponds to exif.GPSAltitudeRefChoice"
+      ]
     },
     "GPSDestBearingRef": {
       "type": "string",
+      "description": "Corresponds to exif.GPSDestBearingRefChoice",
       "x-enumNames": [
         "TrueDirection",
         "MagneticDirection"
@@ -11922,11 +13036,11 @@
       "enum": [
         "TrueDirection",
         "MagneticDirection"
-      ],
-      "description": "Corresponds to exif.GPSDestBearingRefChoice"
+      ]
     },
     "GPSDestDistanceRef": {
       "type": "string",
+      "description": "Corresponds to exif.GPSDestDistanceRefChoice",
       "x-enumNames": [
         "Kilometers",
         "Miles",
@@ -11936,11 +13050,11 @@
         "Kilometers",
         "Miles",
         "Knots"
-      ],
-      "description": "Corresponds to exif.GPSDestDistanceRefChoice"
+      ]
     },
     "GPSDifferential": {
       "type": "string",
+      "description": "Corresponds to exif.GPSDifferentialChoice",
       "x-enumNames": [
         "WithoutCorrection",
         "WithCorrection"
@@ -11948,11 +13062,11 @@
       "enum": [
         "WithoutCorrection",
         "WithCorrection"
-      ],
-      "description": "Corresponds to exif.GPSDifferentialChoice"
+      ]
     },
     "GPSImgDirectionRef": {
       "type": "string",
+      "description": "Corresponds to exif.GPSImgDirectionRefChoice",
       "x-enumNames": [
         "TrueDirection",
         "MagneticDirection"
@@ -11960,8 +13074,7 @@
       "enum": [
         "TrueDirection",
         "MagneticDirection"
-      ],
-      "description": "Corresponds to exif.GPSImgDirectionRefChoice"
+      ]
     },
     "GPSCoordinate": {
       "type": "object",
@@ -11979,6 +13092,7 @@
     },
     "GPSSpeedRef": {
       "type": "string",
+      "description": "Corresponds to exif.GPSSpeedRefChoice",
       "x-enumNames": [
         "KilometersPerHour",
         "MilesPerHour",
@@ -11988,11 +13102,11 @@
         "KilometersPerHour",
         "MilesPerHour",
         "Knots"
-      ],
-      "description": "Corresponds to exif.GPSSpeedRefChoice"
+      ]
     },
     "GPSStatus": {
       "type": "string",
+      "description": "Corresponds to exif.GPSStatusChoice",
       "x-enumNames": [
         "MeasurementInProgress",
         "MeasurementIsInteroperability"
@@ -12000,11 +13114,11 @@
       "enum": [
         "MeasurementInProgress",
         "MeasurementIsInteroperability"
-      ],
-      "description": "Corresponds to exif.GPSStatusChoice"
+      ]
     },
     "LightSource": {
       "type": "string",
+      "description": "Corresponds to exif.LightSourceChoice",
       "x-enumNames": [
         "Unidentified",
         "Daylight",
@@ -12050,11 +13164,11 @@
         "D50Illuminant",
         "ISOStudioTungsten",
         "Other"
-      ],
-      "description": "Corresponds to exif.LightSourceChoice"
+      ]
     },
     "MeteringMode": {
       "type": "string",
+      "description": "Corresponds to exif.MeteringModeChoice",
       "x-enumNames": [
         "Unidentified",
         "Average",
@@ -12076,8 +13190,7 @@
         "Partial",
         "Reserved",
         "Other"
-      ],
-      "description": "Corresponds to exif.MeteringModeChoice"
+      ]
     },
     "OECF": {
       "type": "object",
@@ -12107,6 +13220,7 @@
     },
     "Saturation": {
       "type": "string",
+      "description": "Corresponds to exif.SaturationChoice",
       "x-enumNames": [
         "Normal",
         "Low",
@@ -12118,11 +13232,11 @@
         "Low",
         "High",
         "Unknown"
-      ],
-      "description": "Corresponds to exif.SaturationChoice"
+      ]
     },
     "SceneCaptureType": {
       "type": "string",
+      "description": "Corresponds to exif.SceneCaptureTypeChoice",
       "x-enumNames": [
         "Standard",
         "Landscape",
@@ -12134,21 +13248,21 @@
         "Landscape",
         "Portrait",
         "NightScene"
-      ],
-      "description": "Corresponds to exif.SceneCaptureTypeChoice"
+      ]
     },
     "SceneType": {
       "type": "string",
+      "description": "Corresponds to exif.SceneTypeChoice",
       "x-enumNames": [
         "DirectlyPhotographedImage"
       ],
       "enum": [
         "DirectlyPhotographedImage"
-      ],
-      "description": "Corresponds to exif.SceneTypeChoice"
+      ]
     },
     "SensingMethod": {
       "type": "string",
+      "description": "Corresponds to exif.SensingMethodChoice",
       "x-enumNames": [
         "Undefined",
         "MonochromeArea",
@@ -12170,11 +13284,11 @@
         "MonochromeLinearArea",
         "TrilinearSensor",
         "ColourSequentialLinearSensor"
-      ],
-      "description": "Corresponds to exif.SensingMethodChoice"
+      ]
     },
     "Sharpness": {
       "type": "string",
+      "description": "Corresponds to exif.SharpnessChoice",
       "x-enumNames": [
         "Normal",
         "Soft",
@@ -12186,8 +13300,7 @@
         "Soft",
         "Hard",
         "Unknown"
-      ],
-      "description": "Corresponds to exif.SharpnessChoice"
+      ]
     },
     "SFR": {
       "type": "object",
@@ -12217,6 +13330,7 @@
     },
     "SubjectDistanceRange": {
       "type": "string",
+      "description": "Corresponds to exif.SubjectDistanceRangeChoice",
       "x-enumNames": [
         "Unknown",
         "Macro",
@@ -12228,11 +13342,11 @@
         "Macro",
         "CloseView",
         "DistantView"
-      ],
-      "description": "Corresponds to exif.SubjectDistanceRangeChoice"
+      ]
     },
     "WhiteBalanceExif": {
       "type": "string",
+      "description": "Corresponds to exif.WhiteBalanceChoice",
       "x-enumNames": [
         "Auto",
         "Manual",
@@ -12242,8 +13356,7 @@
         "Auto",
         "Manual",
         "Unknown"
-      ],
-      "description": "Corresponds to exif.WhiteBalanceChoice"
+      ]
     },
     "ExifAux": {
       "type": "object",
@@ -12713,6 +13826,7 @@
     },
     "OutputSource": {
       "type": "string",
+      "description": "",
       "x-enumNames": [
         "Rendered",
         "Embedded"
@@ -12720,8 +13834,7 @@
       "enum": [
         "Rendered",
         "Embedded"
-      ],
-      "description": ""
+      ]
     },
     "FileTransfer2ContentCreateRequest": {
       "type": "object",
@@ -12732,20 +13845,20 @@
         },
         "LayerSchemaIds": {
           "type": "array",
+          "description": "An optional id list of schemas with type layer.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of schemas with type layer."
+          }
         },
         "Metadata": {
           "$ref": "#/definitions/DataDictionary"
         },
         "ContentPermissionSetIds": {
           "type": "array",
+          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership."
+          }
         }
       }
     },
@@ -12773,20 +13886,20 @@
         },
         "LayerSchemaIds": {
           "type": "array",
+          "description": "An optional id list of schemas with type layer.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of schemas with type layer."
+          }
         },
         "Metadata": {
           "$ref": "#/definitions/DataDictionary"
         },
         "ContentPermissionSetIds": {
           "type": "array",
+          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
           "items": {
             "type": "string"
-          },
-          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership."
+          }
         }
       }
     },
@@ -12964,6 +14077,252 @@
         }
       }
     },
+    "UserSearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Start",
+        "Limit",
+        "LifeCycleFilter"
+      ],
+      "properties": {
+        "SearchString": {
+          "type": "string"
+        },
+        "Sort": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        },
+        "Start": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Filter": {
+          "$ref": "#/definitions/FilterBase"
+        },
+        "LifeCycleFilter": {
+          "$ref": "#/definitions/LifeCycleFilter"
+        }
+      }
+    },
+    "UserSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ElapsedMilliseconds"
+      ],
+      "properties": {
+        "ElapsedMilliseconds": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfUserViewItem"
+        }
+      ]
+    },
+    "BaseResultOfUserViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "TotalResults"
+      ],
+      "properties": {
+        "TotalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserViewItem"
+          }
+        },
+        "PageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "UserViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "UserRoleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/UserItem"
+        }
+      ]
+    },
+    "UserDetailViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Password": {
+          "type": "string"
+        },
+        "UserRoles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserRoleViewItem"
+          }
+        },
+        "Comment": {
+          "type": "string"
+        },
+        "LanguageCode": {
+          "type": "string"
+        },
+        "Address": {
+          "$ref": "#/definitions/UserAddress"
+        },
+        "Privilege": {
+          "$ref": "#/definitions/UserPrivilege"
+        },
+        "Drives": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DriveViewItem"
+          }
+        },
+        "OwnerTokens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OwnerTokenViewItem"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/UserItem"
+        }
+      ]
+    },
+    "UserAddress": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Company": {
+          "type": "string"
+        },
+        "Address": {
+          "type": "string"
+        },
+        "AlternativeAddress": {
+          "type": "string"
+        },
+        "Department": {
+          "type": "string"
+        },
+        "Zip": {
+          "type": "string"
+        },
+        "City": {
+          "type": "string"
+        },
+        "Phone": {
+          "type": "string"
+        },
+        "CountryCode": {
+          "type": "string"
+        }
+      }
+    },
+    "UserPrivilege": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "CanBeInternalContact",
+        "CanChangeOwnProfile"
+      ],
+      "properties": {
+        "CanBeInternalContact": {
+          "type": "boolean"
+        },
+        "CanChangeOwnProfile": {
+          "type": "boolean"
+        }
+      }
+    },
+    "DriveViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "Name": {
+          "type": "string"
+        }
+      }
+    },
+    "OwnerTokenViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Id": {
+          "type": "string",
+          "description": "The ownertoken id."
+        },
+        "UserId": {
+          "type": "string",
+          "description": "The id of the user to whom this ownertoken currently belongs to."
+        }
+      }
+    },
+    "UserProfileViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Id": {
+          "type": "string"
+        },
+        "EmailAddress": {
+          "type": "string"
+        },
+        "FirstName": {
+          "type": "string"
+        },
+        "LastName": {
+          "type": "string"
+        },
+        "Company": {
+          "type": "string"
+        },
+        "Address": {
+          "type": "string"
+        },
+        "AlternativeAddress": {
+          "type": "string"
+        },
+        "Department": {
+          "type": "string"
+        },
+        "Zip": {
+          "type": "string"
+        },
+        "City": {
+          "type": "string"
+        },
+        "Phone": {
+          "type": "string"
+        }
+      }
+    },
     "ChannelViewItem": {
       "type": "object",
       "additionalProperties": false,
@@ -12988,10 +14347,10 @@
         },
         "SchemaIds": {
           "type": "array",
+          "description": "An id list of schemas with schema type content whose content documents should be found by the simple search.\nThe search by filters and aggregations are unaffected.",
           "items": {
             "type": "string"
-          },
-          "description": "An id list of schemas with schema type content whose content documents should be found by the simple search.\nThe search by filters and aggregations are unaffected."
+          }
         },
         "Filter": {
           "description": "An optional search filter. Limits the content document result set on each search and aggregation request.",
@@ -13009,17 +14368,51 @@
         },
         "Aggregations": {
           "type": "array",
+          "description": "An optional list of aggregators. These aggregations are added by default on each aggregation requests.",
           "items": {
             "$ref": "#/definitions/AggregatorBase"
-          },
-          "description": "An optional list of aggregators. These aggregations are added by default on each aggregation requests."
+          }
         },
         "ExtendedSimpleSearchFields": {
           "type": "array",
+          "description": "An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.",
           "items": {
             "type": "string"
-          },
-          "description": "An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration."
+          }
+        }
+      }
+    },
+    "ContentsByIdsRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ContentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "BaseResultOfOutputDetailViewItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "TotalResults"
+      ],
+      "properties": {
+        "TotalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "Results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OutputDetailViewItem"
+          }
+        },
+        "PageToken": {
+          "type": "string"
         }
       }
     }

@@ -8,13 +8,16 @@ namespace Picturepark.SDK.V1.Authentication
 {
 	public class AccessTokenAuthClient : IAuthClient
 	{
-		public AccessTokenAuthClient(string baseUrl, string accessToken)
+		public AccessTokenAuthClient(string baseUrl, string accessToken, string customerAlias)
 		{
 			BaseUrl = baseUrl;
 			AccessToken = accessToken;
+			CustomerAlias = customerAlias;
 		}
 
 		public string BaseUrl { get; }
+
+		public string CustomerAlias { get; }
 
 		private string AccessToken { get; }
 

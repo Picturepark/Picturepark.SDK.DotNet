@@ -48,11 +48,13 @@ namespace Picturepark.SDK.V1.Authentication
         /// <summary>Gets the currently loaded token expiry token.</summary>
         public DateTime TokenExpiryTime { get; protected set; }
 
-        /// <summary>Retrieves the access token for the given username and password.</summary>
-        /// <param name="username">The username.</param>
-        /// <param name="password">The password.</param>
-        /// <returns>The task.</returns>
-        public async Task LoginAsync(string username, string password)
+		public string CustomerAlias { get; }
+
+		/// <summary>Retrieves the access token for the given username and password.</summary>
+		/// <param name="username">The username.</param>
+		/// <param name="password">The password.</param>
+		/// <returns>The task.</returns>
+		public async Task LoginAsync(string username, string password)
         {
             lock (_lock)
             {

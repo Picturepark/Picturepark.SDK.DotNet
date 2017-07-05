@@ -26,7 +26,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 			var configurationJson = File.ReadAllText(ProjectDirectory + "Configuration.json");
 			_configuration = JsonConvert.DeserializeObject<TestConfiguration>(configurationJson);
 
-			var authClient = new AccessTokenAuthClient(_configuration.Server, _configuration.AccessToken);
+			var authClient = new AccessTokenAuthClient(_configuration.Server, _configuration.AccessToken, _configuration.CustomerAlias);
 			_client = new PictureparkClient(new PictureparkClientSettings(authClient));
 		}
 
