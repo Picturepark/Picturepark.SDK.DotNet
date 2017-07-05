@@ -1,5 +1,4 @@
-﻿using Picturepark.SDK.V1.ServiceProvider.Contract;
-using System;
+﻿using System;
 using System.Reactive.Linq;
 
 namespace Picturepark.SDK.V1.ServiceProvider.Example
@@ -15,9 +14,9 @@ namespace Picturepark.SDK.V1.ServiceProvider.Example
 
 		public IDisposable Run(Configuration configuration)
 		{
-			_client = new Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient(configuration);
+			_client = new ServiceProviderClient(configuration);
 
-			////var serviceProviderClient = _client.GetConfigurationClient("http://localhost:8080", "picturepark.admin@acme.xxx", "cGljdHVyZXBhcmsuYWRtaW5AYWNtZS54eHg=");
+			////var serviceProviderClient = _client.GetConfigurationClient("http://localhost:8085", "{user}", "{secret}");
 			////var config = serviceProviderClient.GetConfigurationAsync("clarifyextractor").Result;
 			////config = serviceProviderClient.UpdateConfigurationAsync("clarifyextractor", new Contract.ServiceProviderConfigurationUpdateRequest
 			////{

@@ -116,7 +116,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
 			);
 		}
 
-		public ServiceProviderRestClient GetConfigurationClient(string baseUrl, string username, string password)
+		public ServiceProviderRestClient GetConfigurationClient(string baseUrl, string accessToken, string customerAlias)
 		{
 			// TODO BRO: Lock
 			if (_serviceProviderCache.ContainsKey(baseUrl))
@@ -125,7 +125,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
 			}
 			else
 			{
-				var client = new ServiceProviderRestClient(new PictureparkClientSettings(new UsernamePasswordAuthClient(baseUrl, username, password)));
+				var client = new ServiceProviderRestClient(new PictureparkClientSettings(new AccessTokenAuthClient(baseUrl, accessToken, customerAlias)));
 				client.BaseUrl = baseUrl;
 
 				_serviceProviderCache[baseUrl] = client;

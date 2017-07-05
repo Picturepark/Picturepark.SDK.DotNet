@@ -6,6 +6,10 @@ namespace Picturepark.SDK.V1.Tests
 	{
 		public string Server { get; set; }
 
+		public string CustomerAlias { get; set; }
+
+		public string AccessToken { get; set; }
+
 		public string Username { get; set; }
 
 		public string Password { get; set; }

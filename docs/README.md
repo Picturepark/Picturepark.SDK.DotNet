@@ -11,7 +11,7 @@ Install the Picturepark SDK NuGet package in your .NET project (supports .NET 4.
 Create new `PictureparkClient` and access remote PCP server: 
 
 ```csharp
-var authClient = new UsernamePasswordAuthClient("http://mypcpserver.com", username, password); 
+var authClient = new AccessTokenAuthClient("https://api.mypcpserver.com", "AccessToken", "CustomerAlias");
 var settings = new PictureparkClientSettings(authClient);
 using (var client = new PictureparkClient(settings))
 {
@@ -30,7 +30,7 @@ public void ConfigureServices(IServiceCollection services)
 	services.AddMvc();
 
 	services.AddSingleton<IPictureparkClientSettings>(
-		new PictureparkClientSettings(new UsernamePasswordAuthClient("myUrl", "myUsername", "myPassword")));
+		new PictureparkClientSettings(new AccessTokenAuthClient("https://api.mypcpserver.com", "AccessToken", "CustomerAlias")));
 	services.AddScoped<IPictureparkClient, PictureparkClient>();
 }
 ```

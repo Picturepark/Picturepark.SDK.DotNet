@@ -14,5 +14,7 @@ namespace Picturepark.SDK.V1.Contract
 
 		/// <summary></summary>
 		IAuthClient AuthClient { get; }
+
+		string CustomerAlias { get; }
 	}
 }

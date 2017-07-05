@@ -1,8 +1,9 @@
 ﻿{
 	"Server": "{Server}",
+	"CustomerAlias": "{CustomerAlias}",
 	"Username": "{Username}",
 	"Password": "{Password}",
-
+	"AccessToken": "{AccessToken}",
 	"EmailRecipient": {
 		"FirstName": "Firstname",
 		"LastName": "Lastname",

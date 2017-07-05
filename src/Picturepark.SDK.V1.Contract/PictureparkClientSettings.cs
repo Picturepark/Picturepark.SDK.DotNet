@@ -10,16 +10,18 @@ namespace Picturepark.SDK.V1.Contract
 		/// Initializes a new instance of the <see cref="PictureparkClientSettings"/> class.
 		/// </summary>
 		/// <param name="baseUrl">The base URL.</param>
-		public PictureparkClientSettings(string baseUrl)
+		/// <param name="customerAlias">The customaer alias</param>
+		public PictureparkClientSettings(string baseUrl, string customerAlias)
 		{
 			BaseUrl = baseUrl;
 			HttpTimeout = TimeSpan.FromMinutes(1);
+			CustomerAlias = customerAlias;
 		}
 
 		/// <summary>Initializes a new instance of the <see cref="PictureparkClientSettings"/> class.</summary>
 		/// <param name="authClient">The authentication client.</param>
 		public PictureparkClientSettings(IAuthClient authClient)
-			: this(authClient.BaseUrl)
+			: this(authClient.BaseUrl, authClient.CustomerAlias)
 		{
 			AuthClient = authClient;
 		}
@@ -27,8 +29,9 @@ namespace Picturepark.SDK.V1.Contract
 		/// <summary>Initializes a new instance of the <see cref="PictureparkClientSettings" /> class.</summary>
 		/// <param name="baseUrl">The base URL.</param>
 		/// <param name="authClient">The authentication client.</param>
-		public PictureparkClientSettings(string baseUrl, IAuthClient authClient)
-			: this(baseUrl)
+		/// <param name="customerAlias">The customer alias</param>
+		public PictureparkClientSettings(string baseUrl, IAuthClient authClient, string customerAlias)
+			: this(baseUrl, customerAlias)
 		{
 			AuthClient = authClient;
 		}
@@ -41,5 +44,7 @@ namespace Picturepark.SDK.V1.Contract
 
 		/// <summary></summary>
 		public IAuthClient AuthClient { get; set; }
+
+		public string CustomerAlias { get; set; }
 	}
 }
