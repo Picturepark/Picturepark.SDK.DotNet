@@ -1,4 +1,4 @@
-﻿using Picturepark.API.Contract.V1.LiveStream;
+﻿using Picturepark.SDK.V1.ServiceProvider.Contract;
 using RabbitMQ.Client;
 using System;
 

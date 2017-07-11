@@ -1,5 +1,4 @@
 ﻿{
-  "x-generator": "NSwag v11.1.2.0 (NJsonSchema v9.2.0.0)",
   "swagger": "2.0",
   "info": {
     "title": "Web API Swagger specification",
@@ -174,7 +173,6 @@
     },
     "TraceLevel": {
       "type": "string",
-      "description": "",
       "x-enumNames": [
         "Critical",
         "Error",
@@ -188,7 +186,8 @@
         "Warning",
         "Information",
         "Verbose"
-      ]
+      ],
+      "description": ""
     },
     "Exception": {
       "type": "object",
@@ -634,6 +633,9 @@
         },
         "ErrorMessage": {
           "type": "string"
+        },
+        "Message": {
+          "type": "string"
         }
       },
       "allOf": [
@@ -662,6 +664,11 @@
     "PictureparkOperationCanceledException": {
       "type": "object",
       "additionalProperties": false,
+      "properties": {
+        "CancellationToken": {
+          "type": "string"
+        }
+      },
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
@@ -671,6 +678,11 @@
     "OperationTimeoutException": {
       "type": "object",
       "additionalProperties": false,
+      "properties": {
+        "MessageId": {
+          "type": "string"
+        }
+      },
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"

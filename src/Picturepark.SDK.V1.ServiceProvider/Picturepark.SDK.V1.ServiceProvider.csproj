@@ -14,13 +14,17 @@
 		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
 		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
 		<CodeAnalysisRuleSet>../Picturepark.SDK.DotNet.ruleset</CodeAnalysisRuleSet>
-		<Version>0.43.0</Version>
+		<Version>0.44.0</Version>
 		<PackageProjectUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet</PackageProjectUrl>
-		<AssemblyVersion>0.43.0.0</AssemblyVersion>
-		<FileVersion>0.43.0.0</FileVersion>
+		<AssemblyVersion>0.44.0.0</AssemblyVersion>
+		<FileVersion>0.44.0.0</FileVersion>
 	</PropertyGroup>
+	<ItemGroup>
+	  <None Include="Contract\Contracts.Generated.cs" />
+	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\Picturepark.SDK.V1.Contract\Picturepark.SDK.V1.Contract.csproj" />
 		<ProjectReference Include="..\Picturepark.SDK.V1\Picturepark.SDK.V1.csproj" />
 	</ItemGroup>
 
@@ -31,7 +35,6 @@
 		<PackageReference Include="StyleCop.Analyzers" Version="1.0.0">
 			<PrivateAssets>All</PrivateAssets>
 		</PackageReference>
-		<PackageReference Include="Picturepark.API.Contract.V1" Version="1.0.16" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">

@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2017 Vision Information Transaction AG, http://www.vit.ch
+Copyright (c) 2017 Vision Information Transaction AG, http://www.picturepark.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

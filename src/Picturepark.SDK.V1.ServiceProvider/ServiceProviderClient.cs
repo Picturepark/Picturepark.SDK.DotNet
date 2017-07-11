@@ -1,5 +1,4 @@
-﻿using Picturepark.API.Contract.V1.ServiceProvider;
-using Picturepark.SDK.V1.ServiceProvider.Buffer;
+﻿using Picturepark.SDK.V1.ServiceProvider.Buffer;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
@@ -9,6 +8,7 @@ using System.Reactive.Linq;
 using System.Text;
 using Picturepark.SDK.V1.Authentication;
 using Picturepark.SDK.V1.Contract;
+using Picturepark.SDK.V1.ServiceProvider.Contract;
 
 namespace Picturepark.SDK.V1.ServiceProvider
 {
