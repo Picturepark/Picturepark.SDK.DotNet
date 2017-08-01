@@ -1,40 +1,40 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <Description>Picturepark DotNet SDK Localization</Description>
-    <AssemblyTitle>Picturepark.SDK.V1.Localization</AssemblyTitle>
-    <VersionPrefix>0.27.0</VersionPrefix>
-    <TargetFrameworks>netstandard1.3;net451</TargetFrameworks>
-    <NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <AssemblyName>Picturepark.SDK.V1.Localization</AssemblyName>
-    <PackageId>Picturepark.SDK.V1.Localization</PackageId>
-    <PackageIconUrl>https://bitbucket.vit.ch:8443/projects/PP9/repos/picturepark.public/browse/picturepark-240px.png?raw</PackageIconUrl>
-    <PackageLicenseUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/LICENSE.md</PackageLicenseUrl>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <CodeAnalysisRuleSet>../Picturepark.SDK.DotNet.ruleset</CodeAnalysisRuleSet>
-    <Version>0.44.0</Version>
-    <PackageProjectUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet</PackageProjectUrl>
-    <AssemblyVersion>0.44.0.0</AssemblyVersion>
-    <FileVersion>0.44.0.0</FileVersion>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Description>Picturepark DotNet SDK Localization</Description>
+		<AssemblyTitle>Picturepark.SDK.V1.Localization</AssemblyTitle>
+		<TargetFrameworks>netstandard1.3;net451</TargetFrameworks>
+		<NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<AssemblyName>Picturepark.SDK.V1.Localization</AssemblyName>
+		<PackageId>Picturepark.SDK.V1.Localization</PackageId>
+		<PackageIconUrl>https://bitbucket.vit.ch:8443/projects/PP9/repos/picturepark.public/browse/picturepark-240px.png?raw</PackageIconUrl>
+		<PackageLicenseUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/LICENSE.md</PackageLicenseUrl>
+		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+		<CodeAnalysisRuleSet>../Picturepark.SDK.DotNet.ruleset</CodeAnalysisRuleSet>
+		<Version>0.0.0</Version>
+		<PackageProjectUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet</PackageProjectUrl>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Picturepark.SDK.V1.Contract\Picturepark.SDK.V1.Contract.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Picturepark.SDK.V1.Contract\Picturepark.SDK.V1.Contract.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="DotLiquid" Version="2.0.64" />
-    <PackageReference Include="NGettext" Version="0.6.2" />
-    <PackageReference Include="System.Collections.Concurrent" Version="4.3.0" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.0.0">
-      <PrivateAssets>All</PrivateAssets>
-    </PackageReference>
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="DotLiquid" Version="2.0.64" />
+		<PackageReference Include="NGettext" Version="0.6.2" />
+		<PackageReference Include="System.Collections.Concurrent" Version="4.3.0" />
+		<PackageReference Include="Nerdbank.GitVersioning" Version="1.6.35">
+			<PrivateAssets>All</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
+			<PrivateAssets>All</PrivateAssets>
+		</PackageReference>
+	</ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
-    <Reference Include="System" />
-    <Reference Include="Microsoft.CSharp" />
-  </ItemGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
+		<Reference Include="System" />
+		<Reference Include="Microsoft.CSharp" />
+	</ItemGroup>
 </Project>
