@@ -3,5 +3,15 @@
 	"version": "0.45.0",
 	"publicReleaseRefSpec": [
 		"^refs/heads/master$"
-	]
+	],
+	"cloudBuild": {
+		"setVersionVariables": true,
+		"buildNumber": {
+			"enabled": true,
+			"includeCommitId": {
+				"when": "nonPublicReleaseOnly",
+				"where": "buildMetadata"
+			}
+		}
+	}
 }
