@@ -234,7 +234,7 @@ namespace Picturepark.SDK.V1.Tests
 					Term = SchemaType.List.ToString()
 				}
 			};
-			BaseResultOfSchemaViewItem result = _client.Schemas.Search(request);
+			BaseResultOfSchema result = _client.Schemas.Search(request);
 			Assert.True(result.Results.Count() > 0);
 
 			string objectId = null;
@@ -261,13 +261,13 @@ namespace Picturepark.SDK.V1.Tests
 			// Get a list of MetadataSchemaIds
 			// ---------------------------------------------------------------------------
 			var searchRequestSchema = new SchemaSearchRequest() { Start = 0, Limit = 999, Filter = new TermFilter() { Field = "Types", Term = SchemaType.List.ToString() } };
-			BaseResultOfSchemaViewItem searchResultSchema = _client.Schemas.Search(searchRequestSchema);
+			BaseResultOfSchema searchResultSchema = _client.Schemas.Search(searchRequestSchema);
 			Assert.True(searchResultSchema.Results.Count() > 0);
 
 			List<string> metadataSchemaIds = searchResultSchema.Results.Select(i => i.Id).OrderBy(i => i).ToList();
 
 			var searchRequestObject = new ListItemSearchRequest() { Start = 0, Limit = 100 };
-			var viewItems = new List<ListItem>();
+			var items = new List<ListItem>();
 			List<string> failedMetadataSchemaIds = new List<string>();
 			BaseResultOfListItem searchResultObject;
 
@@ -283,7 +283,7 @@ namespace Picturepark.SDK.V1.Tests
 					searchResultObject = await _client.ListItems.SearchAsync(searchRequestObject);
 
 					if (searchResultObject.Results.Count() > 0)
-						viewItems.AddRange(searchResultObject.Results);
+						items.AddRange(searchResultObject.Results);
 				}
 				catch (Exception ex)
 				{
@@ -295,7 +295,7 @@ namespace Picturepark.SDK.V1.Tests
 			}
 
 			Assert.True(failedMetadataSchemaIds.Count() == 0);
-			Assert.True(viewItems.Count() > 0);
+			Assert.True(items.Count() > 0);
 		}
 
 		[Fact]
@@ -313,16 +313,16 @@ namespace Picturepark.SDK.V1.Tests
 			Assert.True(players.Results.Count() > 0);
 			var playerObjectId = players.Results.First().Id;
 
-			var playerViewItem = await _client.ListItems.GetAsync(playerObjectId, true);
+			var playerItem = await _client.ListItems.GetAsync(playerObjectId, true);
 
 			// Convert first result item to CLR
-			var player = playerViewItem.ConvertToType<SoccerPlayer>(nameof(SoccerPlayer));
+			var player = playerItem.ConvertToType<SoccerPlayer>(nameof(SoccerPlayer));
 
 			// Update CLR Object
 			player.Firstname = "xy jviorej ivorejvioe";
 
 			// Update on server
-			await _client.ListItems.UpdateListItemAsync(playerViewItem, player, nameof(SoccerPlayer));
+			await _client.ListItems.UpdateListItemAsync(playerItem, player, nameof(SoccerPlayer));
 		}
 
 		[Fact(Skip = "Broken")] // TODO: Fix

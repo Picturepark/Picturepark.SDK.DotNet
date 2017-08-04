@@ -21,9 +21,9 @@ namespace Picturepark.SDK.V1.Conversion
 		/// <param name="type">Type of poco to convert</param>
 		/// <param name="generateRelatedSchemas">Generates related schemas as well. E.g. referenced pocos in lists.</param>
 		/// <returns>List of schemas</returns>
-		public List<SchemaDetailViewItem> Generate(Type type, bool generateRelatedSchemas = true)
+		public List<SchemaDetail> Generate(Type type, bool generateRelatedSchemas = true)
 		{
-			var schemaList = new List<SchemaDetailViewItem>();
+			var schemaList = new List<SchemaDetail>();
 			return Generate(type, schemaList, true);
 		}
 
@@ -34,13 +34,13 @@ namespace Picturepark.SDK.V1.Conversion
 		/// <param name="schemaList">Existing list of schemas. Pass if you need to convert several pocos and they reference the same dependant schemas (used to exclude existing schemas).</param>
 		/// <param name="generateRelatedSchemas">Generates related schemas as well. E.g. referenced pocos in lists.</param>
 		/// <returns>List of schemas</returns>
-		public List<SchemaDetailViewItem> Generate(Type type, List<SchemaDetailViewItem> schemaList, bool generateRelatedSchemas = true)
+		public List<SchemaDetail> Generate(Type type, List<SchemaDetail> schemaList, bool generateRelatedSchemas = true)
 		{
 			var classProperties = GetClassProperties(type);
 
 			var schema = SchemaCreate(classProperties, type, string.Empty, schemaList, 0, generateRelatedSchemas);
 
-			var sortedList = new List<SchemaDetailViewItem>();
+			var sortedList = new List<SchemaDetail>();
 
 			foreach (var schemaItem in schemaList)
 			{
@@ -70,7 +70,7 @@ namespace Picturepark.SDK.V1.Conversion
 			return sortedList;
 		}
 
-		private SchemaDetailViewItem SchemaCreate(List<ContractPropertyInfo> classProperties, Type contractType, string parentSchemaId, List<SchemaDetailViewItem> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
+		private SchemaDetail SchemaCreate(List<ContractPropertyInfo> classProperties, Type contractType, string parentSchemaId, List<SchemaDetail> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
 		{
 			var schemaId = contractType.Name;
 
@@ -86,7 +86,7 @@ namespace Picturepark.SDK.V1.Conversion
 				types.Add(typeAttribute.SchemaType);
 			}
 
-			var schemaItem = new SchemaDetailViewItem()
+			var schemaItem = new SchemaDetail()
 			{
 				Id = schemaId,
 				Fields = new List<FieldBase> { },
@@ -406,8 +406,7 @@ namespace Picturepark.SDK.V1.Conversion
 			}
 			else if (contractPropertyInfo.IsSimpleType)
 			{
-				TypeCode typeCode;
-				if (!Enum.TryParse<TypeCode>(contractPropertyInfo.TypeName, out typeCode))
+				if (!Enum.TryParse(contractPropertyInfo.TypeName, out TypeCode typeCode))
 				{
 					throw new Exception($"Parsing to TypeCode enumarated object failed for string value: {contractPropertyInfo.TypeName}.");
 				}

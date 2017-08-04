@@ -22,7 +22,7 @@ namespace Picturepark.SDK.V1
 		public async Task UploadFilesAsync(
 			IEnumerable<string> files,
 			string exportDirectory,
-			TransferViewItem transfer,
+			Transfer transfer,
 			int concurrentUploads = 4,
 			bool waitForTransferCompletion = true,
 			Action<string> successDelegate = null,
@@ -84,13 +84,13 @@ namespace Picturepark.SDK.V1
 			}
 		}
 
-		public async Task ImportBatchAsync(TransferViewItem transfer, FileTransfer2ContentCreateRequest createRequest)
+		public async Task ImportBatchAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest)
 		{
 			var importBatch = await ImportBatchAsync(transfer.Id, createRequest);
 			var result = await _businessProcessClient.WaitForStatesAsync(importBatch.BusinessProcessId, TransferState.ImportCompleted.ToString(), 10 * 60 * 1000);
 		}
 
-		public async Task<TransferViewItem> CreateBatchAsync(CreateTransferRequest request)
+		public async Task<Transfer> CreateBatchAsync(CreateTransferRequest request)
 		{
 			var result = await CreateAsync(request);
 			var waitResult = await _businessProcessClient.WaitForStatesAsync(result.BusinessProcessId, TransferState.Created.ToString(), 10 * 60 * 1000);
@@ -98,7 +98,7 @@ namespace Picturepark.SDK.V1
 			return result;
 		}
 
-		public async Task<TransferViewItem> CreateBatchAsync(List<string> fileNames, string batchName)
+		public async Task<Transfer> CreateBatchAsync(List<string> fileNames, string batchName)
 		{
 			var request = new CreateTransferRequest()
 			{

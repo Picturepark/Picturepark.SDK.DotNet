@@ -223,7 +223,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldGet()
 		{
-			// Todo: Typed Aufruf?  CustomContentDetailViewItem<ContentMetadata> result = Get<ContentMetadata>(contentId);
+			// Todo: Typed Aufruf?  CustomContentDetail<ContentMetadata> result = Get<ContentMetadata>(contentId);
 			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
 
@@ -271,8 +271,8 @@ namespace Picturepark.SDK.V1.Tests
 			var filter2 = new TermFilter { Field = "Audit.CreatedByUser.Id", Term = "Base" };
 
 			// TODO BRO: Implement generic filter creator
-			//// var filter = new Filter().TermFilter<ContentDetailViewItem>(i => i.MetadataSchemaIds, "Base");
-			//// var filter2 = new Filter().TermFilter<ContentDetailViewItem>(i => i.Audit.CreatedByUser.Id, "Base");
+			//// var filter = new Filter().TermFilter<ContentDetail>(i => i.MetadataSchemaIds, "Base");
+			//// var filter2 = new Filter().TermFilter<ContentDetail>(i => i.Audit.CreatedByUser.Id, "Base");
 
 			var and = new AndFilter { Filters = new List<FilterBase> { filter, filter2 } };
 
@@ -321,7 +321,7 @@ namespace Picturepark.SDK.V1.Tests
 			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
 
-			var contentDetailViewItem = await _client.Contents.GetAsync(contentId);
+			var contentDetail = await _client.Contents.GetAsync(contentId);
 
 			// Trash
 			await _client.Contents.DeactivateAsync(contentId);
@@ -346,7 +346,7 @@ namespace Picturepark.SDK.V1.Tests
 			};
 			var directoryPath = Path.GetDirectoryName(filePaths.First());
 			string transferName = nameof(ShouldUpdateFile) + "-" + new Random().Next(1000, 9999).ToString();
-			TransferViewItem transfer = await _client.Transfers.CreateBatchAsync(filePaths.Select(file => Path.GetFileName(file)).ToList(), transferName);
+			Transfer transfer = await _client.Transfers.CreateBatchAsync(filePaths.Select(file => Path.GetFileName(file)).ToList(), transferName);
 
 			// Upload file
 			await _client.Transfers.UploadFilesAsync(
@@ -375,7 +375,7 @@ namespace Picturepark.SDK.V1.Tests
 				FileTransferId = result.Results.First().Id
 			};
 
-			BusinessProcessViewItem updateResult = await _client.Contents.UpdateFileAsync(contentId, updateRequest);
+			BusinessProcess updateResult = await _client.Contents.UpdateFileAsync(contentId, updateRequest);
 			BusinessProcessWaitResult waitResult = await updateResult.Wait4StateAsync("Completed", _client.BusinessProcesses);
 
 			Assert.True(waitResult.HasStateHit);
@@ -405,7 +405,7 @@ namespace Picturepark.SDK.V1.Tests
 				}
 			};
 
-			BusinessProcessViewItem result = await _client.Contents.UpdateMetadataManyAsync(updateRequest);
+			BusinessProcess result = await _client.Contents.UpdateMetadataManyAsync(updateRequest);
 			BusinessProcessWaitResult waitResult = await result.Wait4MetadataAsync(_client.ListItems);
 
 			Assert.True(waitResult.HasStateHit);
@@ -425,7 +425,7 @@ namespace Picturepark.SDK.V1.Tests
 			var contentPermissionSetIds = new List<string>() { "aaa" + new Random().Next(0, 999).ToString(), "bbb" + new Random().Next(0, 999).ToString() };
 			contentDetail.ContentPermissionSetIds = contentPermissionSetIds;
 
-			BusinessProcessViewItem result = await _client.Contents.UpdatePermissionsManyAsync(new List<UpdateContentPermissionsRequest> { new UpdateContentPermissionsRequest { ContentId = contentDetail.Id, ContentPermissionSetIds = contentDetail.ContentPermissionSetIds } });
+			BusinessProcess result = await _client.Contents.UpdatePermissionsManyAsync(new List<UpdateContentPermissionsRequest> { new UpdateContentPermissionsRequest { ContentId = contentDetail.Id, ContentPermissionSetIds = contentDetail.ContentPermissionSetIds } });
 			await result.Wait4StateAsync("Completed", _client.BusinessProcesses);
 
 			contentDetail = await _client.Contents.GetAsync(contentId);

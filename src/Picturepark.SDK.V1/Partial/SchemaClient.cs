@@ -18,13 +18,13 @@ namespace Picturepark.SDK.V1
 			_businessProcessClient = businessProcessesClient;
 		}
 
-		public List<SchemaDetailViewItem> GenerateSchemaFromPOCO(Type type, List<SchemaDetailViewItem> schemaList, bool generateDependencySchema = true)
+		public List<SchemaDetail> GenerateSchemaFromPOCO(Type type, List<SchemaDetail> schemaList, bool generateDependencySchema = true)
 		{
 			var schemaConverter = new ClassToSchemaConverter();
 			return schemaConverter.Generate(type, schemaList, generateDependencySchema);
 		}
 
-		public async Task CreateOrUpdateAsync(SchemaDetailViewItem metadataSchema, bool enableForBinaryFiles)
+		public async Task CreateOrUpdateAsync(SchemaDetail metadataSchema, bool enableForBinaryFiles)
 		{
 			if (await ExistsAsync(metadataSchema.Id))
 			{
@@ -36,12 +36,12 @@ namespace Picturepark.SDK.V1
 			}
 		}
 
-		public void CreateOrUpdate(SchemaDetailViewItem metadataSchema, bool enableForBinaryFiles)
+		public void CreateOrUpdate(SchemaDetail metadataSchema, bool enableForBinaryFiles)
 		{
 			Task.Run(async () => await CreateOrUpdateAsync(metadataSchema, enableForBinaryFiles)).GetAwaiter().GetResult();
 		}
 
-		public async Task CreateAsync(SchemaDetailViewItem metadataSchema, bool enableForBinaryFiles)
+		public async Task CreateAsync(SchemaDetail metadataSchema, bool enableForBinaryFiles)
 		{
 			// Map schema to binary schemas
 			if (enableForBinaryFiles && metadataSchema.Types.Contains(SchemaType.Layer))
@@ -60,13 +60,13 @@ namespace Picturepark.SDK.V1
 			await CreateAsync(metadataSchema);
 		}
 
-		public void Create(SchemaDetailViewItem metadataSchema, bool enableForBinaryFiles)
+		public void Create(SchemaDetail metadataSchema, bool enableForBinaryFiles)
 		{
 			Task.Run(async () => await CreateAsync(metadataSchema, enableForBinaryFiles)).GetAwaiter().GetResult();
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task CreateAsync(SchemaDetailViewItem metadataSchema)
+		public async Task CreateAsync(SchemaDetail metadataSchema)
 		{
 			var process = await CreateAsync(new SchemaCreateRequest
 			{
@@ -89,7 +89,7 @@ namespace Picturepark.SDK.V1
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public void Create(SchemaDetailViewItem metadataSchema)
+		public void Create(SchemaDetail metadataSchema)
 		{
 			Task.Run(async () => await CreateAsync(metadataSchema)).GetAwaiter().GetResult();
 		}
@@ -108,7 +108,7 @@ namespace Picturepark.SDK.V1
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task UpdateAsync(SchemaDetailViewItem schema, bool enableForBinaryFiles)
+		public async Task UpdateAsync(SchemaDetail schema, bool enableForBinaryFiles)
 		{
 			if (enableForBinaryFiles && schema.Types.Contains(SchemaType.Layer))
 			{
@@ -164,7 +164,7 @@ namespace Picturepark.SDK.V1
 			return Task.Run(async () => await ExistsAsync(schemaId)).GetAwaiter().GetResult();
 		}
 
-		private async Task WaitForCompletionAsync(BusinessProcessViewItem process)
+		private async Task WaitForCompletionAsync(BusinessProcess process)
 		{
 			var wait = await process.Wait4StateAsync("Completed", _businessProcessClient);
 

@@ -2,7 +2,7 @@
 
 namespace Picturepark.SDK.V1.Contract.Extensions
 {
-	public static class ListItemDetailViewItemExtensions
+	public static class ListItemDetailExtensions
 	{
 		public static T ConvertToType<T>(this ListItemDetail listItem, string schemaId)
 		{

@@ -4,14 +4,14 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Contract.Extensions
 {
-	public static class BusinessProcessViewItemExtensions
+	public static class BusinessProcessExtensions
 	{
-		public static async Task<BusinessProcessWaitResult> Wait4StateAsync(this BusinessProcessViewItem process, string states, IBusinessProcessClient businessProcessesClient)
+		public static async Task<BusinessProcessWaitResult> Wait4StateAsync(this BusinessProcess process, string states, IBusinessProcessClient businessProcessesClient)
 		{
 			return await businessProcessesClient.WaitForStatesAsync(process.Id, states, 60 * 1000);
 		}
 
-		public static async Task<BusinessProcessWaitResult> Wait4MetadataAsync(this BusinessProcessViewItem process, IListItemClient listItemClient)
+		public static async Task<BusinessProcessWaitResult> Wait4MetadataAsync(this BusinessProcess process, IListItemClient listItemClient)
 		{
 			var waitResult = await listItemClient.WaitForStatesAsync(process.Id, 60 * 1000, new[] { "Completed" });
 			if (waitResult.HasStateHit == false)

@@ -27,7 +27,7 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldGet()
 		{
 			string documentId = _fixture.GetRandomContentId("*.jpg", 20);
-			DocumentHistoryViewItem result = await _client.DocumentHistory.GetAsync(documentId);
+			DocumentHistory result = await _client.DocumentHistory.GetAsync(documentId);
 		}
 
 		[Fact(Skip = "TODO")]
@@ -62,7 +62,7 @@ namespace Picturepark.SDK.V1.Tests
 			var updatedContent = await _client.Contents.GetAsync(contentId);
 			Assert.NotEqual(1/*updatedContent.Version*/, 0);
 
-			DocumentHistoryDifferenceViewItem result = await _client.DocumentHistory.GetDifferenceLatestAsync(contentId, 1);
+			DocumentHistoryDifference result = await _client.DocumentHistory.GetDifferenceLatestAsync(contentId, 1);
 		}
 
 		[Fact]
@@ -72,7 +72,7 @@ namespace Picturepark.SDK.V1.Tests
 			string documentId = _fixture.GetRandomContentId("*.jpg", 20);
 			long oldVersionId = 1;
 
-			DocumentHistoryDifferenceViewItem result = await _client.DocumentHistory.GetDifferenceLatestAsync(documentId, oldVersionId);
+			DocumentHistoryDifference result = await _client.DocumentHistory.GetDifferenceLatestAsync(documentId, oldVersionId);
 		}
 
 		[Fact(Skip = "TODO")]
@@ -83,7 +83,7 @@ namespace Picturepark.SDK.V1.Tests
 			long oldVersionId = 1;
 			long newVersionId = 2;
 
-			DocumentHistoryDifferenceViewItem result = await _client.DocumentHistory.GetDifferenceAsync(documentId, oldVersionId, newVersionId);
+			DocumentHistoryDifference result = await _client.DocumentHistory.GetDifferenceAsync(documentId, oldVersionId, newVersionId);
 		}
 
 		[Fact]
@@ -93,7 +93,7 @@ namespace Picturepark.SDK.V1.Tests
 			string documentId = _fixture.GetRandomContentId("*.jpg", 20);
 			string versionId = "1";
 
-			DocumentHistoryViewItem result = await _client.DocumentHistory.GetVersionAsync(documentId, versionId);
+			DocumentHistory result = await _client.DocumentHistory.GetVersionAsync(documentId, versionId);
 		}
 	}
 }

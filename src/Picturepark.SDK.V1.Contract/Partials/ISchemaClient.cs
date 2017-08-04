@@ -6,27 +6,27 @@ namespace Picturepark.SDK.V1.Contract
 {
 	public partial interface ISchemaClient
 	{
-		List<SchemaDetailViewItem> GenerateSchemaFromPOCO(Type type, List<SchemaDetailViewItem> schemaList, bool generateDependencySchema = true);
+		List<SchemaDetail> GenerateSchemaFromPOCO(Type type, List<SchemaDetail> schemaList, bool generateDependencySchema = true);
 
-		Task CreateOrUpdateAsync(SchemaDetailViewItem schema, bool enableForBinaryFiles);
+		Task CreateOrUpdateAsync(SchemaDetail schema, bool enableForBinaryFiles);
 
-		void CreateOrUpdate(SchemaDetailViewItem schema, bool enableForBinaryFiles);
+		void CreateOrUpdate(SchemaDetail schema, bool enableForBinaryFiles);
 
-		Task CreateAsync(SchemaDetailViewItem schema, bool enableForBinaryFiles);
+		Task CreateAsync(SchemaDetail schema, bool enableForBinaryFiles);
 
-		void Create(SchemaDetailViewItem schema, bool enableForBinaryFiles);
-
-		/// <exception cref="ApiException">A server side error occurred.</exception>
-		Task CreateAsync(SchemaDetailViewItem schema);
+		void Create(SchemaDetail schema, bool enableForBinaryFiles);
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		void Create(SchemaDetailViewItem schema);
+		Task CreateAsync(SchemaDetail schema);
+
+		/// <exception cref="ApiException">A server side error occurred.</exception>
+		void Create(SchemaDetail schema);
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		Task DeleteAsync(string schemaId);
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		Task UpdateAsync(SchemaDetailViewItem schema, bool enableForBinaryFiles);
+		Task UpdateAsync(SchemaDetail schema, bool enableForBinaryFiles);
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		Task UpdateAsync(string schemaId, SchemaUpdateRequest updateRequest);

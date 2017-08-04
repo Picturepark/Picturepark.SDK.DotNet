@@ -33,7 +33,7 @@ namespace Picturepark.SDK.V1.Tests
 				{
 					new TermsAggregator
 					{
-						Field = PropertyHelper.GetName<ShareBaseViewItem>(i => i.EntityType),
+						Field = PropertyHelper.GetName<ShareBase>(i => i.EntityType),
 						Size = 10,
 						Name = "EntityType"
 					}
@@ -153,17 +153,17 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			var entityType = EntityType.BasicShare;
 
-			var shareViewItems = new List<ShareBaseViewItem>();
+			var shares = new List<ShareBase>();
 
 			var request = new ContentSearchRequest() { Start = 1, Limit = 100 };
 			request.Filter = new TermFilter() { Field = "EntityType" };
 
-			BaseResultOfShareBaseViewItem result = await _client.Shares.SearchAsync(request);
+			BaseResultOfShareBase result = await _client.Shares.SearchAsync(request);
 
 			foreach (var item in result.Results)
 			{
 				if (item.EntityType == entityType)
-					shareViewItems.Add(item);
+					shares.Add(item);
 			}
 		}
 	}

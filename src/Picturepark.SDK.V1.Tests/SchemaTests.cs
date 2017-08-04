@@ -26,7 +26,7 @@ namespace Picturepark.SDK.V1.Tests
 
 		public async Task ShouldCreateAllTypesSchemaFromClass()
 		{
-			var schemas = new List<SchemaDetailViewItem>();
+			var schemas = new List<SchemaDetail>();
 
 			var allTypes = _client.Schemas.GenerateSchemaFromPOCO(typeof(AllDataTypesContract), schemas, true);
 
@@ -40,7 +40,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Schema")]
 		public async Task ShouldCreateFromClass()
 		{
-			var schemas = new List<SchemaDetailViewItem>();
+			var schemas = new List<SchemaDetail>();
 
 			var person = _client.Schemas.GenerateSchemaFromPOCO(typeof(Person), schemas, true);
 
@@ -58,7 +58,7 @@ namespace Picturepark.SDK.V1.Tests
 			var generatedPersonSchema = await _client.Schemas.GetAsync("Person");
 			Assert.Contains(generatedPersonSchema.Types, i => i == SchemaType.List || i == SchemaType.Struct );
 
-			var schemasFromPersonShot = new List<SchemaDetailViewItem>();
+			var schemasFromPersonShot = new List<SchemaDetail>();
 			var personShot = _client.Schemas.GenerateSchemaFromPOCO(typeof(PersonShot), schemasFromPersonShot, true);
 
 			// Expect child schemas and referenced schemas to exist
@@ -77,7 +77,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Schema")]
 		public async Task ShouldDelete()
 		{
-			var schemas = new List<SchemaDetailViewItem>();
+			var schemas = new List<SchemaDetail>();
 			var tags = _client.Schemas.GenerateSchemaFromPOCO(typeof(Tag), schemas, true);
 
 			Assert.Equal(tags.Count, 1);
@@ -89,20 +89,20 @@ namespace Picturepark.SDK.V1.Tests
 
 			string schemaId = tag.Id;
 
-			SchemaDetailViewItem schemaDetailViewItem = await _client.Schemas.GetAsync(schemaId);
-			await _client.Schemas.DeleteAsync(schemaDetailViewItem.Id);
-			SchemaDetailViewItem deletedSchemaDetailViewItem = null;
+			SchemaDetail schemaDetail = await _client.Schemas.GetAsync(schemaId);
+			await _client.Schemas.DeleteAsync(schemaDetail.Id);
+			SchemaDetail deletedSchemaDetail = null;
 
 			try
 			{
-				deletedSchemaDetailViewItem = await _client.Schemas.GetAsync(schemaId);
+				deletedSchemaDetail = await _client.Schemas.GetAsync(schemaId);
 			}
 			catch (Exception)
 			{
 				// ignored
 			}
 
-			Assert.True(deletedSchemaDetailViewItem == null);
+			Assert.True(deletedSchemaDetail == null);
 		}
 
 		[Fact]
@@ -123,7 +123,7 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldGet()
 		{
 			var request = new SchemaSearchRequest() { Start = 0, Limit = 100 };
-			BaseResultOfSchemaViewItem result = _client.Schemas.SearchAsync(request).Result;
+			BaseResultOfSchema result = _client.Schemas.SearchAsync(request).Result;
 			Assert.True(result.Results.Any());
 
 			List<string> schemaIds = result.Results.Select(i => i.Id).OrderBy(i => i).ToList();
@@ -210,7 +210,7 @@ namespace Picturepark.SDK.V1.Tests
 				SearchString = "D*"
 			};
 
-			BaseResultOfSchemaViewItem result = await _client.Schemas.SearchAsync(searchRequest);
+			BaseResultOfSchema result = await _client.Schemas.SearchAsync(searchRequest);
 			Assert.True(result.Results.Any());
 		}
 
@@ -219,25 +219,24 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldUpdate()
 		{
 			string schemaId = _fixture.GetRandomSchemaId(20);
-			SchemaDetailViewItem schemaDetailViewItem = await _client.Schemas.GetAsync(schemaId);
+			SchemaDetail schemaDetail = await _client.Schemas.GetAsync(schemaId);
 
-			string outString;
 			string language = "es";
 
-			schemaDetailViewItem.Names.Remove(language);
-			schemaDetailViewItem.Names.Add(language, schemaId);
+			schemaDetail.Names.Remove(language);
+			schemaDetail.Names.Add(language, schemaId);
 
-			await _client.Schemas.UpdateAsync(schemaDetailViewItem, false);
+			await _client.Schemas.UpdateAsync(schemaDetail, false);
 
-			SchemaDetailViewItem updatedSchema = await _client.Schemas.GetAsync(schemaId);
+			SchemaDetail updatedSchema = await _client.Schemas.GetAsync(schemaId);
 
-			updatedSchema.Names.TryGetValue(language, out outString);
+			updatedSchema.Names.TryGetValue(language, out string outString);
 			Assert.True(outString == schemaId);
 		}
 
 		public async Task ShouldCreateFromClassGeneric<T>() where T : class
 		{
-			var schemas = new List<SchemaDetailViewItem>();
+			var schemas = new List<SchemaDetail>();
 
 			var childSchemas = _client.Schemas.GenerateSchemaFromPOCO(typeof(T), schemas, true);
 

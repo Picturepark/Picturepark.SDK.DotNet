@@ -86,7 +86,7 @@ namespace Picturepark.SDK.V1
 				var createRequest = await CreateManyCoreAsync(listItems, cancellationToken ?? CancellationToken.None);
 				var result = await createRequest.Wait4MetadataAsync(this);
 
-				var bulkResult = result.BusinessProcess as BusinessProcessBulkResponseViewItem;
+				var bulkResult = result.BusinessProcess as BusinessProcessBulkResponse;
 				if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
 					throw new Exception("Could not save all objects");
 
@@ -153,7 +153,7 @@ namespace Picturepark.SDK.V1
 			List<string> fileNames = filePaths.Select(file => Path.GetFileName(file)).ToList();
 
 			// Create batch
-			TransferViewItem transfer = await _transferClient.CreateBatchAsync(fileNames, batchName);
+			Transfer transfer = await _transferClient.CreateBatchAsync(fileNames, batchName);
 
 			// Upload files
 			string directoryPath = Path.GetDirectoryName(filePaths.First());

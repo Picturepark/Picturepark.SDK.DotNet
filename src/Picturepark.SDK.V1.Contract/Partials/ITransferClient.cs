@@ -9,17 +9,17 @@ namespace Picturepark.SDK.V1.Contract
 		Task UploadFilesAsync(
 			IEnumerable<string> files,
 			string exportDirectory,
-			TransferViewItem transfer,
+			Transfer transfer,
 			int concurrentUploads = 4,
 			bool waitForTransferCompletion = true,
 			Action<string> successDelegate = null,
 			Action<Exception> errorDelegate = null
 		);
 
-		Task ImportBatchAsync(TransferViewItem transfer, FileTransfer2ContentCreateRequest createRequest);
+		Task ImportBatchAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest);
 
-		Task<TransferViewItem> CreateBatchAsync(CreateTransferRequest request);
+		Task<Transfer> CreateBatchAsync(CreateTransferRequest request);
 
-		Task<TransferViewItem> CreateBatchAsync(List<string> fileNames, string batchName);
+		Task<Transfer> CreateBatchAsync(List<string> fileNames, string batchName);
 	}
 }

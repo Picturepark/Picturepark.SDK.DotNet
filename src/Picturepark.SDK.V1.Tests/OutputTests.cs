@@ -32,7 +32,7 @@ namespace Picturepark.SDK.V1.Tests
 			var outputId = contentDetail.Outputs.FirstOrDefault().Id;
 			Assert.False(string.IsNullOrEmpty(outputId));
 
-			OutputDetailViewItem result = await _client.Outputs.GetAsync(outputId);
+			OutputDetail result = await _client.Outputs.GetAsync(outputId);
 			Assert.True(result.ContentId == contentId );
 		}
 	}
