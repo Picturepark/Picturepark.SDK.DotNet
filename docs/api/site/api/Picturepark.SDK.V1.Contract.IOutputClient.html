@@ -99,7 +99,7 @@
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">OutputDetailViewItem Get(string outputId)</code></pre>
+                <pre><code class="lang-csharp hljs">OutputDetail Get(string outputId)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -129,7 +129,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.OutputDetailViewItem.html">OutputDetailViewItem</a></td>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.OutputDetail.html">OutputDetail</a></td>
                     <td><p>OutputDetail</p>
 </td>
                   </tr>
@@ -170,7 +170,7 @@
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;OutputDetailViewItem&gt; GetAsync(string outputId, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;OutputDetail&gt; GetAsync(string outputId, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -206,7 +206,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.OutputDetailViewItem.html">OutputDetailViewItem</a>&gt;</td>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.OutputDetail.html">OutputDetail</a>&gt;</td>
                     <td><p>OutputDetail</p>
 </td>
                   </tr>
@@ -228,6 +228,144 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.OutputNotFoundException.html">OutputNotFoundException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_Contract_IOutputClient_GetByContentIds_" data-uid="Picturepark.SDK.V1.Contract.IOutputClient.GetByContentIds*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_IOutputClient_GetByContentIds_Picturepark_SDK_V1_Contract_ContentsByIdsRequest_" data-uid="Picturepark.SDK.V1.Contract.IOutputClient.GetByContentIds(Picturepark.SDK.V1.Contract.ContentsByIdsRequest)">GetByContentIds(ContentsByIdsRequest)</h4>
+              <div class="markdown level1 summary"><p>Get outputs by contentIds</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">BaseResultOfOutputDetail GetByContentIds(ContentsByIdsRequest contentsByIdsRequest)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentsByIdsRequest.html">ContentsByIdsRequest</a></td>
+                    <td><span class="parametername">contentsByIdsRequest</span></td>
+                    <td><p>Contains the list of contentIds for which the outputs are requested</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfOutputDetail.html">BaseResultOfOutputDetail</a></td>
+                    <td><p>The Result containing a list of OutputDetail&#39;s</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_Contract_IOutputClient_GetByContentIdsAsync_" data-uid="Picturepark.SDK.V1.Contract.IOutputClient.GetByContentIdsAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_IOutputClient_GetByContentIdsAsync_Picturepark_SDK_V1_Contract_ContentsByIdsRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IOutputClient.GetByContentIdsAsync(Picturepark.SDK.V1.Contract.ContentsByIdsRequest,System.Threading.CancellationToken)">GetByContentIdsAsync(ContentsByIdsRequest, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Get outputs by contentIds</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task&lt;BaseResultOfOutputDetail&gt; GetByContentIdsAsync(ContentsByIdsRequest contentsByIdsRequest, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentsByIdsRequest.html">ContentsByIdsRequest</a></td>
+                    <td><span class="parametername">contentsByIdsRequest</span></td>
+                    <td><p>Contains the list of contentIds for which the outputs are requested</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Threading.CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfOutputDetail.html">BaseResultOfOutputDetail</a>&gt;</td>
+                    <td><p>The Result containing a list of OutputDetail&#39;s</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>

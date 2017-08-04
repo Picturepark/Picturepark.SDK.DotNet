@@ -94,6 +94,9 @@
                   <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_BaseUrl">ClientBase.BaseUrl</a>
                 </div>
                 <div>
+                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_Alias">ClientBase.Alias</a>
+                </div>
+                <div>
                   <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpClientAsync_CancellationToken_">ClientBase.CreateHttpClientAsync(CancellationToken)</a>
                 </div>
                 <div>
@@ -164,7 +167,7 @@
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public ContentPermissionSetDetailViewItem GetContentPermissions(string permissionSetId)</code></pre>
+                <pre><code class="lang-csharp hljs">public ContentPermissionSetDetail GetContentPermissions(string permissionSetId)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -194,8 +197,8 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionSetDetailViewItem.html">ContentPermissionSetDetailViewItem</a></td>
-                    <td><p>ContentPermissionSetDetailViewItem</p>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionSetDetail.html">ContentPermissionSetDetail</a></td>
+                    <td><p>ContentPermissionSetDetail</p>
 </td>
                   </tr>
                 </tbody>
@@ -232,7 +235,7 @@
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;ContentPermissionSetDetailViewItem&gt; GetContentPermissionsAsync(string permissionSetId, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;ContentPermissionSetDetail&gt; GetContentPermissionsAsync(string permissionSetId, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -268,8 +271,8 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionSetDetailViewItem.html">ContentPermissionSetDetailViewItem</a>&gt;</td>
-                    <td><p>ContentPermissionSetDetailViewItem</p>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionSetDetail.html">ContentPermissionSetDetail</a>&gt;</td>
+                    <td><p>ContentPermissionSetDetail</p>
 </td>
                   </tr>
                 </tbody>
@@ -306,7 +309,7 @@
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public SchemaPermissionSetDetailViewItem GetSchemaPermissions(string permissionSetId)</code></pre>
+                <pre><code class="lang-csharp hljs">public SchemaPermissionSetDetail GetSchemaPermissions(string permissionSetId)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -336,8 +339,8 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaPermissionSetDetailViewItem.html">SchemaPermissionSetDetailViewItem</a></td>
-                    <td><p>SchemaPermissionSetDetailViewItem</p>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaPermissionSetDetail.html">SchemaPermissionSetDetail</a></td>
+                    <td><p>SchemaPermissionSetDetail</p>
 </td>
                   </tr>
                 </tbody>
@@ -374,7 +377,7 @@
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;SchemaPermissionSetDetailViewItem&gt; GetSchemaPermissionsAsync(string permissionSetId, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;SchemaPermissionSetDetail&gt; GetSchemaPermissionsAsync(string permissionSetId, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -410,14 +413,156 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaPermissionSetDetailViewItem.html">SchemaPermissionSetDetailViewItem</a>&gt;</td>
-                    <td><p>SchemaPermissionSetDetailViewItem</p>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaPermissionSetDetail.html">SchemaPermissionSetDetail</a>&gt;</td>
+                    <td><p>SchemaPermissionSetDetail</p>
 </td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="Picturepark.SDK.V1.Contract.IPermissionClient.html#Picturepark_SDK_V1_Contract_IPermissionClient_GetSchemaPermissionsAsync_System_String_System_Threading_CancellationToken_">IPermissionClient.GetSchemaPermissionsAsync(String, CancellationToken)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_PermissionClient_GetUserPermissions_" data-uid="Picturepark.SDK.V1.PermissionClient.GetUserPermissions*"></a>
+              <h4 id="Picturepark_SDK_V1_PermissionClient_GetUserPermissions_Picturepark_SDK_V1_Contract_UserRight_" data-uid="Picturepark.SDK.V1.PermissionClient.GetUserPermissions(Picturepark.SDK.V1.Contract.UserRight)">GetUserPermissions(UserRight)</h4>
+              <div class="markdown level1 summary"><p>Get UserRight validation result</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public bool GetUserPermissions(UserRight permission)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.UserRight.html">UserRight</a></td>
+                    <td><span class="parametername">permission</span></td>
+                    <td><p>The UserRight to validate</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Boolean</span></td>
+                    <td><p>Boolean - user has permission</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IPermissionClient.html#Picturepark_SDK_V1_Contract_IPermissionClient_GetUserPermissions_Picturepark_SDK_V1_Contract_UserRight_">IPermissionClient.GetUserPermissions(UserRight)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_PermissionClient_GetUserPermissionsAsync_" data-uid="Picturepark.SDK.V1.PermissionClient.GetUserPermissionsAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_PermissionClient_GetUserPermissionsAsync_Picturepark_SDK_V1_Contract_UserRight_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.PermissionClient.GetUserPermissionsAsync(Picturepark.SDK.V1.Contract.UserRight,System.Threading.CancellationToken)">GetUserPermissionsAsync(UserRight, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Get UserRight validation result</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; GetUserPermissionsAsync(UserRight permission, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.UserRight.html">UserRight</a></td>
+                    <td><span class="parametername">permission</span></td>
+                    <td><p>The UserRight to validate</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Threading.CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+                    <td><p>Boolean - user has permission</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IPermissionClient.html#Picturepark_SDK_V1_Contract_IPermissionClient_GetUserPermissionsAsync_Picturepark_SDK_V1_Contract_UserRight_System_Threading_CancellationToken_">IPermissionClient.GetUserPermissionsAsync(UserRight, CancellationToken)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
