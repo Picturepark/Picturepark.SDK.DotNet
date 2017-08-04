@@ -31,11 +31,11 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "ListItem")]
 		public async Task ShouldAggregateObjects()
 		{
-			var fieldName = nameof(Country) + "." + nameof(Country.RegionCode);
+			var fieldName = nameof(Country).ToLowerCamelCase() + "." + nameof(Country.RegionCode).ToLowerCamelCase();
 
 			var request = new ListItemAggregationRequest()
 			{
-				SchemaIds = new List<string> { nameof(Country) },
+				SchemaIds = new List<string> { nameof(Country).ToLowerCamelCase() },
 				Aggregators = new List<AggregatorBase>
 				{
 					{ new TermsAggregator { Name = fieldName, Field = fieldName, Size = 20 } }
@@ -260,7 +260,7 @@ namespace Picturepark.SDK.V1.Tests
 			// ---------------------------------------------------------------------------
 			// Get a list of MetadataSchemaIds
 			// ---------------------------------------------------------------------------
-			var searchRequestSchema = new SchemaSearchRequest() { Start = 0, Limit = 999, Filter = new TermFilter() { Field = "Types", Term = SchemaType.List.ToString() } };
+			var searchRequestSchema = new SchemaSearchRequest() { Start = 0, Limit = 999, Filter = new TermFilter() { Field = "types", Term = SchemaType.List.ToString() } };
 			BaseResultOfSchema searchResultSchema = _client.Schemas.Search(searchRequestSchema);
 			Assert.True(searchResultSchema.Results.Count() > 0);
 

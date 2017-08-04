@@ -26,7 +26,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldAggregateByChannel()
 		{
-			string channelId = "RootChannel";
+			string channelId = "rootChannel";
 
 			var request = new ContentAggregationRequest() { SearchString = string.Empty };
 			ObjectAggregationResult result = await _client.Contents.AggregateByChannelAsync(channelId, request);
@@ -258,7 +258,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldSearch()
 		{
-			var channelIds = new List<string> { "RootChannel" };
+			var channelIds = new List<string> { "rootChannel" };
 			var languages = new List<string>();
 			string searchString = "*";
 
@@ -267,8 +267,8 @@ namespace Picturepark.SDK.V1.Tests
 				new SortInfo { Direction = SortDirection.Asc, Field = PropertyHelper.GetName<ContentDetail>(i => i.Audit.CreationDate) }
 			};
 
-			var filter = new TermFilter { Field = "MetadataSchemaIds", Term = "Base" };
-			var filter2 = new TermFilter { Field = "Audit.CreatedByUser.Id", Term = "Base" };
+			var filter = new TermFilter { Field = "metadataSchemaIds", Term = "Base" };
+			var filter2 = new TermFilter { Field = "audit.createdByUser.id", Term = "Base" };
 
 			// TODO BRO: Implement generic filter creator
 			//// var filter = new Filter().TermFilter<ContentDetail>(i => i.MetadataSchemaIds, "Base");
@@ -293,12 +293,12 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldSearchByChannel()
 		{
-			string channelId = "RootChannel";
+			string channelId = "rootChannel";
 			string searchString = "*";
 
 			var sortInfos = new List<SortInfo>()
 			{
-				new SortInfo { Direction = SortDirection.Asc, Field = "Audit.CreationDate" }
+				new SortInfo { Direction = SortDirection.Asc, Field = "audit.creationDate" }
 			};
 
 			var request = new ContentSearchRequest()
@@ -364,7 +364,7 @@ namespace Picturepark.SDK.V1.Tests
 			);
 
 			// Search filetransfers to get id
-			var request = new FileTransferSearchRequest() { Limit = 20, SearchString = "*", Filter = new TermFilter { Field = "TransferId", Term = transfer.Id } };
+			var request = new FileTransferSearchRequest() { Limit = 20, SearchString = "*", Filter = new TermFilter { Field = "transferId", Term = transfer.Id } };
 			FileTransferSearchResult result = await _client.Transfers.SearchFilesAsync(request);
 
 			Assert.Equal(result.TotalResults, 1);

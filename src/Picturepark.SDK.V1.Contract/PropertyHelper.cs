@@ -44,11 +44,17 @@ namespace Picturepark.SDK.V1.Contract
 					path.Insert(0, ".");
 				}
 
-				path.Insert(0, memberExpression.Member.Name);
+				path.Insert(0, memberExpression.Member.Name.ToLowerCamelCase());
 				memberExpression = GetMemberExpression(memberExpression.Expression);
 			}
 			while (memberExpression != null);
+
 			return path.ToString();
+		}
+
+		public static string ToLowerCamelCase(this string value)
+		{
+			return char.ToLowerInvariant(value[0]) + value.Substring(1);
 		}
 	}
 }

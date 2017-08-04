@@ -146,7 +146,7 @@ namespace Picturepark.SDK.V1.Tests
 			var request = new ContentSearchRequest()
 			{
 				Limit = limit,
-				Filter = new TermFilter() { Field = "EntityType", Term = entityType.ToString() }
+				Filter = new TermFilter() { Field = "entityType", Term = entityType.ToString() }
 			};
 
 			BaseResultOfShareBase result = client.Shares.SearchAsync(request).Result;

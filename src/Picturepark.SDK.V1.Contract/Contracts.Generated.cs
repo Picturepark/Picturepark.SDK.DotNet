@@ -12447,7 +12447,7 @@ namespace Picturepark.SDK.V1.Contract
         public override object ReadJson(Newtonsoft.Json.JsonReader reader, System.Type objectType, object existingValue, Newtonsoft.Json.JsonSerializer serializer)
         {
             var jObject = serializer.Deserialize<Newtonsoft.Json.Linq.JObject>(reader);
-            var discriminator = Newtonsoft.Json.Linq.Extensions.Value<string>(jObject.GetValue(_discriminator));
+            var discriminator = Newtonsoft.Json.Linq.Extensions.Value<string>(jObject.GetValue(_discriminator)).Replace("ViewItem", "");
             var subtype = GetObjectSubtype(objectType, discriminator);
     
             try
