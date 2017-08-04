@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-using Picturepark.SDK.V1;
 using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Contract;
-using Newtonsoft.Json.Linq;
-using System.Collections.Specialized;
 using System.IO;
 using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Tests.Fixtures;
@@ -60,7 +55,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			var createRequest = new ListItemCreateRequest
 			{
-				ContentSchemaId = nameof(Tag),
+				ContentSchemaId = nameof(Tag).ToLowerCamelCase(),
 				Content = new Tag { Name = objectName }
 			};
 
@@ -86,7 +81,7 @@ namespace Picturepark.SDK.V1.Tests
 			{
 				new ListItemCreateRequest
 				{
-					ContentSchemaId = nameof(Tag),
+					ContentSchemaId = nameof(Tag).ToLowerCamelCase(),
 					Content = new Tag { Name = objectName }
 				}
 			};
@@ -116,7 +111,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			var listItem = new ListItemCreateRequest
 			{
-				ContentSchemaId = nameof(Tag),
+				ContentSchemaId = nameof(Tag).ToLowerCamelCase(),
 				Content = new Tag { Name = objectName }
 			};
 
@@ -133,7 +128,7 @@ namespace Picturepark.SDK.V1.Tests
 				new Tag
 				{
 					Name = "ThisObjectB" + new Random().Next(0, 999999).ToString()
-				}, nameof(Tag));
+				}, nameof(Tag).ToLowerCamelCase());
 		}
 
 		[Fact]
@@ -164,7 +159,7 @@ namespace Picturepark.SDK.V1.Tests
 						new Cat { Name = "Catname1", ChasesLaser = true },
 						dog
 					}
-				}, nameof(SoccerPlayer));
+				}, nameof(SoccerPlayer).ToLowerCamelCase());
 
 			var soccerTrainerTree = await _client.ListItems.CreateFromPOCO(
 				new SoccerTrainer
@@ -174,7 +169,7 @@ namespace Picturepark.SDK.V1.Tests
 					Firstname = "Urxxxxs",
 					LastName = "xxxxxxxx",
 					TrainerSince = new DateTime(2000, 1, 1)
-				}, nameof(SoccerTrainer));
+				}, nameof(SoccerTrainer).ToLowerCamelCase());
 
 			var person = await _client.ListItems.CreateFromPOCO(
 				new Person
@@ -183,7 +178,7 @@ namespace Picturepark.SDK.V1.Tests
 					EmailAddress = "xyyyy@teyyyyyyst.com",
 					Firstname = "Urxxxxs",
 					LastName = "xxxxxxxx"
-				}, nameof(Person));
+				}, nameof(Person).ToLowerCamelCase());
 		}
 
 		[Fact]
@@ -194,7 +189,7 @@ namespace Picturepark.SDK.V1.Tests
 			var createRequest = await _client.ListItems.CreateAsync(
 				new ListItemCreateRequest
 				{
-					ContentSchemaId = "SoccerPlayer",
+					ContentSchemaId = "soccerPlayer",
 					Content = new SoccerPlayer
 					{
 						BirthDate = DateTime.Now,

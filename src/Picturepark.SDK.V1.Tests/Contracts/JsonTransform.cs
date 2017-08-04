@@ -18,7 +18,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
 		[PictureparkContentRelation(
 			"RelationName",
-			"{ 'Kind': 'TermFilter', 'Field': 'ContentType', Term: 'Bitmap' }"
+			"{ 'kind': 'TermFilter', 'field': 'contentType', term: 'Bitmap' }"
 		)]
 		public SimpleRelation RelationField { get; set; }
 	}

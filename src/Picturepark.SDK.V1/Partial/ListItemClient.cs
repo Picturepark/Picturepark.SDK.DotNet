@@ -97,7 +97,7 @@ namespace Picturepark.SDK.V1
 					Limit = 1000,
 					Filter = new TermsFilter
 					{
-						Field = "Id",
+						Field = "id",
 						Terms = bulkResult.Response.Rows.Select(i => i.Id).ToList()
 					}
 				});
@@ -268,7 +268,7 @@ namespace Picturepark.SDK.V1
 						var value = referencedProperty.GetValue(obj);
 						if (value != null)
 						{
-							var schemaId = value.GetType().Name;
+							var schemaId = value.GetType().Name.ToLowerCamelCase();
 
 							// Add metadata object if it does not already exist
 							if (referencedListItems.Where(i => i.ContentSchemaId == schemaId).Select(i => i.Content).All(i => i != value))

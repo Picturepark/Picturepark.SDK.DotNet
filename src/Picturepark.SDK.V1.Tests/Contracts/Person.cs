@@ -12,15 +12,15 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
 {
-	[JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
+	[JsonConverter(typeof(JsonInheritanceConverter), "kind")]
 	[KnownType(typeof(SoccerPlayer))]
 	[KnownType(typeof(SoccerTrainer))]
 	[PictureparkSchemaType(SchemaType.List)]
 	[PictureparkSchemaType(SchemaType.Struct)]
-	[PictureparkDisplayPattern(Contract.DisplayPatternType.Name, Contract.TemplateEngine.DotLiquid, "{{Data.Person.Firstname}} {{Data.Person.LastName}}")]
-	[PictureparkDisplayPattern(Contract.DisplayPatternType.List, Contract.TemplateEngine.DotLiquid, "{{Data.Person.Firstname}} {{Data.Person.LastName}}, {{Data.Person.EmailAddress}}")]
-	[PictureparkDisplayPattern(Contract.DisplayPatternType.Thumbnail, Contract.TemplateEngine.DotLiquid, "{{Data.Person.Firstname}} {{Data.Person.LastName}}")]
-	[PictureparkDisplayPattern(Contract.DisplayPatternType.Detail, Contract.TemplateEngine.DotLiquid, "{{Data.Person.Firstname}} {{Data.Person.LastName}}")]
+	[PictureparkDisplayPattern(Contract.DisplayPatternType.Name, Contract.TemplateEngine.DotLiquid, "{{data.person.firstname}} {{data.person.lastName}}")]
+	[PictureparkDisplayPattern(Contract.DisplayPatternType.List, Contract.TemplateEngine.DotLiquid, "{{data.person.firstname}} {{data.person.lastName}}, {{data.person.emailAddress}}")]
+	[PictureparkDisplayPattern(Contract.DisplayPatternType.Thumbnail, Contract.TemplateEngine.DotLiquid, "{{data.person.firstname}} {{data.person.lastName}}")]
+	[PictureparkDisplayPattern(Contract.DisplayPatternType.Detail, Contract.TemplateEngine.DotLiquid, "{{data.person.firstname}} {{data.person.lastName}}")]
 	public class Person : IReference
 	{
 		[PictureparkSearch(Index = true, SimpleSearch = true, Boost = 10)]
@@ -54,10 +54,10 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
 	public class SoccerPlayer : Person
 	{
-		[PictureparkSchemaItem("{ 'Kind': 'TermFilter', 'Field': 'ContentType', Term: 'FC Aarau' }")]
+		[PictureparkSchemaItem("{ 'kind': 'TermFilter', 'field': 'contentType', Term: 'FC Aarau' }")]
 		public Club Club { get; set; }
 
-		[PictureparkSchemaItem("{ 'Kind': 'TermFilter', 'Field': 'ContentType', Term: 'Krummbein' }")]
+		[PictureparkSchemaItem("{ 'kind': 'TermFilter', 'field': 'contentType', Term: 'Krummbein' }")]
 		public List<Pet> OwnsPets { get; set; }
 
 		public List<Addresses> Addresses { get; set; }
@@ -91,7 +91,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 		public string refId { get; set; }
 	}
 
-	[JsonConverter(typeof(JsonInheritanceConverter), "Kind")]
+	[JsonConverter(typeof(JsonInheritanceConverter), "kind")]
 	[PictureparkSchemaType(SchemaType.List)]
 	public class Pet : IReference
 	{

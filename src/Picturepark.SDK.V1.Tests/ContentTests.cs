@@ -396,7 +396,7 @@ namespace Picturepark.SDK.V1.Tests
 				{
 					new MetadataValuesSchemaUpsertCommand
 					{
-							SchemaId = "Drive",
+							SchemaId = "drive",
 							Value = new DataDictionary
 							{
 								{ "Location", "testlocation" }

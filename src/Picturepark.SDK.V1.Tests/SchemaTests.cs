@@ -167,7 +167,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("SoccerPlayer");
 
-			string filterString = "{\"Kind\":\"TermFilter\",\"Field\":\"ContentType\",\"Term\":\"FC Aarau\"}";
+			string filterString = "{\"kind\":\"TermFilter\",\"field\":\"contentType\",\"term\":\"FC Aarau\"}";
 
 			var jsonConvertedField = generatedSoccerPlayerSchema.Fields[0].ToJson();
 

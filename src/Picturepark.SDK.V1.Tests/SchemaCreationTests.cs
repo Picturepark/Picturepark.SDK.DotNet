@@ -31,14 +31,14 @@ namespace Picturepark.SDK.V1.Tests
 
 			Assert.False(schema.Fields.Any(i => i.Id == nameof(JsonTransform.IgnoredString)));
 
-			var schemaSimpleRelation = jsonTransform.First(i => i.Id == nameof(SimpleRelation));
+			var schemaSimpleRelation = jsonTransform.First(i => i.Id == nameof(SimpleRelation).ToLowerCamelCase());
 
-			Assert.True(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationInfo)));
+			Assert.True(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationInfo).ToLowerCamelCase()));
 
-			Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationId)));
-			Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationType)));
-			Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.TargetContext)));
-			Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.TargetId)));
+			Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationId).ToLowerCamelCase()));
+			Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationType).ToLowerCamelCase()));
+			Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.TargetContext).ToLowerCamelCase()));
+			Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.TargetId).ToLowerCamelCase()));
 		}
 
 		[Fact]
@@ -47,9 +47,9 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			var schemas = new List<SchemaDetail>();
 			var jsonTransform = _client.Schemas.GenerateSchemaFromPOCO(typeof(JsonTransform), schemas, true);
-			var schemaJsonTransform = jsonTransform.First(i => i.Id == nameof(JsonTransform));
+			var schemaJsonTransform = jsonTransform.First(i => i.Id == nameof(JsonTransform).ToLowerCamelCase());
 
-			Assert.False(schemaJsonTransform.Fields.Any(i => i.Id == nameof(JsonTransform.OldName)));
+			Assert.False(schemaJsonTransform.Fields.Any(i => i.Id == nameof(JsonTransform.OldName).ToLowerCamelCase()));
 			Assert.True(schemaJsonTransform.Fields.Any(i => i.Id == "_newName"));
 		}
 	}

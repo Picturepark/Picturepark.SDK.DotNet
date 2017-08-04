@@ -15,9 +15,9 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 	[PictureparkSchemaType(SchemaType.Layer)]
 	[PictureparkSchemaType(SchemaType.List)]
 	[PictureparkSchemaType(SchemaType.Struct)]
-	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{Data.AllDataTypesContract.StringField}}")]
-	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{Data.AllDataTypesContract.StringField}}")]
-	[PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{Data.AllDataTypesContract.StringField}}: {{Data.AllDataTypesContract.IntegerField}}")]
+	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}")]
+	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}")]
+	[PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}: {{data.allDataTypesContract.integerField}}")]
 
 	[
 		PictureparkNameTranslation("x-default", "All datatypes"),
@@ -71,20 +71,20 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
 		[PictureparkContentRelation(
 			"RelationName",
-			"{ 'Kind': 'TermFilter', 'Field': 'ContentType', Term: 'Bitmap' }"
+			"{ 'kind': 'TermFilter', 'field': 'contentType', term: 'Bitmap' }"
 		)]
 		public SimpleRelation RelationField { get; set; }
 
 		[PictureparkContentRelation(
 			"RelationsName",
-			"{ 'Kind': 'TermFilter', 'Field': 'ContentType', Term: 'Bitmap' }"
+			"{ 'kind': 'TermFilter', 'field': 'contentType', Term: 'bitmap' }"
 		)]
 		public List<SimpleRelation> RelationsField { get; set; }
 	}
 
 	[PictureparkSchemaType(SchemaType.List)]
-	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{Data.SimpleReferenceObject.NameField}}")]
-	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{Data.SimpleReferenceObject.NameField}}")]
+	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.simpleReferenceObject.nameField}}")]
+	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.simpleReferenceObject.nameField}}")]
 	public class SimpleReferenceObject : IReference
 	{
 		public string NameField { get; set; }

@@ -72,7 +72,7 @@ namespace Picturepark.SDK.V1.Conversion
 
 		private SchemaDetail SchemaCreate(List<ContractPropertyInfo> classProperties, Type contractType, string parentSchemaId, List<SchemaDetail> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
 		{
-			var schemaId = contractType.Name;
+			var schemaId = contractType.Name.ToLowerCamelCase();
 
 			var types = new List<SchemaType>();
 
@@ -161,7 +161,7 @@ namespace Picturepark.SDK.V1.Conversion
 				var fieldName = contractPropertyInfo.Name;
 				var fieldData = GetFieldData(contractPropertyInfo);
 
-				fieldData.Id = fieldName;
+				fieldData.Id = fieldName.ToLowerCamelCase();
 				fieldData.FieldNamespace = $"{schemaId}_{fieldName}";
 				if (!string.IsNullOrEmpty(parentSchemaId))
 					fieldData.FieldNamespace = $"{parentSchemaId}_{fieldData.FieldNamespace}";
