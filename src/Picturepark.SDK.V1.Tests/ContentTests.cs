@@ -48,7 +48,7 @@ namespace Picturepark.SDK.V1.Tests
 			var request = new ContentAggregationRequest() { SearchString = string.Empty };
 			request.Aggregators = new List<AggregatorBase>
 			{
-				new TermsAggregator { Name = "Aggregator1", Field = "ContentType", Size = 10 }
+				new TermsAggregator { Name = "Aggregator1", Field = "contentType", Size = 10 }
 			};
 
 			// Second Aggregator

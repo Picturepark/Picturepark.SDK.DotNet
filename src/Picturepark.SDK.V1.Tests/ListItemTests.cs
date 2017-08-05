@@ -208,7 +208,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			var createRequest = new ListItemCreateRequest
 			{
-				ContentSchemaId = nameof(Tag),
+				ContentSchemaId = nameof(Tag).ToLowerCamelCase(),
 				Content = new Tag { Name = objectName }
 			};
 
@@ -225,7 +225,7 @@ namespace Picturepark.SDK.V1.Tests
 				Limit = 100,
 				Filter = new TermFilter()
 				{
-					Field = "Types",
+					Field = "types",
 					Term = SchemaType.List.ToString()
 				}
 			};
@@ -302,7 +302,7 @@ namespace Picturepark.SDK.V1.Tests
 			{
 				Limit = 20,
 				SearchString = "-ivorejvioe",
-				SchemaIds = new List<string> { "SoccerPlayer" }
+				SchemaIds = new List<string> { "soccerPlayer" }
 			});
 
 			Assert.True(players.Results.Count() > 0);

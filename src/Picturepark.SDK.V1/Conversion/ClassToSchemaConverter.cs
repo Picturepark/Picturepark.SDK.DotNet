@@ -130,7 +130,9 @@ namespace Picturepark.SDK.V1.Conversion
 			{
 				foreach (var customType in customTypes)
 				{
-					if (schemaList.Any(d => d.Id == customType.TypeName))
+					var referencedSchemaId = customType.TypeName.ToLowerCamelCase();
+
+					if (schemaList.Any(d => d.Id == referencedSchemaId))
 						continue;
 
 					// Exclusion, if the customType is the contractType (it would create itself again with zero fields)
@@ -146,11 +148,11 @@ namespace Picturepark.SDK.V1.Conversion
 						var dependencySchema = SchemaCreate(customType.TypeProperties, type, string.Empty, schemaList, subLevelOfcall, generateDependencySchema);
 
 						// the schema can be alredy added as dependency
-						if (schemaItem.Dependencies.Any(d => d.Id == customType.TypeName) == false)
+						if (schemaItem.Dependencies.Any(d => d.Id == referencedSchemaId) == false)
 							schemaItem.Dependencies.Add(dependencySchema);
 
 						// the schema can be alredy created
-						if (schemaList.Any(d => d.Id == customType.TypeName) == false && generateDependencySchema)
+						if (schemaList.Any(d => d.Id == referencedSchemaId) == false && generateDependencySchema)
 							schemaList.Add(dependencySchema);
 					}
 				}
@@ -162,7 +164,7 @@ namespace Picturepark.SDK.V1.Conversion
 				var fieldData = GetFieldData(contractPropertyInfo);
 
 				fieldData.Id = fieldName.ToLowerCamelCase();
-				fieldData.FieldNamespace = $"{schemaId}_{fieldName}";
+				fieldData.FieldNamespace = $"{schemaId}_{fieldData.Id}";
 				if (!string.IsNullOrEmpty(parentSchemaId))
 					fieldData.FieldNamespace = $"{parentSchemaId}_{fieldData.FieldNamespace}";
 
@@ -519,7 +521,7 @@ namespace Picturepark.SDK.V1.Conversion
 						{
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
 							RelationTypes = relationTypes,
-							SchemaId = contractPropertyInfo.TypeName,
+							SchemaId = contractPropertyInfo.TypeName.ToLowerCamelCase(),
 							Index = true
 						};
 					}
@@ -530,7 +532,7 @@ namespace Picturepark.SDK.V1.Conversion
 							Index = true,
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
 							SimpleSearch = true,
-							SchemaId = contractPropertyInfo.TypeName,
+							SchemaId = contractPropertyInfo.TypeName.ToLowerCamelCase(),
 							Filter = schemaItemInfos?.Filter
 						};
 					}
@@ -541,7 +543,7 @@ namespace Picturepark.SDK.V1.Conversion
 							Index = true,
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
 							SimpleSearch = true,
-							SchemaId = contractPropertyInfo.TypeName
+							SchemaId = contractPropertyInfo.TypeName.ToLowerCamelCase()
 						};
 					}
 				}
@@ -555,7 +557,7 @@ namespace Picturepark.SDK.V1.Conversion
 							SimpleSearch = true,
 							RelationTypes = relationTypes,
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
-							SchemaId = contractPropertyInfo.TypeName
+							SchemaId = contractPropertyInfo.TypeName.ToLowerCamelCase()
 						};
 					}
 					else if (contractPropertyInfo.TypeName == "GeoPoint")
@@ -572,7 +574,7 @@ namespace Picturepark.SDK.V1.Conversion
 							Index = true,
 							SimpleSearch = true,
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
-							SchemaId = contractPropertyInfo.TypeName,
+							SchemaId = contractPropertyInfo.TypeName.ToLowerCamelCase(),
 							Filter = schemaItemInfos?.Filter
 						};
 					}
@@ -583,7 +585,7 @@ namespace Picturepark.SDK.V1.Conversion
 							Index = true,
 							SimpleSearch = true,
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
-							SchemaId = contractPropertyInfo.TypeName
+							SchemaId = contractPropertyInfo.TypeName.ToLowerCamelCase()
 						};
 					}
 				}
