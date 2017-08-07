@@ -8115,6 +8115,7 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <param name="flowChunkNumber">Starts with 1</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         public void UploadFile(string transferId, string identifier, FileParameter formFile = null, string flowRelativePath = null, long? flowChunkNumber = null, long? flowCurrentChunkSize = null, long? flowTotalSize = null, long? flowTotalChunks = null)
@@ -8122,6 +8123,7 @@ namespace Picturepark.SDK.V1
             System.Threading.Tasks.Task.Run(async () => await UploadFileAsync(transferId, identifier, formFile, flowRelativePath, flowChunkNumber, flowCurrentChunkSize, flowTotalSize, flowTotalChunks, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <param name="flowChunkNumber">Starts with 1</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
