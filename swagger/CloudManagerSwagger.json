@@ -344,6 +344,27 @@
         }
       }
     },
+    "/Services/GetAllActiveNodes": {
+      "get": {
+        "tags": [
+          "Service"
+        ],
+        "operationId": "Service_GetAllActiveNodes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NodeInfo"
+              }
+            },
+            "x-nullable": true
+          }
+        }
+      }
+    },
     "/Updates/Environment": {
       "get": {
         "tags": [
@@ -1374,6 +1395,7 @@
     },
     "ResizeAction": {
       "type": "object",
+      "description": "Does not implement the IImageAction interface. The ResizeAction is directly exposed within ImageFormat.",
       "additionalProperties": false,
       "required": [
         "width",
@@ -1717,9 +1739,11 @@
           "$ref": "#/definitions/ResizeAction2"
         },
         "audioCodec": {
+          "description": "Gets or sets the encoding audio codec.",
           "$ref": "#/definitions/AudioFormatBase"
         },
         "preset": {
+          "description": "Gets or sets the encoding codec preset.",
           "$ref": "#/definitions/Preset"
         },
         "defaultOutputExtension": {
@@ -1812,6 +1836,7 @@
       "properties": {
         "videoPresetId": {
           "type": "string",
+          "description": "Id of Squeeze preset.",
           "format": "guid"
         },
         "customerId": {
@@ -1913,17 +1938,21 @@
           }
         },
         "profile": {
+          "description": "Gets or sets the encoding profile.",
           "$ref": "#/definitions/Profile"
         },
         "coder": {
+          "description": "Gets or sets the encoding coder.",
           "$ref": "#/definitions/Coder"
         },
         "bitrate": {
           "type": "integer",
+          "description": "Gets or sets the bitrate of the encoding.",
           "format": "int32"
         },
         "variableBitRate": {
           "type": "integer",
+          "description": "Gets or sets the encoding variable bit rate (VBR) - 1 is lowest quality and 5 is highest quality.",
           "format": "int32"
         }
       },
@@ -1972,6 +2001,7 @@
       "properties": {
         "audioPresetId": {
           "type": "string",
+          "description": "Id of Squeeze preset.",
           "format": "guid"
         },
         "defaultOutputExtension": {
@@ -2025,10 +2055,12 @@
         },
         "bitrate": {
           "type": "integer",
+          "description": "Gets or sets the encoding bitrate.",
           "format": "int32"
         },
         "quality": {
           "type": "integer",
+          "description": "Gets or sets the encoding quality.\nValues can be set it range of 0 to 9, where a lower value is a higher quality.",
           "format": "int32"
         }
       },
@@ -2079,6 +2111,7 @@
       "properties": {
         "jpegQuality": {
           "type": "integer",
+          "description": "JpegQuality parameter value must be between 0 and 100.",
           "format": "int32"
         },
         "fastWebView": {
@@ -2497,6 +2530,7 @@
     "FilterBase": {
       "type": "object",
       "discriminator": "kind",
+      "description": "The FilterBase is the base class for all filters.",
       "additionalProperties": false,
       "required": [
         "kind"
@@ -2513,6 +2547,7 @@
       "properties": {
         "filters": {
           "type": "array",
+          "description": "Accepts all filters.",
           "items": {
             "$ref": "#/definitions/FilterBase"
           }
@@ -2530,6 +2565,7 @@
       "properties": {
         "filters": {
           "type": "array",
+          "description": "Accepts all filters.",
           "items": {
             "$ref": "#/definitions/FilterBase"
           }
@@ -2546,6 +2582,7 @@
       "additionalProperties": false,
       "properties": {
         "filter": {
+          "description": "Limits the result set.",
           "$ref": "#/definitions/FilterBase"
         }
       },
@@ -2560,9 +2597,11 @@
       "additionalProperties": false,
       "properties": {
         "field": {
-          "type": "string"
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         },
         "range": {
+          "description": "The date range. Supported pattern: now(+-)(int)(YMDHm).",
           "$ref": "#/definitions/DateRange"
         }
       },
@@ -2574,16 +2613,20 @@
     },
     "DateRange": {
       "type": "object",
+      "description": "The date range class used in aggregators and filters.",
       "additionalProperties": false,
       "properties": {
         "names": {
+          "description": "Tranlsated range names.",
           "$ref": "#/definitions/TranslatedStringDictionary"
         },
         "from": {
-          "type": "string"
+          "type": "string",
+          "description": "The from value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
         },
         "to": {
-          "type": "string"
+          "type": "string",
+          "description": "The to value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
         }
       }
     },
@@ -2592,7 +2635,8 @@
       "additionalProperties": false,
       "properties": {
         "field": {
-          "type": "string"
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         }
       },
       "allOf": [
@@ -2606,12 +2650,15 @@
       "additionalProperties": false,
       "properties": {
         "field": {
-          "type": "string"
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         },
         "topLeft": {
+          "description": "The top left longitude/latitude configuration.",
           "$ref": "#/definitions/GeoLocation"
         },
         "bottomRight": {
+          "description": "The bottom right longitude/latitude configuration.",
           "$ref": "#/definitions/GeoLocation"
         }
       },
@@ -2647,13 +2694,16 @@
       ],
       "properties": {
         "field": {
-          "type": "string"
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         },
         "location": {
+          "description": "The longitude/latitude configuration for the point of origin.",
           "$ref": "#/definitions/GeoLocation"
         },
         "distance": {
           "type": "number",
+          "description": "The range distance in meters.",
           "format": "double"
         }
       },
@@ -2668,12 +2718,15 @@
       "additionalProperties": false,
       "properties": {
         "field": {
-          "type": "string"
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         },
         "location": {
+          "description": "The longitude/latitude configuration for the point of origin.",
           "$ref": "#/definitions/GeoLocation"
         },
         "range": {
+          "description": "The numeric range.",
           "$ref": "#/definitions/NumericRange"
         }
       },
@@ -2688,14 +2741,17 @@
       "additionalProperties": false,
       "properties": {
         "names": {
+          "description": "Tranlsated range names.",
           "$ref": "#/definitions/TranslatedStringDictionary"
         },
         "from": {
           "type": "number",
+          "description": "The from value.",
           "format": "double"
         },
         "to": {
           "type": "number",
+          "description": "The to value.",
           "format": "double"
         }
       }
@@ -2705,9 +2761,11 @@
       "additionalProperties": false,
       "properties": {
         "path": {
-          "type": "string"
+          "type": "string",
+          "description": "The path pointing to the nested object."
         },
         "filter": {
+          "description": "Limits the result set.",
           "$ref": "#/definitions/FilterBase"
         }
       },
@@ -2722,9 +2780,11 @@
       "additionalProperties": false,
       "properties": {
         "field": {
-          "type": "string"
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         },
         "range": {
+          "description": "The numeric range with from and to properties.",
           "$ref": "#/definitions/NumericRange"
         }
       },
@@ -2739,10 +2799,12 @@
       "additionalProperties": false,
       "properties": {
         "field": {
-          "type": "string"
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         },
         "prefix": {
-          "type": "string"
+          "type": "string",
+          "description": "The prefix term to filter on."
         }
       },
       "allOf": [
@@ -2756,10 +2818,12 @@
       "additionalProperties": false,
       "properties": {
         "field": {
-          "type": "string"
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         },
         "term": {
-          "type": "string"
+          "type": "string",
+          "description": "The term to filter on."
         }
       },
       "allOf": [
@@ -2773,10 +2837,12 @@
       "additionalProperties": false,
       "properties": {
         "field": {
-          "type": "string"
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         },
         "terms": {
           "type": "array",
+          "description": "A list of OR combined terms.",
           "items": {
             "type": "string"
           }
@@ -2790,12 +2856,15 @@
     },
     "AggregationFilter": {
       "type": "object",
+      "description": "An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition.",
       "additionalProperties": false,
       "properties": {
         "aggregationName": {
-          "type": "string"
+          "type": "string",
+          "description": "The name of the aggregation this filter is connected to."
         },
         "filter": {
+          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.",
           "$ref": "#/definitions/FilterBase"
         },
         "temporaryAggregatorRequestId": {
@@ -2813,9 +2882,11 @@
       "additionalProperties": false,
       "properties": {
         "childType": {
-          "type": "string"
+          "type": "string",
+          "description": "The elastic search index type to filter as a child."
         },
         "filter": {
+          "description": "The filter to apply on the child entity. It accepts all filters.",
           "$ref": "#/definitions/FilterBase"
         }
       },
@@ -2830,9 +2901,11 @@
       "additionalProperties": false,
       "properties": {
         "parentType": {
-          "type": "string"
+          "type": "string",
+          "description": "The elastic search index type to filter as a parent."
         },
         "filter": {
+          "description": "The filter to apply on the child entity. It accepts all filters.",
           "$ref": "#/definitions/FilterBase"
         }
       },
@@ -2842,46 +2915,91 @@
         }
       ]
     },
+    "NodeInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lastResponseTime"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "hostName": {
+          "type": "string"
+        },
+        "lastResponseTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "serviceName": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "versionInfo": {
+          "type": "string"
+        },
+        "release": {
+          "type": "string"
+        },
+        "logLevel": {
+          "type": "string"
+        }
+      }
+    },
     "UpdateInfo": {
       "type": "object",
+      "description": "The UpdateInfoViewItem is the view item for update commands.",
       "additionalProperties": false,
       "required": [
         "creationDate"
       ],
       "properties": {
         "updateVersion": {
-          "type": "string"
+          "type": "string",
+          "description": "The version of the update command."
         },
         "objectStoreVersion": {
-          "type": "string"
+          "type": "string",
+          "description": "The version of the object store (elastic search) at the time of the update command creation."
         },
         "creationDate": {
           "type": "string",
+          "description": "The creation date of the update command.",
           "format": "date-time"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "description": "The description of the update command."
         },
         "creator": {
-          "type": "string"
+          "type": "string",
+          "description": "The creator of the update command."
         }
       }
     },
     "VersionInfo": {
       "type": "object",
+      "description": "The version view item for the environment.",
       "additionalProperties": false,
       "properties": {
         "fileVersion": {
-          "type": "string"
+          "type": "string",
+          "description": "The manual file version of Picturepark.Contract.dll."
         },
         "fileProductVersion": {
-          "type": "string"
+          "type": "string",
+          "description": "The GitVersionTask generated file product version of Picturepark.Configuration.dll."
         },
         "contractVersion": {
-          "type": "string"
+          "type": "string",
+          "description": "The current contract version stored in CustomerDoc / EnvironmentDoc."
         },
         "release": {
-          "type": "string"
+          "type": "string",
+          "description": "The bamboo release version. Only provided on bamboo deployments."
         }
       }
     },
@@ -2894,6 +3012,7 @@
       "additionalProperties": false,
       "properties": {
         "deactivationMessage": {
+          "description": "Language specific deactivation messages.",
           "$ref": "#/definitions/TranslatedStringDictionary"
         }
       }
@@ -2903,16 +3022,19 @@
       "additionalProperties": false,
       "properties": {
         "targetVersion": {
-          "type": "string"
+          "type": "string",
+          "description": "The maximal target version.\nIn case the highest available update version is lower than the desired target version, the environments's contract version will be raised to the highest available update version."
         }
       }
     },
     "CustomerVersionInfo": {
       "type": "object",
+      "description": "The version view item for the customer.",
       "additionalProperties": false,
       "properties": {
         "customerId": {
-          "type": "string"
+          "type": "string",
+          "description": "The customer id."
         }
       },
       "allOf": [
@@ -2926,7 +3048,8 @@
       "additionalProperties": false,
       "properties": {
         "customerId": {
-          "type": "string"
+          "type": "string",
+          "description": "The customer id."
         }
       }
     },
@@ -2935,9 +3058,11 @@
       "additionalProperties": false,
       "properties": {
         "customerId": {
-          "type": "string"
+          "type": "string",
+          "description": "The customer id."
         },
         "deactivationMessage": {
+          "description": "Language specific deactivation messages.",
           "$ref": "#/definitions/TranslatedStringDictionary"
         }
       }
@@ -2947,10 +3072,12 @@
       "additionalProperties": false,
       "properties": {
         "targetVersion": {
-          "type": "string"
+          "type": "string",
+          "description": "The maximal target version.\nIn case the highest available update version is lower than the desired target version, the customer's contract version will be raised to the highest available update version."
         },
         "customerId": {
-          "type": "string"
+          "type": "string",
+          "description": "The customer id."
         }
       }
     },
@@ -3033,22 +3160,27 @@
       ],
       "properties": {
         "snapshotName": {
-          "type": "string"
+          "type": "string",
+          "description": "The SnapshotName. Must be unique.\nThe name usually will be enriched with Reason, ContractVersion and DateTime information."
         },
         "repositoryName": {
-          "type": "string"
+          "type": "string",
+          "description": "The Repository in which the snapshot will be created."
         },
         "indices": {
           "type": "array",
+          "description": "The Indices being part of the snapshot.",
           "items": {
             "type": "string"
           }
         },
         "reason": {
+          "description": "The snapshot backup reason will be added to the snapshot name.",
           "$ref": "#/definitions/BackupReason"
         },
         "timestamp": {
           "type": "string",
+          "description": "Timestamp when creating the requst (utc). If there is a more recent snapshot in the repository, it will keep/return the latest one,\ninstead of creating a new one.",
           "format": "date-time"
         }
       }
@@ -3082,44 +3214,54 @@
       "properties": {
         "durationInMilliseconds": {
           "type": "integer",
+          "description": "The snapshot creation DurationInMilliseconds.",
           "format": "int64"
         },
         "endTime": {
           "type": "string",
+          "description": "The snapshot EndTime.",
           "format": "date-time"
         },
         "endTimeInMilliseconds": {
           "type": "integer",
+          "description": "The snapshot EndTimeInMilliseconds.",
           "format": "int64"
         },
         "failures": {
           "type": "array",
+          "description": "The snapshot elastic search shard Falures.",
           "items": {
             "$ref": "#/definitions/SnapshotShardFailure"
           }
         },
         "indices": {
           "type": "array",
+          "description": "The snapshot Indices.",
           "items": {
             "type": "string"
           }
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "The snapshot Name."
         },
         "repositoryName": {
-          "type": "string"
+          "type": "string",
+          "description": "The repository name."
         },
         "startTime": {
           "type": "string",
+          "description": "The snapshot StartTime.",
           "format": "date-time"
         },
         "startTimeInMilliseconds": {
           "type": "integer",
+          "description": "The snapshot StartTimeInMilliseconds.",
           "format": "int64"
         },
         "state": {
-          "type": "string"
+          "type": "string",
+          "description": "The snapshot State."
         },
         "entityId": {
           "type": "string"
@@ -3138,19 +3280,24 @@
       "additionalProperties": false,
       "properties": {
         "index": {
-          "type": "string"
+          "type": "string",
+          "description": "The Index having the shard failure."
         },
         "nodeId": {
-          "type": "string"
+          "type": "string",
+          "description": "The elastic search NodeId."
         },
         "reason": {
-          "type": "string"
+          "type": "string",
+          "description": "The elastic serach shard failure Reason."
         },
         "shardId": {
-          "type": "string"
+          "type": "string",
+          "description": "The failing elastic search ShardId."
         },
         "status": {
-          "type": "string"
+          "type": "string",
+          "description": "The snapshot failure status."
         }
       }
     },
