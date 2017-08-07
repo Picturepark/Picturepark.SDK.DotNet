@@ -190,7 +190,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/UserViewItem"
+                "$ref": "#/definitions/User"
               }
             },
             "x-nullable": true
@@ -357,7 +357,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/NodeInfoDoc"
+                "$ref": "#/definitions/NodeInfo"
               }
             },
             "x-nullable": true
@@ -378,7 +378,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/UpdateInfoViewItem"
+                "$ref": "#/definitions/UpdateInfo"
               }
             },
             "x-nullable": true
@@ -397,7 +397,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/VersionInfoViewItem"
+              "$ref": "#/definitions/VersionInfo"
             },
             "x-nullable": true
           }
@@ -497,7 +497,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/UpdateInfoViewItem"
+                "$ref": "#/definitions/UpdateInfo"
               }
             },
             "x-nullable": true
@@ -518,7 +518,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/CustomerVersionInfoViewItem"
+                "$ref": "#/definitions/CustomerVersionInfo"
               }
             },
             "x-nullable": true
@@ -545,7 +545,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/CustomerVersionInfoViewItem"
+              "$ref": "#/definitions/CustomerVersionInfo"
             },
             "x-nullable": true
           }
@@ -654,7 +654,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/SnapshotRepositoryViewItem"
+              "$ref": "#/definitions/SnapshotRepository"
             },
             "x-nullable": true
           }
@@ -682,7 +682,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/SnapshotViewItem"
+              "$ref": "#/definitions/Snapshot"
             },
             "x-nullable": true
           }
@@ -710,7 +710,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/SnapshotRestoreViewItem"
+              "$ref": "#/definitions/SnapshotRestore"
             },
             "x-nullable": true
           }
@@ -738,7 +738,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/SnapshotRepositoryViewItem"
+              "$ref": "#/definitions/SnapshotRepository"
             },
             "x-nullable": true
           }
@@ -766,7 +766,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/SnapshotViewItem"
+              "$ref": "#/definitions/Snapshot"
             },
             "x-nullable": true
           }
@@ -794,7 +794,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/SnapshotRestoreViewItem"
+              "$ref": "#/definitions/SnapshotRestore"
             },
             "x-nullable": true
           }
@@ -881,7 +881,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/CustomerViewItem"
+              "$ref": "#/definitions/Customer"
             },
             "x-nullable": true
           }
@@ -894,106 +894,109 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "CacheRetentionTimeInMinutes",
-        "UseSsl",
-        "ElasticSearchNumberOfShards",
-        "ElasticSearchNumberOfReplicas",
-        "RootSearchIndexNumberOfShards",
-        "RootSearchIndexNumberOfReplicas",
-        "IndexedFieldThreshold"
+        "cacheRetentionTimeInMinutes",
+        "useSsl",
+        "elasticSearchNumberOfShards",
+        "elasticSearchNumberOfReplicas",
+        "rootSearchIndexNumberOfShards",
+        "rootSearchIndexNumberOfReplicas",
+        "indexedFieldThreshold"
       ],
       "properties": {
-        "Alias": {
+        "alias": {
           "type": "string"
         },
-        "Name": {
+        "name": {
           "type": "string"
         },
-        "Prefix": {
+        "prefix": {
           "type": "string"
         },
-        "BaseUrl": {
+        "baseUrl": {
           "type": "string"
         },
-        "StoragePath": {
+        "storagePath": {
           "type": "string"
         },
-        "WatermarkPath": {
-          "type": "string"
-        },
-        "CacheRetentionTimeInMinutes": {
+        "cacheRetentionTimeInMinutes": {
           "type": "integer",
           "format": "int32"
         },
-        "CustomerHosts": {
+        "customerHosts": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "UseSsl": {
+        "useSsl": {
           "type": "boolean"
         },
-        "CDNUrl": {
+        "cdnUrl": {
           "type": "string"
         },
-        "SupportContactEmailAddress": {
+        "supportContactEmailAddress": {
           "type": "string"
         },
-        "ExternalProviders": {
+        "externalProviders": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ExternalProviderItem"
           }
         },
-        "ServiceProviders": {
+        "identityServerProviders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IdentityServerProvider"
+          }
+        },
+        "serviceProviders": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/CustomerServiceProviderItem"
           }
         },
-        "CorsAllowedHosts": {
+        "corsAllowedHosts": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "ElasticSearchNumberOfShards": {
+        "elasticSearchNumberOfShards": {
           "type": "integer",
           "format": "int32"
         },
-        "ElasticSearchNumberOfReplicas": {
+        "elasticSearchNumberOfReplicas": {
           "type": "integer",
           "format": "int32"
         },
-        "RootSearchIndexNumberOfShards": {
+        "rootSearchIndexNumberOfShards": {
           "type": "integer",
           "format": "int32"
         },
-        "RootSearchIndexNumberOfReplicas": {
+        "rootSearchIndexNumberOfReplicas": {
           "type": "integer",
           "format": "int32"
         },
-        "IndexedFieldThreshold": {
+        "indexedFieldThreshold": {
           "type": "integer",
           "format": "int32"
         },
-        "NoReplyEmailAddress": {
+        "noReplyEmailAddress": {
           "type": "string"
         },
-        "LanguageConfiguration": {
+        "languageConfiguration": {
           "$ref": "#/definitions/LanguageConfigurationItem"
         },
-        "OutputFormats": {
+        "outputFormats": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/OutputFormatDoc"
+            "$ref": "#/definitions/OutputFormat"
           }
         },
-        "BusinessProcessEngineConnectionString": {
+        "businessProcessEngineConnectionString": {
           "type": "string"
         },
-        "CreateTransferBusinessProcess": {
+        "createTransferBusinessProcess": {
           "type": "string"
         }
       }
@@ -1002,28 +1005,28 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "ProviderName"
+        "providerName"
       ],
       "properties": {
-        "Id": {
+        "id": {
           "type": "string"
         },
-        "ProviderName": {
+        "providerName": {
           "$ref": "#/definitions/ExternalProviderName"
         },
-        "ApplicationId": {
+        "applicationId": {
           "type": "string"
         },
-        "ApplicationSecret": {
+        "applicationSecret": {
           "type": "string"
         },
-        "Services": {
+        "services": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/OAuthServiceApi"
           }
         },
-        "RedirectUri": {
+        "redirectUri": {
           "type": "string"
         }
       }
@@ -1050,16 +1053,16 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "OAuthServiceType"
+        "oAuthServiceType"
       ],
       "properties": {
-        "Scopes": {
+        "scopes": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "OAuthServiceType": {
+        "oAuthServiceType": {
           "$ref": "#/definitions/OAuthServiceType"
         }
       }
@@ -1078,38 +1081,53 @@
         "ContentStore"
       ]
     },
+    "IdentityServerProvider": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
     "CustomerServiceProviderItem": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Id": {
+        "id": {
           "type": "string"
         },
-        "Scopes": {
+        "scopes": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "AllowedMessages": {
+        "allowedMessages": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/CustomerAllowedMessage"
           }
         },
-        "AllowedCommands": {
+        "allowedCommands": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/CustomerAllowedCommand"
           }
         },
-        "UserRoleIds": {
+        "userRoleIds": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "Settings": {
+        "settings": {
           "type": "string"
         }
       }
@@ -1118,10 +1136,10 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Name": {
+        "name": {
           "type": "string"
         },
-        "Target": {
+        "target": {
           "type": "string"
         }
       }
@@ -1130,106 +1148,100 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Name": {
+        "name": {
           "type": "string"
         }
       }
     },
     "LanguageConfigurationItem": {
       "type": "object",
-      "description": "The customer's language configuration.",
       "additionalProperties": false,
       "properties": {
-        "SystemLanguages": {
+        "systemLanguages": {
           "type": "array",
-          "description": "A list of languages serving as system languages.",
           "items": {
             "type": "string"
           }
         },
-        "MetadataLanguages": {
+        "metadataLanguages": {
           "type": "array",
-          "description": "A list of languages serving as metadata languages.",
           "items": {
             "type": "string"
           }
         },
-        "DefaultLanguage": {
-          "type": "string",
-          "description": "The default language. Not the be confused with the metadata fallback language x-default."
+        "defaultLanguage": {
+          "type": "string"
         }
       }
     },
-    "OutputFormatDoc": {
+    "OutputFormat": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Static",
-        "System",
-        "Dynamic",
-        "DataExtraction",
-        "Temporary",
-        "Render"
+        "static",
+        "system",
+        "dynamic",
+        "dataExtraction",
+        "temporary",
+        "render"
       ],
       "properties": {
-        "Static": {
+        "id": {
+          "type": "string"
+        },
+        "static": {
           "type": "boolean"
         },
-        "System": {
+        "system": {
           "type": "boolean"
         },
-        "Dynamic": {
+        "dynamic": {
           "type": "boolean"
         },
-        "DataExtraction": {
+        "dataExtraction": {
           "type": "boolean"
         },
-        "Temporary": {
+        "temporary": {
           "type": "boolean"
         },
-        "SourceOutputFormats": {
+        "sourceOutputFormats": {
           "$ref": "#/definitions/SourceOutputFormats"
         },
-        "Render": {
+        "render": {
           "type": "boolean"
         },
-        "Format": {
+        "format": {
           "$ref": "#/definitions/FormatBase"
         }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/BaseDoc"
-        }
-      ]
+      }
     },
     "SourceOutputFormats": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Image": {
+        "image": {
           "type": "string"
         },
-        "Video": {
+        "video": {
           "type": "string"
         },
-        "Document": {
+        "document": {
           "type": "string"
         },
-        "Audio": {
+        "audio": {
           "type": "string"
         }
       }
     },
     "FormatBase": {
       "type": "object",
-      "discriminator": "Kind",
+      "discriminator": "kind",
       "additionalProperties": false,
       "required": [
-        "Kind"
+        "kind"
       ],
       "properties": {
-        "Kind": {
+        "kind": {
           "type": "string"
         }
       }
@@ -1238,51 +1250,51 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "ColorTransformationIntent",
-        "RenderFirstFrameOnly",
-        "KeepClippingPath",
-        "CloneExif",
-        "CloneIptc",
-        "CloneAdobeResources",
-        "CloneXmp"
+        "colorTransformationIntent",
+        "renderFirstFrameOnly",
+        "keepClippingPath",
+        "cloneExif",
+        "cloneIptc",
+        "cloneAdobeResources",
+        "cloneXmp"
       ],
       "properties": {
-        "ColorProfile": {
+        "colorProfile": {
           "$ref": "#/definitions/ColorProfile"
         },
-        "ColorTransformationIntent": {
+        "colorTransformationIntent": {
           "$ref": "#/definitions/ColorTransformationIntent"
         },
-        "HorizontalResolution": {
+        "horizontalResolution": {
           "type": "number",
           "format": "double"
         },
-        "VerticalResolution": {
+        "verticalResolution": {
           "type": "number",
           "format": "double"
         },
-        "RenderFirstFrameOnly": {
+        "renderFirstFrameOnly": {
           "type": "boolean"
         },
-        "KeepClippingPath": {
+        "keepClippingPath": {
           "type": "boolean"
         },
-        "CloneExif": {
+        "cloneExif": {
           "type": "boolean"
         },
-        "CloneIptc": {
+        "cloneIptc": {
           "type": "boolean"
         },
-        "CloneAdobeResources": {
+        "cloneAdobeResources": {
           "type": "boolean"
         },
-        "CloneXmp": {
+        "cloneXmp": {
           "type": "boolean"
         },
-        "ResizeAction": {
+        "resizeAction": {
           "$ref": "#/definitions/ResizeAction"
         },
-        "Actions": {
+        "actions": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ImageActionBase"
@@ -1386,20 +1398,20 @@
       "description": "Does not implement the IImageAction interface. The ResizeAction is directly exposed within ImageFormat.",
       "additionalProperties": false,
       "required": [
-        "Width",
-        "Height",
-        "ResizeMode"
+        "width",
+        "height",
+        "resizeMode"
       ],
       "properties": {
-        "Width": {
+        "width": {
           "type": "integer",
           "format": "int32"
         },
-        "Height": {
+        "height": {
           "type": "integer",
           "format": "int32"
         },
-        "ResizeMode": {
+        "resizeMode": {
           "$ref": "#/definitions/ResizeMode"
         }
       }
@@ -1420,13 +1432,13 @@
     },
     "ImageActionBase": {
       "type": "object",
-      "discriminator": "Kind",
+      "discriminator": "kind",
       "additionalProperties": false,
       "required": [
-        "Kind"
+        "kind"
       ],
       "properties": {
-        "Kind": {
+        "kind": {
           "type": "string"
         }
       }
@@ -1435,13 +1447,13 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "AlphaHandling"
+        "alphaHandling"
       ],
       "properties": {
-        "AlphaHandling": {
+        "alphaHandling": {
           "$ref": "#/definitions/AlphaHandling"
         },
-        "ReplacementRgbColorHexCode": {
+        "replacementRgbColorHexCode": {
           "type": "string"
         }
       },
@@ -1469,25 +1481,25 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "X",
-        "Y",
-        "Width",
-        "Height"
+        "x",
+        "y",
+        "width",
+        "height"
       ],
       "properties": {
-        "X": {
+        "x": {
           "type": "integer",
           "format": "int32"
         },
-        "Y": {
+        "y": {
           "type": "integer",
           "format": "int32"
         },
-        "Width": {
+        "width": {
           "type": "integer",
           "format": "int32"
         },
-        "Height": {
+        "height": {
           "type": "integer",
           "format": "int32"
         }
@@ -1502,20 +1514,20 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Amount",
-        "Radius",
-        "Threshold"
+        "amount",
+        "radius",
+        "threshold"
       ],
       "properties": {
-        "Amount": {
+        "amount": {
           "type": "number",
           "format": "double"
         },
-        "Radius": {
+        "radius": {
           "type": "number",
           "format": "double"
         },
-        "Threshold": {
+        "threshold": {
           "type": "number",
           "format": "double"
         }
@@ -1530,42 +1542,42 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Opacity",
-        "WidthRatio",
-        "HeightRatio"
+        "opacity",
+        "widthRatio",
+        "heightRatio"
       ],
       "properties": {
-        "WatermarkFilePath": {
+        "watermarkFilePath": {
           "type": "string"
         },
-        "WatermarkText": {
+        "watermarkText": {
           "type": "string"
         },
-        "MarginLeft": {
+        "marginLeft": {
           "type": "integer",
           "format": "int32"
         },
-        "MarginTop": {
+        "marginTop": {
           "type": "integer",
           "format": "int32"
         },
-        "MarginRight": {
+        "marginRight": {
           "type": "integer",
           "format": "int32"
         },
-        "MarginBottom": {
+        "marginBottom": {
           "type": "integer",
           "format": "int32"
         },
-        "Opacity": {
+        "opacity": {
           "type": "number",
           "format": "double"
         },
-        "WidthRatio": {
+        "widthRatio": {
           "type": "number",
           "format": "double"
         },
-        "HeightRatio": {
+        "heightRatio": {
           "type": "number",
           "format": "double"
         }
@@ -1580,10 +1592,10 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
             "type": "string"
@@ -1600,25 +1612,25 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Quality",
-        "IsProgressive",
-        "ChromaSubsamplingEnabled"
+        "quality",
+        "isProgressive",
+        "chromaSubsamplingEnabled"
       ],
       "properties": {
-        "Quality": {
+        "quality": {
           "type": "integer",
           "format": "int32"
         },
-        "IsProgressive": {
+        "isProgressive": {
           "type": "boolean"
         },
-        "ChromaSubsamplingEnabled": {
+        "chromaSubsamplingEnabled": {
           "type": "boolean"
         },
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
             "type": "string"
@@ -1635,16 +1647,16 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Interlaced"
+        "interlaced"
       ],
       "properties": {
-        "Interlaced": {
+        "interlaced": {
           "type": "boolean"
         },
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
             "type": "string"
@@ -1661,24 +1673,24 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "AlphaPremultiplied",
-        "CompressionType",
-        "IncludeUnspecifiedTiffExtraChannels"
+        "alphaPremultiplied",
+        "compressionType",
+        "includeUnspecifiedTiffExtraChannels"
       ],
       "properties": {
-        "AlphaPremultiplied": {
+        "alphaPremultiplied": {
           "type": "boolean"
         },
-        "CompressionType": {
+        "compressionType": {
           "$ref": "#/definitions/CompressionType"
         },
-        "IncludeUnspecifiedTiffExtraChannels": {
+        "includeUnspecifiedTiffExtraChannels": {
           "type": "boolean"
         },
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
             "type": "string"
@@ -1720,30 +1732,30 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Preset"
+        "preset"
       ],
       "properties": {
-        "ResizeAction": {
+        "resizeAction": {
           "$ref": "#/definitions/ResizeAction2"
         },
-        "AudioCodec": {
+        "audioCodec": {
           "description": "Gets or sets the encoding audio codec.",
           "$ref": "#/definitions/AudioFormatBase"
         },
-        "Preset": {
+        "preset": {
           "description": "Gets or sets the encoding codec preset.",
           "$ref": "#/definitions/Preset"
         },
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "Actions": {
+        "actions": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/IVideoAction"
@@ -1760,20 +1772,20 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Width",
-        "Height",
-        "ResizeMode"
+        "width",
+        "height",
+        "resizeMode"
       ],
       "properties": {
-        "Width": {
+        "width": {
           "type": "integer",
           "format": "int32"
         },
-        "Height": {
+        "height": {
           "type": "integer",
           "format": "int32"
         },
-        "ResizeMode": {
+        "resizeMode": {
           "$ref": "#/definitions/ResizeMode"
         }
       }
@@ -1819,21 +1831,21 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "VideoPresetId"
+        "videoPresetId"
       ],
       "properties": {
-        "VideoPresetId": {
+        "videoPresetId": {
           "type": "string",
           "description": "Id of Squeeze preset.",
           "format": "guid"
         },
-        "CustomerId": {
+        "customerId": {
           "type": "string"
         },
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
             "type": "string"
@@ -1850,25 +1862,25 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "MaxNumberOfSprites",
-        "Quality"
+        "maxNumberOfSprites",
+        "quality"
       ],
       "properties": {
-        "SpriteResizeAction": {
+        "spriteResizeAction": {
           "$ref": "#/definitions/ResizeAction2"
         },
-        "MaxNumberOfSprites": {
+        "maxNumberOfSprites": {
           "type": "integer",
           "format": "int32"
         },
-        "Quality": {
+        "quality": {
           "type": "integer",
           "format": "int32"
         },
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
             "type": "string"
@@ -1885,19 +1897,19 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "PositionInSeconds"
+        "positionInSeconds"
       ],
       "properties": {
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "PositionInSeconds": {
+        "positionInSeconds": {
           "type": "integer",
           "format": "int32"
         }
@@ -1912,33 +1924,33 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Profile",
-        "Coder"
+        "profile",
+        "coder"
       ],
       "properties": {
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "Profile": {
+        "profile": {
           "description": "Gets or sets the encoding profile.",
           "$ref": "#/definitions/Profile"
         },
-        "Coder": {
+        "coder": {
           "description": "Gets or sets the encoding coder.",
           "$ref": "#/definitions/Coder"
         },
-        "Bitrate": {
+        "bitrate": {
           "type": "integer",
           "description": "Gets or sets the bitrate of the encoding.",
           "format": "int32"
         },
-        "VariableBitRate": {
+        "variableBitRate": {
           "type": "integer",
           "description": "Gets or sets the encoding variable bit rate (VBR) - 1 is lowest quality and 5 is highest quality.",
           "format": "int32"
@@ -1984,18 +1996,18 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "AudioPresetId"
+        "audioPresetId"
       ],
       "properties": {
-        "AudioPresetId": {
+        "audioPresetId": {
           "type": "string",
           "description": "Id of Squeeze preset.",
           "format": "guid"
         },
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
             "type": "string"
@@ -2012,10 +2024,10 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
             "type": "string"
@@ -2032,21 +2044,21 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "Bitrate": {
+        "bitrate": {
           "type": "integer",
           "description": "Gets or sets the encoding bitrate.",
           "format": "int32"
         },
-        "Quality": {
+        "quality": {
           "type": "integer",
           "description": "Gets or sets the encoding quality.\nValues can be set it range of 0 to 9, where a lower value is a higher quality.",
           "format": "int32"
@@ -2071,10 +2083,10 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
             "type": "string"
@@ -2091,33 +2103,33 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "JpegQuality",
-        "FastWebView",
-        "ReduceFileSize",
-        "ExtractFullText"
+        "jpegQuality",
+        "fastWebView",
+        "reduceFileSize",
+        "extractFullText"
       ],
       "properties": {
-        "JpegQuality": {
+        "jpegQuality": {
           "type": "integer",
           "description": "JpegQuality parameter value must be between 0 and 100.",
           "format": "int32"
         },
-        "FastWebView": {
+        "fastWebView": {
           "type": "boolean"
         },
-        "ReduceFileSize": {
+        "reduceFileSize": {
           "type": "boolean"
         },
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "ExtractFullText": {
+        "extractFullText": {
           "type": "boolean"
         }
       },
@@ -2127,192 +2139,138 @@
         }
       ]
     },
-    "BaseDoc": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Id": {
-          "type": "string"
-        },
-        "Audit": {
-          "$ref": "#/definitions/StoreAudit"
-        }
-      }
-    },
-    "StoreAudit": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "CreationDate",
-        "ModificationDate"
-      ],
-      "properties": {
-        "CreationDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "CreatedByUser": {
-          "$ref": "#/definitions/UserItem"
-        },
-        "ModificationDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "ModifiedByUser": {
-          "$ref": "#/definitions/UserItem"
-        }
-      }
-    },
-    "UserItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Id": {
-          "type": "string"
-        },
-        "FirstName": {
-          "type": "string"
-        },
-        "LastName": {
-          "type": "string"
-        },
-        "EmailAddress": {
-          "type": "string"
-        }
-      }
-    },
     "CustomerConfigurationItem": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "UseSsl",
-        "ElasticSearchNumberOfShards",
-        "ElasticSearchNumberOfReplicas",
-        "RootSearchIndexNumberOfShards",
-        "RootSearchIndexNumberOfReplicas",
-        "IndexedFieldThreshold",
-        "RedisDatabaseIndex",
-        "LifeCycle"
+        "useSsl",
+        "elasticSearchNumberOfShards",
+        "elasticSearchNumberOfReplicas",
+        "rootSearchIndexNumberOfShards",
+        "rootSearchIndexNumberOfReplicas",
+        "indexedFieldThreshold",
+        "redisDatabaseIndex",
+        "lifeCycle"
       ],
       "properties": {
-        "Id": {
+        "id": {
           "type": "string"
         },
-        "LifelineId": {
+        "lifelineId": {
           "type": "string"
         },
-        "Namespace": {
+        "namespace": {
           "type": "string"
         },
-        "Alias": {
+        "alias": {
           "type": "string"
         },
-        "Name": {
+        "name": {
           "type": "string"
         },
-        "MainCatalog": {
+        "mainCatalog": {
           "type": "string"
         },
-        "MetadataCatalog": {
+        "metadataCatalog": {
           "type": "string"
         },
-        "StatisticsCatalog": {
+        "statisticsCatalog": {
           "type": "string"
         },
-        "DocumentHistoryCatalog": {
+        "documentHistoryCatalog": {
           "type": "string"
         },
-        "LiveStreamCatalog": {
+        "liveStreamCatalog": {
           "type": "string"
         },
-        "CacheCatalog": {
+        "cacheCatalog": {
           "type": "string"
         },
-        "WatermarkPath": {
+        "watermarkPath": {
           "type": "string"
         },
-        "StoragePath": {
+        "storagePath": {
           "type": "string"
         },
-        "ContractVersion": {
+        "contractVersion": {
           "type": "string"
         },
-        "CustomerHosts": {
+        "customerHosts": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "UseSsl": {
+        "useSsl": {
           "type": "boolean"
         },
-        "ExternalProviders": {
+        "externalProviders": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ExternalProviderItem"
           }
         },
-        "ServiceProviders": {
+        "serviceProviders": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/CustomerServiceProviderItem"
           }
         },
-        "SupportContactEmailAddress": {
+        "supportContactEmailAddress": {
           "type": "string"
         },
-        "BaseUrl": {
+        "baseUrl": {
           "type": "string"
         },
-        "CDNUrl": {
+        "cdnUrl": {
           "type": "string"
         },
-        "ElasticSearchNumberOfShards": {
+        "elasticSearchNumberOfShards": {
           "type": "integer",
           "format": "int32"
         },
-        "ElasticSearchNumberOfReplicas": {
+        "elasticSearchNumberOfReplicas": {
           "type": "integer",
           "format": "int32"
         },
-        "RootSearchIndexNumberOfShards": {
+        "rootSearchIndexNumberOfShards": {
           "type": "integer",
           "format": "int32"
         },
-        "RootSearchIndexNumberOfReplicas": {
+        "rootSearchIndexNumberOfReplicas": {
           "type": "integer",
           "format": "int32"
         },
-        "IndexedFieldThreshold": {
+        "indexedFieldThreshold": {
           "type": "integer",
           "format": "int32"
         },
-        "CorsAllowedHosts": {
+        "corsAllowedHosts": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "NoReplyEmailAddress": {
+        "noReplyEmailAddress": {
           "type": "string"
         },
-        "LanguageConfiguration": {
+        "languageConfiguration": {
           "$ref": "#/definitions/LanguageConfigurationItem"
         },
-        "BusinessProcessEngineConnectionString": {
+        "businessProcessEngineConnectionString": {
           "type": "string"
         },
-        "CreateTransferBusinessProcess": {
+        "createTransferBusinessProcess": {
           "type": "string"
         },
-        "RedisDatabaseIndex": {
+        "redisDatabaseIndex": {
           "type": "integer",
           "format": "int32"
         },
-        "LifeCycle": {
+        "lifeCycle": {
           "$ref": "#/definitions/LifeCycle"
         },
-        "DeactivationMessage": {
+        "deactivationMessage": {
           "$ref": "#/definitions/TranslatedStringDictionary"
         }
       }
@@ -2335,7 +2293,6 @@
     },
     "TranslatedStringDictionary": {
       "type": "object",
-      "description": "A custom dictionary type to distinguish language specific class properties.",
       "additionalProperties": false,
       "allOf": [
         {
@@ -2350,56 +2307,56 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "LifeCycle",
-        "BackupEnabled",
-        "CacheRetentionTimeInMinutes",
-        "UseSsl"
+        "lifeCycle",
+        "backupEnabled",
+        "cacheRetentionTimeInMinutes",
+        "useSsl"
       ],
       "properties": {
-        "Id": {
+        "id": {
           "type": "string"
         },
-        "Name": {
+        "name": {
           "type": "string"
         },
-        "LifeCycle": {
+        "lifeCycle": {
           "$ref": "#/definitions/LifeCycle"
         },
-        "DeactivationMessage": {
+        "deactivationMessage": {
           "$ref": "#/definitions/TranslatedStringDictionary"
         },
-        "BackupEnabled": {
+        "backupEnabled": {
           "type": "boolean"
         },
-        "CustomerHosts": {
+        "customerHosts": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "CacheRetentionTimeInMinutes": {
+        "cacheRetentionTimeInMinutes": {
           "type": "integer",
           "format": "int32"
         },
-        "UseSsl": {
+        "useSsl": {
           "type": "boolean"
         },
-        "CDNUrl": {
+        "cdnUrl": {
           "type": "string"
         },
-        "SupportContactEmailAddress": {
+        "supportContactEmailAddress": {
           "type": "string"
         },
-        "CorsAllowedHosts": {
+        "corsAllowedHosts": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "NoReplyEmailAddress": {
+        "noReplyEmailAddress": {
           "type": "string"
         },
-        "IndexedFieldThreshold": {
+        "indexedFieldThreshold": {
           "type": "integer",
           "format": "int32"
         }
@@ -2410,79 +2367,79 @@
       "additionalProperties": false,
       "allOf": [
         {
-          "$ref": "#/definitions/BaseResultOfCustomerViewItem"
+          "$ref": "#/definitions/BaseResultOfCustomer"
         }
       ]
     },
-    "BaseResultOfCustomerViewItem": {
+    "BaseResultOfCustomer": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "TotalResults"
+        "totalResults"
       ],
       "properties": {
-        "TotalResults": {
+        "totalResults": {
           "type": "integer",
           "format": "int64"
         },
-        "Results": {
+        "results": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/CustomerViewItem"
+            "$ref": "#/definitions/Customer"
           }
         },
-        "PageToken": {
+        "pageToken": {
           "type": "string"
         }
       }
     },
-    "CustomerViewItem": {
+    "Customer": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "LifeCycle"
+        "lifeCycle"
       ],
       "properties": {
-        "Id": {
+        "id": {
           "type": "string"
         },
-        "Alias": {
+        "alias": {
           "type": "string"
         },
-        "Name": {
+        "name": {
           "type": "string"
         },
-        "DeactivationComment": {
+        "deactivationComment": {
           "type": "string"
         },
-        "CustomerHosts": {
+        "customerHosts": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "MainCatalog": {
+        "mainCatalog": {
           "type": "string"
         },
-        "ContractVersion": {
+        "contractVersion": {
           "type": "string"
         },
-        "StoragePath": {
+        "storagePath": {
           "type": "string"
         },
-        "WatermarkPath": {
+        "watermarkPath": {
           "type": "string"
         },
-        "LifeCycle": {
+        "lifeCycle": {
           "$ref": "#/definitions/LifeCycle"
         }
       }
     },
-    "UserViewItem": {
+    "User": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "UserRoleIds": {
+        "userRoleIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -2495,32 +2452,50 @@
         }
       ]
     },
+    "UserItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        }
+      }
+    },
     "CustomerSearchRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Start",
-        "Limit"
+        "start",
+        "limit"
       ],
       "properties": {
-        "SearchString": {
+        "searchString": {
           "type": "string"
         },
-        "Sort": {
+        "sort": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/SortInfo"
           }
         },
-        "Start": {
+        "start": {
           "type": "integer",
           "format": "int32"
         },
-        "Limit": {
+        "limit": {
           "type": "integer",
           "format": "int32"
         },
-        "Filter": {
+        "filter": {
           "$ref": "#/definitions/FilterBase"
         }
       }
@@ -2529,15 +2504,13 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Direction"
+        "direction"
       ],
       "properties": {
-        "Field": {
-          "type": "string",
-          "description": "The elastic search index field to sort on."
+        "field": {
+          "type": "string"
         },
-        "Direction": {
-          "description": "The sort direction (Asc/Desc).",
+        "direction": {
           "$ref": "#/definitions/SortDirection"
         }
       }
@@ -2556,24 +2529,23 @@
     },
     "FilterBase": {
       "type": "object",
-      "discriminator": "Kind",
+      "discriminator": "kind",
       "description": "The FilterBase is the base class for all filters.",
       "additionalProperties": false,
       "required": [
-        "Kind"
+        "kind"
       ],
       "properties": {
-        "Kind": {
+        "kind": {
           "type": "string"
         }
       }
     },
     "AndFilter": {
       "type": "object",
-      "description": "The AndFilter> is a compound filter and returns documents that match all of the specified filters.",
       "additionalProperties": false,
       "properties": {
-        "Filters": {
+        "filters": {
           "type": "array",
           "description": "Accepts all filters.",
           "items": {
@@ -2589,10 +2561,9 @@
     },
     "OrFilter": {
       "type": "object",
-      "description": "The OrFilter is a compound filter and returns documents that match any of the specified filters.",
       "additionalProperties": false,
       "properties": {
-        "Filters": {
+        "filters": {
           "type": "array",
           "description": "Accepts all filters.",
           "items": {
@@ -2608,10 +2579,9 @@
     },
     "NotFilter": {
       "type": "object",
-      "description": "The NotFilter is a compound filter and returns documents that do not match the specified filter.",
       "additionalProperties": false,
       "properties": {
-        "Filter": {
+        "filter": {
           "description": "Limits the result set.",
           "$ref": "#/definitions/FilterBase"
         }
@@ -2624,14 +2594,13 @@
     },
     "DateRangeFilter": {
       "type": "object",
-      "description": "The DateRangeFilter returns documents with fields that have date values within a certain range.",
       "additionalProperties": false,
       "properties": {
-        "Field": {
+        "field": {
           "type": "string",
           "description": "The elastic search index field to execute the filter on."
         },
-        "Range": {
+        "range": {
           "description": "The date range. Supported pattern: now(+-)(int)(YMDHm).",
           "$ref": "#/definitions/DateRange"
         }
@@ -2647,15 +2616,15 @@
       "description": "The date range class used in aggregators and filters.",
       "additionalProperties": false,
       "properties": {
-        "Names": {
+        "names": {
           "description": "Tranlsated range names.",
           "$ref": "#/definitions/TranslatedStringDictionary"
         },
-        "From": {
+        "from": {
           "type": "string",
           "description": "The from value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
         },
-        "To": {
+        "to": {
           "type": "string",
           "description": "The to value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
         }
@@ -2663,10 +2632,9 @@
     },
     "ExistsFilter": {
       "type": "object",
-      "description": "The ExistsFilter returns documents that have at least one non-null value in the original field.",
       "additionalProperties": false,
       "properties": {
-        "Field": {
+        "field": {
           "type": "string",
           "description": "The elastic search index field to execute the filter on."
         }
@@ -2679,18 +2647,17 @@
     },
     "GeoBoundingBoxFilter": {
       "type": "object",
-      "description": "The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.",
       "additionalProperties": false,
       "properties": {
-        "Field": {
+        "field": {
           "type": "string",
           "description": "The elastic search index field to execute the filter on."
         },
-        "TopLeft": {
+        "topLeft": {
           "description": "The top left longitude/latitude configuration.",
           "$ref": "#/definitions/GeoLocation"
         },
-        "BottomRight": {
+        "bottomRight": {
           "description": "The bottom right longitude/latitude configuration.",
           "$ref": "#/definitions/GeoLocation"
         }
@@ -2705,15 +2672,15 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Lat",
-        "Lon"
+        "lat",
+        "lon"
       ],
       "properties": {
-        "Lat": {
+        "lat": {
           "type": "number",
           "format": "double"
         },
-        "Lon": {
+        "lon": {
           "type": "number",
           "format": "double"
         }
@@ -2721,21 +2688,20 @@
     },
     "GeoDistanceFilter": {
       "type": "object",
-      "description": "The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point.",
       "additionalProperties": false,
       "required": [
-        "Distance"
+        "distance"
       ],
       "properties": {
-        "Field": {
+        "field": {
           "type": "string",
           "description": "The elastic search index field to execute the filter on."
         },
-        "Location": {
+        "location": {
           "description": "The longitude/latitude configuration for the point of origin.",
           "$ref": "#/definitions/GeoLocation"
         },
-        "Distance": {
+        "distance": {
           "type": "number",
           "description": "The range distance in meters.",
           "format": "double"
@@ -2749,18 +2715,17 @@
     },
     "GeoDistanceRangeFilter": {
       "type": "object",
-      "description": "The GeoDistanceRangeFilter returns documents that exists within a range from a specific point.",
       "additionalProperties": false,
       "properties": {
-        "Field": {
+        "field": {
           "type": "string",
           "description": "The elastic search index field to execute the filter on."
         },
-        "Location": {
+        "location": {
           "description": "The longitude/latitude configuration for the point of origin.",
           "$ref": "#/definitions/GeoLocation"
         },
-        "Range": {
+        "range": {
           "description": "The numeric range.",
           "$ref": "#/definitions/NumericRange"
         }
@@ -2775,16 +2740,16 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Names": {
+        "names": {
           "description": "Tranlsated range names.",
           "$ref": "#/definitions/TranslatedStringDictionary"
         },
-        "From": {
+        "from": {
           "type": "number",
           "description": "The from value.",
           "format": "double"
         },
-        "To": {
+        "to": {
           "type": "number",
           "description": "The to value.",
           "format": "double"
@@ -2793,14 +2758,13 @@
     },
     "NestedFilter": {
       "type": "object",
-      "description": "The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.",
       "additionalProperties": false,
       "properties": {
-        "Path": {
+        "path": {
           "type": "string",
           "description": "The path pointing to the nested object."
         },
-        "Filter": {
+        "filter": {
           "description": "Limits the result set.",
           "$ref": "#/definitions/FilterBase"
         }
@@ -2813,14 +2777,13 @@
     },
     "NumericRangeFilter": {
       "type": "object",
-      "description": "The NumericRangeFilter returns documents with fields that have numeric values within a certain range.",
       "additionalProperties": false,
       "properties": {
-        "Field": {
+        "field": {
           "type": "string",
           "description": "The elastic search index field to execute the filter on."
         },
-        "Range": {
+        "range": {
           "description": "The numeric range with from and to properties.",
           "$ref": "#/definitions/NumericRange"
         }
@@ -2833,14 +2796,13 @@
     },
     "PrefixFilter": {
       "type": "object",
-      "description": "The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).",
       "additionalProperties": false,
       "properties": {
-        "Field": {
+        "field": {
           "type": "string",
           "description": "The elastic search index field to execute the filter on."
         },
-        "Prefix": {
+        "prefix": {
           "type": "string",
           "description": "The prefix term to filter on."
         }
@@ -2853,14 +2815,13 @@
     },
     "TermFilter": {
       "type": "object",
-      "description": "The TermFilter returns documents that contain the exact term specified in the inverted index.",
       "additionalProperties": false,
       "properties": {
-        "Field": {
+        "field": {
           "type": "string",
           "description": "The elastic search index field to execute the filter on."
         },
-        "Term": {
+        "term": {
           "type": "string",
           "description": "The term to filter on."
         }
@@ -2873,14 +2834,13 @@
     },
     "TermsFilter": {
       "type": "object",
-      "description": "The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).",
       "additionalProperties": false,
       "properties": {
-        "Field": {
+        "field": {
           "type": "string",
           "description": "The elastic search index field to execute the filter on."
         },
-        "Terms": {
+        "terms": {
           "type": "array",
           "description": "A list of OR combined terms.",
           "items": {
@@ -2899,15 +2859,15 @@
       "description": "An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition.",
       "additionalProperties": false,
       "properties": {
-        "AggregationName": {
+        "aggregationName": {
           "type": "string",
           "description": "The name of the aggregation this filter is connected to."
         },
-        "Filter": {
+        "filter": {
           "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.",
           "$ref": "#/definitions/FilterBase"
         },
-        "TemporaryAggregatorRequestId": {
+        "temporaryAggregatorRequestId": {
           "type": "string"
         }
       },
@@ -2919,14 +2879,13 @@
     },
     "ChildFilter": {
       "type": "object",
-      "description": "The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.",
       "additionalProperties": false,
       "properties": {
-        "ChildType": {
+        "childType": {
           "type": "string",
           "description": "The elastic search index type to filter as a child."
         },
-        "Filter": {
+        "filter": {
           "description": "The filter to apply on the child entity. It accepts all filters.",
           "$ref": "#/definitions/FilterBase"
         }
@@ -2939,14 +2898,13 @@
     },
     "ParentFilter": {
       "type": "object",
-      "description": "The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.",
       "additionalProperties": false,
       "properties": {
-        "ParentType": {
+        "parentType": {
           "type": "string",
           "description": "The elastic search index type to filter as a parent."
         },
-        "Filter": {
+        "filter": {
           "description": "The filter to apply on the child entity. It accepts all filters.",
           "$ref": "#/definitions/FilterBase"
         }
@@ -2957,89 +2915,89 @@
         }
       ]
     },
-    "NodeInfoDoc": {
+    "NodeInfo": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "LastResponseTime"
+        "lastResponseTime"
       ],
       "properties": {
-        "Id": {
+        "id": {
           "type": "string"
         },
-        "HostName": {
+        "hostName": {
           "type": "string"
         },
-        "LastResponseTime": {
+        "lastResponseTime": {
           "type": "string",
           "format": "date-time"
         },
-        "ServiceName": {
+        "serviceName": {
           "type": "string"
         },
-        "Version": {
+        "version": {
           "type": "string"
         },
-        "VersionInfo": {
+        "versionInfo": {
           "type": "string"
         },
-        "Release": {
+        "release": {
           "type": "string"
         },
-        "LogLevel": {
+        "logLevel": {
           "type": "string"
         }
       }
     },
-    "UpdateInfoViewItem": {
+    "UpdateInfo": {
       "type": "object",
       "description": "The UpdateInfoViewItem is the view item for update commands.",
       "additionalProperties": false,
       "required": [
-        "CreationDate"
+        "creationDate"
       ],
       "properties": {
-        "UpdateVersion": {
+        "updateVersion": {
           "type": "string",
           "description": "The version of the update command."
         },
-        "ObjectStoreVersion": {
+        "objectStoreVersion": {
           "type": "string",
           "description": "The version of the object store (elastic search) at the time of the update command creation."
         },
-        "CreationDate": {
+        "creationDate": {
           "type": "string",
           "description": "The creation date of the update command.",
           "format": "date-time"
         },
-        "Description": {
+        "description": {
           "type": "string",
           "description": "The description of the update command."
         },
-        "Creator": {
+        "creator": {
           "type": "string",
           "description": "The creator of the update command."
         }
       }
     },
-    "VersionInfoViewItem": {
+    "VersionInfo": {
       "type": "object",
       "description": "The version view item for the environment.",
       "additionalProperties": false,
       "properties": {
-        "FileVersion": {
+        "fileVersion": {
           "type": "string",
           "description": "The manual file version of Picturepark.Contract.dll."
         },
-        "FileProductVersion": {
+        "fileProductVersion": {
           "type": "string",
           "description": "The GitVersionTask generated file product version of Picturepark.Configuration.dll."
         },
-        "ContractVersion": {
+        "contractVersion": {
           "type": "string",
           "description": "The current contract version stored in CustomerDoc / EnvironmentDoc."
         },
-        "Release": {
+        "release": {
           "type": "string",
           "description": "The bamboo release version. Only provided on bamboo deployments."
         }
@@ -3053,7 +3011,7 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "DeactivationMessage": {
+        "deactivationMessage": {
           "description": "Language specific deactivation messages.",
           "$ref": "#/definitions/TranslatedStringDictionary"
         }
@@ -3063,25 +3021,25 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "TargetVersion": {
+        "targetVersion": {
           "type": "string",
           "description": "The maximal target version.\nIn case the highest available update version is lower than the desired target version, the environments's contract version will be raised to the highest available update version."
         }
       }
     },
-    "CustomerVersionInfoViewItem": {
+    "CustomerVersionInfo": {
       "type": "object",
       "description": "The version view item for the customer.",
       "additionalProperties": false,
       "properties": {
-        "CustomerId": {
+        "customerId": {
           "type": "string",
           "description": "The customer id."
         }
       },
       "allOf": [
         {
-          "$ref": "#/definitions/VersionInfoViewItem"
+          "$ref": "#/definitions/VersionInfo"
         }
       ]
     },
@@ -3089,7 +3047,7 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "CustomerId": {
+        "customerId": {
           "type": "string",
           "description": "The customer id."
         }
@@ -3099,11 +3057,11 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "CustomerId": {
+        "customerId": {
           "type": "string",
           "description": "The customer id."
         },
-        "DeactivationMessage": {
+        "deactivationMessage": {
           "description": "Language specific deactivation messages.",
           "$ref": "#/definitions/TranslatedStringDictionary"
         }
@@ -3113,11 +3071,11 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "TargetVersion": {
+        "targetVersion": {
           "type": "string",
           "description": "The maximal target version.\nIn case the highest available update version is lower than the desired target version, the customer's contract version will be raised to the highest available update version."
         },
-        "CustomerId": {
+        "customerId": {
           "type": "string",
           "description": "The customer id."
         }
@@ -3127,7 +3085,7 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "CustomerAlias": {
+        "customerAlias": {
           "type": "string"
         }
       },
@@ -3141,28 +3099,28 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "RepositoryName": {
+        "repositoryName": {
           "type": "string"
         }
       }
     },
-    "SnapshotRepositoryViewItem": {
+    "SnapshotRepository": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "EntityType"
+        "entityType"
       ],
       "properties": {
-        "Id": {
+        "id": {
           "type": "string"
         },
-        "Name": {
+        "name": {
           "type": "string"
         },
-        "EntityId": {
+        "entityId": {
           "type": "string"
         },
-        "EntityType": {
+        "entityType": {
           "$ref": "#/definitions/BackupEntityType"
         }
       }
@@ -3183,7 +3141,7 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "CustomerAlias": {
+        "customerAlias": {
           "type": "string"
         }
       },
@@ -3197,30 +3155,30 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Reason",
-        "Timestamp"
+        "reason",
+        "timestamp"
       ],
       "properties": {
-        "SnapshotName": {
+        "snapshotName": {
           "type": "string",
           "description": "The SnapshotName. Must be unique.\nThe name usually will be enriched with Reason, ContractVersion and DateTime information."
         },
-        "RepositoryName": {
+        "repositoryName": {
           "type": "string",
           "description": "The Repository in which the snapshot will be created."
         },
-        "Indices": {
+        "indices": {
           "type": "array",
           "description": "The Indices being part of the snapshot.",
           "items": {
             "type": "string"
           }
         },
-        "Reason": {
+        "reason": {
           "description": "The snapshot backup reason will be added to the snapshot name.",
           "$ref": "#/definitions/BackupReason"
         },
-        "Timestamp": {
+        "timestamp": {
           "type": "string",
           "description": "Timestamp when creating the requst (utc). If there is a more recent snapshot in the repository, it will keep/return the latest one,\ninstead of creating a new one.",
           "format": "date-time"
@@ -3241,77 +3199,77 @@
         "Deletion"
       ]
     },
-    "SnapshotViewItem": {
+    "Snapshot": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "DurationInMilliseconds",
-        "EndTime",
-        "EndTimeInMilliseconds",
-        "StartTime",
-        "StartTimeInMilliseconds",
-        "EntityType",
-        "RestoreDate"
+        "durationInMilliseconds",
+        "endTime",
+        "endTimeInMilliseconds",
+        "startTime",
+        "startTimeInMilliseconds",
+        "entityType",
+        "restoreDate"
       ],
       "properties": {
-        "DurationInMilliseconds": {
+        "durationInMilliseconds": {
           "type": "integer",
           "description": "The snapshot creation DurationInMilliseconds.",
           "format": "int64"
         },
-        "EndTime": {
+        "endTime": {
           "type": "string",
           "description": "The snapshot EndTime.",
           "format": "date-time"
         },
-        "EndTimeInMilliseconds": {
+        "endTimeInMilliseconds": {
           "type": "integer",
           "description": "The snapshot EndTimeInMilliseconds.",
           "format": "int64"
         },
-        "Failures": {
+        "failures": {
           "type": "array",
           "description": "The snapshot elastic search shard Falures.",
           "items": {
             "$ref": "#/definitions/SnapshotShardFailure"
           }
         },
-        "Indices": {
+        "indices": {
           "type": "array",
           "description": "The snapshot Indices.",
           "items": {
             "type": "string"
           }
         },
-        "Name": {
+        "name": {
           "type": "string",
           "description": "The snapshot Name."
         },
-        "RepositoryName": {
+        "repositoryName": {
           "type": "string",
           "description": "The repository name."
         },
-        "StartTime": {
+        "startTime": {
           "type": "string",
           "description": "The snapshot StartTime.",
           "format": "date-time"
         },
-        "StartTimeInMilliseconds": {
+        "startTimeInMilliseconds": {
           "type": "integer",
           "description": "The snapshot StartTimeInMilliseconds.",
           "format": "int64"
         },
-        "State": {
+        "state": {
           "type": "string",
           "description": "The snapshot State."
         },
-        "EntityId": {
+        "entityId": {
           "type": "string"
         },
-        "EntityType": {
+        "entityType": {
           "$ref": "#/definitions/BackupEntityType"
         },
-        "RestoreDate": {
+        "restoreDate": {
           "type": "string",
           "format": "date-time"
         }
@@ -3321,23 +3279,23 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Index": {
+        "index": {
           "type": "string",
           "description": "The Index having the shard failure."
         },
-        "NodeId": {
+        "nodeId": {
           "type": "string",
           "description": "The elastic search NodeId."
         },
-        "Reason": {
+        "reason": {
           "type": "string",
           "description": "The elastic serach shard failure Reason."
         },
-        "ShardId": {
+        "shardId": {
           "type": "string",
           "description": "The failing elastic search ShardId."
         },
-        "Status": {
+        "status": {
           "type": "string",
           "description": "The snapshot failure status."
         }
@@ -3347,10 +3305,10 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "CustomerAlias": {
+        "customerAlias": {
           "type": "string"
         },
-        "CustomerId": {
+        "customerId": {
           "type": "string"
         }
       },
@@ -3364,13 +3322,13 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "SnapshotName": {
+        "snapshotName": {
           "type": "string"
         },
-        "RepositoryName": {
+        "repositoryName": {
           "type": "string"
         },
-        "Indices": {
+        "indices": {
           "type": "array",
           "items": {
             "type": "string"
@@ -3378,24 +3336,24 @@
         }
       }
     },
-    "SnapshotRestoreViewItem": {
+    "SnapshotRestore": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "RestoreDate"
+        "restoreDate"
       ],
       "properties": {
-        "RestoreDate": {
+        "restoreDate": {
           "type": "string",
           "format": "date-time"
         },
-        "RepositoryName": {
+        "repositoryName": {
           "type": "string"
         },
-        "SnapshotName": {
+        "snapshotName": {
           "type": "string"
         },
-        "Indices": {
+        "indices": {
           "type": "array",
           "items": {
             "type": "string"
@@ -3434,37 +3392,37 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Start",
-        "Limit"
+        "start",
+        "limit"
       ],
       "properties": {
-        "SearchString": {
+        "searchString": {
           "type": "string"
         },
-        "Sort": {
+        "sort": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/SortInfo"
           }
         },
-        "Start": {
+        "start": {
           "type": "integer",
           "format": "int32"
         },
-        "Limit": {
+        "limit": {
           "type": "integer",
           "format": "int32"
         },
-        "RepositoryNames": {
+        "repositoryNames": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "CustomerAlias": {
+        "customerAlias": {
           "type": "string"
         },
-        "CustomerId": {
+        "customerId": {
           "type": "string"
         }
       }
@@ -3473,38 +3431,38 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "ElapsedMilliseconds"
+        "elapsedMilliseconds"
       ],
       "properties": {
-        "ElapsedMilliseconds": {
+        "elapsedMilliseconds": {
           "type": "integer",
           "format": "int64"
         }
       },
       "allOf": [
         {
-          "$ref": "#/definitions/BaseResultOfSnapshotViewItem"
+          "$ref": "#/definitions/BaseResultOfSnapshot"
         }
       ]
     },
-    "BaseResultOfSnapshotViewItem": {
+    "BaseResultOfSnapshot": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "TotalResults"
+        "totalResults"
       ],
       "properties": {
-        "TotalResults": {
+        "totalResults": {
           "type": "integer",
           "format": "int64"
         },
-        "Results": {
+        "results": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/SnapshotViewItem"
+            "$ref": "#/definitions/Snapshot"
           }
         },
-        "PageToken": {
+        "pageToken": {
           "type": "string"
         }
       }
@@ -3513,10 +3471,10 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "CustomerId": {
+        "customerId": {
           "type": "string"
         },
-        "CustomerAlias": {
+        "customerAlias": {
           "type": "string"
         }
       }
@@ -3525,43 +3483,40 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "SnapshotName": {
+        "snapshotName": {
           "type": "string"
         },
-        "RepositoryName": {
+        "repositoryName": {
           "type": "string"
         },
-        "SourceCustomerAlias": {
+        "sourceCustomerAlias": {
           "type": "string"
         },
-        "CustomerName": {
+        "customerName": {
           "type": "string"
         },
-        "CustomerAlias": {
+        "customerAlias": {
           "type": "string"
         },
-        "CustomerHosts": {
+        "customerHosts": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "CorsAllowedHosts": {
+        "corsAllowedHosts": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "StoragePath": {
+        "storagePath": {
           "type": "string"
         },
-        "WatermarkPath": {
+        "baseUrl": {
           "type": "string"
         },
-        "BaseUrl": {
-          "type": "string"
-        },
-        "RedirectUri": {
+        "redirectUri": {
           "type": "string"
         }
       }

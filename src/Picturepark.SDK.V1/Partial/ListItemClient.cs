@@ -86,7 +86,7 @@ namespace Picturepark.SDK.V1
 				var createRequest = await CreateManyCoreAsync(listItems, cancellationToken ?? CancellationToken.None);
 				var result = await createRequest.Wait4MetadataAsync(this);
 
-				var bulkResult = result.BusinessProcess as BusinessProcessBulkResponseViewItem;
+				var bulkResult = result.BusinessProcess as BusinessProcessBulkResponse;
 				if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
 					throw new Exception("Could not save all objects");
 
@@ -97,7 +97,7 @@ namespace Picturepark.SDK.V1
 					Limit = 1000,
 					Filter = new TermsFilter
 					{
-						Field = "Id",
+						Field = "id",
 						Terms = bulkResult.Response.Rows.Select(i => i.Id).ToList()
 					}
 				});
@@ -153,7 +153,7 @@ namespace Picturepark.SDK.V1
 			List<string> fileNames = filePaths.Select(file => Path.GetFileName(file)).ToList();
 
 			// Create batch
-			TransferViewItem transfer = await _transferClient.CreateBatchAsync(fileNames, batchName);
+			Transfer transfer = await _transferClient.CreateBatchAsync(fileNames, batchName);
 
 			// Upload files
 			string directoryPath = Path.GetDirectoryName(filePaths.First());
@@ -244,7 +244,7 @@ namespace Picturepark.SDK.V1
 							var refIdValue = (string)value.GetType().GetProperty("refId").GetValue(value);
 							if (string.IsNullOrEmpty(refIdValue))
 							{
-								var schemaId = value.GetType().Name;
+								var schemaId = value.GetType().Name.ToLower();
 
 								// Add metadata object if it does not already exist
 								if (referencedListItems.Where(i => i.ContentSchemaId == schemaId).Select(i => i.Content).All(i => i != value))
@@ -268,7 +268,7 @@ namespace Picturepark.SDK.V1
 						var value = referencedProperty.GetValue(obj);
 						if (value != null)
 						{
-							var schemaId = value.GetType().Name;
+							var schemaId = value.GetType().Name.ToLowerCamelCase();
 
 							// Add metadata object if it does not already exist
 							if (referencedListItems.Where(i => i.ContentSchemaId == schemaId).Select(i => i.Content).All(i => i != value))

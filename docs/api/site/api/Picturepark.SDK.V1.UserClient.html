@@ -94,6 +94,9 @@
                   <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_BaseUrl">ClientBase.BaseUrl</a>
                 </div>
                 <div>
+                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_Alias">ClientBase.Alias</a>
+                </div>
+                <div>
                   <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpClientAsync_CancellationToken_">ClientBase.CreateHttpClientAsync(CancellationToken)</a>
                 </div>
                 <div>
@@ -157,13 +160,149 @@
               </h3>
               
               
+              <a id="Picturepark_SDK_V1_UserClient_GetByOwnerToken_" data-uid="Picturepark.SDK.V1.UserClient.GetByOwnerToken*"></a>
+              <h4 id="Picturepark_SDK_V1_UserClient_GetByOwnerToken_System_String_" data-uid="Picturepark.SDK.V1.UserClient.GetByOwnerToken(System.String)">GetByOwnerToken(String)</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public UserDetail GetByOwnerToken(string tokenId)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">tokenId</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.UserDetail.html">UserDetail</a></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_GetByOwnerToken_System_String_">IUserClient.GetByOwnerToken(String)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_UserClient_GetByOwnerTokenAsync_" data-uid="Picturepark.SDK.V1.UserClient.GetByOwnerTokenAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_UserClient_GetByOwnerTokenAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserClient.GetByOwnerTokenAsync(System.String,System.Threading.CancellationToken)">GetByOwnerTokenAsync(String, CancellationToken)</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task&lt;UserDetail&gt; GetByOwnerTokenAsync(string tokenId, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">tokenId</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Threading.CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.UserDetail.html">UserDetail</a>&gt;</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_GetByOwnerTokenAsync_System_String_System_Threading_CancellationToken_">IUserClient.GetByOwnerTokenAsync(String, CancellationToken)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
               <a id="Picturepark_SDK_V1_UserClient_GetChannels_" data-uid="Picturepark.SDK.V1.UserClient.GetChannels*"></a>
               <h4 id="Picturepark_SDK_V1_UserClient_GetChannels" data-uid="Picturepark.SDK.V1.UserClient.GetChannels">GetChannels()</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public List&lt;ChannelViewItem&gt; GetChannels()</code></pre>
+                <pre><code class="lang-csharp hljs">public List&lt;Channel&gt; GetChannels()</code></pre>
               </div>
               <h5 class="returns">Returns</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -175,7 +314,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ChannelViewItem.html">ChannelViewItem</a>&gt;</td>
+                    <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.Channel.html">Channel</a>&gt;</td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -211,7 +350,7 @@
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;List&lt;ChannelViewItem&gt;&gt; GetChannelsAsync(CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;List&lt;Channel&gt;&gt; GetChannelsAsync(CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -241,7 +380,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ChannelViewItem.html">ChannelViewItem</a>&gt;&gt;</td>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.Channel.html">Channel</a>&gt;&gt;</td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -264,6 +403,372 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_UserClient_GetProfile_" data-uid="Picturepark.SDK.V1.UserClient.GetProfile*"></a>
+              <h4 id="Picturepark_SDK_V1_UserClient_GetProfile" data-uid="Picturepark.SDK.V1.UserClient.GetProfile">GetProfile()</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public UserProfile GetProfile()</code></pre>
+              </div>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.UserProfile.html">UserProfile</a></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_GetProfile">IUserClient.GetProfile()</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_UserClient_GetProfileAsync_" data-uid="Picturepark.SDK.V1.UserClient.GetProfileAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_UserClient_GetProfileAsync_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserClient.GetProfileAsync(System.Threading.CancellationToken)">GetProfileAsync(CancellationToken)</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task&lt;UserProfile&gt; GetProfileAsync(CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Threading.CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.UserProfile.html">UserProfile</a>&gt;</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_GetProfileAsync_System_Threading_CancellationToken_">IUserClient.GetProfileAsync(CancellationToken)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_UserClient_GetUser_" data-uid="Picturepark.SDK.V1.UserClient.GetUser*"></a>
+              <h4 id="Picturepark_SDK_V1_UserClient_GetUser_System_String_" data-uid="Picturepark.SDK.V1.UserClient.GetUser(System.String)">GetUser(String)</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public UserDetail GetUser(string userId)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">userId</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.UserDetail.html">UserDetail</a></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_GetUser_System_String_">IUserClient.GetUser(String)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_UserClient_GetUserAsync_" data-uid="Picturepark.SDK.V1.UserClient.GetUserAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_UserClient_GetUserAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserClient.GetUserAsync(System.String,System.Threading.CancellationToken)">GetUserAsync(String, CancellationToken)</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task&lt;UserDetail&gt; GetUserAsync(string userId, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">userId</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Threading.CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.UserDetail.html">UserDetail</a>&gt;</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_GetUserAsync_System_String_System_Threading_CancellationToken_">IUserClient.GetUserAsync(String, CancellationToken)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_UserClient_Search_" data-uid="Picturepark.SDK.V1.UserClient.Search*"></a>
+              <h4 id="Picturepark_SDK_V1_UserClient_Search_Picturepark_SDK_V1_Contract_UserSearchRequest_" data-uid="Picturepark.SDK.V1.UserClient.Search(Picturepark.SDK.V1.Contract.UserSearchRequest)">Search(UserSearchRequest)</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public UserSearchResult Search(UserSearchRequest searchRequest)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.UserSearchRequest.html">UserSearchRequest</a></td>
+                    <td><span class="parametername">searchRequest</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.UserSearchResult.html">UserSearchResult</a></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_Search_Picturepark_SDK_V1_Contract_UserSearchRequest_">IUserClient.Search(UserSearchRequest)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_UserClient_SearchAsync_" data-uid="Picturepark.SDK.V1.UserClient.SearchAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_UserClient_SearchAsync_Picturepark_SDK_V1_Contract_UserSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserClient.SearchAsync(Picturepark.SDK.V1.Contract.UserSearchRequest,System.Threading.CancellationToken)">SearchAsync(UserSearchRequest, CancellationToken)</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task&lt;UserSearchResult&gt; SearchAsync(UserSearchRequest searchRequest, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.UserSearchRequest.html">UserSearchRequest</a></td>
+                    <td><span class="parametername">searchRequest</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Threading.CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.UserSearchResult.html">UserSearchResult</a>&gt;</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserClient.html#Picturepark_SDK_V1_Contract_IUserClient_SearchAsync_Picturepark_SDK_V1_Contract_UserSearchRequest_System_Threading_CancellationToken_">IUserClient.SearchAsync(UserSearchRequest, CancellationToken)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>

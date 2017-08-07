@@ -94,6 +94,9 @@
                   <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_BaseUrl">ClientBase.BaseUrl</a>
                 </div>
                 <div>
+                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_Alias">ClientBase.Alias</a>
+                </div>
+                <div>
                   <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpClientAsync_CancellationToken_">ClientBase.CreateHttpClientAsync(CancellationToken)</a>
                 </div>
                 <div>
@@ -278,13 +281,13 @@
               </table>
               
               
-              <a id="Picturepark_SDK_V1_BusinessProcessClient_MarkAsStarted_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.MarkAsStarted*"></a>
-              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_MarkAsStarted_System_String_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.MarkAsStarted(System.String)">MarkAsStarted(String)</h4>
+              <a id="Picturepark_SDK_V1_BusinessProcessClient_Search_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.Search*"></a>
+              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_Search_Picturepark_SDK_V1_Contract_BusinessProcessSearchResult_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.Search(Picturepark.SDK.V1.Contract.BusinessProcessSearchResult)">Search(BusinessProcessSearchResult)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public void MarkAsStarted(string processId)</code></pre>
+                <pre><code class="lang-csharp hljs">public BusinessProcessSearchResult Search(BusinessProcessSearchResult businessProcessSearchRequest)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -297,14 +300,29 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">processId</span></td>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessSearchResult.html">BusinessProcessSearchResult</a></td>
+                    <td><span class="parametername">businessProcessSearchRequest</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessSearchResult.html">BusinessProcessSearchResult</a></td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_MarkAsStarted_System_String_">IBusinessProcessClient.MarkAsStarted(String)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_Search_Picturepark_SDK_V1_Contract_BusinessProcessSearchResult_">IBusinessProcessClient.Search(BusinessProcessSearchResult)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -328,13 +346,13 @@
               </table>
               
               
-              <a id="Picturepark_SDK_V1_BusinessProcessClient_MarkAsStartedAsync_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.MarkAsStartedAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_MarkAsStartedAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.MarkAsStartedAsync(System.String,System.Threading.CancellationToken)">MarkAsStartedAsync(String, CancellationToken)</h4>
+              <a id="Picturepark_SDK_V1_BusinessProcessClient_SearchAsync_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.SearchAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_SearchAsync_Picturepark_SDK_V1_Contract_BusinessProcessSearchResult_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.SearchAsync(Picturepark.SDK.V1.Contract.BusinessProcessSearchResult,System.Threading.CancellationToken)">SearchAsync(BusinessProcessSearchResult, CancellationToken)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task MarkAsStartedAsync(string processId, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcessSearchResult&gt; SearchAsync(BusinessProcessSearchResult businessProcessSearchRequest, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -347,8 +365,8 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">processId</span></td>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessSearchResult.html">BusinessProcessSearchResult</a></td>
+                    <td><span class="parametername">businessProcessSearchRequest</span></td>
                     <td></td>
                   </tr>
                   <tr>
@@ -369,13 +387,13 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span></td>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessSearchResult.html">BusinessProcessSearchResult</a>&gt;</td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_MarkAsStartedAsync_System_String_System_Threading_CancellationToken_">IBusinessProcessClient.MarkAsStartedAsync(String, CancellationToken)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_SearchAsync_Picturepark_SDK_V1_Contract_BusinessProcessSearchResult_System_Threading_CancellationToken_">IBusinessProcessClient.SearchAsync(BusinessProcessSearchResult, CancellationToken)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -536,7 +554,7 @@
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public BusinessProcessViewItem Start(string processDefinitionId, StartProcessRequest request)</code></pre>
+                <pre><code class="lang-csharp hljs">public BusinessProcess Start(string processDefinitionId, StartProcessRequest request)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -570,7 +588,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessViewItem.html">BusinessProcessViewItem</a></td>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -606,7 +624,7 @@
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcessViewItem&gt; StartAsync(string processDefinitionId, StartProcessRequest request, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; StartAsync(string processDefinitionId, StartProcessRequest request, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -646,7 +664,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessViewItem.html">BusinessProcessViewItem</a>&gt;</td>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;</td>
                     <td></td>
                   </tr>
                 </tbody>

@@ -1,9 +1,8 @@
 {
   "scripts": {
-    "nswag": "nswag run \"src/Picturepark.SDK.V1/nswag.json\" && nswag run \"src/Picturepark.SDK.V1.CloudManager/nswag.json\" && nswag run \"src/Picturepark.SDK.V1.ServiceProvider/nswag.json\"", 
-    "docs": "call \"build/04_BuildDocs.bat\"", 
-
-    "tests": "PowerShell -File \"build/02_RunTests.ps1\"", 
+    "nswag": "nswag run \"src/Picturepark.SDK.V1/nswag.json\" && nswag run \"src/Picturepark.SDK.V1.CloudManager/nswag.json\" && nswag run \"src/Picturepark.SDK.V1.ServiceProvider/nswag.json\"",
+    "docs": "call \"build/04_BuildDocs.bat\"",
+    "tests": "PowerShell -File \"build/02_RunTests.ps1\"",
     "build": "call \"build/01_BuildAndCreatePackages\" && npm run docs"
   },
   "devDependencies": {

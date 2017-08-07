@@ -55,19 +55,19 @@ namespace Picturepark.SDK.V1.Tests
 			TransferSearchRequest request = new TransferSearchRequest() { Limit = limit };
 			TransferSearchResult result = client.Transfers.SearchAsync(request).Result;
 
-			List<TransferViewItem> batchTransferViewItems;
+			List<Transfer> transfers;
 
 			if (batchTransferState == null)
-				batchTransferViewItems = result.Results.Select(i => i).ToList();
+				transfers = result.Results.Select(i => i).ToList();
 			else
-				batchTransferViewItems = result.Results.Where(i => i.State == batchTransferState).Select(i => i).ToList();
+				transfers = result.Results.Where(i => i.State == batchTransferState).Select(i => i).ToList();
 
-			int numberOfHits = batchTransferViewItems.Count;
+			int numberOfHits = transfers.Count;
 
 			if (numberOfHits > 0)
 			{
 				int randomNumber = new Random().Next(0, numberOfHits);
-				batchTransferId = batchTransferViewItems.Skip(randomNumber).First().Id;
+				batchTransferId = transfers.Skip(randomNumber).First().Id;
 			}
 
 			return batchTransferId;
@@ -107,7 +107,7 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			string schemaId = string.Empty;
 			var request = new SchemaSearchRequest() { Limit = limit };
-			BaseResultOfSchemaViewItem result = client.Schemas.Search(request);
+			BaseResultOfSchema result = client.Schemas.Search(request);
 
 			if (result.Results.Count > 0)
 			{
@@ -146,22 +146,22 @@ namespace Picturepark.SDK.V1.Tests
 			var request = new ContentSearchRequest()
 			{
 				Limit = limit,
-				Filter = new TermFilter() { Field = "EntityType", Term = entityType.ToString() }
+				Filter = new TermFilter() { Field = "entityType", Term = entityType.ToString() }
 			};
 
-			BaseResultOfShareBaseViewItem result = client.Shares.SearchAsync(request).Result;
+			BaseResultOfShareBase result = client.Shares.SearchAsync(request).Result;
 
-			List<ShareBaseViewItem> shareViewItems = new List<ShareBaseViewItem>();
+			List<ShareBase> shares = new List<ShareBase>();
 			foreach (var item in result.Results)
 			{
 				if (item.EntityType == entityType)
-					shareViewItems.Add(item);
+					shares.Add(item);
 			}
 
-			if (shareViewItems.Count > 0)
+			if (shares.Count > 0)
 			{
-				int randomNumber = new Random().Next(0, shareViewItems.Count);
-				shareId = shareViewItems.Skip(randomNumber).FirstOrDefault().Id;
+				int randomNumber = new Random().Next(0, shares.Count);
+				shareId = shares.Skip(randomNumber).FirstOrDefault().Id;
 			}
 
 			return shareId;

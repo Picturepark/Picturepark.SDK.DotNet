@@ -152,42 +152,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_PictureparkClientSettings__ctor_" data-uid="Picturepark.SDK.V1.Contract.PictureparkClientSettings.#ctor*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_PictureparkClientSettings__ctor_System_String_" data-uid="Picturepark.SDK.V1.Contract.PictureparkClientSettings.#ctor(System.String)">PictureparkClientSettings(String)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_PictureparkClientSettings__ctor_System_String_IAuthClient_System_String_" data-uid="Picturepark.SDK.V1.Contract.PictureparkClientSettings.#ctor(System.String,IAuthClient,System.String)">PictureparkClientSettings(String, IAuthClient, String)</h4>
               <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkClientSettings.html">PictureparkClientSettings</a> class.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public PictureparkClientSettings(string baseUrl)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">baseUrl</span></td>
-                    <td><p>The base URL.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_PictureparkClientSettings__ctor_" data-uid="Picturepark.SDK.V1.Contract.PictureparkClientSettings.#ctor*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_PictureparkClientSettings__ctor_System_String_IAuthClient_" data-uid="Picturepark.SDK.V1.Contract.PictureparkClientSettings.#ctor(System.String,IAuthClient)">PictureparkClientSettings(String, IAuthClient)</h4>
-              <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkClientSettings.html">PictureparkClientSettings</a> class.</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public PictureparkClientSettings(string baseUrl, IAuthClient authClient)</code></pre>
+                <pre><code class="lang-csharp hljs">public PictureparkClientSettings(string baseUrl, IAuthClient authClient, string customerAlias)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -209,6 +180,47 @@
                     <td><span class="xref">IAuthClient</span></td>
                     <td><span class="parametername">authClient</span></td>
                     <td><p>The authentication client.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">customerAlias</span></td>
+                    <td><p>The customer alias</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_Contract_PictureparkClientSettings__ctor_" data-uid="Picturepark.SDK.V1.Contract.PictureparkClientSettings.#ctor*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_PictureparkClientSettings__ctor_System_String_System_String_" data-uid="Picturepark.SDK.V1.Contract.PictureparkClientSettings.#ctor(System.String,System.String)">PictureparkClientSettings(String, String)</h4>
+              <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkClientSettings.html">PictureparkClientSettings</a> class.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public PictureparkClientSettings(string baseUrl, string customerAlias)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">baseUrl</span></td>
+                    <td><p>The base URL.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">customerAlias</span></td>
+                    <td><p>The customaer alias</p>
 </td>
                   </tr>
                 </tbody>
@@ -270,6 +282,33 @@
               </table>
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="Picturepark.SDK.V1.Contract.IPictureparkClientSettings.html#Picturepark_SDK_V1_Contract_IPictureparkClientSettings_BaseUrl">IPictureparkClientSettings.BaseUrl</a></div>
+              
+              
+              <a id="Picturepark_SDK_V1_Contract_PictureparkClientSettings_CustomerAlias_" data-uid="Picturepark.SDK.V1.Contract.PictureparkClientSettings.CustomerAlias*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_PictureparkClientSettings_CustomerAlias" data-uid="Picturepark.SDK.V1.Contract.PictureparkClientSettings.CustomerAlias">CustomerAlias</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public string CustomerAlias { get; set; }</code></pre>
+              </div>
+              <h5 class="propertyValue">Property Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IPictureparkClientSettings.html#Picturepark_SDK_V1_Contract_IPictureparkClientSettings_CustomerAlias">IPictureparkClientSettings.CustomerAlias</a></div>
               
               
               <a id="Picturepark_SDK_V1_Contract_PictureparkClientSettings_HttpTimeout_" data-uid="Picturepark.SDK.V1.Contract.PictureparkClientSettings.HttpTimeout*"></a>
