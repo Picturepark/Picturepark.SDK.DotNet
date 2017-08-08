@@ -21,17 +21,26 @@
 		<ProjectReference Include="..\Picturepark.SDK.V1.Contract\Picturepark.SDK.V1.Contract.csproj" />
 	</ItemGroup>
 
+	<PropertyGroup>
+		<NerdbankGitVersioningVersion>1.6.35</NerdbankGitVersioningVersion>
+	</PropertyGroup>
+
 	<ItemGroup>
-		<PackageReference Include="DotLiquid" Version="2.0.64" />
+		<PackageReference Include="DotLiquid" Version="2.0.158" />
 		<PackageReference Include="NGettext" Version="0.6.2" />
 		<PackageReference Include="System.Collections.Concurrent" Version="4.3.0" />
-		<PackageReference Include="Nerdbank.GitVersioning" Version="1.6.35">
+		<PackageReference Include="Nerdbank.GitVersioning" Version="$(NerdbankGitVersioningVersion)">
 			<PrivateAssets>All</PrivateAssets>
 		</PackageReference>
 		<PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
 			<PrivateAssets>All</PrivateAssets>
 		</PackageReference>
 	</ItemGroup>
+
+	<ImportGroup Condition=" '$(ExcludeRestorePackageImports)' == 'true' ">
+		<Import Project="$(UserProfile)\.nuget\packages\nerdbank.gitversioning\$(NerdbankGitVersioningVersion)\buildCrossTargeting\Nerdbank.GitVersioning.targets" Condition="Exists('$(UserProfile)\.nuget\packages\nerdbank.gitversioning\$(NerdbankGitVersioningVersion)\buildCrossTargeting\Nerdbank.GitVersioning.targets')" />
+	</ImportGroup>
+	<Target Name="FixUpVersion" BeforeTargets="_GenerateRestoreProjectSpec" DependsOnTargets="GetBuildVersion" Condition=" '$(NerdbankGitVersioningTasksPath)' != '' " />
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
 		<Reference Include="System" />
