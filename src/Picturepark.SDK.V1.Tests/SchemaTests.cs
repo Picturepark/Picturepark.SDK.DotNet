@@ -55,7 +55,7 @@ namespace Picturepark.SDK.V1.Tests
 				}
 			}
 
-			var generatedPersonSchema = await _client.Schemas.GetAsync("person");
+			var generatedPersonSchema = await _client.Schemas.GetAsync("Person");
 			Assert.Contains(generatedPersonSchema.Types, i => i == SchemaType.List || i == SchemaType.Struct );
 
 			var schemasFromPersonShot = new List<SchemaDetail>();
@@ -165,7 +165,7 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			await ShouldCreateFromClassGeneric<SoccerPlayer>();
 
-			var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("soccerPlayer");
+			var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("SoccerPlayer");
 
 			string filterString = "{\"kind\":\"TermFilter\",\"field\":\"contentType\",\"term\":\"FC Aarau\"}";
 
@@ -184,7 +184,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			string multilineString = "\"multiLine\":true";
 
-			var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("person");
+			var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("Person");
 
 			var jsonConvertedField = generatedSoccerPlayerSchema.Fields[0].ToJson();
 
@@ -248,7 +248,7 @@ namespace Picturepark.SDK.V1.Tests
 				}
 			}
 
-			var schemaId = typeof(T).Name.ToLowerCamelCase();
+			var schemaId = typeof(T).Name;
 			var generatedPersonSchema = await _client.Schemas.GetAsync(schemaId);
 			Assert.Contains(generatedPersonSchema.Types, i => i == SchemaType.List || i == SchemaType.Struct);
 		}

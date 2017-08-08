@@ -244,7 +244,7 @@ namespace Picturepark.SDK.V1
 							var refIdValue = (string)value.GetType().GetProperty("refId").GetValue(value);
 							if (string.IsNullOrEmpty(refIdValue))
 							{
-								var schemaId = value.GetType().Name.ToLower();
+								var schemaId = value.GetType().Name;
 
 								// Add metadata object if it does not already exist
 								if (referencedListItems.Where(i => i.ContentSchemaId == schemaId).Select(i => i.Content).All(i => i != value))
@@ -268,7 +268,7 @@ namespace Picturepark.SDK.V1
 						var value = referencedProperty.GetValue(obj);
 						if (value != null)
 						{
-							var schemaId = value.GetType().Name.ToLowerCamelCase();
+							var schemaId = value.GetType().Name;
 
 							// Add metadata object if it does not already exist
 							if (referencedListItems.Where(i => i.ContentSchemaId == schemaId).Select(i => i.Content).All(i => i != value))

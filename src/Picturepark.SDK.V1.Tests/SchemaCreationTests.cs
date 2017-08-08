@@ -31,7 +31,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			Assert.False(schema.Fields.Any(i => i.Id == nameof(JsonTransform.IgnoredString)));
 
-			var schemaSimpleRelation = jsonTransform.First(i => i.Id == nameof(SimpleRelation).ToLowerCamelCase());
+			var schemaSimpleRelation = jsonTransform.First(i => i.Id == nameof(SimpleRelation));
 
 			Assert.True(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationInfo).ToLowerCamelCase()));
 
@@ -47,7 +47,7 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			var schemas = new List<SchemaDetail>();
 			var jsonTransform = _client.Schemas.GenerateSchemaFromPOCO(typeof(JsonTransform), schemas, true);
-			var schemaJsonTransform = jsonTransform.First(i => i.Id == nameof(JsonTransform).ToLowerCamelCase());
+			var schemaJsonTransform = jsonTransform.First(i => i.Id == nameof(JsonTransform));
 
 			Assert.False(schemaJsonTransform.Fields.Any(i => i.Id == nameof(JsonTransform.OldName).ToLowerCamelCase()));
 			Assert.True(schemaJsonTransform.Fields.Any(i => i.Id == "_newName"));

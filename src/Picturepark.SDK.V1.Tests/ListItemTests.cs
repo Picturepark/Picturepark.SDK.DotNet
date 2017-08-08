@@ -30,7 +30,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			var request = new ListItemAggregationRequest()
 			{
-				SchemaIds = new List<string> { nameof(Country).ToLowerCamelCase() },
+				SchemaIds = new List<string> { nameof(Country) },
 				Aggregators = new List<AggregatorBase>
 				{
 					{ new TermsAggregator { Name = fieldName, Field = fieldName, Size = 20 } }
@@ -55,7 +55,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			var createRequest = new ListItemCreateRequest
 			{
-				ContentSchemaId = nameof(Tag).ToLowerCamelCase(),
+				ContentSchemaId = nameof(Tag),
 				Content = new Tag { Name = objectName }
 			};
 
@@ -81,7 +81,7 @@ namespace Picturepark.SDK.V1.Tests
 			{
 				new ListItemCreateRequest
 				{
-					ContentSchemaId = nameof(Tag).ToLowerCamelCase(),
+					ContentSchemaId = nameof(Tag),
 					Content = new Tag { Name = objectName }
 				}
 			};
@@ -111,7 +111,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			var listItem = new ListItemCreateRequest
 			{
-				ContentSchemaId = nameof(Tag).ToLowerCamelCase(),
+				ContentSchemaId = nameof(Tag),
 				Content = new Tag { Name = objectName }
 			};
 
@@ -128,7 +128,7 @@ namespace Picturepark.SDK.V1.Tests
 				new Tag
 				{
 					Name = "ThisObjectB" + new Random().Next(0, 999999).ToString()
-				}, nameof(Tag).ToLowerCamelCase());
+				}, nameof(Tag));
 		}
 
 		[Fact]
@@ -159,7 +159,7 @@ namespace Picturepark.SDK.V1.Tests
 						new Cat { Name = "Catname1", ChasesLaser = true },
 						dog
 					}
-				}, nameof(SoccerPlayer).ToLowerCamelCase());
+				}, nameof(SoccerPlayer));
 
 			var soccerTrainerTree = await _client.ListItems.CreateFromPOCO(
 				new SoccerTrainer
@@ -169,7 +169,7 @@ namespace Picturepark.SDK.V1.Tests
 					Firstname = "Urxxxxs",
 					LastName = "xxxxxxxx",
 					TrainerSince = new DateTime(2000, 1, 1)
-				}, nameof(SoccerTrainer).ToLowerCamelCase());
+				}, nameof(SoccerTrainer));
 
 			var person = await _client.ListItems.CreateFromPOCO(
 				new Person
@@ -178,7 +178,7 @@ namespace Picturepark.SDK.V1.Tests
 					EmailAddress = "xyyyy@teyyyyyyst.com",
 					Firstname = "Urxxxxs",
 					LastName = "xxxxxxxx"
-				}, nameof(Person).ToLowerCamelCase());
+				}, nameof(Person));
 		}
 
 		[Fact]
@@ -189,7 +189,7 @@ namespace Picturepark.SDK.V1.Tests
 			var createRequest = await _client.ListItems.CreateAsync(
 				new ListItemCreateRequest
 				{
-					ContentSchemaId = "soccerPlayer",
+					ContentSchemaId = "SoccerPlayer",
 					Content = new SoccerPlayer
 					{
 						BirthDate = DateTime.Now,
@@ -208,7 +208,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			var createRequest = new ListItemCreateRequest
 			{
-				ContentSchemaId = nameof(Tag).ToLowerCamelCase(),
+				ContentSchemaId = nameof(Tag),
 				Content = new Tag { Name = objectName }
 			};
 
@@ -280,11 +280,8 @@ namespace Picturepark.SDK.V1.Tests
 					if (searchResultObject.Results.Count() > 0)
 						items.AddRange(searchResultObject.Results);
 				}
-				catch (Exception ex)
+				catch (Exception)
 				{
-					if (ex.Message.Length == 1234)
-						break;
-
 					failedMetadataSchemaIds.Add(metadataSchemaId);
 				}
 			}
@@ -302,7 +299,7 @@ namespace Picturepark.SDK.V1.Tests
 			{
 				Limit = 20,
 				SearchString = "-ivorejvioe",
-				SchemaIds = new List<string> { "soccerPlayer" }
+				SchemaIds = new List<string> { "SoccerPlayer" }
 			});
 
 			Assert.True(players.Results.Count() > 0);

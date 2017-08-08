@@ -72,7 +72,7 @@ namespace Picturepark.SDK.V1.Conversion
 
 		private SchemaDetail SchemaCreate(List<ContractPropertyInfo> classProperties, Type contractType, string parentSchemaId, List<SchemaDetail> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
 		{
-			var schemaId = contractType.Name.ToLowerCamelCase();
+			var schemaId = contractType.Name;
 
 			var types = new List<SchemaType>();
 
@@ -130,7 +130,7 @@ namespace Picturepark.SDK.V1.Conversion
 			{
 				foreach (var customType in customTypes)
 				{
-					var referencedSchemaId = customType.TypeName.ToLowerCamelCase();
+					var referencedSchemaId = customType.TypeName;
 
 					if (schemaList.Any(d => d.Id == referencedSchemaId))
 						continue;
@@ -521,7 +521,7 @@ namespace Picturepark.SDK.V1.Conversion
 						{
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
 							RelationTypes = relationTypes,
-							SchemaId = contractPropertyInfo.TypeName.ToLowerCamelCase(),
+							SchemaId = contractPropertyInfo.TypeName,
 							Index = true
 						};
 					}
@@ -532,7 +532,7 @@ namespace Picturepark.SDK.V1.Conversion
 							Index = true,
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
 							SimpleSearch = true,
-							SchemaId = contractPropertyInfo.TypeName.ToLowerCamelCase(),
+							SchemaId = contractPropertyInfo.TypeName,
 							Filter = schemaItemInfos?.Filter
 						};
 					}
@@ -543,7 +543,7 @@ namespace Picturepark.SDK.V1.Conversion
 							Index = true,
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
 							SimpleSearch = true,
-							SchemaId = contractPropertyInfo.TypeName.ToLowerCamelCase()
+							SchemaId = contractPropertyInfo.TypeName
 						};
 					}
 				}
@@ -557,7 +557,7 @@ namespace Picturepark.SDK.V1.Conversion
 							SimpleSearch = true,
 							RelationTypes = relationTypes,
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
-							SchemaId = contractPropertyInfo.TypeName.ToLowerCamelCase()
+							SchemaId = contractPropertyInfo.TypeName
 						};
 					}
 					else if (contractPropertyInfo.TypeName == "GeoPoint")
@@ -574,7 +574,7 @@ namespace Picturepark.SDK.V1.Conversion
 							Index = true,
 							SimpleSearch = true,
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
-							SchemaId = contractPropertyInfo.TypeName.ToLowerCamelCase(),
+							SchemaId = contractPropertyInfo.TypeName,
 							Filter = schemaItemInfos?.Filter
 						};
 					}
@@ -585,7 +585,7 @@ namespace Picturepark.SDK.V1.Conversion
 							Index = true,
 							SimpleSearch = true,
 							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
-							SchemaId = contractPropertyInfo.TypeName.ToLowerCamelCase()
+							SchemaId = contractPropertyInfo.TypeName
 						};
 					}
 				}
