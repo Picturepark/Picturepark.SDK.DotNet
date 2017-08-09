@@ -1,0 +1,62 @@
+﻿{
+  "swaggerGenerator": {
+    "assemblyTypeToSwagger": {
+      "assemblyPath": "../../../Picturepark/Picturepark.API.Contract.V1/bin/Debug/net45/Picturepark.API.Contract.V1.dll",
+      "classNames": [
+        "Picturepark.API.Contract.V1.LiveStream.LiveStreamMessage"
+      ],
+      "referencePaths": [],
+      "defaultPropertyNameHandling": "Default",
+      "defaultEnumHandling": "Integer",
+      "flattenInheritanceHierarchy": false,
+      "generateKnownTypes": true,
+      "generateXmlObjects": false,
+      "output": null
+    }
+  },
+  "codeGenerators": {
+    "swaggerToCSharpClient": {
+      "generateClientClasses": true,
+      "generateClientInterfaces": false,
+      "generateDtoTypes": true,
+      "injectHttpClient": false,
+      "disposeHttpClient": true,
+      "generateExceptionClasses": true,
+      "exceptionClass": "SwaggerException",
+      "wrapDtoExceptions": true,
+      "useHttpClientCreationMethod": false,
+      "httpClientType": "System.Net.Http.HttpClient",
+      "useHttpRequestMessageCreationMethod": false,
+      "useBaseUrl": true,
+      "generateSyncMethods": false,
+      "clientClassAccessModifier": "public",
+      "generateContractsOutput": false,
+      "parameterDateTimeFormat": "s",
+      "generateUpdateJsonSerializerSettingsMethod": true,
+      "className": "{controller}Client",
+      "namespace": "Picturepark.SDK.V1.Contract",
+      "generateOptionalParameters": false,
+      "requiredPropertiesMustBeDefined": true,
+      "dateType": "System.DateTime",
+      "dateTimeType": "System.DateTime",
+      "timeType": "System.TimeSpan",
+      "timeSpanType": "System.TimeSpan",
+      "arrayType": "System.Collections.ObjectModel.ObservableCollection",
+      "dictionaryType": "System.Collections.Generic.Dictionary",
+      "classStyle": "Poco",
+      "operationGenerationMode": "MultipleClientsFromOperationId",
+      "generateDefaultValues": true,
+      "generateDataAnnotations": true,
+      "excludedTypeNames": [
+        "Picturepark.Contract"
+      ],
+      "wrapResponses": false,
+      "generateResponseClasses": true,
+      "responseClass": "SwaggerResponse",
+      "handleReferences": false,
+      "generateImmutableArrayProperties": false,
+      "generateImmutableDictionaryProperties": false,
+      "output": null
+    }
+  }
+}
