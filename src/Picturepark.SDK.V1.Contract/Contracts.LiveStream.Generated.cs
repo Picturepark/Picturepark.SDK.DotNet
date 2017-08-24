@@ -253,19 +253,4 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchRequest>(data);
         }
     }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.2.0")]
-    [System.AttributeUsage(System.AttributeTargets.Class, AllowMultiple = true)]
-    internal class JsonInheritanceAttribute : System.Attribute
-    {
-        public JsonInheritanceAttribute(string key, System.Type type)
-        {
-            Key = key;
-            Type = type;
-        }
-    
-        public string Key { get; }
-    
-        public System.Type Type { get; }
-    }
 }
