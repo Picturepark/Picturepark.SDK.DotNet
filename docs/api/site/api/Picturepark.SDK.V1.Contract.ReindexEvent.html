@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class EventArgsLiveStreamMessage
+    <title>Class ReindexEvent
    | Picturepark.SDK.V1 API </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class EventArgsLiveStreamMessage
+    <meta name="title" content="Class ReindexEvent
    | Picturepark.SDK.V1 API ">
     <meta name="generator" content="docfx 2.16.7.0">
     
@@ -78,20 +78,26 @@
             <article class="content wrap" id="_content">
               
               
-              <h1 id="Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage" data-uid="Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage">Class EventArgsLiveStreamMessage
+              <h1 id="Picturepark_SDK_V1_Contract_ReindexEvent" data-uid="Picturepark.SDK.V1.Contract.ReindexEvent">Class ReindexEvent
               </h1>
               <div class="markdown level0 summary"></div>
               <div class="markdown level0 conceptual"></div>
               <div class="inheritance">
                 <h5>Inheritance</h5>
                   <div class="level0"><span class="xref">System.Object</span></div>
-                  <div class="level1"><span class="xref">System.EventArgs</span></div>
-                  <div class="level2"><span class="xref">EventArgsLiveStreamMessage</span></div>
+                  <div class="level1"><a class="xref" href="Picturepark.SDK.V1.Contract.ApplicationEvent.html">ApplicationEvent</a></div>
+                  <div class="level2"><span class="xref">ReindexEvent</span></div>
               </div>
               <div class="inheritedMembers">
                 <h5>Inherited Members</h5>
                 <div>
-                  <span class="xref">System.EventArgs.Empty</span>
+                  <a class="xref" href="Picturepark.SDK.V1.Contract.ApplicationEvent.html#Picturepark_SDK_V1_Contract_ApplicationEvent_SilentMode">ApplicationEvent.SilentMode</a>
+                </div>
+                <div>
+                  <a class="xref" href="Picturepark.SDK.V1.Contract.ApplicationEvent.html#Picturepark_SDK_V1_Contract_ApplicationEvent_EventType">ApplicationEvent.EventType</a>
+                </div>
+                <div>
+                  <a class="xref" href="Picturepark.SDK.V1.Contract.ApplicationEvent.html#Picturepark_SDK_V1_Contract_ApplicationEvent_Timestamp">ApplicationEvent.Timestamp</a>
                 </div>
                 <div>
                   <span class="xref">System.Object.ToString()</span>
@@ -115,23 +121,23 @@
                   <span class="xref">System.Object.MemberwiseClone()</span>
                 </div>
               </div>
-              <h6><strong>Namespace</strong>:Picturepark.SDK.V1.ServiceProvider.Buffer</h6>
+              <h6><strong>Namespace</strong>:Picturepark.SDK.V1.Contract</h6>
               <h6><strong>Assembly</strong>:cs.temp.dll.dll</h6>
-              <h5 id="Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_syntax">Syntax</h5>
+              <h5 id="Picturepark_SDK_V1_Contract_ReindexEvent_syntax">Syntax</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public class EventArgsLiveStreamMessage : EventArgs</code></pre>
+                <pre><code class="lang-csharp hljs">public class ReindexEvent : ApplicationEvent</code></pre>
               </div>
               <h3 id="properties">Properties
               </h3>
               
               
-              <a id="Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Created_" data-uid="Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Created*"></a>
-              <h4 id="Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Created" data-uid="Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Created">Created</h4>
+              <a id="Picturepark_SDK_V1_Contract_ReindexEvent_IndexId_" data-uid="Picturepark.SDK.V1.Contract.ReindexEvent.IndexId*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_ReindexEvent_IndexId" data-uid="Picturepark.SDK.V1.Contract.ReindexEvent.IndexId">IndexId</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public DateTime Created { get; set; }</code></pre>
+                <pre><code class="lang-csharp hljs">public string IndexId { get; set; }</code></pre>
               </div>
               <h5 class="propertyValue">Property Value</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -143,20 +149,20 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.DateTime</span></td>
+                    <td><span class="xref">System.String</span></td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
               
               
-              <a id="Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Message_" data-uid="Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Message*"></a>
-              <h4 id="Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Message" data-uid="Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Message">Message</h4>
+              <a id="Picturepark_SDK_V1_Contract_ReindexEvent_State_" data-uid="Picturepark.SDK.V1.Contract.ReindexEvent.State*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_ReindexEvent_State" data-uid="Picturepark.SDK.V1.Contract.ReindexEvent.State">State</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public LiveStreamMessage Message { get; set; }</code></pre>
+                <pre><code class="lang-csharp hljs">public IndexState State { get; set; }</code></pre>
               </div>
               <h5 class="propertyValue">Property Value</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -168,82 +174,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.LiveStreamMessage.html">LiveStreamMessage</a></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Model_" data-uid="Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model*"></a>
-              <h4 id="Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Model" data-uid="Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Model">Model</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public IModel Model { get; set; }</code></pre>
-              </div>
-              <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">IModel</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Received_" data-uid="Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Received*"></a>
-              <h4 id="Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Received" data-uid="Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Received">Received</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public DateTime Received { get; set; }</code></pre>
-              </div>
-              <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.DateTime</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Tag_" data-uid="Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Tag*"></a>
-              <h4 id="Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Tag" data-uid="Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Tag">Tag</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public ulong Tag { get; set; }</code></pre>
-              </div>
-              <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.UInt64</span></td>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.IndexState.html">IndexState</a></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -252,23 +183,13 @@
               </h3>
               
               
-              <a id="Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Ack_" data-uid="Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Ack*"></a>
-              <h4 id="Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Ack" data-uid="Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Ack">Ack()</h4>
+              <a id="Picturepark_SDK_V1_Contract_ReindexEvent_FromJson_" data-uid="Picturepark.SDK.V1.Contract.ReindexEvent.FromJson*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_ReindexEvent_FromJson_System_String_" data-uid="Picturepark.SDK.V1.Contract.ReindexEvent.FromJson(System.String)">FromJson(String)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public void Ack()</code></pre>
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Nack_" data-uid="Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack*"></a>
-              <h4 id="Picturepark_SDK_V1_ServiceProvider_Buffer_EventArgsLiveStreamMessage_Nack_System_Boolean_" data-uid="Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.Nack(System.Boolean)">Nack(Boolean)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public void Nack(bool requeue = false)</code></pre>
+                <pre><code class="lang-csharp hljs">public static ReindexEvent FromJson(string data)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -281,8 +202,48 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.Boolean</span></td>
-                    <td><span class="parametername">requeue</span></td>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">data</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ReindexEvent.html">ReindexEvent</a></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_Contract_ReindexEvent_ToJson_" data-uid="Picturepark.SDK.V1.Contract.ReindexEvent.ToJson*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_ReindexEvent_ToJson" data-uid="Picturepark.SDK.V1.Contract.ReindexEvent.ToJson">ToJson()</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public string ToJson()</code></pre>
+              </div>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
                     <td></td>
                   </tr>
                 </tbody>
