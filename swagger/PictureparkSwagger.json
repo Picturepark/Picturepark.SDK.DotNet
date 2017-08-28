@@ -73,13 +73,14 @@
           "Content"
         ],
         "summary": "Get Many",
-        "description": "Getting many of content is executed asynchronous. However, for the specified timeout completion of the process is awaited.\nIf the process is not completed by reaching the specified timeout, the process continues, but null is returned.",
+        "description": "Gets multiple content documents by ids.",
         "operationId": "Content_GetMany",
         "parameters": [
           {
             "type": "array",
-            "name": "contentIds",
+            "name": "ids",
             "in": "query",
+            "required": true,
             "x-nullable": true,
             "collectionFormat": "multi",
             "description": "Comma-separated list of contentIds",
@@ -94,14 +95,6 @@
             "required": true,
             "x-nullable": false,
             "description": "Resolves the data of referenced list items into the contents's content."
-          },
-          {
-            "type": "integer",
-            "name": "timeout",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Maximum time in milliseconds to wait for the business process completed state.",
-            "format": "int32"
           },
           {
             "type": "array",
@@ -1774,7 +1767,7 @@
           "200": {
             "description": "List item result set.",
             "schema": {
-              "$ref": "#/definitions/BaseResultOfListItem"
+              "$ref": "#/definitions/ListItemSearchResult"
             },
             "x-nullable": true
           }
@@ -2355,7 +2348,7 @@
           "200": {
             "description": "Schema result set.",
             "schema": {
-              "$ref": "#/definitions/BaseResultOfSchema"
+              "$ref": "#/definitions/SchemaSearchResult"
             },
             "x-nullable": true
           }
@@ -2869,7 +2862,7 @@
           "200": {
             "description": "Share search result",
             "schema": {
-              "$ref": "#/definitions/BaseResultOfShareBase"
+              "$ref": "#/definitions/ShareSearchResult"
             },
             "x-nullable": true
           },
@@ -3501,7 +3494,10 @@
           "200": {
             "description": "The Result containing a list of OutputDetail's",
             "schema": {
-              "$ref": "#/definitions/BaseResultOfOutputDetail"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OutputDetail"
+              }
             },
             "x-nullable": true
           },
@@ -5562,13 +5558,15 @@
         "Content",
         "ListItem",
         "Schema",
-        "User"
+        "User",
+        "ContentPermissionSet"
       ],
       "enum": [
         "Content",
         "ListItem",
         "Schema",
-        "User"
+        "User",
+        "ContentPermissionSet"
       ]
     },
     "TermsEnumAggregator": {
@@ -5677,12 +5675,12 @@
         "contents": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Content"
+            "$ref": "#/definitions/ContentDownloadItem"
           }
         }
       }
     },
-    "Content": {
+    "ContentDownloadItem": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -5844,6 +5842,13 @@
         "lifeCycleFilter": {
           "description": "Limits the content document result set to that life cycle state. Defaults to ActiveOnly.",
           "$ref": "#/definitions/LifeCycleFilter"
+        },
+        "rightsFilter": {
+          "type": "array",
+          "description": "Limits the content document result set to specific ContentRights the user has",
+          "items": {
+            "$ref": "#/definitions/ContentRight"
+          }
         }
       }
     },
@@ -5872,6 +5877,24 @@
       "enum": [
         "Asc",
         "Desc"
+      ]
+    },
+    "ContentRight": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "View",
+        "Edit",
+        "Update",
+        "Manage",
+        "Trash"
+      ],
+      "enum": [
+        "View",
+        "Edit",
+        "Update",
+        "Manage",
+        "Trash"
       ]
     },
     "ContentSearchResult": {
@@ -5912,7 +5935,7 @@
         "results": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Content2"
+            "$ref": "#/definitions/Content"
           }
         },
         "pageToken": {
@@ -5920,7 +5943,7 @@
         }
       }
     },
-    "Content2": {
+    "Content": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -6604,6 +6627,15 @@
         }
       }
     },
+    "ListItemSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfListItem"
+        }
+      ]
+    },
     "BaseResultOfListItem": {
       "type": "object",
       "additionalProperties": false,
@@ -6628,14 +6660,14 @@
     },
     "ListItem": {
       "type": "object",
-      "description": "A document stored in the elastic search metadata index, with fields corresponding to the the schemantics of its underlying list schema.",
       "additionalProperties": false,
       "required": [
         "entityType"
       ],
       "properties": {
-        "content": {
-          "description": "The content data of the list item."
+        "id": {
+          "type": "string",
+          "description": "The list item id."
         },
         "contentSchemaId": {
           "type": "string",
@@ -6645,13 +6677,13 @@
           "description": "Contains language specific display values, rendered according to the list schema's display pattern configuration.",
           "$ref": "#/definitions/DisplayValueDictionary"
         },
-        "entityType": {
-          "description": "The entity type of the list item is metadata.",
-          "$ref": "#/definitions/EntityType"
+        "content": {
+          "description": "The content data of the list item.",
+          "$ref": "#/definitions/DataDictionary"
         },
-        "id": {
-          "type": "string",
-          "description": "The list item id."
+        "entityType": {
+          "description": "The entity type of a list item is metadata.",
+          "$ref": "#/definitions/EntityType"
         }
       }
     },
@@ -7880,6 +7912,15 @@
         }
       }
     },
+    "SchemaSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfSchema"
+        }
+      ]
+    },
     "BaseResultOfSchema": {
       "type": "object",
       "additionalProperties": false,
@@ -8030,8 +8071,21 @@
         },
         "filter": {
           "$ref": "#/definitions/FilterBase"
+        },
+        "rightFilter": {
+          "$ref": "#/definitions/PermissionSetRight"
         }
       }
+    },
+    "PermissionSetRight": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Apply"
+      ],
+      "enum": [
+        "Apply"
+      ]
     },
     "PermissionSetSearchResult": {
       "type": "object",
@@ -8160,24 +8214,6 @@
         }
       }
     },
-    "ContentRight": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "View",
-        "Edit",
-        "Update",
-        "Manage",
-        "Trash"
-      ],
-      "enum": [
-        "View",
-        "Edit",
-        "Update",
-        "Manage",
-        "Trash"
-      ]
-    },
     "PermissionUserRoleRightsOfPermissionSetRight": {
       "type": "object",
       "additionalProperties": false,
@@ -8195,16 +8231,6 @@
           }
         }
       }
-    },
-    "PermissionSetRight": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Apply"
-      ],
-      "enum": [
-        "Apply"
-      ]
     },
     "SchemaPermissionSetDetail": {
       "type": "object",
@@ -9010,6 +9036,24 @@
           "type": "string"
         }
       }
+    },
+    "ShareSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "elapsedMilliseconds"
+      ],
+      "properties": {
+        "elapsedMilliseconds": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfShareBase"
+        }
+      ]
     },
     "FileTransferDeleteRequest": {
       "type": "object",
@@ -14334,28 +14378,6 @@
           "items": {
             "type": "string"
           }
-        }
-      }
-    },
-    "BaseResultOfOutputDetail": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "totalResults"
-      ],
-      "properties": {
-        "totalResults": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "results": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OutputDetail"
-          }
-        },
-        "pageToken": {
-          "type": "string"
         }
       }
     }
