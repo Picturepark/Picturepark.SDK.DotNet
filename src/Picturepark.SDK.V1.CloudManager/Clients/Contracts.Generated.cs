@@ -3238,7 +3238,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
             if (jObject == null)
                 return null;
     
-            var discriminator = Newtonsoft.Json.Linq.Extensions.Value<string>(jObject.GetValue(_discriminator));
+            var discriminator = Newtonsoft.Json.Linq.Extensions.Value<string>(jObject.GetValue(_discriminator)).Replace("ViewItem", "");
             var subtype = GetObjectSubtype(objectType, discriminator);
     
             try

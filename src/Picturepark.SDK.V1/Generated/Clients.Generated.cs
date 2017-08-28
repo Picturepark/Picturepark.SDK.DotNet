@@ -144,35 +144,32 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Get Many</summary>
+        /// <param name="ids">Comma-separated list of contentIds</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-        /// <param name="contentIds">Comma-separated list of contentIds</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public System.Collections.Generic.List<ContentDetail> GetMany(bool resolve, System.Collections.Generic.IEnumerable<string> contentIds = null, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
+        public System.Collections.Generic.List<ContentDetail> GetMany(System.Collections.Generic.IEnumerable<string> ids, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetManyAsync(resolve, contentIds, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetManyAsync(ids, resolve, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Get Many</summary>
+        /// <param name="ids">Comma-separated list of contentIds</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-        /// <param name="contentIds">Comma-separated list of contentIds</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ContentDetail>> GetManyAsync(bool resolve, System.Collections.Generic.IEnumerable<string> contentIds = null, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<ContentDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("V1/Contents/Many?");
+            if (ids != null) foreach (var item_ in ids) { urlBuilder_.Append("ids=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            if (contentIds != null) foreach (var item_ in contentIds) { urlBuilder_.Append("contentIds=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
-            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
@@ -4140,7 +4137,7 @@ namespace Picturepark.SDK.V1
         /// <returns>List item result set.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
-        public BaseResultOfListItem Search(ListItemSearchRequest listItemSearchRequest)
+        public ListItemSearchResult Search(ListItemSearchRequest listItemSearchRequest)
         {
             return System.Threading.Tasks.Task.Run(async () => await SearchAsync(listItemSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -4151,7 +4148,7 @@ namespace Picturepark.SDK.V1
         /// <returns>List item result set.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BaseResultOfListItem> SearchAsync(ListItemSearchRequest listItemSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListItemSearchResult> SearchAsync(ListItemSearchRequest listItemSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("V1/ListItems/Search");
@@ -4205,10 +4202,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BaseResultOfListItem); 
+                            var result_ = default(ListItemSearchResult); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfListItem>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemSearchResult>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -4223,7 +4220,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(BaseResultOfListItem);
+                        return default(ListItemSearchResult);
                     }
                     finally
                     {
@@ -5571,7 +5568,7 @@ namespace Picturepark.SDK.V1
         /// <returns>Schema result set.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
-        public BaseResultOfSchema Search(SchemaSearchRequest schemaSearchRequest)
+        public SchemaSearchResult Search(SchemaSearchRequest schemaSearchRequest)
         {
             return System.Threading.Tasks.Task.Run(async () => await SearchAsync(schemaSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -5582,7 +5579,7 @@ namespace Picturepark.SDK.V1
         /// <returns>Schema result set.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<BaseResultOfSchema> SearchAsync(SchemaSearchRequest schemaSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SchemaSearchResult> SearchAsync(SchemaSearchRequest schemaSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("V1/Schemas/Search");
@@ -5636,10 +5633,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BaseResultOfSchema); 
+                            var result_ = default(SchemaSearchResult); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfSchema>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaSearchResult>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -5654,7 +5651,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(BaseResultOfSchema);
+                        return default(SchemaSearchResult);
                     }
                     finally
                     {
@@ -7022,7 +7019,7 @@ namespace Picturepark.SDK.V1
         /// <returns>Share search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public BaseResultOfShareBase Search(ContentSearchRequest request)
+        public ShareSearchResult Search(ContentSearchRequest request)
         {
             return System.Threading.Tasks.Task.Run(async () => await SearchAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -7033,7 +7030,7 @@ namespace Picturepark.SDK.V1
         /// <returns>Share search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<BaseResultOfShareBase> SearchAsync(ContentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ShareSearchResult> SearchAsync(ContentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("V1/Shares/Search");
@@ -7067,10 +7064,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BaseResultOfShareBase); 
+                            var result_ = default(ShareSearchResult); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfShareBase>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ShareSearchResult>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -7111,7 +7108,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(BaseResultOfShareBase);
+                        return default(ShareSearchResult);
                     }
                     finally
                     {
@@ -8809,7 +8806,7 @@ namespace Picturepark.SDK.V1
         /// <returns>The Result containing a list of OutputDetail's</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public BaseResultOfOutputDetail GetByContentIds(ContentsByIdsRequest contentsByIdsRequest)
+        public System.Collections.Generic.List<OutputDetail> GetByContentIds(ContentsByIdsRequest contentsByIdsRequest)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetByContentIdsAsync(contentsByIdsRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -8820,7 +8817,7 @@ namespace Picturepark.SDK.V1
         /// <returns>The Result containing a list of OutputDetail's</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<BaseResultOfOutputDetail> GetByContentIdsAsync(ContentsByIdsRequest contentsByIdsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<OutputDetail>> GetByContentIdsAsync(ContentsByIdsRequest contentsByIdsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("V1/Outputs");
@@ -8854,10 +8851,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BaseResultOfOutputDetail); 
+                            var result_ = default(System.Collections.Generic.List<OutputDetail>); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfOutputDetail>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<System.Collections.Generic.List<OutputDetail>>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -8892,7 +8889,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(BaseResultOfOutputDetail);
+                        return default(System.Collections.Generic.List<OutputDetail>);
                     }
                     finally
                     {

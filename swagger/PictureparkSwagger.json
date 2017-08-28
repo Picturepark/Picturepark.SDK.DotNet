@@ -6660,14 +6660,14 @@
     },
     "ListItem": {
       "type": "object",
+      "description": "A document stored in the elastic search metadata index, with fields corresponding to the the schemantics of its underlying list schema.",
       "additionalProperties": false,
       "required": [
         "entityType"
       ],
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "The list item id."
+        "content": {
+          "description": "The content data of the list item."
         },
         "contentSchemaId": {
           "type": "string",
@@ -6677,13 +6677,13 @@
           "description": "Contains language specific display values, rendered according to the list schema's display pattern configuration.",
           "$ref": "#/definitions/DisplayValueDictionary"
         },
-        "content": {
-          "description": "The content data of the list item.",
-          "$ref": "#/definitions/DataDictionary"
-        },
         "entityType": {
-          "description": "The entity type of a list item is metadata.",
+          "description": "The entity type of the list item is metadata.",
           "$ref": "#/definitions/EntityType"
+        },
+        "id": {
+          "type": "string",
+          "description": "The list item id."
         }
       }
     },

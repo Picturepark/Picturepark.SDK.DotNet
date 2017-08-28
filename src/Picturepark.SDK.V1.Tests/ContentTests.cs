@@ -98,15 +98,15 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			var request = new ContentBatchDownloadRequest()
 			{
-				Contents = new List<Content>()
+				Contents = new List<ContentDownloadItem>()
 			};
 			string contentId1 = _fixture.GetRandomContentId("*.jpg", 50);
 			string contentId2 = _fixture.GetRandomContentId("*.jpg", 50);
 			Assert.False(string.IsNullOrEmpty(contentId1));
 
-			request.Contents.Add(new Content() { ContentId = contentId1, OutputFormatId = "Original" });
+			request.Contents.Add(new ContentDownloadItem() { ContentId = contentId1, OutputFormatId = "Original" });
 			if (contentId1 != contentId2)
-				request.Contents.Add(new Content() { ContentId = contentId2, OutputFormatId = "Original" });
+				request.Contents.Add(new ContentDownloadItem() { ContentId = contentId2, OutputFormatId = "Original" });
 
 			ContentBatchDownloadItem result = await _client.Contents.CreateDownloadLinkAsync(request);
 			Assert.True(result.DownloadToken != null);

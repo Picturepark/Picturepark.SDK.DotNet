@@ -31,23 +31,21 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<ContentDetail> UpdateTransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get Many</summary>
+        /// <param name="ids">Comma-separated list of contentIds</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-        /// <param name="contentIds">Comma-separated list of contentIds</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Collections.Generic.List<ContentDetail> GetMany(bool resolve, System.Collections.Generic.IEnumerable<string> contentIds = null, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
+        System.Collections.Generic.List<ContentDetail> GetMany(System.Collections.Generic.IEnumerable<string> ids, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <summary>Get Many</summary>
+        /// <param name="ids">Comma-separated list of contentIds</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-        /// <param name="contentIds">Comma-separated list of contentIds</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.List<ContentDetail>> GetManyAsync(bool resolve, System.Collections.Generic.IEnumerable<string> contentIds = null, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ContentDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -514,7 +512,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>List item result set.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
-        BaseResultOfListItem Search(ListItemSearchRequest listItemSearchRequest);
+        ListItemSearchResult Search(ListItemSearchRequest listItemSearchRequest);
     
         /// <summary>Search</summary>
         /// <param name="listItemSearchRequest">The list item search request.</param>
@@ -522,7 +520,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>List item result set.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BaseResultOfListItem> SearchAsync(ListItemSearchRequest listItemSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListItemSearchResult> SearchAsync(ListItemSearchRequest listItemSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete Single</summary>
         /// <param name="objectId">The list item id.</param>
@@ -701,7 +699,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Schema result set.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
-        BaseResultOfSchema Search(SchemaSearchRequest schemaSearchRequest);
+        SchemaSearchResult Search(SchemaSearchRequest schemaSearchRequest);
     
         /// <summary>Search</summary>
         /// <param name="schemaSearchRequest">The schema search request.</param>
@@ -709,7 +707,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Schema result set.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BaseResultOfSchema> SearchAsync(SchemaSearchRequest schemaSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SchemaSearchResult> SearchAsync(SchemaSearchRequest schemaSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -907,7 +905,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Share search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        BaseResultOfShareBase Search(ContentSearchRequest request);
+        ShareSearchResult Search(ContentSearchRequest request);
     
         /// <summary>Search shares</summary>
         /// <param name="request">Search request</param>
@@ -915,7 +913,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Share search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<BaseResultOfShareBase> SearchAsync(ContentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ShareSearchResult> SearchAsync(ContentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -1090,7 +1088,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The Result containing a list of OutputDetail's</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        BaseResultOfOutputDetail GetByContentIds(ContentsByIdsRequest contentsByIdsRequest);
+        System.Collections.Generic.List<OutputDetail> GetByContentIds(ContentsByIdsRequest contentsByIdsRequest);
     
         /// <summary>Get outputs by contentIds</summary>
         /// <param name="contentsByIdsRequest">Contains the list of contentIds for which the outputs are requested</param>
@@ -1098,7 +1096,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The Result containing a list of OutputDetail's</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<BaseResultOfOutputDetail> GetByContentIdsAsync(ContentsByIdsRequest contentsByIdsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.List<OutputDetail>> GetByContentIdsAsync(ContentsByIdsRequest contentsByIdsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get Single</summary>
         /// <param name="outputId">The output id.</param>
@@ -3449,6 +3447,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "User")]
         User = 3,
     
+        [System.Runtime.Serialization.EnumMember(Value = "ContentPermissionSet")]
+        ContentPermissionSet = 4,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
@@ -3562,7 +3563,7 @@ namespace Picturepark.SDK.V1.Contract
     public partial class ContentBatchDownloadRequest 
     {
         [Newtonsoft.Json.JsonProperty("contents", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<Content> Contents { get; set; }
+        public System.Collections.Generic.List<ContentDownloadItem> Contents { get; set; }
     
         public string ToJson() 
         {
@@ -3576,7 +3577,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
-    public partial class Content 
+    public partial class ContentDownloadItem 
     {
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
@@ -3589,9 +3590,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static Content FromJson(string data)
+        public static ContentDownloadItem FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Content>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDownloadItem>(data);
         }
     }
     
@@ -3749,6 +3750,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleFilter LifeCycleFilter { get; set; }
     
+        /// <summary>Limits the content document result set to specific ContentRights the user has</summary>
+        [Newtonsoft.Json.JsonProperty("rightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.List<ContentRight> RightsFilter { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -3794,13 +3799,33 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
+    public enum ContentRight
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "View")]
+        View = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Edit")]
+        Edit = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Update")]
+        Update = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Manage")]
+        Manage = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Trash")]
+        Trash = 4,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
     public partial class BaseResultOfContent 
     {
         [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
         public long TotalResults { get; set; }
     
         [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<Content2> Results { get; set; }
+        public System.Collections.Generic.List<Content> Results { get; set; }
     
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
@@ -3837,7 +3862,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
-    public partial class Content2 
+    public partial class Content 
     {
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public StoreAudit Audit { get; set; }
@@ -3868,9 +3893,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static Content2 FromJson(string data)
+        public static Content FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Content2>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Content>(data);
         }
     }
     
@@ -4621,6 +4646,20 @@ namespace Picturepark.SDK.V1.Contract
         public static BaseResultOfListItem FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfListItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
+    public partial class ListItemSearchResult : BaseResultOfListItem
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemSearchResult>(data);
         }
     }
     
@@ -5901,6 +5940,20 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
+    public partial class SchemaSearchResult : BaseResultOfSchema
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaSearchResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
     public partial class Schema 
     {
         /// <summary>The schema id.</summary>
@@ -6025,6 +6078,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("rightFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public PermissionSetRight? RightFilter { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -6034,6 +6091,14 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetSearchRequest>(data);
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
+    public enum PermissionSetRight
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Apply")]
+        Apply = 0,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
@@ -6174,26 +6239,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
-    public enum ContentRight
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "View")]
-        View = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Edit")]
-        Edit = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Update")]
-        Update = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Manage")]
-        Manage = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Trash")]
-        Trash = 4,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
     public partial class PermissionUserRoleRightsOfPermissionSetRight 
     {
         [Newtonsoft.Json.JsonProperty("userRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -6214,14 +6259,6 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionUserRoleRightsOfPermissionSetRight>(data);
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
-    public enum PermissionSetRight
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Apply")]
-        Apply = 0,
-    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
@@ -7119,6 +7156,23 @@ namespace Picturepark.SDK.V1.Contract
         public static CreateShareResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CreateShareResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
+    public partial class ShareSearchResult : BaseResultOfShareBase
+    {
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareSearchResult>(data);
         }
     }
     
@@ -12771,29 +12825,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
-    public partial class BaseResultOfOutputDetail 
-    {
-        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
-        public long TotalResults { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<OutputDetail> Results { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BaseResultOfOutputDetail FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfOutputDetail>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.8.0")]
     [System.AttributeUsage(System.AttributeTargets.Class, AllowMultiple = true)]
     internal class JsonInheritanceAttribute : System.Attribute
     {
@@ -12884,7 +12915,7 @@ namespace Picturepark.SDK.V1.Contract
             if (jObject == null)
                 return null;
     
-            var discriminator = Newtonsoft.Json.Linq.Extensions.Value<string>(jObject.GetValue(_discriminator));
+            var discriminator = Newtonsoft.Json.Linq.Extensions.Value<string>(jObject.GetValue(_discriminator)).Replace("ViewItem", "");
             var subtype = GetObjectSubtype(objectType, discriminator);
     
             try
