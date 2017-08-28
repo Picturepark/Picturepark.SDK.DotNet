@@ -73,13 +73,14 @@
           "Content"
         ],
         "summary": "Get Many",
-        "description": "Getting many of content is executed asynchronous. However, for the specified timeout completion of the process is awaited.\nIf the process is not completed by reaching the specified timeout, the process continues, but null is returned.",
+        "description": "Gets multiple content documents by ids.",
         "operationId": "Content_GetMany",
         "parameters": [
           {
             "type": "array",
-            "name": "contentIds",
+            "name": "ids",
             "in": "query",
+            "required": true,
             "x-nullable": true,
             "collectionFormat": "multi",
             "description": "Comma-separated list of contentIds",
@@ -94,14 +95,6 @@
             "required": true,
             "x-nullable": false,
             "description": "Resolves the data of referenced list items into the contents's content."
-          },
-          {
-            "type": "integer",
-            "name": "timeout",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Maximum time in milliseconds to wait for the business process completed state.",
-            "format": "int32"
           },
           {
             "type": "array",
