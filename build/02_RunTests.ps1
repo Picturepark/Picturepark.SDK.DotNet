@@ -6,6 +6,9 @@ $tokenParams = @{
   password=${Env:TestPassword};
 }
 
+$AllProtocols = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
+[System.Net.ServicePointManager]::SecurityProtocol = $AllProtocols
+
 $result = Invoke-WebRequest ${Env:TestIdentityServer} -Method Post -Body $tokenParams | ConvertFrom-Json
 
 ${Env:TestAccessToken} = $result.access_token
