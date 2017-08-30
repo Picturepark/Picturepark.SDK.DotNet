@@ -16,6 +16,7 @@ if (!(Test-Path "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Configuration.jso
 	ForEach-Object { $_ -replace "{Username}", "$env:TestUsername" } | 
 	ForEach-Object { $_ -replace "{Password}", "$env:TestPassword" } | 
 	ForEach-Object { $_ -replace "{AccessToken}", "$env:TestAccessToken" } | 
+	ForEach-Object { $_ -replace "{CustomerAlias}", "$env:TestCustomerAlias" } | 
 	Set-Content "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Configuration.json"
 }
 
