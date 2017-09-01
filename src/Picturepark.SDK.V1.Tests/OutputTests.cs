@@ -22,7 +22,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Outputs")]
 		public async Task ShouldGet()
 		{
-			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
+			string contentId = _fixture.GetRandomContentId(".jpg", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
 
 			ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);

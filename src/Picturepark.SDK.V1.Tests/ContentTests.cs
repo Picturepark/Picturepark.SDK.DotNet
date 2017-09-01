@@ -100,8 +100,8 @@ namespace Picturepark.SDK.V1.Tests
 			{
 				Contents = new List<ContentDownloadItem>()
 			};
-			string contentId1 = _fixture.GetRandomContentId("*.jpg", 50);
-			string contentId2 = _fixture.GetRandomContentId("*.jpg", 50);
+			string contentId1 = _fixture.GetRandomContentId(".jpg", 50);
+			string contentId2 = _fixture.GetRandomContentId(".jpg", 50);
 			Assert.False(string.IsNullOrEmpty(contentId1));
 
 			request.Contents.Add(new ContentDownloadItem() { ContentId = contentId1, OutputFormatId = "Original" });
@@ -118,7 +118,7 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			//// TODO BRO: Implement
 
-			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
+			string contentId = _fixture.GetRandomContentId(".jpg", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
 
 			await Task.FromResult<object>(null);
@@ -152,7 +152,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldDownloadSingle()
 		{
-			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
+			string contentId = _fixture.GetRandomContentId(".jpg", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
 			ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);
 
@@ -178,7 +178,7 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldDownloadSingleResized()
 		{
 			// Download a resized version of an image file
-			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
+			string contentId = _fixture.GetRandomContentId(".jpg", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
 			ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);
 
@@ -202,7 +202,7 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldDownloadSingleThumbnail()
 		{
 			// Download a resized version of an image file
-			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
+			string contentId = _fixture.GetRandomContentId(".jpg", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
 
 			var fileName = new Random().Next(0, 999999).ToString() + "-" + contentId + ".jpg";
@@ -224,7 +224,7 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldGet()
 		{
 			// Todo: Typed Aufruf?  CustomContentDetail<ContentMetadata> result = Get<ContentMetadata>(contentId);
-			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
+			string contentId = _fixture.GetRandomContentId(".jpg", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
 
 			ContentDetail result = await _client.Contents.GetAsync(contentId);
@@ -235,9 +235,9 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldGetDocumentMetadata()
 		{
-			string contentId = _fixture.GetRandomContentId("*.doc", 20);
+			string contentId = _fixture.GetRandomContentId(".doc", 20);
 			if (string.IsNullOrEmpty(contentId))
-				contentId = _fixture.GetRandomContentId("*.docx", 20);
+				contentId = _fixture.GetRandomContentId(".docx", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
 
 			ContentDetail result = await _client.Contents.GetAsync(contentId);
@@ -250,7 +250,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldGetResolved()
 		{
-			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
+			string contentId = _fixture.GetRandomContentId(".jpg", 20);
 			ContentDetail result = await _client.Contents.GetAsync(contentId, true);
 		}
 
@@ -318,7 +318,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldTrashAndUntrashRandomContent()
 		{
-			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
+			string contentId = _fixture.GetRandomContentId(".jpg", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
 
 			var contentDetail = await _client.Contents.GetAsync(contentId);
@@ -337,7 +337,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldUpdateFile()
 		{
-			string contentId = _fixture.GetRandomContentId("*.jpg -0030_JabLtzJl8bc", 20);
+			string contentId = _fixture.GetRandomContentId(".jpg -0030_JabLtzJl8bc", 20);
 
 			// Create transfer
 			var filePaths = new List<string>
@@ -385,7 +385,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldUpdateMetadata()
 		{
-			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
+			string contentId = _fixture.GetRandomContentId(".jpg", 20);
 
 			ContentDetail content = await _client.Contents.GetAsync(contentId);
 
@@ -415,7 +415,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldUpdatePermissions()
 		{
-			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
+			string contentId = _fixture.GetRandomContentId(".jpg", 20);
 
 			Assert.False(string.IsNullOrEmpty(contentId));
 

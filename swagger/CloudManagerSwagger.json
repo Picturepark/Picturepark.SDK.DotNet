@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.2.0.0 (NJsonSchema v9.2.4.0)",
+  "x-generator": "NSwag v11.5.1.0 (NJsonSchema v9.4.10.0)",
   "swagger": "2.0",
   "info": {
     "title": "Web API Swagger specification",
@@ -829,7 +829,7 @@
         }
       }
     },
-    "/Backup/Customer/Snapshot/SearchRepositories": {
+    "/Customer/Snapshot/SearchRepositories": {
       "post": {
         "tags": [
           "CloudBackup"
@@ -860,7 +860,7 @@
         }
       }
     },
-    "/Backup/Customer/Clone": {
+    "/Customer/Clone": {
       "post": {
         "tags": [
           "CloudBackup"
@@ -1799,34 +1799,6 @@
         }
       ]
     },
-    "Preset": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "ultrafast",
-        "superfast",
-        "veryfast",
-        "faster",
-        "fast",
-        "medium",
-        "slow",
-        "slower"
-      ],
-      "enum": [
-        "ultrafast",
-        "superfast",
-        "veryfast",
-        "faster",
-        "fast",
-        "medium",
-        "slow",
-        "slower"
-      ]
-    },
-    "IVideoAction": {
-      "type": "object",
-      "additionalProperties": false
-    },
     "VideoPresetFormat": {
       "type": "object",
       "additionalProperties": false,
@@ -2138,6 +2110,34 @@
           "$ref": "#/definitions/DocumentFormatBase"
         }
       ]
+    },
+    "Preset": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "ultrafast",
+        "superfast",
+        "veryfast",
+        "faster",
+        "fast",
+        "medium",
+        "slow",
+        "slower"
+      ],
+      "enum": [
+        "ultrafast",
+        "superfast",
+        "veryfast",
+        "faster",
+        "fast",
+        "medium",
+        "slow",
+        "slower"
+      ]
+    },
+    "IVideoAction": {
+      "type": "object",
+      "additionalProperties": false
     },
     "CustomerConfigurationItem": {
       "type": "object",
