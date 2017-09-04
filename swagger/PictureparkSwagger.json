@@ -4920,7 +4920,8 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "lifeCycleFilter"
+        "lifeCycleFilter",
+        "searchType"
       ],
       "properties": {
         "searchString": {
@@ -4967,6 +4968,10 @@
         "lifeCycleFilter": {
           "description": "Limits the content document result set to that life cycle state. Defaults to ActiveOnly.",
           "$ref": "#/definitions/LifeCycleFilter"
+        },
+        "searchType": {
+          "description": "Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.",
+          "$ref": "#/definitions/ContentSearchType"
         }
       }
     },
@@ -5598,6 +5603,20 @@
         "InactiveOnly"
       ]
     },
+    "ContentSearchType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Metadata",
+        "FullText",
+        "MetadataAndFullText"
+      ],
+      "enum": [
+        "Metadata",
+        "FullText",
+        "MetadataAndFullText"
+      ]
+    },
     "ObjectAggregationResult": {
       "type": "object",
       "additionalProperties": false,
@@ -5900,20 +5919,6 @@
         "Update",
         "Manage",
         "Trash"
-      ]
-    },
-    "ContentSearchType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Metadata",
-        "FullText",
-        "MetadataAndFullText"
-      ],
-      "enum": [
-        "Metadata",
-        "FullText",
-        "MetadataAndFullText"
       ]
     },
     "ContentSearchResult": {

@@ -2758,6 +2758,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleFilter LifeCycleFilter { get; set; }
     
+        /// <summary>Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.</summary>
+        [Newtonsoft.Json.JsonProperty("searchType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ContentSearchType SearchType { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -3485,6 +3491,20 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.10.0")]
+    public enum ContentSearchType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Metadata")]
+        Metadata = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "FullText")]
+        FullText = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "MetadataAndFullText")]
+        MetadataAndFullText = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.10.0")]
     public partial class ObjectAggregationResult 
     {
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
@@ -3821,20 +3841,6 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = "Trash")]
         Trash = 4,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.4.10.0")]
-    public enum ContentSearchType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Metadata")]
-        Metadata = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "FullText")]
-        FullText = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "MetadataAndFullText")]
-        MetadataAndFullText = 2,
     
     }
     
@@ -12969,7 +12975,7 @@ namespace Picturepark.SDK.V1.Contract
             if (jObject == null)
                 return null;
 
-	        var discriminator = Newtonsoft.Json.Linq.Extensions.Value<string>(jObject.GetValue(_discriminator)).Replace("ViewItem", "");
+			var discriminator = Newtonsoft.Json.Linq.Extensions.Value<string>(jObject.GetValue(_discriminator)).Replace("ViewItem", "");
 			var subtype = GetObjectSubtype(objectType, discriminator);
     
             try
