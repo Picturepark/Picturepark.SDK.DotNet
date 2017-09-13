@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.5.1.0 (NJsonSchema v9.4.10.0)",
+  "x-generator": "NSwag v11.7.1.0 (NJsonSchema v9.6.0.0)",
   "swagger": "2.0",
   "info": {
     "title": "Web API Swagger specification",
@@ -426,7 +426,7 @@
             "name": "Size",
             "in": "path",
             "required": true,
-            "schema": {
+            "x-schema": {
               "$ref": "#/definitions/ThumbnailSize"
             },
             "x-nullable": false,
@@ -2369,7 +2369,7 @@
             "name": "Permission",
             "in": "path",
             "required": true,
-            "schema": {
+            "x-schema": {
               "$ref": "#/definitions/UserRight"
             },
             "x-nullable": false,
@@ -3384,31 +3384,6 @@
         }
       }
     },
-    "/V1/Users/GetProfile": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "operationId": "User_GetProfile",
-        "parameters": [],
-        "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UserProfile"
-            },
-            "x-nullable": true
-          }
-        }
-      }
-    },
     "/V1/Users/Owner/{TokenId}": {
       "get": {
         "tags": [
@@ -3553,6 +3528,68 @@
           }
         }
       }
+    },
+    "/V1/Profile": {
+      "get": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "Get",
+        "description": "Get profile of currently logged in user",
+        "operationId": "Profile_Get",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "UserProfile",
+            "schema": {
+              "$ref": "#/definitions/UserProfile"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "Update",
+        "description": "Updates profile of currently logged in user",
+        "operationId": "Profile_Update",
+        "parameters": [
+          {
+            "name": "profile",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserProfile"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "UserProfile",
+            "schema": {
+              "$ref": "#/definitions/UserProfile"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -3582,7 +3619,11 @@
       "properties": {
         "audit": {
           "description": "Document audit information with information regarding document creation and modification.",
-          "$ref": "#/definitions/StoreAudit"
+          "allOf": [
+            {
+              "$ref": "#/definitions/StoreAudit"
+            }
+          ]
         },
         "content": {
           "description": "The content data of the content document."
@@ -3600,7 +3641,11 @@
         },
         "contentType": {
           "description": "The content type of a content document.",
-          "$ref": "#/definitions/ContentType"
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContentType"
+            }
+          ]
         },
         "contentTypeId": {
           "type": "integer",
@@ -3609,11 +3654,19 @@
         },
         "displayValues": {
           "description": "Contains language specific display values, rendered according to the content schema's display pattern configuration.",
-          "$ref": "#/definitions/DisplayValueDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/DisplayValueDictionary"
+            }
+          ]
         },
         "entityType": {
           "description": "The entity type of a content document is content.",
-          "$ref": "#/definitions/EntityType"
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityType"
+            }
+          ]
         },
         "id": {
           "type": "string",
@@ -3628,7 +3681,11 @@
         },
         "metadata": {
           "description": "The layer metadata of the content document.",
-          "$ref": "#/definitions/DataDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataDictionary"
+            }
+          ]
         },
         "outputs": {
           "type": "array",
@@ -4930,7 +4987,11 @@
         },
         "filter": {
           "description": "An optional search filter. Limits the content document result set.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         },
         "aggregationFilters": {
           "type": "array",
@@ -4967,11 +5028,19 @@
         },
         "lifeCycleFilter": {
           "description": "Limits the content document result set to that life cycle state. Defaults to ActiveOnly.",
-          "$ref": "#/definitions/LifeCycleFilter"
+          "allOf": [
+            {
+              "$ref": "#/definitions/LifeCycleFilter"
+            }
+          ]
         },
         "searchType": {
           "description": "Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.",
-          "$ref": "#/definitions/ContentSearchType"
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContentSearchType"
+            }
+          ]
         }
       }
     },
@@ -5031,7 +5100,11 @@
       "properties": {
         "filter": {
           "description": "Limits the result set.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         }
       },
       "allOf": [
@@ -5050,7 +5123,11 @@
         },
         "range": {
           "description": "The date range. Supported pattern: now(+-)(int)(YMDHm).",
-          "$ref": "#/definitions/DateRange"
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateRange"
+            }
+          ]
         }
       },
       "allOf": [
@@ -5066,7 +5143,11 @@
       "properties": {
         "names": {
           "description": "Tranlsated range names.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
         "from": {
           "type": "string",
@@ -5115,11 +5196,19 @@
         },
         "topLeft": {
           "description": "The top left longitude/latitude configuration.",
-          "$ref": "#/definitions/GeoLocation"
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         },
         "bottomRight": {
           "description": "The bottom right longitude/latitude configuration.",
-          "$ref": "#/definitions/GeoLocation"
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         }
       },
       "allOf": [
@@ -5159,7 +5248,11 @@
         },
         "location": {
           "description": "The longitude/latitude configuration for the point of origin.",
-          "$ref": "#/definitions/GeoLocation"
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         },
         "distance": {
           "type": "number",
@@ -5183,11 +5276,19 @@
         },
         "location": {
           "description": "The longitude/latitude configuration for the point of origin.",
-          "$ref": "#/definitions/GeoLocation"
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         },
         "range": {
           "description": "The numeric range.",
-          "$ref": "#/definitions/NumericRange"
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumericRange"
+            }
+          ]
         }
       },
       "allOf": [
@@ -5202,7 +5303,11 @@
       "properties": {
         "names": {
           "description": "Tranlsated range names.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
         "from": {
           "type": "number",
@@ -5226,7 +5331,11 @@
         },
         "filter": {
           "description": "Limits the result set.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         }
       },
       "allOf": [
@@ -5245,7 +5354,11 @@
         },
         "range": {
           "description": "The numeric range with from and to properties.",
-          "$ref": "#/definitions/NumericRange"
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumericRange"
+            }
+          ]
         }
       },
       "allOf": [
@@ -5325,7 +5438,11 @@
         },
         "filter": {
           "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         },
         "temporaryAggregatorRequestId": {
           "type": "string"
@@ -5347,7 +5464,11 @@
         },
         "filter": {
           "description": "The filter to apply on the child entity. It accepts all filters.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         }
       },
       "allOf": [
@@ -5366,7 +5487,11 @@
         },
         "filter": {
           "description": "The filter to apply on the child entity. It accepts all filters.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         }
       },
       "allOf": [
@@ -5390,7 +5515,11 @@
         },
         "names": {
           "description": "The translated names of the aggregation.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
         "aggregators": {
           "type": "array",
@@ -5432,7 +5561,11 @@
       "properties": {
         "filter": {
           "description": "Limits the result set.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         }
       },
       "allOf": [
@@ -5451,7 +5584,11 @@
         },
         "location": {
           "description": "The latitude/logitude configuration for the point of origin.",
-          "$ref": "#/definitions/GeoLocation"
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         },
         "ranges": {
           "type": "array",
@@ -5547,7 +5684,11 @@
       "properties": {
         "documentType": {
           "description": "When aggregating on relations ids the DocumentType is needed to resolve the target item translation.",
-          "$ref": "#/definitions/TermsRelationAggregatorDocumentType"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TermsRelationAggregatorDocumentType"
+            }
+          ]
         }
       },
       "allOf": [
@@ -5753,7 +5894,11 @@
         },
         "metadata": {
           "description": "The layer metadata of the content document.",
-          "$ref": "#/definitions/DataDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataDictionary"
+            }
+          ]
         },
         "contentPermissionSetIds": {
           "type": "array",
@@ -5857,11 +6002,19 @@
         },
         "filter": {
           "description": "An optional search filter. Limits the content document result set.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         },
         "lifeCycleFilter": {
           "description": "Limits the content document result set to that life cycle state. Defaults to ActiveOnly.",
-          "$ref": "#/definitions/LifeCycleFilter"
+          "allOf": [
+            {
+              "$ref": "#/definitions/LifeCycleFilter"
+            }
+          ]
         },
         "rightsFilter": {
           "type": "array",
@@ -5872,7 +6025,11 @@
         },
         "searchType": {
           "description": "Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.",
-          "$ref": "#/definitions/ContentSearchType"
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContentSearchType"
+            }
+          ]
         }
       }
     },
@@ -5979,7 +6136,11 @@
         },
         "entityType": {
           "description": "The entity type of a content document is content.",
-          "$ref": "#/definitions/EntityType"
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityType"
+            }
+          ]
         },
         "contentSchemaId": {
           "type": "string",
@@ -6033,7 +6194,11 @@
         },
         "metadata": {
           "description": "The dynamic data structure matching the field schematics of the schemas with schema type content or layer.",
-          "$ref": "#/definitions/DataDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataDictionary"
+            }
+          ]
         }
       }
     },
@@ -6124,7 +6289,11 @@
         },
         "value": {
           "description": "The metadata values containing a set of changes. Update is additive and will not remove values. To remove complete fields use the MetadataValuesFieldRemoveCommand instead.",
-          "$ref": "#/definitions/DataDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataDictionary"
+            }
+          ]
         }
       },
       "allOf": [
@@ -6144,7 +6313,11 @@
         },
         "value": {
           "description": "The metadata values containing a set of changes. Update is additive and will not remove values. To remove complete fields use the MetadataValuesFieldRemoveCommand instead.",
-          "$ref": "#/definitions/DataDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataDictionary"
+            }
+          ]
         }
       },
       "allOf": [
@@ -6516,11 +6689,19 @@
         },
         "displayValues": {
           "description": "Contains language specific display values, rendered according to the list schema's display pattern configuration.",
-          "$ref": "#/definitions/DisplayValueDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/DisplayValueDictionary"
+            }
+          ]
         },
         "entityType": {
           "description": "The entity type of the list item is metadata.",
-          "$ref": "#/definitions/EntityType"
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityType"
+            }
+          ]
         },
         "id": {
           "type": "string",
@@ -6541,7 +6722,11 @@
         },
         "filter": {
           "description": "An optional search filter. Limits the list item result set.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         },
         "aggregationFilters": {
           "type": "array",
@@ -6614,7 +6799,11 @@
         },
         "filter": {
           "description": "An optional search filter. Limits the list item result set.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         },
         "includeAllSchemaChildren": {
           "type": "boolean",
@@ -6706,11 +6895,19 @@
         },
         "displayValues": {
           "description": "Contains language specific display values, rendered according to the list schema's display pattern configuration.",
-          "$ref": "#/definitions/DisplayValueDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/DisplayValueDictionary"
+            }
+          ]
         },
         "entityType": {
           "description": "The entity type of the list item is metadata.",
-          "$ref": "#/definitions/EntityType"
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityType"
+            }
+          ]
         },
         "id": {
           "type": "string",
@@ -6827,11 +7024,19 @@
         },
         "names": {
           "description": "Language specific schema names.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
         "descriptions": {
           "description": "Language specific schema descriptions.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
         "layerSchemaIds": {
           "type": "array",
@@ -6911,7 +7116,11 @@
         },
         "searchFieldCount": {
           "description": "The number of fields generated by the schema for the Search operations.",
-          "$ref": "#/definitions/SearchFieldCount"
+          "allOf": [
+            {
+              "$ref": "#/definitions/SearchFieldCount"
+            }
+          ]
         }
       }
     },
@@ -7764,11 +7973,19 @@
         },
         "names": {
           "description": "Language specific schema names.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
         "descriptions": {
           "description": "Language specific schema descriptions.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
         "displayPatterns": {
           "type": "array",
@@ -7840,11 +8057,19 @@
       "properties": {
         "names": {
           "description": "Language specific schema names.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
         "descriptions": {
           "description": "Language specific schema descriptions.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
         "displayPatterns": {
           "type": "array",
@@ -7944,7 +8169,11 @@
         },
         "filter": {
           "description": "An optional search filter. Limits the schema result set.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         }
       }
     },
@@ -8006,11 +8235,19 @@
         },
         "names": {
           "description": "Language specific schema names.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
         "descriptions": {
           "description": "Language specific schema descriptions.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
         "layerSchemaIds": {
           "type": "array",
@@ -8185,7 +8422,11 @@
         },
         "names": {
           "description": "Language specific permission set names.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         }
       }
     },
@@ -8502,7 +8743,11 @@
         },
         "entityType": {
           "description": "The entity type of a content document is content.",
-          "$ref": "#/definitions/EntityType"
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityType"
+            }
+          ]
         },
         "contentSchemaId": {
           "type": "string",
@@ -8548,7 +8793,11 @@
         },
         "displayValues": {
           "description": "Contains language specific display values, rendered according to the content schema's display pattern configuration.",
-          "$ref": "#/definitions/DisplayValueDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/DisplayValueDictionary"
+            }
+          ]
         }
       }
     },
@@ -8935,7 +9184,11 @@
         },
         "filter": {
           "description": "An optional search filter. Limits the content document result set.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         },
         "aggregationFilters": {
           "type": "array",
@@ -9047,7 +9300,11 @@
         },
         "names": {
           "description": "Language specific user role names.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
         "userRights": {
           "type": "array",
@@ -14330,6 +14587,85 @@
         "Locked"
       ]
     },
+    "Channel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sortOrder",
+        "entityType"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sortOrder": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "searchIndexId": {
+          "type": "string",
+          "description": "The search index id."
+        },
+        "entityType": {
+          "$ref": "#/definitions/EntityType"
+        },
+        "schemaIds": {
+          "type": "array",
+          "description": "An id list of schemas with schema type content whose content documents should be found by the simple search.\nThe search by filters and aggregations are unaffected.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "filter": {
+          "description": "An optional search filter. Limits the content document result set on each search and aggregation request.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        },
+        "names": {
+          "description": "Language specific names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "sort": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        },
+        "aggregations": {
+          "type": "array",
+          "description": "An optional list of aggregators. These aggregations are added by default on each aggregation requests.",
+          "items": {
+            "$ref": "#/definitions/AggregatorBase"
+          }
+        },
+        "extendedSimpleSearchFields": {
+          "type": "array",
+          "description": "An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ContentsByIdsRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "UserProfile": {
       "type": "object",
       "additionalProperties": false,
@@ -14372,77 +14708,6 @@
         },
         "authorizationState": {
           "$ref": "#/definitions/AuthorizationState"
-        }
-      }
-    },
-    "Channel": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "sortOrder",
-        "entityType"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "sortOrder": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "searchIndexId": {
-          "type": "string",
-          "description": "The search index id."
-        },
-        "entityType": {
-          "$ref": "#/definitions/EntityType"
-        },
-        "schemaIds": {
-          "type": "array",
-          "description": "An id list of schemas with schema type content whose content documents should be found by the simple search.\nThe search by filters and aggregations are unaffected.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "filter": {
-          "description": "An optional search filter. Limits the content document result set on each search and aggregation request.",
-          "$ref": "#/definitions/FilterBase"
-        },
-        "names": {
-          "description": "Language specific names.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
-        },
-        "sort": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
-          }
-        },
-        "aggregations": {
-          "type": "array",
-          "description": "An optional list of aggregators. These aggregations are added by default on each aggregation requests.",
-          "items": {
-            "$ref": "#/definitions/AggregatorBase"
-          }
-        },
-        "extendedSimpleSearchFields": {
-          "type": "array",
-          "description": "An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "ContentsByIdsRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
         }
       }
     }

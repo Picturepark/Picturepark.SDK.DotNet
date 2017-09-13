@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.5.1.0 (NJsonSchema v9.4.10.0)",
+  "x-generator": "NSwag v11.7.1.0 (NJsonSchema v9.6.0.0)",
   "swagger": "2.0",
   "info": {
     "title": "Web API Swagger specification",
@@ -1740,11 +1740,19 @@
         },
         "audioCodec": {
           "description": "Gets or sets the encoding audio codec.",
-          "$ref": "#/definitions/AudioFormatBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/AudioFormatBase"
+            }
+          ]
         },
         "preset": {
           "description": "Gets or sets the encoding codec preset.",
-          "$ref": "#/definitions/Preset"
+          "allOf": [
+            {
+              "$ref": "#/definitions/Preset"
+            }
+          ]
         },
         "defaultOutputExtension": {
           "type": "string"
@@ -1911,11 +1919,19 @@
         },
         "profile": {
           "description": "Gets or sets the encoding profile.",
-          "$ref": "#/definitions/Profile"
+          "allOf": [
+            {
+              "$ref": "#/definitions/Profile"
+            }
+          ]
         },
         "coder": {
           "description": "Gets or sets the encoding coder.",
-          "$ref": "#/definitions/Coder"
+          "allOf": [
+            {
+              "$ref": "#/definitions/Coder"
+            }
+          ]
         },
         "bitrate": {
           "type": "integer",
@@ -2583,7 +2599,11 @@
       "properties": {
         "filter": {
           "description": "Limits the result set.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2602,7 +2622,11 @@
         },
         "range": {
           "description": "The date range. Supported pattern: now(+-)(int)(YMDHm).",
-          "$ref": "#/definitions/DateRange"
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateRange"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2618,7 +2642,11 @@
       "properties": {
         "names": {
           "description": "Tranlsated range names.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
         "from": {
           "type": "string",
@@ -2655,11 +2683,19 @@
         },
         "topLeft": {
           "description": "The top left longitude/latitude configuration.",
-          "$ref": "#/definitions/GeoLocation"
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         },
         "bottomRight": {
           "description": "The bottom right longitude/latitude configuration.",
-          "$ref": "#/definitions/GeoLocation"
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2699,7 +2735,11 @@
         },
         "location": {
           "description": "The longitude/latitude configuration for the point of origin.",
-          "$ref": "#/definitions/GeoLocation"
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         },
         "distance": {
           "type": "number",
@@ -2723,11 +2763,19 @@
         },
         "location": {
           "description": "The longitude/latitude configuration for the point of origin.",
-          "$ref": "#/definitions/GeoLocation"
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         },
         "range": {
           "description": "The numeric range.",
-          "$ref": "#/definitions/NumericRange"
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumericRange"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2742,7 +2790,11 @@
       "properties": {
         "names": {
           "description": "Tranlsated range names.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
         "from": {
           "type": "number",
@@ -2766,7 +2818,11 @@
         },
         "filter": {
           "description": "Limits the result set.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2785,7 +2841,11 @@
         },
         "range": {
           "description": "The numeric range with from and to properties.",
-          "$ref": "#/definitions/NumericRange"
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumericRange"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2865,7 +2925,11 @@
         },
         "filter": {
           "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         },
         "temporaryAggregatorRequestId": {
           "type": "string"
@@ -2887,7 +2951,11 @@
         },
         "filter": {
           "description": "The filter to apply on the child entity. It accepts all filters.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2906,7 +2974,11 @@
         },
         "filter": {
           "description": "The filter to apply on the child entity. It accepts all filters.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         }
       },
       "allOf": [
@@ -3013,7 +3085,11 @@
       "properties": {
         "deactivationMessage": {
           "description": "Language specific deactivation messages.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         }
       }
     },
@@ -3063,7 +3139,11 @@
         },
         "deactivationMessage": {
           "description": "Language specific deactivation messages.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         }
       }
     },
@@ -3176,7 +3256,11 @@
         },
         "reason": {
           "description": "The snapshot backup reason will be added to the snapshot name.",
-          "$ref": "#/definitions/BackupReason"
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupReason"
+            }
+          ]
         },
         "timestamp": {
           "type": "string",

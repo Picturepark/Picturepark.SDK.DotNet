@@ -13,7 +13,7 @@ namespace Picturepark.SDK.V1
 		private readonly BusinessProcessClient _businessProcessClient;
 
 		public TransferClient(BusinessProcessClient businessProcessClient, IPictureparkClientSettings settings) : this(settings)
-        {
+		{
 			BaseUrl = businessProcessClient.BaseUrl;
 			_businessProcessClient = businessProcessClient;
 		}
