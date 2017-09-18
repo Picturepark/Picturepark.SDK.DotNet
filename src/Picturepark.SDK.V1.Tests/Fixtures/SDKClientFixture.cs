@@ -55,9 +55,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 			return RandomHelper.GetRandomContentPermissionSetId(_client, limit);
 		}
 
-		public string GetRandomBatchTransferId(TransferState? transferState, int limit)
+		public string GetRandomTransferId(TransferState? transferState, int limit)
 		{
-			return RandomHelper.GetRandomBatchTransferId(_client, transferState, limit);
+			return RandomHelper.GetRandomTransferId(_client, transferState, limit);
 		}
 
 		public string GetRandomFileTransferId(int limit)

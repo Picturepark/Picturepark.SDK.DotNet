@@ -37,40 +37,47 @@ namespace Picturepark.SDK.V1.Tests
 		public static string GetRandomContentPermissionSetId(PictureparkClient client, int limit)
 		{
 			string permissionSetId = string.Empty;
-			PermissionSetSearchRequest request = new PermissionSetSearchRequest() { Limit = limit };
+			PermissionSetSearchRequest request = new PermissionSetSearchRequest { Limit = limit };
 			PermissionSetSearchResult result = client.Permissions.SearchContentPermissionsAsync(request).Result;
 
 			if (result.Results.Count > 0)
 			{
-				int randomNumber = new Random().Next(0, result.Results.Count);
+				var randomNumber = new Random().Next(0, result.Results.Count);
 				permissionSetId = result.Results.Skip(randomNumber).First().Id;
 			}
 
 			return permissionSetId;
 		}
 
-		public static string GetRandomBatchTransferId(PictureparkClient client, TransferState? batchTransferState, int limit)
+		public static string GetRandomTransferId(PictureparkClient client, TransferState? transferState, int limit)
 		{
-			string batchTransferId = string.Empty;
-			TransferSearchRequest request = new TransferSearchRequest() { Limit = limit };
-			TransferSearchResult result = client.Transfers.SearchAsync(request).Result;
+			var transferId = string.Empty;
 
-			List<Transfer> transfers;
-
-			if (batchTransferState == null)
-				transfers = result.Results.Select(i => i).ToList();
-			else
-				transfers = result.Results.Where(i => i.State == batchTransferState).Select(i => i).ToList();
-
-			int numberOfHits = transfers.Count;
-
-			if (numberOfHits > 0)
+			var request = new TransferSearchRequest { Limit = limit };
+			if (transferState.HasValue)
 			{
-				int randomNumber = new Random().Next(0, numberOfHits);
-				batchTransferId = transfers.Skip(randomNumber).First().Id;
+				request.Filter = new ChildFilter
+				{
+					ChildType = "TransferInfo",
+					Filter = new TermFilter
+					{
+						Field = "state",
+						Term = transferState.ToString()
+					}
+				};
 			}
 
-			return batchTransferId;
+			var result = client.Transfers.Search(request);
+
+			var transfers = result.Results;
+
+			if (transfers.Count <= 0)
+				return transferId;
+
+			var randomNumber = new Random().Next(0, transfers.Count);
+			transferId = transfers.Skip(randomNumber).First().Id;
+
+			return transferId;
 		}
 
 		public static string GetRandomFileTransferId(PictureparkClient client, int limit)
@@ -106,8 +113,8 @@ namespace Picturepark.SDK.V1.Tests
 		public static string GetRandomSchemaId(PictureparkClient client, int limit)
 		{
 			string schemaId = string.Empty;
-			var request = new SchemaSearchRequest() { Limit = limit };
-			BaseResultOfSchema result = client.Schemas.Search(request);
+			var request = new SchemaSearchRequest { Limit = limit };
+			SchemaSearchResult result = client.Schemas.Search(request);
 
 			if (result.Results.Count > 0)
 			{
@@ -141,27 +148,21 @@ namespace Picturepark.SDK.V1.Tests
 
 		public static string GetRandomShareId(PictureparkClient client, EntityType entityType, int limit)
 		{
-			string shareId = string.Empty;
+			var shareId = string.Empty;
 
-			var request = new ContentSearchRequest()
+			var request = new ShareSearchRequest
 			{
 				Limit = limit,
-				Filter = new TermFilter() { Field = "entityType", Term = entityType.ToString() }
+				Filter = new TermFilter { Field = "entityType", Term = entityType.ToString() }
 			};
 
-			BaseResultOfShareBase result = client.Shares.SearchAsync(request).Result;
+			var result = client.Shares.Search(request);
 
-			List<ShareBase> shares = new List<ShareBase>();
-			foreach (var item in result.Results)
-			{
-				if (item.EntityType == entityType)
-					shares.Add(item);
-			}
-
+			var shares = result.Results;
 			if (shares.Count > 0)
 			{
-				int randomNumber = new Random().Next(0, shares.Count);
-				shareId = shares.Skip(randomNumber).FirstOrDefault().Id;
+				var randomNumber = new Random().Next(0, shares.Count);
+				shareId = shares.Skip(randomNumber).First().Id;
 			}
 
 			return shareId;

@@ -15,7 +15,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="contentId">The content id.</param>
         /// <param name="updateRequest">The content ownership transfer request update request.</param>
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
-        /// <returns>ContentDoc</returns>
+        /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         ContentDetail UpdateTransferOwnership(string contentId, ContentOwnershipTransferRequest updateRequest, int? timeout = null);
@@ -25,7 +25,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="updateRequest">The content ownership transfer request update request.</param>
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>ContentDoc</returns>
+        /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentDetail> UpdateTransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -34,6 +34,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="ids">Comma-separated list of contentIds</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
+        /// <returns>List of ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Collections.Generic.List<ContentDetail> GetMany(System.Collections.Generic.IEnumerable<string> ids, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null);
@@ -43,15 +44,22 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>List of ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.List<ContentDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Process many ownership trasnfer request</summary>
+        /// <param name="contentsOwnershipTransferRequest">The content ownership transfer request request.</param>
+        /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         BusinessProcess TransferOwnershipMany(ContentsOwnershipTransferRequest contentsOwnershipTransferRequest);
     
+        /// <summary>Process many ownership trasnfer request</summary>
+        /// <param name="contentsOwnershipTransferRequest">The content ownership transfer request request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> TransferOwnershipManyAsync(ContentsOwnershipTransferRequest contentsOwnershipTransferRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -71,7 +79,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ContentAggregationRequest contentAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Aggregate By Channel</summary>
+        /// <summary>Aggregate by Channel</summary>
         /// <param name="channelId">The channel id</param>
         /// <param name="contentAggregationRequest">The content aggregation request.</param>
         /// <returns>ObjectAggregationResult</returns>
@@ -79,7 +87,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         ObjectAggregationResult AggregateByChannel(string channelId, ContentAggregationRequest contentAggregationRequest);
     
-        /// <summary>Aggregate By Channel</summary>
+        /// <summary>Aggregate by Channel</summary>
         /// <param name="channelId">The channel id</param>
         /// <param name="contentAggregationRequest">The content aggregation request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -88,11 +96,17 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateByChannelAsync(string channelId, ContentAggregationRequest contentAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Creates a content batch download</summary>
+        /// <param name="request">The content batch download request</param>
+        /// <returns>ContentBatchDonloadItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         ContentBatchDownloadItem CreateDownloadLink(ContentBatchDownloadRequest request);
     
+        /// <summary>Creates a content batch download</summary>
+        /// <param name="request">The content batch download request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ContentBatchDonloadItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentBatchDownloadItem> CreateDownloadLinkAsync(ContentBatchDownloadRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -116,11 +130,21 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentDetail> CreateContentAsync(CreateContentRequest createRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Downloads content in a specific outputformat</summary>
+        /// <param name="contentId">The content id</param>
+        /// <param name="outputFormatId">The output format id</param>
+        /// <param name="range">the range</param>
+        /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         FileResponse Download(string contentId, string outputFormatId, string range = null);
     
+        /// <summary>Downloads content in a specific outputformat</summary>
+        /// <param name="contentId">The content id</param>
+        /// <param name="outputFormatId">The output format id</param>
+        /// <param name="range">the range</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileResponse> DownloadAsync(string contentId, string outputFormatId, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -142,11 +166,23 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileResponse> DownloadThumbnailAsync(string contentId, ThumbnailSize size, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Download resized content</summary>
+        /// <param name="contentId">The Content id</param>
+        /// <param name="outputFormatId">The output format id</param>
+        /// <param name="width">The content width</param>
+        /// <param name="height">The content height</param>
+        /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         FileResponse DownloadResized(string contentId, string outputFormatId, int width, int height);
     
+        /// <summary>Download resized content</summary>
+        /// <param name="contentId">The Content id</param>
+        /// <param name="outputFormatId">The output format id</param>
+        /// <param name="width">The content width</param>
+        /// <param name="height">The content height</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileResponse> DownloadResizedAsync(string contentId, string outputFormatId, int width, int height, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -250,10 +286,16 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentSearchResult> SearchByChannelAsync(string channelId, ContentSearchRequest contentSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Deactivates a content</summary>
+        /// <param name="contentId">the id of the content to deactivate</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         void Deactivate(string contentId, int timeout);
     
+        /// <summary>Deactivates a content</summary>
+        /// <param name="contentId">the id of the content to deactivate</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -274,29 +316,53 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> UpdateFileAsync(string contentId, ContentFileUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Reactivate - Content</summary>
+        /// <param name="contentId">The content id.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
+        /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         ContentDetail Reactivate(string contentId, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
     
+        /// <summary>Reactivate - Content</summary>
+        /// <param name="contentId">The content id.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentDetail> ReactivateAsync(string contentId, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Dactivate Many - Content</summary>
+        /// <param name="deactivationRequest">The deactivation request</param>
+        /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         BusinessProcess DeactivateMany(ContentDeactivationRequest deactivationRequest);
     
+        /// <summary>Dactivate Many - Content</summary>
+        /// <param name="deactivationRequest">The deactivation request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> DeactivateManyAsync(ContentDeactivationRequest deactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Reactivate Many - Content</summary>
+        /// <param name="reactivationRequest">The content reactivation request.</param>
+        /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         BusinessProcess ReactivateMany(ContentReactivationRequest reactivationRequest);
     
+        /// <summary>Reactivate Many - Content</summary>
+        /// <param name="reactivationRequest">The content reactivation request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> ReactivateManyAsync(ContentReactivationRequest reactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -336,47 +402,81 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
     public partial interface IBusinessProcessClient
     {
+        /// <summary>Search for business process</summary>
+        /// <param name="businessProcessSearchRequest">The business process request</param>
+        /// <returns>BusinessProcessSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         BusinessProcessSearchResult Search(BusinessProcessSearchResult businessProcessSearchRequest);
     
+        /// <summary>Search for business process</summary>
+        /// <param name="businessProcessSearchRequest">The business process request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcessSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<BusinessProcessSearchResult> SearchAsync(BusinessProcessSearchResult businessProcessSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Starts a process with given definition</summary>
+        /// <param name="processDefinitionId">The process definition id</param>
+        /// <param name="request">The start process request</param>
+        /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         BusinessProcess Start(string processDefinitionId, StartProcessRequest request);
     
+        /// <summary>Starts a process with given definition</summary>
+        /// <param name="processDefinitionId">The process definition id</param>
+        /// <param name="request">The start process request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<BusinessProcess> StartAsync(string processDefinitionId, StartProcessRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Mark a given process as ended</summary>
+        /// <param name="processId">The process id</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         void MarkAsEnded(string processId);
     
+        /// <summary>Mark a given process as ended</summary>
+        /// <param name="processId">The process id</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         System.Threading.Tasks.Task MarkAsEndedAsync(string processId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Send message to given process</summary>
+        /// <param name="processId">The process id</param>
+        /// <param name="request">The send message request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         void SendMessage(string processId, SendMessageRequest request);
     
+        /// <summary>Send message to given process</summary>
+        /// <param name="processId">The process id</param>
+        /// <param name="request">The send message request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         System.Threading.Tasks.Task SendMessageAsync(string processId, SendMessageRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Wait for given process states</summary>
+        /// <param name="processId">The process id</param>
+        /// <param name="states">The states to wait for</param>
+        /// <param name="timeout">The timeout in ms</param>
+        /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         BusinessProcessWaitResult WaitForStates(string processId, string states, int timeout);
     
+        /// <summary>Wait for given process states</summary>
+        /// <param name="processId">The process id</param>
+        /// <param name="states">The states to wait for</param>
+        /// <param name="timeout">The timeout in ms</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, string states, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -386,49 +486,87 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
     public partial interface IDocumentHistoryClient
     {
+        /// <summary>Search for document history</summary>
+        /// <param name="documentHistorySearchRequest">The document history search request</param>
+        /// <returns>DocumentHistorySearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         DocumentHistorySearchResult Search(DocumentHistorySearchRequest documentHistorySearchRequest);
     
+        /// <summary>Search for document history</summary>
+        /// <param name="documentHistorySearchRequest">The document history search request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>DocumentHistorySearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<DocumentHistorySearchResult> SearchAsync(DocumentHistorySearchRequest documentHistorySearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Gets a document history</summary>
+        /// <param name="id">The id</param>
+        /// <returns>DocumentHistory</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         DocumentHistory Get(string id);
     
+        /// <summary>Gets a document history</summary>
+        /// <param name="id">The id</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>DocumentHistory</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<DocumentHistory> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Get document history version</summary>
+        /// <param name="id">The id</param>
+        /// <param name="version">The version</param>
+        /// <returns>DocumentHistory</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         DocumentHistory GetVersion(string id, string version);
     
+        /// <summary>Get document history version</summary>
+        /// <param name="id">The id</param>
+        /// <param name="version">The version</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>DocumentHistory</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<DocumentHistory> GetVersionAsync(string id, string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Get latest difference of document history</summary>
+        /// <param name="id">The id</param>
+        /// <param name="oldVersion">The old version</param>
+        /// <returns>DocumentHistoryDifference</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         DocumentHistoryDifference GetDifferenceLatest(string id, long oldVersion);
     
+        /// <summary>Get latest difference of document history</summary>
+        /// <param name="id">The id</param>
+        /// <param name="oldVersion">The old version</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>DocumentHistoryDifference</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<DocumentHistoryDifference> GetDifferenceLatestAsync(string id, long oldVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Get the difference between tho document history</summary>
+        /// <param name="id">The id</param>
+        /// <param name="oldVersion">The old version</param>
+        /// <param name="newVersion">The new version</param>
+        /// <returns>DocumentHistoryDifference</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         DocumentHistoryDifference GetDifference(string id, long oldVersion, long newVersion);
     
+        /// <summary>Get the difference between tho document history</summary>
+        /// <param name="id">The id</param>
+        /// <param name="oldVersion">The old version</param>
+        /// <param name="newVersion">The new version</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>DocumentHistoryDifference</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<DocumentHistoryDifference> GetDifferenceAsync(string id, long oldVersion, long newVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -448,7 +586,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ListItemDetail Create(ListItemCreateRequest listItem, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <summary>Create Single</summary>
@@ -459,14 +597,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItem, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete Many</summary>
         /// <param name="ids">The list item id list.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         BusinessProcess DeleteMany(System.Collections.Generic.IEnumerable<string> ids = null);
     
         /// <summary>Delete Many</summary>
@@ -474,14 +612,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update Many</summary>
         /// <param name="objects">A list of ListItemUpdateRequests.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         BusinessProcess UpdateMany(System.Collections.Generic.IEnumerable<ListItemUpdateRequest> objects);
     
         /// <summary>Update Many</summary>
@@ -489,14 +627,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(System.Collections.Generic.IEnumerable<ListItemUpdateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Aggregate</summary>
         /// <param name="listItemAggregationRequest">The list item aggregation request.</param>
         /// <returns>ObjectAggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ObjectAggregationResult Aggregate(ListItemAggregationRequest listItemAggregationRequest);
     
         /// <summary>Aggregate</summary>
@@ -504,14 +642,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ObjectAggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ListItemAggregationRequest listItemAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Search</summary>
         /// <param name="listItemSearchRequest">The list item search request.</param>
         /// <returns>List item result set.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ListItemSearchResult Search(ListItemSearchRequest listItemSearchRequest);
     
         /// <summary>Search</summary>
@@ -519,14 +657,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List item result set.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ListItemSearchResult> SearchAsync(ListItemSearchRequest listItemSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete Single</summary>
         /// <param name="objectId">The list item id.</param>
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         void Delete(string objectId, int timeout);
     
         /// <summary>Delete Single</summary>
@@ -534,7 +672,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteAsync(string objectId, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get Single</summary>
@@ -542,7 +680,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ListItemDetail Get(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <summary>Get Single</summary>
@@ -551,7 +689,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ListItemDetail> GetAsync(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update Single</summary>
@@ -562,7 +700,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ListItemDetail Update(string listItemId, ListItemUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <summary>Update Single</summary>
@@ -574,7 +712,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ListItemDetail> UpdateAsync(string listItemId, ListItemUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Wait For States</summary>
@@ -583,7 +721,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="states">Comma-separated list of business process states to wait for.</param>
         /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         BusinessProcessWaitResult WaitForStates(string processId, int timeout, System.Collections.Generic.IEnumerable<string> states = null);
     
         /// <summary>Wait For States</summary>
@@ -593,7 +731,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, int timeout, System.Collections.Generic.IEnumerable<string> states = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Import</summary>
@@ -601,7 +739,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="fileTransferId">The file transfer id.</param>
         /// <param name="includeObjects">Imports list items defined in the json import file.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         void Import(string contentId, string fileTransferId, bool includeObjects);
     
         /// <summary>Import</summary>
@@ -610,7 +748,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="includeObjects">Imports list items defined in the json import file.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task ImportAsync(string contentId, string fileTransferId, bool includeObjects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -618,11 +756,17 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
     public partial interface ILiveStreamClient
     {
+        /// <summary>Search LiveStream</summary>
+        /// <param name="liveStreamSearchRequest">The livestream search request</param>
+        /// <returns>ObjectSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         ObjectSearchResult Search(LiveStreamSearchRequest liveStreamSearchRequest);
     
+        /// <summary>Search LiveStream</summary>
+        /// <param name="liveStreamSearchRequest">The livestream search request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ObjectSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ObjectSearchResult> SearchAsync(LiveStreamSearchRequest liveStreamSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -636,7 +780,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="ids">Comma separated list of schema ids</param>
         /// <returns>SchemaDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Collections.Generic.List<SchemaDetail> GetAll(System.Collections.Generic.IEnumerable<string> ids = null);
     
         /// <summary>Get Many</summary>
@@ -644,14 +788,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>SchemaDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.List<SchemaDetail>> GetAllAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Create Single</summary>
         /// <param name="schema">The schema create request.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         BusinessProcess Create(SchemaCreateRequest schema);
     
         /// <summary>Create Single</summary>
@@ -659,14 +803,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> CreateAsync(SchemaCreateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get Single</summary>
         /// <param name="schemaId">The schema id.</param>
         /// <returns>SchemaDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         SchemaDetail Get(string schemaId);
     
         /// <summary>Get Single</summary>
@@ -674,7 +818,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>SchemaDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<SchemaDetail> GetAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Exists</summary>
@@ -682,7 +826,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="fieldId">The optional field id.</param>
         /// <returns>ExistsResponse</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ExistsResponse Exists(string schemaId, string fieldId);
     
         /// <summary>Exists</summary>
@@ -691,14 +835,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ExistsResponse</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ExistsResponse> ExistsAsync(string schemaId, string fieldId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Search</summary>
         /// <param name="schemaSearchRequest">The schema search request.</param>
         /// <returns>Schema result set.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         SchemaSearchResult Search(SchemaSearchRequest schemaSearchRequest);
     
         /// <summary>Search</summary>
@@ -706,7 +850,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Schema result set.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<SchemaSearchResult> SearchAsync(SchemaSearchRequest schemaSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -718,7 +862,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="permission">The UserRight to validate</param>
         /// <returns>Boolean - user has permission</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         bool GetUserPermissions(UserRight permission);
     
         /// <summary>Get UserRight validation result</summary>
@@ -726,14 +870,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Boolean - user has permission</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<bool> GetUserPermissionsAsync(UserRight permission, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Search Content Permissions</summary>
         /// <param name="request">The permission search request.</param>
         /// <returns>PermissionSetSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         PermissionSetSearchResult SearchContentPermissions(PermissionSetSearchRequest request);
     
         /// <summary>Search Content Permissions</summary>
@@ -741,14 +885,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>PermissionSetSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<PermissionSetSearchResult> SearchContentPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get Content Permission Single</summary>
         /// <param name="permissionSetId">The content permission set id.</param>
         /// <returns>ContentPermissionSetDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ContentPermissionSetDetail GetContentPermissions(string permissionSetId);
     
         /// <summary>Get Content Permission Single</summary>
@@ -756,14 +900,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>ContentPermissionSetDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentPermissionSetDetail> GetContentPermissionsAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Search Schema Permissions</summary>
         /// <param name="request">The permission search request.</param>
         /// <returns>PermissionSetSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         PermissionSetSearchResult SearchSchemaPermissions(PermissionSetSearchRequest request);
     
         /// <summary>Search Schema Permissions</summary>
@@ -771,14 +915,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>PermissionSetSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<PermissionSetSearchResult> SearchSchemaPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get Schema Permission Single</summary>
         /// <param name="permissionSetId">The schema permission set id.</param>
         /// <returns>SchemaPermissionSetDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         SchemaPermissionSetDetail GetSchemaPermissions(string permissionSetId);
     
         /// <summary>Get Schema Permission Single</summary>
@@ -786,7 +930,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>SchemaPermissionSetDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<SchemaPermissionSetDetail> GetSchemaPermissionsAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -794,20 +938,32 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
     public partial interface IPublicAccessClient
     {
+        /// <summary>Get Version</summary>
+        /// <returns>VersionInfo</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         VersionInfo GetVersion();
     
+        /// <summary>Get Version</summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>VersionInfo</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<VersionInfo> GetVersionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Get Share</summary>
+        /// <param name="token">The token</param>
+        /// <returns>ShareBaseDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         ShareBaseDetail GetShare(string token);
     
+        /// <summary>Get Share</summary>
+        /// <param name="token">The token</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ShareBaseDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ShareBaseDetail> GetShareAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -815,7 +971,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
     public partial interface IShareClient
     {
-        /// <summary>Update Single - Share</summary>
+        /// <summary>Update single</summary>
         /// <param name="id">The share id.</param>
         /// <param name="updateRequest">The share update request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the shares content.</param>
@@ -825,7 +981,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         BaseResultOfShareBase Update(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int? timeout = null);
     
-        /// <summary>Update Single - Share</summary>
+        /// <summary>Update single</summary>
         /// <param name="id">The share id.</param>
         /// <param name="updateRequest">The share update request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the shares content.</param>
@@ -836,14 +992,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BaseResultOfShareBase> UpdateAsync(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Get share by id (basic or embed)</summary>
+        /// <summary>Get single</summary>
         /// <param name="id">Share Id (not token, use PublicAccess to get share by token)</param>
         /// <returns>Polymorph share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         ShareBaseDetail Get(string id);
     
-        /// <summary>Get share by id (basic or embed)</summary>
+        /// <summary>Get single</summary>
         /// <param name="id">Share Id (not token, use PublicAccess to get share by token)</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Polymorph share</returns>
@@ -851,14 +1007,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ShareBaseDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Delete Many</summary>
+        /// <summary>Delete many</summary>
         /// <param name="shareIds">A list of ListItemCreateRequests.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         BusinessProcess DeleteMany(System.Collections.Generic.IEnumerable<string> shareIds);
     
-        /// <summary>Delete Many</summary>
+        /// <summary>Delete many</summary>
         /// <param name="shareIds">A list of ListItemCreateRequests.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>BusinessProcess</returns>
@@ -866,14 +1022,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> shareIds, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Aggregates own shares</summary>
+        /// <summary>Aggregate</summary>
         /// <param name="request">Aggregation request</param>
         /// <returns>AggregationResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         ObjectAggregationResult Aggregate(ShareAggregationRequest request);
     
-        /// <summary>Aggregates own shares</summary>
+        /// <summary>Aggregate</summary>
         /// <param name="request">Aggregation request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>AggregationResult</returns>
@@ -881,7 +1037,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ShareAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Create a new share (basic or embed).</summary>
+        /// <summary>Create single</summary>
         /// <param name="request">Polymorph create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest</param>
         /// <returns>Create result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -890,7 +1046,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         CreateShareResult Create(ShareBaseCreateRequest request);
     
-        /// <summary>Create a new share (basic or embed).</summary>
+        /// <summary>Create single</summary>
         /// <param name="request">Polymorph create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Create result</returns>
@@ -900,136 +1056,196 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<CreateShareResult> CreateAsync(ShareBaseCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Search shares</summary>
+        /// <summary>Search</summary>
         /// <param name="request">Search request</param>
         /// <returns>Share search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ShareSearchResult Search(ContentSearchRequest request);
+        ShareSearchResult Search(ShareSearchRequest request);
     
-        /// <summary>Search shares</summary>
+        /// <summary>Search</summary>
         /// <param name="request">Search request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Share search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<ShareSearchResult> SearchAsync(ContentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ShareSearchResult> SearchAsync(ShareSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
     public partial interface ITransferClient
     {
+        /// <summary>Delete Files</summary>
+        /// <param name="request">The filetransfer delete request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         void DeleteFiles(FileTransferDeleteRequest request);
     
+        /// <summary>Delete Files</summary>
+        /// <param name="request">The filetransfer delete request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteFilesAsync(FileTransferDeleteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Get Blacklist</summary>
+        /// <returns>Blacklist</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         Blacklist GetBlacklist();
     
+        /// <summary>Get Blacklist</summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Blacklist</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Blacklist> GetBlacklistAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Cancels an active batch. Valid states: TODO</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         void CancelBatch(string transferId);
     
         /// <summary>Cancels an active batch. Valid states: TODO</summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task CancelBatchAsync(string transferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Create Transfer</summary>
+        /// <param name="request">The create transfer request</param>
+        /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         Transfer Create(CreateTransferRequest request);
     
+        /// <summary>Create Transfer</summary>
+        /// <param name="request">The create transfer request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Transfer> CreateAsync(CreateTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Delete Transfer</summary>
+        /// <param name="transferId">The tranfer id</param>
+        /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         void Delete(string transferId);
     
+        /// <summary>Delete Transfer</summary>
+        /// <param name="transferId">The tranfer id</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteAsync(string transferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Get Transferdetail</summary>
+        /// <param name="transferId">The tranfer id</param>
+        /// <returns>TransferDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         TransferDetail Get(string transferId);
     
+        /// <summary>Get Transferdetail</summary>
+        /// <param name="transferId">The tranfer id</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>TransferDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<TransferDetail> GetAsync(string transferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Get File</summary>
+        /// <param name="fileTransferId">The filetransfer id</param>
+        /// <returns>FileTransferDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         FileTransferDetail GetFile(string fileTransferId);
     
+        /// <summary>Get File</summary>
+        /// <param name="fileTransferId">The filetransfer id</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>FileTransferDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileTransferDetail> GetFileAsync(string fileTransferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Delete Transfer</summary>
+        /// <param name="transferId">The tranfer id</param>
+        /// <param name="request">The filetransfer to content create request</param>
+        /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         Transfer ImportBatch(string transferId, FileTransfer2ContentCreateRequest request);
     
+        /// <summary>Delete Transfer</summary>
+        /// <param name="transferId">The tranfer id</param>
+        /// <param name="request">The filetransfer to content create request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Transfer> ImportBatchAsync(string transferId, FileTransfer2ContentCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Create a partial import</summary>
+        /// <param name="transferId">The transfer id</param>
+        /// <param name="request">The filetransfer partial to content create request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         Transfer PartialImport(string transferId, FileTransferPartial2ContentCreateRequest request);
     
+        /// <summary>Create a partial import</summary>
+        /// <param name="transferId">The transfer id</param>
+        /// <param name="request">The filetransfer partial to content create request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Transfer> PartialImportAsync(string transferId, FileTransferPartial2ContentCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Search</summary>
+        /// <param name="request">The transfer search request</param>
+        /// <returns>TransferSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         TransferSearchResult Search(TransferSearchRequest request);
     
+        /// <summary>Search</summary>
+        /// <param name="request">The transfer search request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>TransferSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<TransferSearchResult> SearchAsync(TransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Search for files</summary>
+        /// <param name="request">The file transfer search request</param>
+        /// <returns>FileTransferSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         FileTransferSearchResult SearchFiles(FileTransferSearchRequest request);
     
+        /// <summary>Search for files</summary>
+        /// <param name="request">The file transfer search request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>FileTransferSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileTransferSearchResult> SearchFilesAsync(FileTransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <param name="formFile">Gets or sets the form file.</param>
         /// <param name="flowChunkNumber">Starts with 1</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         void UploadFile(string transferId, string identifier, FileParameter formFile = null, string flowRelativePath = null, long? flowChunkNumber = null, long? flowCurrentChunkSize = null, long? flowTotalSize = null, long? flowTotalChunks = null);
     
+        /// <param name="formFile">Gets or sets the form file.</param>
         /// <param name="flowChunkNumber">Starts with 1</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task UploadFileAsync(string transferId, string identifier, FileParameter formFile = null, string flowRelativePath = null, long? flowChunkNumber = null, long? flowCurrentChunkSize = null, long? flowTotalSize = null, long? flowTotalChunks = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -1037,36 +1253,60 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
     public partial interface IUserClient
     {
+        /// <summary>Search for users</summary>
+        /// <param name="searchRequest">The user search request</param>
+        /// <returns>UserSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         UserSearchResult Search(UserSearchRequest searchRequest);
     
+        /// <summary>Search for users</summary>
+        /// <param name="searchRequest">The user search request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>UserSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<UserSearchResult> SearchAsync(UserSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Get Userdetail by id</summary>
+        /// <param name="userId">The user id</param>
+        /// <returns>UserDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         UserDetail GetUser(string userId);
     
+        /// <summary>Get Userdetail by id</summary>
+        /// <param name="userId">The user id</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>UserDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<UserDetail> GetUserAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Get userdetail by owner token</summary>
+        /// <param name="tokenId">The token id</param>
+        /// <returns>UserDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         UserDetail GetByOwnerToken(string tokenId);
     
+        /// <summary>Get userdetail by owner token</summary>
+        /// <param name="tokenId">The token id</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>UserDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<UserDetail> GetByOwnerTokenAsync(string tokenId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Get List of Channels</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Collections.Generic.List<Channel> GetChannels();
     
+        /// <summary>Get List of Channels</summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.List<Channel>> GetChannelsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -1163,14 +1403,15 @@ namespace Picturepark.SDK.V1.Contract
         }
     }
     
+    /// <summary>A content detail.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class ContentDetail 
     {
-        /// <summary>Document audit information with information regarding document creation and modification.</summary>
+        /// <summary>Audit data with information regarding document creation and modification.</summary>
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public StoreAudit Audit { get; set; }
     
-        /// <summary>The content data of the content document.</summary>
+        /// <summary>The content data</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Content { get; set; }
     
@@ -1178,25 +1419,22 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<string> ContentPermissionSetIds { get; set; }
     
-        /// <summary>The id of the schema with schema type content.</summary>
+        /// <summary>The id of the content schema</summary>
         [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentSchemaId { get; set; }
     
-        /// <summary>The content type of a content document.</summary>
+        /// <summary>The type of content</summary>
         [Newtonsoft.Json.JsonProperty("contentType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ContentType ContentType { get; set; }
     
-        /// <summary>The content type of a content document.</summary>
-        [Newtonsoft.Json.JsonProperty("contentTypeId", Required = Newtonsoft.Json.Required.Always)]
-        public int ContentTypeId { get; set; }
-    
-        /// <summary>Contains language specific display values, rendered according to the content schema's display pattern configuration.</summary>
+        /// <summary>Contains language specific display values, rendered according to the content schema's
+        ///              display pattern configuration.</summary>
         [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DisplayValueDictionary DisplayValues { get; set; }
     
-        /// <summary>The entity type of a content document is content.</summary>
+        /// <summary>The entity type</summary>
         [Newtonsoft.Json.JsonProperty("entityType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -1206,15 +1444,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
-        /// <summary>An optional id list of schemas with schema type layer.</summary>
+        /// <summary>An optional list of layer schemas ids</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<string> LayerSchemaIds { get; set; }
     
-        /// <summary>The layer metadata of the content document.</summary>
+        /// <summary>The metadata dictionary</summary>
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Metadata { get; set; }
     
-        /// <summary>A list of rendering ouputs for contents with an underlying digital file.</summary>
+        /// <summary>A list of rendering ouputs for underlying digital file.</summary>
         [Newtonsoft.Json.JsonProperty("outputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<Output> Outputs { get; set; }
     
@@ -3707,6 +3945,7 @@ namespace Picturepark.SDK.V1.Contract
         }
     }
     
+    /// <summary>Values that represent thumbnail sizes.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public enum ThumbnailSize
     {
@@ -4701,6 +4940,7 @@ namespace Picturepark.SDK.V1.Contract
         }
     }
     
+    /// <summary>Encapsulates the result of a list item search.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class ListItemSearchResult : BaseResultOfListItem
     {
@@ -5788,9 +6028,11 @@ namespace Picturepark.SDK.V1.Contract
         }
     }
     
+    /// <summary>Response that tells if exists</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class ExistsResponse 
     {
+        /// <summary>Gets or sets a value indicating whether it exists</summary>
         [Newtonsoft.Json.JsonProperty("exists", Required = Newtonsoft.Json.Required.Always)]
         public bool Exists { get; set; }
     
@@ -6112,6 +6354,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageEmbeds")]
         ManageEmbeds = 15,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ManageTemplates")]
+        ManageTemplates = 16,
     
     }
     
@@ -6569,9 +6814,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class ContentDetail2 
     {
-        [Newtonsoft.Json.JsonProperty("contentTypeId", Required = Newtonsoft.Json.Required.Always)]
-        public int ContentTypeId { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("trashed", Required = Newtonsoft.Json.Required.Always)]
         public bool Trashed { get; set; }
     
@@ -7214,6 +7456,40 @@ namespace Picturepark.SDK.V1.Contract
         public static CreateShareResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CreateShareResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
+    public partial class ShareSearchRequest 
+    {
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to empty.</summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
+    
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
+        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; }
+    
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; }
+    
+        /// <summary>An optional search filter. Limits the share document result set.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareSearchRequest>(data);
         }
     }
     
@@ -12869,26 +13145,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LastName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("company", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Company { get; set; }
+        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LanguageCode { get; set; }
     
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Address { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("alternativeAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AlternativeAddress { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("department", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Department { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("zip", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Zip { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string City { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Phone { get; set; }
+        public UserAddress Address { get; set; }
     
         [Newtonsoft.Json.JsonProperty("authorizationState", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]

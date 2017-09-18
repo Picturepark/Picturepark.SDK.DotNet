@@ -12,30 +12,30 @@ namespace Picturepark.SDK.V1.ServiceProvider.Contract
     public partial interface IServiceProviderRestClient
     {
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         System.Threading.Tasks.Task SendMessageAsync(string serviceProviderId, SendMessageRequest request);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         System.Threading.Tasks.Task SendMessageAsync(string serviceProviderId, SendMessageRequest request, System.Threading.CancellationToken cancellationToken);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         System.Threading.Tasks.Task<CustomerServiceProviderConfiguration> GetConfigurationAsync(string serviceProviderId);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         System.Threading.Tasks.Task<CustomerServiceProviderConfiguration> GetConfigurationAsync(string serviceProviderId, System.Threading.CancellationToken cancellationToken);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         System.Threading.Tasks.Task<CustomerServiceProviderConfiguration> UpdateConfigurationAsync(string serviceProviderId, ServiceProviderConfigurationUpdateRequest configuration);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         System.Threading.Tasks.Task<CustomerServiceProviderConfiguration> UpdateConfigurationAsync(string serviceProviderId, ServiceProviderConfigurationUpdateRequest configuration, System.Threading.CancellationToken cancellationToken);
     
     }

@@ -13,8 +13,8 @@ namespace Picturepark.SDK.V1.Tests
 {
 	public class TransferTests : IClassFixture<SDKClientFixture>
 	{
-		private SDKClientFixture _fixture;
-		private PictureparkClient _client;
+		private readonly SDKClientFixture _fixture;
+		private readonly PictureparkClient _client;
 
 		public TransferTests(SDKClientFixture fixture)
 		{
@@ -33,7 +33,7 @@ namespace Picturepark.SDK.V1.Tests
 				Path.Combine(_fixture.ExampleFilesBasePath, "0050_6qORI5j_6n8.jpg")
 			};
 			string transferName = nameof(ShouldCreateBatchAndUploadFiles) + "-" + new Random().Next(1000, 9999).ToString();
-			List<string> fileNames = filePaths.Select(file => Path.GetFileName(file)).ToList();
+			List<string> fileNames = filePaths.Select(Path.GetFileName).ToList();
 
 			// Create batch
 			Transfer transfer = await _client.Transfers.CreateBatchAsync(fileNames, transferName);
@@ -104,26 +104,26 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldDeleteBatch()
 		{
-			string batchTransferId = _fixture.GetRandomBatchTransferId(TransferState.ImportCompleted, 10);
+			var transferId = _fixture.GetRandomTransferId(TransferState.TransferReady, 10);
 
-			Assert.True(batchTransferId != string.Empty);
+			Assert.True(transferId != string.Empty);
 
-			await _client.Transfers.DeleteAsync(batchTransferId);
+			await _client.Transfers.DeleteAsync(transferId);
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldGetBatch()
 		{
-			string batchTransferId = _fixture.GetRandomBatchTransferId(null, 20);
-			TransferDetail result = await _client.Transfers.GetAsync(batchTransferId);
+			var transferId = _fixture.GetRandomTransferId(null, 20);
+			TransferDetail result = await _client.Transfers.GetAsync(transferId);
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldGetFile()
 		{
-			string fileTransferId = _fixture.GetRandomFileTransferId(20);
+			var fileTransferId = _fixture.GetRandomFileTransferId(20);
 			FileTransferDetail result = await _client.Transfers.GetFileAsync(fileTransferId);
 		}
 
@@ -147,7 +147,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldUploadAndImportFiles()
 		{
-			int desiredUploadFiles = 10;
+			const int desiredUploadFiles = 10;
 			string batchName = nameof(ShouldUploadAndImportFiles) + "-" + new Random().Next(1000, 9999).ToString();
 
 			var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, "*").ToList();
@@ -158,7 +158,7 @@ namespace Picturepark.SDK.V1.Tests
 			int randomNumber = new Random().Next(0, numberOfFilesInDir - numberOfUploadFiles);
 			List<string> importFilePaths = filesInDirectory.Skip(randomNumber).Take(numberOfUploadFiles).ToList();
 
-			Transfer transfer = await _client.Transfers.CreateBatchAsync(importFilePaths.Select(file => Path.GetFileName(file)).ToList(), batchName);
+			Transfer transfer = await _client.Transfers.CreateBatchAsync(importFilePaths.Select(Path.GetFileName).ToList(), batchName);
 
 			await _client.Transfers.UploadFilesAsync(
 				importFilePaths,
