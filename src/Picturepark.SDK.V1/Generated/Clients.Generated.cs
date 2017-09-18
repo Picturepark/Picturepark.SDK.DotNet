@@ -8435,20 +8435,20 @@ namespace Picturepark.SDK.V1
         }
     
         /// <param name="formFile">Gets or sets the form file.</param>
-        /// <param name="flowChunkNumber">Starts with 1</param>
+        /// <param name="chunkNumber">Starts with 1</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public void UploadFile(string transferId, string identifier, FileParameter formFile = null, string flowRelativePath = null, long? flowChunkNumber = null, long? flowCurrentChunkSize = null, long? flowTotalSize = null, long? flowTotalChunks = null)
+        public void UploadFile(string transferId, string identifier, FileParameter formFile = null, string relativePath = null, long? chunkNumber = null, long? currentChunkSize = null, long? totalSize = null, long? totalChunks = null)
         {
-            System.Threading.Tasks.Task.Run(async () => await UploadFileAsync(transferId, identifier, formFile, flowRelativePath, flowChunkNumber, flowCurrentChunkSize, flowTotalSize, flowTotalChunks, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await UploadFileAsync(transferId, identifier, formFile, relativePath, chunkNumber, currentChunkSize, totalSize, totalChunks, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <param name="formFile">Gets or sets the form file.</param>
-        /// <param name="flowChunkNumber">Starts with 1</param>
+        /// <param name="chunkNumber">Starts with 1</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task UploadFileAsync(string transferId, string identifier, FileParameter formFile = null, string flowRelativePath = null, long? flowChunkNumber = null, long? flowCurrentChunkSize = null, long? flowTotalSize = null, long? flowTotalChunks = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UploadFileAsync(string transferId, string identifier, FileParameter formFile = null, string relativePath = null, long? chunkNumber = null, long? currentChunkSize = null, long? totalSize = null, long? totalChunks = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (transferId == null)
                 throw new System.ArgumentNullException("transferId");
@@ -8456,27 +8456,27 @@ namespace Picturepark.SDK.V1
             if (identifier == null)
                 throw new System.ArgumentNullException("identifier");
     
-            if (flowChunkNumber == null)
-                throw new System.ArgumentNullException("flowChunkNumber");
+            if (chunkNumber == null)
+                throw new System.ArgumentNullException("chunkNumber");
     
-            if (flowCurrentChunkSize == null)
-                throw new System.ArgumentNullException("flowCurrentChunkSize");
+            if (currentChunkSize == null)
+                throw new System.ArgumentNullException("currentChunkSize");
     
-            if (flowTotalSize == null)
-                throw new System.ArgumentNullException("flowTotalSize");
+            if (totalSize == null)
+                throw new System.ArgumentNullException("totalSize");
     
-            if (flowTotalChunks == null)
-                throw new System.ArgumentNullException("flowTotalChunks");
+            if (totalChunks == null)
+                throw new System.ArgumentNullException("totalChunks");
     
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("V1/Transfers/{TransferId}/Files/{Identifier}/Upload?");
             urlBuilder_.Replace("{TransferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{Identifier}", System.Uri.EscapeDataString(System.Convert.ToString(identifier, System.Globalization.CultureInfo.InvariantCulture)));
-            if (flowRelativePath != null) urlBuilder_.Append("flowRelativePath=").Append(System.Uri.EscapeDataString(System.Convert.ToString(flowRelativePath, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            urlBuilder_.Append("flowChunkNumber=").Append(System.Uri.EscapeDataString(System.Convert.ToString(flowChunkNumber.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            urlBuilder_.Append("flowCurrentChunkSize=").Append(System.Uri.EscapeDataString(System.Convert.ToString(flowCurrentChunkSize.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            urlBuilder_.Append("flowTotalSize=").Append(System.Uri.EscapeDataString(System.Convert.ToString(flowTotalSize.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            urlBuilder_.Append("flowTotalChunks=").Append(System.Uri.EscapeDataString(System.Convert.ToString(flowTotalChunks.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            if (relativePath != null) urlBuilder_.Append("relativePath=").Append(System.Uri.EscapeDataString(System.Convert.ToString(relativePath, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Append("chunkNumber=").Append(System.Uri.EscapeDataString(System.Convert.ToString(chunkNumber.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Append("currentChunkSize=").Append(System.Uri.EscapeDataString(System.Convert.ToString(currentChunkSize.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Append("totalSize=").Append(System.Uri.EscapeDataString(System.Convert.ToString(totalSize.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Append("totalChunks=").Append(System.Uri.EscapeDataString(System.Convert.ToString(totalChunks.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);

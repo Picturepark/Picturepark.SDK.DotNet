@@ -3362,13 +3362,13 @@
           },
           {
             "type": "string",
-            "name": "flowRelativePath",
+            "name": "relativePath",
             "in": "query",
             "x-nullable": true
           },
           {
             "type": "integer",
-            "name": "flowChunkNumber",
+            "name": "chunkNumber",
             "in": "query",
             "x-nullable": false,
             "description": "Starts with 1",
@@ -3376,21 +3376,21 @@
           },
           {
             "type": "integer",
-            "name": "flowCurrentChunkSize",
+            "name": "currentChunkSize",
             "in": "query",
             "x-nullable": false,
             "format": "int64"
           },
           {
             "type": "integer",
-            "name": "flowTotalSize",
+            "name": "totalSize",
             "in": "query",
             "x-nullable": false,
             "format": "int64"
           },
           {
             "type": "integer",
-            "name": "flowTotalChunks",
+            "name": "totalChunks",
             "in": "query",
             "x-nullable": false,
             "format": "int64"

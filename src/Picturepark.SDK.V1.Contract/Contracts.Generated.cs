@@ -1236,17 +1236,17 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<FileTransferSearchResult> SearchFilesAsync(FileTransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="formFile">Gets or sets the form file.</param>
-        /// <param name="flowChunkNumber">Starts with 1</param>
+        /// <param name="chunkNumber">Starts with 1</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        void UploadFile(string transferId, string identifier, FileParameter formFile = null, string flowRelativePath = null, long? flowChunkNumber = null, long? flowCurrentChunkSize = null, long? flowTotalSize = null, long? flowTotalChunks = null);
+        void UploadFile(string transferId, string identifier, FileParameter formFile = null, string relativePath = null, long? chunkNumber = null, long? currentChunkSize = null, long? totalSize = null, long? totalChunks = null);
     
         /// <param name="formFile">Gets or sets the form file.</param>
-        /// <param name="flowChunkNumber">Starts with 1</param>
+        /// <param name="chunkNumber">Starts with 1</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task UploadFileAsync(string transferId, string identifier, FileParameter formFile = null, string flowRelativePath = null, long? flowChunkNumber = null, long? flowCurrentChunkSize = null, long? flowTotalSize = null, long? flowTotalChunks = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task UploadFileAsync(string transferId, string identifier, FileParameter formFile = null, string relativePath = null, long? chunkNumber = null, long? currentChunkSize = null, long? totalSize = null, long? totalChunks = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
