@@ -147,13 +147,13 @@ namespace Picturepark.SDK.V1
 
 		public async Task ImportFromJsonAsync(string jsonFilePath, bool includeObjects)
 		{
-			var filePaths = new List<string>() { jsonFilePath };
+			var filePaths = new List<string> { jsonFilePath };
 
-			var batchName = "Metadata import: " + Path.GetFileName(jsonFilePath);
-			List<string> fileNames = filePaths.Select(file => Path.GetFileName(file)).ToList();
+			var transferName = "Metadata import: " + Path.GetFileName(jsonFilePath);
+			List<string> fileNames = filePaths.Select(Path.GetFileName).ToList();
 
-			// Create batch
-			Transfer transfer = await _transferClient.CreateBatchAsync(fileNames, batchName);
+			// Create transfer
+			Transfer transfer = await _transferClient.CreateTransferAsync(fileNames, transferName);
 
 			// Upload files
 			string directoryPath = Path.GetDirectoryName(filePaths.First());
@@ -162,12 +162,12 @@ namespace Picturepark.SDK.V1
 				filePaths,
 				directoryPath,
 				transfer,
-				successDelegate: (file) => { Debug.WriteLine(file); },
-				errorDelegate: (error) => { Debug.WriteLine(error); }
+				successDelegate: file => { Debug.WriteLine(file); },
+				errorDelegate: error => { Debug.WriteLine(error); }
 				);
 
 			// Import metadata
-			string fileTransferId = await _transferClient.GetFileTransferIdFromBatchTransferId(transfer.Id);
+			string fileTransferId = await _transferClient.GetFileTransferIdFromTransferId(transfer.Id);
 			await ImportAsync(null, fileTransferId, includeObjects);
 		}
 

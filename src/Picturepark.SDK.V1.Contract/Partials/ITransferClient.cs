@@ -11,15 +11,16 @@ namespace Picturepark.SDK.V1.Contract
 			string exportDirectory,
 			Transfer transfer,
 			int concurrentUploads = 4,
+			int chunkSize = 1024 * 1024,
 			bool waitForTransferCompletion = true,
 			Action<string> successDelegate = null,
 			Action<Exception> errorDelegate = null
 		);
 
-		Task ImportBatchAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest);
+		Task ImportTransferAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest);
 
-		Task<Transfer> CreateBatchAsync(CreateTransferRequest request);
+		Task<Transfer> CreateTransferAsync(CreateTransferRequest request);
 
-		Task<Transfer> CreateBatchAsync(List<string> fileNames, string batchName);
+		Task<Transfer> CreateTransferAsync(List<string> fileNames, string transferName);
 	}
 }

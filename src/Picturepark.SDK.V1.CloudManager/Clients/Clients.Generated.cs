@@ -20,7 +20,7 @@ namespace Picturepark.SDK.V1.CloudManager
         {
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
-                var settings = new Newtonsoft.Json.JsonSerializerSettings();
+                var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
                 UpdateJsonSerializerSettings(settings);
                 return settings;
             });
@@ -38,6 +38,7 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<CustomerConfigurationItem> CreateAsync(CustomerCreateRequest createRequest)
         {
             return CreateAsync(createRequest, System.Threading.CancellationToken.None);
@@ -45,6 +46,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<CustomerConfigurationItem> CreateAsync(CustomerCreateRequest createRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -91,6 +93,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -114,6 +136,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<CustomerConfigurationItem> UpdateAsync(CustomerUpdateRequest updateRequest)
         {
             return UpdateAsync(updateRequest, System.Threading.CancellationToken.None);
@@ -121,6 +144,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<CustomerConfigurationItem> UpdateAsync(CustomerUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -167,6 +191,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -190,6 +234,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<CustomerConfigurationItem> GetAsync(string customerId)
         {
             return GetAsync(customerId, System.Threading.CancellationToken.None);
@@ -197,6 +242,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<CustomerConfigurationItem> GetAsync(string customerId, System.Threading.CancellationToken cancellationToken)
         {
             if (customerId == null)
@@ -244,6 +290,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -267,6 +333,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<bool> DeleteAsync(string customerId)
         {
             return DeleteAsync(customerId, System.Threading.CancellationToken.None);
@@ -274,6 +341,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<bool> DeleteAsync(string customerId, System.Threading.CancellationToken cancellationToken)
         {
             if (customerId == null)
@@ -321,6 +389,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -344,6 +432,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<CustomerSearchResult> ListAsync(string customerId)
         {
             return ListAsync(customerId, System.Threading.CancellationToken.None);
@@ -351,6 +440,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<CustomerSearchResult> ListAsync(string customerId, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -396,6 +486,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -419,6 +529,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<CustomerSearchResult> SearchAsync(CustomerSearchRequest searchRequest)
         {
             return SearchAsync(searchRequest, System.Threading.CancellationToken.None);
@@ -426,6 +537,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<CustomerSearchResult> SearchAsync(CustomerSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -472,6 +584,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -495,6 +627,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<System.Collections.Generic.List<User>> GetAllUsersAsync(string customerId)
         {
             return GetAllUsersAsync(customerId, System.Threading.CancellationToken.None);
@@ -502,6 +635,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<User>> GetAllUsersAsync(string customerId, System.Threading.CancellationToken cancellationToken)
         {
             if (customerId == null)
@@ -549,6 +683,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -572,6 +726,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<CustomerConfigurationItem> AddExternalProvidersAsync(string customerId, System.Collections.Generic.IEnumerable<ExternalProviderItem> addRequest)
         {
             return AddExternalProvidersAsync(customerId, addRequest, System.Threading.CancellationToken.None);
@@ -579,6 +734,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<CustomerConfigurationItem> AddExternalProvidersAsync(string customerId, System.Collections.Generic.IEnumerable<ExternalProviderItem> addRequest, System.Threading.CancellationToken cancellationToken)
         {
             if (customerId == null)
@@ -629,6 +785,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -652,6 +828,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task RestoreAsync(string customerAlias)
         {
             return RestoreAsync(customerAlias, System.Threading.CancellationToken.None);
@@ -659,6 +836,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task RestoreAsync(string customerAlias, System.Threading.CancellationToken cancellationToken)
         {
             if (customerAlias == null)
@@ -697,6 +875,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             return;
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -729,7 +927,7 @@ namespace Picturepark.SDK.V1.CloudManager
         {
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
-                var settings = new Newtonsoft.Json.JsonSerializerSettings();
+                var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
                 UpdateJsonSerializerSettings(settings);
                 return settings;
             });
@@ -747,6 +945,7 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task ShutdownAllAsync()
         {
             return ShutdownAllAsync(System.Threading.CancellationToken.None);
@@ -754,6 +953,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task ShutdownAllAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -786,6 +986,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             return;
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -807,6 +1027,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task RestartAllAsync()
         {
             return RestartAllAsync(System.Threading.CancellationToken.None);
@@ -814,6 +1035,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task RestartAllAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -846,6 +1068,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             return;
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -867,6 +1109,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task RestartServiceAsync(string serviceName)
         {
             return RestartServiceAsync(serviceName, System.Threading.CancellationToken.None);
@@ -874,6 +1117,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task RestartServiceAsync(string serviceName, System.Threading.CancellationToken cancellationToken)
         {
             if (serviceName == null)
@@ -910,6 +1154,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             return;
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -931,6 +1195,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task ShutdownServiceAsync(string serviceName)
         {
             return ShutdownServiceAsync(serviceName, System.Threading.CancellationToken.None);
@@ -938,6 +1203,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task ShutdownServiceAsync(string serviceName, System.Threading.CancellationToken cancellationToken)
         {
             if (serviceName == null)
@@ -974,6 +1240,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             return;
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -995,6 +1281,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task PingAllActiveNodesAsync()
         {
             return PingAllActiveNodesAsync(System.Threading.CancellationToken.None);
@@ -1002,6 +1289,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task PingAllActiveNodesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1034,6 +1322,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             return;
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1055,6 +1363,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<System.Collections.Generic.List<NodeInfo>> GetAllActiveNodesAsync()
         {
             return GetAllActiveNodesAsync(System.Threading.CancellationToken.None);
@@ -1062,6 +1371,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<NodeInfo>> GetAllActiveNodesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1105,6 +1415,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1139,7 +1469,7 @@ namespace Picturepark.SDK.V1.CloudManager
         {
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
-                var settings = new Newtonsoft.Json.JsonSerializerSettings();
+                var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
                 UpdateJsonSerializerSettings(settings);
                 return settings;
             });
@@ -1157,6 +1487,7 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<System.Collections.Generic.List<UpdateInfo>> GetAvailableEnvironmentUpdatesAsync()
         {
             return GetAvailableEnvironmentUpdatesAsync(System.Threading.CancellationToken.None);
@@ -1164,6 +1495,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<UpdateInfo>> GetAvailableEnvironmentUpdatesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1207,6 +1539,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1230,6 +1582,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<VersionInfo> GetEnvironmentVersionAsync()
         {
             return GetEnvironmentVersionAsync(System.Threading.CancellationToken.None);
@@ -1237,6 +1590,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<VersionInfo> GetEnvironmentVersionAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1280,6 +1634,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1303,6 +1677,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task ReactivateEnvironmentAsync(ReactivationEnvironmentRequest reactivationRequest)
         {
             return ReactivateEnvironmentAsync(reactivationRequest, System.Threading.CancellationToken.None);
@@ -1310,6 +1685,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task ReactivateEnvironmentAsync(ReactivationEnvironmentRequest reactivationRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1345,6 +1721,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             return;
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1366,6 +1762,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task DeactivateEnvironmentAsync(DeactivationEnvironmentRequest deactivationRequest)
         {
             return DeactivateEnvironmentAsync(deactivationRequest, System.Threading.CancellationToken.None);
@@ -1373,6 +1770,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task DeactivateEnvironmentAsync(DeactivationEnvironmentRequest deactivationRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1408,6 +1806,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             return;
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1429,6 +1847,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task UpdateEnvironmentAsync(UpdateEnvironmentRequest updateRequest)
         {
             return UpdateEnvironmentAsync(updateRequest, System.Threading.CancellationToken.None);
@@ -1436,6 +1855,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task UpdateEnvironmentAsync(UpdateEnvironmentRequest updateRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1471,6 +1891,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             return;
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1492,6 +1932,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<System.Collections.Generic.List<UpdateInfo>> GetAvailableCustomerUpdatesAsync(string customerId)
         {
             return GetAvailableCustomerUpdatesAsync(customerId, System.Threading.CancellationToken.None);
@@ -1499,6 +1940,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<UpdateInfo>> GetAvailableCustomerUpdatesAsync(string customerId, System.Threading.CancellationToken cancellationToken)
         {
             if (customerId == null)
@@ -1546,6 +1988,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1569,6 +2031,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<System.Collections.Generic.List<CustomerVersionInfo>> GetCustomerVersionsAsync()
         {
             return GetCustomerVersionsAsync(System.Threading.CancellationToken.None);
@@ -1576,6 +2039,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<CustomerVersionInfo>> GetCustomerVersionsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1619,6 +2083,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1642,6 +2126,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<CustomerVersionInfo> GetCustomerVersionAsync(string customerId)
         {
             return GetCustomerVersionAsync(customerId, System.Threading.CancellationToken.None);
@@ -1649,6 +2134,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<CustomerVersionInfo> GetCustomerVersionAsync(string customerId, System.Threading.CancellationToken cancellationToken)
         {
             if (customerId == null)
@@ -1696,6 +2182,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1719,6 +2225,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task ReactivateCustomersAsync(System.Collections.Generic.IEnumerable<ReactivationCustomerRequest> reactivationRequests)
         {
             return ReactivateCustomersAsync(reactivationRequests, System.Threading.CancellationToken.None);
@@ -1726,6 +2233,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task ReactivateCustomersAsync(System.Collections.Generic.IEnumerable<ReactivationCustomerRequest> reactivationRequests, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1761,6 +2269,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             return;
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1782,6 +2310,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task DeactivateCustomersAsync(System.Collections.Generic.IEnumerable<DeactivationCustomerRequest> deactivationRequests)
         {
             return DeactivateCustomersAsync(deactivationRequests, System.Threading.CancellationToken.None);
@@ -1789,6 +2318,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task DeactivateCustomersAsync(System.Collections.Generic.IEnumerable<DeactivationCustomerRequest> deactivationRequests, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1824,6 +2354,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             return;
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1845,6 +2395,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task UpdateCustomersAsync(System.Collections.Generic.IEnumerable<UpdateCustomerRequest> updateRequests)
         {
             return UpdateCustomersAsync(updateRequests, System.Threading.CancellationToken.None);
@@ -1852,6 +2403,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task UpdateCustomersAsync(System.Collections.Generic.IEnumerable<UpdateCustomerRequest> updateRequests, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1887,6 +2439,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             return;
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1919,7 +2491,7 @@ namespace Picturepark.SDK.V1.CloudManager
         {
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
-                var settings = new Newtonsoft.Json.JsonSerializerSettings();
+                var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
                 UpdateJsonSerializerSettings(settings);
                 return settings;
             });
@@ -1937,6 +2509,7 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<SnapshotRepository> CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest snapshotRepositoryCustomerCreateRequest)
         {
             return CreateRepositoryAsync(snapshotRepositoryCustomerCreateRequest, System.Threading.CancellationToken.None);
@@ -1944,6 +2517,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<SnapshotRepository> CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest snapshotRepositoryCustomerCreateRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -1990,6 +2564,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -2013,6 +2607,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<Snapshot> CreateSnapshotAsync(SnapshotCustomerCreateRequest snapshotCustomerCreateRequest)
         {
             return CreateSnapshotAsync(snapshotCustomerCreateRequest, System.Threading.CancellationToken.None);
@@ -2020,6 +2615,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<Snapshot> CreateSnapshotAsync(SnapshotCustomerCreateRequest snapshotCustomerCreateRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -2066,6 +2662,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -2089,6 +2705,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshotAsync(SnapshotCustomerRestoreRequest snapshotCustomerRestoreRequest)
         {
             return RestoreSnapshotAsync(snapshotCustomerRestoreRequest, System.Threading.CancellationToken.None);
@@ -2096,6 +2713,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshotAsync(SnapshotCustomerRestoreRequest snapshotCustomerRestoreRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -2142,6 +2760,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -2165,6 +2803,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<SnapshotRepository> CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest snapshotRepositoryEnvironmentCreateRequest)
         {
             return CreateRepository2Async(snapshotRepositoryEnvironmentCreateRequest, System.Threading.CancellationToken.None);
@@ -2172,6 +2811,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<SnapshotRepository> CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest snapshotRepositoryEnvironmentCreateRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -2218,6 +2858,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -2241,6 +2901,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<Snapshot> CreateSnapshot2Async(SnapshotEnvironmentCreateRequest snapshotEnvironmentCreateRequest)
         {
             return CreateSnapshot2Async(snapshotEnvironmentCreateRequest, System.Threading.CancellationToken.None);
@@ -2248,6 +2909,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<Snapshot> CreateSnapshot2Async(SnapshotEnvironmentCreateRequest snapshotEnvironmentCreateRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -2294,6 +2956,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -2317,6 +2999,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest snapshotEnvironmentRestoreRequest)
         {
             return RestoreSnapshot2Async(snapshotEnvironmentRestoreRequest, System.Threading.CancellationToken.None);
@@ -2324,6 +3007,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest snapshotEnvironmentRestoreRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -2370,6 +3054,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -2393,6 +3097,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<SnapshotCustomerSearchResult> SearchAsync(SnapshotCustomerSearchRequest snapshotCustomerSearchRequest)
         {
             return SearchAsync(snapshotCustomerSearchRequest, System.Threading.CancellationToken.None);
@@ -2400,6 +3105,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<SnapshotCustomerSearchResult> SearchAsync(SnapshotCustomerSearchRequest snapshotCustomerSearchRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -2446,6 +3152,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -2469,6 +3195,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<System.Collections.Generic.List<string>> SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest searchRequest)
         {
             return SearchRepositoriesAsync(searchRequest, System.Threading.CancellationToken.None);
@@ -2476,6 +3203,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<string>> SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -2522,6 +3250,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -2545,6 +3293,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<Customer> CloneCustomerAsync(SnapshotCustomerCloneRequest cloneRequest)
         {
             return CloneCustomerAsync(cloneRequest, System.Threading.CancellationToken.None);
@@ -2552,6 +3301,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
         public async System.Threading.Tasks.Task<Customer> CloneCustomerAsync(SnapshotCustomerCloneRequest cloneRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -2598,6 +3348,26 @@ namespace Picturepark.SDK.V1.CloudManager
                             }
                         }
                         else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -2624,4 +3394,156 @@ namespace Picturepark.SDK.V1.CloudManager
     
     
 
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
+    internal class JsonExceptionConverter : Newtonsoft.Json.JsonConverter
+    {
+    	private readonly Newtonsoft.Json.Serialization.DefaultContractResolver _defaultContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
+    	private readonly System.Collections.Generic.IDictionary<string, System.Reflection.Assembly> _searchedNamespaces;
+    	private readonly bool _hideStackTrace = false;
+    	
+    	public JsonExceptionConverter()
+    	{
+            _searchedNamespaces = new System.Collections.Generic.Dictionary<string, System.Reflection.Assembly> { { typeof(PictureparkException).Namespace, System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(PictureparkException)).Assembly } };
+    	}
+    	
+    	public override bool CanWrite => true;
+    	
+    	public override void WriteJson(Newtonsoft.Json.JsonWriter writer, object value, Newtonsoft.Json.JsonSerializer serializer)
+    	{
+    		var exception = value as System.Exception;
+    		if (exception != null)
+    		{
+    			var resolver = serializer.ContractResolver as Newtonsoft.Json.Serialization.DefaultContractResolver ?? _defaultContractResolver;
+    	
+    			var jObject = new Newtonsoft.Json.Linq.JObject();
+    			jObject.Add(resolver.GetResolvedPropertyName("discriminator"), exception.GetType().Name);
+    			jObject.Add(resolver.GetResolvedPropertyName("Message"), exception.Message);
+    			jObject.Add(resolver.GetResolvedPropertyName("StackTrace"), _hideStackTrace ? "HIDDEN" : exception.StackTrace);
+    			jObject.Add(resolver.GetResolvedPropertyName("Source"), exception.Source);
+    			jObject.Add(resolver.GetResolvedPropertyName("InnerException"),
+    				exception.InnerException != null ? Newtonsoft.Json.Linq.JToken.FromObject(exception.InnerException, serializer) : null);
+    	
+    			foreach (var property in GetExceptionProperties(value.GetType()))
+    			{
+    				var propertyValue = property.Key.GetValue(exception);
+    				if (propertyValue != null)
+    				{
+    					jObject.AddFirst(new Newtonsoft.Json.Linq.JProperty(resolver.GetResolvedPropertyName(property.Value),
+    						Newtonsoft.Json.Linq.JToken.FromObject(propertyValue, serializer)));
+    				}
+    			}
+    	
+    			value = jObject;
+    		}
+    	
+    		serializer.Serialize(writer, value);
+    	}
+    	
+    	public override bool CanConvert(System.Type objectType)
+    	{
+    		return System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(System.Exception)).IsAssignableFrom(System.Reflection.IntrospectionExtensions.GetTypeInfo(objectType));
+    	}
+    	
+    	public override object ReadJson(Newtonsoft.Json.JsonReader reader, System.Type objectType, object existingValue, Newtonsoft.Json.JsonSerializer serializer)
+    	{
+    		var jObject = serializer.Deserialize<Newtonsoft.Json.Linq.JObject>(reader);
+    		if (jObject == null)
+    			return null;
+    	
+    		var newSerializer = new Newtonsoft.Json.JsonSerializer();
+    		newSerializer.ContractResolver = (Newtonsoft.Json.Serialization.IContractResolver)System.Activator.CreateInstance(serializer.ContractResolver.GetType());
+    	
+    		var field = GetField(typeof(Newtonsoft.Json.Serialization.DefaultContractResolver), "_sharedCache");
+    		if (field != null)
+    			field.SetValue(newSerializer.ContractResolver, false);
+    	
+    		dynamic resolver = newSerializer.ContractResolver;
+    		if (System.Reflection.RuntimeReflectionExtensions.GetRuntimeProperty(newSerializer.ContractResolver.GetType(), "IgnoreSerializableAttribute") != null)
+    			resolver.IgnoreSerializableAttribute = true;
+    		if (System.Reflection.RuntimeReflectionExtensions.GetRuntimeProperty(newSerializer.ContractResolver.GetType(), "IgnoreSerializableInterface") != null)
+    			resolver.IgnoreSerializableInterface = true;
+    	
+    		Newtonsoft.Json.Linq.JToken token;
+    		if (jObject.TryGetValue("discriminator", System.StringComparison.OrdinalIgnoreCase, out token))
+    		{
+    			var discriminator = Newtonsoft.Json.Linq.Extensions.Value<string>(token);
+    			if (objectType.Name.Equals(discriminator) == false)
+    			{
+    				var exceptionType = System.Type.GetType("System." + discriminator, false);
+    				if (exceptionType != null)
+    					objectType = exceptionType;
+    				else
+    				{
+    					foreach (var pair in _searchedNamespaces)
+    					{
+    						exceptionType = pair.Value.GetType(pair.Key + "." + discriminator);
+    						if (exceptionType != null)
+    						{
+    							objectType = exceptionType;
+    							break;
+    						}
+    					}
+    	
+    				}
+    			}
+    		}
+    	
+    		var value = jObject.ToObject(objectType, newSerializer);
+    		foreach (var property in GetExceptionProperties(value.GetType()))
+    		{
+    			var jValue = jObject.GetValue(resolver.GetResolvedPropertyName(property.Value));
+    			var propertyValue = (object)jValue?.ToObject(property.Key.PropertyType);
+    			if (property.Key.SetMethod != null)
+    				property.Key.SetValue(value, propertyValue);
+    			else
+    			{
+    				field = GetField(objectType, "m_" + property.Value.Substring(0, 1).ToLowerInvariant() + property.Value.Substring(1));
+    				if (field != null)
+    					field.SetValue(value, propertyValue);
+    			}
+    		}
+    	
+    		SetExceptionFieldValue(jObject, "Message", value, "_message", resolver, newSerializer);
+    		SetExceptionFieldValue(jObject, "StackTrace", value, "_stackTraceString", resolver, newSerializer);
+    		SetExceptionFieldValue(jObject, "Source", value, "_source", resolver, newSerializer);
+    		SetExceptionFieldValue(jObject, "InnerException", value, "_innerException", resolver, serializer);
+    	
+    		return value;
+    	}
+    	
+    	private System.Reflection.FieldInfo GetField(System.Type type, string fieldName)
+    	{
+    		var field = System.Reflection.IntrospectionExtensions.GetTypeInfo(type).GetDeclaredField(fieldName);
+    		if (field == null && System.Reflection.IntrospectionExtensions.GetTypeInfo(type).BaseType != null)
+    			return GetField(System.Reflection.IntrospectionExtensions.GetTypeInfo(type).BaseType, fieldName);
+    		return field;
+    	}
+    	
+    	private System.Collections.Generic.IDictionary<System.Reflection.PropertyInfo, string> GetExceptionProperties(System.Type exceptionType)
+    	{
+    		var result = new System.Collections.Generic.Dictionary<System.Reflection.PropertyInfo, string>();
+    		foreach (var property in System.Linq.Enumerable.Where(System.Reflection.RuntimeReflectionExtensions.GetRuntimeProperties(exceptionType), 
+    			p => p.GetMethod?.IsPublic == true))
+    		{
+    			var attribute = System.Reflection.CustomAttributeExtensions.GetCustomAttribute<Newtonsoft.Json.JsonPropertyAttribute>(property);
+    			var propertyName = attribute != null ? attribute.PropertyName : property.Name;
+    	
+    			if (!System.Linq.Enumerable.Contains(new[] { "Message", "StackTrace", "Source", "InnerException", "Data", "TargetSite", "HelpLink", "HResult" }, propertyName))
+    				result[property] = propertyName;
+    		}
+    		return result;
+    	}
+    	
+    	private void SetExceptionFieldValue(Newtonsoft.Json.Linq.JObject jObject, string propertyName, object value, string fieldName, Newtonsoft.Json.Serialization.IContractResolver resolver, Newtonsoft.Json.JsonSerializer serializer)
+    	{
+    		var field = System.Reflection.IntrospectionExtensions.GetTypeInfo(typeof(System.Exception)).GetDeclaredField(fieldName);
+    		var jsonPropertyName = resolver is Newtonsoft.Json.Serialization.DefaultContractResolver ? ((Newtonsoft.Json.Serialization.DefaultContractResolver)resolver).GetResolvedPropertyName(propertyName) : propertyName;
+    		var property = System.Linq.Enumerable.FirstOrDefault(jObject.Properties(), p => System.String.Equals(p.Name, jsonPropertyName, System.StringComparison.OrdinalIgnoreCase));
+    		if (property != null)
+    		{
+    			var fieldValue = property.Value.ToObject(field.FieldType, serializer);
+    			field.SetValue(value, fieldValue);
+    		}
+    	}
+    }
 }

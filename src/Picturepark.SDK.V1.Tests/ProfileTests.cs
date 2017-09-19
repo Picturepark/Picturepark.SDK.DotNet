@@ -6,13 +6,11 @@ namespace Picturepark.SDK.V1.Tests
 {
 	public class ProfileTests : IClassFixture<SDKClientFixture>
 	{
-		private readonly SDKClientFixture _fixture;
 		private readonly PictureparkClient _client;
 
 		public ProfileTests(SDKClientFixture fixture)
 		{
-			_fixture = fixture;
-			_client = _fixture.Client;
+			_client = fixture.Client;
 		}
 
 		[Fact]
@@ -32,14 +30,12 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			// Act
 			var profile = await _client.Profile.GetAsync();
-			var firstName = profile.FirstName;
 
 			profile.FirstName = profile.FirstName + "1";
-
 			var updated = await _client.Profile.UpdateAsync(profile);
 
 			// Assert
-			Assert.Equal(firstName, updated.FirstName);
+			Assert.Equal(profile.FirstName, updated.FirstName);
 		}
 	}
 }

@@ -51,7 +51,7 @@
         ],
         "responses": {
           "200": {
-            "description": "ContentDoc",
+            "description": "ContentDetail",
             "schema": {
               "$ref": "#/definitions/ContentDetail"
             },
@@ -110,7 +110,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "List of ContentDetail",
             "schema": {
               "type": "array",
               "items": {
@@ -134,6 +134,7 @@
         "tags": [
           "Content"
         ],
+        "summary": "Process many ownership trasnfer request",
         "operationId": "Content_TransferOwnershipMany",
         "parameters": [
           {
@@ -143,12 +144,13 @@
             "schema": {
               "$ref": "#/definitions/ContentsOwnershipTransferRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The content ownership transfer request request."
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "BusinessProcess",
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
@@ -207,7 +209,7 @@
         "tags": [
           "Content"
         ],
-        "summary": "Aggregate By Channel",
+        "summary": "Aggregate by Channel",
         "description": "Aggregates content as specified in the aggregation request and limits the aggregation results to the specified channel.",
         "operationId": "Content_AggregateByChannel",
         "parameters": [
@@ -253,6 +255,7 @@
         "tags": [
           "Content"
         ],
+        "summary": "Creates a content batch download",
         "operationId": "Content_CreateDownloadLink",
         "parameters": [
           {
@@ -262,12 +265,13 @@
             "schema": {
               "$ref": "#/definitions/ContentBatchDownloadRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The content batch download request"
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "ContentBatchDonloadItem",
             "schema": {
               "$ref": "#/definitions/ContentBatchDownloadItem"
             },
@@ -353,6 +357,7 @@
         "tags": [
           "Content"
         ],
+        "summary": "Downloads content in a specific outputformat",
         "operationId": "Content_Download",
         "parameters": [
           {
@@ -360,32 +365,35 @@
             "name": "ContentId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The content id"
           },
           {
             "type": "string",
             "name": "OutputFormatId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The output format id"
           },
           {
             "type": "string",
             "name": "Range",
             "in": "header",
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "the range"
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "HttpResponseMessage",
             "schema": {
               "type": "file"
             },
             "x-nullable": true
           },
           "206": {
-            "description": "",
+            "description": "HttpResponseMessage",
             "schema": {
               "type": "file"
             },
@@ -459,6 +467,8 @@
         "tags": [
           "Content"
         ],
+        "summary": "Download resized content",
+        "description": "Provides a endpoint to get reseized content",
         "operationId": "Content_DownloadResized",
         "parameters": [
           {
@@ -466,14 +476,16 @@
             "name": "ContentId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The Content id"
           },
           {
             "type": "string",
             "name": "OutputFormatId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The output format id"
           },
           {
             "type": "integer",
@@ -481,6 +493,7 @@
             "in": "path",
             "required": true,
             "x-nullable": false,
+            "description": "The content width",
             "format": "int32"
           },
           {
@@ -489,12 +502,13 @@
             "in": "path",
             "required": true,
             "x-nullable": false,
+            "description": "The content height",
             "format": "int32"
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "HttpResponseMessage",
             "schema": {
               "type": "file"
             },
@@ -808,6 +822,7 @@
         "tags": [
           "Content"
         ],
+        "summary": "Deactivates a content",
         "operationId": "Content_Deactivate",
         "parameters": [
           {
@@ -815,7 +830,8 @@
             "name": "ContentId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "the id of the content to deactivate"
           },
           {
             "type": "integer",
@@ -823,6 +839,7 @@
             "in": "query",
             "required": true,
             "x-nullable": false,
+            "description": "Maximum time in milliseconds to wait for the business process completed state.",
             "format": "int32"
           }
         ],
@@ -891,6 +908,8 @@
         "tags": [
           "Content"
         ],
+        "summary": "Reactivate - Content",
+        "description": "The reactivation of content is executed asynchronous. However, for the specified timeout completion of the reactivation process is awaited.\nIf the reactivation process is not completed by reaching the specified timeout, the reactivation process continues, but null is returned.",
         "operationId": "Content_Reactivate",
         "parameters": [
           {
@@ -898,20 +917,23 @@
             "name": "ContentId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The content id."
           },
           {
             "type": "boolean",
             "name": "resolve",
             "in": "query",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "Resolves the data of referenced list items into the contents's content."
           },
           {
             "type": "integer",
             "name": "timeout",
             "in": "query",
             "x-nullable": true,
+            "description": "Maximum time in milliseconds to wait for the business process completed state.",
             "format": "int32"
           },
           {
@@ -920,6 +942,7 @@
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
+            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
               "type": "string"
             }
@@ -927,7 +950,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "ContentDetail",
             "schema": {
               "$ref": "#/definitions/ContentDetail"
             },
@@ -948,6 +971,7 @@
         "tags": [
           "Content"
         ],
+        "summary": "Dactivate Many - Content",
         "operationId": "Content_DeactivateMany",
         "parameters": [
           {
@@ -957,12 +981,13 @@
             "schema": {
               "$ref": "#/definitions/ContentDeactivationRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The deactivation request"
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "BusinessProcess",
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
@@ -983,6 +1008,8 @@
         "tags": [
           "Content"
         ],
+        "summary": "Reactivate Many - Content",
+        "description": "The reactivation multiple contents documents is executed asynchronous. To keep track of the update progress a business process is returned.",
         "operationId": "Content_ReactivateMany",
         "parameters": [
           {
@@ -992,12 +1019,13 @@
             "schema": {
               "$ref": "#/definitions/ContentReactivationRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The content reactivation request."
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "BusinessProcess",
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
@@ -1097,6 +1125,7 @@
         "tags": [
           "BusinessProcess"
         ],
+        "summary": "Search for business process",
         "operationId": "BusinessProcess_Search",
         "parameters": [
           {
@@ -1106,12 +1135,13 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcessSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The business process request"
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "BusinessProcessSearchResult",
             "schema": {
               "$ref": "#/definitions/BusinessProcessSearchResult"
             },
@@ -1132,6 +1162,7 @@
         "tags": [
           "BusinessProcess"
         ],
+        "summary": "Starts a process with given definition ",
         "operationId": "BusinessProcess_Start",
         "parameters": [
           {
@@ -1139,7 +1170,8 @@
             "name": "ProcessDefinitionId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The process definition id"
           },
           {
             "name": "request",
@@ -1148,21 +1180,22 @@
             "schema": {
               "$ref": "#/definitions/StartProcessRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The start process request"
           }
         ],
         "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": true
+          },
           "500": {
             "description": "",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
             },
             "x-nullable": true
           }
@@ -1174,6 +1207,7 @@
         "tags": [
           "BusinessProcess"
         ],
+        "summary": "Mark a given process as ended",
         "operationId": "BusinessProcess_MarkAsEnded",
         "parameters": [
           {
@@ -1181,19 +1215,20 @@
             "name": "ProcessId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The process id"
           }
         ],
         "responses": {
+          "204": {
+            "description": ""
+          },
           "500": {
             "description": "",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
-          },
-          "204": {
-            "description": ""
           }
         }
       }
@@ -1203,6 +1238,7 @@
         "tags": [
           "BusinessProcess"
         ],
+        "summary": "Send message to given process ",
         "operationId": "BusinessProcess_SendMessage",
         "parameters": [
           {
@@ -1210,7 +1246,8 @@
             "name": "ProcessId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The process id"
           },
           {
             "name": "request",
@@ -1219,19 +1256,20 @@
             "schema": {
               "$ref": "#/definitions/SendMessageRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The send message request"
           }
         ],
         "responses": {
+          "204": {
+            "description": ""
+          },
           "500": {
             "description": "",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
-          },
-          "204": {
-            "description": ""
           }
         }
       }
@@ -1241,6 +1279,7 @@
         "tags": [
           "BusinessProcess"
         ],
+        "summary": "Wait for given process states",
         "operationId": "BusinessProcess_WaitForStates",
         "parameters": [
           {
@@ -1248,14 +1287,16 @@
             "name": "ProcessId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The process id"
           },
           {
             "type": "string",
             "name": "states",
             "in": "query",
             "required": true,
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The states to wait for"
           },
           {
             "type": "integer",
@@ -1263,21 +1304,22 @@
             "in": "query",
             "required": true,
             "x-nullable": false,
+            "description": "The timeout in ms",
             "format": "int32"
           }
         ],
         "responses": {
+          "200": {
+            "description": "BusinessProcessWaitResult",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitResult"
+            },
+            "x-nullable": true
+          },
           "500": {
             "description": "",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcessWaitResult"
             },
             "x-nullable": true
           }
@@ -1289,6 +1331,7 @@
         "tags": [
           "DocumentHistory"
         ],
+        "summary": "Search for document history",
         "operationId": "DocumentHistory_Search",
         "parameters": [
           {
@@ -1298,21 +1341,22 @@
             "schema": {
               "$ref": "#/definitions/DocumentHistorySearchRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The document history search request"
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
+          "200": {
+            "description": "DocumentHistorySearchResult",
             "schema": {
-              "$ref": "#/definitions/PictureparkException"
+              "$ref": "#/definitions/DocumentHistorySearchResult"
             },
             "x-nullable": true
           },
-          "200": {
-            "description": "",
+          "500": {
+            "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/DocumentHistorySearchResult"
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -1324,6 +1368,7 @@
         "tags": [
           "DocumentHistory"
         ],
+        "summary": "Gets a document history",
         "operationId": "DocumentHistory_Get",
         "parameters": [
           {
@@ -1331,21 +1376,22 @@
             "name": "Id",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The id"
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
+          "200": {
+            "description": "DocumentHistory",
             "schema": {
-              "$ref": "#/definitions/PictureparkException"
+              "$ref": "#/definitions/DocumentHistory"
             },
             "x-nullable": true
           },
-          "200": {
-            "description": "",
+          "500": {
+            "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/DocumentHistory"
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -1357,6 +1403,7 @@
         "tags": [
           "DocumentHistory"
         ],
+        "summary": "Get document history version",
         "operationId": "DocumentHistory_GetVersion",
         "parameters": [
           {
@@ -1364,28 +1411,30 @@
             "name": "Id",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The id"
           },
           {
             "type": "string",
             "name": "Version",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The version"
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
+          "200": {
+            "description": "DocumentHistory",
             "schema": {
-              "$ref": "#/definitions/PictureparkException"
+              "$ref": "#/definitions/DocumentHistory"
             },
             "x-nullable": true
           },
-          "200": {
-            "description": "",
+          "500": {
+            "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/DocumentHistory"
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -1397,6 +1446,7 @@
         "tags": [
           "DocumentHistory"
         ],
+        "summary": "Get latest difference of document history",
         "operationId": "DocumentHistory_GetDifferenceLatest",
         "parameters": [
           {
@@ -1404,7 +1454,8 @@
             "name": "Id",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The id"
           },
           {
             "type": "integer",
@@ -1412,21 +1463,22 @@
             "in": "path",
             "required": true,
             "x-nullable": false,
+            "description": "The old version",
             "format": "int64"
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
+          "200": {
+            "description": "DocumentHistoryDifference",
             "schema": {
-              "$ref": "#/definitions/PictureparkException"
+              "$ref": "#/definitions/DocumentHistoryDifference"
             },
             "x-nullable": true
           },
-          "200": {
-            "description": "",
+          "500": {
+            "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/DocumentHistoryDifference"
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -1438,6 +1490,7 @@
         "tags": [
           "DocumentHistory"
         ],
+        "summary": "Get the difference between tho document history",
         "operationId": "DocumentHistory_GetDifference",
         "parameters": [
           {
@@ -1445,7 +1498,8 @@
             "name": "Id",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The id"
           },
           {
             "type": "integer",
@@ -1453,6 +1507,7 @@
             "in": "path",
             "required": true,
             "x-nullable": false,
+            "description": "The old version",
             "format": "int64"
           },
           {
@@ -1461,21 +1516,22 @@
             "in": "path",
             "required": true,
             "x-nullable": false,
+            "description": "The new version",
             "format": "int64"
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
+          "200": {
+            "description": "DocumentHistoryDifference",
             "schema": {
-              "$ref": "#/definitions/PictureparkException"
+              "$ref": "#/definitions/DocumentHistoryDifference"
             },
             "x-nullable": true
           },
-          "200": {
-            "description": "",
+          "500": {
+            "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/DocumentHistoryDifference"
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -1501,16 +1557,16 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "JsonSchemaViewItem",
             "schema": {},
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
             "x-nullable": true
           }
         }
@@ -1564,17 +1620,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "ListItemDetail",
             "schema": {
               "$ref": "#/definitions/ListItemDetail"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -1605,17 +1661,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "BusinessProcess",
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -1642,17 +1698,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "BusinessProcess",
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -1681,17 +1737,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "BusinessProcess",
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -1719,17 +1775,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "ObjectAggregationResult",
             "schema": {
               "$ref": "#/definitions/ObjectAggregationResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -1757,17 +1813,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "List item result set.",
             "schema": {
               "$ref": "#/definitions/ListItemSearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -1802,15 +1858,15 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": ""
+          },
           "500": {
-            "description": "",
+            "description": "Internal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
-          },
-          "200": {
-            "description": ""
           }
         }
       }
@@ -1852,13 +1908,6 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "",
             "schema": {
@@ -1868,6 +1917,13 @@
           },
           "404": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       },
@@ -1925,17 +1981,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "ListItemDetail",
             "schema": {
               "$ref": "#/definitions/ListItemDetail"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -1981,17 +2037,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "BusinessProcessWaitResult",
             "schema": {
               "$ref": "#/definitions/BusinessProcessWaitResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -2033,15 +2089,15 @@
           }
         ],
         "responses": {
+          "204": {
+            "description": ""
+          },
           "500": {
-            "description": "",
+            "description": "Internal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
-          },
-          "204": {
-            "description": ""
           }
         }
       }
@@ -2051,6 +2107,7 @@
         "tags": [
           "LiveStream"
         ],
+        "summary": "Search LiveStream",
         "operationId": "LiveStream_Search",
         "parameters": [
           {
@@ -2060,21 +2117,22 @@
             "schema": {
               "$ref": "#/definitions/LiveStreamSearchRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The livestream search request"
           }
         ],
         "responses": {
+          "200": {
+            "description": "ObjectSearchResult",
+            "schema": {
+              "$ref": "#/definitions/ObjectSearchResult"
+            },
+            "x-nullable": true
+          },
           "500": {
             "description": "Internal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ObjectSearchResult"
             },
             "x-nullable": true
           }
@@ -2103,13 +2161,6 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "SchemaDetail",
             "schema": {
@@ -2117,6 +2168,13 @@
               "items": {
                 "$ref": "#/definitions/SchemaDetail"
               }
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -2142,17 +2200,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "BusinessProcess",
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -2178,17 +2236,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "SchemaDetail",
             "schema": {
               "$ref": "#/definitions/SchemaDetail"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -2222,17 +2280,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "BusinessProcess",
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -2256,17 +2314,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "BusinessProcess",
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -2300,17 +2358,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "ExistsResponse",
             "schema": {
               "$ref": "#/definitions/ExistsResponse"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -2338,17 +2396,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "Schema result set.",
             "schema": {
               "$ref": "#/definitions/SchemaSearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -2377,19 +2435,19 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "Boolean - user has permission",
             "schema": {
               "type": "boolean"
             },
             "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -2415,17 +2473,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "PermissionSetSearchResult",
             "schema": {
               "$ref": "#/definitions/PermissionSetSearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -2451,17 +2509,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "ContentPermissionSetDetail",
             "schema": {
               "$ref": "#/definitions/ContentPermissionSetDetail"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -2489,17 +2547,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "PermissionSetSearchResult",
             "schema": {
               "$ref": "#/definitions/PermissionSetSearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -2525,17 +2583,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "SchemaPermissionSetDetail",
             "schema": {
               "$ref": "#/definitions/SchemaPermissionSetDetail"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -2547,13 +2605,21 @@
         "tags": [
           "PublicAccess"
         ],
+        "summary": "Get Version",
         "operationId": "PublicAccess_GetVersion",
         "parameters": [],
         "responses": {
           "200": {
-            "description": "",
+            "description": "VersionInfo",
             "schema": {
               "$ref": "#/definitions/VersionInfo"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -2565,6 +2631,7 @@
         "tags": [
           "PublicAccess"
         ],
+        "summary": "Get Share",
         "operationId": "PublicAccess_GetShare",
         "parameters": [
           {
@@ -2572,21 +2639,22 @@
             "name": "token",
             "in": "query",
             "required": true,
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The token"
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
+          "200": {
+            "description": "ShareBaseDetail",
             "schema": {
-              "$ref": "#/definitions/PictureparkException"
+              "$ref": "#/definitions/ShareBaseDetail"
             },
             "x-nullable": true
           },
-          "200": {
-            "description": "",
+          "500": {
+            "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/ShareBaseDetail"
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -2598,7 +2666,7 @@
         "tags": [
           "Share"
         ],
-        "summary": "Update Single - Share",
+        "summary": "Update single",
         "description": "The update of share is executed asynchronous. However, for the specified timeout completion of the update process is awaited.\nIf the update process is not completed by reaching the specified timeout, the update process continues, but null is returned.",
         "operationId": "Share_Update",
         "parameters": [
@@ -2638,6 +2706,13 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "Share",
+            "schema": {
+              "$ref": "#/definitions/BaseResultOfShareBase"
+            },
+            "x-nullable": true
+          },
           "500": {
             "description": "Internal server error",
             "schema": {
@@ -2647,13 +2722,6 @@
           },
           "401": {
             "description": "Not authorized"
-          },
-          "200": {
-            "description": "Share",
-            "schema": {
-              "$ref": "#/definitions/BaseResultOfShareBase"
-            },
-            "x-nullable": true
           }
         }
       },
@@ -2661,7 +2729,8 @@
         "tags": [
           "Share"
         ],
-        "summary": "Get share by id (basic or embed)",
+        "summary": "Get single",
+        "description": "Get share by id (basic or embed)",
         "operationId": "Share_Get",
         "parameters": [
           {
@@ -2699,7 +2768,7 @@
         "tags": [
           "Share"
         ],
-        "summary": "Delete Many",
+        "summary": "Delete many",
         "description": "The delete of multiple shares executed asynchronous. To keep track of the deletion progress a business process is returned.",
         "operationId": "Share_DeleteMany",
         "parameters": [
@@ -2718,6 +2787,13 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": true
+          },
           "500": {
             "description": "Internal server error",
             "schema": {
@@ -2727,13 +2803,6 @@
           },
           "401": {
             "description": "Not authorized"
-          },
-          "200": {
-            "description": "BusinessProcess",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": true
           }
         }
       }
@@ -2743,7 +2812,8 @@
         "tags": [
           "Share"
         ],
-        "summary": "Aggregates own shares",
+        "summary": "Aggregate",
+        "description": "Aggregates own shares",
         "operationId": "Share_Aggregate",
         "parameters": [
           {
@@ -2783,7 +2853,8 @@
         "tags": [
           "Share"
         ],
-        "summary": "Create a new share (basic or embed).",
+        "summary": "Create single",
+        "description": "Create a new share (basic or embed).",
         "operationId": "Share_Create",
         "parameters": [
           {
@@ -2844,7 +2915,8 @@
         "tags": [
           "Share"
         ],
-        "summary": "Search shares",
+        "summary": "Search",
+        "description": "Search own shares",
         "operationId": "Share_Search",
         "parameters": [
           {
@@ -2852,7 +2924,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ContentSearchRequest"
+              "$ref": "#/definitions/ShareSearchRequest"
             },
             "x-nullable": true,
             "description": "Search request"
@@ -2884,6 +2956,7 @@
         "tags": [
           "Transfer"
         ],
+        "summary": "Delete Files",
         "operationId": "Transfer_DeleteFiles",
         "parameters": [
           {
@@ -2893,22 +2966,23 @@
             "schema": {
               "$ref": "#/definitions/FileTransferDeleteRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The filetransfer delete request"
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": ""
           },
           "204": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -2918,18 +2992,19 @@
         "tags": [
           "Transfer"
         ],
+        "summary": "Get Blacklist",
         "operationId": "Transfer_GetBlacklist",
         "parameters": [],
         "responses": {
           "200": {
-            "description": "",
+            "description": "Blacklist",
             "schema": {
               "$ref": "#/definitions/Blacklist"
             },
             "x-nullable": true
           },
           "500": {
-            "description": "",
+            "description": "Internal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
@@ -2955,15 +3030,15 @@
           }
         ],
         "responses": {
+          "204": {
+            "description": ""
+          },
           "500": {
-            "description": "",
+            "description": "Internal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
-          },
-          "204": {
-            "description": ""
           }
         }
       }
@@ -2973,6 +3048,7 @@
         "tags": [
           "Transfer"
         ],
+        "summary": "Create Transfer",
         "operationId": "Transfer_Create",
         "parameters": [
           {
@@ -2982,21 +3058,22 @@
             "schema": {
               "$ref": "#/definitions/CreateTransferRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The create transfer request"
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
+          "200": {
+            "description": "Transfer",
             "schema": {
-              "$ref": "#/definitions/PictureparkException"
+              "$ref": "#/definitions/Transfer"
             },
             "x-nullable": true
           },
-          "200": {
-            "description": "",
+          "500": {
+            "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/Transfer"
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -3008,6 +3085,7 @@
         "tags": [
           "Transfer"
         ],
+        "summary": "Delete Transfer",
         "operationId": "Transfer_Delete",
         "parameters": [
           {
@@ -3015,19 +3093,20 @@
             "name": "TransferId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The tranfer id"
           }
         ],
         "responses": {
+          "204": {
+            "description": "Transfer"
+          },
           "500": {
-            "description": "",
+            "description": "Internal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
-          },
-          "204": {
-            "description": ""
           }
         }
       },
@@ -3035,6 +3114,7 @@
         "tags": [
           "Transfer"
         ],
+        "summary": "Get Transferdetail",
         "operationId": "Transfer_Get",
         "parameters": [
           {
@@ -3042,21 +3122,22 @@
             "name": "TransferId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The tranfer id"
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
+          "200": {
+            "description": "TransferDetail",
             "schema": {
-              "$ref": "#/definitions/PictureparkException"
+              "$ref": "#/definitions/TransferDetail"
             },
             "x-nullable": true
           },
-          "200": {
-            "description": "",
+          "500": {
+            "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/TransferDetail"
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -3068,6 +3149,7 @@
         "tags": [
           "Transfer"
         ],
+        "summary": "Get File",
         "operationId": "Transfer_GetFile",
         "parameters": [
           {
@@ -3075,21 +3157,22 @@
             "name": "FileTransferId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The filetransfer id"
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
+          "200": {
+            "description": "FileTransferDetail",
             "schema": {
-              "$ref": "#/definitions/PictureparkException"
+              "$ref": "#/definitions/FileTransferDetail"
             },
             "x-nullable": true
           },
-          "200": {
-            "description": "",
+          "500": {
+            "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/FileTransferDetail"
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -3101,6 +3184,7 @@
         "tags": [
           "Transfer"
         ],
+        "summary": "Delete Transfer",
         "operationId": "Transfer_ImportBatch",
         "parameters": [
           {
@@ -3108,7 +3192,8 @@
             "name": "TransferId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The tranfer id"
           },
           {
             "name": "request",
@@ -3117,21 +3202,22 @@
             "schema": {
               "$ref": "#/definitions/FileTransfer2ContentCreateRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The filetransfer to content create request"
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
+          "200": {
+            "description": "Transfer",
             "schema": {
-              "$ref": "#/definitions/PictureparkException"
+              "$ref": "#/definitions/Transfer"
             },
             "x-nullable": true
           },
-          "200": {
-            "description": "",
+          "500": {
+            "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/Transfer"
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -3143,6 +3229,7 @@
         "tags": [
           "Transfer"
         ],
+        "summary": "Create a partial import",
         "operationId": "Transfer_PartialImport",
         "parameters": [
           {
@@ -3150,7 +3237,8 @@
             "name": "TransferId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The transfer id"
           },
           {
             "name": "request",
@@ -3159,21 +3247,22 @@
             "schema": {
               "$ref": "#/definitions/FileTransferPartial2ContentCreateRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The filetransfer partial to content create request"
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "",
             "schema": {
               "$ref": "#/definitions/Transfer"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -3185,6 +3274,7 @@
         "tags": [
           "Transfer"
         ],
+        "summary": "Search ",
         "operationId": "Transfer_Search",
         "parameters": [
           {
@@ -3194,21 +3284,22 @@
             "schema": {
               "$ref": "#/definitions/TransferSearchRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The transfer search request"
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
+          "200": {
+            "description": "TransferSearchResult",
             "schema": {
-              "$ref": "#/definitions/PictureparkException"
+              "$ref": "#/definitions/TransferSearchResult"
             },
             "x-nullable": true
           },
-          "200": {
-            "description": "",
+          "500": {
+            "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/TransferSearchResult"
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -3220,6 +3311,7 @@
         "tags": [
           "Transfer"
         ],
+        "summary": "Search for files",
         "operationId": "Transfer_SearchFiles",
         "parameters": [
           {
@@ -3229,21 +3321,22 @@
             "schema": {
               "$ref": "#/definitions/FileTransferSearchRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The file transfer search request"
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
+          "200": {
+            "description": "FileTransferSearchResult",
             "schema": {
-              "$ref": "#/definitions/PictureparkException"
+              "$ref": "#/definitions/FileTransferSearchResult"
             },
             "x-nullable": true
           },
-          "200": {
-            "description": "",
+          "500": {
+            "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/FileTransferSearchResult"
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -3264,17 +3357,18 @@
             "type": "file",
             "name": "formFile",
             "in": "formData",
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "Gets or sets the form file."
           },
           {
             "type": "string",
-            "name": "flowRelativePath",
+            "name": "relativePath",
             "in": "query",
             "x-nullable": true
           },
           {
             "type": "integer",
-            "name": "flowChunkNumber",
+            "name": "chunkNumber",
             "in": "query",
             "x-nullable": false,
             "description": "Starts with 1",
@@ -3282,21 +3376,21 @@
           },
           {
             "type": "integer",
-            "name": "flowCurrentChunkSize",
+            "name": "currentChunkSize",
             "in": "query",
             "x-nullable": false,
             "format": "int64"
           },
           {
             "type": "integer",
-            "name": "flowTotalSize",
+            "name": "totalSize",
             "in": "query",
             "x-nullable": false,
             "format": "int64"
           },
           {
             "type": "integer",
-            "name": "flowTotalChunks",
+            "name": "totalChunks",
             "in": "query",
             "x-nullable": false,
             "format": "int64"
@@ -3321,7 +3415,7 @@
             "description": ""
           },
           "500": {
-            "description": "",
+            "description": "Internal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
@@ -3335,6 +3429,7 @@
         "tags": [
           "User"
         ],
+        "summary": "Search for users",
         "operationId": "User_Search",
         "parameters": [
           {
@@ -3344,14 +3439,22 @@
             "schema": {
               "$ref": "#/definitions/UserSearchRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "The user search request"
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "UserSearchResult",
             "schema": {
               "$ref": "#/definitions/UserSearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -3363,6 +3466,7 @@
         "tags": [
           "User"
         ],
+        "summary": "Get Userdetail by id",
         "operationId": "User_GetUser",
         "parameters": [
           {
@@ -3370,14 +3474,22 @@
             "name": "userId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The user id"
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "UserDetail",
             "schema": {
               "$ref": "#/definitions/UserDetail"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -3389,6 +3501,7 @@
         "tags": [
           "User"
         ],
+        "summary": "Get userdetail by owner token",
         "operationId": "User_GetByOwnerToken",
         "parameters": [
           {
@@ -3396,21 +3509,22 @@
             "name": "TokenId",
             "in": "path",
             "required": true,
-            "x-nullable": false
+            "x-nullable": false,
+            "description": "The token id"
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
+          "200": {
+            "description": "UserDetail",
             "schema": {
-              "$ref": "#/definitions/PictureparkException"
+              "$ref": "#/definitions/UserDetail"
             },
             "x-nullable": true
           },
-          "200": {
-            "description": "",
+          "500": {
+            "description": "Internal server error",
             "schema": {
-              "$ref": "#/definitions/UserDetail"
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -3422,16 +3536,10 @@
         "tags": [
           "User"
         ],
+        "summary": "Get List of Channels",
         "operationId": "User_GetChannels",
         "parameters": [],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "",
             "schema": {
@@ -3439,6 +3547,13 @@
               "items": {
                 "$ref": "#/definitions/Channel"
               }
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -3609,16 +3724,16 @@
     },
     "ContentDetail": {
       "type": "object",
+      "description": "A content detail.",
       "additionalProperties": false,
       "required": [
         "contentType",
-        "contentTypeId",
         "entityType",
         "trashed"
       ],
       "properties": {
         "audit": {
-          "description": "Document audit information with information regarding document creation and modification.",
+          "description": "Audit data with information regarding document creation and modification.",
           "allOf": [
             {
               "$ref": "#/definitions/StoreAudit"
@@ -3626,7 +3741,7 @@
           ]
         },
         "content": {
-          "description": "The content data of the content document."
+          "description": "The content data"
         },
         "contentPermissionSetIds": {
           "type": "array",
@@ -3637,23 +3752,18 @@
         },
         "contentSchemaId": {
           "type": "string",
-          "description": "The id of the schema with schema type content."
+          "description": "The id of the content schema"
         },
         "contentType": {
-          "description": "The content type of a content document.",
+          "description": "The type of content",
           "allOf": [
             {
               "$ref": "#/definitions/ContentType"
             }
           ]
         },
-        "contentTypeId": {
-          "type": "integer",
-          "description": "The content type of a content document.",
-          "format": "int32"
-        },
         "displayValues": {
-          "description": "Contains language specific display values, rendered according to the content schema's display pattern configuration.",
+          "description": "Contains language specific display values, rendered according to the content schema's\n             display pattern configuration.",
           "allOf": [
             {
               "$ref": "#/definitions/DisplayValueDictionary"
@@ -3661,7 +3771,7 @@
           ]
         },
         "entityType": {
-          "description": "The entity type of a content document is content.",
+          "description": "The entity type",
           "allOf": [
             {
               "$ref": "#/definitions/EntityType"
@@ -3674,13 +3784,13 @@
         },
         "layerSchemaIds": {
           "type": "array",
-          "description": "An optional id list of schemas with schema type layer.",
+          "description": "An optional list of layer schemas ids",
           "items": {
             "type": "string"
           }
         },
         "metadata": {
-          "description": "The layer metadata of the content document.",
+          "description": "The metadata dictionary",
           "allOf": [
             {
               "$ref": "#/definitions/DataDictionary"
@@ -3689,7 +3799,7 @@
         },
         "outputs": {
           "type": "array",
-          "description": "A list of rendering ouputs for contents with an underlying digital file.",
+          "description": "A list of rendering ouputs for underlying digital file.",
           "items": {
             "$ref": "#/definitions/Output"
           }
@@ -5911,7 +6021,7 @@
     },
     "ThumbnailSize": {
       "type": "string",
-      "description": "",
+      "description": "Values that represent thumbnail sizes.",
       "x-enumNames": [
         "Small",
         "Medium",
@@ -6849,6 +6959,7 @@
     },
     "ListItemSearchResult": {
       "type": "object",
+      "description": "Encapsulates the result of a list item search.",
       "additionalProperties": false,
       "allOf": [
         {
@@ -7938,13 +8049,15 @@
     },
     "ExistsResponse": {
       "type": "object",
+      "description": "Response that tells if exists",
       "additionalProperties": false,
       "required": [
         "exists"
       ],
       "properties": {
         "exists": {
-          "type": "boolean"
+          "type": "boolean",
+          "description": "Gets or sets a value indicating whether it exists"
         }
       }
     },
@@ -8296,7 +8409,8 @@
         "ManageCollections",
         "ManageListItems",
         "ManageServiceProviders",
-        "ManageEmbeds"
+        "ManageEmbeds",
+        "ManageTemplates"
       ],
       "enum": [
         "ManageContent",
@@ -8314,7 +8428,8 @@
         "ManageCollections",
         "ManageListItems",
         "ManageServiceProviders",
-        "ManageEmbeds"
+        "ManageEmbeds",
+        "ManageTemplates"
       ]
     },
     "PermissionSetSearchRequest": {
@@ -8728,16 +8843,11 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "contentTypeId",
         "trashed",
         "entityType",
         "contentType"
       ],
       "properties": {
-        "contentTypeId": {
-          "type": "integer",
-          "format": "int32"
-        },
         "trashed": {
           "type": "boolean"
         },
@@ -9330,6 +9440,45 @@
       "properties": {
         "shareId": {
           "type": "string"
+        }
+      }
+    },
+    "ShareSearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "limit"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string",
+          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to empty."
+        },
+        "sort": {
+          "type": "array",
+          "description": "Sorts the search results. Sorting on a not indexed field will throw an exception.",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        },
+        "start": {
+          "type": "integer",
+          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+          "format": "int32"
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Limits the document count of the result set. Defaults to 30.",
+          "format": "int32"
+        },
+        "filter": {
+          "description": "An optional search filter. Limits the share document result set.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         }
       }
     },
@@ -14685,26 +14834,11 @@
         "lastName": {
           "type": "string"
         },
-        "company": {
+        "languageCode": {
           "type": "string"
         },
         "address": {
-          "type": "string"
-        },
-        "alternativeAddress": {
-          "type": "string"
-        },
-        "department": {
-          "type": "string"
-        },
-        "zip": {
-          "type": "string"
-        },
-        "city": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
+          "$ref": "#/definitions/UserAddress"
         },
         "authorizationState": {
           "$ref": "#/definitions/AuthorizationState"
