@@ -117,20 +117,17 @@ namespace Picturepark.SDK.V1
                                             response.Stream.CopyTo(fileStream);
                                         }
                                     }
-                                    if (successDelegate != null)
-                                        successDelegate.Invoke(contentDetail);
+	                                successDelegate?.Invoke(contentDetail);
                                 }
                                 catch (Exception ex)
                                 {
-                                    if (errorDelegate != null)
-                                        errorDelegate.Invoke(ex);
+	                                errorDelegate?.Invoke(ex);
                                 }
                             }
                         }
                         catch (Exception ex)
                         {
-                            if (errorDelegate != null)
-                                errorDelegate.Invoke(ex);
+	                        errorDelegate?.Invoke(ex);
                         }
                     }
                     finally
