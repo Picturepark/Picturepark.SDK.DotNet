@@ -26,7 +26,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldAggregateByChannel()
 		{
-			string channelId = "rootChannel";
+			var channelId = "rootChannel";
 
 			var request = new ContentAggregationRequest() { SearchString = string.Empty };
 			ObjectAggregationResult result = await _client.Contents.AggregateByChannelAsync(channelId, request);
@@ -94,19 +94,19 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Contents")]
-		public async Task ShouldCreateBatchContentDownload()
+		public async Task ShouldCreateDownloadLinks()
 		{
-			var request = new ContentBatchDownloadRequest()
+			var request = new ContentBatchDownloadRequest
 			{
 				Contents = new List<ContentDownloadItem>()
 			};
-			string contentId1 = _fixture.GetRandomContentId(".jpg", 50);
-			string contentId2 = _fixture.GetRandomContentId(".jpg", 50);
+			var contentId1 = _fixture.GetRandomContentId(".jpg", 50);
+			var contentId2 = _fixture.GetRandomContentId(".jpg", 50);
 			Assert.False(string.IsNullOrEmpty(contentId1));
 
-			request.Contents.Add(new ContentDownloadItem() { ContentId = contentId1, OutputFormatId = "Original" });
+			request.Contents.Add(new ContentDownloadItem { ContentId = contentId1, OutputFormatId = "Original" });
 			if (contentId1 != contentId2)
-				request.Contents.Add(new ContentDownloadItem() { ContentId = contentId2, OutputFormatId = "Original" });
+				request.Contents.Add(new ContentDownloadItem { ContentId = contentId2, OutputFormatId = "Original" });
 
 			ContentBatchDownloadItem result = await _client.Contents.CreateDownloadLinkAsync(request);
 			Assert.True(result.DownloadToken != null);
@@ -346,7 +346,7 @@ namespace Picturepark.SDK.V1.Tests
 			};
 			var directoryPath = Path.GetDirectoryName(filePaths.First());
 			string transferName = nameof(ShouldUpdateFile) + "-" + new Random().Next(1000, 9999).ToString();
-			Transfer transfer = await _client.Transfers.CreateBatchAsync(filePaths.Select(file => Path.GetFileName(file)).ToList(), transferName);
+			Transfer transfer = await _client.Transfers.CreateTransferAsync(filePaths.Select(file => Path.GetFileName(file)).ToList(), transferName);
 
 			// Upload file
 			await _client.Transfers.UploadFilesAsync(
@@ -422,7 +422,7 @@ namespace Picturepark.SDK.V1.Tests
 			ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);
 			Assert.True(contentDetail.EntityType == EntityType.Content);
 
-			var contentPermissionSetIds = new List<string>() { "aaa" + new Random().Next(0, 999).ToString(), "bbb" + new Random().Next(0, 999).ToString() };
+			var contentPermissionSetIds = new List<string> { "aaa" + new Random().Next(0, 999), "bbb" + new Random().Next(0, 999) };
 			contentDetail.ContentPermissionSetIds = contentPermissionSetIds;
 
 			BusinessProcess result = await _client.Contents.UpdatePermissionsManyAsync(new List<UpdateContentPermissionsRequest> { new UpdateContentPermissionsRequest { ContentId = contentDetail.Id, ContentPermissionSetIds = contentDetail.ContentPermissionSetIds } });
@@ -431,8 +431,8 @@ namespace Picturepark.SDK.V1.Tests
 			contentDetail = await _client.Contents.GetAsync(contentId);
 			var currentContentPermissionSetIds = contentDetail.ContentPermissionSetIds.Select(i => i).ToList();
 
-			Assert.True(contentPermissionSetIds.Except(currentContentPermissionSetIds).Count() == 0);
-			Assert.True(currentContentPermissionSetIds.Except(contentPermissionSetIds).Count() == 0);
+			Assert.True(!contentPermissionSetIds.Except(currentContentPermissionSetIds).Any());
+			Assert.True(!currentContentPermissionSetIds.Except(contentPermissionSetIds).Any());
 		}
 	}
 }

@@ -2,10 +2,8 @@
 using Picturepark.SDK.V1.Tests.Fixtures;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -24,64 +22,20 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
-		public async Task ShouldCreateBatchAndUploadFiles()
+		public async Task ShouldCreateTransferFromFiles()
 		{
-			var filePaths = new List<string>
-			{
-				Path.Combine(_fixture.ExampleFilesBasePath, "0322_ERSauUNQ3ag.jpg"),
-				Path.Combine(_fixture.ExampleFilesBasePath, "0314_JYFmYif4n70.jpg"),
-				Path.Combine(_fixture.ExampleFilesBasePath, "0050_6qORI5j_6n8.jpg")
-			};
-			string transferName = nameof(ShouldCreateBatchAndUploadFiles) + "-" + new Random().Next(1000, 9999).ToString();
-			List<string> fileNames = filePaths.Select(Path.GetFileName).ToList();
+			var transferName = new Random().Next(1000, 9999).ToString();
+			var files = new List<string> { Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg") };
 
-			// Create batch
-			Transfer transfer = await _client.Transfers.CreateBatchAsync(fileNames, transferName);
-
-			// Upload files
-			string directoryPath = Path.GetDirectoryName(filePaths.First());
-
-			await _client.Transfers.UploadFilesAsync(
-				filePaths,
-				directoryPath,
-				transfer,
-				successDelegate: (file) =>
-				{
-					Console.WriteLine(file);
-				},
-				errorDelegate: (error) =>
-				{
-					Console.WriteLine(error);
-				}
-			);
-
-			// Import batch
-			await ImportBatchAsync(transfer, transferName);
-
-			// Import metadata
-			var request = new FileTransferSearchRequest() { Limit = 1000 };
-			FileTransferSearchResult fileTransferSearchResult = await _client.Transfers.SearchFilesAsync(request);
-			string fileTransferId = fileTransferSearchResult.Results.Where(i => i.TransferId == transfer.Id).Select(i => i.Id).FirstOrDefault();
-
-			// Todo SAF
-			// Program.metadataApiExamples.ImportMetadata(null, fileTransferId);
+			var result = await _client.Transfers.CreateTransferAsync(files, transferName);
+			Assert.NotNull(result);
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
-		public async Task ShouldCreateBatchFromFiles()
+		public async Task ShouldCreateTransferFromWebUrls()
 		{
-			string batchName = new Random().Next(1000, 9999).ToString();
-			var files = new List<string>() { Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg") };
-
-			Transfer result = await _client.Transfers.CreateBatchAsync(files, batchName);
-		}
-
-		[Fact]
-		[Trait("Stack", "Transfers")]
-		public async Task ShouldCreateBatchFromWebUrls()
-		{
-			string batchName = "UrlImport " + new Random().Next(1000, 9999).ToString();
+			var transferName = "UrlImport " + new Random().Next(1000, 9999);
 
 			var urls = new List<string>
 			{
@@ -90,14 +44,15 @@ namespace Picturepark.SDK.V1.Tests
 				"http://cdn3.spiegel.de/images/image-1046236-700_poster_16x9-ymle-1046236.jpg",
 				"https://dgpcopy.next-picturepark.com/Go/A6ZYegLz/D/15/1"
 			};
-			var request = new CreateTransferRequest()
+			var request = new CreateTransferRequest
 			{
-				Name = batchName,
+				Name = transferName,
 				TransferType = TransferType.WebDownload,
-				WebLinks = urls.Select(url => new TransferWebLink() { Url = url, Identifier = Guid.NewGuid().ToString() }).ToList()
+				WebLinks = urls.Select(url => new TransferWebLink { Url = url, Identifier = Guid.NewGuid().ToString() }).ToList()
 			};
 
-			Transfer result = await _client.Transfers.CreateBatchAsync(request);
+			var result = await _client.Transfers.CreateTransferAsync(request);
+			Assert.NotNull(result);
 		}
 
 		[Fact]
@@ -113,10 +68,11 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
-		public async Task ShouldGetBatch()
+		public async Task ShouldGetTransfer()
 		{
 			var transferId = _fixture.GetRandomTransferId(null, 20);
 			TransferDetail result = await _client.Transfers.GetAsync(transferId);
+			Assert.NotNull(result);
 		}
 
 		[Fact]
@@ -125,22 +81,25 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			var fileTransferId = _fixture.GetRandomFileTransferId(20);
 			FileTransferDetail result = await _client.Transfers.GetFileAsync(fileTransferId);
+			Assert.NotNull(result);
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldSearchTransfers()
 		{
-			var request = new TransferSearchRequest() { Limit = 5, SearchString = "*" };
+			var request = new TransferSearchRequest { Limit = 5, SearchString = "*" };
 			TransferSearchResult result = await _client.Transfers.SearchAsync(request);
+			Assert.NotNull(result);
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldSearchFiles()
 		{
-			var request = new FileTransferSearchRequest() { Limit = 20, SearchString = "*" };
+			var request = new FileTransferSearchRequest { Limit = 20, SearchString = "*" };
 			FileTransferSearchResult result = await _client.Transfers.SearchFilesAsync(request);
+			Assert.NotNull(result);
 		}
 
 		[Fact]
@@ -148,35 +107,31 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldUploadAndImportFiles()
 		{
 			const int desiredUploadFiles = 10;
-			string batchName = nameof(ShouldUploadAndImportFiles) + "-" + new Random().Next(1000, 9999).ToString();
+			var transferName = nameof(ShouldUploadAndImportFiles) + "-" + new Random().Next(1000, 9999);
 
 			var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, "*").ToList();
 
-			int numberOfFilesInDir = filesInDirectory.Count;
-			int numberOfUploadFiles = Math.Min(desiredUploadFiles, numberOfFilesInDir);
+			var numberOfFilesInDir = filesInDirectory.Count;
+			var numberOfUploadFiles = Math.Min(desiredUploadFiles, numberOfFilesInDir);
 
-			int randomNumber = new Random().Next(0, numberOfFilesInDir - numberOfUploadFiles);
-			List<string> importFilePaths = filesInDirectory.Skip(randomNumber).Take(numberOfUploadFiles).ToList();
+			var randomNumber = new Random().Next(0, numberOfFilesInDir - numberOfUploadFiles);
+			var importFilePaths = filesInDirectory.Skip(randomNumber).Take(numberOfUploadFiles).ToList();
 
-			Transfer transfer = await _client.Transfers.CreateBatchAsync(importFilePaths.Select(Path.GetFileName).ToList(), batchName);
+			Transfer transfer = await _client.Transfers.CreateTransferAsync(importFilePaths.Select(Path.GetFileName).ToList(), transferName);
 
 			await _client.Transfers.UploadFilesAsync(
 				importFilePaths,
 				_fixture.ExampleFilesBasePath,
 				transfer,
-				successDelegate: (file) =>
-				{
-					Console.WriteLine(file);
-				},
-				errorDelegate: (error) =>
-				{
-					Console.WriteLine(error);
-				});
+				concurrentUploads: 4,
+				chunkSize: 20 * 1024,
+				successDelegate: Console.WriteLine,
+				errorDelegate: Console.WriteLine);
 
-			await ImportBatchAsync(transfer, batchName);
+			await ImportTransferAsync(transfer, transferName);
 		}
 
-		internal async Task ImportBatchAsync(Transfer transfer, string collectionName)
+		internal async Task ImportTransferAsync(Transfer transfer, string collectionName)
 		{
 			var request = new FileTransfer2ContentCreateRequest
 			{
@@ -186,7 +141,7 @@ namespace Picturepark.SDK.V1.Tests
 				LayerSchemaIds = new List<string>()
 			};
 
-			await _client.Transfers.ImportBatchAsync(transfer, request);
+			await _client.Transfers.ImportTransferAsync(transfer, request);
 		}
 	}
 }

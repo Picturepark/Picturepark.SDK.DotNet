@@ -1188,7 +1188,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<Transfer> ImportBatchAsync(string transferId, FileTransfer2ContentCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Transfer> ImportTransferAsync(string transferId, FileTransfer2ContentCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Create a partial import</summary>
         /// <param name="transferId">The transfer id</param>

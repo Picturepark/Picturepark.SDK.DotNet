@@ -8016,7 +8016,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         public Transfer ImportBatch(string transferId, FileTransfer2ContentCreateRequest request)
         {
-            return System.Threading.Tasks.Task.Run(async () => await ImportBatchAsync(transferId, request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await ImportTransferAsync(transferId, request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Delete Transfer</summary>
@@ -8026,7 +8026,7 @@ namespace Picturepark.SDK.V1
         /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<Transfer> ImportBatchAsync(string transferId, FileTransfer2ContentCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Transfer> ImportTransferAsync(string transferId, FileTransfer2ContentCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (transferId == null)
                 throw new System.ArgumentNullException("transferId");
