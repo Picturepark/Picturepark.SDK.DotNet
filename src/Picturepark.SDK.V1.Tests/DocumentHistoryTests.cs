@@ -26,7 +26,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "DocumentHistory")]
 		public async Task ShouldGet()
 		{
-			string documentId = _fixture.GetRandomContentId("*.jpg", 20);
+			string documentId = _fixture.GetRandomContentId(".jpg", 20);
 			DocumentHistory result = await _client.DocumentHistory.GetAsync(documentId);
 		}
 
@@ -34,7 +34,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "DocumentHistory")]
 		public async Task ShouldGetDifferenceOfContentChange()
 		{
-			string contentId = _fixture.GetRandomContentId("*.jpg", 20);
+			string contentId = _fixture.GetRandomContentId(".jpg", 20);
 			var content = await _client.Contents.GetAsync(contentId);
 
 			var updateRequest = new ContentsMetadataUpdateRequest
@@ -69,7 +69,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "DocumentHistory")]
 		public async Task ShouldGetHistory1()
 		{
-			string documentId = _fixture.GetRandomContentId("*.jpg", 20);
+			string documentId = _fixture.GetRandomContentId(".jpg", 20);
 			long oldVersionId = 1;
 
 			DocumentHistoryDifference result = await _client.DocumentHistory.GetDifferenceLatestAsync(documentId, oldVersionId);
@@ -79,7 +79,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "DocumentHistory")]
 		public async Task ShouldGetHistory2()
 		{
-			string documentId = _fixture.GetRandomContentId("*.jpg", 20);
+			string documentId = _fixture.GetRandomContentId(".jpg", 20);
 			long oldVersionId = 1;
 			long newVersionId = 2;
 
@@ -90,7 +90,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "DocumentHistory")]
 		public async Task ShouldGetVersion()
 		{
-			string documentId = _fixture.GetRandomContentId("*.jpg", 20);
+			string documentId = _fixture.GetRandomContentId(".jpg", 20);
 			string versionId = "1";
 
 			DocumentHistory result = await _client.DocumentHistory.GetVersionAsync(documentId, versionId);

@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.2.0.0 (NJsonSchema v9.2.4.0)",
+  "x-generator": "NSwag v11.7.1.0 (NJsonSchema v9.6.0.0)",
   "swagger": "2.0",
   "info": {
     "title": "Web API Swagger specification",
@@ -38,15 +38,15 @@
           }
         ],
         "responses": {
+          "204": {
+            "description": ""
+          },
           "500": {
-            "description": "",
+            "description": "Internal server error",
             "schema": {
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
-          },
-          "204": {
-            "description": ""
           }
         }
       }
@@ -67,17 +67,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "",
             "schema": {
               "$ref": "#/definitions/CustomerServiceProviderConfiguration"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -107,17 +107,17 @@
           }
         ],
         "responses": {
-          "500": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
           "200": {
             "description": "",
             "schema": {
               "$ref": "#/definitions/CustomerServiceProviderConfiguration"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }

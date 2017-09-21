@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.2.0.0 (NJsonSchema v9.2.4.0)",
+  "x-generator": "NSwag v11.7.1.0 (NJsonSchema v9.6.0.0)",
   "swagger": "2.0",
   "info": {
     "title": "Web API Swagger specification",
@@ -37,6 +37,13 @@
               "$ref": "#/definitions/CustomerConfigurationItem"
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       },
@@ -61,6 +68,13 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/CustomerConfigurationItem"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -89,6 +103,13 @@
               "$ref": "#/definitions/CustomerConfigurationItem"
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       },
@@ -113,6 +134,13 @@
               "type": "boolean"
             },
             "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -139,6 +167,13 @@
               "$ref": "#/definitions/CustomerSearchResult"
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       },
@@ -163,6 +198,13 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/CustomerSearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -192,6 +234,13 @@
               "items": {
                 "$ref": "#/definitions/User"
               }
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -232,6 +281,13 @@
               "$ref": "#/definitions/CustomerConfigurationItem"
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -254,6 +310,13 @@
         "responses": {
           "200": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -268,6 +331,13 @@
         "responses": {
           "200": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -282,6 +352,13 @@
         "responses": {
           "200": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -304,6 +381,13 @@
         "responses": {
           "200": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -326,6 +410,13 @@
         "responses": {
           "200": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -340,6 +431,13 @@
         "responses": {
           "200": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -359,6 +457,13 @@
               "items": {
                 "$ref": "#/definitions/NodeInfo"
               }
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -382,6 +487,13 @@
               }
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -398,6 +510,13 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/VersionInfo"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -424,6 +543,13 @@
         "responses": {
           "200": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -448,6 +574,13 @@
         "responses": {
           "200": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -472,6 +605,13 @@
         "responses": {
           "200": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -501,6 +641,13 @@
               }
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -520,6 +667,13 @@
               "items": {
                 "$ref": "#/definitions/CustomerVersionInfo"
               }
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -546,6 +700,13 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/CustomerVersionInfo"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -575,6 +736,13 @@
         "responses": {
           "200": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -602,6 +770,13 @@
         "responses": {
           "200": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -629,6 +804,13 @@
         "responses": {
           "200": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -655,6 +837,13 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/SnapshotRepository"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -685,6 +874,13 @@
               "$ref": "#/definitions/Snapshot"
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -711,6 +907,13 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/SnapshotRestore"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -741,6 +944,13 @@
               "$ref": "#/definitions/SnapshotRepository"
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -767,6 +977,13 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/Snapshot"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -797,6 +1014,13 @@
               "$ref": "#/definitions/SnapshotRestore"
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
@@ -825,11 +1049,18 @@
               "$ref": "#/definitions/SnapshotCustomerSearchResult"
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
     },
-    "/Backup/Customer/Snapshot/SearchRepositories": {
+    "/Customer/Snapshot/SearchRepositories": {
       "post": {
         "tags": [
           "CloudBackup"
@@ -856,11 +1087,18 @@
               }
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
           }
         }
       }
     },
-    "/Backup/Customer/Clone": {
+    "/Customer/Clone": {
       "post": {
         "tags": [
           "CloudBackup"
@@ -882,6 +1120,13 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/Customer"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
           }
@@ -1740,11 +1985,19 @@
         },
         "audioCodec": {
           "description": "Gets or sets the encoding audio codec.",
-          "$ref": "#/definitions/AudioFormatBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/AudioFormatBase"
+            }
+          ]
         },
         "preset": {
           "description": "Gets or sets the encoding codec preset.",
-          "$ref": "#/definitions/Preset"
+          "allOf": [
+            {
+              "$ref": "#/definitions/Preset"
+            }
+          ]
         },
         "defaultOutputExtension": {
           "type": "string"
@@ -1798,34 +2051,6 @@
           "$ref": "#/definitions/FormatBase"
         }
       ]
-    },
-    "Preset": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "ultrafast",
-        "superfast",
-        "veryfast",
-        "faster",
-        "fast",
-        "medium",
-        "slow",
-        "slower"
-      ],
-      "enum": [
-        "ultrafast",
-        "superfast",
-        "veryfast",
-        "faster",
-        "fast",
-        "medium",
-        "slow",
-        "slower"
-      ]
-    },
-    "IVideoAction": {
-      "type": "object",
-      "additionalProperties": false
     },
     "VideoPresetFormat": {
       "type": "object",
@@ -1939,11 +2164,19 @@
         },
         "profile": {
           "description": "Gets or sets the encoding profile.",
-          "$ref": "#/definitions/Profile"
+          "allOf": [
+            {
+              "$ref": "#/definitions/Profile"
+            }
+          ]
         },
         "coder": {
           "description": "Gets or sets the encoding coder.",
-          "$ref": "#/definitions/Coder"
+          "allOf": [
+            {
+              "$ref": "#/definitions/Coder"
+            }
+          ]
         },
         "bitrate": {
           "type": "integer",
@@ -2139,6 +2372,34 @@
         }
       ]
     },
+    "Preset": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "ultrafast",
+        "superfast",
+        "veryfast",
+        "faster",
+        "fast",
+        "medium",
+        "slow",
+        "slower"
+      ],
+      "enum": [
+        "ultrafast",
+        "superfast",
+        "veryfast",
+        "faster",
+        "fast",
+        "medium",
+        "slow",
+        "slower"
+      ]
+    },
+    "IVideoAction": {
+      "type": "object",
+      "additionalProperties": false
+    },
     "CustomerConfigurationItem": {
       "type": "object",
       "additionalProperties": false,
@@ -2300,6 +2561,756 @@
           "additionalProperties": {
             "type": "string"
           }
+        }
+      ]
+    },
+    "PictureparkException": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "traceLevel",
+        "httpStatusCode",
+        "kind"
+      ],
+      "properties": {
+        "traceLevel": {
+          "$ref": "#/definitions/TraceLevel"
+        },
+        "traceId": {
+          "type": "string"
+        },
+        "traceJobId": {
+          "type": "string"
+        },
+        "httpStatusCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "kind": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/Exception"
+        }
+      ]
+    },
+    "TraceLevel": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Critical",
+        "Error",
+        "Warning",
+        "Information",
+        "Verbose"
+      ],
+      "enum": [
+        "Critical",
+        "Error",
+        "Warning",
+        "Information",
+        "Verbose"
+      ]
+    },
+    "Exception": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "innerException": {
+          "$ref": "#/definitions/Exception"
+        },
+        "stackTrace": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      }
+    },
+    "PictureparkApplicationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "PictureparkBusinessException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        },
+        "customerAlias": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "PictureparkArgumentNullException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "argumentName": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "ContentNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "BusinessProcessDefinitionCreateException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "processDefinitionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "BusinessProcessDefinitionNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "processDefinitionId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "BusinessProcessNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "businessProcessId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "CustomerHostNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "hostName": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "CustomerNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "DocumentNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "documentId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "DocumentVersionNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "documentId": {
+          "type": "string"
+        },
+        "documentVersion": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "DriveRequestException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "DuplicateRightException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "permissionSetId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "DuplicateDocumentException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "documentId": {
+          "type": "string"
+        },
+        "documentType": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "DuplicateAggregatorException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aggregatorName": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "FailedToLockException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "resourceId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "IndexException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "indexName": {
+          "type": "string"
+        },
+        "debugInformation": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "InvalidArgumentException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "argumentName": {
+          "type": "string"
+        },
+        "argumentValue": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "InvalidCustomerException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "PictureparkInvalidMetadataException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "metadataErrors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MetadataError"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "MetadataError": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lineNumber",
+        "linePosition"
+      ],
+      "properties": {
+        "errorType": {
+          "type": "string"
+        },
+        "lineNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "linePosition": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "path": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "schemaId": {
+          "type": "string"
+        }
+      }
+    },
+    "InvalidStateTransitionException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "transition": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/InvalidStateException"
+        }
+      ]
+    },
+    "InvalidStateException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "resourceId": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "InvalidUserOrPasswordException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "PictureparkMappingException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "indexName": {
+          "type": "string"
+        },
+        "debugInformation": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "MessagePerformerTaskCanceledException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "messageId": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "NotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reference": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "ObjectStoreException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rowErrorMessages": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "ObjectStoreResponseException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rowErrorMessages": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "PictureparkOperationCanceledException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cancellationToken": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "OperationTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "messageId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "OutputNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string"
+        },
+        "outputFormatId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "PermissionException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "permission": {
+          "type": "string"
+        },
+        "operation": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "QueryException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "debugInformation": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "RenderingException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "RenderingJobItemNotSetException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "ServiceProviderCreateException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "virtualHost": {
+          "type": "string"
+        },
+        "detailErrorMessage": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "ServiceProviderDeleteException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "serviceProviderId": {
+          "type": "string"
+        },
+        "detailedErrorMessage": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "ServiceProviderNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "missingServiceProviderId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "TokenValidationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "UnknownException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exceptionDetail": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "UserNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "missingUserId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "UserPermanentlyRemovedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "removedUserId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "UserRoleAssignedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userRoleId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "UserRolesRightsAssignedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentPermissionSetId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
         }
       ]
     },
@@ -2583,7 +3594,11 @@
       "properties": {
         "filter": {
           "description": "Limits the result set.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2602,7 +3617,11 @@
         },
         "range": {
           "description": "The date range. Supported pattern: now(+-)(int)(YMDHm).",
-          "$ref": "#/definitions/DateRange"
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateRange"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2618,7 +3637,11 @@
       "properties": {
         "names": {
           "description": "Tranlsated range names.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
         "from": {
           "type": "string",
@@ -2655,11 +3678,19 @@
         },
         "topLeft": {
           "description": "The top left longitude/latitude configuration.",
-          "$ref": "#/definitions/GeoLocation"
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         },
         "bottomRight": {
           "description": "The bottom right longitude/latitude configuration.",
-          "$ref": "#/definitions/GeoLocation"
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2699,7 +3730,11 @@
         },
         "location": {
           "description": "The longitude/latitude configuration for the point of origin.",
-          "$ref": "#/definitions/GeoLocation"
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         },
         "distance": {
           "type": "number",
@@ -2723,11 +3758,19 @@
         },
         "location": {
           "description": "The longitude/latitude configuration for the point of origin.",
-          "$ref": "#/definitions/GeoLocation"
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         },
         "range": {
           "description": "The numeric range.",
-          "$ref": "#/definitions/NumericRange"
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumericRange"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2742,7 +3785,11 @@
       "properties": {
         "names": {
           "description": "Tranlsated range names.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
         "from": {
           "type": "number",
@@ -2766,7 +3813,11 @@
         },
         "filter": {
           "description": "Limits the result set.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2785,7 +3836,11 @@
         },
         "range": {
           "description": "The numeric range with from and to properties.",
-          "$ref": "#/definitions/NumericRange"
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumericRange"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2865,7 +3920,11 @@
         },
         "filter": {
           "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         },
         "temporaryAggregatorRequestId": {
           "type": "string"
@@ -2887,7 +3946,11 @@
         },
         "filter": {
           "description": "The filter to apply on the child entity. It accepts all filters.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2906,7 +3969,11 @@
         },
         "filter": {
           "description": "The filter to apply on the child entity. It accepts all filters.",
-          "$ref": "#/definitions/FilterBase"
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         }
       },
       "allOf": [
@@ -3013,7 +4080,11 @@
       "properties": {
         "deactivationMessage": {
           "description": "Language specific deactivation messages.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         }
       }
     },
@@ -3063,7 +4134,11 @@
         },
         "deactivationMessage": {
           "description": "Language specific deactivation messages.",
-          "$ref": "#/definitions/TranslatedStringDictionary"
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         }
       }
     },
@@ -3176,7 +4251,11 @@
         },
         "reason": {
           "description": "The snapshot backup reason will be added to the snapshot name.",
-          "$ref": "#/definitions/BackupReason"
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupReason"
+            }
+          ]
         },
         "timestamp": {
           "type": "string",
