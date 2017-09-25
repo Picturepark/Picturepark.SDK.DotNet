@@ -17,7 +17,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 		{
 			if (await Client.Schemas.ExistsAsync(nameof(Tag)) == false)
 			{
-				var schema = Client.Schemas.GenerateSchemaFromPOCO(typeof(Tag), new List<SchemaDetail> { });
+				var schema = Client.Schemas.GenerateSchemaFromPOCO(typeof(Tag));
 				await Client.Schemas.CreateAsync(schema.First(), true);
 			}
 		}

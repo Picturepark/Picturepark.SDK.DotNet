@@ -6,7 +6,7 @@ namespace Picturepark.SDK.V1.Contract
 {
 	public partial interface ISchemaClient
 	{
-		List<SchemaDetail> GenerateSchemaFromPOCO(Type type, List<SchemaDetail> schemaList, bool generateDependencySchema = true);
+		List<SchemaDetail> GenerateSchemaFromPOCO(Type type, List<SchemaDetail> schemaList = null, bool generateDependencySchema = true);
 
 		Task CreateOrUpdateAsync(SchemaDetail schema, bool enableForBinaryFiles);
 

@@ -18,8 +18,11 @@ namespace Picturepark.SDK.V1
 			_businessProcessClient = businessProcessesClient;
 		}
 
-		public List<SchemaDetail> GenerateSchemaFromPOCO(Type type, List<SchemaDetail> schemaList, bool generateDependencySchema = true)
+		public List<SchemaDetail> GenerateSchemaFromPOCO(Type type, List<SchemaDetail> schemaList = null, bool generateDependencySchema = true)
 		{
+			if (schemaList == null)
+				schemaList = new List<SchemaDetail>();
+
 			var schemaConverter = new ClassToSchemaConverter();
 			return schemaConverter.Generate(type, schemaList, generateDependencySchema);
 		}

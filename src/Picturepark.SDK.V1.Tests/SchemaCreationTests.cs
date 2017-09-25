@@ -25,8 +25,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "SchemaCreation")]
 		public void ShouldIgnoreJsonProperty()
 		{
-			var schemas = new List<SchemaDetail>();
-			var jsonTransform = _client.Schemas.GenerateSchemaFromPOCO(typeof(JsonTransform), schemas, true);
+			var jsonTransform = _client.Schemas.GenerateSchemaFromPOCO(typeof(JsonTransform));
 			var schema = jsonTransform.First();
 
 			Assert.False(schema.Fields.Any(i => i.Id == nameof(JsonTransform.IgnoredString)));
@@ -45,8 +44,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "SchemaCreation")]
 		public void ShouldUseRenamedJsonProperty()
 		{
-			var schemas = new List<SchemaDetail>();
-			var jsonTransform = _client.Schemas.GenerateSchemaFromPOCO(typeof(JsonTransform), schemas, true);
+			var jsonTransform = _client.Schemas.GenerateSchemaFromPOCO(typeof(JsonTransform));
 			var schemaJsonTransform = jsonTransform.First(i => i.Id == nameof(JsonTransform));
 
 			Assert.False(schemaJsonTransform.Fields.Any(i => i.Id == nameof(JsonTransform.OldName).ToLowerCamelCase()));

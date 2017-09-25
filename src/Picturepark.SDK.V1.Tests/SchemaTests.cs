@@ -26,9 +26,7 @@ namespace Picturepark.SDK.V1.Tests
 
 		public async Task ShouldCreateAllTypesSchemaFromClass()
 		{
-			var schemas = new List<SchemaDetail>();
-
-			var allTypes = _client.Schemas.GenerateSchemaFromPOCO(typeof(AllDataTypesContract), schemas, true);
+			var allTypes = _client.Schemas.GenerateSchemaFromPOCO(typeof(AllDataTypesContract));
 
 			foreach (var schema in allTypes)
 			{
@@ -40,9 +38,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Schema")]
 		public async Task ShouldCreateFromClass()
 		{
-			var schemas = new List<SchemaDetail>();
-
-			var person = _client.Schemas.GenerateSchemaFromPOCO(typeof(Person), schemas, true);
+			var person = _client.Schemas.GenerateSchemaFromPOCO(typeof(Person));
 
 			// Expect child schemas and referenced schemas to exist
 			Assert.Equal(person.Count, 8);
@@ -58,8 +54,7 @@ namespace Picturepark.SDK.V1.Tests
 			var generatedPersonSchema = await _client.Schemas.GetAsync("Person");
 			Assert.Contains(generatedPersonSchema.Types, i => i == SchemaType.List || i == SchemaType.Struct );
 
-			var schemasFromPersonShot = new List<SchemaDetail>();
-			var personShot = _client.Schemas.GenerateSchemaFromPOCO(typeof(PersonShot), schemasFromPersonShot, true);
+			var personShot = _client.Schemas.GenerateSchemaFromPOCO(typeof(PersonShot));
 
 			// Expect child schemas and referenced schemas to exist
 			Assert.Equal(personShot.Count, 9);
@@ -77,11 +72,11 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Schema")]
 		public async Task ShouldDelete()
 		{
-			var schemas = new List<SchemaDetail>();
-			var tags = _client.Schemas.GenerateSchemaFromPOCO(typeof(Tag), schemas, true);
+			var tags = _client.Schemas.GenerateSchemaFromPOCO(typeof(Tag));
 
 			Assert.Equal(tags.Count, 1);
 
+			// Modify schema id before submit
 			var tag = tags.First();
 			tag.Id = "SchemaToDelete" + new Random().Next(0, 999999);
 
@@ -91,18 +86,8 @@ namespace Picturepark.SDK.V1.Tests
 
 			SchemaDetail schemaDetail = await _client.Schemas.GetAsync(schemaId);
 			await _client.Schemas.DeleteAsync(schemaDetail.Id);
-			SchemaDetail deletedSchemaDetail = null;
 
-			try
-			{
-				deletedSchemaDetail = await _client.Schemas.GetAsync(schemaId);
-			}
-			catch (Exception)
-			{
-				// ignored
-			}
-
-			Assert.True(deletedSchemaDetail == null);
+			await Assert.ThrowsAsync<ApiException>(async () => await _client.Schemas.GetAsync(schemaId));
 		}
 
 		[Fact]
@@ -123,7 +108,7 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldGet()
 		{
 			var request = new SchemaSearchRequest() { Start = 0, Limit = 100 };
-			BaseResultOfSchema result = _client.Schemas.SearchAsync(request).Result;
+			var result = _client.Schemas.SearchAsync(request).Result;
 			Assert.True(result.Results.Any());
 
 			List<string> schemaIds = result.Results.Select(i => i.Id).OrderBy(i => i).ToList();
@@ -156,7 +141,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			var result = await _client.JsonSchemas.GetAsync(schemaId);
 			var stringResult = result.ToString(Formatting.Indented);
-			Assert.NotNull(result);
+			Assert.NotNull(stringResult);
 		}
 
 		[Fact]
@@ -210,7 +195,7 @@ namespace Picturepark.SDK.V1.Tests
 				SearchString = "D*"
 			};
 
-			BaseResultOfSchema result = await _client.Schemas.SearchAsync(searchRequest);
+			var result = await _client.Schemas.SearchAsync(searchRequest);
 			Assert.True(result.Results.Any());
 		}
 
@@ -236,9 +221,7 @@ namespace Picturepark.SDK.V1.Tests
 
 		public async Task ShouldCreateFromClassGeneric<T>() where T : class
 		{
-			var schemas = new List<SchemaDetail>();
-
-			var childSchemas = _client.Schemas.GenerateSchemaFromPOCO(typeof(T), schemas, true);
+			var childSchemas = _client.Schemas.GenerateSchemaFromPOCO(typeof(T));
 
 			foreach (var schema in childSchemas)
 			{

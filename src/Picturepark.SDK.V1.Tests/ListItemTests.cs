@@ -86,7 +86,7 @@ namespace Picturepark.SDK.V1.Tests
 				}
 			};
 
-			IEnumerable<ListItem> results = await _client.ListItems.CreateManyAsync(objects);
+			var results = await _client.ListItems.CreateManyAsync(objects);
 			Assert.Equal(results.Count(), 1);
 
 			var result = results.First();
@@ -231,7 +231,7 @@ namespace Picturepark.SDK.V1.Tests
 					Term = SchemaType.List.ToString()
 				}
 			};
-			BaseResultOfSchema result = _client.Schemas.Search(request);
+			var result = _client.Schemas.Search(request);
 			Assert.True(result.Results.Any());
 
 			string objectId = null;
@@ -258,7 +258,7 @@ namespace Picturepark.SDK.V1.Tests
 			// Get a list of MetadataSchemaIds
 			// ---------------------------------------------------------------------------
 			var searchRequestSchema = new SchemaSearchRequest { Start = 0, Limit = 999, Filter = new TermFilter { Field = "types", Term = SchemaType.List.ToString() } };
-			BaseResultOfSchema searchResultSchema = _client.Schemas.Search(searchRequestSchema);
+			var searchResultSchema = _client.Schemas.Search(searchRequestSchema);
 			Assert.True(searchResultSchema.Results.Any());
 
 			List<string> metadataSchemaIds = searchResultSchema.Results.Select(i => i.Id).OrderBy(i => i).ToList();

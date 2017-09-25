@@ -79,35 +79,34 @@ namespace Picturepark.SDK.V1
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task<IEnumerable<ListItem>> CreateManyAsync(IEnumerable<ListItemCreateRequest> listItems, CancellationToken? cancellationToken = null)
+		public async Task<List<ListItem>> CreateManyAsync(IEnumerable<ListItemCreateRequest> listItems, CancellationToken? cancellationToken = null)
 		{
-			if (listItems.Any())
-			{
-				var createRequest = await CreateManyCoreAsync(listItems, cancellationToken ?? CancellationToken.None);
-				var result = await createRequest.Wait4MetadataAsync(this);
-
-				var bulkResult = result.BusinessProcess as BusinessProcessBulkResponse;
-				if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
-					throw new Exception("Could not save all objects");
-
-				// Fetch created objects
-				var searchResult = await SearchAsync(new ListItemSearchRequest
-				{
-					Start = 0,
-					Limit = 1000,
-					Filter = new TermsFilter
-					{
-						Field = "id",
-						Terms = bulkResult.Response.Rows.Select(i => i.Id).ToList()
-					}
-				});
-
-				return searchResult.Results;
-			}
-			else
+			var listItemCreateRequests = listItems as IList<ListItemCreateRequest> ?? listItems.ToList();
+			if (!listItemCreateRequests.Any())
 			{
 				return new List<ListItem>();
 			}
+
+			var createRequest = await CreateManyCoreAsync(listItemCreateRequests, cancellationToken ?? CancellationToken.None);
+			var result = await createRequest.Wait4MetadataAsync(this);
+
+			var bulkResult = (BusinessProcessBulkResponse)result.BusinessProcess;
+			if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
+				throw new Exception("Could not save all objects");
+
+			// Fetch created objects
+			var searchResult = await SearchAsync(new ListItemSearchRequest
+			{
+				Start = 0,
+				Limit = 1000,
+				Filter = new TermsFilter
+				{
+					Field = "id",
+					Terms = bulkResult.Response.Rows.Select(i => i.Id).ToList()
+				}
+			});
+
+			return searchResult.Results;
 		}
 
 		public async Task UpdateListItemAsync(ListItemUpdateRequest updateRequest)

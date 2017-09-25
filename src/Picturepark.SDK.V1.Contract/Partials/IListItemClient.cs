@@ -23,7 +23,7 @@ namespace Picturepark.SDK.V1.Contract
 		Task<List<ListItem>> CreateFromPOCO(object obj, string schemaId);
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		Task<IEnumerable<ListItem>> CreateManyAsync(IEnumerable<ListItemCreateRequest> listItems, CancellationToken? cancellationToken = null);
+		Task<List<ListItem>> CreateManyAsync(IEnumerable<ListItemCreateRequest> listItems, CancellationToken? cancellationToken = null);
 
 		Task UpdateListItemAsync(ListItemUpdateRequest updateRequest);
 
