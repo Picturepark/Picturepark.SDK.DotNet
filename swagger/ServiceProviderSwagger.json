@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.7.1.0 (NJsonSchema v9.6.0.0)",
+  "x-generator": "NSwag v11.7.2.0 (NJsonSchema v9.6.3.0)",
   "swagger": "2.0",
   "info": {
     "title": "Web API Swagger specification",
@@ -47,6 +47,9 @@
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
           }
         }
       }
@@ -80,6 +83,9 @@
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
           }
         }
       },
@@ -120,6 +126,9 @@
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
           }
         }
       }
