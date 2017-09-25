@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 using System.IO;
@@ -13,8 +12,8 @@ namespace Picturepark.SDK.V1.Tests
 {
 	public class ContentTests : IClassFixture<SDKClientFixture>
 	{
-		private SDKClientFixture _fixture;
-		private PictureparkClient _client;
+		private readonly SDKClientFixture _fixture;
+		private readonly PictureparkClient _client;
 
 		public ContentTests(SDKClientFixture fixture)
 		{
@@ -26,36 +25,47 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldAggregateByChannel()
 		{
-			var channelId = "rootChannel";
+			const string channelId = "rootChannel";
 
-			var request = new ContentAggregationRequest() { SearchString = string.Empty };
-			ObjectAggregationResult result = await _client.Contents.AggregateByChannelAsync(channelId, request);
+			var request = new ContentAggregationRequest { SearchString = string.Empty };
+			var result = await _client.Contents.AggregateByChannelAsync(channelId, request);
 
-			request.Aggregators = new List<AggregatorBase>()
+			// Check default channel aggregation
+			var originalWidthResults = result.AggregationResults.SingleOrDefault(i => i.Name == "Original Width");
+			Assert.NotNull(originalWidthResults);
+			Assert.True(originalWidthResults.AggregationResultItems.Count > 0);
+
+			request.Aggregators = new List<AggregatorBase>
 			{
-				new TermsAggregator { Name = "Test", Field = "ContentType", Size = 10 }
+				new TermsAggregator { Name = "Permissions", Field = "permissionSetIds", Size = 10 }
 			};
 
 			result = await _client.Contents.AggregateByChannelAsync(channelId, request);
+
+			// Check added aggregation
+			var permissionSetResults = result.AggregationResults.SingleOrDefault(i => i.Name == "Permissions");
+			Assert.NotNull(permissionSetResults);
+			Assert.True(permissionSetResults.AggregationResultItems.Count > 0);
 		}
 
 		[Fact]
 		[Trait("Stack", "Contents")]
 		public async Task ShouldAggregateWithAggregators()
 		{
-			//// TODO: finds one content, but logic is not clear. Must be extended and asserted with useful data
-
-			var request = new ContentAggregationRequest() { SearchString = string.Empty };
-			request.Aggregators = new List<AggregatorBase>
+			var request = new ContentAggregationRequest
 			{
-				new TermsAggregator { Name = "Aggregator1", Field = "contentType", Size = 10 }
+				SearchString = string.Empty,
+				Aggregators = new List<AggregatorBase>
+				{
+					new TermsAggregator { Name = "Aggregator1", Field = "contentType", Size = 10 }
+				}
 			};
 
 			// Second Aggregator
-			var ranges = new List<NumericRange>()
+			var ranges = new List<NumericRange>
 			{
-				new NumericRange() { From = null, To = 499,  Names = new TranslatedStringDictionary { { "en", "Aggregator2a" } } },
-				new NumericRange() { From = 500, To = 5000, Names = new TranslatedStringDictionary { { "en", "Aggregator2b" } } }
+				new NumericRange { From = null, To = 499,  Names = new TranslatedStringDictionary { { "en", "Aggregator2a" } } },
+				new NumericRange { From = 500, To = 5000, Names = new TranslatedStringDictionary { { "en", "Aggregator2b" } } }
 			};
 
 			var numRangeAggregator = new NumericRangeAggregator()
@@ -108,8 +118,8 @@ namespace Picturepark.SDK.V1.Tests
 			if (contentId1 != contentId2)
 				request.Contents.Add(new ContentDownloadItem { ContentId = contentId2, OutputFormatId = "Original" });
 
-			ContentBatchDownloadItem result = await _client.Contents.CreateDownloadLinkAsync(request);
-			Assert.True(result.DownloadToken != null);
+			var result = await _client.Contents.CreateDownloadLinkAsync(request);
+			Assert.NotNull(result.DownloadToken);
 		}
 
 		// [Fact]
@@ -259,8 +269,6 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldSearch()
 		{
 			var channelIds = new List<string> { "rootChannel" };
-			var languages = new List<string>();
-			string searchString = "*";
 
 			var sortInfos = new List<SortInfo>
 			{
@@ -270,17 +278,12 @@ namespace Picturepark.SDK.V1.Tests
 			var filter = new TermFilter { Field = "metadataSchemaIds", Term = "Base" };
 			var filter2 = new TermFilter { Field = "audit.createdByUser.id", Term = "Base" };
 
-			// TODO BRO: Implement generic filter creator
-			//// var filter = new Filter().TermFilter<ContentDetail>(i => i.MetadataSchemaIds, "Base");
-			//// var filter2 = new Filter().TermFilter<ContentDetail>(i => i.Audit.CreatedByUser.Id, "Base");
-
-			var and = new AndFilter { Filters = new List<FilterBase> { filter, filter2 } };
-
 			var request = new ContentSearchRequest()
 			{
 				ChannelIds = channelIds,
-				SearchString = searchString,
+				SearchString = "*",
 				Sort = sortInfos,
+				Filter = new AndFilter { Filters = new List<FilterBase> { filter, filter2 } },
 				Start = 0,
 				Limit = 8
 			};
@@ -296,12 +299,12 @@ namespace Picturepark.SDK.V1.Tests
 			string channelId = "rootChannel";
 			string searchString = "*";
 
-			var sortInfos = new List<SortInfo>()
+			var sortInfos = new List<SortInfo>
 			{
 				new SortInfo { Direction = SortDirection.Asc, Field = "audit.creationDate" }
 			};
 
-			var request = new ContentSearchRequest()
+			var request = new ContentSearchRequest
 			{
 				ChannelIds = new List<string> { channelId },
 				SearchString = searchString,
@@ -345,8 +348,8 @@ namespace Picturepark.SDK.V1.Tests
 				Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
 			};
 			var directoryPath = Path.GetDirectoryName(filePaths.First());
-			string transferName = nameof(ShouldUpdateFile) + "-" + new Random().Next(1000, 9999).ToString();
-			Transfer transfer = await _client.Transfers.CreateTransferAsync(filePaths.Select(file => Path.GetFileName(file)).ToList(), transferName);
+			string transferName = nameof(ShouldUpdateFile) + "-" + new Random().Next(1000, 9999);
+			Transfer transfer = await _client.Transfers.CreateTransferAsync(filePaths.Select(Path.GetFileName).ToList(), transferName);
 
 			// Upload file
 			await _client.Transfers.UploadFilesAsync(

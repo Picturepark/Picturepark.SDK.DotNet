@@ -13,8 +13,8 @@ namespace Picturepark.SDK.V1.Tests
 {
 	public class ListItemTests : IClassFixture<ListItemFixture>
 	{
-		private SDKClientFixture _fixture;
-		private PictureparkClient _client;
+		private readonly SDKClientFixture _fixture;
+		private readonly PictureparkClient _client;
 
 		public ListItemTests(ListItemFixture fixture)
 		{
@@ -28,12 +28,12 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			var fieldName = nameof(Country).ToLowerCamelCase() + "." + nameof(Country.RegionCode).ToLowerCamelCase();
 
-			var request = new ListItemAggregationRequest()
+			var request = new ListItemAggregationRequest
 			{
 				SchemaIds = new List<string> { nameof(Country) },
 				Aggregators = new List<AggregatorBase>
 				{
-					{ new TermsAggregator { Name = fieldName, Field = fieldName, Size = 20 } }
+					new TermsAggregator { Name = fieldName, Field = fieldName, Size = 20 }
 				},
 				SearchString = "*"
 			};
@@ -51,7 +51,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "ListItem")]
 		public async Task ShouldCreateAndDeleteObject()
 		{
-			string objectName = "ThisObjectA" + new Random().Next(0, 999999).ToString();
+			string objectName = "ThisObjectA" + new Random().Next(0, 999999);
 
 			var createRequest = new ListItemCreateRequest
 			{
@@ -75,9 +75,9 @@ namespace Picturepark.SDK.V1.Tests
 			// ---------------------------------------------------------------------------
 			// Create Object
 			// ---------------------------------------------------------------------------
-			string objectName = "ThisObjectD" + new Random().Next(0, 999999).ToString();
+			string objectName = "ThisObjectD" + new Random().Next(0, 999999);
 
-			var objects = new List<ListItemCreateRequest>()
+			var objects = new List<ListItemCreateRequest>
 			{
 				new ListItemCreateRequest
 				{
@@ -92,13 +92,13 @@ namespace Picturepark.SDK.V1.Tests
 			var result = results.First();
 
 			// Update object, assign MetadataSchemaIds
-			var request = new ListItemUpdateRequest()
+			var request = new ListItemUpdateRequest
 			{
 				Id = result.Id,
 				Content = new Tag { Name = objectName }
 			};
 
-			var requests = new List<ListItemUpdateRequest>() { request };
+			var requests = new List<ListItemUpdateRequest> { request };
 
 			await _client.ListItems.UpdateListItemAsync(request);
 		}
@@ -107,7 +107,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "ListItem")]
 		public async Task ShouldCreateObject()
 		{
-			string objectName = "ThisObjectB" + new Random().Next(0, 999999).ToString();
+			string objectName = "ThisObjectB" + new Random().Next(0, 999999);
 
 			var listItem = new ListItemCreateRequest
 			{
@@ -127,7 +127,7 @@ namespace Picturepark.SDK.V1.Tests
 			var createdObject = await _client.ListItems.CreateFromPOCO(
 				new Tag
 				{
-					Name = "ThisObjectB" + new Random().Next(0, 999999).ToString()
+					Name = "ThisObjectB" + new Random().Next(0, 999999)
 				}, nameof(Tag));
 		}
 
@@ -186,7 +186,7 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldCreateObjectWithoutHelper()
 		{
 			// Create SoccerPlayer
-			var createRequest = await _client.ListItems.CreateAsync(
+			var player = await _client.ListItems.CreateAsync(
 				new ListItemCreateRequest
 				{
 					ContentSchemaId = "SoccerPlayer",
@@ -198,13 +198,15 @@ namespace Picturepark.SDK.V1.Tests
 						LastName = "Brogle"
 					}
 				});
+
+			Assert.NotNull(player);
 		}
 
 		[Fact]
 		[Trait("Stack", "ListItem")]
 		public async Task ShouldGetObject()
 		{
-			string objectName = "ThisObjectC" + new Random().Next(0, 999999).ToString();
+			string objectName = "ThisObjectC" + new Random().Next(0, 999999);
 
 			var createRequest = new ListItemCreateRequest
 			{
@@ -220,17 +222,17 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "ListItem")]
 		public async Task ShouldGetObjectResolved()
 		{
-			var request = new SchemaSearchRequest()
+			var request = new SchemaSearchRequest
 			{
 				Limit = 100,
-				Filter = new TermFilter()
+				Filter = new TermFilter
 				{
 					Field = "types",
 					Term = SchemaType.List.ToString()
 				}
 			};
 			BaseResultOfSchema result = _client.Schemas.Search(request);
-			Assert.True(result.Results.Count() > 0);
+			Assert.True(result.Results.Any());
 
 			string objectId = null;
 
@@ -255,29 +257,28 @@ namespace Picturepark.SDK.V1.Tests
 			// ---------------------------------------------------------------------------
 			// Get a list of MetadataSchemaIds
 			// ---------------------------------------------------------------------------
-			var searchRequestSchema = new SchemaSearchRequest() { Start = 0, Limit = 999, Filter = new TermFilter() { Field = "types", Term = SchemaType.List.ToString() } };
+			var searchRequestSchema = new SchemaSearchRequest { Start = 0, Limit = 999, Filter = new TermFilter { Field = "types", Term = SchemaType.List.ToString() } };
 			BaseResultOfSchema searchResultSchema = _client.Schemas.Search(searchRequestSchema);
-			Assert.True(searchResultSchema.Results.Count() > 0);
+			Assert.True(searchResultSchema.Results.Any());
 
 			List<string> metadataSchemaIds = searchResultSchema.Results.Select(i => i.Id).OrderBy(i => i).ToList();
 
 			var searchRequestObject = new ListItemSearchRequest() { Start = 0, Limit = 100 };
 			var items = new List<ListItem>();
 			List<string> failedMetadataSchemaIds = new List<string>();
-			BaseResultOfListItem searchResultObject;
 
 			// ---------------------------------------------------------------------------
 			// Loop over all metadataSchemaIds and make a search for each metadataSchemaId
 			// ---------------------------------------------------------------------------
-			foreach (string metadataSchemaId in metadataSchemaIds)
+			foreach (var metadataSchemaId in metadataSchemaIds)
 			{
 				searchRequestObject.SchemaIds = new List<string> { metadataSchemaId };
 
 				try
 				{
-					searchResultObject = await _client.ListItems.SearchAsync(searchRequestObject);
+					var searchResultObject = await _client.ListItems.SearchAsync(searchRequestObject);
 
-					if (searchResultObject.Results.Count() > 0)
+					if (searchResultObject.Results.Any())
 						items.AddRange(searchResultObject.Results);
 				}
 				catch (Exception)
@@ -286,8 +287,8 @@ namespace Picturepark.SDK.V1.Tests
 				}
 			}
 
-			Assert.True(failedMetadataSchemaIds.Count() == 0);
-			Assert.True(items.Count() > 0);
+			Assert.True(!failedMetadataSchemaIds.Any());
+			Assert.True(items.Any());
 		}
 
 		[Fact]
@@ -302,7 +303,7 @@ namespace Picturepark.SDK.V1.Tests
 				SchemaIds = new List<string> { "SoccerPlayer" }
 			});
 
-			Assert.True(players.Results.Count() > 0);
+			Assert.True(players.Results.Any());
 			var playerObjectId = players.Results.First().Id;
 
 			var playerItem = await _client.ListItems.GetAsync(playerObjectId, true);
