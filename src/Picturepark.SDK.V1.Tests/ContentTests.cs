@@ -275,15 +275,14 @@ namespace Picturepark.SDK.V1.Tests
 				new SortInfo { Direction = SortDirection.Asc, Field = PropertyHelper.GetName<ContentDetail>(i => i.Audit.CreationDate) }
 			};
 
-			var filter = new TermFilter { Field = "metadataSchemaIds", Term = "Base" };
-			var filter2 = new TermFilter { Field = "audit.createdByUser.id", Term = "Base" };
+			var filter = new TermFilter { Field = "contentSchemaId", Term = "ImageMetadata" };
 
-			var request = new ContentSearchRequest()
+			var request = new ContentSearchRequest
 			{
 				ChannelIds = channelIds,
 				SearchString = "*",
 				Sort = sortInfos,
-				Filter = new AndFilter { Filters = new List<FilterBase> { filter, filter2 } },
+				Filter = filter,
 				Start = 0,
 				Limit = 8
 			};
