@@ -212,7 +212,7 @@ namespace Picturepark.SDK.V1.Conversion
 			var contactPropertiesInfo = new List<ContractPropertyInfo>();
 
 			var properties = objType
-				.GetRuntimeProperties()
+				.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance)
 				.Where(i => _ignoredProperties.Contains(i.Name) == false)
 				.ToList();
 
@@ -222,7 +222,6 @@ namespace Picturepark.SDK.V1.Conversion
 			foreach (PropertyInfo property in properties)
 			{
 				var typeInfo = property.PropertyType.GetTypeInfo();
-
 				var name = property.Name;
 
 				// Check if name is overridden by JsonProperty attribute
