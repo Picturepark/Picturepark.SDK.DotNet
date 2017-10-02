@@ -301,14 +301,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeactivateAsync(string contentId, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Update file</summary>
+        /// <summary>Update Single - File</summary>
         /// <param name="contentId">The id of the content to replace</param>
         /// <param name="updateRequest">Update request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         BusinessProcess UpdateFile(string contentId, ContentFileUpdateRequest updateRequest);
     
-        /// <summary>Update file</summary>
+        /// <summary>Update Single - File</summary>
         /// <param name="contentId">The id of the content to replace</param>
         /// <param name="updateRequest">Update request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -382,6 +382,21 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> UpdateMetadataManyAsync(ContentsMetadataUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Update by filter - Metadata</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcess UpdateMetadataByFilter(FilterContentsMetadataUpdateRequest updateRequest);
+    
+        /// <summary>Update by filter - Metadata</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> UpdateMetadataByFilterAsync(FilterContentsMetadataUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
         /// <summary>Update Many - Permissions</summary>
         /// <param name="updateRequest">The permissions update request.</param>
         /// <returns>BusinessProcess</returns>
@@ -402,83 +417,83 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
     public partial interface IBusinessProcessClient
     {
-        /// <summary>Search for business process</summary>
+        /// <summary>Search</summary>
         /// <param name="businessProcessSearchRequest">The business process request</param>
         /// <returns>BusinessProcessSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
-        BusinessProcessSearchResult Search(BusinessProcessSearchResult businessProcessSearchRequest);
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcessSearchResult Search(BusinessProcessSearchRequest businessProcessSearchRequest);
     
-        /// <summary>Search for business process</summary>
+        /// <summary>Search</summary>
         /// <param name="businessProcessSearchRequest">The business process request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>BusinessProcessSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<BusinessProcessSearchResult> SearchAsync(BusinessProcessSearchResult businessProcessSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcessSearchResult> SearchAsync(BusinessProcessSearchRequest businessProcessSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Starts a process with given definition</summary>
+        /// <summary>Start</summary>
         /// <param name="processDefinitionId">The process definition id</param>
         /// <param name="request">The start process request</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         BusinessProcess Start(string processDefinitionId, StartProcessRequest request);
     
-        /// <summary>Starts a process with given definition</summary>
+        /// <summary>Start</summary>
         /// <param name="processDefinitionId">The process definition id</param>
         /// <param name="request">The start process request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> StartAsync(string processDefinitionId, StartProcessRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Mark a given process as ended</summary>
+        /// <summary>Mark as ended</summary>
         /// <param name="processId">The process id</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         void MarkAsEnded(string processId);
     
-        /// <summary>Mark a given process as ended</summary>
+        /// <summary>Mark as ended</summary>
         /// <param name="processId">The process id</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task MarkAsEndedAsync(string processId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Send message to given process</summary>
+        /// <summary>Send message</summary>
         /// <param name="processId">The process id</param>
         /// <param name="request">The send message request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         void SendMessage(string processId, SendMessageRequest request);
     
-        /// <summary>Send message to given process</summary>
+        /// <summary>Send message</summary>
         /// <param name="processId">The process id</param>
         /// <param name="request">The send message request</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task SendMessageAsync(string processId, SendMessageRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Wait for given process states</summary>
+        /// <summary>Wait for states</summary>
         /// <param name="processId">The process id</param>
         /// <param name="states">The states to wait for</param>
         /// <param name="timeout">The timeout in ms</param>
         /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         BusinessProcessWaitResult WaitForStates(string processId, string states, int timeout);
     
-        /// <summary>Wait for given process states</summary>
+        /// <summary>Wait for states</summary>
         /// <param name="processId">The process id</param>
         /// <param name="states">The states to wait for</param>
         /// <param name="timeout">The timeout in ms</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, string states, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -714,6 +729,36 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ListItemDetail> UpdateAsync(string listItemId, ListItemUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Update by filter - Fields</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcess UpdateFieldsByFilter(ListItemFieldsFilterUpdateRequest updateRequest);
+    
+        /// <summary>Update by filter - Fields</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> UpdateFieldsByFilterAsync(ListItemFieldsFilterUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Update - Fields</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcess UpdateFields(ListItemFieldsUpdateRequest updateRequest);
+    
+        /// <summary>Update - Fields</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> UpdateFieldsAsync(ListItemFieldsUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Wait For States</summary>
         /// <param name="processId">The business process id.</param>
@@ -1102,16 +1147,16 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Blacklist> GetBlacklistAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Cancels an active batch. Valid states: TODO</summary>
+        /// <summary>Cancels an active transfer. Valid states: TODO</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        void CancelBatch(string transferId);
+        void CancelTransfer(string transferId);
     
-        /// <summary>Cancels an active batch. Valid states: TODO</summary>
+        /// <summary>Cancels an active transfer. Valid states: TODO</summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task CancelBatchAsync(string transferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task CancelTransferAsync(string transferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Create Transfer</summary>
         /// <param name="request">The create transfer request</param>
@@ -1179,7 +1224,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        Transfer ImportBatch(string transferId, FileTransfer2ContentCreateRequest request);
+        Transfer ImportTransfer(string transferId, FileTransfer2ContentCreateRequest request);
     
         /// <summary>Delete Transfer</summary>
         /// <param name="transferId">The tranfer id</param>
@@ -1236,13 +1281,21 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<FileTransferSearchResult> SearchFilesAsync(FileTransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="formFile">Gets or sets the form file.</param>
-        /// <param name="chunkNumber">Starts with 1</param>
+        /// <param name="relativePath">Relative path of the uploading file</param>
+        /// <param name="chunkNumber">Current chunk number. starts with 1</param>
+        /// <param name="currentChunkSize">Size in bytes of the current chunk</param>
+        /// <param name="totalSize">Total size in bytes of the uploading file</param>
+        /// <param name="totalChunks">Total chunks of the uploading file</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         void UploadFile(string transferId, string identifier, FileParameter formFile = null, string relativePath = null, long? chunkNumber = null, long? currentChunkSize = null, long? totalSize = null, long? totalChunks = null);
     
         /// <param name="formFile">Gets or sets the form file.</param>
-        /// <param name="chunkNumber">Starts with 1</param>
+        /// <param name="relativePath">Relative path of the uploading file</param>
+        /// <param name="chunkNumber">Current chunk number. starts with 1</param>
+        /// <param name="currentChunkSize">Size in bytes of the current chunk</param>
+        /// <param name="totalSize">Total size in bytes of the uploading file</param>
+        /// <param name="totalChunks">Total chunks of the uploading file</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2558,6 +2611,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("debugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DebugInformation { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("serverError", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public StorageServerError ServerError { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -2566,6 +2622,113 @@ namespace Picturepark.SDK.V1.Contract
         public static QueryException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<QueryException>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
+    public partial class StorageServerError 
+    {
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public StorageError Error { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
+        public int Status { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static StorageServerError FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StorageServerError>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
+    public partial class StorageError 
+    {
+        [Newtonsoft.Json.JsonProperty("index", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Index { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("reason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Reason { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("resourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ResourceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("resourceType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ResourceType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Type { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rootCause", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<StorageRootCause> RootCause { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("causedBy", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public StorageCausedBy CausedBy { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static StorageError FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StorageError>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
+    public partial class StorageRootCause 
+    {
+        [Newtonsoft.Json.JsonProperty("index", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Index { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("reason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Reason { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("resourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ResourceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("resourceType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ResourceType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Type { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static StorageRootCause FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StorageRootCause>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
+    public partial class StorageCausedBy 
+    {
+        [Newtonsoft.Json.JsonProperty("reason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Reason { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Type { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("innerCausedBy", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public StorageCausedBy InnerCausedBy { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static StorageCausedBy FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StorageCausedBy>(data);
         }
     }
     
@@ -2983,6 +3146,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
+    
+        /// <summary>Allow the backend to modify the search string if it generates a non valid query</summary>
+        [Newtonsoft.Json.JsonProperty("allowSearchStringRewrite", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowSearchStringRewrite { get; set; }
     
         /// <summary>An optional search filter. Limits the content document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3716,6 +3883,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "ContentPermissionSet")]
         ContentPermissionSet = 4,
     
+        [System.Runtime.Serialization.EnumMember(Value = "Owner")]
+        Owner = 5,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
@@ -3772,6 +3942,14 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
+    
+        /// <summary>The search string used to query the data</summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsSearchStringRewritten { get; set; }
     
         public string ToJson() 
         {
@@ -3843,7 +4021,7 @@ namespace Picturepark.SDK.V1.Contract
     public partial class ContentBatchDownloadRequest 
     {
         [Newtonsoft.Json.JsonProperty("contents", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<ContentDownloadItem> Contents { get; set; }
+        public System.Collections.Generic.List<ContentBatchDownloadRequestItem> Contents { get; set; }
     
         public string ToJson() 
         {
@@ -3857,7 +4035,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
-    public partial class ContentDownloadItem 
+    public partial class ContentBatchDownloadRequestItem 
     {
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
@@ -3870,9 +4048,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ContentDownloadItem FromJson(string data)
+        public static ContentBatchDownloadRequestItem FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDownloadItem>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBatchDownloadRequestItem>(data);
         }
     }
     
@@ -4008,6 +4186,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
+    
+        /// <summary>Allow the backend to modify the search string if it generates a non valid query</summary>
+        [Newtonsoft.Json.JsonProperty("allowSearchStringRewrite", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowSearchStringRewrite { get; set; }
     
         /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -4478,6 +4660,35 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
+    public partial class BusinessProcessSearchRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<SortInfo> Sort { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessSearchRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class BaseResultOfBusinessProcess 
     {
         [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
@@ -4816,6 +5027,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
+        /// <summary>Allow the backend to modify the search string if it generates a non valid query</summary>
+        [Newtonsoft.Json.JsonProperty("allowSearchStringRewrite", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowSearchStringRewrite { get; set; }
+    
         /// <summary>An optional search filter. Limits the list item result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
@@ -4861,6 +5076,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
+    
+        /// <summary>Allow the backend to modify the search string if it generates a non valid query</summary>
+        [Newtonsoft.Json.JsonProperty("allowSearchStringRewrite", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowSearchStringRewrite { get; set; }
     
         /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -5015,6 +5234,51 @@ namespace Picturepark.SDK.V1.Contract
         }
     }
     
+    /// <summary>ListItemFieldsFilterUpdateRequest class</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
+    public partial class ListItemFieldsFilterUpdateRequest 
+    {
+        /// <summary>The search request used to filter the list items on which the change commands must be applied</summary>
+        [Newtonsoft.Json.JsonProperty("searchRequest", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ListItemSearchRequest SearchRequest { get; set; }
+    
+        /// <summary>The change commads to be applied to the list items</summary>
+        [Newtonsoft.Json.JsonProperty("changeCommands", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<MetadataValuesSchemaUpdateCommand> ChangeCommands { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemFieldsFilterUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemFieldsFilterUpdateRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
+    public partial class ListItemFieldsUpdateRequest 
+    {
+        /// <summary>The ids of the list items whose fields need to be updated</summary>
+        [Newtonsoft.Json.JsonProperty("listItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> ListItemIds { get; set; }
+    
+        /// <summary>The change commads to be applied to the list items</summary>
+        [Newtonsoft.Json.JsonProperty("changeCommands", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<MetadataValuesSchemaUpdateCommand> ChangeCommands { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemFieldsUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemFieldsUpdateRequest>(data);
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class LiveStreamSearchRequest 
     {
@@ -5070,7 +5334,27 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
-    public partial class ObjectSearchResult : BaseResultOfObject
+    public partial class RewritableBaseResultOfObject : BaseResultOfObject
+    {
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsSearchStringRewritten { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static RewritableBaseResultOfObject FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RewritableBaseResultOfObject>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
+    public partial class ObjectSearchResult : RewritableBaseResultOfObject
     {
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
@@ -6186,6 +6470,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
+        /// <summary>Allow the backend to modify the search string if it generates a non valid query</summary>
+        [Newtonsoft.Json.JsonProperty("allowSearchStringRewrite", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowSearchStringRewrite { get; set; }
+    
         /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<SortInfo> Sort { get; set; }
@@ -6237,7 +6525,27 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
-    public partial class SchemaSearchResult : BaseResultOfSchema
+    public partial class RewritableBaseResultOfSchema : BaseResultOfSchema
+    {
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsSearchStringRewritten { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static RewritableBaseResultOfSchema FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RewritableBaseResultOfSchema>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
+    public partial class SchemaSearchResult : RewritableBaseResultOfSchema
     {
         public string ToJson() 
         {
@@ -6319,44 +6627,41 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "ManageTransfer")]
         ManageTransfer = 3,
     
-        [System.Runtime.Serialization.EnumMember(Value = "ManageAnalytics")]
-        ManageAnalytics = 4,
-    
         [System.Runtime.Serialization.EnumMember(Value = "ManageChannels")]
-        ManageChannels = 5,
+        ManageChannels = 4,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageSchemas")]
-        ManageSchemas = 6,
+        ManageSchemas = 5,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageUsers")]
-        ManageUsers = 7,
+        ManageUsers = 6,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageUserRoles")]
-        ManageUserRoles = 8,
+        ManageUserRoles = 7,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManagePermissions")]
-        ManagePermissions = 9,
+        ManagePermissions = 8,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageSearchIndexes")]
-        ManageSearchIndexes = 10,
+        ManageSearchIndexes = 9,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageRecipients")]
-        ManageRecipients = 11,
+        ManageRecipients = 10,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageCollections")]
-        ManageCollections = 12,
+        ManageCollections = 11,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageListItems")]
-        ManageListItems = 13,
+        ManageListItems = 12,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageServiceProviders")]
-        ManageServiceProviders = 14,
+        ManageServiceProviders = 13,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageEmbeds")]
-        ManageEmbeds = 15,
+        ManageEmbeds = 14,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageTemplates")]
-        ManageTemplates = 16,
+        ManageTemplates = 15,
     
     }
     
@@ -6365,6 +6670,10 @@ namespace Picturepark.SDK.V1.Contract
     {
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
+    
+        /// <summary>Allow the backend to modify the search string if it generates a non valid query</summary>
+        [Newtonsoft.Json.JsonProperty("allowSearchStringRewrite", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowSearchStringRewrite { get; set; }
     
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<SortInfo> Sort { get; set; }
@@ -6425,7 +6734,27 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
-    public partial class PermissionSetSearchResult : BaseResultOfPermissionSet
+    public partial class RewritableBaseResultOfPermissionSet : BaseResultOfPermissionSet
+    {
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsSearchStringRewritten { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static RewritableBaseResultOfPermissionSet FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RewritableBaseResultOfPermissionSet>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
+    public partial class PermissionSetSearchResult : RewritableBaseResultOfPermissionSet
     {
         [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
@@ -7303,6 +7632,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
+        /// <summary>Allow the backend to modify the search string if it generates a non valid query</summary>
+        [Newtonsoft.Json.JsonProperty("allowSearchStringRewrite", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowSearchStringRewrite { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<SortInfo> Sort { get; set; }
     
@@ -7466,6 +7799,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
+        /// <summary>Allow the backend to modify the search string if it generates a non valid query</summary>
+        [Newtonsoft.Json.JsonProperty("allowSearchStringRewrite", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowSearchStringRewrite { get; set; }
+    
         /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<SortInfo> Sort { get; set; }
@@ -7494,7 +7831,27 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
-    public partial class ShareSearchResult : BaseResultOfShareBase
+    public partial class RewritableBaseResultOfShareBase : BaseResultOfShareBase
+    {
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsSearchStringRewritten { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static RewritableBaseResultOfShareBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RewritableBaseResultOfShareBase>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
+    public partial class ShareSearchResult : RewritableBaseResultOfShareBase
     {
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
@@ -12841,6 +13198,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
+        /// <summary>Allow the backend to modify the search string if it generates a non valid query</summary>
+        [Newtonsoft.Json.JsonProperty("allowSearchStringRewrite", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowSearchStringRewrite { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<SortInfo> Sort { get; set; }
     
@@ -12893,7 +13254,27 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
-    public partial class UserSearchResult : BaseResultOfUser
+    public partial class RewritableBaseResultOfUser : BaseResultOfUser
+    {
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsSearchStringRewritten { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static RewritableBaseResultOfUser FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RewritableBaseResultOfUser>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
+    public partial class UserSearchResult : RewritableBaseResultOfUser
     {
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
@@ -13258,7 +13639,7 @@ namespace Picturepark.SDK.V1.Contract
             if (jObject == null)
                 return null;
     
-            var discriminator = Newtonsoft.Json.Linq.Extensions.Value<string>(jObject.GetValue(_discriminator)).Replace("ViewItem", "");
+            var discriminator = Newtonsoft.Json.Linq.Extensions.Value<string>(jObject.GetValue(_discriminator));
             var subtype = GetObjectSubtype(objectType, discriminator);
     
             try

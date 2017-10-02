@@ -50,6 +50,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -86,6 +89,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       },
@@ -129,6 +135,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -739,6 +748,9 @@
       "properties": {
         "debugInformation": {
           "type": "string"
+        },
+        "serverError": {
+          "$ref": "#/definitions/StorageServerError"
         }
       },
       "allOf": [
@@ -746,6 +758,88 @@
           "$ref": "#/definitions/PictureparkBusinessException"
         }
       ]
+    },
+    "StorageServerError": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/StorageError"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "StorageError": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "index": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "resourceId": {
+          "type": "string"
+        },
+        "resourceType": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "rootCause": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StorageRootCause"
+          }
+        },
+        "causedBy": {
+          "$ref": "#/definitions/StorageCausedBy"
+        }
+      }
+    },
+    "StorageRootCause": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "index": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "resourceId": {
+          "type": "string"
+        },
+        "resourceType": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "StorageCausedBy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reason": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "innerCausedBy": {
+          "$ref": "#/definitions/StorageCausedBy"
+        }
+      }
     },
     "RenderingException": {
       "type": "object",

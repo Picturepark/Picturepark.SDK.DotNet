@@ -113,6 +113,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
                         }
                         else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -209,6 +221,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -310,6 +334,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
                         }
                         else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -409,6 +445,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
                         }
                         else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -504,6 +552,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -604,6 +664,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
                         }
                         else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -701,6 +773,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -805,6 +889,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
                         }
                         else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -893,6 +989,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -1006,6 +1114,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
                         }
                         else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1086,6 +1206,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -1174,6 +1306,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
                         }
                         else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1260,6 +1404,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
                         }
                         else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1340,6 +1496,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -1433,6 +1601,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -1559,6 +1739,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
                         }
                         else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1654,6 +1846,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
                         }
                         else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1741,6 +1945,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
                         }
                         else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1826,6 +2042,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
                         }
                         else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1909,6 +2137,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -2008,6 +2248,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
                         }
                         else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -2101,6 +2353,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -2202,6 +2466,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
                         }
                         else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -2289,6 +2565,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
                         }
                         else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -2372,6 +2660,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -2459,6 +2759,18 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
                         }
                         else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -2509,7 +2821,7 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<SnapshotRepository> CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest snapshotRepositoryCustomerCreateRequest)
         {
             return CreateRepositoryAsync(snapshotRepositoryCustomerCreateRequest, System.Threading.CancellationToken.None);
@@ -2517,7 +2829,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<SnapshotRepository> CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest snapshotRepositoryCustomerCreateRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -2581,7 +2893,19 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -2607,7 +2931,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<Snapshot> CreateSnapshotAsync(SnapshotCustomerCreateRequest snapshotCustomerCreateRequest)
         {
             return CreateSnapshotAsync(snapshotCustomerCreateRequest, System.Threading.CancellationToken.None);
@@ -2615,7 +2939,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<Snapshot> CreateSnapshotAsync(SnapshotCustomerCreateRequest snapshotCustomerCreateRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -2679,7 +3003,19 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -2705,7 +3041,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshotAsync(SnapshotCustomerRestoreRequest snapshotCustomerRestoreRequest)
         {
             return RestoreSnapshotAsync(snapshotCustomerRestoreRequest, System.Threading.CancellationToken.None);
@@ -2713,7 +3049,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshotAsync(SnapshotCustomerRestoreRequest snapshotCustomerRestoreRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -2777,7 +3113,19 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -2803,7 +3151,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<SnapshotRepository> CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest snapshotRepositoryEnvironmentCreateRequest)
         {
             return CreateRepository2Async(snapshotRepositoryEnvironmentCreateRequest, System.Threading.CancellationToken.None);
@@ -2811,7 +3159,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<SnapshotRepository> CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest snapshotRepositoryEnvironmentCreateRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -2875,7 +3223,19 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -2901,7 +3261,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<Snapshot> CreateSnapshot2Async(SnapshotEnvironmentCreateRequest snapshotEnvironmentCreateRequest)
         {
             return CreateSnapshot2Async(snapshotEnvironmentCreateRequest, System.Threading.CancellationToken.None);
@@ -2909,7 +3269,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<Snapshot> CreateSnapshot2Async(SnapshotEnvironmentCreateRequest snapshotEnvironmentCreateRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -2973,7 +3333,19 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -2999,7 +3371,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest snapshotEnvironmentRestoreRequest)
         {
             return RestoreSnapshot2Async(snapshotEnvironmentRestoreRequest, System.Threading.CancellationToken.None);
@@ -3007,7 +3379,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest snapshotEnvironmentRestoreRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -3071,7 +3443,19 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -3097,7 +3481,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<SnapshotCustomerSearchResult> SearchAsync(SnapshotCustomerSearchRequest snapshotCustomerSearchRequest)
         {
             return SearchAsync(snapshotCustomerSearchRequest, System.Threading.CancellationToken.None);
@@ -3105,7 +3489,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<SnapshotCustomerSearchResult> SearchAsync(SnapshotCustomerSearchRequest snapshotCustomerSearchRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -3169,7 +3553,19 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -3195,7 +3591,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<System.Collections.Generic.List<string>> SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest searchRequest)
         {
             return SearchRepositoriesAsync(searchRequest, System.Threading.CancellationToken.None);
@@ -3203,7 +3599,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<string>> SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -3267,7 +3663,19 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
@@ -3293,7 +3701,7 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public System.Threading.Tasks.Task<Customer> CloneCustomerAsync(SnapshotCustomerCloneRequest cloneRequest)
         {
             return CloneCustomerAsync(cloneRequest, System.Threading.CancellationToken.None);
@@ -3301,7 +3709,7 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         public async System.Threading.Tasks.Task<Customer> CloneCustomerAsync(SnapshotCustomerCloneRequest cloneRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -3365,7 +3773,19 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("A server side error occurred.", status_, responseData_, headers_, result_, result_);
+                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")

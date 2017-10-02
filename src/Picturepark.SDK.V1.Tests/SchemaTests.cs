@@ -108,7 +108,7 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldGet()
 		{
 			var request = new SchemaSearchRequest() { Start = 0, Limit = 100 };
-			var result = _client.Schemas.SearchAsync(request).Result;
+			var result = await _client.Schemas.SearchAsync(request);
 			Assert.True(result.Results.Any());
 
 			List<string> schemaIds = result.Results.Select(i => i.Id).OrderBy(i => i).ToList();

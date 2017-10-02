@@ -66,6 +66,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -131,6 +134,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -171,6 +177,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -212,6 +221,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -261,6 +273,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -301,6 +316,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -369,6 +387,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -432,6 +453,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -485,6 +509,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -553,6 +580,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -618,6 +648,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       },
@@ -692,6 +725,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -768,6 +804,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -809,6 +848,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -858,6 +900,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -901,6 +946,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -910,8 +958,8 @@
         "tags": [
           "Content"
         ],
-        "summary": "Update file",
-        "description": "Update binary file of existing content",
+        "summary": "Update Single - File",
+        "description": "Update binary file of existing content. The file must already be uploaded before calling this endpoint.",
         "operationId": "Content_UpdateFile",
         "parameters": [
           {
@@ -950,6 +998,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -1016,6 +1067,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -1056,6 +1110,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -1097,6 +1154,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -1138,6 +1198,53 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      }
+    },
+    "/V1/Contents/Many/Metadata/Filter": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Update by filter - Metadata",
+        "description": "Update metadata of multiple contents. A filter must be provided to limit the update to specific contents.",
+        "operationId": "Content_UpdateMetadataByFilter",
+        "parameters": [
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FilterContentsMetadataUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The metadata update request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -1182,16 +1289,20 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
     },
-    "/V1/BusinessProcesses/Search": {
+    "/v1/businessProcesses/search": {
       "post": {
         "tags": [
           "BusinessProcess"
         ],
-        "summary": "Search for business process",
+        "summary": "Search",
+        "description": "Search for business processes",
         "operationId": "BusinessProcess_Search",
         "parameters": [
           {
@@ -1199,7 +1310,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/BusinessProcessSearchResult"
+              "$ref": "#/definitions/BusinessProcessSearchRequest"
             },
             "x-nullable": true,
             "description": "The business process request"
@@ -1222,21 +1333,25 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
     },
-    "/V1/BusinessProcesses/ProcessDefinitions/{ProcessDefinitionId}/Start": {
+    "/v1/businessProcesses/processDefinitions/{processDefinitionId}/start": {
       "post": {
         "tags": [
           "BusinessProcess"
         ],
-        "summary": "Starts a process with given definition ",
+        "summary": "Start",
+        "description": "Starts a process with given definition ",
         "operationId": "BusinessProcess_Start",
         "parameters": [
           {
             "type": "string",
-            "name": "ProcessDefinitionId",
+            "name": "processDefinitionId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -1270,21 +1385,25 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
     },
-    "/V1/BusinessProcesses/Processes/{ProcessId}/MarkAsEnded": {
+    "/v1/businessProcesses/processes/{processId}/markAsEnded": {
       "post": {
         "tags": [
           "BusinessProcess"
         ],
-        "summary": "Mark a given process as ended",
+        "summary": "Mark as ended",
+        "description": "Mark a given process as ended",
         "operationId": "BusinessProcess_MarkAsEnded",
         "parameters": [
           {
             "type": "string",
-            "name": "ProcessId",
+            "name": "processId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -1304,21 +1423,25 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
     },
-    "/V1/BusinessProcesses/Processes/{ProcessId}/Message": {
+    "/v1/businessProcesses/processes/{processId}/message": {
       "post": {
         "tags": [
           "BusinessProcess"
         ],
-        "summary": "Send message to given process ",
+        "summary": "Send message",
+        "description": "Send message to given process ",
         "operationId": "BusinessProcess_SendMessage",
         "parameters": [
           {
             "type": "string",
-            "name": "ProcessId",
+            "name": "processId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -1348,21 +1471,25 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
     },
-    "/V1/BusinessProcesses/{ProcessId}/Wait": {
+    "/v1/businessProcesses/{processId}/wait": {
       "get": {
         "tags": [
           "BusinessProcess"
         ],
-        "summary": "Wait for given process states",
+        "summary": "Wait for states",
+        "description": "Wait for given process states.",
         "operationId": "BusinessProcess_WaitForStates",
         "parameters": [
           {
             "type": "string",
-            "name": "ProcessId",
+            "name": "processId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -1403,6 +1530,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -1443,6 +1573,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -1481,6 +1614,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -1527,6 +1663,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -1574,6 +1713,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -1630,6 +1772,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -1667,6 +1812,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -1735,6 +1883,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -1779,6 +1930,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       },
@@ -1819,6 +1973,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       },
@@ -1861,6 +2018,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -1902,6 +2062,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -1943,6 +2106,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -1987,6 +2153,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2047,6 +2216,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       },
@@ -2120,6 +2292,97 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      }
+    },
+    "/V1/ListItems/Many/Fields/Filter": {
+      "put": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Update by filter - Fields",
+        "description": "Update fields of multiple list items. A filter must be provided to limit the update to specific list items.",
+        "operationId": "ListItem_UpdateFieldsByFilter",
+        "parameters": [
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListItemFieldsFilterUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The metadata update request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      }
+    },
+    "/V1/ListItems/Many/Fields": {
+      "put": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Update - Fields",
+        "description": "Update fields of multiple list items. A list of listItemIds must be provided to limit the update to specific list items.",
+        "operationId": "ListItem_UpdateFields",
+        "parameters": [
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListItemFieldsUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The metadata update request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2179,6 +2442,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2230,6 +2496,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2270,6 +2539,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2315,6 +2587,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       },
@@ -2354,6 +2629,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2393,6 +2671,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       },
@@ -2440,6 +2721,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       },
@@ -2477,6 +2761,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2524,6 +2811,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2565,6 +2855,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2607,6 +2900,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2648,6 +2944,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2687,6 +2986,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2728,6 +3030,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2767,6 +3072,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2796,6 +3104,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2834,6 +3145,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2899,6 +3213,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       },
@@ -2936,6 +3253,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -2980,6 +3300,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3021,6 +3344,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3083,6 +3409,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3124,6 +3453,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3163,6 +3495,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3192,6 +3527,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3201,8 +3539,8 @@
         "tags": [
           "Transfer"
         ],
-        "summary": "Cancels an active batch. Valid states: TODO",
-        "operationId": "Transfer_CancelBatch",
+        "summary": "Cancels an active transfer. Valid states: TODO",
+        "operationId": "Transfer_CancelTransfer",
         "parameters": [
           {
             "type": "string",
@@ -3225,6 +3563,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3265,6 +3606,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3299,6 +3643,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       },
@@ -3335,6 +3682,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3373,6 +3723,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3383,7 +3736,7 @@
           "Transfer"
         ],
         "summary": "Delete Transfer",
-        "operationId": "Transfer_ImportBatch",
+        "operationId": "Transfer_ImportTransfer",
         "parameters": [
           {
             "type": "string",
@@ -3421,6 +3774,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3469,6 +3825,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3509,6 +3868,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3549,6 +3911,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3637,6 +4002,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3677,6 +4045,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3715,6 +4086,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3753,6 +4127,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3785,6 +4162,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3829,6 +4209,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3875,6 +4258,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -3905,6 +4291,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       },
@@ -3943,6 +4332,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         }
       }
@@ -4976,6 +5368,9 @@
       "properties": {
         "debugInformation": {
           "type": "string"
+        },
+        "serverError": {
+          "$ref": "#/definitions/StorageServerError"
         }
       },
       "allOf": [
@@ -4983,6 +5378,88 @@
           "$ref": "#/definitions/PictureparkBusinessException"
         }
       ]
+    },
+    "StorageServerError": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/StorageError"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "StorageError": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "index": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "resourceId": {
+          "type": "string"
+        },
+        "resourceType": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "rootCause": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StorageRootCause"
+          }
+        },
+        "causedBy": {
+          "$ref": "#/definitions/StorageCausedBy"
+        }
+      }
+    },
+    "StorageRootCause": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "index": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "resourceId": {
+          "type": "string"
+        },
+        "resourceType": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "StorageCausedBy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reason": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "innerCausedBy": {
+          "$ref": "#/definitions/StorageCausedBy"
+        }
+      }
     },
     "RenderingException": {
       "type": "object",
@@ -5328,6 +5805,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "allowSearchStringRewrite",
         "lifeCycleFilter",
         "searchType"
       ],
@@ -5335,6 +5813,10 @@
         "searchString": {
           "type": "string",
           "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
+        },
+        "allowSearchStringRewrite": {
+          "type": "boolean",
+          "description": "Allow the backend to modify the search string if it generates a non valid query"
         },
         "filter": {
           "description": "An optional search filter. Limits the content document result set.",
@@ -6056,14 +6538,16 @@
         "ListItem",
         "Schema",
         "User",
-        "ContentPermissionSet"
+        "ContentPermissionSet",
+        "Owner"
       ],
       "enum": [
         "Content",
         "ListItem",
         "Schema",
         "User",
-        "ContentPermissionSet"
+        "ContentPermissionSet",
+        "Owner"
       ]
     },
     "TermsEnumAggregator": {
@@ -6113,7 +6597,8 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "elapsedMilliseconds"
+        "elapsedMilliseconds",
+        "isSearchStringRewritten"
       ],
       "properties": {
         "elapsedMilliseconds": {
@@ -6125,6 +6610,14 @@
           "items": {
             "$ref": "#/definitions/AggregationResult"
           }
+        },
+        "searchString": {
+          "type": "string",
+          "description": "The search string used to query the data"
+        },
+        "isSearchStringRewritten": {
+          "type": "boolean",
+          "description": "Flag to notify if the SearchString was modified compared to the original requested one"
         }
       }
     },
@@ -6186,12 +6679,12 @@
         "contents": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ContentDownloadItem"
+            "$ref": "#/definitions/ContentBatchDownloadRequestItem"
           }
         }
       }
     },
-    "ContentDownloadItem": {
+    "ContentBatchDownloadRequestItem": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -6295,6 +6788,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "allowSearchStringRewrite",
         "start",
         "limit",
         "lifeCycleFilter",
@@ -6333,6 +6827,10 @@
         "searchString": {
           "type": "string",
           "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
+        },
+        "allowSearchStringRewrite": {
+          "type": "boolean",
+          "description": "Allow the backend to modify the search string if it generates a non valid query"
         },
         "sort": {
           "type": "array",
@@ -6770,6 +7268,36 @@
         }
       ]
     },
+    "BusinessProcessSearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "limit"
+      ],
+      "properties": {
+        "start": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filter": {
+          "$ref": "#/definitions/FilterBase"
+        },
+        "searchString": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        }
+      }
+    },
     "BusinessProcessSearchResult": {
       "type": "object",
       "additionalProperties": false,
@@ -7064,12 +7592,17 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "allowSearchStringRewrite",
         "includeAllSchemaChildren"
       ],
       "properties": {
         "searchString": {
           "type": "string",
           "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
+        },
+        "allowSearchStringRewrite": {
+          "type": "boolean",
+          "description": "Allow the backend to modify the search string if it generates a non valid query"
         },
         "filter": {
           "description": "An optional search filter. Limits the list item result set.",
@@ -7121,6 +7654,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "allowSearchStringRewrite",
         "start",
         "limit",
         "includeAllSchemaChildren",
@@ -7130,6 +7664,10 @@
         "searchString": {
           "type": "string",
           "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
+        },
+        "allowSearchStringRewrite": {
+          "type": "boolean",
+          "description": "Allow the backend to modify the search string if it generates a non valid query"
         },
         "sort": {
           "type": "array",
@@ -7281,6 +7819,48 @@
         }
       }
     },
+    "ListItemFieldsFilterUpdateRequest": {
+      "type": "object",
+      "description": "ListItemFieldsFilterUpdateRequest class",
+      "additionalProperties": false,
+      "properties": {
+        "searchRequest": {
+          "description": "The search request used to filter the list items on which the change commands must be applied",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ListItemSearchRequest"
+            }
+          ]
+        },
+        "changeCommands": {
+          "type": "array",
+          "description": "The change commads to be applied to the list items",
+          "items": {
+            "$ref": "#/definitions/MetadataValuesSchemaUpdateCommand"
+          }
+        }
+      }
+    },
+    "ListItemFieldsUpdateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "listItemIds": {
+          "type": "array",
+          "description": "The ids of the list items whose fields need to be updated",
+          "items": {
+            "type": "string"
+          }
+        },
+        "changeCommands": {
+          "type": "array",
+          "description": "The change commads to be applied to the list items",
+          "items": {
+            "$ref": "#/definitions/MetadataValuesSchemaUpdateCommand"
+          }
+        }
+      }
+    },
     "LiveStreamSearchRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -7322,6 +7902,26 @@
         "elapsedMilliseconds": {
           "type": "integer",
           "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/RewritableBaseResultOfObject"
+        }
+      ]
+    },
+    "RewritableBaseResultOfObject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isSearchStringRewritten"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "isSearchStringRewritten": {
+          "type": "boolean"
         }
       },
       "allOf": [
@@ -8496,6 +9096,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "allowSearchStringRewrite",
         "start",
         "limit"
       ],
@@ -8503,6 +9104,10 @@
         "searchString": {
           "type": "string",
           "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
+        },
+        "allowSearchStringRewrite": {
+          "type": "boolean",
+          "description": "Allow the backend to modify the search string if it generates a non valid query"
         },
         "sort": {
           "type": "array",
@@ -8534,6 +9139,26 @@
     "SchemaSearchResult": {
       "type": "object",
       "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/RewritableBaseResultOfSchema"
+        }
+      ]
+    },
+    "RewritableBaseResultOfSchema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isSearchStringRewritten"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "isSearchStringRewritten": {
+          "type": "boolean"
+        }
+      },
       "allOf": [
         {
           "$ref": "#/definitions/BaseResultOfSchema"
@@ -8639,7 +9264,6 @@
         "ManageSharings",
         "ManageDrives",
         "ManageTransfer",
-        "ManageAnalytics",
         "ManageChannels",
         "ManageSchemas",
         "ManageUsers",
@@ -8658,7 +9282,6 @@
         "ManageSharings",
         "ManageDrives",
         "ManageTransfer",
-        "ManageAnalytics",
         "ManageChannels",
         "ManageSchemas",
         "ManageUsers",
@@ -8677,12 +9300,17 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "allowSearchStringRewrite",
         "start",
         "limit"
       ],
       "properties": {
         "searchString": {
           "type": "string"
+        },
+        "allowSearchStringRewrite": {
+          "type": "boolean",
+          "description": "Allow the backend to modify the search string if it generates a non valid query"
         },
         "sort": {
           "type": "array",
@@ -8732,6 +9360,26 @@
         "elapsedMilliseconds": {
           "type": "integer",
           "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/RewritableBaseResultOfPermissionSet"
+        }
+      ]
+    },
+    "RewritableBaseResultOfPermissionSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isSearchStringRewritten"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "isSearchStringRewritten": {
+          "type": "boolean"
         }
       },
       "allOf": [
@@ -9523,9 +10171,16 @@
     "ShareAggregationRequest": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "allowSearchStringRewrite"
+      ],
       "properties": {
         "searchString": {
           "type": "string"
+        },
+        "allowSearchStringRewrite": {
+          "type": "boolean",
+          "description": "Allow the backend to modify the search string if it generates a non valid query"
         },
         "sort": {
           "type": "array",
@@ -9688,6 +10343,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "allowSearchStringRewrite",
         "start",
         "limit"
       ],
@@ -9695,6 +10351,10 @@
         "searchString": {
           "type": "string",
           "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to empty."
+        },
+        "allowSearchStringRewrite": {
+          "type": "boolean",
+          "description": "Allow the backend to modify the search string if it generates a non valid query"
         },
         "sort": {
           "type": "array",
@@ -9733,6 +10393,26 @@
         "elapsedMilliseconds": {
           "type": "integer",
           "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/RewritableBaseResultOfShareBase"
+        }
+      ]
+    },
+    "RewritableBaseResultOfShareBase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isSearchStringRewritten"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "isSearchStringRewritten": {
+          "type": "boolean"
         }
       },
       "allOf": [
@@ -14773,6 +15453,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "allowSearchStringRewrite",
         "start",
         "limit",
         "lifeCycleFilter"
@@ -14780,6 +15461,10 @@
       "properties": {
         "searchString": {
           "type": "string"
+        },
+        "allowSearchStringRewrite": {
+          "type": "boolean",
+          "description": "Allow the backend to modify the search string if it generates a non valid query"
         },
         "sort": {
           "type": "array",
@@ -14813,6 +15498,26 @@
         "elapsedMilliseconds": {
           "type": "integer",
           "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/RewritableBaseResultOfUser"
+        }
+      ]
+    },
+    "RewritableBaseResultOfUser": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isSearchStringRewritten"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "isSearchStringRewritten": {
+          "type": "boolean"
         }
       },
       "allOf": [
