@@ -2449,60 +2449,6 @@
         }
       }
     },
-    "/V1/ListItems/Import": {
-      "get": {
-        "tags": [
-          "ListItem"
-        ],
-        "summary": "Import",
-        "description": "Imports all schemas and optionally list items as specified in the json file. Duplicate schemas or list items in the target system will be omitted. ",
-        "operationId": "ListItem_Import",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "contentId",
-            "in": "query",
-            "required": true,
-            "x-nullable": true,
-            "description": "The content id."
-          },
-          {
-            "type": "string",
-            "name": "fileTransferId",
-            "in": "query",
-            "required": true,
-            "x-nullable": true,
-            "description": "The file transfer id."
-          },
-          {
-            "type": "boolean",
-            "name": "includeObjects",
-            "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Imports list items defined in the json import file."
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": ""
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
-      }
-    },
     "/V1/LiveStream/Search": {
       "post": {
         "tags": [
@@ -2553,7 +2499,7 @@
         ],
         "summary": "Get Many",
         "description": "Gets the schema detail informations by given schema ids.",
-        "operationId": "Schema_GetAll",
+        "operationId": "Schema_GetMany",
         "parameters": [
           {
             "type": "array",
@@ -3923,6 +3869,7 @@
         "tags": [
           "Transfer"
         ],
+        "summary": "Upload file",
         "operationId": "Transfer_UploadFile",
         "consumes": [
           "multipart/form-data"
@@ -4062,7 +4009,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "userId",
+            "name": "UserId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -5272,9 +5219,6 @@
         },
         "errorMessage": {
           "type": "string"
-        },
-        "message": {
-          "type": "string"
         }
       },
       "allOf": [
@@ -5303,11 +5247,6 @@
     "PictureparkOperationCanceledException": {
       "type": "object",
       "additionalProperties": false,
-      "properties": {
-        "cancellationToken": {
-          "type": "string"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
@@ -5317,11 +5256,6 @@
     "OperationTimeoutException": {
       "type": "object",
       "additionalProperties": false,
-      "properties": {
-        "messageId": {
-          "type": "string"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
@@ -5893,6 +5827,7 @@
     },
     "AndFilter": {
       "type": "object",
+      "description": "The AndFilter> is a compound filter and returns documents that match all of the specified filters.",
       "additionalProperties": false,
       "properties": {
         "filters": {
@@ -5911,6 +5846,7 @@
     },
     "OrFilter": {
       "type": "object",
+      "description": "The OrFilter is a compound filter and returns documents that match any of the specified filters.",
       "additionalProperties": false,
       "properties": {
         "filters": {
@@ -5929,6 +5865,7 @@
     },
     "NotFilter": {
       "type": "object",
+      "description": "The NotFilter is a compound filter and returns documents that do not match the specified filter.",
       "additionalProperties": false,
       "properties": {
         "filter": {
@@ -5948,6 +5885,7 @@
     },
     "DateRangeFilter": {
       "type": "object",
+      "description": "The DateRangeFilter returns documents with fields that have date values within a certain range.",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -6006,6 +5944,7 @@
     },
     "ExistsFilter": {
       "type": "object",
+      "description": "The ExistsFilter returns documents that have at least one non-null value in the original field.",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -6021,6 +5960,7 @@
     },
     "GeoBoundingBoxFilter": {
       "type": "object",
+      "description": "The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -6070,6 +6010,7 @@
     },
     "GeoDistanceFilter": {
       "type": "object",
+      "description": "The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point.",
       "additionalProperties": false,
       "required": [
         "distance"
@@ -6101,6 +6042,7 @@
     },
     "GeoDistanceRangeFilter": {
       "type": "object",
+      "description": "The GeoDistanceRangeFilter returns documents that exists within a range from a specific point.",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -6156,6 +6098,7 @@
     },
     "NestedFilter": {
       "type": "object",
+      "description": "The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.",
       "additionalProperties": false,
       "properties": {
         "path": {
@@ -6179,6 +6122,7 @@
     },
     "NumericRangeFilter": {
       "type": "object",
+      "description": "The NumericRangeFilter returns documents with fields that have numeric values within a certain range.",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -6202,6 +6146,7 @@
     },
     "PrefixFilter": {
       "type": "object",
+      "description": "The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -6221,6 +6166,7 @@
     },
     "TermFilter": {
       "type": "object",
+      "description": "The TermFilter returns documents that contain the exact term specified in the inverted index.",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -6240,6 +6186,7 @@
     },
     "TermsFilter": {
       "type": "object",
+      "description": "The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -6289,6 +6236,7 @@
     },
     "ChildFilter": {
       "type": "object",
+      "description": "The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.",
       "additionalProperties": false,
       "properties": {
         "childType": {
@@ -6312,6 +6260,7 @@
     },
     "ParentFilter": {
       "type": "object",
+      "description": "The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.",
       "additionalProperties": false,
       "properties": {
         "parentType": {
@@ -6368,6 +6317,7 @@
     },
     "DateRangeAggregator": {
       "type": "object",
+      "description": "The DateRangeAggregator is a multi-bucket range aggregation dedicated for date values. Each bucket represents a range.",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -6390,6 +6340,7 @@
     },
     "FilterAggregator": {
       "type": "object",
+      "description": "The FilterAggregator is a single bucket aggregation of documents that match a specified filter.",
       "additionalProperties": false,
       "properties": {
         "filter": {
@@ -6409,6 +6360,7 @@
     },
     "GeoDistanceAggregator": {
       "type": "object",
+      "description": "The GeoDistanceAggregator is a multi-bucket range aggregation that works on geo_point fields. Each bucket represents a range.",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -6439,6 +6391,7 @@
     },
     "NestedAggregator": {
       "type": "object",
+      "description": "The NestedAggregator is a special single bucket aggregation that enables aggregating nested documents.",
       "additionalProperties": false,
       "properties": {
         "path": {
@@ -6454,6 +6407,7 @@
     },
     "NumericRangeAggregator": {
       "type": "object",
+      "description": "The NumericRangeAggregator is a multi-bucket range aggregation. Each bucket represents a range.",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -6476,6 +6430,7 @@
     },
     "TermsAggregator": {
       "type": "object",
+      "description": "The TermsAggregator is a multi-bucket value aggregation where buckets are dynamically built - one per unique value.",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -6510,6 +6465,7 @@
     },
     "TermsRelationAggregator": {
       "type": "object",
+      "description": "The TermsRelationAggregator is derived from TermsAggregator and used for aggregations on relation item ids.",
       "additionalProperties": false,
       "required": [
         "documentType"
@@ -6552,6 +6508,7 @@
     },
     "TermsEnumAggregator": {
       "type": "object",
+      "description": "The TermsRelationAggregator is derived from the TermsAggregator and used for aggregations on indexed enum values.",
       "additionalProperties": false,
       "properties": {
         "enumType": {

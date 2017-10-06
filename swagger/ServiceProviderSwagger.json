@@ -652,9 +652,6 @@
         },
         "errorMessage": {
           "type": "string"
-        },
-        "message": {
-          "type": "string"
         }
       },
       "allOf": [
@@ -683,11 +680,6 @@
     "PictureparkOperationCanceledException": {
       "type": "object",
       "additionalProperties": false,
-      "properties": {
-        "cancellationToken": {
-          "type": "string"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
@@ -697,11 +689,6 @@
     "OperationTimeoutException": {
       "type": "object",
       "additionalProperties": false,
-      "properties": {
-        "messageId": {
-          "type": "string"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
