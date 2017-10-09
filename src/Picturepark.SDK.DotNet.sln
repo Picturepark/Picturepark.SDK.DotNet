@@ -1,11 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B3412393-9444-4901-9F57-46015BC30766}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		..\build\02_RunTests.ps1 = ..\build\02_RunTests.ps1
 		Picturepark.SDK.DotNet.ruleset = Picturepark.SDK.DotNet.ruleset
 		version.json = version.json
 	EndProjectSection
@@ -120,5 +121,8 @@ Global
 		{D64ABD48-6CAE-4DDD-B9EA-857DEAC2047B} = {4B2AA4DC-FA39-4146-8AA2-50D1908601AB}
 		{01A8F881-B37A-409C-BF76-6D492C67AC9F} = {14422565-17C9-4451-A987-3DAF5795073C}
 		{6B970F42-4FB4-4654-9C20-E2A3CBDE5076} = {14422565-17C9-4451-A987-3DAF5795073C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70A30629-AE14-4536-92CE-8B5D33E11089}
 	EndGlobalSection
 EndGlobal

@@ -4,10 +4,10 @@ try {
 
 	$customerInfo = Invoke-WebRequest "${Env:TestServer}/Service/Info" -Method Get -Headers @{ "Accept" = "application/json" } | ConvertFrom-Json
 	
-    ${Env:TestCustomerId} = $customerInfo.CustomerId
-    ${Env:TestCustomerAlias} = $customerInfo.CustomerAlias
+	${Env:TestCustomerId} = $customerInfo.CustomerId
+	${Env:TestCustomerAlias} = $customerInfo.CustomerAlias
 
-    $acr_values = "tenant:{""id"":""${Env:TestCustomerId}"",""alias"":""${Env:TestCustomerAlias}""}"
+	$acr_values = "tenant:{""id"":""${Env:TestCustomerId}"",""alias"":""${Env:TestCustomerAlias}""}"
 
 
 	$tokenParams = @{
@@ -16,8 +16,8 @@ try {
 		grant_type    = 'password';
 		username      = ${Env:TestUsername};
 		password      = ${Env:TestPassword};
-        acr_values    = $acr_values;
-        scope        = "openid profile picturepark_api all_scopes";
+		acr_values    = $acr_values;
+		scope         = "openid profile picturepark_api all_scopes";
 	}
 	
 	$result = Invoke-WebRequest ${Env:TestIdentityServer} -Method Post -Body $tokenParams | ConvertFrom-Json
