@@ -1447,7 +1447,7 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>Audit data with information regarding document creation and modification.</summary>
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public StoreAudit Audit { get; set; }
+        public UserAudit Audit { get; set; }
     
         /// <summary>The content data</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1514,56 +1514,30 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
-    public partial class StoreAudit 
+    public partial class UserAudit 
     {
         [Newtonsoft.Json.JsonProperty("creationDate", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime CreationDate { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("createdByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserItem CreatedByUser { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("modificationDate", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime ModificationDate { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("createdByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CreatedByUser { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("modifiedByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserItem ModifiedByUser { get; set; }
+        public string ModifiedByUser { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static StoreAudit FromJson(string data)
+        public static UserAudit FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<StoreAudit>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
-    public partial class UserItem 
-    {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FirstName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LastName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string EmailAddress { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static UserItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserItem>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAudit>(data);
         }
     }
     
@@ -4333,7 +4307,7 @@ namespace Picturepark.SDK.V1.Contract
     public partial class Content 
     {
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public StoreAudit Audit { get; set; }
+        public UserAudit Audit { get; set; }
     
         /// <summary>The entity type of a content document is content.</summary>
         [Newtonsoft.Json.JsonProperty("entityType", Required = Newtonsoft.Json.Required.Always)]
@@ -4889,10 +4863,15 @@ namespace Picturepark.SDK.V1.Contract
         public System.DateTime Timestamp { get; set; }
     
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public HistoryAudit Audit { get; set; }
+        public UserAuditHistory Audit { get; set; }
     
         [Newtonsoft.Json.JsonProperty("deleted", Required = Newtonsoft.Json.Required.Always)]
         public bool Deleted { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("action", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public DocumentChangeAction Action { get; set; }
     
         public string ToJson() 
         {
@@ -4906,24 +4885,44 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
-    public partial class HistoryAudit 
+    public partial class UserAuditHistory 
     {
         [Newtonsoft.Json.JsonProperty("modificationDate", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime ModificationDate { get; set; }
     
         [Newtonsoft.Json.JsonProperty("modifiedByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserItem ModifiedByUser { get; set; }
+        public string ModifiedByUser { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static HistoryAudit FromJson(string data)
+        public static UserAuditHistory FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<HistoryAudit>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAuditHistory>(data);
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
+    public enum DocumentChangeAction
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Create")]
+        Create = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Update")]
+        Update = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Delete")]
+        Delete = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Activate")]
+        Activate = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Deactivate")]
+        Deactivate = 4,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
@@ -5441,7 +5440,7 @@ namespace Picturepark.SDK.V1.Contract
         public System.Collections.Generic.List<string> DescendantSchemaIds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public StoreAudit Audit { get; set; }
+        public UserAudit Audit { get; set; }
     
         /// <summary>The number of fields generated by the schema for the Search operations.</summary>
         [Newtonsoft.Json.JsonProperty("searchFieldCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -7101,7 +7100,7 @@ namespace Picturepark.SDK.V1.Contract
         public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public StoreAudit Audit { get; set; }
+        public UserAudit Audit { get; set; }
     
         [Newtonsoft.Json.JsonProperty("entityType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -7176,7 +7175,7 @@ namespace Picturepark.SDK.V1.Contract
         public System.Collections.Generic.List<Output> Outputs { get; set; }
     
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public StoreAudit Audit { get; set; }
+        public UserAudit Audit { get; set; }
     
         [Newtonsoft.Json.JsonProperty("ownerTokenId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OwnerTokenId { get; set; }
@@ -7389,6 +7388,32 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
+    public partial class UserItem 
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FirstName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LastName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string EmailAddress { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class ShareEmbedDetail : ShareBaseDetail
     {
         [Newtonsoft.Json.JsonProperty("embedContentItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -7567,7 +7592,7 @@ namespace Picturepark.SDK.V1.Contract
         public string Id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public StoreAudit Audit { get; set; }
+        public UserAudit Audit { get; set; }
     
         [Newtonsoft.Json.JsonProperty("entityType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -8150,7 +8175,7 @@ namespace Picturepark.SDK.V1.Contract
         public string Rev { get; set; }
     
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public StoreAudit Audit { get; set; }
+        public UserAudit Audit { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
@@ -8213,7 +8238,7 @@ namespace Picturepark.SDK.V1.Contract
         public string Identifier { get; set; }
     
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public StoreAudit Audit { get; set; }
+        public UserAudit Audit { get; set; }
     
         [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TransferId { get; set; }
