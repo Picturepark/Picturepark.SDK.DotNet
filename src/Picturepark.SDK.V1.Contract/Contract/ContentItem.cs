@@ -10,6 +10,6 @@ namespace Picturepark.SDK.V1.Contract
 
 		public T Content { get; set; }
 
-		public StoreAudit Audit { get; set; }
+		public UserAudit Audit { get; set; }
 	}
 }

@@ -662,9 +662,6 @@ namespace Picturepark.SDK.V1.ServiceProvider.Contract
         [Newtonsoft.Json.JsonProperty("errorMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ErrorMessage { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("message", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Message { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -699,9 +696,6 @@ namespace Picturepark.SDK.V1.ServiceProvider.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class PictureparkOperationCanceledException : PictureparkBusinessException
     {
-        [Newtonsoft.Json.JsonProperty("cancellationToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CancellationToken { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -716,9 +710,6 @@ namespace Picturepark.SDK.V1.ServiceProvider.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class OperationTimeoutException : PictureparkBusinessException
     {
-        [Newtonsoft.Json.JsonProperty("messageId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MessageId { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);

@@ -317,13 +317,5 @@ namespace Picturepark.SDK.V1.Tests
 			// Update on server
 			await _client.ListItems.UpdateListItemAsync(playerItem, player, nameof(SoccerPlayer));
 		}
-
-		[Fact(Skip = "Broken")] // TODO: Fix
-		[Trait("Stack", "Metadata")]
-		public async Task ShouldImport()
-		{
-			string jsonFilePath = Path.GetFullPath(_fixture.ProjectDirectory + "ExampleData/Corporate.json");
-			await _client.ListItems.ImportFromJsonAsync(jsonFilePath, includeObjects: false);
-		}
 	}
 }

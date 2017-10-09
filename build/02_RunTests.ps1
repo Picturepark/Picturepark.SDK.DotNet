@@ -1,14 +1,24 @@
-try { 
-    $tokenParams = @{
+try {
+	$AllProtocols = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
+	[System.Net.ServicePointManager]::SecurityProtocol = $AllProtocols
+
+	$customerInfo = Invoke-WebRequest "${Env:TestInstanceUrl}/Service/Info" -Method Get -Headers @{ "Accept" = "application/json" } | ConvertFrom-Json
+	
+	${Env:TestCustomerId} = $customerInfo.CustomerId
+	${Env:TestCustomerAlias} = $customerInfo.CustomerAlias
+
+	$acr_values = "tenant:{""id"":""${Env:TestCustomerId}"",""alias"":""${Env:TestCustomerAlias}""}"
+
+
+	$tokenParams = @{
 		client_id     = ${Env:TestIdentityClientId};
 		client_secret = ${Env:TestIdentitySecret};
 		grant_type    = 'password';
 		username      = ${Env:TestUsername};
 		password      = ${Env:TestPassword};
+		acr_values    = $acr_values;
+		scope         = "openid profile picturepark_api all_scopes";
 	}
-	
-	$AllProtocols = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
-	[System.Net.ServicePointManager]::SecurityProtocol = $AllProtocols
 	
 	$result = Invoke-WebRequest ${Env:TestIdentityServer} -Method Post -Body $tokenParams | ConvertFrom-Json
 	
@@ -16,7 +26,7 @@ try {
 	
 	if (!(Test-Path "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Configuration.json")) { 
 		(Get-Content "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Configuration_template.json") | 
-			ForEach-Object { $_ -replace "{Server}", "$env:TestServer" } | 
+			ForEach-Object { $_ -replace "{Server}", "$env:TestApiServer" } | 
 			ForEach-Object { $_ -replace "{Username}", "$env:TestUsername" } | 
 			ForEach-Object { $_ -replace "{Password}", "$env:TestPassword" } | 
 			ForEach-Object { $_ -replace "{AccessToken}", "$env:TestAccessToken" } | 

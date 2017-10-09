@@ -1258,7 +1258,7 @@
         }
       }
     },
-    "/Customer/Snapshot/SearchRepositories": {
+    "/Backup/Customer/Snapshot/SearchRepositories": {
       "post": {
         "tags": [
           "CloudBackup"
@@ -1302,7 +1302,7 @@
         }
       }
     },
-    "/Customer/Clone": {
+    "/Backup/Customer/Clone": {
       "post": {
         "tags": [
           "CloudBackup"
@@ -1342,6 +1342,100 @@
           }
         }
       }
+    },
+    "/{CustomerAlias}/{UserId}/GetUserDeveloperFlag": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_GetUserDeveloperFlag",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "CustomerAlias",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "type": "string",
+            "name": "UserId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      }
+    },
+    "/{CustomerAlias}/UpdateUserDeveloperFlag": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_UpdateUserDeveloperFlag",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "CustomerAlias",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "name": "userDeveloperFlagUpdateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserDeveloperFlagUpdateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserDeveloperFlagUpdateRequest"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -1353,8 +1447,10 @@
         "useSsl",
         "elasticSearchNumberOfShards",
         "elasticSearchNumberOfReplicas",
-        "rootSearchIndexNumberOfShards",
-        "rootSearchIndexNumberOfReplicas",
+        "rootContentSearchIndexNumberOfShards",
+        "rootContentSearchIndexNumberOfReplicas",
+        "rootListItemSearchIndexNumberOfShards",
+        "rootListItemSearchIndexNumberOfReplicas",
         "indexedFieldThreshold"
       ],
       "properties": {
@@ -1424,11 +1520,19 @@
           "type": "integer",
           "format": "int32"
         },
-        "rootSearchIndexNumberOfShards": {
+        "rootContentSearchIndexNumberOfShards": {
           "type": "integer",
           "format": "int32"
         },
-        "rootSearchIndexNumberOfReplicas": {
+        "rootContentSearchIndexNumberOfReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rootListItemSearchIndexNumberOfShards": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rootListItemSearchIndexNumberOfReplicas": {
           "type": "integer",
           "format": "int32"
         },
@@ -2617,8 +2721,10 @@
         "useSsl",
         "elasticSearchNumberOfShards",
         "elasticSearchNumberOfReplicas",
-        "rootSearchIndexNumberOfShards",
-        "rootSearchIndexNumberOfReplicas",
+        "rootContentSearchIndexNumberOfShards",
+        "rootContentSearchIndexNumberOfReplicas",
+        "rootListItemSearchIndexNumberOfShards",
+        "rootListItemSearchIndexNumberOfReplicas",
         "indexedFieldThreshold",
         "redisDatabaseIndex",
         "lifeCycle"
@@ -2701,11 +2807,19 @@
           "type": "integer",
           "format": "int32"
         },
-        "rootSearchIndexNumberOfShards": {
+        "rootContentSearchIndexNumberOfShards": {
           "type": "integer",
           "format": "int32"
         },
-        "rootSearchIndexNumberOfReplicas": {
+        "rootContentSearchIndexNumberOfReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rootListItemSearchIndexNumberOfShards": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rootListItemSearchIndexNumberOfReplicas": {
           "type": "integer",
           "format": "int32"
         },
@@ -3266,9 +3380,6 @@
         },
         "errorMessage": {
           "type": "string"
-        },
-        "message": {
-          "type": "string"
         }
       },
       "allOf": [
@@ -3297,11 +3408,6 @@
     "PictureparkOperationCanceledException": {
       "type": "object",
       "additionalProperties": false,
-      "properties": {
-        "cancellationToken": {
-          "type": "string"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
@@ -3311,11 +3417,6 @@
     "OperationTimeoutException": {
       "type": "object",
       "additionalProperties": false,
-      "properties": {
-        "messageId": {
-          "type": "string"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
@@ -3849,6 +3950,7 @@
     },
     "AndFilter": {
       "type": "object",
+      "description": "The AndFilter> is a compound filter and returns documents that match all of the specified filters.",
       "additionalProperties": false,
       "properties": {
         "filters": {
@@ -3867,6 +3969,7 @@
     },
     "OrFilter": {
       "type": "object",
+      "description": "The OrFilter is a compound filter and returns documents that match any of the specified filters.",
       "additionalProperties": false,
       "properties": {
         "filters": {
@@ -3885,6 +3988,7 @@
     },
     "NotFilter": {
       "type": "object",
+      "description": "The NotFilter is a compound filter and returns documents that do not match the specified filter.",
       "additionalProperties": false,
       "properties": {
         "filter": {
@@ -3904,6 +4008,7 @@
     },
     "DateRangeFilter": {
       "type": "object",
+      "description": "The DateRangeFilter returns documents with fields that have date values within a certain range.",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -3950,6 +4055,7 @@
     },
     "ExistsFilter": {
       "type": "object",
+      "description": "The ExistsFilter returns documents that have at least one non-null value in the original field.",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -3965,6 +4071,7 @@
     },
     "GeoBoundingBoxFilter": {
       "type": "object",
+      "description": "The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -4014,6 +4121,7 @@
     },
     "GeoDistanceFilter": {
       "type": "object",
+      "description": "The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point.",
       "additionalProperties": false,
       "required": [
         "distance"
@@ -4045,6 +4153,7 @@
     },
     "GeoDistanceRangeFilter": {
       "type": "object",
+      "description": "The GeoDistanceRangeFilter returns documents that exists within a range from a specific point.",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -4100,6 +4209,7 @@
     },
     "NestedFilter": {
       "type": "object",
+      "description": "The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.",
       "additionalProperties": false,
       "properties": {
         "path": {
@@ -4123,6 +4233,7 @@
     },
     "NumericRangeFilter": {
       "type": "object",
+      "description": "The NumericRangeFilter returns documents with fields that have numeric values within a certain range.",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -4146,6 +4257,7 @@
     },
     "PrefixFilter": {
       "type": "object",
+      "description": "The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -4165,6 +4277,7 @@
     },
     "TermFilter": {
       "type": "object",
+      "description": "The TermFilter returns documents that contain the exact term specified in the inverted index.",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -4184,6 +4297,7 @@
     },
     "TermsFilter": {
       "type": "object",
+      "description": "The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).",
       "additionalProperties": false,
       "properties": {
         "field": {
@@ -4233,6 +4347,7 @@
     },
     "ChildFilter": {
       "type": "object",
+      "description": "The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.",
       "additionalProperties": false,
       "properties": {
         "childType": {
@@ -4256,6 +4371,7 @@
     },
     "ParentFilter": {
       "type": "object",
+      "description": "The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.",
       "additionalProperties": false,
       "properties": {
         "parentType": {
@@ -4892,6 +5008,21 @@
         },
         "redirectUri": {
           "type": "string"
+        }
+      }
+    },
+    "UserDeveloperFlagUpdateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isDeveloper"
+      ],
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "isDeveloper": {
+          "type": "boolean"
         }
       }
     }

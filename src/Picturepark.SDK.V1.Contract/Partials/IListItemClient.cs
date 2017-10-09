@@ -32,7 +32,5 @@ namespace Picturepark.SDK.V1.Contract
 		Task UpdateListItemAsync(ListItem listItem, object obj, string schemaId);
 
 		Task<T> GetObjectAsync<T>(string objectId, string schemaId);
-
-		Task ImportFromJsonAsync(string jsonFilePath, bool includeObjects);
 	}
 }
