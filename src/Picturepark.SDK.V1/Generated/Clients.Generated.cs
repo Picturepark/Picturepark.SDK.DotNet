@@ -5692,115 +5692,6 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Import</summary>
-        /// <param name="contentId">The content id.</param>
-        /// <param name="fileTransferId">The file transfer id.</param>
-        /// <param name="includeObjects">Imports list items defined in the json import file.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public void Import(string contentId, string fileTransferId, bool includeObjects)
-        {
-            System.Threading.Tasks.Task.Run(async () => await ImportAsync(contentId, fileTransferId, includeObjects, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <summary>Import</summary>
-        /// <param name="contentId">The content id.</param>
-        /// <param name="fileTransferId">The file transfer id.</param>
-        /// <param name="includeObjects">Imports list items defined in the json import file.</param>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task ImportAsync(string contentId, string fileTransferId, bool includeObjects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (includeObjects == null)
-                throw new System.ArgumentNullException("includeObjects");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ListItems/Import?");
-            if (contentId != null) urlBuilder_.Append("contentId=").Append(System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            if (fileTransferId != null) urlBuilder_.Append("fileTransferId=").Append(System.Uri.EscapeDataString(System.Convert.ToString(fileTransferId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            urlBuilder_.Append("includeObjects=").Append(System.Uri.EscapeDataString(System.Convert.ToString(includeObjects, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            urlBuilder_.Length--;
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "204") 
-                        {
-                            return;
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
@@ -5964,9 +5855,9 @@ namespace Picturepark.SDK.V1
         /// <returns>SchemaDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public System.Collections.Generic.List<SchemaDetail> GetAll(System.Collections.Generic.IEnumerable<string> ids = null)
+        public System.Collections.Generic.List<SchemaDetail> GetMany(System.Collections.Generic.IEnumerable<string> ids = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetAllAsync(ids, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetManyAsync(ids, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Get Many</summary>
@@ -5975,7 +5866,7 @@ namespace Picturepark.SDK.V1
         /// <returns>SchemaDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.List<SchemaDetail>> GetAllAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<SchemaDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("V1/Schemas?");
@@ -9658,6 +9549,7 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Upload file</summary>
         /// <param name="formFile">Gets or sets the form file.</param>
         /// <param name="relativePath">Relative path of the uploading file</param>
         /// <param name="chunkNumber">Current chunk number. starts with 1</param>
@@ -9671,6 +9563,7 @@ namespace Picturepark.SDK.V1
             System.Threading.Tasks.Task.Run(async () => await UploadFileAsync(transferId, identifier, formFile, relativePath, chunkNumber, currentChunkSize, totalSize, totalChunks, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
+        /// <summary>Upload file</summary>
         /// <param name="formFile">Gets or sets the form file.</param>
         /// <param name="relativePath">Relative path of the uploading file</param>
         /// <param name="chunkNumber">Current chunk number. starts with 1</param>
@@ -9957,7 +9850,7 @@ namespace Picturepark.SDK.V1
     
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("V1/Users/GetUser/{UserId}");
-            urlBuilder_.Replace("{userId}", System.Uri.EscapeDataString(System.Convert.ToString(userId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{UserId}", System.Uri.EscapeDataString(System.Convert.ToString(userId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try

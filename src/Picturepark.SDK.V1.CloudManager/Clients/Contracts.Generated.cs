@@ -343,6 +343,29 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
+    public partial interface IUserClient
+    {
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        System.Threading.Tasks.Task<bool> GetUserDeveloperFlagAsync(string customerAlias, string userId);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        System.Threading.Tasks.Task<bool> GetUserDeveloperFlagAsync(string customerAlias, string userId, System.Threading.CancellationToken cancellationToken);
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        System.Threading.Tasks.Task<UserDeveloperFlagUpdateRequest> UpdateUserDeveloperFlagAsync(string customerAlias, UserDeveloperFlagUpdateRequest userDeveloperFlagUpdateRequest);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        System.Threading.Tasks.Task<UserDeveloperFlagUpdateRequest> UpdateUserDeveloperFlagAsync(string customerAlias, UserDeveloperFlagUpdateRequest userDeveloperFlagUpdateRequest, System.Threading.CancellationToken cancellationToken);
+    
+    }
+    
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
@@ -396,11 +419,17 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("elasticSearchNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
         public int ElasticSearchNumberOfReplicas { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("rootSearchIndexNumberOfShards", Required = Newtonsoft.Json.Required.Always)]
-        public int RootSearchIndexNumberOfShards { get; set; }
+        [Newtonsoft.Json.JsonProperty("rootContentSearchIndexNumberOfShards", Required = Newtonsoft.Json.Required.Always)]
+        public int RootContentSearchIndexNumberOfShards { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("rootSearchIndexNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
-        public int RootSearchIndexNumberOfReplicas { get; set; }
+        [Newtonsoft.Json.JsonProperty("rootContentSearchIndexNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
+        public int RootContentSearchIndexNumberOfReplicas { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rootListItemSearchIndexNumberOfShards", Required = Newtonsoft.Json.Required.Always)]
+        public int RootListItemSearchIndexNumberOfShards { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rootListItemSearchIndexNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
+        public int RootListItemSearchIndexNumberOfReplicas { get; set; }
     
         [Newtonsoft.Json.JsonProperty("indexedFieldThreshold", Required = Newtonsoft.Json.Required.Always)]
         public int IndexedFieldThreshold { get; set; }
@@ -1702,11 +1731,17 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("elasticSearchNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
         public int ElasticSearchNumberOfReplicas { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("rootSearchIndexNumberOfShards", Required = Newtonsoft.Json.Required.Always)]
-        public int RootSearchIndexNumberOfShards { get; set; }
+        [Newtonsoft.Json.JsonProperty("rootContentSearchIndexNumberOfShards", Required = Newtonsoft.Json.Required.Always)]
+        public int RootContentSearchIndexNumberOfShards { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("rootSearchIndexNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
-        public int RootSearchIndexNumberOfReplicas { get; set; }
+        [Newtonsoft.Json.JsonProperty("rootContentSearchIndexNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
+        public int RootContentSearchIndexNumberOfReplicas { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rootListItemSearchIndexNumberOfShards", Required = Newtonsoft.Json.Required.Always)]
+        public int RootListItemSearchIndexNumberOfShards { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rootListItemSearchIndexNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
+        public int RootListItemSearchIndexNumberOfReplicas { get; set; }
     
         [Newtonsoft.Json.JsonProperty("indexedFieldThreshold", Required = Newtonsoft.Json.Required.Always)]
         public int IndexedFieldThreshold { get; set; }
@@ -2376,9 +2411,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("errorMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ErrorMessage { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("message", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Message { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -2413,9 +2445,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class PictureparkOperationCanceledException : PictureparkBusinessException
     {
-        [Newtonsoft.Json.JsonProperty("cancellationToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CancellationToken { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -2430,9 +2459,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class OperationTimeoutException : PictureparkBusinessException
     {
-        [Newtonsoft.Json.JsonProperty("messageId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MessageId { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -3079,6 +3105,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
+    /// <summary>The AndFilter> is a compound filter and returns documents that match all of the specified filters.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class AndFilter : FilterBase
     {
@@ -3097,6 +3124,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
+    /// <summary>The OrFilter is a compound filter and returns documents that match any of the specified filters.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class OrFilter : FilterBase
     {
@@ -3115,6 +3143,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
+    /// <summary>The NotFilter is a compound filter and returns documents that do not match the specified filter.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class NotFilter : FilterBase
     {
@@ -3133,6 +3162,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
+    /// <summary>The DateRangeFilter returns documents with fields that have date values within a certain range.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class DateRangeFilter : FilterBase
     {
@@ -3182,6 +3212,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
+    /// <summary>The ExistsFilter returns documents that have at least one non-null value in the original field.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class ExistsFilter : FilterBase
     {
@@ -3200,6 +3231,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
+    /// <summary>The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class GeoBoundingBoxFilter : FilterBase
     {
@@ -3246,6 +3278,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
+    /// <summary>The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class GeoDistanceFilter : FilterBase
     {
@@ -3272,6 +3305,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
+    /// <summary>The GeoDistanceRangeFilter returns documents that exists within a range from a specific point.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class GeoDistanceRangeFilter : FilterBase
     {
@@ -3324,6 +3358,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
+    /// <summary>The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class NestedFilter : FilterBase
     {
@@ -3346,6 +3381,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
+    /// <summary>The NumericRangeFilter returns documents with fields that have numeric values within a certain range.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class NumericRangeFilter : FilterBase
     {
@@ -3368,6 +3404,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
+    /// <summary>The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class PrefixFilter : FilterBase
     {
@@ -3390,6 +3427,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
+    /// <summary>The TermFilter returns documents that contain the exact term specified in the inverted index.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class TermFilter : FilterBase
     {
@@ -3412,6 +3450,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
+    /// <summary>The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class TermsFilter : FilterBase
     {
@@ -3460,6 +3499,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
+    /// <summary>The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class ChildFilter : FilterBase
     {
@@ -3482,6 +3522,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
+    /// <summary>The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
     public partial class ParentFilter : FilterBase
     {
@@ -4236,6 +4277,26 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SnapshotCustomerCloneRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotCustomerCloneRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.6.0.0")]
+    public partial class UserDeveloperFlagUpdateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string UserId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isDeveloper", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsDeveloper { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserDeveloperFlagUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserDeveloperFlagUpdateRequest>(data);
         }
     }
     
