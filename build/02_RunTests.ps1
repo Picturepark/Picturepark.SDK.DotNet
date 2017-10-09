@@ -2,7 +2,7 @@ try {
 	$AllProtocols = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
 	[System.Net.ServicePointManager]::SecurityProtocol = $AllProtocols
 
-	$customerInfo = Invoke-WebRequest "${Env:TestServer}/Service/Info" -Method Get -Headers @{ "Accept" = "application/json" } | ConvertFrom-Json
+	$customerInfo = Invoke-WebRequest "${Env:TestInstanceUrl}/Service/Info" -Method Get -Headers @{ "Accept" = "application/json" } | ConvertFrom-Json
 	
 	${Env:TestCustomerId} = $customerInfo.CustomerId
 	${Env:TestCustomerAlias} = $customerInfo.CustomerAlias
@@ -26,7 +26,7 @@ try {
 	
 	if (!(Test-Path "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Configuration.json")) { 
 		(Get-Content "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Configuration_template.json") | 
-			ForEach-Object { $_ -replace "{Server}", "$env:TestServer" } | 
+			ForEach-Object { $_ -replace "{Server}", "$env:TestApiServer" } | 
 			ForEach-Object { $_ -replace "{Username}", "$env:TestUsername" } | 
 			ForEach-Object { $_ -replace "{Password}", "$env:TestPassword" } | 
 			ForEach-Object { $_ -replace "{AccessToken}", "$env:TestAccessToken" } | 
