@@ -25,5 +25,7 @@ namespace Picturepark.SDK.V1.Contract
 		ITransferClient Transfers { get; }
 
 		IUserClient Users { get; }
+
+		IProfileClient Profile { get; }
 	}
 }
