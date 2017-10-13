@@ -27,5 +27,7 @@ namespace Picturepark.SDK.V1.Contract
 		IUserClient Users { get; }
 
 		IProfileClient Profile { get; }
+
+		IServiceProviderClient ServiceProviders { get; }
 	}
 }

@@ -3851,18 +3851,7 @@
           "items": {
             "type": "string"
           }
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/UserItem"
-        }
-      ]
-    },
-    "UserItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
+        },
         "id": {
           "type": "string"
         },

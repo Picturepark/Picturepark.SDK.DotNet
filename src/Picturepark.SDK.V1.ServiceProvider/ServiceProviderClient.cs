@@ -21,18 +21,15 @@ namespace Picturepark.SDK.V1.ServiceProvider
 		private readonly IModel _requestMessageModel;
 		private readonly LiveStreamBuffer _liveStreamBuffer;
 
-		private readonly Dictionary<string, ServiceProviderRestClient> _serviceProviderCache;
-
 		private LiveStreamConsumer _liveStreamConsumer;
 
 		public ServiceProviderClient(Configuration configuration)
 		{
 			_configuration = configuration;
-			_serviceProviderCache = new Dictionary<string, ServiceProviderRestClient>();
 
 			ConnectionFactory factory = new ConnectionFactory();
 
-			factory.Uri = $"amqp://{configuration.User}:{configuration.Password}@{configuration.Host}:{configuration.Port}";
+			factory.Uri = new Uri($"amqp://{configuration.User}:{configuration.Password}@{configuration.Host}:{configuration.Port}");
 			factory.AutomaticRecoveryEnabled = true;
 			factory.VirtualHost = configuration.ServiceProviderId;
 			factory.NetworkRecoveryInterval = TimeSpan.FromSeconds(10);
@@ -86,7 +83,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
 			// consumer
 			var consumer = new EventingBasicConsumer(_requestMessageModel);
 			consumer.Received += (o, e) => { _liveStreamConsumer.OnReceived(o, e); };
-			_liveStreamModel.BasicConsume(queue: queueName, noAck: false, consumer: consumer);
+			_liveStreamModel.BasicConsume(queue: queueName, autoAck: false, consumer: consumer);
 
 			return result;
 		}
@@ -107,30 +104,13 @@ namespace Picturepark.SDK.V1.ServiceProvider
 			// consumer
 			var consumer = new EventingBasicConsumer(_requestMessageModel);
 			consumer.Received += Request_Received;
-			_requestMessageModel.BasicConsume(queue: queueName, noAck: false, consumer: consumer);
+			_requestMessageModel.BasicConsume(queue: queueName, autoAck: false, consumer: consumer);
 
 			// create observable
 			return Observable.FromEventPattern<ServiceProviderRequestEventArgs>(
 				ev => ServiceProviderRequestEvent += ev,
 				ev => ServiceProviderRequestEvent -= ev
 			);
-		}
-
-		public ServiceProviderRestClient GetConfigurationClient(string baseUrl, string accessToken, string customerAlias)
-		{
-			// TODO BRO: Lock
-			if (_serviceProviderCache.ContainsKey(baseUrl))
-			{
-				return _serviceProviderCache[baseUrl];
-			}
-			else
-			{
-				var client = new ServiceProviderRestClient(new PictureparkClientSettings(new AccessTokenAuthClient(baseUrl, accessToken, customerAlias)));
-				client.BaseUrl = baseUrl;
-
-				_serviceProviderCache[baseUrl] = client;
-				return client;
-			}
 		}
 
 		private void Request_Received(object sender, BasicDeliverEventArgs e)

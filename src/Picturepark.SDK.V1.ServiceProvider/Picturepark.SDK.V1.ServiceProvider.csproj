@@ -28,7 +28,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
-		<PackageReference Include="RabbitMQ.Client" Version="4.1.1" />
+		<PackageReference Include="RabbitMQ.Client" Version="5.0.1" />
 		<PackageReference Include="System.Reactive.Linq" Version="3.1.1" />
 		<PackageReference Include="Nerdbank.GitVersioning" Version="$(NerdbankGitVersioningVersion)">
 			<PrivateAssets>All</PrivateAssets>
@@ -44,7 +44,7 @@
 	<Target Name="FixUpVersion" BeforeTargets="_GenerateRestoreProjectSpec" DependsOnTargets="GetBuildVersion" Condition=" '$(NerdbankGitVersioningTasksPath)' != '' " />
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
-		<PackageReference Include="System.ComponentModel.Annotations" Version="4.3.0.0" />
+		<PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />
 	</ItemGroup>
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">

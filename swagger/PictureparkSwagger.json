@@ -3406,6 +3406,135 @@
         }
       }
     },
+    "/V1/ServiceProviders/{ServiceProviderId}/Message": {
+      "post": {
+        "tags": [
+          "ServiceProvider"
+        ],
+        "operationId": "ServiceProvider_SendMessage",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "ServiceProviderId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SendMessageRequest2"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      }
+    },
+    "/V1/ServiceProviders/{ServiceProviderId}/Configuration": {
+      "get": {
+        "tags": [
+          "ServiceProvider"
+        ],
+        "operationId": "ServiceProvider_GetConfiguration",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "ServiceProviderId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerServiceProviderConfiguration"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ServiceProvider"
+        ],
+        "operationId": "ServiceProvider_UpdateConfiguration",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "ServiceProviderId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "name": "configuration",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ServiceProviderConfigurationUpdateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerServiceProviderConfiguration"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      }
+    },
     "/V1/Transfers/Files/Delete": {
       "post": {
         "tags": [
@@ -5721,7 +5850,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "allowSearchStringRewrite",
         "lifeCycleFilter",
         "searchType"
       ],
@@ -5730,9 +5858,12 @@
           "type": "string",
           "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
         },
-        "allowSearchStringRewrite": {
-          "type": "boolean",
-          "description": "Allow the backend to modify the search string if it generates a non valid query"
+        "searchBehaviours": {
+          "type": "array",
+          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
         },
         "filter": {
           "description": "An optional search filter. Limits the content document result set.",
@@ -5792,6 +5923,18 @@
           ]
         }
       }
+    },
+    "SearchBehaviour": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "DropInvalidCharactersOnFailure",
+        "WildcardOnSingleTerm"
+      ],
+      "enum": [
+        "DropInvalidCharactersOnFailure",
+        "WildcardOnSingleTerm"
+      ]
     },
     "FilterBase": {
       "type": "object",
@@ -6727,7 +6870,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "allowSearchStringRewrite",
         "start",
         "limit",
         "lifeCycleFilter",
@@ -6767,9 +6909,12 @@
           "type": "string",
           "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
         },
-        "allowSearchStringRewrite": {
-          "type": "boolean",
-          "description": "Allow the backend to modify the search string if it generates a non valid query"
+        "searchBehaviours": {
+          "type": "array",
+          "description": "An optional list of search behaviours. All the passed behaviours will be applied in the specified order.",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
         },
         "sort": {
           "type": "array",
@@ -6882,6 +7027,26 @@
         "elapsedMilliseconds": {
           "type": "integer",
           "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/SearchBehaviourBaseResultOfContent"
+        }
+      ]
+    },
+    "SearchBehaviourBaseResultOfContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isSearchStringRewritten"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "isSearchStringRewritten": {
+          "type": "boolean"
         }
       },
       "allOf": [
@@ -7193,8 +7358,8 @@
         "totalItemsCount"
       ],
       "properties": {
-        "contentSearchRequest": {
-          "$ref": "#/definitions/ContentSearchRequest"
+        "contentFilterRequest": {
+          "$ref": "#/definitions/ContentFilterRequest"
         },
         "totalItemsCount": {
           "type": "integer",
@@ -7206,6 +7371,73 @@
           "$ref": "#/definitions/MetadataValuesChangeRequestBase"
         }
       ]
+    },
+    "ContentFilterRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "searchType",
+        "lifeCycleFilter"
+      ],
+      "properties": {
+        "channelIds": {
+          "type": "array",
+          "description": "Limits the simple search fields to the fields available in the specified in the channel.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "searchLanguages": {
+          "type": "array",
+          "description": "Only searches the specified language values. Defaults to all metadata languages of the language configuration.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "displayLanguage": {
+          "type": "string",
+          "description": "Defines the return language of translation values. Defaults to x-default."
+        },
+        "searchString": {
+          "type": "string",
+          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
+        },
+        "searchType": {
+          "description": "Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContentSearchType"
+            }
+          ]
+        },
+        "collectionId": {
+          "type": "string",
+          "description": "The collection id."
+        },
+        "filter": {
+          "description": "An optional search filter. Limits the content document result set.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        },
+        "lifeCycleFilter": {
+          "description": "Limits the content document result set to that life cycle state. Defaults to ActiveOnly.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/LifeCycleFilter"
+            }
+          ]
+        },
+        "rightsFilter": {
+          "type": "array",
+          "description": "Limits the content document result set to specific ContentRights the user has",
+          "items": {
+            "$ref": "#/definitions/ContentRight"
+          }
+        }
+      }
     },
     "BusinessProcessSearchRequest": {
       "type": "object",
@@ -7229,6 +7461,12 @@
         "searchString": {
           "type": "string"
         },
+        "searchBehaviours": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
+        },
         "sort": {
           "type": "array",
           "items": {
@@ -7247,6 +7485,26 @@
         "elapsedMilliseconds": {
           "type": "integer",
           "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/SearchBehaviourBaseResultOfBusinessProcess"
+        }
+      ]
+    },
+    "SearchBehaviourBaseResultOfBusinessProcess": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isSearchStringRewritten"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "isSearchStringRewritten": {
+          "type": "boolean"
         }
       },
       "allOf": [
@@ -7358,6 +7616,9 @@
         },
         "documentType": {
           "type": "string"
+        },
+        "sort": {
+          "$ref": "#/definitions/SortInfo"
         }
       }
     },
@@ -7553,7 +7814,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "allowSearchStringRewrite",
         "includeAllSchemaChildren"
       ],
       "properties": {
@@ -7561,9 +7821,12 @@
           "type": "string",
           "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
         },
-        "allowSearchStringRewrite": {
-          "type": "boolean",
-          "description": "Allow the backend to modify the search string if it generates a non valid query"
+        "searchBehaviours": {
+          "type": "array",
+          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
         },
         "filter": {
           "description": "An optional search filter. Limits the list item result set.",
@@ -7615,7 +7878,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "allowSearchStringRewrite",
         "start",
         "limit",
         "includeAllSchemaChildren",
@@ -7626,9 +7888,12 @@
           "type": "string",
           "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
         },
-        "allowSearchStringRewrite": {
-          "type": "boolean",
-          "description": "Allow the backend to modify the search string if it generates a non valid query"
+        "searchBehaviours": {
+          "type": "array",
+          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
         },
         "sort": {
           "type": "array",
@@ -7785,11 +8050,11 @@
       "description": "ListItemFieldsFilterUpdateRequest class",
       "additionalProperties": false,
       "properties": {
-        "searchRequest": {
+        "listItemFilterRequest": {
           "description": "The search request used to filter the list items on which the change commands must be applied",
           "allOf": [
             {
-              "$ref": "#/definitions/ListItemSearchRequest"
+              "$ref": "#/definitions/ListItemFilterRequest"
             }
           ]
         },
@@ -7798,6 +8063,49 @@
           "description": "The change commads to be applied to the list items",
           "items": {
             "$ref": "#/definitions/MetadataValuesSchemaUpdateCommand"
+          }
+        }
+      }
+    },
+    "ListItemFilterRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "includeAllSchemaChildren"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string",
+          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
+        },
+        "filter": {
+          "description": "An optional search filter. Limits the list item result set.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        },
+        "includeAllSchemaChildren": {
+          "type": "boolean",
+          "description": "Broadens the search and include all schema descendant list items."
+        },
+        "schemaIds": {
+          "type": "array",
+          "description": "Limits the search to list items of the provided schemas.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "displayLanguage": {
+          "type": "string",
+          "description": "Defines the return language of translation values. Defaults to x-default."
+        },
+        "searchLanguages": {
+          "type": "array",
+          "description": "Only searches the specified language values. Defaults to all metadata languages of the language configuration.",
+          "items": {
+            "type": "string"
           }
         }
       }
@@ -7867,11 +8175,11 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/RewritableBaseResultOfObject"
+          "$ref": "#/definitions/SearchBehaviourBaseResultOfObject"
         }
       ]
     },
-    "RewritableBaseResultOfObject": {
+    "SearchBehaviourBaseResultOfObject": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -9057,7 +9365,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "allowSearchStringRewrite",
         "start",
         "limit"
       ],
@@ -9066,9 +9373,12 @@
           "type": "string",
           "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
         },
-        "allowSearchStringRewrite": {
-          "type": "boolean",
-          "description": "Allow the backend to modify the search string if it generates a non valid query"
+        "searchBehaviours": {
+          "type": "array",
+          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
         },
         "sort": {
           "type": "array",
@@ -9102,11 +9412,11 @@
       "additionalProperties": false,
       "allOf": [
         {
-          "$ref": "#/definitions/RewritableBaseResultOfSchema"
+          "$ref": "#/definitions/SearchBehaviourBaseResultOfSchema"
         }
       ]
     },
-    "RewritableBaseResultOfSchema": {
+    "SearchBehaviourBaseResultOfSchema": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -9261,7 +9571,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "allowSearchStringRewrite",
         "start",
         "limit"
       ],
@@ -9269,9 +9578,12 @@
         "searchString": {
           "type": "string"
         },
-        "allowSearchStringRewrite": {
-          "type": "boolean",
-          "description": "Allow the backend to modify the search string if it generates a non valid query"
+        "searchBehaviours": {
+          "type": "array",
+          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
         },
         "sort": {
           "type": "array",
@@ -9325,11 +9637,11 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/RewritableBaseResultOfPermissionSet"
+          "$ref": "#/definitions/SearchBehaviourBaseResultOfPermissionSet"
         }
       ]
     },
-    "RewritableBaseResultOfPermissionSet": {
+    "SearchBehaviourBaseResultOfPermissionSet": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -10150,16 +10462,16 @@
     "ShareAggregationRequest": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "allowSearchStringRewrite"
-      ],
       "properties": {
         "searchString": {
           "type": "string"
         },
-        "allowSearchStringRewrite": {
-          "type": "boolean",
-          "description": "Allow the backend to modify the search string if it generates a non valid query"
+        "searchBehaviours": {
+          "type": "array",
+          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
         },
         "sort": {
           "type": "array",
@@ -10322,7 +10634,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "allowSearchStringRewrite",
         "start",
         "limit"
       ],
@@ -10331,9 +10642,12 @@
           "type": "string",
           "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to empty."
         },
-        "allowSearchStringRewrite": {
-          "type": "boolean",
-          "description": "Allow the backend to modify the search string if it generates a non valid query"
+        "searchBehaviours": {
+          "type": "array",
+          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
         },
         "sort": {
           "type": "array",
@@ -10376,11 +10690,11 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/RewritableBaseResultOfShareBase"
+          "$ref": "#/definitions/SearchBehaviourBaseResultOfShareBase"
         }
       ]
     },
-    "RewritableBaseResultOfShareBase": {
+    "SearchBehaviourBaseResultOfShareBase": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -10399,6 +10713,61 @@
           "$ref": "#/definitions/BaseResultOfShareBase"
         }
       ]
+    },
+    "SendMessageRequest2": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "messageName": {
+          "type": "string"
+        },
+        "businessProcessId": {
+          "type": "string"
+        },
+        "variables": {}
+      }
+    },
+    "CustomerServiceProviderConfiguration": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "serviceProviderId": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "userRoleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "settings": {
+          "type": "string"
+        }
+      }
+    },
+    "ServiceProviderConfigurationUpdateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        },
+        "serviceProviderId": {
+          "type": "string"
+        },
+        "settings": {
+          "type": "string"
+        },
+        "userRoleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
     },
     "FileTransferDeleteRequest": {
       "type": "object",
@@ -15268,6 +15637,12 @@
         "searchString": {
           "type": "string"
         },
+        "searchBehaviours": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
+        },
         "sort": {
           "type": "array",
           "items": {
@@ -15297,6 +15672,26 @@
         "elapsedMilliseconds": {
           "type": "integer",
           "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/SearchBehaviourBaseResultOfTransfer"
+        }
+      ]
+    },
+    "SearchBehaviourBaseResultOfTransfer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isSearchStringRewritten"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "isSearchStringRewritten": {
+          "type": "boolean"
         }
       },
       "allOf": [
@@ -15338,6 +15733,12 @@
         "searchString": {
           "type": "string"
         },
+        "searchBehaviours": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
+        },
         "sort": {
           "type": "array",
           "items": {
@@ -15367,6 +15768,26 @@
         "elapsedMilliseconds": {
           "type": "integer",
           "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/SearchBehaviourBaseResultOfFileTransfer"
+        }
+      ]
+    },
+    "SearchBehaviourBaseResultOfFileTransfer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isSearchStringRewritten"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "isSearchStringRewritten": {
+          "type": "boolean"
         }
       },
       "allOf": [
@@ -15432,7 +15853,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "allowSearchStringRewrite",
         "start",
         "limit",
         "lifeCycleFilter"
@@ -15441,9 +15861,12 @@
         "searchString": {
           "type": "string"
         },
-        "allowSearchStringRewrite": {
-          "type": "boolean",
-          "description": "Allow the backend to modify the search string if it generates a non valid query"
+        "searchBehaviours": {
+          "type": "array",
+          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
         },
         "sort": {
           "type": "array",
@@ -15481,11 +15904,11 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/RewritableBaseResultOfUser"
+          "$ref": "#/definitions/SearchBehaviourBaseResultOfUser"
         }
       ]
     },
-    "RewritableBaseResultOfUser": {
+    "SearchBehaviourBaseResultOfUser": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -15536,13 +15959,20 @@
           "items": {
             "type": "string"
           }
+        },
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
         }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/UserItem"
-        }
-      ]
+      }
     },
     "UserDetail": {
       "type": "object",
@@ -15551,9 +15981,6 @@
         "authorizationState"
       ],
       "properties": {
-        "password": {
-          "type": "string"
-        },
         "userRoles": {
           "type": "array",
           "items": {
@@ -15653,12 +16080,14 @@
       "x-enumNames": [
         "Active",
         "Review",
-        "Locked"
+        "Locked",
+        "Invited"
       ],
       "enum": [
         "Active",
         "Review",
-        "Locked"
+        "Locked",
+        "Invited"
       ]
     },
     "Channel": {
