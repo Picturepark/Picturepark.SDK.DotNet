@@ -10,7 +10,10 @@ namespace Picturepark.SDK.V1
 {
 	public partial class TransferClient
 	{
+		private static readonly object s_lock = new object();
+
 		private readonly BusinessProcessClient _businessProcessClient;
+		private volatile List<string> _fileNameBlacklist;
 
 		public TransferClient(BusinessProcessClient businessProcessClient, IPictureparkClientSettings settings) : this(settings)
 		{
@@ -34,8 +37,10 @@ namespace Picturepark.SDK.V1
 			// Limits concurrent downloads
 			var throttler = new SemaphoreSlim(concurrentUploads);
 
+			var filteredFileNames = FilterFilesByBlacklist(files.ToList());
+
 			// TODO: File by file uploads
-			var allTasks = files.Select(file => Task.Run(async () =>
+			var allTasks = filteredFileNames.Select(file => Task.Run(async () =>
 				{
 					try
 					{
@@ -76,11 +81,13 @@ namespace Picturepark.SDK.V1
 
 		public async Task<Transfer> CreateTransferAsync(List<string> fileNames, string transferName)
 		{
+			var filteredFileNames = FilterFilesByBlacklist(fileNames);
+
 			var request = new CreateTransferRequest
 			{
 				Name = string.IsNullOrEmpty(transferName) ? new Random().Next(1000, 9999).ToString() : transferName,
 				TransferType = TransferType.FileUpload,
-				Files = fileNames.Select(i => new TransferUploadFile { FileName = i, Identifier = Guid.NewGuid().ToString() }).ToList()
+				Files = filteredFileNames.Select(i => new TransferUploadFile { FileName = i, Identifier = Guid.NewGuid().ToString() }).ToList()
 			};
 
 			var result = await CreateAsync(request);
@@ -169,10 +176,34 @@ namespace Picturepark.SDK.V1
 			if (waitResult.HasStateHit)
 				return waitResult;
 
-			var exception = waitResult.BusinessProcess.StateHistory.SingleOrDefault(i => i.Error != null);
+			var exception = waitResult.BusinessProcess.StateHistory.Single(i => i.Error != null);
 
 			// TODO: Deserialize exception
 			throw new Exception(exception.Error.Exception);
+		}
+
+		private List<string> FilterFilesByBlacklist(List<string> files)
+		{
+			var blacklist = GetCachedBlacklist();
+			var filteredFileNames = files.Where(i => !blacklist.Contains(Path.GetFileName(i).ToLowerInvariant())).ToList();
+			return filteredFileNames;
+		}
+
+		private List<string> GetCachedBlacklist()
+		{
+			if (_fileNameBlacklist != null)
+				return _fileNameBlacklist;
+
+			lock (s_lock)
+			{
+				if (_fileNameBlacklist != null)
+					return _fileNameBlacklist;
+
+				var blacklist = GetBlacklist();
+				_fileNameBlacklist = blacklist.Items.Select(i => i.Match.ToLowerInvariant()).ToList();
+			}
+
+			return _fileNameBlacklist;
 		}
 	}
 }
