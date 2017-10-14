@@ -178,8 +178,8 @@ namespace Picturepark.SDK.V1
 
 			if (errors != null && errors.Any())
 			{
-				// TODO: Deserialize and create Aggregate exception
-				throw new Exception(errors.First().Exception);
+				var exceptions = errors.Select(error => DeserializeException(error.Exception));
+				throw new AggregateException(exceptions);
 			}
 		}
 	}

@@ -176,10 +176,17 @@ namespace Picturepark.SDK.V1
 			if (waitResult.HasStateHit)
 				return waitResult;
 
-			var exception = waitResult.BusinessProcess.StateHistory.Single(i => i.Error != null);
+			var error = waitResult.BusinessProcess.StateHistory.SingleOrDefault(i => i.Error != null);
 
-			// TODO: Deserialize exception
-			throw new Exception(exception.Error.Exception);
+			// Not finished
+			if (error == null)
+			{
+				throw new TimeoutException($"Wait for business process on states {states} timed out after {timeout / 1000} seconds");
+			}
+
+			// Throw deserialized exception
+			var exception = DeserializeException(error.Error.Exception);
+			throw exception;
 		}
 
 		private List<string> FilterFilesByBlacklist(List<string> files)

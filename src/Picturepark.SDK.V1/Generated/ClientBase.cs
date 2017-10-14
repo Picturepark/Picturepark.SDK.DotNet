@@ -11,6 +11,7 @@ namespace Picturepark.SDK.V1
 	public abstract class ClientBase
 	{
 		private readonly IPictureparkClientSettings _settings;
+		private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _jsonSettings;
 
 		/// <summary>Initializes a new instance of the <see cref="ClientBase" /> class.</summary>
 		/// <param name="settings">The client settings.</param>
@@ -19,12 +20,36 @@ namespace Picturepark.SDK.V1
 			_settings = settings;
 			BaseUrl = _settings.BaseUrl;
 			Alias = _settings.CustomerAlias;
+
+			_jsonSettings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() =>
+			{
+				var jsonSettings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
+				return jsonSettings;
+			});
 		}
 
 		/// <summary>Gets or sets the base URL.</summary>
 		public string BaseUrl { get; protected set; }
 
 		public string Alias { get; protected set; }
+
+		internal PictureparkException DeserializeException(string exception)
+		{
+			var result = default(PictureparkException);
+			try
+			{
+				result = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(exception, _jsonSettings.Value);
+			}
+			catch (System.Exception ex)
+			{
+				throw new Exception($"Could not deserialize the exception: {exception}", ex);
+			}
+
+			if (result == null)
+				result = new PictureparkException();
+
+			throw result;
+		}
 
 		/// <summary>Creates an HTTP client with a bearer authentication token from the IAuthClient.</summary>
 		/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
