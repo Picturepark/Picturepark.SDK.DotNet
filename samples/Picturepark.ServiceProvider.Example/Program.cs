@@ -1,6 +1,7 @@
 ﻿using System;
+using Picturepark.SDK.V1.ServiceProvider;
 
-namespace Picturepark.SDK.V1.ServiceProvider.Example
+namespace Picturepark.ServiceProvider.Example
 {
 	public class Program
 	{

@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Reactive.Linq;
+using Picturepark.SDK.V1.ServiceProvider;
 
-namespace Picturepark.SDK.V1.ServiceProvider.Example
+namespace Picturepark.ServiceProvider.Example
 {
 	public class MinimalLiveStreamDemo : IDisposable
 	{
@@ -16,16 +16,7 @@ namespace Picturepark.SDK.V1.ServiceProvider.Example
 		{
 			_client = new ServiceProviderClient(configuration);
 
-			////var serviceProviderClient = _client.GetConfigurationClient("http://localhost:8085", "{user}", "{secret}");
-			////var config = serviceProviderClient.GetConfigurationAsync("clarifyextractor").Result;
-			////config = serviceProviderClient.UpdateConfigurationAsync("clarifyextractor", new Contract.ServiceProviderConfigurationUpdateRequest
-			////{
-			////	CustomerId = "bro",
-			////	Configuration = "Blah",
-			////	ServiceProviderId = "clarifyextractor"
-			////}).Result;
-
-			// using a buffer of 1s and a buffer hold back delay of 3s
+			// using a buffer of 1s and a buffer hold back delay of 5s
 			var observer = _client.GetLiveStreamObserver(500, 5000);
 
 			// all handler
