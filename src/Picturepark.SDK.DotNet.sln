@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B3412393-9444-4901-9F57-46015BC30766}"
 	ProjectSection(SolutionItems) = preProject
@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Public API", "Public API", "{4B2AA4DC-FA39-4146-8AA2-50D1908601AB}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{14422565-17C9-4451-A987-3DAF5795073C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Picturepark.SDK.V1", "Picturepark.SDK.V1\Picturepark.SDK.V1.csproj", "{F7E87671-10C3-4090-A10A-70E359F8A26D}"
 EndProject
@@ -26,10 +24,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Picturepark.SDK.V1.Tests", "Picturepark.SDK.V1.Tests\Picturepark.SDK.V1.Tests.csproj", "{BEFC853A-CF61-4CE7-A6A1-8DDB54A9AD8C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Picturepark.SDK.V1.Localization", "Picturepark.SDK.V1.Localization\Picturepark.SDK.V1.Localization.csproj", "{D64ABD48-6CAE-4DDD-B9EA-857DEAC2047B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Picturepark.SDK.V1.ServiceProvider.Example", "Picturepark.SDK.V1.ServiceProvider.Example\Picturepark.SDK.V1.ServiceProvider.Example.csproj", "{01A8F881-B37A-409C-BF76-6D492C67AC9F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Picturepark.ContentUploader", "Picturepark.ContentUploader\Picturepark.ContentUploader.csproj", "{6B970F42-4FB4-4654-9C20-E2A3CBDE5076}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Management API", "Management API", "{88E65D30-2F71-46D3-AA5B-542EFDD0D57C}"
 EndProject
@@ -92,22 +86,6 @@ Global
 		{D64ABD48-6CAE-4DDD-B9EA-857DEAC2047B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D64ABD48-6CAE-4DDD-B9EA-857DEAC2047B}.Release|x64.ActiveCfg = Release|Any CPU
 		{D64ABD48-6CAE-4DDD-B9EA-857DEAC2047B}.Release|x64.Build.0 = Release|Any CPU
-		{01A8F881-B37A-409C-BF76-6D492C67AC9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01A8F881-B37A-409C-BF76-6D492C67AC9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01A8F881-B37A-409C-BF76-6D492C67AC9F}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{01A8F881-B37A-409C-BF76-6D492C67AC9F}.Debug|x64.Build.0 = Debug|Any CPU
-		{01A8F881-B37A-409C-BF76-6D492C67AC9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01A8F881-B37A-409C-BF76-6D492C67AC9F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01A8F881-B37A-409C-BF76-6D492C67AC9F}.Release|x64.ActiveCfg = Release|Any CPU
-		{01A8F881-B37A-409C-BF76-6D492C67AC9F}.Release|x64.Build.0 = Release|Any CPU
-		{6B970F42-4FB4-4654-9C20-E2A3CBDE5076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B970F42-4FB4-4654-9C20-E2A3CBDE5076}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B970F42-4FB4-4654-9C20-E2A3CBDE5076}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{6B970F42-4FB4-4654-9C20-E2A3CBDE5076}.Debug|x64.Build.0 = Debug|Any CPU
-		{6B970F42-4FB4-4654-9C20-E2A3CBDE5076}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B970F42-4FB4-4654-9C20-E2A3CBDE5076}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B970F42-4FB4-4654-9C20-E2A3CBDE5076}.Release|x64.ActiveCfg = Release|Any CPU
-		{6B970F42-4FB4-4654-9C20-E2A3CBDE5076}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -119,8 +97,6 @@ Global
 		{65AA9AE0-CBA6-40B6-BF5F-4826611ECA8B} = {88E65D30-2F71-46D3-AA5B-542EFDD0D57C}
 		{BEFC853A-CF61-4CE7-A6A1-8DDB54A9AD8C} = {4B2AA4DC-FA39-4146-8AA2-50D1908601AB}
 		{D64ABD48-6CAE-4DDD-B9EA-857DEAC2047B} = {4B2AA4DC-FA39-4146-8AA2-50D1908601AB}
-		{01A8F881-B37A-409C-BF76-6D492C67AC9F} = {14422565-17C9-4451-A987-3DAF5795073C}
-		{6B970F42-4FB4-4654-9C20-E2A3CBDE5076} = {14422565-17C9-4451-A987-3DAF5795073C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {70A30629-AE14-4536-92CE-8B5D33E11089}

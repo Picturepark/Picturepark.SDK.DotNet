@@ -1,0 +1,17 @@
+﻿@model Picturepark.SDK.V1.Contract.UserProfile
+
+<div class=" et_pb_row et_pb_row_1">
+	<div class="et_pb_column et_pb_column_4_4  et_pb_column_1">
+		<div class="et_pb_blog_grid_wrapper">
+			<div class="et_pb_blog_grid clearfix et_pb_module et_pb_bg_layout_light et_pb_blog_0">
+
+				<h2>@Model.FirstName @Model.LastName</h2>
+				<span>Email:</span> @Model.EmailAddress<br />
+
+				<a asp-controller="Account" asp-action="Logout">Logout</a>
+				<br /><br />
+
+			</div>
+		</div>
+	</div>
+</div>
