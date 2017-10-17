@@ -11,6 +11,603 @@ namespace Picturepark.SDK.V1
     #pragma warning disable // Disable all warnings
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
+    public partial class BusinessProcessClient : ClientBase, IBusinessProcessClient
+    {
+        private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        public BusinessProcessClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        {
+    		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
+            {
+                var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
+                UpdateJsonSerializerSettings(settings);
+                return settings;
+            });
+    	}
+    
+        partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
+        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
+        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
+        partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
+    
+        /// <summary>Search</summary>
+        /// <param name="businessProcessSearchRequest">The business process request</param>
+        /// <returns>BusinessProcessSearchResult</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public BusinessProcessSearchResult Search(BusinessProcessSearchRequest businessProcessSearchRequest)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await SearchAsync(businessProcessSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Search</summary>
+        /// <param name="businessProcessSearchRequest">The business process request</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcessSearchResult</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task<BusinessProcessSearchResult> SearchAsync(BusinessProcessSearchRequest businessProcessSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("v1/businessProcesses/search");
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(businessProcessSearchRequest, _settings.Value));
+                    content_.Headers.ContentType.MediaType = "application/json";
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(BusinessProcessSearchResult); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessSearchResult>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(BusinessProcessSearchResult);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <summary>Start</summary>
+        /// <param name="processDefinitionId">The process definition id</param>
+        /// <param name="request">The start process request</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public BusinessProcess Start(string processDefinitionId, StartProcessRequest request)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await StartAsync(processDefinitionId, request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Start</summary>
+        /// <param name="processDefinitionId">The process definition id</param>
+        /// <param name="request">The start process request</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task<BusinessProcess> StartAsync(string processDefinitionId, StartProcessRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (processDefinitionId == null)
+                throw new System.ArgumentNullException("processDefinitionId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("v1/businessProcesses/processDefinitions/{processDefinitionId}/start");
+            urlBuilder_.Replace("{processDefinitionId}", System.Uri.EscapeDataString(System.Convert.ToString(processDefinitionId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
+                    content_.Headers.ContentType.MediaType = "application/json";
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(BusinessProcess); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcess>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(BusinessProcess);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <summary>Mark as ended</summary>
+        /// <param name="processId">The process id</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public void MarkAsEnded(string processId)
+        {
+            System.Threading.Tasks.Task.Run(async () => await MarkAsEndedAsync(processId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Mark as ended</summary>
+        /// <param name="processId">The process id</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task MarkAsEndedAsync(string processId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (processId == null)
+                throw new System.ArgumentNullException("processId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("v1/businessProcesses/processes/{processId}/markAsEnded");
+            urlBuilder_.Replace("{processId}", System.Uri.EscapeDataString(System.Convert.ToString(processId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(string.Empty);
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "204") 
+                        {
+                            return;
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <summary>Send message</summary>
+        /// <param name="processId">The process id</param>
+        /// <param name="request">The send message request</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public void SendMessage(string processId, SendMessageRequest request)
+        {
+            System.Threading.Tasks.Task.Run(async () => await SendMessageAsync(processId, request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Send message</summary>
+        /// <param name="processId">The process id</param>
+        /// <param name="request">The send message request</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task SendMessageAsync(string processId, SendMessageRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (processId == null)
+                throw new System.ArgumentNullException("processId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("v1/businessProcesses/processes/{processId}/message");
+            urlBuilder_.Replace("{processId}", System.Uri.EscapeDataString(System.Convert.ToString(processId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
+                    content_.Headers.ContentType.MediaType = "application/json";
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "204") 
+                        {
+                            return;
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <summary>Wait for states</summary>
+        /// <param name="processId">The process id</param>
+        /// <param name="states">The states to wait for</param>
+        /// <param name="timeout">The timeout in ms</param>
+        /// <returns>BusinessProcessWaitResult</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public BusinessProcessWaitResult WaitForStates(string processId, string states, int timeout)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await WaitForStatesAsync(processId, states, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Wait for states</summary>
+        /// <param name="processId">The process id</param>
+        /// <param name="states">The states to wait for</param>
+        /// <param name="timeout">The timeout in ms</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcessWaitResult</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, string states, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (processId == null)
+                throw new System.ArgumentNullException("processId");
+    
+            if (timeout == null)
+                throw new System.ArgumentNullException("timeout");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("v1/businessProcesses/{processId}/wait?");
+            urlBuilder_.Replace("{processId}", System.Uri.EscapeDataString(System.Convert.ToString(processId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (states != null) urlBuilder_.Append("states=").Append(System.Uri.EscapeDataString(System.Convert.ToString(states, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Length--;
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(BusinessProcessWaitResult); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitResult>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(BusinessProcessWaitResult);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
     public partial class ContentClient : ClientBase, IContentClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
@@ -2868,603 +3465,6 @@ namespace Picturepark.SDK.V1
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
-    public partial class BusinessProcessClient : ClientBase, IBusinessProcessClient
-    {
-        private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public BusinessProcessClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
-        {
-    		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
-            {
-                var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
-                UpdateJsonSerializerSettings(settings);
-                return settings;
-            });
-    	}
-    
-        partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
-        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
-        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
-        partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
-    
-        /// <summary>Search</summary>
-        /// <param name="businessProcessSearchRequest">The business process request</param>
-        /// <returns>BusinessProcessSearchResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public BusinessProcessSearchResult Search(BusinessProcessSearchRequest businessProcessSearchRequest)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await SearchAsync(businessProcessSearchRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <summary>Search</summary>
-        /// <param name="businessProcessSearchRequest">The business process request</param>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>BusinessProcessSearchResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<BusinessProcessSearchResult> SearchAsync(BusinessProcessSearchRequest businessProcessSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/businessProcesses/search");
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(businessProcessSearchRequest, _settings.Value));
-                    content_.Headers.ContentType.MediaType = "application/json";
-                    request_.Content = content_;
-                    request_.Method = new System.Net.Http.HttpMethod("POST");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BusinessProcessSearchResult); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessSearchResult>(responseData_, _settings.Value);
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(BusinessProcessSearchResult);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-        /// <summary>Start</summary>
-        /// <param name="processDefinitionId">The process definition id</param>
-        /// <param name="request">The start process request</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public BusinessProcess Start(string processDefinitionId, StartProcessRequest request)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await StartAsync(processDefinitionId, request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <summary>Start</summary>
-        /// <param name="processDefinitionId">The process definition id</param>
-        /// <param name="request">The start process request</param>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<BusinessProcess> StartAsync(string processDefinitionId, StartProcessRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (processDefinitionId == null)
-                throw new System.ArgumentNullException("processDefinitionId");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/businessProcesses/processDefinitions/{processDefinitionId}/start");
-            urlBuilder_.Replace("{processDefinitionId}", System.Uri.EscapeDataString(System.Convert.ToString(processDefinitionId, System.Globalization.CultureInfo.InvariantCulture)));
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
-                    content_.Headers.ContentType.MediaType = "application/json";
-                    request_.Content = content_;
-                    request_.Method = new System.Net.Http.HttpMethod("POST");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BusinessProcess); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcess>(responseData_, _settings.Value);
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(BusinessProcess);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-        /// <summary>Mark as ended</summary>
-        /// <param name="processId">The process id</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public void MarkAsEnded(string processId)
-        {
-            System.Threading.Tasks.Task.Run(async () => await MarkAsEndedAsync(processId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <summary>Mark as ended</summary>
-        /// <param name="processId">The process id</param>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task MarkAsEndedAsync(string processId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (processId == null)
-                throw new System.ArgumentNullException("processId");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/businessProcesses/processes/{processId}/markAsEnded");
-            urlBuilder_.Replace("{processId}", System.Uri.EscapeDataString(System.Convert.ToString(processId, System.Globalization.CultureInfo.InvariantCulture)));
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    var content_ = new System.Net.Http.StringContent(string.Empty);
-                    request_.Content = content_;
-                    request_.Method = new System.Net.Http.HttpMethod("POST");
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "204") 
-                        {
-                            return;
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-        /// <summary>Send message</summary>
-        /// <param name="processId">The process id</param>
-        /// <param name="request">The send message request</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public void SendMessage(string processId, SendMessageRequest request)
-        {
-            System.Threading.Tasks.Task.Run(async () => await SendMessageAsync(processId, request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <summary>Send message</summary>
-        /// <param name="processId">The process id</param>
-        /// <param name="request">The send message request</param>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task SendMessageAsync(string processId, SendMessageRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (processId == null)
-                throw new System.ArgumentNullException("processId");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/businessProcesses/processes/{processId}/message");
-            urlBuilder_.Replace("{processId}", System.Uri.EscapeDataString(System.Convert.ToString(processId, System.Globalization.CultureInfo.InvariantCulture)));
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
-                    content_.Headers.ContentType.MediaType = "application/json";
-                    request_.Content = content_;
-                    request_.Method = new System.Net.Http.HttpMethod("POST");
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "204") 
-                        {
-                            return;
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-        /// <summary>Wait for states</summary>
-        /// <param name="processId">The process id</param>
-        /// <param name="states">The states to wait for</param>
-        /// <param name="timeout">The timeout in ms</param>
-        /// <returns>BusinessProcessWaitResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public BusinessProcessWaitResult WaitForStates(string processId, string states, int timeout)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await WaitForStatesAsync(processId, states, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <summary>Wait for states</summary>
-        /// <param name="processId">The process id</param>
-        /// <param name="states">The states to wait for</param>
-        /// <param name="timeout">The timeout in ms</param>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>BusinessProcessWaitResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, string states, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (processId == null)
-                throw new System.ArgumentNullException("processId");
-    
-            if (timeout == null)
-                throw new System.ArgumentNullException("timeout");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/businessProcesses/{processId}/wait?");
-            urlBuilder_.Replace("{processId}", System.Uri.EscapeDataString(System.Convert.ToString(processId, System.Globalization.CultureInfo.InvariantCulture)));
-            if (states != null) urlBuilder_.Append("states=").Append(System.Uri.EscapeDataString(System.Convert.ToString(states, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            urlBuilder_.Length--;
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BusinessProcessWaitResult); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitResult>(responseData_, _settings.Value);
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(BusinessProcessWaitResult);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
     public partial class DocumentHistoryClient : ClientBase, IDocumentHistoryClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
@@ -5832,6 +5832,1379 @@ namespace Picturepark.SDK.V1
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
+    public partial class OutputClient : ClientBase, IOutputClient
+    {
+        private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        public OutputClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        {
+    		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
+            {
+                var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
+                UpdateJsonSerializerSettings(settings);
+                return settings;
+            });
+    	}
+    
+        partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
+        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
+        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
+        partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
+    
+        /// <summary>Get outputs by contentIds</summary>
+        /// <param name="contentsByIdsRequest">Contains the list of contentIds for which the outputs are requested</param>
+        /// <returns>The Result containing a list of OutputDetail's</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public System.Collections.Generic.List<OutputDetail> GetByContentIds(ContentsByIdsRequest contentsByIdsRequest)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetByContentIdsAsync(contentsByIdsRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Get outputs by contentIds</summary>
+        /// <param name="contentsByIdsRequest">Contains the list of contentIds for which the outputs are requested</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>The Result containing a list of OutputDetail's</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task<System.Collections.Generic.List<OutputDetail>> GetByContentIdsAsync(ContentsByIdsRequest contentsByIdsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("V1/Outputs");
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentsByIdsRequest, _settings.Value));
+                    content_.Headers.ContentType.MediaType = "application/json";
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(System.Collections.Generic.List<OutputDetail>); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<System.Collections.Generic.List<OutputDetail>>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(System.Collections.Generic.List<OutputDetail>);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <summary>Get Single</summary>
+        /// <param name="outputId">The output id.</param>
+        /// <returns>OutputDetail</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="OutputNotFoundException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public OutputDetail Get(string outputId)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetAsync(outputId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Get Single</summary>
+        /// <param name="outputId">The output id.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>OutputDetail</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="OutputNotFoundException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task<OutputDetail> GetAsync(string outputId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (outputId == null)
+                throw new System.ArgumentNullException("outputId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("V1/Outputs/{OutputId}");
+            urlBuilder_.Replace("{OutputId}", System.Uri.EscapeDataString(System.Convert.ToString(outputId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "404") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(OutputNotFoundException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<OutputNotFoundException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new OutputNotFoundException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(OutputDetail); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDetail>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(OutputDetail);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
+    public partial class PermissionClient : ClientBase, IPermissionClient
+    {
+        private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        public PermissionClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        {
+    		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
+            {
+                var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
+                UpdateJsonSerializerSettings(settings);
+                return settings;
+            });
+    	}
+    
+        partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
+        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
+        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
+        partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
+    
+        /// <summary>Get UserRight validation result</summary>
+        /// <param name="permission">The UserRight to validate</param>
+        /// <returns>Boolean - user has permission</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public bool GetUserPermissions(UserRight permission)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetUserPermissionsAsync(permission, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Get UserRight validation result</summary>
+        /// <param name="permission">The UserRight to validate</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Boolean - user has permission</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task<bool> GetUserPermissionsAsync(UserRight permission, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (permission == null)
+                throw new System.ArgumentNullException("permission");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("V1/Permission/UserPermissions/{Permission}");
+            urlBuilder_.Replace("{Permission}", System.Uri.EscapeDataString(System.Convert.ToString(permission, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(bool); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<bool>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(bool);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <summary>Search Content Permissions</summary>
+        /// <param name="request">The permission search request.</param>
+        /// <returns>PermissionSetSearchResult</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public PermissionSetSearchResult SearchContentPermissions(PermissionSetSearchRequest request)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await SearchContentPermissionsAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Search Content Permissions</summary>
+        /// <param name="request">The permission search request.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>PermissionSetSearchResult</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task<PermissionSetSearchResult> SearchContentPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("V1/Permission/ContentPermissionSets/Search");
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
+                    content_.Headers.ContentType.MediaType = "application/json";
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PermissionSetSearchResult); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetSearchResult>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(PermissionSetSearchResult);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <summary>Get Content Permission Single</summary>
+        /// <param name="permissionSetId">The content permission set id.</param>
+        /// <returns>ContentPermissionSetDetail</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public ContentPermissionSetDetail GetContentPermissions(string permissionSetId)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetContentPermissionsAsync(permissionSetId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Get Content Permission Single</summary>
+        /// <param name="permissionSetId">The content permission set id.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ContentPermissionSetDetail</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task<ContentPermissionSetDetail> GetContentPermissionsAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (permissionSetId == null)
+                throw new System.ArgumentNullException("permissionSetId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("V1/Permission/ContentPermissionSets/{PermissionSetId}");
+            urlBuilder_.Replace("{PermissionSetId}", System.Uri.EscapeDataString(System.Convert.ToString(permissionSetId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(ContentPermissionSetDetail); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetDetail>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(ContentPermissionSetDetail);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <summary>Search Schema Permissions</summary>
+        /// <param name="request">The permission search request.</param>
+        /// <returns>PermissionSetSearchResult</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public PermissionSetSearchResult SearchSchemaPermissions(PermissionSetSearchRequest request)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await SearchSchemaPermissionsAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Search Schema Permissions</summary>
+        /// <param name="request">The permission search request.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>PermissionSetSearchResult</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task<PermissionSetSearchResult> SearchSchemaPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("V1/Permission/SchemaPermissionSets/Search");
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
+                    content_.Headers.ContentType.MediaType = "application/json";
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PermissionSetSearchResult); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetSearchResult>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(PermissionSetSearchResult);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <summary>Get Schema Permission Single</summary>
+        /// <param name="permissionSetId">The schema permission set id.</param>
+        /// <returns>SchemaPermissionSetDetail</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public SchemaPermissionSetDetail GetSchemaPermissions(string permissionSetId)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetSchemaPermissionsAsync(permissionSetId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Get Schema Permission Single</summary>
+        /// <param name="permissionSetId">The schema permission set id.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>SchemaPermissionSetDetail</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task<SchemaPermissionSetDetail> GetSchemaPermissionsAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (permissionSetId == null)
+                throw new System.ArgumentNullException("permissionSetId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("V1/Permission/SchemaPermissionSets/{PermissionSetId}");
+            urlBuilder_.Replace("{PermissionSetId}", System.Uri.EscapeDataString(System.Convert.ToString(permissionSetId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(SchemaPermissionSetDetail); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaPermissionSetDetail>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(SchemaPermissionSetDetail);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
+    public partial class ProfileClient : ClientBase, IProfileClient
+    {
+        private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        public ProfileClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        {
+    		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
+            {
+                var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
+                UpdateJsonSerializerSettings(settings);
+                return settings;
+            });
+    	}
+    
+        partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
+        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
+        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
+        partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
+    
+        /// <summary>Get</summary>
+        /// <returns>UserProfile</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public UserProfile Get()
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetAsync(System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Get</summary>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>UserProfile</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task<UserProfile> GetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("V1/Profile");
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(UserProfile); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<UserProfile>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(UserProfile);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <summary>Update</summary>
+        /// <returns>UserProfile</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public UserProfile Update(UserProfile profile)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await UpdateAsync(profile, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Update</summary>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>UserProfile</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task<UserProfile> UpdateAsync(UserProfile profile, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("V1/Profile");
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(profile, _settings.Value));
+                    content_.Headers.ContentType.MediaType = "application/json";
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("PUT");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(UserProfile); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<UserProfile>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(UserProfile);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
+    public partial class PublicAccessClient : ClientBase, IPublicAccessClient
+    {
+        private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        public PublicAccessClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        {
+    		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
+            {
+                var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
+                UpdateJsonSerializerSettings(settings);
+                return settings;
+            });
+    	}
+    
+        partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
+        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
+        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
+        partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
+    
+        /// <summary>Get Version</summary>
+        /// <returns>VersionInfo</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public VersionInfo GetVersion()
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetVersionAsync(System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Get Version</summary>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>VersionInfo</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task<VersionInfo> GetVersionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("V1/PublicAccess/Version");
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(VersionInfo); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<VersionInfo>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(VersionInfo);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+        /// <summary>Get Share</summary>
+        /// <param name="token">The token</param>
+        /// <returns>ShareBaseDetail</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public ShareBaseDetail GetShare(string token)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await GetShareAsync(token, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Get Share</summary>
+        /// <param name="token">The token</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>ShareBaseDetail</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public async System.Threading.Tasks.Task<ShareBaseDetail> GetShareAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append("V1/PublicAccess/GetShare?");
+            if (token != null) urlBuilder_.Append("token=").Append(System.Uri.EscapeDataString(System.Convert.ToString(token, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Length--;
+    
+            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(ShareBaseDetail); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ShareBaseDetail>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(ShareBaseDetail);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (client_ != null)
+                    client_.Dispose();
+            }
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
     public partial class SchemaClient : ClientBase, ISchemaClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
@@ -6677,10 +8050,10 @@ namespace Picturepark.SDK.V1
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
-    public partial class PermissionClient : ClientBase, IPermissionClient
+    public partial class ServiceProviderClient : ClientBase, IServiceProviderClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public PermissionClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        public ServiceProviderClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
         {
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
@@ -6695,143 +8068,24 @@ namespace Picturepark.SDK.V1
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
-        /// <summary>Get UserRight validation result</summary>
-        /// <param name="permission">The UserRight to validate</param>
-        /// <returns>Boolean - user has permission</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public bool GetUserPermissions(UserRight permission)
+        public void SendMessage(string serviceProviderId, SendMessageRequest2 request)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetUserPermissionsAsync(permission, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await SendMessageAsync(serviceProviderId, request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
-        /// <summary>Get UserRight validation result</summary>
-        /// <param name="permission">The UserRight to validate</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>Boolean - user has permission</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<bool> GetUserPermissionsAsync(UserRight permission, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SendMessageAsync(string serviceProviderId, SendMessageRequest2 request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (permission == null)
-                throw new System.ArgumentNullException("permission");
+            if (serviceProviderId == null)
+                throw new System.ArgumentNullException("serviceProviderId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Permission/UserPermissions/{Permission}");
-            urlBuilder_.Replace("{Permission}", System.Uri.EscapeDataString(System.Convert.ToString(permission, System.Globalization.CultureInfo.InvariantCulture)));
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(bool); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<bool>(responseData_, _settings.Value);
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(bool);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-        /// <summary>Search Content Permissions</summary>
-        /// <param name="request">The permission search request.</param>
-        /// <returns>PermissionSetSearchResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public PermissionSetSearchResult SearchContentPermissions(PermissionSetSearchRequest request)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await SearchContentPermissionsAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <summary>Search Content Permissions</summary>
-        /// <param name="request">The permission search request.</param>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>PermissionSetSearchResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<PermissionSetSearchResult> SearchContentPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Permission/ContentPermissionSets/Search");
+            urlBuilder_.Append("V1/ServiceProviders/{ServiceProviderId}/Message");
+            urlBuilder_.Replace("{ServiceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -6842,7 +8096,6 @@ namespace Picturepark.SDK.V1
                     content_.Headers.ContentType.MediaType = "application/json";
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
     
                     PrepareRequest(client_, request_, urlBuilder_);
                     var url_ = urlBuilder_.ToString();
@@ -6859,19 +8112,9 @@ namespace Picturepark.SDK.V1
                         ProcessResponse(client_, response_);
     
                         var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
+                        if (status_ == "204") 
                         {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PermissionSetSearchResult); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetSearchResult>(responseData_, _settings.Value);
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
+                            return;
                         }
                         else
                         if (status_ == "500") 
@@ -6911,8 +8154,6 @@ namespace Picturepark.SDK.V1
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
-            
-                        return default(PermissionSetSearchResult);
                     }
                     finally
                     {
@@ -6928,30 +8169,24 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Get Content Permission Single</summary>
-        /// <param name="permissionSetId">The content permission set id.</param>
-        /// <returns>ContentPermissionSetDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public ContentPermissionSetDetail GetContentPermissions(string permissionSetId)
+        public CustomerServiceProviderConfiguration GetConfiguration(string serviceProviderId)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetContentPermissionsAsync(permissionSetId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetConfigurationAsync(serviceProviderId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
-        /// <summary>Get Content Permission Single</summary>
-        /// <param name="permissionSetId">The content permission set id.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>ContentPermissionSetDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<ContentPermissionSetDetail> GetContentPermissionsAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomerServiceProviderConfiguration> GetConfigurationAsync(string serviceProviderId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (permissionSetId == null)
-                throw new System.ArgumentNullException("permissionSetId");
+            if (serviceProviderId == null)
+                throw new System.ArgumentNullException("serviceProviderId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Permission/ContentPermissionSets/{PermissionSetId}");
-            urlBuilder_.Replace("{PermissionSetId}", System.Uri.EscapeDataString(System.Convert.ToString(permissionSetId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("V1/ServiceProviders/{ServiceProviderId}/Configuration");
+            urlBuilder_.Replace("{ServiceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -6979,10 +8214,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(ContentPermissionSetDetail); 
+                            var result_ = default(CustomerServiceProviderConfiguration); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetDetail>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderConfiguration>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -7029,7 +8264,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(ContentPermissionSetDetail);
+                        return default(CustomerServiceProviderConfiguration);
                     }
                     finally
                     {
@@ -7045,36 +8280,34 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Search Schema Permissions</summary>
-        /// <param name="request">The permission search request.</param>
-        /// <returns>PermissionSetSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public PermissionSetSearchResult SearchSchemaPermissions(PermissionSetSearchRequest request)
+        public CustomerServiceProviderConfiguration UpdateConfiguration(string serviceProviderId, ServiceProviderConfigurationUpdateRequest configuration)
         {
-            return System.Threading.Tasks.Task.Run(async () => await SearchSchemaPermissionsAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await UpdateConfigurationAsync(serviceProviderId, configuration, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
-        /// <summary>Search Schema Permissions</summary>
-        /// <param name="request">The permission search request.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>PermissionSetSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<PermissionSetSearchResult> SearchSchemaPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<CustomerServiceProviderConfiguration> UpdateConfigurationAsync(string serviceProviderId, ServiceProviderConfigurationUpdateRequest configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (serviceProviderId == null)
+                throw new System.ArgumentNullException("serviceProviderId");
+    
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Permission/SchemaPermissionSets/Search");
+            urlBuilder_.Append("V1/ServiceProviders/{ServiceProviderId}/Configuration");
+            urlBuilder_.Replace("{ServiceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(configuration, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
                     request_.Content = content_;
-                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Method = new System.Net.Http.HttpMethod("PUT");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
     
                     PrepareRequest(client_, request_, urlBuilder_);
@@ -7095,10 +8328,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PermissionSetSearchResult); 
+                            var result_ = default(CustomerServiceProviderConfiguration); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetSearchResult>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderConfiguration>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -7145,371 +8378,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(PermissionSetSearchResult);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-        /// <summary>Get Schema Permission Single</summary>
-        /// <param name="permissionSetId">The schema permission set id.</param>
-        /// <returns>SchemaPermissionSetDetail</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public SchemaPermissionSetDetail GetSchemaPermissions(string permissionSetId)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await GetSchemaPermissionsAsync(permissionSetId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <summary>Get Schema Permission Single</summary>
-        /// <param name="permissionSetId">The schema permission set id.</param>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>SchemaPermissionSetDetail</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<SchemaPermissionSetDetail> GetSchemaPermissionsAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (permissionSetId == null)
-                throw new System.ArgumentNullException("permissionSetId");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Permission/SchemaPermissionSets/{PermissionSetId}");
-            urlBuilder_.Replace("{PermissionSetId}", System.Uri.EscapeDataString(System.Convert.ToString(permissionSetId, System.Globalization.CultureInfo.InvariantCulture)));
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(SchemaPermissionSetDetail); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaPermissionSetDetail>(responseData_, _settings.Value);
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(SchemaPermissionSetDetail);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
-    public partial class PublicAccessClient : ClientBase, IPublicAccessClient
-    {
-        private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public PublicAccessClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
-        {
-    		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
-            {
-                var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
-                UpdateJsonSerializerSettings(settings);
-                return settings;
-            });
-    	}
-    
-        partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
-        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
-        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
-        partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
-    
-        /// <summary>Get Version</summary>
-        /// <returns>VersionInfo</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public VersionInfo GetVersion()
-        {
-            return System.Threading.Tasks.Task.Run(async () => await GetVersionAsync(System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <summary>Get Version</summary>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>VersionInfo</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<VersionInfo> GetVersionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/PublicAccess/Version");
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(VersionInfo); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<VersionInfo>(responseData_, _settings.Value);
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(VersionInfo);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-        /// <summary>Get Share</summary>
-        /// <param name="token">The token</param>
-        /// <returns>ShareBaseDetail</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public ShareBaseDetail GetShare(string token)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await GetShareAsync(token, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <summary>Get Share</summary>
-        /// <param name="token">The token</param>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>ShareBaseDetail</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<ShareBaseDetail> GetShareAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/PublicAccess/GetShare?");
-            if (token != null) urlBuilder_.Append("token=").Append(System.Uri.EscapeDataString(System.Convert.ToString(token, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            urlBuilder_.Length--;
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(ShareBaseDetail); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ShareBaseDetail>(responseData_, _settings.Value);
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(ShareBaseDetail);
+                        return default(CustomerServiceProviderConfiguration);
                     }
                     finally
                     {
@@ -8268,353 +9137,6 @@ namespace Picturepark.SDK.V1
                         }
             
                         return default(ShareSearchResult);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
-    public partial class ServiceProviderClient : ClientBase, IServiceProviderClient
-    {
-        private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public ServiceProviderClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
-        {
-    		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
-            {
-                var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
-                UpdateJsonSerializerSettings(settings);
-                return settings;
-            });
-    	}
-    
-        partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
-        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
-        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
-        partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public void SendMessage(string serviceProviderId, SendMessageRequest2 request)
-        {
-            System.Threading.Tasks.Task.Run(async () => await SendMessageAsync(serviceProviderId, request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task SendMessageAsync(string serviceProviderId, SendMessageRequest2 request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (serviceProviderId == null)
-                throw new System.ArgumentNullException("serviceProviderId");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ServiceProviders/{ServiceProviderId}/Message");
-            urlBuilder_.Replace("{ServiceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
-                    content_.Headers.ContentType.MediaType = "application/json";
-                    request_.Content = content_;
-                    request_.Method = new System.Net.Http.HttpMethod("POST");
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "204") 
-                        {
-                            return;
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public CustomerServiceProviderConfiguration GetConfiguration(string serviceProviderId)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await GetConfigurationAsync(serviceProviderId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<CustomerServiceProviderConfiguration> GetConfigurationAsync(string serviceProviderId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (serviceProviderId == null)
-                throw new System.ArgumentNullException("serviceProviderId");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ServiceProviders/{ServiceProviderId}/Configuration");
-            urlBuilder_.Replace("{ServiceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(CustomerServiceProviderConfiguration); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderConfiguration>(responseData_, _settings.Value);
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(CustomerServiceProviderConfiguration);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public CustomerServiceProviderConfiguration UpdateConfiguration(string serviceProviderId, ServiceProviderConfigurationUpdateRequest configuration)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await UpdateConfigurationAsync(serviceProviderId, configuration, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<CustomerServiceProviderConfiguration> UpdateConfigurationAsync(string serviceProviderId, ServiceProviderConfigurationUpdateRequest configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (serviceProviderId == null)
-                throw new System.ArgumentNullException("serviceProviderId");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ServiceProviders/{ServiceProviderId}/Configuration");
-            urlBuilder_.Replace("{ServiceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(configuration, _settings.Value));
-                    content_.Headers.ContentType.MediaType = "application/json";
-                    request_.Content = content_;
-                    request_.Method = new System.Net.Http.HttpMethod("PUT");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(CustomerServiceProviderConfiguration); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderConfiguration>(responseData_, _settings.Value);
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(CustomerServiceProviderConfiguration);
                     }
                     finally
                     {
@@ -10502,528 +11024,6 @@ namespace Picturepark.SDK.V1
                         }
             
                         return default(System.Collections.Generic.List<Channel>);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
-    public partial class OutputClient : ClientBase, IOutputClient
-    {
-        private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public OutputClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
-        {
-    		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
-            {
-                var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
-                UpdateJsonSerializerSettings(settings);
-                return settings;
-            });
-    	}
-    
-        partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
-        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
-        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
-        partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
-    
-        /// <summary>Get outputs by contentIds</summary>
-        /// <param name="contentsByIdsRequest">Contains the list of contentIds for which the outputs are requested</param>
-        /// <returns>The Result containing a list of OutputDetail's</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public System.Collections.Generic.List<OutputDetail> GetByContentIds(ContentsByIdsRequest contentsByIdsRequest)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await GetByContentIdsAsync(contentsByIdsRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <summary>Get outputs by contentIds</summary>
-        /// <param name="contentsByIdsRequest">Contains the list of contentIds for which the outputs are requested</param>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>The Result containing a list of OutputDetail's</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.List<OutputDetail>> GetByContentIdsAsync(ContentsByIdsRequest contentsByIdsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Outputs");
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentsByIdsRequest, _settings.Value));
-                    content_.Headers.ContentType.MediaType = "application/json";
-                    request_.Content = content_;
-                    request_.Method = new System.Net.Http.HttpMethod("POST");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(System.Collections.Generic.List<OutputDetail>); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<System.Collections.Generic.List<OutputDetail>>(responseData_, _settings.Value);
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(System.Collections.Generic.List<OutputDetail>);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-        /// <summary>Get Single</summary>
-        /// <param name="outputId">The output id.</param>
-        /// <returns>OutputDetail</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="OutputNotFoundException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public OutputDetail Get(string outputId)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await GetAsync(outputId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <summary>Get Single</summary>
-        /// <param name="outputId">The output id.</param>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>OutputDetail</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="OutputNotFoundException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<OutputDetail> GetAsync(string outputId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (outputId == null)
-                throw new System.ArgumentNullException("outputId");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Outputs/{OutputId}");
-            urlBuilder_.Replace("{OutputId}", System.Uri.EscapeDataString(System.Convert.ToString(outputId, System.Globalization.CultureInfo.InvariantCulture)));
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "404") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(OutputNotFoundException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<OutputNotFoundException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new OutputNotFoundException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(OutputDetail); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDetail>(responseData_, _settings.Value);
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(OutputDetail);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.7.1.0")]
-    public partial class ProfileClient : ClientBase, IProfileClient
-    {
-        private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public ProfileClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
-        {
-    		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
-            {
-                var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
-                UpdateJsonSerializerSettings(settings);
-                return settings;
-            });
-    	}
-    
-        partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
-        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
-        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
-        partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
-    
-        /// <summary>Get</summary>
-        /// <returns>UserProfile</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public UserProfile Get()
-        {
-            return System.Threading.Tasks.Task.Run(async () => await GetAsync(System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <summary>Get</summary>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>UserProfile</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<UserProfile> GetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Profile");
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(UserProfile); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<UserProfile>(responseData_, _settings.Value);
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(UserProfile);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-                if (client_ != null)
-                    client_.Dispose();
-            }
-        }
-    
-        /// <summary>Update</summary>
-        /// <returns>UserProfile</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public UserProfile Update(UserProfile profile)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await UpdateAsync(profile, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <summary>Update</summary>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>UserProfile</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<UserProfile> UpdateAsync(UserProfile profile, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Profile");
-    
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
-            try
-            {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
-                {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(profile, _settings.Value));
-                    content_.Headers.ContentType.MediaType = "application/json";
-                    request_.Content = content_;
-                    request_.Method = new System.Net.Http.HttpMethod("PUT");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(UserProfile); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<UserProfile>(responseData_, _settings.Value);
-                                return result_; 
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(UserProfile);
                     }
                     finally
                     {

@@ -2,10 +2,25 @@
   "x-generator": "NSwag v11.7.2.0 (NJsonSchema v9.6.3.0)",
   "swagger": "2.0",
   "info": {
-    "title": "Web API Swagger specification",
-    "version": "1.0.0"
+    "title": "Picturepark API V1",
+    "description": "# Getting started\r\nWelcome to the reference for the Picturepark REST API.\r\n\r\n(TBD) more bla bla\r\n\r\n## Client registration\r\nTo use the Picturepark API, you need first to create a new API Client.\r\n\r\nGo to https://{{customerHost}}/Settings/APIClients and create a new API Client based on your desired authentication flow.\r\n\r\n\r\n## Authentication\r\nThe authentication process is based on [OpenID Connect](http://openid.net/connect/).\r\n\r\nThe following OAuth 2.0 flows are supported:\r\n- **Implicit** (Interactive user authentication for SPA Applications)\r\n- **Hybrid** (Interactive user authentication with server based validation)\r\n- **Client credentials** (Server to server, create access tokens that do not expire)\r\n\r\n### Examples\r\nExample authentication implementations can be found here:\r\n- Angular: https://github.com/Picturepark/Picturepark.SDK.TypeScript/tree/master/src/picturepark-sdk-v1-angular-app\r\n- HTML5 Fetch: (TBD)\r\n- .NET: (TBD)\r\n\r\n### Access token lifetime\r\nFor **Implicit** and **Hybrid** flow, the access tokens are short-lived (30mins). You need to refresh your access token after it's expired.\r\nYou can silently refresh the token using a hidden Iframe in the browser: [Angular example](https://damienbod.com/2017/06/02/implementing-a-silent-token-renew-in-angular-for-the-openid-connect-implicit-flow/)\r\n\r\nFor the **Client credentials** flow, you can create an access token that never expires.\r\nGo to https://{{customerHost}}/Settings/APIClients\r\n\r\n**Attention: Adding long lived access tokens to a web application (adding token to Javascripts source code) will expose that token to anyone. Use with care and a very limited set of scopes.**\r\n\r\n### Urls\r\n\r\n- Live: -\r\n- Preview: https://identity.preview-picturepark.com\r\n- Stage: https://identity.stage-picturepark.com\r\n\r\n## SDKs\r\nTo simplify building applications, SDKs for the following languages/frameworks are provided and released as open source under MIT license:\r\n\r\n- .NET\r\n  - [https://github.com/Picturepark/Picturepark.SDK.DotNet](https://github.com/Picturepark/Picturepark.SDK.DotNet)\r\n  - Supports .NET 4.5+ / .NET Standard 1.3+\r\n- JavaScript / TypeScript\r\n  - [https://github.com/Picturepark/Picturepark.SDK.TypeScript](https://github.com/Picturepark/Picturepark.SDK.TypeScript)\r\n  - Supports [Angular](https://angular.io/) 4.3+ / [HTML 5 Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)\r\n\r\nClients for other languages can be created using [Autorest](https://github.com/Azure/autorest) using the following OpenAPI file (TBD).\r\n\r\n\r\n# Concepts\r\n\r\n## HTTP Requests\r\nTo perform API calls, you can specify the following HTTP headers:\r\n\r\n| HTTP Header               | Value                | Required |\r\n| ------------------------- | -------------------- | -------- |\r\n| Accept                    | application/json     | Yes      |\r\n| Authorization             | Bearer {accessToken} | Yes (except for publicAccess/* endpoints) |\r\n| Picturepark-CustomerAlias | Customer identifier  | Yes      |\r\n| Picturepark-Language      | en / de              | No       |\r\n\r\n## Error responses\r\nErrors in Picturepark API are returned using HTTP status codes, as well as a JSON error response object.\r\n\r\nHTTP status 4xx\r\n- Client errors (e.g. wrong data provided by client)\r\n\r\nHTTP status 5xx\r\n- Server errors (something went wrong on the server)\r\n\r\n## Request limits / quota\r\nTo protect the Picturepark API you are limited in the number of API requests per interval.\r\n\r\nIf that limit is exceeded you will get an exception with HTTP status code 429 (Too many requests).\r\n\r\nIf you need more calls per interval, Pictuepark sales (sales@picturepark.com)\r\n\r\n## Permissions / Scopes\r\n\r\nIn order to be able to perform requests, you need the permissions.\r\n\r\n### User permissions\r\nThe authenticated user needs the permission in Picturepark to perform the request.\r\n\r\n### Scopes\r\n\r\nAdditionally, your application needs to define which scopes are required.\r\n\r\nFor all the scopes requested by your application, the users need to confirm these in the consent screen.\r\n\r\n[List of scopes](#section/Authentication)\r\n\r\n\r\n# Search\r\n\r\n(TBD)\r\n\r\n## Simple search\r\n\r\n(TBD)\r\n\r\n## Filtering\r\n\r\n(TBD)",
+    "contact": {
+      "name": "Picturepark sales",
+      "url": "http://www.picturepark.com",
+      "email": "sales@picturepark.com"
+    },
+    "version": "1.0",
+    "x-logo": {
+      "url": "/docs/rest/picturepark-logo.png",
+      "backgroundColor": "#FFFFFF"
+    }
   },
-  "schemes": [],
+  "host": "localhost:5000",
+  "basePath": "",
+  "schemes": [
+    "http",
+    "https"
+  ],
   "consumes": [
     "application/json"
   ],
@@ -13,6 +28,282 @@
     "application/json"
   ],
   "paths": {
+    "/v1/businessProcesses/search": {
+      "post": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Search",
+        "description": "Search for business processes",
+        "operationId": "BusinessProcess_Search",
+        "parameters": [
+          {
+            "name": "businessProcessSearchRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessSearchRequest"
+            },
+            "x-nullable": true,
+            "description": "The business process request"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcessSearchResult",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessSearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/businessProcesses/processDefinitions/{processDefinitionId}/start": {
+      "post": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Start",
+        "description": "Starts a process with given definition ",
+        "operationId": "BusinessProcess_Start",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "processDefinitionId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The process definition id"
+          },
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StartProcessRequest"
+            },
+            "x-nullable": true,
+            "description": "The start process request"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/businessProcesses/processes/{processId}/markAsEnded": {
+      "post": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Mark as ended",
+        "description": "Mark a given process as ended",
+        "operationId": "BusinessProcess_MarkAsEnded",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The process id"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/businessProcesses/processes/{processId}/message": {
+      "post": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Send message",
+        "description": "Send message to given process ",
+        "operationId": "BusinessProcess_SendMessage",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The process id"
+          },
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SendMessageRequest"
+            },
+            "x-nullable": true,
+            "description": "The send message request"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/businessProcesses/{processId}/wait": {
+      "get": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Wait for states",
+        "description": "Wait for given process states.",
+        "operationId": "BusinessProcess_WaitForStates",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The process id"
+          },
+          {
+            "type": "string",
+            "name": "states",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "The states to wait for"
+          },
+          {
+            "type": "integer",
+            "name": "timeout",
+            "in": "query",
+            "required": true,
+            "x-nullable": false,
+            "description": "The timeout in ms",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcessWaitResult",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_read"
+            ]
+          }
+        ]
+      }
+    },
     "/V1/Contents/{ContentId}/Ownership/Transfer": {
       "put": {
         "tags": [
@@ -70,7 +361,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/Many": {
@@ -138,7 +436,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/Many/Ownership/Transfer": {
@@ -181,7 +486,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/Aggregate": {
@@ -225,7 +537,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/{ChannelId}/Aggregate": {
@@ -277,7 +596,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/CreateBatchContentDownload": {
@@ -320,7 +646,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents": {
@@ -391,7 +724,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/Downloads/{ContentId}/{OutputFormatId}": {
@@ -457,7 +797,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/Thumbnails/{ContentId}/{Size}": {
@@ -513,7 +860,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/Downloads/{ContentId}/{OutputFormatId}/{Width}/{Height}": {
@@ -584,7 +938,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/{ContentId}": {
@@ -652,7 +1013,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -729,7 +1097,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/{ContentId}/Permissions": {
@@ -808,7 +1183,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/Search": {
@@ -852,7 +1234,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/{ChannelId}/Search": {
@@ -904,7 +1293,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/{ContentId}/Deactivate": {
@@ -950,7 +1346,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/{ContentId}/File": {
@@ -1002,7 +1405,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/{ContentId}/Reactivate": {
@@ -1071,7 +1481,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/Many/Deactivate": {
@@ -1114,7 +1531,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/Many/Reactivate": {
@@ -1158,7 +1582,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/Many/Metadata": {
@@ -1202,7 +1633,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/Many/Metadata/Filter": {
@@ -1246,7 +1684,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Contents/Many/Permissions": {
@@ -1293,248 +1738,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
-      }
-    },
-    "/v1/businessProcesses/search": {
-      "post": {
-        "tags": [
-          "BusinessProcess"
-        ],
-        "summary": "Search",
-        "description": "Search for business processes",
-        "operationId": "BusinessProcess_Search",
-        "parameters": [
+        },
+        "security": [
           {
-            "name": "businessProcessSearchRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/BusinessProcessSearchRequest"
-            },
-            "x-nullable": true,
-            "description": "The business process request"
+            "Bearer": [
+              "content_write"
+            ]
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcessSearchResult",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcessSearchResult"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
-      }
-    },
-    "/v1/businessProcesses/processDefinitions/{processDefinitionId}/start": {
-      "post": {
-        "tags": [
-          "BusinessProcess"
-        ],
-        "summary": "Start",
-        "description": "Starts a process with given definition ",
-        "operationId": "BusinessProcess_Start",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "processDefinitionId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The process definition id"
-          },
-          {
-            "name": "request",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/StartProcessRequest"
-            },
-            "x-nullable": true,
-            "description": "The start process request"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcess",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
-      }
-    },
-    "/v1/businessProcesses/processes/{processId}/markAsEnded": {
-      "post": {
-        "tags": [
-          "BusinessProcess"
-        ],
-        "summary": "Mark as ended",
-        "description": "Mark a given process as ended",
-        "operationId": "BusinessProcess_MarkAsEnded",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "processId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The process id"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": ""
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
-      }
-    },
-    "/v1/businessProcesses/processes/{processId}/message": {
-      "post": {
-        "tags": [
-          "BusinessProcess"
-        ],
-        "summary": "Send message",
-        "description": "Send message to given process ",
-        "operationId": "BusinessProcess_SendMessage",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "processId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The process id"
-          },
-          {
-            "name": "request",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/SendMessageRequest"
-            },
-            "x-nullable": true,
-            "description": "The send message request"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": ""
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
-      }
-    },
-    "/v1/businessProcesses/{processId}/wait": {
-      "get": {
-        "tags": [
-          "BusinessProcess"
-        ],
-        "summary": "Wait for states",
-        "description": "Wait for given process states.",
-        "operationId": "BusinessProcess_WaitForStates",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "processId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The process id"
-          },
-          {
-            "type": "string",
-            "name": "states",
-            "in": "query",
-            "required": true,
-            "x-nullable": true,
-            "description": "The states to wait for"
-          },
-          {
-            "type": "integer",
-            "name": "timeout",
-            "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "The timeout in ms",
-            "format": "int32"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcessWaitResult",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcessWaitResult"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
+        ]
       }
     },
     "/V1/History/Search": {
@@ -1577,7 +1788,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "documenthistory_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/History/{Id}": {
@@ -1618,7 +1836,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "documenthistory_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/History/{Id}/{Version}": {
@@ -1667,7 +1892,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "documenthistory_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/History/{Id}/Difference/{OldVersion}": {
@@ -1717,7 +1949,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "documenthistory_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/History/{Id}/Difference/{OldVersion}/{NewVersion}": {
@@ -1776,7 +2015,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "documenthistory_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/JsonSchemas/{SchemaId}": {
@@ -1816,7 +2062,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "jsonschema_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/ListItems": {
@@ -1887,7 +2140,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/ListItems/Many": {
@@ -1934,7 +2194,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1977,7 +2244,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2022,7 +2296,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/ListItems/Aggregate": {
@@ -2066,7 +2347,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/ListItems/Search": {
@@ -2110,7 +2398,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/ListItems/{ObjectId}": {
@@ -2157,7 +2452,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/ListItems/{ListItemId}": {
@@ -2220,7 +2522,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_read"
+            ]
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2296,7 +2605,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/ListItems/Many/Fields/Filter": {
@@ -2340,7 +2656,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/ListItems/Many/Fields": {
@@ -2384,7 +2707,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/ListItems/{ProcessId}/Wait": {
@@ -2446,7 +2776,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/LiveStream/Search": {
@@ -2489,7 +2826,547 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/V1/Outputs": {
+      "post": {
+        "tags": [
+          "Output"
+        ],
+        "summary": "Get outputs by contentIds",
+        "description": "Gets output documents related for given contentids",
+        "operationId": "Output_GetByContentIds",
+        "parameters": [
+          {
+            "name": "contentsByIdsRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentsByIdsRequest"
+            },
+            "x-nullable": true,
+            "description": "Contains the list of contentIds for which the outputs are requested"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Result containing a list of OutputDetail's",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OutputDetail"
+              }
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "output_read",
+              "read"
+            ]
+          }
+        ]
+      }
+    },
+    "/V1/Outputs/{OutputId}": {
+      "get": {
+        "tags": [
+          "Output"
+        ],
+        "summary": "Get Single",
+        "description": "Gets a output document by id.",
+        "operationId": "Output_Get",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "OutputId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The output id."
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/OutputNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "200": {
+            "description": "OutputDetail",
+            "schema": {
+              "$ref": "#/definitions/OutputDetail"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "output_read",
+              "read"
+            ]
+          }
+        ]
+      }
+    },
+    "/V1/Permission/UserPermissions/{Permission}": {
+      "get": {
+        "tags": [
+          "Permission"
+        ],
+        "summary": "Get UserRight validation result",
+        "description": "Validates if the User has a given UserRight",
+        "operationId": "Permission_GetUserPermissions",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "Permission",
+            "in": "path",
+            "required": true,
+            "x-schema": {
+              "$ref": "#/definitions/UserRight"
+            },
+            "x-nullable": false,
+            "description": "The UserRight to validate"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Boolean - user has permission",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/V1/Permission/ContentPermissionSets/Search": {
+      "post": {
+        "tags": [
+          "Permission"
+        ],
+        "summary": "Search Content Permissions",
+        "description": "Searches content permission sets as specified in the search request.",
+        "operationId": "Permission_SearchContentPermissions",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PermissionSetSearchRequest"
+            },
+            "x-nullable": true,
+            "description": "The permission search request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "PermissionSetSearchResult",
+            "schema": {
+              "$ref": "#/definitions/PermissionSetSearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/V1/Permission/ContentPermissionSets/{PermissionSetId}": {
+      "get": {
+        "tags": [
+          "Permission"
+        ],
+        "summary": "Get Content Permission Single",
+        "description": "Gets the content permission set detail information by the content permission set id.",
+        "operationId": "Permission_GetContentPermissions",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "PermissionSetId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The content permission set id."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ContentPermissionSetDetail",
+            "schema": {
+              "$ref": "#/definitions/ContentPermissionSetDetail"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/V1/Permission/SchemaPermissionSets/Search": {
+      "post": {
+        "tags": [
+          "Permission"
+        ],
+        "summary": "Search Schema Permissions",
+        "description": "Searches schema permission sets as specified in the search request.",
+        "operationId": "Permission_SearchSchemaPermissions",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PermissionSetSearchRequest"
+            },
+            "x-nullable": true,
+            "description": "The permission search request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "PermissionSetSearchResult",
+            "schema": {
+              "$ref": "#/definitions/PermissionSetSearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/V1/Permission/SchemaPermissionSets/{PermissionSetId}": {
+      "get": {
+        "tags": [
+          "Permission"
+        ],
+        "summary": "Get Schema Permission Single",
+        "description": "Gets the schema permission set detail information by the schema permission set id.",
+        "operationId": "Permission_GetSchemaPermissions",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "PermissionSetId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The schema permission set id."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SchemaPermissionSetDetail",
+            "schema": {
+              "$ref": "#/definitions/SchemaPermissionSetDetail"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/V1/Profile": {
+      "get": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "Get",
+        "description": "Get profile of currently logged in user",
+        "operationId": "Profile_Get",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "UserProfile",
+            "schema": {
+              "$ref": "#/definitions/UserProfile"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "profile_read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "Update",
+        "description": "Updates profile of currently logged in user",
+        "operationId": "Profile_Update",
+        "parameters": [
+          {
+            "name": "profile",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserProfile"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "UserProfile",
+            "schema": {
+              "$ref": "#/definitions/UserProfile"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "profile_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/V1/PublicAccess/Version": {
+      "get": {
+        "tags": [
+          "PublicAccess"
+        ],
+        "summary": "Get Version",
+        "operationId": "PublicAccess_GetVersion",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "VersionInfo",
+            "schema": {
+              "$ref": "#/definitions/VersionInfo"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/V1/PublicAccess/GetShare": {
+      "get": {
+        "tags": [
+          "PublicAccess"
+        ],
+        "summary": "Get Share",
+        "operationId": "PublicAccess_GetShare",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "The token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ShareBaseDetail",
+            "schema": {
+              "$ref": "#/definitions/ShareBaseDetail"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/V1/Schemas": {
@@ -2537,7 +3414,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -2579,7 +3463,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Schemas/{SchemaId}": {
@@ -2621,7 +3512,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2671,7 +3569,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_write"
+            ]
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2711,7 +3616,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Schemas/{SchemaId}/Exists": {
@@ -2761,7 +3673,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Schemas/Search": {
@@ -2805,81 +3724,43 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
       }
     },
-    "/V1/Permission/UserPermissions/{Permission}": {
-      "get": {
+    "/V1/ServiceProviders/{ServiceProviderId}/Message": {
+      "post": {
         "tags": [
-          "Permission"
+          "ServiceProvider"
         ],
-        "summary": "Get UserRight validation result",
-        "description": "Validates if the User has a given UserRight",
-        "operationId": "Permission_GetUserPermissions",
+        "operationId": "ServiceProvider_SendMessage",
         "parameters": [
           {
             "type": "string",
-            "name": "Permission",
+            "name": "ServiceProviderId",
             "in": "path",
             "required": true,
-            "x-schema": {
-              "$ref": "#/definitions/UserRight"
-            },
-            "x-nullable": false,
-            "description": "The UserRight to validate"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Boolean - user has permission",
-            "schema": {
-              "type": "boolean"
-            },
             "x-nullable": false
           },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
-      }
-    },
-    "/V1/Permission/ContentPermissionSets/Search": {
-      "post": {
-        "tags": [
-          "Permission"
-        ],
-        "summary": "Search Content Permissions",
-        "description": "Searches content permission sets as specified in the search request.",
-        "operationId": "Permission_SearchContentPermissions",
-        "parameters": [
           {
             "name": "request",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/PermissionSetSearchRequest"
+              "$ref": "#/definitions/SendMessageRequest2"
             },
-            "x-nullable": true,
-            "description": "The permission search request."
+            "x-nullable": true
           }
         ],
         "responses": {
-          "200": {
-            "description": "PermissionSetSearchResult",
-            "schema": {
-              "$ref": "#/definitions/PermissionSetSearchResult"
-            },
-            "x-nullable": true
+          "204": {
+            "description": ""
           },
           "500": {
             "description": "Internal server error",
@@ -2894,32 +3775,36 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "serviceprovider_write"
+            ]
+          }
+        ]
       }
     },
-    "/V1/Permission/ContentPermissionSets/{PermissionSetId}": {
+    "/V1/ServiceProviders/{ServiceProviderId}/Configuration": {
       "get": {
         "tags": [
-          "Permission"
+          "ServiceProvider"
         ],
-        "summary": "Get Content Permission Single",
-        "description": "Gets the content permission set detail information by the content permission set id.",
-        "operationId": "Permission_GetContentPermissions",
+        "operationId": "ServiceProvider_GetConfiguration",
         "parameters": [
           {
             "type": "string",
-            "name": "PermissionSetId",
+            "name": "ServiceProviderId",
             "in": "path",
             "required": true,
-            "x-nullable": false,
-            "description": "The content permission set id."
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
-            "description": "ContentPermissionSetDetail",
+            "description": "",
             "schema": {
-              "$ref": "#/definitions/ContentPermissionSetDetail"
+              "$ref": "#/definitions/CustomerServiceProviderConfiguration"
             },
             "x-nullable": true
           },
@@ -2936,34 +3821,43 @@
           "429": {
             "description": "Too many requests"
           }
-        }
-      }
-    },
-    "/V1/Permission/SchemaPermissionSets/Search": {
-      "post": {
+        },
+        "security": [
+          {
+            "Bearer": [
+              "serviceprovider_read"
+            ]
+          }
+        ]
+      },
+      "put": {
         "tags": [
-          "Permission"
+          "ServiceProvider"
         ],
-        "summary": "Search Schema Permissions",
-        "description": "Searches schema permission sets as specified in the search request.",
-        "operationId": "Permission_SearchSchemaPermissions",
+        "operationId": "ServiceProvider_UpdateConfiguration",
         "parameters": [
           {
-            "name": "request",
+            "type": "string",
+            "name": "ServiceProviderId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "name": "configuration",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/PermissionSetSearchRequest"
+              "$ref": "#/definitions/ServiceProviderConfigurationUpdateRequest"
             },
-            "x-nullable": true,
-            "description": "The permission search request."
+            "x-nullable": true
           }
         ],
         "responses": {
           "200": {
-            "description": "PermissionSetSearchResult",
+            "description": "",
             "schema": {
-              "$ref": "#/definitions/PermissionSetSearchResult"
+              "$ref": "#/definitions/CustomerServiceProviderConfiguration"
             },
             "x-nullable": true
           },
@@ -2980,122 +3874,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
-      }
-    },
-    "/V1/Permission/SchemaPermissionSets/{PermissionSetId}": {
-      "get": {
-        "tags": [
-          "Permission"
-        ],
-        "summary": "Get Schema Permission Single",
-        "description": "Gets the schema permission set detail information by the schema permission set id.",
-        "operationId": "Permission_GetSchemaPermissions",
-        "parameters": [
+        },
+        "security": [
           {
-            "type": "string",
-            "name": "PermissionSetId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The schema permission set id."
+            "Bearer": [
+              "serviceprovider_write"
+            ]
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "SchemaPermissionSetDetail",
-            "schema": {
-              "$ref": "#/definitions/SchemaPermissionSetDetail"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
-      }
-    },
-    "/V1/PublicAccess/Version": {
-      "get": {
-        "tags": [
-          "PublicAccess"
-        ],
-        "summary": "Get Version",
-        "operationId": "PublicAccess_GetVersion",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "VersionInfo",
-            "schema": {
-              "$ref": "#/definitions/VersionInfo"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
-      }
-    },
-    "/V1/PublicAccess/GetShare": {
-      "get": {
-        "tags": [
-          "PublicAccess"
-        ],
-        "summary": "Get Share",
-        "operationId": "PublicAccess_GetShare",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "token",
-            "in": "query",
-            "required": true,
-            "x-nullable": true,
-            "description": "The token"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "ShareBaseDetail",
-            "schema": {
-              "$ref": "#/definitions/ShareBaseDetail"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
+        ]
       }
     },
     "/V1/Shares/{Id}": {
@@ -3163,7 +3949,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "share_write"
+            ]
+          }
+        ]
       },
       "get": {
         "tags": [
@@ -3203,7 +3996,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "share_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Shares/DeleteMany": {
@@ -3250,7 +4050,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "share_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Shares/Aggregate": {
@@ -3294,7 +4101,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "share_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Shares": {
@@ -3359,7 +4173,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "share_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Shares/Search": {
@@ -3403,136 +4224,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
-      }
-    },
-    "/V1/ServiceProviders/{ServiceProviderId}/Message": {
-      "post": {
-        "tags": [
-          "ServiceProvider"
-        ],
-        "operationId": "ServiceProvider_SendMessage",
-        "parameters": [
+        },
+        "security": [
           {
-            "type": "string",
-            "name": "ServiceProviderId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false
-          },
-          {
-            "name": "request",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/SendMessageRequest2"
-            },
-            "x-nullable": true
+            "Bearer": [
+              "share_read"
+            ]
           }
-        ],
-        "responses": {
-          "204": {
-            "description": ""
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
-      }
-    },
-    "/V1/ServiceProviders/{ServiceProviderId}/Configuration": {
-      "get": {
-        "tags": [
-          "ServiceProvider"
-        ],
-        "operationId": "ServiceProvider_GetConfiguration",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "ServiceProviderId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CustomerServiceProviderConfiguration"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "ServiceProvider"
-        ],
-        "operationId": "ServiceProvider_UpdateConfiguration",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "ServiceProviderId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false
-          },
-          {
-            "name": "configuration",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ServiceProviderConfigurationUpdateRequest"
-            },
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CustomerServiceProviderConfiguration"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
+        ]
       }
     },
     "/V1/Transfers/Files/Delete": {
@@ -3574,7 +4273,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "transfer_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Transfers/Files/Blacklist": {
@@ -3606,7 +4312,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "transfer_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Transfers/{TransferId}/Cancel": {
@@ -3642,7 +4355,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "transfer_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Transfers": {
@@ -3685,7 +4405,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "transfer_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Transfers/{TransferId}": {
@@ -3722,7 +4449,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "transfer_write"
+            ]
+          }
+        ]
       },
       "get": {
         "tags": [
@@ -3761,7 +4495,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "transfer_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Transfers/Files/{FileTransferId}": {
@@ -3802,7 +4543,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "transfer_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Transfers/{TransferId}/Import": {
@@ -3853,7 +4601,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "transfer_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Transfers/{TransferId}/PartialImport": {
@@ -3904,7 +4659,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "transfer_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Transfers/Search": {
@@ -3947,7 +4709,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "transfer_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Transfers/Files/Search": {
@@ -3990,7 +4759,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "transfer_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Transfers/{TransferId}/Files/{Identifier}/Upload": {
@@ -4082,7 +4858,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "transfer_write"
+            ]
+          }
+        ]
       }
     },
     "/V1/Users/Search": {
@@ -4125,7 +4908,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Users/GetUser/{UserId}": {
@@ -4166,7 +4956,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Users/Owner/{TokenId}": {
@@ -4207,7 +5004,14 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_read"
+            ]
+          }
+        ]
       }
     },
     "/V1/Users/Channels": {
@@ -4242,360 +5046,174 @@
           "429": {
             "description": "Too many requests"
           }
-        }
-      }
-    },
-    "/V1/Outputs": {
-      "post": {
-        "tags": [
-          "Output"
-        ],
-        "summary": "Get outputs by contentIds",
-        "description": "Gets output documents related for given contentids",
-        "operationId": "Output_GetByContentIds",
-        "parameters": [
+        },
+        "security": [
           {
-            "name": "contentsByIdsRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ContentsByIdsRequest"
-            },
-            "x-nullable": true,
-            "description": "Contains the list of contentIds for which the outputs are requested"
+            "Bearer": [
+              "user_read"
+            ]
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "The Result containing a list of OutputDetail's",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/OutputDetail"
-              }
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
-      }
-    },
-    "/V1/Outputs/{OutputId}": {
-      "get": {
-        "tags": [
-          "Output"
-        ],
-        "summary": "Get Single",
-        "description": "Gets a output document by id.",
-        "operationId": "Output_Get",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "OutputId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The output id."
-          }
-        ],
-        "responses": {
-          "404": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/OutputNotFoundException"
-            },
-            "x-nullable": true
-          },
-          "200": {
-            "description": "OutputDetail",
-            "schema": {
-              "$ref": "#/definitions/OutputDetail"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
-      }
-    },
-    "/V1/Profile": {
-      "get": {
-        "tags": [
-          "Profile"
-        ],
-        "summary": "Get",
-        "description": "Get profile of currently logged in user",
-        "operationId": "Profile_Get",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "UserProfile",
-            "schema": {
-              "$ref": "#/definitions/UserProfile"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Profile"
-        ],
-        "summary": "Update",
-        "description": "Updates profile of currently logged in user",
-        "operationId": "Profile_Update",
-        "parameters": [
-          {
-            "name": "profile",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/UserProfile"
-            },
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "UserProfile",
-            "schema": {
-              "$ref": "#/definitions/UserProfile"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        }
+        ]
       }
     }
   },
   "definitions": {
-    "ContentOwnershipTransferRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentId": {
-          "type": "string",
-          "description": "The content id."
-        },
-        "transferUserId": {
-          "type": "string",
-          "description": "The id of the user to whom the content document has to be transfered to."
-        }
-      }
-    },
-    "ContentDetail": {
-      "type": "object",
-      "description": "A content detail.",
-      "additionalProperties": false,
-      "required": [
-        "contentType",
-        "entityType",
-        "trashed"
-      ],
-      "properties": {
-        "audit": {
-          "description": "Audit data with information regarding document creation and modification.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/UserAudit"
-            }
-          ]
-        },
-        "content": {
-          "description": "The content data"
-        },
-        "contentPermissionSetIds": {
-          "type": "array",
-          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "contentSchemaId": {
-          "type": "string",
-          "description": "The id of the content schema"
-        },
-        "contentType": {
-          "description": "The type of content",
-          "allOf": [
-            {
-              "$ref": "#/definitions/ContentType"
-            }
-          ]
-        },
-        "displayValues": {
-          "description": "Contains language specific display values, rendered according to the content schema's\n             display pattern configuration.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/DisplayValueDictionary"
-            }
-          ]
-        },
-        "entityType": {
-          "description": "The entity type",
-          "allOf": [
-            {
-              "$ref": "#/definitions/EntityType"
-            }
-          ]
-        },
-        "id": {
-          "type": "string",
-          "description": "The content id."
-        },
-        "layerSchemaIds": {
-          "type": "array",
-          "description": "An optional list of layer schemas ids",
-          "items": {
-            "type": "string"
-          }
-        },
-        "metadata": {
-          "description": "The metadata dictionary",
-          "allOf": [
-            {
-              "$ref": "#/definitions/DataDictionary"
-            }
-          ]
-        },
-        "outputs": {
-          "type": "array",
-          "description": "A list of rendering ouputs for underlying digital file.",
-          "items": {
-            "$ref": "#/definitions/Output"
-          }
-        },
-        "ownerTokenId": {
-          "type": "string",
-          "description": "The id of a owner token. Defines the content owner."
-        },
-        "trashed": {
-          "type": "boolean",
-          "description": "The trashed flag."
-        }
-      }
-    },
-    "UserAudit": {
+    "BusinessProcessSearchRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "creationDate",
-        "modificationDate"
+        "start",
+        "limit"
       ],
       "properties": {
-        "creationDate": {
-          "type": "string",
-          "format": "date-time"
+        "start": {
+          "type": "integer",
+          "format": "int32"
         },
-        "modificationDate": {
-          "type": "string",
-          "format": "date-time"
+        "limit": {
+          "type": "integer",
+          "format": "int32"
         },
-        "createdByUser": {
+        "filter": {
+          "$ref": "#/definitions/FilterBase"
+        },
+        "searchString": {
           "type": "string"
         },
-        "modifiedByUser": {
+        "searchBehaviours": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
+        },
+        "sort": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        }
+      }
+    },
+    "FilterBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "description": "The FilterBase is the base class for all filters.",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
           "type": "string"
         }
       }
     },
-    "ContentType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Unknown",
-        "Bitmap",
-        "VectorGraphic",
-        "RawImage",
-        "InterchangeDocument",
-        "WordProcessingDocument",
-        "TextDocument",
-        "DesktopPublishingDocument",
-        "Presentation",
-        "Spreadsheet",
-        "Archive",
-        "Audio",
-        "Video",
-        "Font",
-        "Multimedia",
-        "Application",
-        "SourceCode",
-        "Database",
-        "Cad",
-        "Model3d"
-      ],
-      "enum": [
-        "Unknown",
-        "Bitmap",
-        "VectorGraphic",
-        "RawImage",
-        "InterchangeDocument",
-        "WordProcessingDocument",
-        "TextDocument",
-        "DesktopPublishingDocument",
-        "Presentation",
-        "Spreadsheet",
-        "Archive",
-        "Audio",
-        "Video",
-        "Font",
-        "Multimedia",
-        "Application",
-        "SourceCode",
-        "Database",
-        "Cad",
-        "Model3d"
+    "AndFilter": {
+      "type": "object",
+      "description": "The AndFilter> is a compound filter and returns documents that match all of the specified filters.",
+      "additionalProperties": false,
+      "properties": {
+        "filters": {
+          "type": "array",
+          "description": "Accepts all filters.",
+          "items": {
+            "$ref": "#/definitions/FilterBase"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
       ]
     },
-    "DisplayValueDictionary": {
+    "OrFilter": {
+      "type": "object",
+      "description": "The OrFilter is a compound filter and returns documents that match any of the specified filters.",
+      "additionalProperties": false,
+      "properties": {
+        "filters": {
+          "type": "array",
+          "description": "Accepts all filters.",
+          "items": {
+            "$ref": "#/definitions/FilterBase"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "NotFilter": {
+      "type": "object",
+      "description": "The NotFilter is a compound filter and returns documents that do not match the specified filter.",
+      "additionalProperties": false,
+      "properties": {
+        "filter": {
+          "description": "Limits the result set.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "DateRangeFilter": {
+      "type": "object",
+      "description": "The DateRangeFilter returns documents with fields that have date values within a certain range.",
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "range": {
+          "description": "The date range. Supported pattern: now(+-)(int)(YMDHm).",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateRange"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "DateRange": {
+      "type": "object",
+      "description": "The date range class used in aggregators and filters.",
+      "additionalProperties": false,
+      "properties": {
+        "names": {
+          "description": "Tranlsated range names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "from": {
+          "type": "string",
+          "description": "The from value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
+        },
+        "to": {
+          "type": "string",
+          "description": "The to value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
+        }
+      }
+    },
+    "TranslatedStringDictionary": {
       "type": "object",
       "additionalProperties": false,
       "allOf": [
@@ -4607,233 +5225,616 @@
         }
       ]
     },
-    "EntityType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Content",
-        "BasicShare",
-        "EmbedShare",
-        "Metadata",
-        "FileTransfer"
-      ],
-      "enum": [
-        "Content",
-        "BasicShare",
-        "EmbedShare",
-        "Metadata",
-        "FileTransfer"
-      ]
-    },
-    "DataDictionary": {
+    "ExistsFilter": {
       "type": "object",
+      "description": "The ExistsFilter returns documents that have at least one non-null value in the original field.",
       "additionalProperties": false,
+      "properties": {
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        }
+      },
       "allOf": [
         {
-          "type": "object",
-          "additionalProperties": {}
+          "$ref": "#/definitions/FilterBase"
         }
       ]
     },
-    "Output": {
+    "GeoBoundingBoxFilter": {
+      "type": "object",
+      "description": "The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.",
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "topLeft": {
+          "description": "The top left longitude/latitude configuration.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
+        },
+        "bottomRight": {
+          "description": "The bottom right longitude/latitude configuration.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "GeoLocation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lat",
+        "lon"
+      ],
+      "properties": {
+        "lat": {
+          "type": "number",
+          "format": "double"
+        },
+        "lon": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "GeoDistanceFilter": {
+      "type": "object",
+      "description": "The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point.",
+      "additionalProperties": false,
+      "required": [
+        "distance"
+      ],
+      "properties": {
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "location": {
+          "description": "The longitude/latitude configuration for the point of origin.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
+        },
+        "distance": {
+          "type": "number",
+          "description": "The range distance in meters.",
+          "format": "double"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "GeoDistanceRangeFilter": {
+      "type": "object",
+      "description": "The GeoDistanceRangeFilter returns documents that exists within a range from a specific point.",
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "location": {
+          "description": "The longitude/latitude configuration for the point of origin.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
+        },
+        "range": {
+          "description": "The numeric range.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumericRange"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "NumericRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "names": {
+          "description": "Tranlsated range names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "from": {
+          "type": "number",
+          "description": "The from value.",
+          "format": "double"
+        },
+        "to": {
+          "type": "number",
+          "description": "The to value.",
+          "format": "double"
+        }
+      }
+    },
+    "NestedFilter": {
+      "type": "object",
+      "description": "The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "The path pointing to the nested object."
+        },
+        "filter": {
+          "description": "Limits the result set.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "NumericRangeFilter": {
+      "type": "object",
+      "description": "The NumericRangeFilter returns documents with fields that have numeric values within a certain range.",
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "range": {
+          "description": "The numeric range with from and to properties.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumericRange"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "PrefixFilter": {
+      "type": "object",
+      "description": "The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).",
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "prefix": {
+          "type": "string",
+          "description": "The prefix term to filter on."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "TermFilter": {
+      "type": "object",
+      "description": "The TermFilter returns documents that contain the exact term specified in the inverted index.",
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "term": {
+          "type": "string",
+          "description": "The term to filter on."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "TermsFilter": {
+      "type": "object",
+      "description": "The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).",
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "terms": {
+          "type": "array",
+          "description": "A list of OR combined terms.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "AggregationFilter": {
+      "type": "object",
+      "description": "An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition.",
+      "additionalProperties": false,
+      "properties": {
+        "aggregationName": {
+          "type": "string",
+          "description": "The name of the aggregation this filter is connected to."
+        },
+        "filter": {
+          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        },
+        "temporaryAggregatorRequestId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "ChildFilter": {
+      "type": "object",
+      "description": "The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.",
+      "additionalProperties": false,
+      "properties": {
+        "childType": {
+          "type": "string",
+          "description": "The elastic search index type to filter as a child."
+        },
+        "filter": {
+          "description": "The filter to apply on the child entity. It accepts all filters.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "ParentFilter": {
+      "type": "object",
+      "description": "The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.",
+      "additionalProperties": false,
+      "properties": {
+        "parentType": {
+          "type": "string",
+          "description": "The elastic search index type to filter as a parent."
+        },
+        "filter": {
+          "description": "The filter to apply on the child entity. It accepts all filters.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "SearchBehaviour": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "DropInvalidCharactersOnFailure",
+        "WildcardOnSingleTerm"
+      ],
+      "enum": [
+        "DropInvalidCharactersOnFailure",
+        "WildcardOnSingleTerm"
+      ]
+    },
+    "SortInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "direction"
+      ],
+      "properties": {
+        "field": {
+          "type": "string"
+        },
+        "direction": {
+          "$ref": "#/definitions/SortDirection"
+        }
+      }
+    },
+    "SortDirection": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Asc",
+        "Desc"
+      ],
+      "enum": [
+        "Asc",
+        "Desc"
+      ]
+    },
+    "BusinessProcessSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "elapsedMilliseconds"
+      ],
+      "properties": {
+        "elapsedMilliseconds": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/SearchBehaviourBaseResultOfBusinessProcess"
+        }
+      ]
+    },
+    "SearchBehaviourBaseResultOfBusinessProcess": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isSearchStringRewritten"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "isSearchStringRewritten": {
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfBusinessProcess"
+        }
+      ]
+    },
+    "BaseResultOfBusinessProcess": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "totalResults"
+      ],
+      "properties": {
+        "totalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BusinessProcess"
+          }
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "BusinessProcess": {
       "type": "object",
       "discriminator": "kind",
       "additionalProperties": false,
       "required": [
+        "businessProcessScope",
+        "lifeCycle",
+        "startDate",
+        "endDate",
         "kind"
       ],
       "properties": {
         "id": {
           "type": "string"
         },
-        "outputFormatId": {
+        "processDefinitionId": {
           "type": "string"
         },
-        "contentId": {
+        "referenceId": {
           "type": "string"
         },
-        "detail": {
-          "$ref": "#/definitions/OutputDetailBase"
+        "referenceDocType": {
+          "type": "string"
+        },
+        "notificationId": {
+          "type": "string"
+        },
+        "businessProcessScope": {
+          "$ref": "#/definitions/BusinessProcessScope"
+        },
+        "lifeCycle": {
+          "$ref": "#/definitions/BusinessProcessLifeCylce"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "stateHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BusinessProcessStateItem"
+          }
+        },
+        "processDefinitionName": {
+          "type": "string"
+        },
+        "currentState": {
+          "type": "string"
         },
         "kind": {
           "type": "string"
         }
       }
     },
-    "OutputDetailBase": {
+    "BusinessProcessScope": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "System",
+        "User"
+      ],
+      "enum": [
+        "System",
+        "User"
+      ]
+    },
+    "BusinessProcessLifeCylce": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "Started",
+        "Ended",
+        "Cancelled"
+      ],
+      "enum": [
+        "Draft",
+        "Started",
+        "Ended",
+        "Cancelled"
+      ]
+    },
+    "BusinessProcessStateItem": {
       "type": "object",
-      "discriminator": "kind",
       "additionalProperties": false,
       "required": [
-        "kind"
+        "timestamp"
       ],
       "properties": {
-        "fileExtension": {
+        "state": {
           "type": "string"
         },
-        "fileName": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "error": {
+          "$ref": "#/definitions/ErrorResponse"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exception": {
           "type": "string"
         },
-        "filePath": {
+        "traceId": {
           "type": "string"
         },
-        "fileSizeInBytes": {
+        "traceJobId": {
+          "type": "string"
+        }
+      }
+    },
+    "BusinessProcessBulkResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "response": {
+          "$ref": "#/definitions/BulkResponse"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BusinessProcess"
+        }
+      ]
+    },
+    "BulkResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BulkResponseRow"
+          }
+        }
+      }
+    },
+    "BulkResponseRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "succeeded"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "version": {
           "type": "integer",
           "format": "int64"
         },
-        "sha1Hash": {
+        "error": {
           "type": "string"
         },
-        "kind": {
+        "reason": {
           "type": "string"
+        },
+        "succeeded": {
+          "type": "boolean"
         }
       }
-    },
-    "OutputDetailImage": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "width",
-        "height"
-      ],
-      "properties": {
-        "width": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "height": {
-          "type": "integer",
-          "format": "int32"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/OutputDetailBase"
-        }
-      ]
-    },
-    "OutputDetailAudio": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "durationInSeconds": {
-          "type": "number",
-          "format": "double"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/OutputDetailBase"
-        }
-      ]
-    },
-    "OutputDetailVideo": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "durationInSeconds",
-        "width",
-        "height"
-      ],
-      "properties": {
-        "durationInSeconds": {
-          "type": "number",
-          "format": "double"
-        },
-        "width": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "height": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "sprites": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Sprite"
-          }
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/OutputDetailBase"
-        }
-      ]
-    },
-    "Sprite": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "width",
-        "height",
-        "y",
-        "x",
-        "start",
-        "end"
-      ],
-      "properties": {
-        "width": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "height": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "y": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "x": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "start": {
-          "type": "string",
-          "format": "time-span"
-        },
-        "end": {
-          "type": "string",
-          "format": "time-span"
-        }
-      }
-    },
-    "OutputDetailDocument": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "pageCount"
-      ],
-      "properties": {
-        "pageCount": {
-          "type": "integer",
-          "format": "int32"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/OutputDetailBase"
-        }
-      ]
-    },
-    "OutputDetailDefault": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/OutputDetailBase"
-        }
-      ]
-    },
-    "OutputDetail": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/Output"
-        }
-      ]
     },
     "PictureparkException": {
       "type": "object",
@@ -5657,6 +6658,463 @@
         }
       ]
     },
+    "StartProcessRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "variables": {}
+      }
+    },
+    "SendMessageRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "messageName": {
+          "type": "string"
+        },
+        "variables": {}
+      }
+    },
+    "BusinessProcessWaitResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hasStateHit",
+        "processEnded"
+      ],
+      "properties": {
+        "hasStateHit": {
+          "type": "boolean"
+        },
+        "processEnded": {
+          "type": "boolean"
+        },
+        "stateHit": {
+          "type": "string"
+        },
+        "businessProcess": {
+          "$ref": "#/definitions/BusinessProcess"
+        }
+      }
+    },
+    "ContentOwnershipTransferRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string",
+          "description": "The content id."
+        },
+        "transferUserId": {
+          "type": "string",
+          "description": "The id of the user to whom the content document has to be transfered to."
+        }
+      }
+    },
+    "ContentDetail": {
+      "type": "object",
+      "description": "A content detail.",
+      "additionalProperties": false,
+      "required": [
+        "contentType",
+        "entityType",
+        "trashed"
+      ],
+      "properties": {
+        "audit": {
+          "description": "Audit data with information regarding document creation and modification.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/UserAudit"
+            }
+          ]
+        },
+        "content": {
+          "description": "The content data"
+        },
+        "contentPermissionSetIds": {
+          "type": "array",
+          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contentSchemaId": {
+          "type": "string",
+          "description": "The id of the content schema"
+        },
+        "contentType": {
+          "description": "The type of content",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContentType"
+            }
+          ]
+        },
+        "displayValues": {
+          "description": "Contains language specific display values, rendered according to the content schema's\n             display pattern configuration.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DisplayValueDictionary"
+            }
+          ]
+        },
+        "entityType": {
+          "description": "The entity type",
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityType"
+            }
+          ]
+        },
+        "id": {
+          "type": "string",
+          "description": "The content id."
+        },
+        "layerSchemaIds": {
+          "type": "array",
+          "description": "An optional list of layer schemas ids",
+          "items": {
+            "type": "string"
+          }
+        },
+        "metadata": {
+          "description": "The metadata dictionary",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataDictionary"
+            }
+          ]
+        },
+        "outputs": {
+          "type": "array",
+          "description": "A list of rendering ouputs for underlying digital file.",
+          "items": {
+            "$ref": "#/definitions/Output"
+          }
+        },
+        "ownerTokenId": {
+          "type": "string",
+          "description": "The id of a owner token. Defines the content owner."
+        },
+        "trashed": {
+          "type": "boolean",
+          "description": "The trashed flag."
+        }
+      }
+    },
+    "UserAudit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "creationDate",
+        "modificationDate"
+      ],
+      "properties": {
+        "creationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modificationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdByUser": {
+          "type": "string"
+        },
+        "modifiedByUser": {
+          "type": "string"
+        }
+      }
+    },
+    "ContentType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Unknown",
+        "Bitmap",
+        "VectorGraphic",
+        "RawImage",
+        "InterchangeDocument",
+        "WordProcessingDocument",
+        "TextDocument",
+        "DesktopPublishingDocument",
+        "Presentation",
+        "Spreadsheet",
+        "Archive",
+        "Audio",
+        "Video",
+        "Font",
+        "Multimedia",
+        "Application",
+        "SourceCode",
+        "Database",
+        "Cad",
+        "Model3d"
+      ],
+      "enum": [
+        "Unknown",
+        "Bitmap",
+        "VectorGraphic",
+        "RawImage",
+        "InterchangeDocument",
+        "WordProcessingDocument",
+        "TextDocument",
+        "DesktopPublishingDocument",
+        "Presentation",
+        "Spreadsheet",
+        "Archive",
+        "Audio",
+        "Video",
+        "Font",
+        "Multimedia",
+        "Application",
+        "SourceCode",
+        "Database",
+        "Cad",
+        "Model3d"
+      ]
+    },
+    "DisplayValueDictionary": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "EntityType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Content",
+        "BasicShare",
+        "EmbedShare",
+        "Metadata",
+        "FileTransfer"
+      ],
+      "enum": [
+        "Content",
+        "BasicShare",
+        "EmbedShare",
+        "Metadata",
+        "FileTransfer"
+      ]
+    },
+    "DataDictionary": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": {}
+        }
+      ]
+    },
+    "Output": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "outputFormatId": {
+          "type": "string"
+        },
+        "contentId": {
+          "type": "string"
+        },
+        "detail": {
+          "$ref": "#/definitions/OutputDetailBase"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "OutputDetailBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "fileExtension": {
+          "type": "string"
+        },
+        "fileName": {
+          "type": "string"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "fileSizeInBytes": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "sha1Hash": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "OutputDetailImage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "height": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDetailBase"
+        }
+      ]
+    },
+    "OutputDetailAudio": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "durationInSeconds": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDetailBase"
+        }
+      ]
+    },
+    "OutputDetailVideo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "durationInSeconds",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "durationInSeconds": {
+          "type": "number",
+          "format": "double"
+        },
+        "width": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "height": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sprites": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Sprite"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDetailBase"
+        }
+      ]
+    },
+    "Sprite": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height",
+        "y",
+        "x",
+        "start",
+        "end"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "height": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "y": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "x": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "start": {
+          "type": "string",
+          "format": "time-span"
+        },
+        "end": {
+          "type": "string",
+          "format": "time-span"
+        }
+      }
+    },
+    "OutputDetailDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pageCount"
+      ],
+      "properties": {
+        "pageCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDetailBase"
+        }
+      ]
+    },
+    "OutputDetailDefault": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDetailBase"
+        }
+      ]
+    },
+    "OutputDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/Output"
+        }
+      ]
+    },
     "ContentsOwnershipTransferRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -5671,178 +7129,6 @@
         "transferUserId": {
           "type": "string",
           "description": "The id of user to whom the content documents have to be transfered to."
-        }
-      }
-    },
-    "BusinessProcess": {
-      "type": "object",
-      "discriminator": "kind",
-      "additionalProperties": false,
-      "required": [
-        "businessProcessScope",
-        "lifeCycle",
-        "startDate",
-        "endDate",
-        "kind"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "processDefinitionId": {
-          "type": "string"
-        },
-        "referenceId": {
-          "type": "string"
-        },
-        "referenceDocType": {
-          "type": "string"
-        },
-        "notificationId": {
-          "type": "string"
-        },
-        "businessProcessScope": {
-          "$ref": "#/definitions/BusinessProcessScope"
-        },
-        "lifeCycle": {
-          "$ref": "#/definitions/BusinessProcessLifeCylce"
-        },
-        "startDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "endDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "stateHistory": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/BusinessProcessStateItem"
-          }
-        },
-        "processDefinitionName": {
-          "type": "string"
-        },
-        "currentState": {
-          "type": "string"
-        },
-        "kind": {
-          "type": "string"
-        }
-      }
-    },
-    "BusinessProcessScope": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "System",
-        "User"
-      ],
-      "enum": [
-        "System",
-        "User"
-      ]
-    },
-    "BusinessProcessLifeCylce": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Draft",
-        "Started",
-        "Ended",
-        "Cancelled"
-      ],
-      "enum": [
-        "Draft",
-        "Started",
-        "Ended",
-        "Cancelled"
-      ]
-    },
-    "BusinessProcessStateItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "timestamp"
-      ],
-      "properties": {
-        "state": {
-          "type": "string"
-        },
-        "timestamp": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "error": {
-          "$ref": "#/definitions/ErrorResponse"
-        }
-      }
-    },
-    "ErrorResponse": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "exception": {
-          "type": "string"
-        },
-        "traceId": {
-          "type": "string"
-        },
-        "traceJobId": {
-          "type": "string"
-        }
-      }
-    },
-    "BusinessProcessBulkResponse": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "response": {
-          "$ref": "#/definitions/BulkResponse"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/BusinessProcess"
-        }
-      ]
-    },
-    "BulkResponse": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "rows": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/BulkResponseRow"
-          }
-        }
-      }
-    },
-    "BulkResponseRow": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "version",
-        "succeeded"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "version": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "error": {
-          "type": "string"
-        },
-        "reason": {
-          "type": "string"
-        },
-        "succeeded": {
-          "type": "boolean"
         }
       }
     },
@@ -5923,489 +7209,6 @@
           ]
         }
       }
-    },
-    "SearchBehaviour": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "DropInvalidCharactersOnFailure",
-        "WildcardOnSingleTerm"
-      ],
-      "enum": [
-        "DropInvalidCharactersOnFailure",
-        "WildcardOnSingleTerm"
-      ]
-    },
-    "FilterBase": {
-      "type": "object",
-      "discriminator": "kind",
-      "description": "The FilterBase is the base class for all filters.",
-      "additionalProperties": false,
-      "required": [
-        "kind"
-      ],
-      "properties": {
-        "kind": {
-          "type": "string"
-        }
-      }
-    },
-    "AndFilter": {
-      "type": "object",
-      "description": "The AndFilter> is a compound filter and returns documents that match all of the specified filters.",
-      "additionalProperties": false,
-      "properties": {
-        "filters": {
-          "type": "array",
-          "description": "Accepts all filters.",
-          "items": {
-            "$ref": "#/definitions/FilterBase"
-          }
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "OrFilter": {
-      "type": "object",
-      "description": "The OrFilter is a compound filter and returns documents that match any of the specified filters.",
-      "additionalProperties": false,
-      "properties": {
-        "filters": {
-          "type": "array",
-          "description": "Accepts all filters.",
-          "items": {
-            "$ref": "#/definitions/FilterBase"
-          }
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "NotFilter": {
-      "type": "object",
-      "description": "The NotFilter is a compound filter and returns documents that do not match the specified filter.",
-      "additionalProperties": false,
-      "properties": {
-        "filter": {
-          "description": "Limits the result set.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/FilterBase"
-            }
-          ]
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "DateRangeFilter": {
-      "type": "object",
-      "description": "The DateRangeFilter returns documents with fields that have date values within a certain range.",
-      "additionalProperties": false,
-      "properties": {
-        "field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        },
-        "range": {
-          "description": "The date range. Supported pattern: now(+-)(int)(YMDHm).",
-          "allOf": [
-            {
-              "$ref": "#/definitions/DateRange"
-            }
-          ]
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "DateRange": {
-      "type": "object",
-      "description": "The date range class used in aggregators and filters.",
-      "additionalProperties": false,
-      "properties": {
-        "names": {
-          "description": "Tranlsated range names.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        },
-        "from": {
-          "type": "string",
-          "description": "The from value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
-        },
-        "to": {
-          "type": "string",
-          "description": "The to value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
-        }
-      }
-    },
-    "TranslatedStringDictionary": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        }
-      ]
-    },
-    "ExistsFilter": {
-      "type": "object",
-      "description": "The ExistsFilter returns documents that have at least one non-null value in the original field.",
-      "additionalProperties": false,
-      "properties": {
-        "field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "GeoBoundingBoxFilter": {
-      "type": "object",
-      "description": "The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.",
-      "additionalProperties": false,
-      "properties": {
-        "field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        },
-        "topLeft": {
-          "description": "The top left longitude/latitude configuration.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/GeoLocation"
-            }
-          ]
-        },
-        "bottomRight": {
-          "description": "The bottom right longitude/latitude configuration.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/GeoLocation"
-            }
-          ]
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "GeoLocation": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "lat",
-        "lon"
-      ],
-      "properties": {
-        "lat": {
-          "type": "number",
-          "format": "double"
-        },
-        "lon": {
-          "type": "number",
-          "format": "double"
-        }
-      }
-    },
-    "GeoDistanceFilter": {
-      "type": "object",
-      "description": "The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point.",
-      "additionalProperties": false,
-      "required": [
-        "distance"
-      ],
-      "properties": {
-        "field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        },
-        "location": {
-          "description": "The longitude/latitude configuration for the point of origin.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/GeoLocation"
-            }
-          ]
-        },
-        "distance": {
-          "type": "number",
-          "description": "The range distance in meters.",
-          "format": "double"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "GeoDistanceRangeFilter": {
-      "type": "object",
-      "description": "The GeoDistanceRangeFilter returns documents that exists within a range from a specific point.",
-      "additionalProperties": false,
-      "properties": {
-        "field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        },
-        "location": {
-          "description": "The longitude/latitude configuration for the point of origin.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/GeoLocation"
-            }
-          ]
-        },
-        "range": {
-          "description": "The numeric range.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/NumericRange"
-            }
-          ]
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "NumericRange": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "names": {
-          "description": "Tranlsated range names.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        },
-        "from": {
-          "type": "number",
-          "description": "The from value.",
-          "format": "double"
-        },
-        "to": {
-          "type": "number",
-          "description": "The to value.",
-          "format": "double"
-        }
-      }
-    },
-    "NestedFilter": {
-      "type": "object",
-      "description": "The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.",
-      "additionalProperties": false,
-      "properties": {
-        "path": {
-          "type": "string",
-          "description": "The path pointing to the nested object."
-        },
-        "filter": {
-          "description": "Limits the result set.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/FilterBase"
-            }
-          ]
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "NumericRangeFilter": {
-      "type": "object",
-      "description": "The NumericRangeFilter returns documents with fields that have numeric values within a certain range.",
-      "additionalProperties": false,
-      "properties": {
-        "field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        },
-        "range": {
-          "description": "The numeric range with from and to properties.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/NumericRange"
-            }
-          ]
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "PrefixFilter": {
-      "type": "object",
-      "description": "The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).",
-      "additionalProperties": false,
-      "properties": {
-        "field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        },
-        "prefix": {
-          "type": "string",
-          "description": "The prefix term to filter on."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "TermFilter": {
-      "type": "object",
-      "description": "The TermFilter returns documents that contain the exact term specified in the inverted index.",
-      "additionalProperties": false,
-      "properties": {
-        "field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        },
-        "term": {
-          "type": "string",
-          "description": "The term to filter on."
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "TermsFilter": {
-      "type": "object",
-      "description": "The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).",
-      "additionalProperties": false,
-      "properties": {
-        "field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        },
-        "terms": {
-          "type": "array",
-          "description": "A list of OR combined terms.",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "AggregationFilter": {
-      "type": "object",
-      "description": "An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition.",
-      "additionalProperties": false,
-      "properties": {
-        "aggregationName": {
-          "type": "string",
-          "description": "The name of the aggregation this filter is connected to."
-        },
-        "filter": {
-          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/FilterBase"
-            }
-          ]
-        },
-        "temporaryAggregatorRequestId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "ChildFilter": {
-      "type": "object",
-      "description": "The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.",
-      "additionalProperties": false,
-      "properties": {
-        "childType": {
-          "type": "string",
-          "description": "The elastic search index type to filter as a child."
-        },
-        "filter": {
-          "description": "The filter to apply on the child entity. It accepts all filters.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/FilterBase"
-            }
-          ]
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "ParentFilter": {
-      "type": "object",
-      "description": "The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.",
-      "additionalProperties": false,
-      "properties": {
-        "parentType": {
-          "type": "string",
-          "description": "The elastic search index type to filter as a parent."
-        },
-        "filter": {
-          "description": "The filter to apply on the child entity. It accepts all filters.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/FilterBase"
-            }
-          ]
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
     },
     "AggregatorBase": {
       "type": "object",
@@ -6966,33 +7769,6 @@
         }
       }
     },
-    "SortInfo": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "direction"
-      ],
-      "properties": {
-        "field": {
-          "type": "string"
-        },
-        "direction": {
-          "$ref": "#/definitions/SortDirection"
-        }
-      }
-    },
-    "SortDirection": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Asc",
-        "Desc"
-      ],
-      "enum": [
-        "Asc",
-        "Desc"
-      ]
-    },
     "ContentRight": {
       "type": "string",
       "description": "",
@@ -7436,141 +8212,6 @@
           "items": {
             "$ref": "#/definitions/ContentRight"
           }
-        }
-      }
-    },
-    "BusinessProcessSearchRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "start",
-        "limit"
-      ],
-      "properties": {
-        "start": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "limit": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "filter": {
-          "$ref": "#/definitions/FilterBase"
-        },
-        "searchString": {
-          "type": "string"
-        },
-        "searchBehaviours": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SearchBehaviour"
-          }
-        },
-        "sort": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
-          }
-        }
-      }
-    },
-    "BusinessProcessSearchResult": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "elapsedMilliseconds"
-      ],
-      "properties": {
-        "elapsedMilliseconds": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/SearchBehaviourBaseResultOfBusinessProcess"
-        }
-      ]
-    },
-    "SearchBehaviourBaseResultOfBusinessProcess": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "isSearchStringRewritten"
-      ],
-      "properties": {
-        "searchString": {
-          "type": "string"
-        },
-        "isSearchStringRewritten": {
-          "type": "boolean"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/BaseResultOfBusinessProcess"
-        }
-      ]
-    },
-    "BaseResultOfBusinessProcess": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "totalResults"
-      ],
-      "properties": {
-        "totalResults": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "results": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/BusinessProcess"
-          }
-        },
-        "pageToken": {
-          "type": "string"
-        }
-      }
-    },
-    "StartProcessRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "variables": {}
-      }
-    },
-    "SendMessageRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "messageName": {
-          "type": "string"
-        },
-        "variables": {}
-      }
-    },
-    "BusinessProcessWaitResult": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "hasStateHit",
-        "processEnded"
-      ],
-      "properties": {
-        "hasStateHit": {
-          "type": "boolean"
-        },
-        "processEnded": {
-          "type": "boolean"
-        },
-        "stateHit": {
-          "type": "string"
-        },
-        "businessProcess": {
-          "$ref": "#/definitions/BusinessProcess"
         }
       }
     },
@@ -8215,6 +8856,855 @@
           "items": {}
         },
         "pageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "ContentsByIdsRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UserRight": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "ManageContent",
+        "ManageSharings",
+        "ManageDrives",
+        "ManageTransfer",
+        "ManageChannels",
+        "ManageSchemas",
+        "ManageUsers",
+        "ManageUserRoles",
+        "ManagePermissions",
+        "ManageSearchIndexes",
+        "ManageRecipients",
+        "ManageCollections",
+        "ManageListItems",
+        "ManageServiceProviders",
+        "ManageEmbeds",
+        "ManageTemplates"
+      ],
+      "enum": [
+        "ManageContent",
+        "ManageSharings",
+        "ManageDrives",
+        "ManageTransfer",
+        "ManageChannels",
+        "ManageSchemas",
+        "ManageUsers",
+        "ManageUserRoles",
+        "ManagePermissions",
+        "ManageSearchIndexes",
+        "ManageRecipients",
+        "ManageCollections",
+        "ManageListItems",
+        "ManageServiceProviders",
+        "ManageEmbeds",
+        "ManageTemplates"
+      ]
+    },
+    "PermissionSetSearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "limit"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "searchBehaviours": {
+          "type": "array",
+          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
+        },
+        "sort": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        },
+        "start": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filter": {
+          "$ref": "#/definitions/FilterBase"
+        },
+        "rightFilter": {
+          "$ref": "#/definitions/PermissionSetRight"
+        }
+      }
+    },
+    "PermissionSetRight": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Apply"
+      ],
+      "enum": [
+        "Apply"
+      ]
+    },
+    "PermissionSetSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "elapsedMilliseconds"
+      ],
+      "properties": {
+        "aggregationResults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregationResult"
+          }
+        },
+        "elapsedMilliseconds": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/SearchBehaviourBaseResultOfPermissionSet"
+        }
+      ]
+    },
+    "SearchBehaviourBaseResultOfPermissionSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isSearchStringRewritten"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "isSearchStringRewritten": {
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfPermissionSet"
+        }
+      ]
+    },
+    "BaseResultOfPermissionSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "totalResults"
+      ],
+      "properties": {
+        "totalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PermissionSet"
+          }
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "PermissionSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trashed"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The permission set id."
+        },
+        "trashed": {
+          "type": "boolean"
+        },
+        "names": {
+          "description": "Language specific permission set names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        }
+      }
+    },
+    "ContentPermissionSetDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PermissionSetDetailOfContentRight"
+        }
+      ]
+    },
+    "PermissionSetDetailOfContentRight": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trashed",
+        "exclusive"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "names": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "trashed": {
+          "type": "boolean"
+        },
+        "userRolesRights": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PermissionUserRoleRightsOfContentRight"
+          }
+        },
+        "userRolesPermissionSetRights": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PermissionUserRoleRightsOfPermissionSetRight"
+          }
+        },
+        "exclusive": {
+          "type": "boolean"
+        }
+      }
+    },
+    "PermissionUserRoleRightsOfContentRight": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userRoleId": {
+          "type": "string"
+        },
+        "names": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "rights": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContentRight"
+          }
+        }
+      }
+    },
+    "PermissionUserRoleRightsOfPermissionSetRight": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userRoleId": {
+          "type": "string"
+        },
+        "names": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "rights": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PermissionSetRight"
+          }
+        }
+      }
+    },
+    "SchemaPermissionSetDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PermissionSetDetailOfMetadataRight"
+        }
+      ]
+    },
+    "PermissionSetDetailOfMetadataRight": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trashed",
+        "exclusive"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "names": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "trashed": {
+          "type": "boolean"
+        },
+        "userRolesRights": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PermissionUserRoleRightsOfMetadataRight"
+          }
+        },
+        "userRolesPermissionSetRights": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PermissionUserRoleRightsOfPermissionSetRight"
+          }
+        },
+        "exclusive": {
+          "type": "boolean"
+        }
+      }
+    },
+    "PermissionUserRoleRightsOfMetadataRight": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userRoleId": {
+          "type": "string"
+        },
+        "names": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "rights": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MetadataRight"
+          }
+        }
+      }
+    },
+    "MetadataRight": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "View",
+        "Edit",
+        "Manage"
+      ],
+      "enum": [
+        "View",
+        "Edit",
+        "Manage"
+      ]
+    },
+    "UserProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authorizationState"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "languageCode": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/definitions/UserAddress"
+        },
+        "authorizationState": {
+          "$ref": "#/definitions/AuthorizationState"
+        }
+      }
+    },
+    "UserAddress": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "company": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "alternativeAddress": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        }
+      }
+    },
+    "AuthorizationState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Active",
+        "Review",
+        "Locked",
+        "Invited"
+      ],
+      "enum": [
+        "Active",
+        "Review",
+        "Locked",
+        "Invited"
+      ]
+    },
+    "VersionInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "comments": {
+          "type": "string"
+        },
+        "event": {
+          "$ref": "#/definitions/Event"
+        },
+        "modifier": {
+          "type": "string"
+        },
+        "modifyDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
+    },
+    "Event": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/EventAction"
+        },
+        "changed": {
+          "type": "string"
+        },
+        "instanceID": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "string"
+        },
+        "softwareAgent": {
+          "type": "string"
+        },
+        "when": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "EventAction": {
+      "type": "string",
+      "description": "Corresponds to stEvt.ActionChoice",
+      "x-enumNames": [
+        "Converted",
+        "Copied",
+        "Created",
+        "Cropped",
+        "Edited",
+        "Filtered",
+        "Formatted",
+        "VersionUpdated",
+        "Printed",
+        "Published",
+        "Managed",
+        "Produced",
+        "Resized",
+        "Saved",
+        "Derived"
+      ],
+      "enum": [
+        "Converted",
+        "Copied",
+        "Created",
+        "Cropped",
+        "Edited",
+        "Filtered",
+        "Formatted",
+        "VersionUpdated",
+        "Printed",
+        "Published",
+        "Managed",
+        "Produced",
+        "Resized",
+        "Saved",
+        "Derived"
+      ]
+    },
+    "ShareBaseDetail": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "entityType",
+        "outputAccess",
+        "kind"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "audit": {
+          "$ref": "#/definitions/UserAudit"
+        },
+        "entityType": {
+          "$ref": "#/definitions/EntityType"
+        },
+        "contentSelections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContentDetail2"
+          }
+        },
+        "layerSchemaIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mailTemplateId": {
+          "type": "string"
+        },
+        "expirationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "template": {
+          "$ref": "#/definitions/TemplateBase"
+        },
+        "outputAccess": {
+          "$ref": "#/definitions/OutputAccess"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "ContentDetail2": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trashed",
+        "entityType",
+        "contentType"
+      ],
+      "properties": {
+        "trashed": {
+          "type": "boolean"
+        },
+        "entityType": {
+          "description": "The entity type of a content document is content.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/EntityType"
+            }
+          ]
+        },
+        "contentSchemaId": {
+          "type": "string",
+          "description": "The id of the schema with schema type content."
+        },
+        "layerSchemaIds": {
+          "type": "array",
+          "description": "An optional id list of schemas with type layer.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "content": {
+          "$ref": "#/definitions/DataDictionary"
+        },
+        "metadata": {
+          "$ref": "#/definitions/DataDictionary"
+        },
+        "id": {
+          "type": "string"
+        },
+        "contentPermissionSetIds": {
+          "type": "array",
+          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Output"
+          }
+        },
+        "audit": {
+          "$ref": "#/definitions/UserAudit"
+        },
+        "ownerTokenId": {
+          "type": "string"
+        },
+        "contentType": {
+          "$ref": "#/definitions/ContentType"
+        },
+        "displayValues": {
+          "description": "Contains language specific display values, rendered according to the content schema's display pattern configuration.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DisplayValueDictionary"
+            }
+          ]
+        }
+      }
+    },
+    "TemplateBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "height": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "CardTemplate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "showNavigation",
+        "showOverlay",
+        "showLogo",
+        "showFooter"
+      ],
+      "properties": {
+        "showNavigation": {
+          "type": "boolean"
+        },
+        "showOverlay": {
+          "type": "boolean"
+        },
+        "showLogo": {
+          "type": "boolean"
+        },
+        "showFooter": {
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/TemplateBase"
+        }
+      ]
+    },
+    "ListTemplate": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/TemplateBase"
+        }
+      ]
+    },
+    "BasicTemplate": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/TemplateBase"
+        }
+      ]
+    },
+    "OutputAccess": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Full",
+        "Preview",
+        "None"
+      ],
+      "enum": [
+        "Full",
+        "Preview",
+        "None"
+      ]
+    },
+    "ShareBasicDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "mailRecipients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MailRecipient"
+          }
+        },
+        "internalRecipients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InternalRecipient"
+          }
+        },
+        "languageCode": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareBaseDetail"
+        }
+      ]
+    },
+    "MailRecipient": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userEmail": {
+          "$ref": "#/definitions/UserEmail"
+        },
+        "token": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "UserEmail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "InternalRecipient": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "recipient": {
+          "$ref": "#/definitions/UserItem"
+        },
+        "token": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "UserItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "ShareEmbedDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "embedContentItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EmbedContentDetail"
+          }
+        },
+        "token": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareBaseDetail"
+        }
+      ]
+    },
+    "EmbedContentDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string"
+        },
+        "outputFormatId": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "url": {
           "type": "string"
         }
       }
@@ -9527,764 +11017,58 @@
         }
       }
     },
-    "UserRight": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "ManageContent",
-        "ManageSharings",
-        "ManageDrives",
-        "ManageTransfer",
-        "ManageChannels",
-        "ManageSchemas",
-        "ManageUsers",
-        "ManageUserRoles",
-        "ManagePermissions",
-        "ManageSearchIndexes",
-        "ManageRecipients",
-        "ManageCollections",
-        "ManageListItems",
-        "ManageServiceProviders",
-        "ManageEmbeds",
-        "ManageTemplates"
-      ],
-      "enum": [
-        "ManageContent",
-        "ManageSharings",
-        "ManageDrives",
-        "ManageTransfer",
-        "ManageChannels",
-        "ManageSchemas",
-        "ManageUsers",
-        "ManageUserRoles",
-        "ManagePermissions",
-        "ManageSearchIndexes",
-        "ManageRecipients",
-        "ManageCollections",
-        "ManageListItems",
-        "ManageServiceProviders",
-        "ManageEmbeds",
-        "ManageTemplates"
-      ]
-    },
-    "PermissionSetSearchRequest": {
+    "SendMessageRequest2": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "start",
-        "limit"
-      ],
       "properties": {
-        "searchString": {
+        "messageName": {
           "type": "string"
         },
-        "searchBehaviours": {
-          "type": "array",
-          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
-          "items": {
-            "$ref": "#/definitions/SearchBehaviour"
-          }
+        "businessProcessId": {
+          "type": "string"
         },
-        "sort": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
-          }
-        },
-        "start": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "limit": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "filter": {
-          "$ref": "#/definitions/FilterBase"
-        },
-        "rightFilter": {
-          "$ref": "#/definitions/PermissionSetRight"
-        }
+        "variables": {}
       }
     },
-    "PermissionSetRight": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Apply"
-      ],
-      "enum": [
-        "Apply"
-      ]
-    },
-    "PermissionSetSearchResult": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "elapsedMilliseconds"
-      ],
-      "properties": {
-        "aggregationResults": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationResult"
-          }
-        },
-        "elapsedMilliseconds": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/SearchBehaviourBaseResultOfPermissionSet"
-        }
-      ]
-    },
-    "SearchBehaviourBaseResultOfPermissionSet": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "isSearchStringRewritten"
-      ],
-      "properties": {
-        "searchString": {
-          "type": "string"
-        },
-        "isSearchStringRewritten": {
-          "type": "boolean"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/BaseResultOfPermissionSet"
-        }
-      ]
-    },
-    "BaseResultOfPermissionSet": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "totalResults"
-      ],
-      "properties": {
-        "totalResults": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "results": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/PermissionSet"
-          }
-        },
-        "pageToken": {
-          "type": "string"
-        }
-      }
-    },
-    "PermissionSet": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "trashed"
-      ],
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "The permission set id."
-        },
-        "trashed": {
-          "type": "boolean"
-        },
-        "names": {
-          "description": "Language specific permission set names.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        }
-      }
-    },
-    "ContentPermissionSetDetail": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PermissionSetDetailOfContentRight"
-        }
-      ]
-    },
-    "PermissionSetDetailOfContentRight": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "trashed",
-        "exclusive"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "names": {
-          "$ref": "#/definitions/TranslatedStringDictionary"
-        },
-        "trashed": {
-          "type": "boolean"
-        },
-        "userRolesRights": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/PermissionUserRoleRightsOfContentRight"
-          }
-        },
-        "userRolesPermissionSetRights": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/PermissionUserRoleRightsOfPermissionSetRight"
-          }
-        },
-        "exclusive": {
-          "type": "boolean"
-        }
-      }
-    },
-    "PermissionUserRoleRightsOfContentRight": {
+    "CustomerServiceProviderConfiguration": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "userRoleId": {
+        "serviceProviderId": {
           "type": "string"
         },
-        "names": {
-          "$ref": "#/definitions/TranslatedStringDictionary"
-        },
-        "rights": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ContentRight"
-          }
-        }
-      }
-    },
-    "PermissionUserRoleRightsOfPermissionSetRight": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "userRoleId": {
+        "customerId": {
           "type": "string"
         },
-        "names": {
-          "$ref": "#/definitions/TranslatedStringDictionary"
-        },
-        "rights": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/PermissionSetRight"
-          }
-        }
-      }
-    },
-    "SchemaPermissionSetDetail": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PermissionSetDetailOfMetadataRight"
-        }
-      ]
-    },
-    "PermissionSetDetailOfMetadataRight": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "trashed",
-        "exclusive"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "names": {
-          "$ref": "#/definitions/TranslatedStringDictionary"
-        },
-        "trashed": {
-          "type": "boolean"
-        },
-        "userRolesRights": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/PermissionUserRoleRightsOfMetadataRight"
-          }
-        },
-        "userRolesPermissionSetRights": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/PermissionUserRoleRightsOfPermissionSetRight"
-          }
-        },
-        "exclusive": {
-          "type": "boolean"
-        }
-      }
-    },
-    "PermissionUserRoleRightsOfMetadataRight": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "userRoleId": {
-          "type": "string"
-        },
-        "names": {
-          "$ref": "#/definitions/TranslatedStringDictionary"
-        },
-        "rights": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/MetadataRight"
-          }
-        }
-      }
-    },
-    "MetadataRight": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "View",
-        "Edit",
-        "Manage"
-      ],
-      "enum": [
-        "View",
-        "Edit",
-        "Manage"
-      ]
-    },
-    "VersionInfo": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "comments": {
-          "type": "string"
-        },
-        "event": {
-          "$ref": "#/definitions/Event"
-        },
-        "modifier": {
-          "type": "string"
-        },
-        "modifyDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "version": {
-          "type": "string"
-        }
-      }
-    },
-    "Event": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "action": {
-          "$ref": "#/definitions/EventAction"
-        },
-        "changed": {
-          "type": "string"
-        },
-        "instanceID": {
-          "type": "string"
-        },
-        "parameters": {
-          "type": "string"
-        },
-        "softwareAgent": {
-          "type": "string"
-        },
-        "when": {
-          "type": "string",
-          "format": "date-time"
-        }
-      }
-    },
-    "EventAction": {
-      "type": "string",
-      "description": "Corresponds to stEvt.ActionChoice",
-      "x-enumNames": [
-        "Converted",
-        "Copied",
-        "Created",
-        "Cropped",
-        "Edited",
-        "Filtered",
-        "Formatted",
-        "VersionUpdated",
-        "Printed",
-        "Published",
-        "Managed",
-        "Produced",
-        "Resized",
-        "Saved",
-        "Derived"
-      ],
-      "enum": [
-        "Converted",
-        "Copied",
-        "Created",
-        "Cropped",
-        "Edited",
-        "Filtered",
-        "Formatted",
-        "VersionUpdated",
-        "Printed",
-        "Published",
-        "Managed",
-        "Produced",
-        "Resized",
-        "Saved",
-        "Derived"
-      ]
-    },
-    "ShareBaseDetail": {
-      "type": "object",
-      "discriminator": "kind",
-      "additionalProperties": false,
-      "required": [
-        "entityType",
-        "outputAccess",
-        "kind"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "audit": {
-          "$ref": "#/definitions/UserAudit"
-        },
-        "entityType": {
-          "$ref": "#/definitions/EntityType"
-        },
-        "contentSelections": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ContentDetail2"
-          }
-        },
-        "layerSchemaIds": {
+        "userRoleIds": {
           "type": "array",
           "items": {
             "type": "string"
           }
         },
-        "mailTemplateId": {
-          "type": "string"
-        },
-        "expirationDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "template": {
-          "$ref": "#/definitions/TemplateBase"
-        },
-        "outputAccess": {
-          "$ref": "#/definitions/OutputAccess"
-        },
-        "kind": {
+        "settings": {
           "type": "string"
         }
       }
     },
-    "ContentDetail2": {
+    "ServiceProviderConfigurationUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "trashed",
-        "entityType",
-        "contentType"
-      ],
       "properties": {
-        "trashed": {
-          "type": "boolean"
+        "customerId": {
+          "type": "string"
         },
-        "entityType": {
-          "description": "The entity type of a content document is content.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/EntityType"
-            }
-          ]
+        "serviceProviderId": {
+          "type": "string"
         },
-        "contentSchemaId": {
-          "type": "string",
-          "description": "The id of the schema with schema type content."
+        "settings": {
+          "type": "string"
         },
-        "layerSchemaIds": {
+        "userRoleIds": {
           "type": "array",
-          "description": "An optional id list of schemas with type layer.",
           "items": {
             "type": "string"
           }
-        },
-        "content": {
-          "$ref": "#/definitions/DataDictionary"
-        },
-        "metadata": {
-          "$ref": "#/definitions/DataDictionary"
-        },
-        "id": {
-          "type": "string"
-        },
-        "contentPermissionSetIds": {
-          "type": "array",
-          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "outputs": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Output"
-          }
-        },
-        "audit": {
-          "$ref": "#/definitions/UserAudit"
-        },
-        "ownerTokenId": {
-          "type": "string"
-        },
-        "contentType": {
-          "$ref": "#/definitions/ContentType"
-        },
-        "displayValues": {
-          "description": "Contains language specific display values, rendered according to the content schema's display pattern configuration.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/DisplayValueDictionary"
-            }
-          ]
-        }
-      }
-    },
-    "TemplateBase": {
-      "type": "object",
-      "discriminator": "kind",
-      "additionalProperties": false,
-      "required": [
-        "kind"
-      ],
-      "properties": {
-        "width": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "height": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "kind": {
-          "type": "string"
-        }
-      }
-    },
-    "CardTemplate": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "showNavigation",
-        "showOverlay",
-        "showLogo",
-        "showFooter"
-      ],
-      "properties": {
-        "showNavigation": {
-          "type": "boolean"
-        },
-        "showOverlay": {
-          "type": "boolean"
-        },
-        "showLogo": {
-          "type": "boolean"
-        },
-        "showFooter": {
-          "type": "boolean"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/TemplateBase"
-        }
-      ]
-    },
-    "ListTemplate": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/TemplateBase"
-        }
-      ]
-    },
-    "BasicTemplate": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/TemplateBase"
-        }
-      ]
-    },
-    "OutputAccess": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Full",
-        "Preview",
-        "None"
-      ],
-      "enum": [
-        "Full",
-        "Preview",
-        "None"
-      ]
-    },
-    "ShareBasicDetail": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "url": {
-          "type": "string"
-        },
-        "mailRecipients": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/MailRecipient"
-          }
-        },
-        "internalRecipients": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/InternalRecipient"
-          }
-        },
-        "languageCode": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareBaseDetail"
-        }
-      ]
-    },
-    "MailRecipient": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "userEmail": {
-          "$ref": "#/definitions/UserEmail"
-        },
-        "token": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      }
-    },
-    "UserEmail": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "emailAddress": {
-          "type": "string"
-        }
-      }
-    },
-    "InternalRecipient": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "recipient": {
-          "$ref": "#/definitions/UserItem"
-        },
-        "token": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      }
-    },
-    "UserItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "emailAddress": {
-          "type": "string"
-        }
-      }
-    },
-    "ShareEmbedDetail": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "embedContentItems": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/EmbedContentDetail"
-          }
-        },
-        "token": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareBaseDetail"
-        }
-      ]
-    },
-    "EmbedContentDetail": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentId": {
-          "type": "string"
-        },
-        "outputFormatId": {
-          "type": "string"
-        },
-        "token": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
         }
       }
     },
@@ -10713,61 +11497,6 @@
           "$ref": "#/definitions/BaseResultOfShareBase"
         }
       ]
-    },
-    "SendMessageRequest2": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "messageName": {
-          "type": "string"
-        },
-        "businessProcessId": {
-          "type": "string"
-        },
-        "variables": {}
-      }
-    },
-    "CustomerServiceProviderConfiguration": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "serviceProviderId": {
-          "type": "string"
-        },
-        "customerId": {
-          "type": "string"
-        },
-        "userRoleIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "settings": {
-          "type": "string"
-        }
-      }
-    },
-    "ServiceProviderConfigurationUpdateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "customerId": {
-          "type": "string"
-        },
-        "serviceProviderId": {
-          "type": "string"
-        },
-        "settings": {
-          "type": "string"
-        },
-        "userRoleIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
     },
     "FileTransferDeleteRequest": {
       "type": "object",
@@ -16018,36 +16747,6 @@
         }
       ]
     },
-    "UserAddress": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "company": {
-          "type": "string"
-        },
-        "address": {
-          "type": "string"
-        },
-        "alternativeAddress": {
-          "type": "string"
-        },
-        "department": {
-          "type": "string"
-        },
-        "zip": {
-          "type": "string"
-        },
-        "city": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
-        },
-        "countryCode": {
-          "type": "string"
-        }
-      }
-    },
     "Drive": {
       "type": "object",
       "additionalProperties": false,
@@ -16073,22 +16772,6 @@
           "description": "The id of the user to whom this ownertoken currently belongs to."
         }
       }
-    },
-    "AuthorizationState": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Active",
-        "Review",
-        "Locked",
-        "Invited"
-      ],
-      "enum": [
-        "Active",
-        "Review",
-        "Locked",
-        "Invited"
-      ]
     },
     "Channel": {
       "type": "object",
@@ -16156,48 +16839,6 @@
           }
         }
       }
-    },
-    "ContentsByIdsRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "UserProfile": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "authorizationState"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "emailAddress": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "languageCode": {
-          "type": "string"
-        },
-        "address": {
-          "$ref": "#/definitions/UserAddress"
-        },
-        "authorizationState": {
-          "$ref": "#/definitions/AuthorizationState"
-        }
-      }
     }
   },
   "parameters": {},
@@ -16211,7 +16852,8 @@
       "flow": "implicit",
       "authorizationUrl": "http://localhost:8081/connect/authorize",
       "scopes": {
-        "picturepark_api": "Access to Picturepark API",
+        "picturepark_api": "Full access to Picturepark API",
+        "picturepark_account": "Have no idea.",
         "businessprocess_read": "Read business processes",
         "businessprocess_write": "Write business processes",
         "content_read": "Read content",
@@ -16219,7 +16861,6 @@
         "documenthistory_read": "Read document history",
         "documenthistory_write": "Write document history",
         "jsonschema_read": "Read json schemas",
-        "jsonschema_write": "Write json schemas",
         "listitem_read": "Read list items",
         "listitem_write": "Write list items",
         "output_read": "Read outputs",
@@ -16240,5 +16881,15 @@
         "user_write": "Write users"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "BusinessProcess",
+      "description": "Endpoints to work with business processes.\r\n\r\nA business process is created when a long running server process is started and the API endpoint does not await the processing (e.g. batch updates of content).\r\n\r\nTo wait for the business process to complete, call the operation WaitForStates.\r\n"
+    },
+    {
+      "name": "Content",
+      "description": "Endpoints to work with content.\r\n\r\nFor search / filtering: See [Search](#section/Search)\r\n"
+    }
+  ]
 }

@@ -5018,5 +5018,6 @@
   },
   "parameters": {},
   "responses": {},
-  "securityDefinitions": {}
+  "securityDefinitions": {},
+  "tags": []
 }
