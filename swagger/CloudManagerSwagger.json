@@ -1,9 +1,14 @@
 ﻿{
-  "x-generator": "NSwag v11.7.2.0 (NJsonSchema v9.6.3.0)",
+  "x-generator": "NSwag v11.10.0.0 (NJsonSchema v9.8.3.0 (Newtonsoft.Json v9.0.0.0))",
   "swagger": "2.0",
   "info": {
-    "title": "Web API Swagger specification",
-    "version": "1.0.0"
+    "title": "Picturepark CloudManager API V1",
+    "description": "OpenAPI specification of Picturepark CloudManager API V1",
+    "contact": {
+      "name": "Picturepark sales",
+      "email": "sales@picturepark.com"
+    },
+    "version": "1.0"
   },
   "schemes": [],
   "consumes": [
@@ -51,7 +56,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -90,7 +100,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Customer/{CustomerId}": {
@@ -129,7 +144,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -166,7 +186,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Customer/Search": {
@@ -205,7 +230,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -244,7 +274,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Customer/{CustomerId}/Users": {
@@ -286,7 +321,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Customer/{CustomerId}/ExternalProvider": {
@@ -337,7 +377,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Customer/{CustomerAlias}/Restore": {
@@ -372,7 +417,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Services/ShutdownAll": {
@@ -399,7 +449,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Services/RestartAll": {
@@ -426,7 +481,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Services/{ServiceName}/Restart": {
@@ -461,7 +521,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Services/{ServiceName}/Shutdown": {
@@ -496,7 +561,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Services/PingAllActiveNodes": {
@@ -523,7 +593,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Services/GetAllActiveNodes": {
@@ -557,7 +632,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Updates/Environment": {
@@ -591,7 +671,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Updates/Environment/Version": {
@@ -622,7 +707,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Updates/Environment/Reactivate": {
@@ -659,7 +749,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Updates/Environment/Deactivate": {
@@ -696,7 +791,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Updates/Environment/Update": {
@@ -733,7 +833,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Updates/Customers/{CustomerId}": {
@@ -775,7 +880,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Updates/Customers/Version": {
@@ -809,7 +919,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Updates/Customers/{CustomerId}/Version": {
@@ -848,7 +963,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Updates/Customers/Reactivate": {
@@ -888,7 +1008,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Updates/Customers/Deactivate": {
@@ -928,7 +1053,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Updates/Customers/Update": {
@@ -968,7 +1098,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Backup/Customer/Repository": {
@@ -1009,7 +1144,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Backup/Customer/Snapshot": {
@@ -1050,7 +1190,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Backup/Customer/Restore": {
@@ -1091,7 +1236,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Backup/Environment/Repository": {
@@ -1132,7 +1282,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Backup/Environment/Snapshot": {
@@ -1173,7 +1328,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Backup/Environment/Restore": {
@@ -1214,7 +1374,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Backup/Customer/Snapshot/Search": {
@@ -1255,7 +1420,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Backup/Customer/Snapshot/SearchRepositories": {
@@ -1299,7 +1469,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/Backup/Customer/Clone": {
@@ -1340,7 +1515,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/{CustomerAlias}/{UserId}/GetUserDeveloperFlag": {
@@ -1386,7 +1566,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     },
     "/{CustomerAlias}/UpdateUserDeveloperFlag": {
@@ -1434,7 +1619,12 @@
           "429": {
             "description": "Too many requests"
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
       }
     }
   },
