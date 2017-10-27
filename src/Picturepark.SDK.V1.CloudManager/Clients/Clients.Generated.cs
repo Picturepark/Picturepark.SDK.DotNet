@@ -50,7 +50,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<CustomerConfigurationItem> CreateAsync(CustomerCreateRequest createRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Customer");
+            urlBuilder_.Append(BaseUrl).Append("/customer");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -160,7 +160,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<CustomerConfigurationItem> UpdateAsync(CustomerUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Customer");
+            urlBuilder_.Append(BaseUrl).Append("/customer");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -273,8 +273,8 @@ namespace Picturepark.SDK.V1.CloudManager
                 throw new System.ArgumentNullException("customerId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Customer/{CustomerId}");
-            urlBuilder_.Replace("{CustomerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl).Append("/customer/{customerId}");
+            urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -384,8 +384,8 @@ namespace Picturepark.SDK.V1.CloudManager
                 throw new System.ArgumentNullException("customerId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Customer/{CustomerId}");
-            urlBuilder_.Replace("{CustomerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl).Append("/customer/{customerId}");
+            urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -492,8 +492,8 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<CustomerSearchResult> ListAsync(string customerId, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Customer/Search?");
-            if (customerId != null) urlBuilder_.Append("CustomerId=").Append(System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Append(BaseUrl).Append("/customer/search?");
+            if (customerId != null) urlBuilder_.Append("customerId=").Append(System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -601,7 +601,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<CustomerSearchResult> SearchAsync(CustomerSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Customer/Search");
+            urlBuilder_.Append(BaseUrl).Append("/customer/search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -714,8 +714,8 @@ namespace Picturepark.SDK.V1.CloudManager
                 throw new System.ArgumentNullException("customerId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Customer/{CustomerId}/Users");
-            urlBuilder_.Replace("{CustomerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl).Append("/customer/{customerId}/users");
+            urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -825,8 +825,8 @@ namespace Picturepark.SDK.V1.CloudManager
                 throw new System.ArgumentNullException("customerId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Customer/{CustomerId}/ExternalProvider");
-            urlBuilder_.Replace("{CustomerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl).Append("/customer/{customerId}/externalProvider");
+            urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -939,8 +939,8 @@ namespace Picturepark.SDK.V1.CloudManager
                 throw new System.ArgumentNullException("customerAlias");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Customer/{CustomerAlias}/Restore");
-            urlBuilder_.Replace("{CustomerAlias}", System.Uri.EscapeDataString(System.Convert.ToString(customerAlias, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl).Append("/customer/{customerAlias}/restore");
+            urlBuilder_.Replace("{customerAlias}", System.Uri.EscapeDataString(System.Convert.ToString(customerAlias, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1065,7 +1065,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task ShutdownAllAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Services/ShutdownAll");
+            urlBuilder_.Append(BaseUrl).Append("/services/shutdownAll");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1159,7 +1159,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task RestartAllAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Services/RestartAll");
+            urlBuilder_.Append(BaseUrl).Append("/services/restartAll");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1256,8 +1256,8 @@ namespace Picturepark.SDK.V1.CloudManager
                 throw new System.ArgumentNullException("serviceName");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Services/{ServiceName}/Restart");
-            urlBuilder_.Replace("{ServiceName}", System.Uri.EscapeDataString(System.Convert.ToString(serviceName, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl).Append("/services/{serviceName}/restart");
+            urlBuilder_.Replace("{serviceName}", System.Uri.EscapeDataString(System.Convert.ToString(serviceName, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1354,8 +1354,8 @@ namespace Picturepark.SDK.V1.CloudManager
                 throw new System.ArgumentNullException("serviceName");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Services/{ServiceName}/Shutdown");
-            urlBuilder_.Replace("{ServiceName}", System.Uri.EscapeDataString(System.Convert.ToString(serviceName, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl).Append("/services/{serviceName}/shutdown");
+            urlBuilder_.Replace("{serviceName}", System.Uri.EscapeDataString(System.Convert.ToString(serviceName, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1449,7 +1449,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task PingAllActiveNodesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Services/PingAllActiveNodes");
+            urlBuilder_.Append(BaseUrl).Append("/services/pingAllActiveNodes");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1543,7 +1543,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<NodeInfo>> GetAllActiveNodesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Services/GetAllActiveNodes");
+            urlBuilder_.Append(BaseUrl).Append("/services/getAllActiveNodes");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1679,7 +1679,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<UpdateInfo>> GetAvailableEnvironmentUpdatesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Updates/Environment");
+            urlBuilder_.Append(BaseUrl).Append("/updates/environment");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1786,7 +1786,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<VersionInfo> GetEnvironmentVersionAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Updates/Environment/Version");
+            urlBuilder_.Append(BaseUrl).Append("/updates/environment/version");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1893,7 +1893,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task ReactivateEnvironmentAsync(ReactivationEnvironmentRequest reactivationRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Updates/Environment/Reactivate");
+            urlBuilder_.Append(BaseUrl).Append("/updates/environment/reactivate");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1990,7 +1990,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task DeactivateEnvironmentAsync(DeactivationEnvironmentRequest deactivationRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Updates/Environment/Deactivate");
+            urlBuilder_.Append(BaseUrl).Append("/updates/environment/deactivate");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -2087,7 +2087,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task UpdateEnvironmentAsync(UpdateEnvironmentRequest updateRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Updates/Environment/Update");
+            urlBuilder_.Append(BaseUrl).Append("/updates/environment/update");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -2187,8 +2187,8 @@ namespace Picturepark.SDK.V1.CloudManager
                 throw new System.ArgumentNullException("customerId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Updates/Customers/{CustomerId}");
-            urlBuilder_.Replace("{CustomerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl).Append("/updates/customers/{customerId}");
+            urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -2295,7 +2295,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<CustomerVersionInfo>> GetCustomerVersionsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Updates/Customers/Version");
+            urlBuilder_.Append(BaseUrl).Append("/updates/customers/version");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -2405,8 +2405,8 @@ namespace Picturepark.SDK.V1.CloudManager
                 throw new System.ArgumentNullException("customerId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Updates/Customers/{CustomerId}/Version");
-            urlBuilder_.Replace("{CustomerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl).Append("/updates/customers/{customerId}/version");
+            urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -2513,7 +2513,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task ReactivateCustomersAsync(System.Collections.Generic.IEnumerable<ReactivationCustomerRequest> reactivationRequests, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Updates/Customers/Reactivate");
+            urlBuilder_.Append(BaseUrl).Append("/updates/customers/reactivate");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -2610,7 +2610,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task DeactivateCustomersAsync(System.Collections.Generic.IEnumerable<DeactivationCustomerRequest> deactivationRequests, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Updates/Customers/Deactivate");
+            urlBuilder_.Append(BaseUrl).Append("/updates/customers/deactivate");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -2707,7 +2707,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task UpdateCustomersAsync(System.Collections.Generic.IEnumerable<UpdateCustomerRequest> updateRequests, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Updates/Customers/Update");
+            urlBuilder_.Append(BaseUrl).Append("/updates/customers/update");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -2833,7 +2833,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<SnapshotRepository> CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest snapshotRepositoryCustomerCreateRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Backup/Customer/Repository");
+            urlBuilder_.Append(BaseUrl).Append("/backup/customer/repository");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -2943,7 +2943,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<Snapshot> CreateSnapshotAsync(SnapshotCustomerCreateRequest snapshotCustomerCreateRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Backup/Customer/Snapshot");
+            urlBuilder_.Append(BaseUrl).Append("/backup/customer/snapshot");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3053,7 +3053,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshotAsync(SnapshotCustomerRestoreRequest snapshotCustomerRestoreRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Backup/Customer/Restore");
+            urlBuilder_.Append(BaseUrl).Append("/backup/customer/restore");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3163,7 +3163,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<SnapshotRepository> CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest snapshotRepositoryEnvironmentCreateRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Backup/Environment/Repository");
+            urlBuilder_.Append(BaseUrl).Append("/backup/environment/repository");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3273,7 +3273,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<Snapshot> CreateSnapshot2Async(SnapshotEnvironmentCreateRequest snapshotEnvironmentCreateRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Backup/Environment/Snapshot");
+            urlBuilder_.Append(BaseUrl).Append("/backup/environment/snapshot");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3383,7 +3383,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest snapshotEnvironmentRestoreRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Backup/Environment/Restore");
+            urlBuilder_.Append(BaseUrl).Append("/backup/environment/restore");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3493,7 +3493,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<SnapshotCustomerSearchResult> SearchAsync(SnapshotCustomerSearchRequest snapshotCustomerSearchRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Backup/Customer/Snapshot/Search");
+            urlBuilder_.Append(BaseUrl).Append("/backup/customer/snapshot/search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3603,7 +3603,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<string>> SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Backup/Customer/Snapshot/SearchRepositories");
+            urlBuilder_.Append(BaseUrl).Append("/backup/customer/snapshot/searchRepositories");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3713,7 +3713,7 @@ namespace Picturepark.SDK.V1.CloudManager
         public async System.Threading.Tasks.Task<Customer> CloneCustomerAsync(SnapshotCustomerCloneRequest cloneRequest, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/Backup/Customer/Clone");
+            urlBuilder_.Append(BaseUrl).Append("/backup/customer/clone");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3858,9 +3858,9 @@ namespace Picturepark.SDK.V1.CloudManager
                 throw new System.ArgumentNullException("userId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/{CustomerAlias}/{UserId}/GetUserDeveloperFlag");
-            urlBuilder_.Replace("{CustomerAlias}", System.Uri.EscapeDataString(System.Convert.ToString(customerAlias, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Replace("{UserId}", System.Uri.EscapeDataString(System.Convert.ToString(userId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl).Append("/{customerAlias}/{userId}/getUserDeveloperFlag");
+            urlBuilder_.Replace("{customerAlias}", System.Uri.EscapeDataString(System.Convert.ToString(customerAlias, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{userId}", System.Uri.EscapeDataString(System.Convert.ToString(userId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3970,8 +3970,8 @@ namespace Picturepark.SDK.V1.CloudManager
                 throw new System.ArgumentNullException("customerAlias");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl).Append("/{CustomerAlias}/UpdateUserDeveloperFlag");
-            urlBuilder_.Replace("{CustomerAlias}", System.Uri.EscapeDataString(System.Convert.ToString(customerAlias, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl).Append("/{customerAlias}/updateUserDeveloperFlag");
+            urlBuilder_.Replace("{customerAlias}", System.Uri.EscapeDataString(System.Convert.ToString(customerAlias, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try

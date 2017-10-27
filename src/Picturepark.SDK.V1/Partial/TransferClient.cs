@@ -62,7 +62,7 @@ namespace Picturepark.SDK.V1
 
 			if (waitForTransferCompletion)
 			{
-				await Wait4States(transfer.BusinessProcessId, TransferState.UploadCompleted.ToString());
+				await Wait4States(transfer.BusinessProcessId, TransferState.TransferReady.ToString());
 			}
 		}
 

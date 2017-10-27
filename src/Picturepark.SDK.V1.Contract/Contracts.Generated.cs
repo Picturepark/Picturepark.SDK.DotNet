@@ -3111,6 +3111,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("succeeded", Required = Newtonsoft.Json.Required.Always)]
         public bool Succeeded { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
+        public int Status { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -5766,9 +5769,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("simpleSearch", Required = Newtonsoft.Json.Required.Always)]
         public bool SimpleSearch { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
-        public double Boost { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -5783,6 +5783,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.8.3.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldBoolean : FieldBase
     {
+        [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
+        public double Boost { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -5800,6 +5803,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("format", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Format { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
+        public double Boost { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -5816,6 +5822,9 @@ namespace Picturepark.SDK.V1.Contract
     {
         [Newtonsoft.Json.JsonProperty("format", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Format { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
+        public double Boost { get; set; }
     
         public string ToJson() 
         {
@@ -5863,6 +5872,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("maximum", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public decimal? Maximum { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
+        public double Boost { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -5877,6 +5889,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.8.3.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldDictionary : FieldBase
     {
+        [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
+        public double Boost { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -5914,6 +5929,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.8.3.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldGeoPoint : FieldBase
     {
+        [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
+        public double Boost { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -5936,6 +5954,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("maximum", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public decimal? Maximum { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
+        public double Boost { get; set; }
     
         public string ToJson() 
         {
@@ -5979,9 +6000,6 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("schemaIndexingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaIndexingInfo SchemaIndexingInfo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("maxRecursion", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxRecursion { get; set; }
     
         public string ToJson() 
         {
@@ -6049,9 +6067,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaIndexingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaIndexingInfo SchemaIndexingInfo { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxRecursion", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxRecursion { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("uniqueItems", Required = Newtonsoft.Json.Required.Always)]
         public bool UniqueItems { get; set; }
     
@@ -6081,9 +6096,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaIndexingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaIndexingInfo SchemaIndexingInfo { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("maxRecursion", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxRecursion { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
@@ -6109,9 +6121,6 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("schemaIndexingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaIndexingInfo SchemaIndexingInfo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("maxRecursion", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxRecursion { get; set; }
     
         [Newtonsoft.Json.JsonProperty("uniqueItems", Required = Newtonsoft.Json.Required.Always)]
         public bool UniqueItems { get; set; }
@@ -6165,6 +6174,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("grantedValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<string> GrantedValues { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
+        public double Boost { get; set; }
     
         public string ToJson() 
         {
@@ -6347,6 +6359,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("keepFieldValue", Required = Newtonsoft.Json.Required.Always)]
         public bool KeepFieldValue { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
+        public double Boost { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -6369,9 +6384,6 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("relationTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<RelationType> RelationTypes { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("maxRecursion", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxRecursion { get; set; }
     
         public string ToJson() 
         {
@@ -6443,9 +6455,6 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("relationTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<RelationType> RelationTypes { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("maxRecursion", Required = Newtonsoft.Json.Required.Always)]
-        public int MaxRecursion { get; set; }
     
         [Newtonsoft.Json.JsonProperty("uniqueItems", Required = Newtonsoft.Json.Required.Always)]
         public bool UniqueItems { get; set; }
@@ -8250,17 +8259,20 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "FileUpload")]
         FileUpload = 0,
     
+        [System.Runtime.Serialization.EnumMember(Value = "FileUploadAutoImport")]
+        FileUploadAutoImport = 1,
+    
         [System.Runtime.Serialization.EnumMember(Value = "DriveImport")]
-        DriveImport = 1,
+        DriveImport = 2,
     
         [System.Runtime.Serialization.EnumMember(Value = "DriveExport")]
-        DriveExport = 2,
+        DriveExport = 3,
     
         [System.Runtime.Serialization.EnumMember(Value = "WebDownload")]
-        WebDownload = 3,
+        WebDownload = 4,
     
         [System.Runtime.Serialization.EnumMember(Value = "SchemaImport")]
-        SchemaImport = 4,
+        SchemaImport = 5,
     
     }
     
@@ -8407,20 +8419,17 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "Created")]
         Created = 8,
     
-        [System.Runtime.Serialization.EnumMember(Value = "UploadFailed")]
-        UploadFailed = 9,
-    
         [System.Runtime.Serialization.EnumMember(Value = "Deleted")]
-        Deleted = 10,
+        Deleted = 9,
     
         [System.Runtime.Serialization.EnumMember(Value = "TransferReady")]
-        TransferReady = 11,
+        TransferReady = 10,
     
         [System.Runtime.Serialization.EnumMember(Value = "FileDeleteInProgress")]
-        FileDeleteInProgress = 12,
+        FileDeleteInProgress = 11,
     
         [System.Runtime.Serialization.EnumMember(Value = "TransferCleanup")]
-        TransferCleanup = 13,
+        TransferCleanup = 12,
     
     }
     
@@ -8469,6 +8478,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("fileTransferCount", Required = Newtonsoft.Json.Required.Always)]
         public long FileTransferCount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CollectionId { get; set; }
     
         public string ToJson() 
         {

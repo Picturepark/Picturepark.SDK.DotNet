@@ -1683,8 +1683,35 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("mainCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MainCatalog { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("metadataCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MetadataCatalog { get; set; }
+        [Newtonsoft.Json.JsonProperty("userCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string UserCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("mailCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MailCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("transferCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("shareCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ShareCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("outputCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("notificationCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NotificationCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("businessProcessCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BusinessProcessCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("listItemCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ListItemCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("tokenCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TokenCatalog { get; set; }
     
         [Newtonsoft.Json.JsonProperty("documentHistoryCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DocumentHistoryCatalog { get; set; }

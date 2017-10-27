@@ -511,7 +511,6 @@ namespace Picturepark.SDK.V1.Conversion
 					{
 						fieldData = new FieldMultiRelation
 						{
-							MaxRecursion = maxRecursionInfos?.MaxRecursion ?? 1,
 							RelationTypes = relationTypes,
 							SchemaId = contractPropertyInfo.TypeName,
 							Index = true
@@ -522,7 +521,6 @@ namespace Picturepark.SDK.V1.Conversion
 						fieldData = new FieldMultiTagbox
 						{
 							Index = true,
-							MaxRecursion = maxRecursionInfos?.MaxRecursion ?? 1,
 							SimpleSearch = true,
 							SchemaId = contractPropertyInfo.TypeName,
 							Filter = schemaItemInfos?.Filter
@@ -533,7 +531,6 @@ namespace Picturepark.SDK.V1.Conversion
 						fieldData = new FieldMultiFieldset
 						{
 							Index = true,
-							MaxRecursion = maxRecursionInfos?.MaxRecursion ?? 1,
 							SimpleSearch = true,
 							SchemaId = contractPropertyInfo.TypeName
 						};
@@ -548,7 +545,6 @@ namespace Picturepark.SDK.V1.Conversion
 							Index = true,
 							SimpleSearch = true,
 							RelationTypes = relationTypes,
-							MaxRecursion = maxRecursionInfos?.MaxRecursion ?? 1,
 							SchemaId = contractPropertyInfo.TypeName
 						};
 					}
@@ -565,7 +561,6 @@ namespace Picturepark.SDK.V1.Conversion
 						{
 							Index = true,
 							SimpleSearch = true,
-							MaxRecursion = maxRecursionInfos?.MaxRecursion ?? 1,
 							SchemaId = contractPropertyInfo.TypeName,
 							Filter = schemaItemInfos?.Filter
 						};
@@ -576,7 +571,6 @@ namespace Picturepark.SDK.V1.Conversion
 						{
 							Index = true,
 							SimpleSearch = true,
-							MaxRecursion = maxRecursionInfos?.MaxRecursion ?? 1,
 							SchemaId = contractPropertyInfo.TypeName
 						};
 					}
@@ -592,7 +586,10 @@ namespace Picturepark.SDK.V1.Conversion
 				{
 					fieldData.Index = searchAttribute.Index;
 					fieldData.SimpleSearch = searchAttribute.SimpleSearch;
-					fieldData.Boost = searchAttribute.Boost;
+					if (fieldData.GetType().GetRuntimeProperty("Boost") != null)
+					{
+						fieldData.GetType().GetRuntimeProperty("Boost").SetValue(fieldData, searchAttribute.Boost);
+					}
 				}
 
 				if (attribute is PictureparkRequiredAttribute)

@@ -18,7 +18,7 @@
     "application/json"
   ],
   "paths": {
-    "/Customer": {
+    "/customer": {
       "post": {
         "tags": [
           "Customer"
@@ -108,7 +108,7 @@
         ]
       }
     },
-    "/Customer/{CustomerId}": {
+    "/customer/{customerId}": {
       "get": {
         "tags": [
           "Customer"
@@ -117,7 +117,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "CustomerId",
+            "name": "customerId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -159,7 +159,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "CustomerId",
+            "name": "customerId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -194,7 +194,7 @@
         ]
       }
     },
-    "/Customer/Search": {
+    "/customer/search": {
       "get": {
         "tags": [
           "Customer"
@@ -203,7 +203,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "CustomerId",
+            "name": "customerId",
             "in": "query",
             "required": true,
             "x-nullable": true
@@ -282,7 +282,7 @@
         ]
       }
     },
-    "/Customer/{CustomerId}/Users": {
+    "/customer/{customerId}/users": {
       "get": {
         "tags": [
           "Customer"
@@ -291,7 +291,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "CustomerId",
+            "name": "customerId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -329,7 +329,7 @@
         ]
       }
     },
-    "/Customer/{CustomerId}/ExternalProvider": {
+    "/customer/{customerId}/externalProvider": {
       "post": {
         "tags": [
           "Customer"
@@ -338,7 +338,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "CustomerId",
+            "name": "customerId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -385,7 +385,7 @@
         ]
       }
     },
-    "/Customer/{CustomerAlias}/Restore": {
+    "/customer/{customerAlias}/restore": {
       "post": {
         "tags": [
           "Customer"
@@ -394,7 +394,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "CustomerAlias",
+            "name": "customerAlias",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -425,7 +425,7 @@
         ]
       }
     },
-    "/Services/ShutdownAll": {
+    "/services/shutdownAll": {
       "get": {
         "tags": [
           "Service"
@@ -457,7 +457,7 @@
         ]
       }
     },
-    "/Services/RestartAll": {
+    "/services/restartAll": {
       "get": {
         "tags": [
           "Service"
@@ -489,7 +489,7 @@
         ]
       }
     },
-    "/Services/{ServiceName}/Restart": {
+    "/services/{serviceName}/restart": {
       "get": {
         "tags": [
           "Service"
@@ -498,7 +498,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ServiceName",
+            "name": "serviceName",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -529,7 +529,7 @@
         ]
       }
     },
-    "/Services/{ServiceName}/Shutdown": {
+    "/services/{serviceName}/shutdown": {
       "get": {
         "tags": [
           "Service"
@@ -538,7 +538,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ServiceName",
+            "name": "serviceName",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -569,7 +569,7 @@
         ]
       }
     },
-    "/Services/PingAllActiveNodes": {
+    "/services/pingAllActiveNodes": {
       "get": {
         "tags": [
           "Service"
@@ -601,7 +601,7 @@
         ]
       }
     },
-    "/Services/GetAllActiveNodes": {
+    "/services/getAllActiveNodes": {
       "get": {
         "tags": [
           "Service"
@@ -640,7 +640,7 @@
         ]
       }
     },
-    "/Updates/Environment": {
+    "/updates/environment": {
       "get": {
         "tags": [
           "Update"
@@ -679,7 +679,7 @@
         ]
       }
     },
-    "/Updates/Environment/Version": {
+    "/updates/environment/version": {
       "get": {
         "tags": [
           "Update"
@@ -715,7 +715,7 @@
         ]
       }
     },
-    "/Updates/Environment/Reactivate": {
+    "/updates/environment/reactivate": {
       "post": {
         "tags": [
           "Update"
@@ -757,7 +757,7 @@
         ]
       }
     },
-    "/Updates/Environment/Deactivate": {
+    "/updates/environment/deactivate": {
       "post": {
         "tags": [
           "Update"
@@ -799,7 +799,7 @@
         ]
       }
     },
-    "/Updates/Environment/Update": {
+    "/updates/environment/update": {
       "post": {
         "tags": [
           "Update"
@@ -841,7 +841,7 @@
         ]
       }
     },
-    "/Updates/Customers/{CustomerId}": {
+    "/updates/customers/{customerId}": {
       "get": {
         "tags": [
           "Update"
@@ -850,7 +850,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "CustomerId",
+            "name": "customerId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -888,7 +888,7 @@
         ]
       }
     },
-    "/Updates/Customers/Version": {
+    "/updates/customers/version": {
       "get": {
         "tags": [
           "Update"
@@ -927,7 +927,7 @@
         ]
       }
     },
-    "/Updates/Customers/{CustomerId}/Version": {
+    "/updates/customers/{customerId}/version": {
       "get": {
         "tags": [
           "Update"
@@ -936,7 +936,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "CustomerId",
+            "name": "customerId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -971,7 +971,7 @@
         ]
       }
     },
-    "/Updates/Customers/Reactivate": {
+    "/updates/customers/reactivate": {
       "post": {
         "tags": [
           "Update"
@@ -1016,7 +1016,7 @@
         ]
       }
     },
-    "/Updates/Customers/Deactivate": {
+    "/updates/customers/deactivate": {
       "post": {
         "tags": [
           "Update"
@@ -1061,7 +1061,7 @@
         ]
       }
     },
-    "/Updates/Customers/Update": {
+    "/updates/customers/update": {
       "post": {
         "tags": [
           "Update"
@@ -1106,7 +1106,7 @@
         ]
       }
     },
-    "/Backup/Customer/Repository": {
+    "/backup/customer/repository": {
       "put": {
         "tags": [
           "CloudBackup"
@@ -1152,7 +1152,7 @@
         ]
       }
     },
-    "/Backup/Customer/Snapshot": {
+    "/backup/customer/snapshot": {
       "put": {
         "tags": [
           "CloudBackup"
@@ -1198,7 +1198,7 @@
         ]
       }
     },
-    "/Backup/Customer/Restore": {
+    "/backup/customer/restore": {
       "post": {
         "tags": [
           "CloudBackup"
@@ -1244,7 +1244,7 @@
         ]
       }
     },
-    "/Backup/Environment/Repository": {
+    "/backup/environment/repository": {
       "put": {
         "tags": [
           "CloudBackup"
@@ -1290,7 +1290,7 @@
         ]
       }
     },
-    "/Backup/Environment/Snapshot": {
+    "/backup/environment/snapshot": {
       "put": {
         "tags": [
           "CloudBackup"
@@ -1336,7 +1336,7 @@
         ]
       }
     },
-    "/Backup/Environment/Restore": {
+    "/backup/environment/restore": {
       "post": {
         "tags": [
           "CloudBackup"
@@ -1382,7 +1382,7 @@
         ]
       }
     },
-    "/Backup/Customer/Snapshot/Search": {
+    "/backup/customer/snapshot/search": {
       "post": {
         "tags": [
           "CloudBackup"
@@ -1428,7 +1428,7 @@
         ]
       }
     },
-    "/Backup/Customer/Snapshot/SearchRepositories": {
+    "/backup/customer/snapshot/searchRepositories": {
       "post": {
         "tags": [
           "CloudBackup"
@@ -1477,7 +1477,7 @@
         ]
       }
     },
-    "/Backup/Customer/Clone": {
+    "/backup/customer/clone": {
       "post": {
         "tags": [
           "CloudBackup"
@@ -1523,7 +1523,7 @@
         ]
       }
     },
-    "/{CustomerAlias}/{UserId}/GetUserDeveloperFlag": {
+    "/{customerAlias}/{userId}/getUserDeveloperFlag": {
       "get": {
         "tags": [
           "User"
@@ -1532,14 +1532,14 @@
         "parameters": [
           {
             "type": "string",
-            "name": "CustomerAlias",
+            "name": "customerAlias",
             "in": "path",
             "required": true,
             "x-nullable": false
           },
           {
             "type": "string",
-            "name": "UserId",
+            "name": "userId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -1574,7 +1574,7 @@
         ]
       }
     },
-    "/{CustomerAlias}/UpdateUserDeveloperFlag": {
+    "/{customerAlias}/updateUserDeveloperFlag": {
       "put": {
         "tags": [
           "User"
@@ -1583,7 +1583,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "CustomerAlias",
+            "name": "customerAlias",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -2938,7 +2938,34 @@
         "mainCatalog": {
           "type": "string"
         },
-        "metadataCatalog": {
+        "userCatalog": {
+          "type": "string"
+        },
+        "mailCatalog": {
+          "type": "string"
+        },
+        "transferCatalog": {
+          "type": "string"
+        },
+        "shareCatalog": {
+          "type": "string"
+        },
+        "outputCatalog": {
+          "type": "string"
+        },
+        "notificationCatalog": {
+          "type": "string"
+        },
+        "businessProcessCatalog": {
+          "type": "string"
+        },
+        "listItemCatalog": {
+          "type": "string"
+        },
+        "contentCatalog": {
+          "type": "string"
+        },
+        "tokenCatalog": {
           "type": "string"
         },
         "documentHistoryCatalog": {

@@ -55,8 +55,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("contentId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/{ContentId}/Ownership/Transfer?");
-            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/contents/{contentId}/ownership/transfer?");
+            urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
@@ -181,7 +181,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/Many?");
+            urlBuilder_.Append("v1/contents/many?");
             if (ids != null) foreach (var item_ in ids) { urlBuilder_.Append("ids=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
@@ -298,7 +298,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> TransferOwnershipManyAsync(ContentsOwnershipTransferRequest contentsOwnershipTransferRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/Many/Ownership/Transfer");
+            urlBuilder_.Append("v1/contents/many/ownership/transfer");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -414,7 +414,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ContentAggregationRequest contentAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/Aggregate");
+            urlBuilder_.Append("v1/contents/aggregate");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -535,8 +535,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("channelId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/{ChannelId}/Aggregate");
-            urlBuilder_.Replace("{ChannelId}", System.Uri.EscapeDataString(System.Convert.ToString(channelId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/contents/{channelId}/aggregate");
+            urlBuilder_.Replace("{channelId}", System.Uri.EscapeDataString(System.Convert.ToString(channelId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -652,7 +652,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ContentBatchDownloadItem> CreateDownloadLinkAsync(ContentBatchDownloadRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/CreateBatchContentDownload");
+            urlBuilder_.Append("v1/contents/createBatchContentDownload");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -775,7 +775,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents?");
+            urlBuilder_.Append("v1/contents?");
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
@@ -905,16 +905,16 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("outputFormatId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/Downloads/{ContentId}/{OutputFormatId}");
-            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Replace("{OutputFormatId}", System.Uri.EscapeDataString(System.Convert.ToString(outputFormatId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/contents/downloads/{contentId}/{outputFormatId}");
+            urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{outputFormatId}", System.Uri.EscapeDataString(System.Convert.ToString(outputFormatId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
                 {
-                    request_.Headers.TryAddWithoutValidation("Range", range != null ? System.Convert.ToString(range, System.Globalization.CultureInfo.InvariantCulture) : null);
+                    request_.Headers.TryAddWithoutValidation("range", range != null ? System.Convert.ToString(range, System.Globalization.CultureInfo.InvariantCulture) : null);
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
     
@@ -1036,9 +1036,9 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("size");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/Thumbnails/{ContentId}/{Size}");
-            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Replace("{Size}", System.Uri.EscapeDataString(System.Convert.ToString(size, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/contents/thumbnails/{contentId}/{size}");
+            urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{size}", System.Uri.EscapeDataString(System.Convert.ToString(size, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1168,11 +1168,11 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("height");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/Downloads/{ContentId}/{OutputFormatId}/{Width}/{Height}");
-            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Replace("{OutputFormatId}", System.Uri.EscapeDataString(System.Convert.ToString(outputFormatId, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Replace("{Width}", System.Uri.EscapeDataString(System.Convert.ToString(width, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Replace("{Height}", System.Uri.EscapeDataString(System.Convert.ToString(height, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/contents/downloads/{contentId}/{outputFormatId}/{width}/{height}");
+            urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{outputFormatId}", System.Uri.EscapeDataString(System.Convert.ToString(outputFormatId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{width}", System.Uri.EscapeDataString(System.Convert.ToString(width, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{height}", System.Uri.EscapeDataString(System.Convert.ToString(height, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1296,8 +1296,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/{ContentId}?");
-            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/contents/{contentId}?");
+            urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
@@ -1447,8 +1447,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/{ContentId}?");
-            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/contents/{contentId}?");
+            urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
@@ -1582,8 +1582,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/{ContentId}/Permissions?");
-            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/contents/{contentId}/permissions?");
+            urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
@@ -1703,7 +1703,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ContentSearchResult> SearchAsync(ContentSearchRequest contentSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/Search");
+            urlBuilder_.Append("v1/contents/search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1824,8 +1824,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("channelId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/{ChannelId}/Search");
-            urlBuilder_.Replace("{ChannelId}", System.Uri.EscapeDataString(System.Convert.ToString(channelId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/contents/{channelId}/search");
+            urlBuilder_.Replace("{channelId}", System.Uri.EscapeDataString(System.Convert.ToString(channelId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -1947,8 +1947,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("timeout");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/{ContentId}/Deactivate?");
-            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/contents/{contentId}/deactivate?");
+            urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
@@ -2055,8 +2055,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("contentId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/{ContentId}/File");
-            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/contents/{contentId}/file");
+            urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -2184,8 +2184,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/{ContentId}/Reactivate?");
-            urlBuilder_.Replace("{ContentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/contents/{contentId}/reactivate?");
+            urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
@@ -2304,7 +2304,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> DeactivateManyAsync(ContentDeactivationRequest deactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/Many/Deactivate");
+            urlBuilder_.Append("v1/contents/many/deactivate");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -2420,7 +2420,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> ReactivateManyAsync(ContentReactivationRequest reactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/Many/Reactivate");
+            urlBuilder_.Append("v1/contents/many/reactivate");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -2536,7 +2536,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> UpdateMetadataManyAsync(ContentsMetadataUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/Many/Metadata");
+            urlBuilder_.Append("v1/contents/many/metadata");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -2652,7 +2652,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> UpdateMetadataByFilterAsync(FilterContentsMetadataUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/Many/Metadata/Filter");
+            urlBuilder_.Append("v1/contents/many/metadata/filter");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -2768,7 +2768,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> UpdatePermissionsManyAsync(System.Collections.Generic.IEnumerable<UpdateContentPermissionsRequest> updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Contents/Many/Permissions");
+            urlBuilder_.Append("v1/contents/many/permissions");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3502,7 +3502,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<DocumentHistorySearchResult> SearchAsync(DocumentHistorySearchRequest documentHistorySearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/History/Search");
+            urlBuilder_.Append("v1/history/search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3621,8 +3621,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("id");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/History/{Id}");
-            urlBuilder_.Replace("{Id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/history/{id}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3743,9 +3743,9 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("version");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/History/{Id}/{Version}");
-            urlBuilder_.Replace("{Id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Replace("{Version}", System.Uri.EscapeDataString(System.Convert.ToString(version, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/history/{id}/{version}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{version}", System.Uri.EscapeDataString(System.Convert.ToString(version, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3866,9 +3866,9 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("oldVersion");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/History/{Id}/Difference/{OldVersion}");
-            urlBuilder_.Replace("{Id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Replace("{OldVersion}", System.Uri.EscapeDataString(System.Convert.ToString(oldVersion, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/history/{id}/difference/{oldVersion}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{oldVersion}", System.Uri.EscapeDataString(System.Convert.ToString(oldVersion, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -3994,10 +3994,10 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("newVersion");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/History/{Id}/Difference/{OldVersion}/{NewVersion}");
-            urlBuilder_.Replace("{Id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Replace("{OldVersion}", System.Uri.EscapeDataString(System.Convert.ToString(oldVersion, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Replace("{NewVersion}", System.Uri.EscapeDataString(System.Convert.ToString(newVersion, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/history/{id}/difference/{oldVersion}/{newVersion}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{oldVersion}", System.Uri.EscapeDataString(System.Convert.ToString(oldVersion, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{newVersion}", System.Uri.EscapeDataString(System.Convert.ToString(newVersion, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -4134,8 +4134,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("schemaId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/JsonSchemas/{SchemaId}");
-            urlBuilder_.Replace("{SchemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/jsonSchemas/{schemaId}");
+            urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -4278,7 +4278,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ListItems?");
+            urlBuilder_.Append("v1/listItems?");
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
@@ -4398,7 +4398,7 @@ namespace Picturepark.SDK.V1
         protected async System.Threading.Tasks.Task<BusinessProcess> CreateManyCoreAsync(System.Collections.Generic.IEnumerable<ListItemCreateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ListItems/Many");
+            urlBuilder_.Append("v1/listItems/many");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -4514,7 +4514,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ListItems/Many?");
+            urlBuilder_.Append("v1/listItems/many?");
             if (ids != null) foreach (var item_ in ids) { urlBuilder_.Append("ids=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
@@ -4629,7 +4629,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(System.Collections.Generic.IEnumerable<ListItemUpdateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ListItems/Many");
+            urlBuilder_.Append("v1/listItems/many");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -4745,7 +4745,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ListItemAggregationRequest listItemAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ListItems/Aggregate");
+            urlBuilder_.Append("v1/listItems/aggregate");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -4861,7 +4861,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ListItemSearchResult> SearchAsync(ListItemSearchRequest listItemSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ListItems/Search");
+            urlBuilder_.Append("v1/listItems/search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -4983,8 +4983,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("timeout");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ListItems/{ObjectId}?");
-            urlBuilder_.Replace("{ObjectId}", System.Uri.EscapeDataString(System.Convert.ToString(objectId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/listItems/{objectId}?");
+            urlBuilder_.Replace("{objectId}", System.Uri.EscapeDataString(System.Convert.ToString(objectId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
@@ -5094,8 +5094,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ListItems/{ListItemId}?");
-            urlBuilder_.Replace("{ListItemId}", System.Uri.EscapeDataString(System.Convert.ToString(listItemId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/listItems/{listItemId}?");
+            urlBuilder_.Replace("{listItemId}", System.Uri.EscapeDataString(System.Convert.ToString(listItemId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
@@ -5231,8 +5231,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ListItems/{ListItemId}?");
-            urlBuilder_.Replace("{ListItemId}", System.Uri.EscapeDataString(System.Convert.ToString(listItemId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/listItems/{listItemId}?");
+            urlBuilder_.Replace("{listItemId}", System.Uri.EscapeDataString(System.Convert.ToString(listItemId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
@@ -5352,7 +5352,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> UpdateFieldsByFilterAsync(ListItemFieldsFilterUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ListItems/Many/Fields/Filter");
+            urlBuilder_.Append("v1/listItems/many/fields/filter");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -5468,7 +5468,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> UpdateFieldsAsync(ListItemFieldsUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ListItems/Many/Fields");
+            urlBuilder_.Append("v1/listItems/many/fields");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -5594,10 +5594,10 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("timeout");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ListItems/{ProcessId}/Wait?");
-            urlBuilder_.Replace("{ProcessId}", System.Uri.EscapeDataString(System.Convert.ToString(processId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/listItems/{processId}/wait?");
+            urlBuilder_.Replace("{processId}", System.Uri.EscapeDataString(System.Convert.ToString(processId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            if (states != null) foreach (var item_ in states) { urlBuilder_.Append("States=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+            if (states != null) foreach (var item_ in states) { urlBuilder_.Append("states=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
@@ -5732,7 +5732,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ObjectSearchResult> SearchAsync(LiveStreamSearchRequest liveStreamSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/LiveStream/Search");
+            urlBuilder_.Append("v1/liveStream/search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -5869,7 +5869,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<SchemaDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Schemas?");
+            urlBuilder_.Append("v1/schemas?");
             if (ids != null) foreach (var item_ in ids) { urlBuilder_.Append("ids=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
@@ -5984,7 +5984,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> CreateAsync(SchemaCreateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Schemas");
+            urlBuilder_.Append("v1/schemas");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -6103,8 +6103,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("schemaId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Schemas/{SchemaId}");
-            urlBuilder_.Replace("{SchemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/schemas/{schemaId}");
+            urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -6222,8 +6222,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("schemaId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Schemas/{SchemaId}");
-            urlBuilder_.Replace("{SchemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/schemas/{schemaId}");
+            urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -6342,8 +6342,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("schemaId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Schemas/{SchemaId}");
-            urlBuilder_.Replace("{SchemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/schemas/{schemaId}");
+            urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -6461,8 +6461,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("schemaId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Schemas/{SchemaId}/Exists?");
-            urlBuilder_.Replace("{SchemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/schemas/{schemaId}/exists?");
+            urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
             if (fieldId != null) urlBuilder_.Append("fieldId=").Append(System.Uri.EscapeDataString(System.Convert.ToString(fieldId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
@@ -6577,7 +6577,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<SchemaSearchResult> SearchAsync(SchemaSearchRequest schemaSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Schemas/Search");
+            urlBuilder_.Append("v1/schemas/search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -6717,8 +6717,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("permission");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Permission/UserPermissions/{Permission}");
-            urlBuilder_.Replace("{Permission}", System.Uri.EscapeDataString(System.Convert.ToString(permission, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/permission/userPermissions/{permission}");
+            urlBuilder_.Replace("{permission}", System.Uri.EscapeDataString(System.Convert.ToString(permission, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -6831,7 +6831,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<PermissionSetSearchResult> SearchContentPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Permission/ContentPermissionSets/Search");
+            urlBuilder_.Append("v1/permission/contentPermissionSets/search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -6950,8 +6950,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("permissionSetId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Permission/ContentPermissionSets/{PermissionSetId}");
-            urlBuilder_.Replace("{PermissionSetId}", System.Uri.EscapeDataString(System.Convert.ToString(permissionSetId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/permission/contentPermissionSets/{permissionSetId}");
+            urlBuilder_.Replace("{permissionSetId}", System.Uri.EscapeDataString(System.Convert.ToString(permissionSetId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -7064,7 +7064,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<PermissionSetSearchResult> SearchSchemaPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Permission/SchemaPermissionSets/Search");
+            urlBuilder_.Append("v1/permission/schemaPermissionSets/search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -7183,8 +7183,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("permissionSetId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Permission/SchemaPermissionSets/{PermissionSetId}");
-            urlBuilder_.Replace("{PermissionSetId}", System.Uri.EscapeDataString(System.Convert.ToString(permissionSetId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/permission/schemaPermissionSets/{permissionSetId}");
+            urlBuilder_.Replace("{permissionSetId}", System.Uri.EscapeDataString(System.Convert.ToString(permissionSetId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -7316,7 +7316,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<VersionInfo> GetVersionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/PublicAccess/Version");
+            urlBuilder_.Append("v1/publicAccess/version");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -7429,7 +7429,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ShareBaseDetail> GetShareAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/PublicAccess/GetShare?");
+            urlBuilder_.Append("v1/publicAccess/getShare?");
             if (token != null) urlBuilder_.Append("token=").Append(System.Uri.EscapeDataString(System.Convert.ToString(token, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
@@ -7577,8 +7577,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Shares/{Id}?");
-            urlBuilder_.Replace("{Id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/shares/{id}?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
@@ -7700,8 +7700,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("id");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Shares/{Id}");
-            urlBuilder_.Replace("{Id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/shares/{id}");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -7814,7 +7814,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> shareIds, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Shares/DeleteMany");
+            urlBuilder_.Append("v1/shares/deleteMany");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -7930,7 +7930,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ShareAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Shares/Aggregate");
+            urlBuilder_.Append("v1/shares/aggregate");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -8050,7 +8050,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<CreateShareResult> CreateAsync(ShareBaseCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Shares");
+            urlBuilder_.Append("v1/shares");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -8186,7 +8186,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ShareSearchResult> SearchAsync(ShareSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Shares/Search");
+            urlBuilder_.Append("v1/shares/search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -8320,8 +8320,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("serviceProviderId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ServiceProviders/{ServiceProviderId}/Message");
-            urlBuilder_.Replace("{ServiceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/serviceProviders/{serviceProviderId}/message");
+            urlBuilder_.Replace("{serviceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -8421,8 +8421,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("serviceProviderId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ServiceProviders/{ServiceProviderId}/Configuration");
-            urlBuilder_.Replace("{ServiceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/serviceProviders/{serviceProviderId}/configuration");
+            urlBuilder_.Replace("{serviceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -8532,8 +8532,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("serviceProviderId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/ServiceProviders/{ServiceProviderId}/Configuration");
-            urlBuilder_.Replace("{ServiceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/serviceProviders/{serviceProviderId}/configuration");
+            urlBuilder_.Replace("{serviceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -8668,7 +8668,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task DeleteFilesAsync(FileTransferDeleteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Transfers/Files/Delete");
+            urlBuilder_.Append("v1/transfers/files/delete");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -8774,7 +8774,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<Blacklist> GetBlacklistAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Transfers/Files/Blacklist");
+            urlBuilder_.Append("v1/transfers/files/blacklist");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -8886,8 +8886,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("transferId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Transfers/{TransferId}/Cancel");
-            urlBuilder_.Replace("{TransferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/transfers/{transferId}/cancel");
+            urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -8987,7 +8987,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<Transfer> CreateAsync(CreateTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Transfers");
+            urlBuilder_.Append("v1/transfers");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -9106,8 +9106,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("transferId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Transfers/{TransferId}");
-            urlBuilder_.Replace("{TransferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/transfers/{transferId}");
+            urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -9210,8 +9210,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("transferId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Transfers/{TransferId}");
-            urlBuilder_.Replace("{TransferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/transfers/{transferId}");
+            urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -9327,8 +9327,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("fileTransferId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Transfers/Files/{FileTransferId}");
-            urlBuilder_.Replace("{FileTransferId}", System.Uri.EscapeDataString(System.Convert.ToString(fileTransferId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/transfers/files/{fileTransferId}");
+            urlBuilder_.Replace("{fileTransferId}", System.Uri.EscapeDataString(System.Convert.ToString(fileTransferId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -9446,8 +9446,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("transferId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Transfers/{TransferId}/Import");
-            urlBuilder_.Replace("{TransferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/transfers/{transferId}/import");
+            urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -9566,8 +9566,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("transferId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Transfers/{TransferId}/PartialImport");
-            urlBuilder_.Replace("{TransferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/transfers/{transferId}/partialImport");
+            urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -9683,7 +9683,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<TransferSearchResult> SearchAsync(TransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Transfers/Search");
+            urlBuilder_.Append("v1/transfers/search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -9799,7 +9799,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<FileTransferSearchResult> SearchFilesAsync(FileTransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Transfers/Files/Search");
+            urlBuilder_.Append("v1/transfers/files/search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -9941,9 +9941,9 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("totalChunks");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Transfers/{TransferId}/Files/{Identifier}/Upload?");
-            urlBuilder_.Replace("{TransferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Replace("{Identifier}", System.Uri.EscapeDataString(System.Convert.ToString(identifier, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/transfers/{transferId}/files/{identifier}/upload?");
+            urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{identifier}", System.Uri.EscapeDataString(System.Convert.ToString(identifier, System.Globalization.CultureInfo.InvariantCulture)));
             if (relativePath != null) urlBuilder_.Append("relativePath=").Append(System.Uri.EscapeDataString(System.Convert.ToString(relativePath, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Append("chunkNumber=").Append(System.Uri.EscapeDataString(System.Convert.ToString(chunkNumber.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Append("currentChunkSize=").Append(System.Uri.EscapeDataString(System.Convert.ToString(currentChunkSize.Value, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -10077,7 +10077,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<UserSearchResult> SearchAsync(UserSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Users/Search");
+            urlBuilder_.Append("v1/users/search");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -10196,8 +10196,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("userId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Users/GetUser/{UserId}");
-            urlBuilder_.Replace("{UserId}", System.Uri.EscapeDataString(System.Convert.ToString(userId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/users/getUser/{userId}");
+            urlBuilder_.Replace("{userId}", System.Uri.EscapeDataString(System.Convert.ToString(userId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -10313,8 +10313,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("tokenId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Users/Owner/{TokenId}");
-            urlBuilder_.Replace("{TokenId}", System.Uri.EscapeDataString(System.Convert.ToString(tokenId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/users/owner/{tokenId}");
+            urlBuilder_.Replace("{tokenId}", System.Uri.EscapeDataString(System.Convert.ToString(tokenId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -10423,7 +10423,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<Channel>> GetChannelsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Users/Channels");
+            urlBuilder_.Append("v1/users/channels");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -10557,7 +10557,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<OutputDetail>> GetByContentIdsAsync(ContentsByIdsRequest contentsByIdsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Outputs");
+            urlBuilder_.Append("v1/outputs");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -10678,8 +10678,8 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("outputId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Outputs/{OutputId}");
-            urlBuilder_.Replace("{OutputId}", System.Uri.EscapeDataString(System.Convert.ToString(outputId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append("v1/outputs/{outputId}");
+            urlBuilder_.Replace("{outputId}", System.Uri.EscapeDataString(System.Convert.ToString(outputId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -10831,7 +10831,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<UserProfile> GetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Profile");
+            urlBuilder_.Append("v1/profile");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -10942,7 +10942,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<UserProfile> UpdateAsync(UserProfile profile, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("V1/Profile");
+            urlBuilder_.Append("v1/profile");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try

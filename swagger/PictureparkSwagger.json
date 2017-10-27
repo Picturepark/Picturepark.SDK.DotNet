@@ -23,7 +23,7 @@
     "application/json"
   ],
   "paths": {
-    "/V1/Contents/{ContentId}/Ownership/Transfer": {
+    "/v1/contents/{contentId}/ownership/transfer": {
       "put": {
         "tags": [
           "Content"
@@ -34,7 +34,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ContentId",
+            "name": "contentId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -90,7 +90,7 @@
         ]
       }
     },
-    "/V1/Contents/Many": {
+    "/v1/contents/many": {
       "get": {
         "tags": [
           "Content"
@@ -165,7 +165,7 @@
         ]
       }
     },
-    "/V1/Contents/Many/Ownership/Transfer": {
+    "/v1/contents/many/ownership/transfer": {
       "post": {
         "tags": [
           "Content"
@@ -215,7 +215,7 @@
         ]
       }
     },
-    "/V1/Contents/Aggregate": {
+    "/v1/contents/aggregate": {
       "post": {
         "tags": [
           "Content"
@@ -266,7 +266,7 @@
         ]
       }
     },
-    "/V1/Contents/{ChannelId}/Aggregate": {
+    "/v1/contents/{channelId}/aggregate": {
       "post": {
         "tags": [
           "Content"
@@ -277,7 +277,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ChannelId",
+            "name": "channelId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -325,7 +325,7 @@
         ]
       }
     },
-    "/V1/Contents/CreateBatchContentDownload": {
+    "/v1/contents/createBatchContentDownload": {
       "post": {
         "tags": [
           "Content"
@@ -375,7 +375,7 @@
         ]
       }
     },
-    "/V1/Contents": {
+    "/v1/contents": {
       "post": {
         "tags": [
           "Content"
@@ -453,7 +453,7 @@
         ]
       }
     },
-    "/V1/Contents/Downloads/{ContentId}/{OutputFormatId}": {
+    "/v1/contents/downloads/{contentId}/{outputFormatId}": {
       "get": {
         "tags": [
           "Content"
@@ -463,7 +463,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ContentId",
+            "name": "contentId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -471,7 +471,7 @@
           },
           {
             "type": "string",
-            "name": "OutputFormatId",
+            "name": "outputFormatId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -479,7 +479,7 @@
           },
           {
             "type": "string",
-            "name": "Range",
+            "name": "range",
             "in": "header",
             "x-nullable": true,
             "description": "the range"
@@ -526,7 +526,7 @@
         ]
       }
     },
-    "/V1/Contents/Thumbnails/{ContentId}/{Size}": {
+    "/v1/contents/thumbnails/{contentId}/{size}": {
       "get": {
         "tags": [
           "Content"
@@ -537,7 +537,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ContentId",
+            "name": "contentId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -545,7 +545,7 @@
           },
           {
             "type": "string",
-            "name": "Size",
+            "name": "size",
             "in": "path",
             "required": true,
             "x-schema": {
@@ -594,7 +594,7 @@
         ]
       }
     },
-    "/V1/Contents/Downloads/{ContentId}/{OutputFormatId}/{Width}/{Height}": {
+    "/v1/contents/downloads/{contentId}/{outputFormatId}/{width}/{height}": {
       "get": {
         "tags": [
           "Content"
@@ -605,7 +605,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ContentId",
+            "name": "contentId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -613,7 +613,7 @@
           },
           {
             "type": "string",
-            "name": "OutputFormatId",
+            "name": "outputFormatId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -621,7 +621,7 @@
           },
           {
             "type": "integer",
-            "name": "Width",
+            "name": "width",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -630,7 +630,7 @@
           },
           {
             "type": "integer",
-            "name": "Height",
+            "name": "height",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -672,7 +672,7 @@
         ]
       }
     },
-    "/V1/Contents/{ContentId}": {
+    "/v1/contents/{contentId}": {
       "get": {
         "tags": [
           "Content"
@@ -683,7 +683,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ContentId",
+            "name": "contentId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -756,7 +756,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ContentId",
+            "name": "contentId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -831,7 +831,7 @@
         ]
       }
     },
-    "/V1/Contents/{ContentId}/Permissions": {
+    "/v1/contents/{contentId}/permissions": {
       "put": {
         "tags": [
           "Content"
@@ -842,7 +842,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ContentId",
+            "name": "contentId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -917,7 +917,7 @@
         ]
       }
     },
-    "/V1/Contents/Search": {
+    "/v1/contents/search": {
       "post": {
         "tags": [
           "Content"
@@ -968,7 +968,7 @@
         ]
       }
     },
-    "/V1/Contents/{ChannelId}/Search": {
+    "/v1/contents/{channelId}/search": {
       "post": {
         "tags": [
           "Content"
@@ -979,7 +979,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ChannelId",
+            "name": "channelId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -1027,7 +1027,7 @@
         ]
       }
     },
-    "/V1/Contents/{ContentId}/Deactivate": {
+    "/v1/contents/{contentId}/deactivate": {
       "put": {
         "tags": [
           "Content"
@@ -1037,7 +1037,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ContentId",
+            "name": "contentId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -1080,7 +1080,7 @@
         ]
       }
     },
-    "/V1/Contents/{ContentId}/File": {
+    "/v1/contents/{contentId}/file": {
       "put": {
         "tags": [
           "Content"
@@ -1091,7 +1091,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ContentId",
+            "name": "contentId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -1139,7 +1139,7 @@
         ]
       }
     },
-    "/V1/Contents/{ContentId}/Reactivate": {
+    "/v1/contents/{contentId}/reactivate": {
       "put": {
         "tags": [
           "Content"
@@ -1150,7 +1150,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ContentId",
+            "name": "contentId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -1215,7 +1215,7 @@
         ]
       }
     },
-    "/V1/Contents/Many/Deactivate": {
+    "/v1/contents/many/deactivate": {
       "post": {
         "tags": [
           "Content"
@@ -1265,7 +1265,7 @@
         ]
       }
     },
-    "/V1/Contents/Many/Reactivate": {
+    "/v1/contents/many/reactivate": {
       "post": {
         "tags": [
           "Content"
@@ -1316,7 +1316,7 @@
         ]
       }
     },
-    "/V1/Contents/Many/Metadata": {
+    "/v1/contents/many/metadata": {
       "put": {
         "tags": [
           "Content"
@@ -1367,7 +1367,7 @@
         ]
       }
     },
-    "/V1/Contents/Many/Metadata/Filter": {
+    "/v1/contents/many/metadata/filter": {
       "put": {
         "tags": [
           "Content"
@@ -1418,7 +1418,7 @@
         ]
       }
     },
-    "/V1/Contents/Many/Permissions": {
+    "/v1/contents/many/permissions": {
       "put": {
         "tags": [
           "Content"
@@ -1754,7 +1754,7 @@
         ]
       }
     },
-    "/V1/History/Search": {
+    "/v1/history/search": {
       "post": {
         "tags": [
           "DocumentHistory"
@@ -1804,7 +1804,7 @@
         ]
       }
     },
-    "/V1/History/{Id}": {
+    "/v1/history/{id}": {
       "get": {
         "tags": [
           "DocumentHistory"
@@ -1814,7 +1814,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "Id",
+            "name": "id",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -1852,7 +1852,7 @@
         ]
       }
     },
-    "/V1/History/{Id}/{Version}": {
+    "/v1/history/{id}/{version}": {
       "get": {
         "tags": [
           "DocumentHistory"
@@ -1862,7 +1862,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "Id",
+            "name": "id",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -1870,7 +1870,7 @@
           },
           {
             "type": "string",
-            "name": "Version",
+            "name": "version",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -1908,7 +1908,7 @@
         ]
       }
     },
-    "/V1/History/{Id}/Difference/{OldVersion}": {
+    "/v1/history/{id}/difference/{oldVersion}": {
       "get": {
         "tags": [
           "DocumentHistory"
@@ -1918,7 +1918,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "Id",
+            "name": "id",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -1926,7 +1926,7 @@
           },
           {
             "type": "integer",
-            "name": "OldVersion",
+            "name": "oldVersion",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -1965,7 +1965,7 @@
         ]
       }
     },
-    "/V1/History/{Id}/Difference/{OldVersion}/{NewVersion}": {
+    "/v1/history/{id}/difference/{oldVersion}/{newVersion}": {
       "get": {
         "tags": [
           "DocumentHistory"
@@ -1975,7 +1975,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "Id",
+            "name": "id",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -1983,7 +1983,7 @@
           },
           {
             "type": "integer",
-            "name": "OldVersion",
+            "name": "oldVersion",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -1992,7 +1992,7 @@
           },
           {
             "type": "integer",
-            "name": "NewVersion",
+            "name": "newVersion",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -2031,7 +2031,7 @@
         ]
       }
     },
-    "/V1/JsonSchemas/{SchemaId}": {
+    "/v1/jsonSchemas/{schemaId}": {
       "get": {
         "tags": [
           "JsonSchema"
@@ -2042,7 +2042,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "SchemaId",
+            "name": "schemaId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -2078,7 +2078,7 @@
         ]
       }
     },
-    "/V1/ListItems": {
+    "/v1/listItems": {
       "post": {
         "tags": [
           "ListItem"
@@ -2156,7 +2156,7 @@
         ]
       }
     },
-    "/V1/ListItems/Many": {
+    "/v1/listItems/many": {
       "post": {
         "tags": [
           "ListItem"
@@ -2312,7 +2312,7 @@
         ]
       }
     },
-    "/V1/ListItems/Aggregate": {
+    "/v1/listItems/aggregate": {
       "post": {
         "tags": [
           "ListItem"
@@ -2363,7 +2363,7 @@
         ]
       }
     },
-    "/V1/ListItems/Search": {
+    "/v1/listItems/search": {
       "post": {
         "tags": [
           "ListItem"
@@ -2414,7 +2414,7 @@
         ]
       }
     },
-    "/V1/ListItems/{ObjectId}": {
+    "/v1/listItems/{objectId}": {
       "delete": {
         "tags": [
           "ListItem"
@@ -2425,7 +2425,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ObjectId",
+            "name": "objectId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -2468,7 +2468,7 @@
         ]
       }
     },
-    "/V1/ListItems/{ListItemId}": {
+    "/v1/listItems/{listItemId}": {
       "get": {
         "tags": [
           "ListItem"
@@ -2478,7 +2478,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ListItemId",
+            "name": "listItemId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -2546,7 +2546,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ListItemId",
+            "name": "listItemId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -2621,7 +2621,7 @@
         ]
       }
     },
-    "/V1/ListItems/Many/Fields/Filter": {
+    "/v1/listItems/many/fields/filter": {
       "put": {
         "tags": [
           "ListItem"
@@ -2672,7 +2672,7 @@
         ]
       }
     },
-    "/V1/ListItems/Many/Fields": {
+    "/v1/listItems/many/fields": {
       "put": {
         "tags": [
           "ListItem"
@@ -2723,7 +2723,7 @@
         ]
       }
     },
-    "/V1/ListItems/{ProcessId}/Wait": {
+    "/v1/listItems/{processId}/wait": {
       "get": {
         "tags": [
           "ListItem"
@@ -2734,7 +2734,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ProcessId",
+            "name": "processId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -2742,7 +2742,7 @@
           },
           {
             "type": "array",
-            "name": "States",
+            "name": "states",
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
@@ -2792,7 +2792,7 @@
         ]
       }
     },
-    "/V1/LiveStream/Search": {
+    "/v1/liveStream/search": {
       "post": {
         "tags": [
           "LiveStream"
@@ -2840,7 +2840,7 @@
         ]
       }
     },
-    "/V1/Schemas": {
+    "/v1/schemas": {
       "get": {
         "tags": [
           "Schema"
@@ -2944,7 +2944,7 @@
         ]
       }
     },
-    "/V1/Schemas/{SchemaId}": {
+    "/v1/schemas/{schemaId}": {
       "get": {
         "tags": [
           "Schema"
@@ -2955,7 +2955,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "SchemaId",
+            "name": "schemaId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -3002,7 +3002,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "SchemaId",
+            "name": "schemaId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -3059,7 +3059,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "SchemaId",
+            "name": "schemaId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -3097,7 +3097,7 @@
         ]
       }
     },
-    "/V1/Schemas/{SchemaId}/Exists": {
+    "/v1/schemas/{schemaId}/exists": {
       "get": {
         "tags": [
           "Schema"
@@ -3108,7 +3108,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "SchemaId",
+            "name": "schemaId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -3154,7 +3154,7 @@
         ]
       }
     },
-    "/V1/Schemas/Search": {
+    "/v1/schemas/search": {
       "post": {
         "tags": [
           "Schema"
@@ -3205,7 +3205,7 @@
         ]
       }
     },
-    "/V1/Permission/UserPermissions/{Permission}": {
+    "/v1/permission/userPermissions/{permission}": {
       "get": {
         "tags": [
           "Permission"
@@ -3216,7 +3216,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "Permission",
+            "name": "permission",
             "in": "path",
             "required": true,
             "x-schema": {
@@ -3275,7 +3275,7 @@
         ]
       }
     },
-    "/V1/Permission/ContentPermissionSets/Search": {
+    "/v1/permission/contentPermissionSets/search": {
       "post": {
         "tags": [
           "Permission"
@@ -3326,7 +3326,7 @@
         ]
       }
     },
-    "/V1/Permission/ContentPermissionSets/{PermissionSetId}": {
+    "/v1/permission/contentPermissionSets/{permissionSetId}": {
       "get": {
         "tags": [
           "Permission"
@@ -3337,7 +3337,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "PermissionSetId",
+            "name": "permissionSetId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -3375,7 +3375,7 @@
         ]
       }
     },
-    "/V1/Permission/SchemaPermissionSets/Search": {
+    "/v1/permission/schemaPermissionSets/search": {
       "post": {
         "tags": [
           "Permission"
@@ -3426,7 +3426,7 @@
         ]
       }
     },
-    "/V1/Permission/SchemaPermissionSets/{PermissionSetId}": {
+    "/v1/permission/schemaPermissionSets/{permissionSetId}": {
       "get": {
         "tags": [
           "Permission"
@@ -3437,7 +3437,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "PermissionSetId",
+            "name": "permissionSetId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -3475,7 +3475,7 @@
         ]
       }
     },
-    "/V1/PublicAccess/Version": {
+    "/v1/publicAccess/version": {
       "get": {
         "tags": [
           "PublicAccess"
@@ -3512,7 +3512,7 @@
         ]
       }
     },
-    "/V1/PublicAccess/GetShare": {
+    "/v1/publicAccess/getShare": {
       "get": {
         "tags": [
           "PublicAccess"
@@ -3558,7 +3558,7 @@
         ]
       }
     },
-    "/V1/Shares/{Id}": {
+    "/v1/shares/{id}": {
       "put": {
         "tags": [
           "Share"
@@ -3569,7 +3569,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "Id",
+            "name": "id",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -3642,7 +3642,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "Id",
+            "name": "id",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -3680,7 +3680,7 @@
         ]
       }
     },
-    "/V1/Shares/DeleteMany": {
+    "/v1/shares/deleteMany": {
       "post": {
         "tags": [
           "Share"
@@ -3734,7 +3734,7 @@
         ]
       }
     },
-    "/V1/Shares/Aggregate": {
+    "/v1/shares/aggregate": {
       "post": {
         "tags": [
           "Share"
@@ -3785,7 +3785,7 @@
         ]
       }
     },
-    "/V1/Shares": {
+    "/v1/shares": {
       "post": {
         "tags": [
           "Share"
@@ -3857,7 +3857,7 @@
         ]
       }
     },
-    "/V1/Shares/Search": {
+    "/v1/shares/search": {
       "post": {
         "tags": [
           "Share"
@@ -3908,7 +3908,7 @@
         ]
       }
     },
-    "/V1/ServiceProviders/{ServiceProviderId}/Message": {
+    "/v1/serviceProviders/{serviceProviderId}/message": {
       "post": {
         "tags": [
           "ServiceProvider"
@@ -3917,7 +3917,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ServiceProviderId",
+            "name": "serviceProviderId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -3959,7 +3959,7 @@
         ]
       }
     },
-    "/V1/ServiceProviders/{ServiceProviderId}/Configuration": {
+    "/v1/serviceProviders/{serviceProviderId}/configuration": {
       "get": {
         "tags": [
           "ServiceProvider"
@@ -3968,7 +3968,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ServiceProviderId",
+            "name": "serviceProviderId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -4012,7 +4012,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "ServiceProviderId",
+            "name": "serviceProviderId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -4058,7 +4058,7 @@
         ]
       }
     },
-    "/V1/Transfers/Files/Delete": {
+    "/v1/transfers/files/delete": {
       "post": {
         "tags": [
           "Transfer"
@@ -4107,7 +4107,7 @@
         ]
       }
     },
-    "/V1/Transfers/Files/Blacklist": {
+    "/v1/transfers/files/blacklist": {
       "get": {
         "tags": [
           "Transfer"
@@ -4146,7 +4146,7 @@
         ]
       }
     },
-    "/V1/Transfers/{TransferId}/Cancel": {
+    "/v1/transfers/{transferId}/cancel": {
       "get": {
         "tags": [
           "Transfer"
@@ -4156,7 +4156,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "TransferId",
+            "name": "transferId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -4189,7 +4189,7 @@
         ]
       }
     },
-    "/V1/Transfers": {
+    "/v1/transfers": {
       "post": {
         "tags": [
           "Transfer"
@@ -4239,7 +4239,7 @@
         ]
       }
     },
-    "/V1/Transfers/{TransferId}": {
+    "/v1/transfers/{transferId}": {
       "delete": {
         "tags": [
           "Transfer"
@@ -4249,7 +4249,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "TransferId",
+            "name": "transferId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -4291,7 +4291,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "TransferId",
+            "name": "transferId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -4329,7 +4329,7 @@
         ]
       }
     },
-    "/V1/Transfers/Files/{FileTransferId}": {
+    "/v1/transfers/files/{fileTransferId}": {
       "get": {
         "tags": [
           "Transfer"
@@ -4339,7 +4339,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "FileTransferId",
+            "name": "fileTransferId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -4377,7 +4377,7 @@
         ]
       }
     },
-    "/V1/Transfers/{TransferId}/Import": {
+    "/v1/transfers/{transferId}/import": {
       "post": {
         "tags": [
           "Transfer"
@@ -4387,7 +4387,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "TransferId",
+            "name": "transferId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -4435,7 +4435,7 @@
         ]
       }
     },
-    "/V1/Transfers/{TransferId}/PartialImport": {
+    "/v1/transfers/{transferId}/partialImport": {
       "post": {
         "tags": [
           "Transfer"
@@ -4445,7 +4445,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "TransferId",
+            "name": "transferId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -4493,7 +4493,7 @@
         ]
       }
     },
-    "/V1/Transfers/Search": {
+    "/v1/transfers/search": {
       "post": {
         "tags": [
           "Transfer"
@@ -4543,7 +4543,7 @@
         ]
       }
     },
-    "/V1/Transfers/Files/Search": {
+    "/v1/transfers/files/search": {
       "post": {
         "tags": [
           "Transfer"
@@ -4593,7 +4593,7 @@
         ]
       }
     },
-    "/V1/Transfers/{TransferId}/Files/{Identifier}/Upload": {
+    "/v1/transfers/{transferId}/files/{identifier}/upload": {
       "post": {
         "tags": [
           "Transfer"
@@ -4652,14 +4652,14 @@
           },
           {
             "type": "string",
-            "name": "TransferId",
+            "name": "transferId",
             "in": "path",
             "required": true,
             "x-nullable": false
           },
           {
             "type": "string",
-            "name": "Identifier",
+            "name": "identifier",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -4692,7 +4692,7 @@
         ]
       }
     },
-    "/V1/Users/Search": {
+    "/v1/users/search": {
       "post": {
         "tags": [
           "User"
@@ -4742,7 +4742,7 @@
         ]
       }
     },
-    "/V1/Users/GetUser/{UserId}": {
+    "/v1/users/getUser/{userId}": {
       "get": {
         "tags": [
           "User"
@@ -4752,7 +4752,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "UserId",
+            "name": "userId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -4790,7 +4790,7 @@
         ]
       }
     },
-    "/V1/Users/Owner/{TokenId}": {
+    "/v1/users/owner/{tokenId}": {
       "get": {
         "tags": [
           "User"
@@ -4800,7 +4800,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "TokenId",
+            "name": "tokenId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -4838,7 +4838,7 @@
         ]
       }
     },
-    "/V1/Users/Channels": {
+    "/v1/users/channels": {
       "get": {
         "tags": [
           "User"
@@ -4880,7 +4880,7 @@
         ]
       }
     },
-    "/V1/Outputs": {
+    "/v1/outputs": {
       "post": {
         "tags": [
           "Output"
@@ -4935,7 +4935,7 @@
         ]
       }
     },
-    "/V1/Outputs/{OutputId}": {
+    "/v1/outputs/{outputId}": {
       "get": {
         "tags": [
           "Output"
@@ -4946,7 +4946,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "OutputId",
+            "name": "outputId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -4992,7 +4992,7 @@
         ]
       }
     },
-    "/V1/Profile": {
+    "/v1/profile": {
       "get": {
         "tags": [
           "Profile"
@@ -6490,7 +6490,8 @@
       "additionalProperties": false,
       "required": [
         "version",
-        "succeeded"
+        "succeeded",
+        "status"
       ],
       "properties": {
         "id": {
@@ -6508,6 +6509,10 @@
         },
         "succeeded": {
           "type": "boolean"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -9087,7 +9092,6 @@
         "fixed",
         "index",
         "simpleSearch",
-        "boost",
         "kind"
       ],
       "properties": {
@@ -9118,10 +9122,6 @@
         "simpleSearch": {
           "type": "boolean"
         },
-        "boost": {
-          "type": "number",
-          "format": "double"
-        },
         "kind": {
           "type": "string"
         }
@@ -9130,6 +9130,15 @@
     "FieldBoolean": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "boost"
+      ],
+      "properties": {
+        "boost": {
+          "type": "number",
+          "format": "double"
+        }
+      },
       "allOf": [
         {
           "$ref": "#/definitions/FieldBase"
@@ -9139,9 +9148,16 @@
     "FieldDate": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "boost"
+      ],
       "properties": {
         "format": {
           "type": "string"
+        },
+        "boost": {
+          "type": "number",
+          "format": "double"
         }
       },
       "allOf": [
@@ -9153,9 +9169,16 @@
     "FieldDateTime": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "boost"
+      ],
       "properties": {
         "format": {
           "type": "string"
+        },
+        "boost": {
+          "type": "number",
+          "format": "double"
         }
       },
       "allOf": [
@@ -9192,6 +9215,9 @@
     "FieldDecimal": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "boost"
+      ],
       "properties": {
         "pattern": {
           "type": "string"
@@ -9203,6 +9229,10 @@
         "maximum": {
           "type": "number",
           "format": "decimal"
+        },
+        "boost": {
+          "type": "number",
+          "format": "double"
         }
       },
       "allOf": [
@@ -9214,6 +9244,15 @@
     "FieldDictionary": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "boost"
+      ],
+      "properties": {
+        "boost": {
+          "type": "number",
+          "format": "double"
+        }
+      },
       "allOf": [
         {
           "$ref": "#/definitions/FieldBase"
@@ -9248,6 +9287,15 @@
     "FieldGeoPoint": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "boost"
+      ],
+      "properties": {
+        "boost": {
+          "type": "number",
+          "format": "double"
+        }
+      },
       "allOf": [
         {
           "$ref": "#/definitions/FieldBase"
@@ -9257,6 +9305,9 @@
     "FieldLong": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "boost"
+      ],
       "properties": {
         "pattern": {
           "type": "string"
@@ -9268,6 +9319,10 @@
         "maximum": {
           "type": "number",
           "format": "decimal"
+        },
+        "boost": {
+          "type": "number",
+          "format": "double"
         }
       },
       "allOf": [
@@ -9304,19 +9359,12 @@
     "FieldSingleFieldset": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "maxRecursion"
-      ],
       "properties": {
         "schemaId": {
           "type": "string"
         },
         "schemaIndexingInfo": {
           "$ref": "#/definitions/SchemaIndexingInfo"
-        },
-        "maxRecursion": {
-          "type": "integer",
-          "format": "int32"
         }
       },
       "allOf": [
@@ -9368,7 +9416,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "maxRecursion",
         "uniqueItems"
       ],
       "properties": {
@@ -9377,10 +9424,6 @@
         },
         "schemaIndexingInfo": {
           "$ref": "#/definitions/SchemaIndexingInfo"
-        },
-        "maxRecursion": {
-          "type": "integer",
-          "format": "int32"
         },
         "uniqueItems": {
           "type": "boolean"
@@ -9403,19 +9446,12 @@
     "FieldSingleTagbox": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "maxRecursion"
-      ],
       "properties": {
         "schemaId": {
           "type": "string"
         },
         "schemaIndexingInfo": {
           "$ref": "#/definitions/SchemaIndexingInfo"
-        },
-        "maxRecursion": {
-          "type": "integer",
-          "format": "int32"
         },
         "filter": {
           "$ref": "#/definitions/FilterBase"
@@ -9434,7 +9470,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "maxRecursion",
         "uniqueItems"
       ],
       "properties": {
@@ -9443,10 +9478,6 @@
         },
         "schemaIndexingInfo": {
           "$ref": "#/definitions/SchemaIndexingInfo"
-        },
-        "maxRecursion": {
-          "type": "integer",
-          "format": "int32"
         },
         "uniqueItems": {
           "type": "boolean"
@@ -9477,7 +9508,8 @@
       "additionalProperties": false,
       "required": [
         "keepFieldValue",
-        "multiLine"
+        "multiLine",
+        "boost"
       ],
       "properties": {
         "template": {
@@ -9511,6 +9543,10 @@
           "items": {
             "type": "string"
           }
+        },
+        "boost": {
+          "type": "number",
+          "format": "double"
         }
       },
       "allOf": [
@@ -9643,7 +9679,8 @@
       "additionalProperties": false,
       "required": [
         "multiLine",
-        "keepFieldValue"
+        "keepFieldValue",
+        "boost"
       ],
       "properties": {
         "pattern": {
@@ -9677,6 +9714,10 @@
         },
         "keepFieldValue": {
           "type": "boolean"
+        },
+        "boost": {
+          "type": "number",
+          "format": "double"
         }
       },
       "allOf": [
@@ -9688,9 +9729,6 @@
     "FieldSingleRelation": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "maxRecursion"
-      ],
       "properties": {
         "schemaId": {
           "type": "string"
@@ -9703,10 +9741,6 @@
           "items": {
             "$ref": "#/definitions/RelationType"
           }
-        },
-        "maxRecursion": {
-          "type": "integer",
-          "format": "int32"
         }
       },
       "allOf": [
@@ -9759,7 +9793,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "maxRecursion",
         "uniqueItems"
       ],
       "properties": {
@@ -9774,10 +9807,6 @@
           "items": {
             "$ref": "#/definitions/RelationType"
           }
-        },
-        "maxRecursion": {
-          "type": "integer",
-          "format": "int32"
         },
         "uniqueItems": {
           "type": "boolean"
@@ -11520,6 +11549,7 @@
       "description": "",
       "x-enumNames": [
         "FileUpload",
+        "FileUploadAutoImport",
         "DriveImport",
         "DriveExport",
         "WebDownload",
@@ -11527,6 +11557,7 @@
       ],
       "enum": [
         "FileUpload",
+        "FileUploadAutoImport",
         "DriveImport",
         "DriveExport",
         "WebDownload",
@@ -11636,7 +11667,6 @@
         "ImportCancelled",
         "ImportFailed",
         "Created",
-        "UploadFailed",
         "Deleted",
         "TransferReady",
         "FileDeleteInProgress",
@@ -11652,7 +11682,6 @@
         "ImportCancelled",
         "ImportFailed",
         "Created",
-        "UploadFailed",
         "Deleted",
         "TransferReady",
         "FileDeleteInProgress",
@@ -11717,6 +11746,9 @@
         "fileTransferCount": {
           "type": "integer",
           "format": "int64"
+        },
+        "collectionId": {
+          "type": "string"
         }
       }
     },
