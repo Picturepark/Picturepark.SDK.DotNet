@@ -408,7 +408,7 @@ namespace Picturepark.SDK.V1.Tests
 			};
 
 			BusinessProcess result = await _client.Contents.UpdateMetadataManyAsync(updateRequest);
-			BusinessProcessWaitResult waitResult = await result.Wait4MetadataAsync(_client.ListItems);
+			BusinessProcessWaitResult waitResult = await result.Wait4MetadataAsync(_client.BusinessProcesses);
 
 			Assert.True(waitResult.HasStateHit);
 		}

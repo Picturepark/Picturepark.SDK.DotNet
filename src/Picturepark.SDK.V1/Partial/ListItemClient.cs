@@ -16,12 +16,11 @@ namespace Picturepark.SDK.V1
 {
 	public partial class ListItemClient
 	{
-		private readonly TransferClient _transferClient;
+		private readonly IBusinessProcessClient _businessProcessClient;
 
-		public ListItemClient(TransferClient transferClient, IPictureparkClientSettings settings) : this(settings)
+		public ListItemClient(IBusinessProcessClient businessProcessClient, IPictureparkClientSettings settings) : this(settings)
 		{
-			_transferClient = transferClient;
-			BaseUrl = transferClient.BaseUrl;
+			_businessProcessClient = businessProcessClient;
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
@@ -88,7 +87,7 @@ namespace Picturepark.SDK.V1
 			}
 
 			var createRequest = await CreateManyCoreAsync(listItemCreateRequests, cancellationToken ?? CancellationToken.None);
-			var result = await createRequest.Wait4MetadataAsync(this);
+			var result = await createRequest.Wait4MetadataAsync(_businessProcessClient);
 
 			var bulkResult = (BusinessProcessBulkResponse)result.BusinessProcess;
 			if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
@@ -112,7 +111,7 @@ namespace Picturepark.SDK.V1
 		public async Task UpdateListItemAsync(ListItemUpdateRequest updateRequest)
 		{
 			var result = await UpdateManyAsync(new List<ListItemUpdateRequest>() { updateRequest });
-			var wait = await result.Wait4MetadataAsync(this);
+			var wait = await result.Wait4MetadataAsync(_businessProcessClient);
 		}
 
 		public async Task UpdateListItemAsync(ListItemDetail listItem, object obj, string schemaId)

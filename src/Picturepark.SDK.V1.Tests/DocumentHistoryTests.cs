@@ -55,7 +55,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			// TODO: Create ContentHelper to update and wait with one call
 			var updateResult = await _client.Contents.UpdateMetadataManyAsync(updateRequest);
-			var waitResult = await updateResult.Wait4MetadataAsync(_client.ListItems);
+			var waitResult = await updateResult.Wait4MetadataAsync(_client.BusinessProcesses);
 			Assert.True(waitResult.HasStateHit);
 
 			// Refetch content and compare versions

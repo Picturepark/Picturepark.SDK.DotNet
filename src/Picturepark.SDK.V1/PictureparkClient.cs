@@ -20,7 +20,7 @@ namespace Picturepark.SDK.V1
 			Users = new UserClient(settings);
 			Schemas = new SchemaClient((BusinessProcessClient)BusinessProcesses, settings);
 			Transfers = new TransferClient((BusinessProcessClient)BusinessProcesses, settings);
-			ListItems = new ListItemClient((TransferClient)Transfers, settings);
+			ListItems = new ListItemClient((BusinessProcessClient)BusinessProcesses, settings);
 			Profile = new ProfileClient(settings);
 			ServiceProviders = new ServiceProviderClient(settings);
 		}
