@@ -11,11 +11,12 @@ namespace Picturepark.SDK.V1.Contract.Extensions
 			return await businessProcessesClient.WaitForStatesAsync(process.Id, states, 60 * 1000);
 		}
 
-		public static async Task<BusinessProcessWaitResult> Wait4MetadataAsync(this BusinessProcess process, IListItemClient listItemClient)
+		public static async Task<BusinessProcessWaitResult> Wait4MetadataAsync(this BusinessProcess process, IBusinessProcessClient businessProcessClient)
 		{
-			var waitResult = await listItemClient.WaitForStatesAsync(process.Id, 60 * 1000, new[] { "Completed" });
+			var waitResult = await businessProcessClient.WaitForStatesAsync(process.Id, "Completed", 60 * 1000);
 			if (waitResult.HasStateHit == false)
 			{
+				// TODO: Deserialize exception
 				var exception = waitResult.BusinessProcess.StateHistory.SingleOrDefault(i => i.Error != null);
 				throw new Exception(exception.Error.Exception);
 			}

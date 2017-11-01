@@ -432,51 +432,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcessSearchResult> SearchAsync(BusinessProcessSearchRequest businessProcessSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Start</summary>
-        /// <param name="processDefinitionId">The process definition id</param>
-        /// <param name="request">The start process request</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        BusinessProcess Start(string processDefinitionId, StartProcessRequest request);
-    
-        /// <summary>Start</summary>
-        /// <param name="processDefinitionId">The process definition id</param>
-        /// <param name="request">The start process request</param>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<BusinessProcess> StartAsync(string processDefinitionId, StartProcessRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Mark as ended</summary>
-        /// <param name="processId">The process id</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        void MarkAsEnded(string processId);
-    
-        /// <summary>Mark as ended</summary>
-        /// <param name="processId">The process id</param>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task MarkAsEndedAsync(string processId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Send message</summary>
-        /// <param name="processId">The process id</param>
-        /// <param name="request">The send message request</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        void SendMessage(string processId, SendMessageRequest request);
-    
-        /// <summary>Send message</summary>
-        /// <param name="processId">The process id</param>
-        /// <param name="request">The send message request</param>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task SendMessageAsync(string processId, SendMessageRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
         /// <summary>Wait for states</summary>
         /// <param name="processId">The process id</param>
         /// <param name="states">The states to wait for</param>
@@ -495,6 +450,21 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, string states, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Get details</summary>
+        /// <param name="processId">The process id</param>
+        /// <returns>BusinessProcessDetails</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcessDetails GetDetails(string processId);
+    
+        /// <summary>Get details</summary>
+        /// <param name="processId">The process id</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>BusinessProcessDetails</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcessDetails> GetDetailsAsync(string processId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -767,6 +737,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        [System.Obsolete]
         BusinessProcessWaitResult WaitForStates(string processId, int timeout, System.Collections.Generic.IEnumerable<string> states = null);
     
         /// <summary>Wait For States</summary>
@@ -777,6 +748,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        [System.Obsolete]
         System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, int timeout, System.Collections.Generic.IEnumerable<string> states = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -1106,12 +1078,12 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        void SendMessage(string serviceProviderId, SendMessageRequest2 request);
+        void SendMessage(string serviceProviderId, SendMessageRequest request);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task SendMessageAsync(string serviceProviderId, SendMessageRequest2 request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SendMessageAsync(string serviceProviderId, SendMessageRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2927,6 +2899,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("BusinessProcessDetails", typeof(BusinessProcessDetails))]
     [JsonInheritanceAttribute("BusinessProcessBulkResponse", typeof(BusinessProcessBulkResponse))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcess 
@@ -4848,43 +4821,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class StartProcessRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("variables", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object Variables { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static StartProcessRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<StartProcessRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SendMessageRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("messageName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MessageName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("variables", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object Variables { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static SendMessageRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SendMessageRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessWaitResult 
     {
         [Newtonsoft.Json.JsonProperty("hasStateHit", Required = Newtonsoft.Json.Required.Always)]
@@ -4907,6 +4843,56 @@ namespace Picturepark.SDK.V1.Contract
         public static BusinessProcessWaitResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BusinessProcessDetails : BusinessProcess
+    {
+        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BusinessProcessDetailsDataBase Details { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessDetails FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetails>(data);
+        }
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("BusinessProcessDetailsDataBulkResponse", typeof(BusinessProcessDetailsDataBulkResponse))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BusinessProcessDetailsDataBase 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessDetailsDataBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataBase>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BusinessProcessDetailsDataBulkResponse : BusinessProcessDetailsDataBase
+    {
+        [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BulkResponse Response { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessDetailsDataBulkResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataBulkResponse>(data);
         }
     }
     
@@ -8085,7 +8071,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SendMessageRequest2 
+    public partial class SendMessageRequest 
     {
         [Newtonsoft.Json.JsonProperty("messageName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MessageName { get; set; }
@@ -8101,9 +8087,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static SendMessageRequest2 FromJson(string data)
+        public static SendMessageRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SendMessageRequest2>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SendMessageRequest>(data);
         }
     }
     
@@ -13559,6 +13545,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleFilter LifeCycleFilter { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("userRightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.List<UserRight> UserRightsFilter { get; set; }
     
         public string ToJson() 
         {
