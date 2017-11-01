@@ -7,31 +7,44 @@ using System.Linq;
 using System.Reflection;
 using Picturepark.SDK.V1.Contract.Attributes.Analyzer;
 using Picturepark.SDK.V1.Contract.Interfaces;
+using Newtonsoft.Json;
 
 namespace Picturepark.SDK.V1.Conversion
 {
 	public class ClassToSchemaConverter
 	{
-		private List<MetadataSchemaDetailViewItem> _createdSchemasList;
+		private readonly List<string> _ignoredProperties = new List<string> { "refId", "_relId", "_relationType", "_targetContext", "_targetId" };
 
-		public ClassToSchemaConverter()
+		/// <summary>
+		/// Convert a C# POCO to a picturepark schema definition
+		/// </summary>
+		/// <param name="type">Type of poco to convert</param>
+		/// <param name="generateRelatedSchemas">Generates related schemas as well. E.g. referenced pocos in lists.</param>
+		/// <returns>List of schemas</returns>
+		public List<SchemaDetail> Generate(Type type, bool generateRelatedSchemas = true)
 		{
-			InitializeTemplates();
+			var schemaList = new List<SchemaDetail>();
+			return Generate(type, schemaList, generateRelatedSchemas);
 		}
 
-		public List<MetadataSchemaDetailViewItem> Generate(Type type, List<MetadataSchemaDetailViewItem> schemaList, bool generateDependencySchema = true)
+		/// <summary>
+		/// Convert a C# POCO to a picturepark schema definition
+		/// </summary>
+		/// <param name="type">Type of poco to convert</param>
+		/// <param name="schemaList">Existing list of schemas. Pass if you need to convert several pocos and they reference the same dependant schemas (used to exclude existing schemas).</param>
+		/// <param name="generateRelatedSchemas">Generates related schemas as well. E.g. referenced pocos in lists.</param>
+		/// <returns>List of schemas</returns>
+		public List<SchemaDetail> Generate(Type type, List<SchemaDetail> schemaList, bool generateRelatedSchemas = true)
 		{
-			_createdSchemasList = schemaList;
+			var classProperties = GetClassProperties(type);
 
-			var contractPropertiesInfo = GetProperties(type);
+			SchemaCreate(classProperties, type, string.Empty, schemaList, 0, generateRelatedSchemas);
 
-			var schema = SchemaCreate(contractPropertiesInfo, type, string.Empty, 0, generateDependencySchema);
+			var sortedList = new List<SchemaDetail>();
 
-			var sortedList = new List<MetadataSchemaDetailViewItem>();
-
-			foreach (var schemaItem in _createdSchemasList)
+			foreach (var schemaItem in schemaList)
 			{
-				var dependencyList = _createdSchemasList.FindAll(s => s.Dependencies.Any(d => d.Id == schemaItem.Id));
+				var dependencyList = schemaList.FindAll(s => s.Dependencies.Any(d => d.Id == schemaItem.Id));
 
 				int? index = null;
 
@@ -43,7 +56,7 @@ namespace Picturepark.SDK.V1.Conversion
 						if (dependencyIndex == -1)
 							continue;
 
-						if (!index.HasValue || (index.Value > dependencyIndex))
+						if (!index.HasValue || index.Value > dependencyIndex)
 							index = dependencyIndex;
 					}
 				}
@@ -57,32 +70,24 @@ namespace Picturepark.SDK.V1.Conversion
 			return sortedList;
 		}
 
-		private void InitializeTemplates()
-		{
-		}
-
-		private MetadataSchemaDetailViewItem SchemaCreate(List<ContractPropertyInfo> contractPropertyInfos, Type contractType, string parentSchemaId, int levelOfCall = 0, bool generateDependencySchema = true)
+		private SchemaDetail SchemaCreate(List<ContractPropertyInfo> classProperties, Type contractType, string parentSchemaId, List<SchemaDetail> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
 		{
 			var schemaId = contractType.Name;
-
-			var types = new List<MetadataSchemaType>();
 
 			var typeAttributes = contractType.GetTypeInfo().GetCustomAttributes(typeof(PictureparkSchemaTypeAttribute), true).Select(i => i as PictureparkSchemaTypeAttribute).ToList();
 
 			if (!typeAttributes.Any())
 				throw new Exception("No PictureparkSchemaTypeAttribute set on class: " + contractType.Name);
 
-			foreach (var typeAttribute in typeAttributes)
-			{
-				types.Add(typeAttribute.MetadataType);
-			}
+			var types = typeAttributes.Select(typeAttribute => typeAttribute.SchemaType).ToList();
 
-			var schemaItem = new MetadataSchemaDetailViewItem()
+			var schemaItem = new SchemaDetail
 			{
 				Id = schemaId,
-				Fields = new List<FieldBase> { },
-				ParentMetadataSchemaId = parentSchemaId,
+				Fields = new List<FieldBase>(),
+				ParentSchemaId = parentSchemaId,
 				Names = new TranslatedStringDictionary { { "x-default", schemaId } },
+				Descriptions = new TranslatedStringDictionary(),
 				Types = types,
 				DisplayPatterns = new List<DisplayPattern>()
 			};
@@ -93,20 +98,36 @@ namespace Picturepark.SDK.V1.Conversion
 				var displayPattern = new DisplayPattern
 				{
 					DisplayPatternType = displayPatternAttribute.Type,
-					Name = displayPatternAttribute.Type.ToString(),
+					Id = displayPatternAttribute.Type.ToString(),
 					TemplateEngine = displayPatternAttribute.TemplateEngine,
 					Templates = new TranslatedStringDictionary { { "x-default", displayPatternAttribute.DisplayPattern } }
 				};
 				schemaItem.DisplayPatterns.Add(displayPattern);
 			}
 
-			var customTypes = contractPropertyInfos.FindAll(c => c.IsCustomType);
+			// Assign name translations
+			var nameTranslationAttributes = contractType.GetTypeInfo().GetCustomAttributes(typeof(PictureparkNameTranslationAttribute), true).Select(i => i as PictureparkNameTranslationAttribute).ToList();
+			foreach (var translationAttribute in nameTranslationAttributes)
+			{
+				schemaItem.Names[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
+			}
+
+			// Assign description translations
+			var descriptionTranslationAttributes = contractType.GetTypeInfo().GetCustomAttributes(typeof(PictureparkDescriptionTranslationAttribute), true).Select(i => i as PictureparkDescriptionTranslationAttribute).ToList();
+			foreach (var translationAttribute in descriptionTranslationAttributes)
+			{
+				schemaItem.Descriptions[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
+			}
+
+			var customTypes = classProperties.FindAll(c => c.IsCustomType);
 
 			if (customTypes.Any())
 			{
 				foreach (var customType in customTypes)
 				{
-					if (_createdSchemasList.Any(d => d.Id == customType.TypeName))
+					var referencedSchemaId = customType.TypeName;
+
+					if (schemaList.Any(d => d.Id == referencedSchemaId))
 						continue;
 
 					// Exclusion, if the customType is the contractType (it would create itself again with zero fields)
@@ -119,36 +140,36 @@ namespace Picturepark.SDK.V1.Conversion
 					// Exclude system schemas from creation
 					if (!type.GetTypeInfo().GetCustomAttributes(typeof(PictureparkSystemSchemaAttribute), true).Any())
 					{
-						var dependencySchema = SchemaCreate(customType.TypeProperties, type, string.Empty, subLevelOfcall, generateDependencySchema);
+						var dependencySchema = SchemaCreate(customType.TypeProperties, type, string.Empty, schemaList, subLevelOfcall, generateDependencySchema);
 
 						// the schema can be alredy added as dependency
-						if (schemaItem.Dependencies.Any(d => d.Id == customType.TypeName) == false)
+						if (schemaItem.Dependencies.Any(d => d.Id == referencedSchemaId) == false)
 							schemaItem.Dependencies.Add(dependencySchema);
 
 						// the schema can be alredy created
-						if (_createdSchemasList.Any(d => d.Id == customType.TypeName) == false && generateDependencySchema)
-							_createdSchemasList.Add(dependencySchema);
+						if (schemaList.Any(d => d.Id == referencedSchemaId) == false && generateDependencySchema)
+							schemaList.Add(dependencySchema);
 					}
 				}
 			}
 
-			foreach (var contractPropertyInfo in contractPropertyInfos)
+			foreach (var contractPropertyInfo in classProperties)
 			{
 				var fieldName = contractPropertyInfo.Name;
 				var fieldData = GetFieldData(contractPropertyInfo);
 
-				fieldData.Id = fieldName;
-				fieldData.FieldNamespace = $"{schemaId}_{fieldName}";
+				fieldData.Id = fieldName.ToLowerCamelCase();
+				fieldData.FieldNamespace = $"{schemaId}_{fieldData.Id}";
 				if (!string.IsNullOrEmpty(parentSchemaId))
 					fieldData.FieldNamespace = $"{parentSchemaId}_{fieldData.FieldNamespace}";
 
-				// TODO: Use customer defined languages and add Attribute for Translations
 				if (fieldData.Names == null)
-					fieldData.Names = new TranslatedStringDictionary();
-
-				fieldData.Names["en"] = fieldName;
-				fieldData.Names["fr"] = fieldName;
-				fieldData.Names["de"] = fieldName;
+				{
+					fieldData.Names = new TranslatedStringDictionary
+					{
+						["x-default"] = fieldName
+					};
+				}
 
 				var fieldAnalyzers = contractPropertyInfo.PictureparkAttributes
 					.OfType<PictureparkAnalyzerAttribute>()
@@ -161,149 +182,162 @@ namespace Picturepark.SDK.V1.Conversion
 				schemaItem.Fields.Add(fieldData);
 			}
 
-			if (generateDependencySchema || (!generateDependencySchema && levelOfCall == 0))
+			if (generateDependencySchema || levelOfCall == 0)
 			{
 				// the schema can be alredy created
-				if (_createdSchemasList.Find(s => s.Id == schemaItem.Id) == null)
-					_createdSchemasList.Add(schemaItem);
+				if (schemaList.Find(s => s.Id == schemaItem.Id) == null)
+					schemaList.Add(schemaItem);
 			}
 
 			// Create schemas for all subtypes
 			var subtypes = contractType.GetTypeInfo().Assembly.GetTypes().Where(t => t.GetTypeInfo().IsSubclassOf(contractType));
 			foreach (var subtype in subtypes)
 			{
-				SchemaCreate(GetProperties(subtype), subtype, schemaId);
+				SchemaCreate(GetClassProperties(subtype), subtype, schemaId, schemaList);
 			}
 
 			return schemaItem;
 		}
 
-		private List<ContractPropertyInfo> GetProperties(Type objType)
+		private List<ContractPropertyInfo> GetClassProperties(Type objType)
 		{
 			var contactPropertiesInfo = new List<ContractPropertyInfo>();
 
-			PropertyInfo[] properties = objType
-				.GetRuntimeProperties()
-				.Where(i => i.Name != "refId")
-				.ToArray();
+			var properties = objType
+				.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance)
+				.Where(i => _ignoredProperties.Contains(i.Name) == false)
+				.ToList();
+
+			// Exclude properties with JsonIgnore attribute
+			properties = properties.Where(property => property.GetCustomAttributes(false).OfType<JsonIgnoreAttribute>().Any() == false).ToList();
 
 			foreach (PropertyInfo property in properties)
 			{
-				var contactPropertyInfo = new ContractPropertyInfo();
+				var typeInfo = property.PropertyType.GetTypeInfo();
+				var name = property.Name;
+
+				// Check if name is overridden by JsonProperty attribute
+				var jsonProperty = property.GetCustomAttributes(false).OfType<JsonPropertyAttribute>().FirstOrDefault();
+				if (jsonProperty != null)
+					name = jsonProperty.PropertyName;
+
+				// Skip ignored properties
+				if (_ignoredProperties.Contains(name))
+					continue;
+
+				var propertyInfo = new ContractPropertyInfo()
+				{
+					Name = name
+				};
 
 				if (IsSimpleType(property.PropertyType))
 				{
-					contactPropertyInfo = HandleSimpleTypes(property);
+					HandleSimpleTypes(property, propertyInfo);
 				}
 				else
 				{
 					// either list or dictionary
-					if (typeof(IEnumerable).GetTypeInfo().IsAssignableFrom(property.PropertyType.GetTypeInfo()))
+					if (typeof(IEnumerable).GetTypeInfo().IsAssignableFrom(typeInfo))
 					{
-						if (property.PropertyType.GetTypeInfo().ImplementedInterfaces.Contains(typeof(IDictionary)) ||
-							(property.PropertyType.GetTypeInfo().GenericTypeArguments.Any() && property.PropertyType.GetTypeInfo().GenericTypeArguments.First().GetTypeInfo().ImplementedInterfaces.Contains(typeof(IDictionary)) == true))
+						if (typeInfo.ImplementedInterfaces.Contains(typeof(IDictionary)) ||
+							(typeInfo.GenericTypeArguments.Any() && typeInfo.GenericTypeArguments.First().GetTypeInfo().ImplementedInterfaces.Contains(typeof(IDictionary))))
 						{
-							contactPropertyInfo.IsArray = property.PropertyType.GetTypeInfo().ImplementedInterfaces.Contains(typeof(IList));
-							contactPropertyInfo.Name = property.Name;
-							contactPropertyInfo.IsDictionary = true;
-							contactPropertyInfo.TypeName = property.PropertyType.Name;
+							propertyInfo.IsArray = typeInfo.ImplementedInterfaces.Contains(typeof(IList));
+							propertyInfo.IsDictionary = true;
+							propertyInfo.TypeName = property.PropertyType.Name;
 						}
 						else
 						{
-							var propertyGenericArg = property.PropertyType.GetTypeInfo().GenericTypeArguments.First();
+							var propertyGenericArg = typeInfo.GenericTypeArguments.First();
 
 							if (IsSimpleType(propertyGenericArg))
 							{
-								contactPropertyInfo = HandleSimpleTypes(property);
+								HandleSimpleTypes(property, propertyInfo);
 							}
 							else
 							{
-								contactPropertyInfo.IsCustomType = true;
-								contactPropertyInfo.Name = property.Name;
-								contactPropertyInfo.TypeName = propertyGenericArg.Name;
-								contactPropertyInfo.FullName = propertyGenericArg.FullName;
-								contactPropertyInfo.AssemblyFullName = propertyGenericArg.GetTypeInfo().Assembly.FullName;
+								propertyInfo.IsCustomType = true;
+								propertyInfo.TypeName = propertyGenericArg.Name;
+								propertyInfo.FullName = propertyGenericArg.FullName;
+								propertyInfo.AssemblyFullName = propertyGenericArg.GetTypeInfo().Assembly.FullName;
 
 								// Check for prevention of an infinite loop
 								if (propertyGenericArg.FullName != objType.FullName)
 								{
-									contactPropertyInfo.TypeProperties.AddRange(
-										GetProperties(propertyGenericArg));
+									propertyInfo.TypeProperties.AddRange(
+										GetClassProperties(propertyGenericArg));
 								}
 							}
 
-							contactPropertyInfo.IsArray = true;
+							propertyInfo.IsArray = true;
 
 							if (property.PropertyType.GenericTypeArguments.Any() && typeof(IReference).GetTypeInfo().IsAssignableFrom(property.PropertyType.GenericTypeArguments.First().GetTypeInfo()))
 							{
-								contactPropertyInfo.IsReference = true;
+								propertyInfo.IsReference = true;
 							}
 						}
 					}
 					else
 					{
-						contactPropertyInfo.IsCustomType = true;
-						contactPropertyInfo.Name = property.Name;
-						contactPropertyInfo.TypeName = property.PropertyType.Name;
-						contactPropertyInfo.FullName = property.PropertyType.FullName;
-						contactPropertyInfo.AssemblyFullName = property.PropertyType.GetTypeInfo().Assembly.FullName;
+						propertyInfo.IsCustomType = true;
+						propertyInfo.TypeName = property.PropertyType.Name;
+						propertyInfo.FullName = property.PropertyType.FullName;
+						propertyInfo.AssemblyFullName = typeInfo.Assembly.FullName;
 
-						if (typeof(IReference).GetTypeInfo().IsAssignableFrom(property.PropertyType.GetTypeInfo()))
+						if (typeof(IReference).GetTypeInfo().IsAssignableFrom(typeInfo))
 						{
-							contactPropertyInfo.IsReference = true;
+							propertyInfo.IsReference = true;
 						}
 
 						// Check for prevention of an infinite loop
 						if (property.PropertyType.FullName != objType.FullName)
 						{
-							contactPropertyInfo.TypeProperties.AddRange(
-								GetProperties(property.PropertyType));
+							propertyInfo.TypeProperties.AddRange(
+								GetClassProperties(property.PropertyType));
 						}
 					}
 				}
 
 				var customAttributes = property.GetCustomAttributes(true);
 				var searchAttribute = customAttributes.Where(i => i.GetType().GetTypeInfo().ImplementedInterfaces.Any(j => j == typeof(IPictureparkAttribute))).Select(i => i as IPictureparkAttribute).ToList();
-				contactPropertyInfo.PictureparkAttributes = searchAttribute;
-				contactPropertiesInfo.Add(contactPropertyInfo);
+				propertyInfo.PictureparkAttributes = searchAttribute;
+				contactPropertiesInfo.Add(propertyInfo);
 			}
 
 			return contactPropertiesInfo;
 		}
 
-		private ContractPropertyInfo HandleSimpleTypes(PropertyInfo property)
+		private void HandleSimpleTypes(PropertyInfo property, ContractPropertyInfo propertyInfo)
 		{
-			var contactPropertyInfo = new ContractPropertyInfo()
-			{
-				Name = property.Name,
-				IsSimpleType = true
-			};
+			var typeInfo = property.PropertyType.GetTypeInfo();
+
+			propertyInfo.IsSimpleType = true;
 
 			// it's a case of: nullable / enum type property
-			if (property.PropertyType.GetTypeInfo().GenericTypeArguments != null && property.PropertyType.GetTypeInfo().GenericTypeArguments.Length > 0)
+			if (typeInfo.GenericTypeArguments != null && typeInfo.GenericTypeArguments.Length > 0)
 			{
 				var propertyGenericArg = property.PropertyType.GenericTypeArguments.First();
 				var underlyingType = Nullable.GetUnderlyingType(propertyGenericArg);
 				propertyGenericArg = underlyingType ?? propertyGenericArg;
 
-				contactPropertyInfo.FullName = propertyGenericArg.FullName;
-				contactPropertyInfo.AssemblyFullName = propertyGenericArg.GetTypeInfo().Assembly.FullName;
+				propertyInfo.FullName = propertyGenericArg.FullName;
+				propertyInfo.AssemblyFullName = propertyGenericArg.GetTypeInfo().Assembly.FullName;
 
 				if (propertyGenericArg.GetTypeInfo().IsEnum)
 				{
-					contactPropertyInfo.IsEnum = true;
-					contactPropertyInfo.TypeName = propertyGenericArg.Name;
+					propertyInfo.IsEnum = true;
+					propertyInfo.TypeName = propertyGenericArg.Name;
 				}
 				else
 				{
 					if (propertyGenericArg == typeof(DateTimeOffset))
 					{
-						contactPropertyInfo.TypeName = TypeCode.DateTime.ToString();
+						propertyInfo.TypeName = TypeCode.DateTime.ToString();
 					}
 					else
 					{
 						// TODO: Find better solution for this
-						contactPropertyInfo.TypeName = typeof(Type).GetRuntimeMethod("GetTypeCode", new[] { typeof(Type) })
+						propertyInfo.TypeName = typeof(Type).GetRuntimeMethod("GetTypeCode", new[] { typeof(Type) })
 						.Invoke(null, new object[] { propertyGenericArg }).ToString();
 					}
 				}
@@ -312,19 +346,17 @@ namespace Picturepark.SDK.V1.Conversion
 			{
 				if (property.GetType() == typeof(DateTimeOffset))
 				{
-					contactPropertyInfo.TypeName = TypeCode.DateTime.ToString();
+					propertyInfo.TypeName = TypeCode.DateTime.ToString();
 				}
 				else
 				{
-					contactPropertyInfo.TypeName = typeof(Type).GetRuntimeMethod("GetTypeCode", new[] { typeof(Type) })
+					propertyInfo.TypeName = typeof(Type).GetRuntimeMethod("GetTypeCode", new[] { typeof(Type) })
 						.Invoke(null, new object[] { property.PropertyType }).ToString();
 				}
 
-				contactPropertyInfo.FullName = property.PropertyType.FullName;
-				contactPropertyInfo.AssemblyFullName = property.PropertyType.GetTypeInfo().Assembly.FullName;
+				propertyInfo.FullName = property.PropertyType.FullName;
+				propertyInfo.AssemblyFullName = typeInfo.Assembly.FullName;
 			}
-
-			return contactPropertyInfo;
 		}
 
 		private FieldBase GetFieldData(ContractPropertyInfo contractPropertyInfo)
@@ -367,8 +399,7 @@ namespace Picturepark.SDK.V1.Conversion
 			}
 			else if (contractPropertyInfo.IsSimpleType)
 			{
-				TypeCode typeCode;
-				if (!Enum.TryParse<TypeCode>(contractPropertyInfo.TypeName, out typeCode))
+				if (!Enum.TryParse(contractPropertyInfo.TypeName, out TypeCode typeCode))
 				{
 					throw new Exception($"Parsing to TypeCode enumarated object failed for string value: {contractPropertyInfo.TypeName}.");
 				}
@@ -392,7 +423,7 @@ namespace Picturepark.SDK.V1.Conversion
 						case TypeCode.Int16:
 						case TypeCode.Int32:
 						case TypeCode.Int64:
-							fieldData = new FieldIntegerArray
+							fieldData = new FieldLongArray
 							{
 								Index = true
 							};
@@ -403,7 +434,7 @@ namespace Picturepark.SDK.V1.Conversion
 				}
 				else
 				{
-					var stringInfos = contractPropertyInfo.PictureparkAttributes.Where(i => i is PictureparkStringAttribute).Select(i => i as PictureparkStringAttribute).SingleOrDefault();
+					var stringInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkStringAttribute>().SingleOrDefault();
 
 					switch (typeCode)
 					{
@@ -420,7 +451,7 @@ namespace Picturepark.SDK.V1.Conversion
 										SimpleSearch = true
 									}
 								},
-								MultiLine = stringInfos != null ? stringInfos.MultiLine : false
+								MultiLine = stringInfos?.MultiLine ?? false
 							};
 							break;
 						case TypeCode.DateTime:
@@ -438,7 +469,7 @@ namespace Picturepark.SDK.V1.Conversion
 						case TypeCode.Int16:
 						case TypeCode.Int32:
 						case TypeCode.Int64:
-							fieldData = new FieldInteger
+							fieldData = new FieldLong
 							{
 								Index = true
 							};
@@ -458,10 +489,11 @@ namespace Picturepark.SDK.V1.Conversion
 			}
 			else
 			{
-				var schemaItemInfos = contractPropertyInfo.PictureparkAttributes.Where(i => i is PictureparkSchemaItemAttribute).Select(i => i as PictureparkSchemaItemAttribute).SingleOrDefault();
-				var relationInfos = contractPropertyInfo.PictureparkAttributes.Where(i => i is PictureparkAssetRelationAttribute).Select(i => i as PictureparkAssetRelationAttribute);
-				var maxRecursionInfos = contractPropertyInfo.PictureparkAttributes.Where(i => i is PictureparkMaximumRecursionAttribute).Select(i => i as PictureparkMaximumRecursionAttribute).SingleOrDefault();
-				List<RelationType> relationTypes = new List<RelationType>();
+				var schemaItemInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkSchemaItemAttribute>().SingleOrDefault();
+				var relationInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkContentRelationAttribute>().ToList();
+				var maxRecursionInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkMaximumRecursionAttribute>().SingleOrDefault();
+
+				var relationTypes = new List<RelationType>();
 				if (relationInfos.Any())
 				{
 					relationTypes = relationInfos.Select(i => new RelationType
@@ -477,33 +509,30 @@ namespace Picturepark.SDK.V1.Conversion
 				{
 					if (relationInfos.Any())
 					{
-						fieldData = new FieldRelations
+						fieldData = new FieldMultiRelation
 						{
-							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
 							RelationTypes = relationTypes,
-							MetadataSchemaId = contractPropertyInfo.TypeName,
+							SchemaId = contractPropertyInfo.TypeName,
 							Index = true
 						};
 					}
 					else if (contractPropertyInfo.IsReference)
 					{
-						fieldData = new FieldSchemaItems
+						fieldData = new FieldMultiTagbox
 						{
 							Index = true,
-							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
 							SimpleSearch = true,
-							MetadataSchemaId = contractPropertyInfo.TypeName,
+							SchemaId = contractPropertyInfo.TypeName,
 							Filter = schemaItemInfos?.Filter
 						};
 					}
 					else
 					{
-						fieldData = new FieldObjects
+						fieldData = new FieldMultiFieldset
 						{
 							Index = true,
-							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
 							SimpleSearch = true,
-							MetadataSchemaId = contractPropertyInfo.TypeName
+							SchemaId = contractPropertyInfo.TypeName
 						};
 					}
 				}
@@ -511,13 +540,12 @@ namespace Picturepark.SDK.V1.Conversion
 				{
 					if (relationInfos.Any())
 					{
-						fieldData = new FieldRelation
+						fieldData = new FieldSingleRelation
 						{
 							Index = true,
 							SimpleSearch = true,
 							RelationTypes = relationTypes,
-							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
-							MetadataSchemaId = contractPropertyInfo.TypeName
+							SchemaId = contractPropertyInfo.TypeName
 						};
 					}
 					else if (contractPropertyInfo.TypeName == "GeoPoint")
@@ -529,36 +557,39 @@ namespace Picturepark.SDK.V1.Conversion
 					}
 					else if (contractPropertyInfo.IsReference)
 					{
-						fieldData = new FieldSchemaItem
+						fieldData = new FieldSingleTagbox
 						{
 							Index = true,
 							SimpleSearch = true,
-							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
-							MetadataSchemaId = contractPropertyInfo.TypeName,
+							SchemaId = contractPropertyInfo.TypeName,
 							Filter = schemaItemInfos?.Filter
 						};
 					}
 					else
 					{
-						fieldData = new FieldObject
+						fieldData = new FieldSingleFieldset
 						{
 							Index = true,
 							SimpleSearch = true,
-							MaxRecursion = maxRecursionInfos != null ? maxRecursionInfos.MaxRecursion : 1,
-							MetadataSchemaId = contractPropertyInfo.TypeName
+							SchemaId = contractPropertyInfo.TypeName
 						};
 					}
 				}
 			}
 
+			if (fieldData == null)
+				throw new Exception($"Could not find type for {contractPropertyInfo.Name}");
+
 			foreach (var attribute in contractPropertyInfo.PictureparkAttributes)
 			{
-				if (attribute is PictureparkSearchAttribute)
+				if (attribute is PictureparkSearchAttribute searchAttribute)
 				{
-					var searchAttribute = attribute as PictureparkSearchAttribute;
 					fieldData.Index = searchAttribute.Index;
 					fieldData.SimpleSearch = searchAttribute.SimpleSearch;
-					fieldData.Boost = searchAttribute.Boost;
+					if (fieldData.GetType().GetRuntimeProperty("Boost") != null)
+					{
+						fieldData.GetType().GetRuntimeProperty("Boost").SetValue(fieldData, searchAttribute.Boost);
+					}
 				}
 
 				if (attribute is PictureparkRequiredAttribute)
@@ -566,14 +597,23 @@ namespace Picturepark.SDK.V1.Conversion
 					fieldData.Required = true;
 				}
 
-				if (attribute is PictureparkMaximumLengthAttribute)
+				if (attribute is PictureparkMaximumLengthAttribute maxLengthAttribute)
 				{
-					fieldData.GetType().GetRuntimeProperty("MaximumLength").SetValue(fieldData, ((PictureparkMaximumLengthAttribute)attribute).Length);
+					fieldData.GetType().GetRuntimeProperty("MaximumLength").SetValue(fieldData, maxLengthAttribute.Length);
 				}
 
-				if (attribute is PictureparkPatternAttribute)
+				if (attribute is PictureparkPatternAttribute patternAttribute)
 				{
-					fieldData.GetType().GetRuntimeProperty("Pattern").SetValue(fieldData, ((PictureparkPatternAttribute)attribute).Pattern);
+					fieldData.GetType().GetRuntimeProperty("Pattern").SetValue(fieldData, patternAttribute.Pattern);
+				}
+
+				if (attribute is PictureparkNameTranslationAttribute)
+				{
+					var translationAttribute = attribute as PictureparkNameTranslationAttribute;
+					if (fieldData.Names == null)
+						fieldData.Names = new TranslatedStringDictionary();
+
+					fieldData.Names[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
 				}
 			}
 
@@ -587,12 +627,12 @@ namespace Picturepark.SDK.V1.Conversion
 				type.GetTypeInfo().IsPrimitive ||
 				new Type[]
 				{
-			typeof(string),
-			typeof(decimal),
-			typeof(DateTime),
-			typeof(DateTimeOffset),
-			typeof(TimeSpan),
-			typeof(Guid)
+					typeof(string),
+					typeof(decimal),
+					typeof(DateTime),
+					typeof(DateTimeOffset),
+					typeof(TimeSpan),
+					typeof(Guid)
 				}.Contains(type) ||
 				Convert.GetTypeCode(type) != TypeCode.Object;
 		}

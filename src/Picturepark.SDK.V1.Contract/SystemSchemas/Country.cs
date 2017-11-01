@@ -10,7 +10,7 @@ namespace Picturepark.SDK.V1.Contract
 	{
 		public string Name { get; set; }
 
-		public Dictionary<string, string> Names { get; set; }
+		public TranslatedStringDictionary Names { get; set; }
 
 		public string RegionCode { get; set; }
 

@@ -1,47 +1,57 @@
 ﻿using System;
-using Picturepark.SDK.V1.Authentication;
 using Picturepark.SDK.V1.Contract;
 
 namespace Picturepark.SDK.V1
 {
-	public class PictureparkClient : IDisposable
+	public class PictureparkClient : IDisposable, IPictureparkClient
 	{
-		public PictureparkClient(string baseUrl, IAuthClient authClient)
+		/// <summary>Initializes a new instance of the <see cref="PictureparkClient"/> class and uses the <see cref="IPictureparkClientSettings.BaseUrl"/> of the <paramref name="settings"/> as Picturepark server URL.</summary>
+		/// <param name="settings">The client settings.</param>
+		public PictureparkClient(IPictureparkClientSettings settings)
 		{
-			Assets = new AssetClient(baseUrl, authClient);
-			BusinessProcesses = new BusinessProcessClient(baseUrl, authClient);
-			DocumentHistory = new DocumentHistoryClient(baseUrl, authClient);
-			JsonSchemas = new JsonSchemaClient(baseUrl, authClient);
-			Permissions = new PermissionClient(baseUrl, authClient);
-			PublicAccess = new PublicAccessClient(baseUrl, authClient);
-			Shares = new ShareClient(baseUrl, authClient);
-			Users = new UserClient(baseUrl, authClient);
-			Schemas = new MetadataSchemaClient(BusinessProcesses, authClient);
-			Transfers = new TransferClient(BusinessProcesses, authClient);
-			MetadataObjects = new MetadataObjectClient(Transfers, authClient);
+			Outputs = new OutputClient(settings);
+			Contents = new ContentClient(settings);
+			BusinessProcesses = new BusinessProcessClient(settings);
+			DocumentHistory = new DocumentHistoryClient(settings);
+			JsonSchemas = new JsonSchemaClient(settings);
+			Permissions = new PermissionClient(settings);
+			PublicAccess = new PublicAccessClient(settings);
+			Shares = new ShareClient(settings);
+			Users = new UserClient(settings);
+			Schemas = new SchemaClient((BusinessProcessClient)BusinessProcesses, settings);
+			Transfers = new TransferClient((BusinessProcessClient)BusinessProcesses, settings);
+			ListItems = new ListItemClient((BusinessProcessClient)BusinessProcesses, settings);
+			Profile = new ProfileClient(settings);
+			ServiceProviders = new ServiceProviderClient(settings);
 		}
 
-		public MetadataSchemaClient Schemas { get; }
+		public ISchemaClient Schemas { get; }
 
-		public AssetClient Assets { get; }
+		public IContentClient Contents { get; }
 
-		public BusinessProcessClient BusinessProcesses { get; }
+		public IOutputClient Outputs { get; }
 
-		public DocumentHistoryClient DocumentHistory { get; }
+		public IBusinessProcessClient BusinessProcesses { get; }
 
-		public JsonSchemaClient JsonSchemas { get; }
+		public IDocumentHistoryClient DocumentHistory { get; }
 
-		public MetadataObjectClient MetadataObjects { get; }
+		public IJsonSchemaClient JsonSchemas { get; }
 
-		public PermissionClient Permissions { get; }
+		public IListItemClient ListItems { get; }
 
-		public PublicAccessClient PublicAccess { get; }
+		public IPermissionClient Permissions { get; }
 
-		public ShareClient Shares { get; }
+		public IPublicAccessClient PublicAccess { get; }
 
-		public TransferClient Transfers { get; }
+		public IShareClient Shares { get; }
 
-		public UserClient Users { get; }
+		public ITransferClient Transfers { get; }
+
+		public IUserClient Users { get; }
+
+		public IProfileClient Profile { get; }
+
+		public IServiceProviderClient ServiceProviders { get; }
 
 		public void Dispose()
 		{

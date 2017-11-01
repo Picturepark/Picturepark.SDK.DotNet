@@ -1,6 +1,8 @@
-﻿using Picturepark.SDK.V1.Contract;
+﻿using Newtonsoft.Json;
+using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Contract.Interfaces;
+using Picturepark.SDK.V1.Contract.SystemTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +11,24 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
 {
-	[PictureparkSchemaType(MetadataSchemaType.AssetContent)]
-	[PictureparkSchemaType(MetadataSchemaType.AssetLayer)]
-	[PictureparkSchemaType(MetadataSchemaType.MetadataContent)]
-	[PictureparkSchemaType(MetadataSchemaType.MetadataLayer)]
-	[PictureparkSchemaType(MetadataSchemaType.Struct)]
-	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{Metadata.AllDataTypesContract.StringField}}")]
-	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{Metadata.AllDataTypesContract.StringField}}")]
-	[PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{Metadata.AllDataTypesContract.StringField}}: {{Metadata.AllDataTypesContract.IntegerField}}")]
+	[PictureparkSchemaType(SchemaType.Content)]
+	[PictureparkSchemaType(SchemaType.Layer)]
+	[PictureparkSchemaType(SchemaType.List)]
+	[PictureparkSchemaType(SchemaType.Struct)]
+	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}")]
+	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}")]
+	[PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}: {{data.allDataTypesContract.integerField}}")]
+
+	[
+		PictureparkNameTranslation("x-default", "All datatypes"),
+		PictureparkNameTranslation("de", "Alle datatypen"),
+		PictureparkDescriptionTranslation("x-default", "All datatypes for testing"),
+		PictureparkDescriptionTranslation("de", "Alle Datentypen für Testing")
+	]
 
 	public class AllDataTypesContract
 	{
+		[PictureparkNameTranslation("x-default", "Yes or no")]
 		public bool BooleanField { get; set; }
 
 		// TODO: How to limit to date?
@@ -60,19 +69,22 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 		// TODO: Use correct contract
 		////public Dictionary<string, string> TranslatedStringField { get; set; }
 
-		[PictureparkAssetRelation(
+		[PictureparkContentRelation(
 			"RelationName",
-			"{ 'Kind': 'TermFilter', 'Field': 'AssetType', Term: 'Bitmap' }"
+			"{ 'kind': 'TermFilter', 'field': 'contentType', term: 'Bitmap' }"
 		)]
 		public SimpleRelation RelationField { get; set; }
 
-		// TODO: Use correct contract
-		////public List<SimpleRelation> RelationsField { get; set; }
+		[PictureparkContentRelation(
+			"RelationsName",
+			"{ 'kind': 'TermFilter', 'field': 'contentType', Term: 'bitmap' }"
+		)]
+		public List<SimpleRelation> RelationsField { get; set; }
 	}
 
-	[PictureparkSchemaType(MetadataSchemaType.MetadataContent)]
-	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{Metadata.SimpleReferenceObject.NameField}}")]
-	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{Metadata.SimpleReferenceObject.NameField}}")]
+	[PictureparkSchemaType(SchemaType.List)]
+	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.simpleReferenceObject.nameField}}")]
+	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.simpleReferenceObject.nameField}}")]
 	public class SimpleReferenceObject : IReference
 	{
 		public string NameField { get; set; }
@@ -80,15 +92,15 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 		public string refId { get; set; }
 	}
 
-	[PictureparkSchemaType(MetadataSchemaType.Struct)]
+	[PictureparkSchemaType(SchemaType.Struct)]
 	public class SimpleObject
 	{
 		public string Name { get; set; }
 	}
 
 	// TODO: Use correct contract
-	[PictureparkSchemaType(MetadataSchemaType.Struct)]
-	public class SimpleRelation
+	[PictureparkSchemaType(SchemaType.Struct)]
+	public class SimpleRelation : Relation
 	{
 		public string RelationInfo { get; set; }
 	}

@@ -1,0 +1,48 @@
+﻿<Window x:Class="Picturepark.ContentUploader.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:Picturepark.ContentUploader.ViewModels"
+        xmlns:dialogs="clr-namespace:MyToolkit.Dialogs;assembly=MyToolkit.Extended"
+        mc:Ignorable="d" 
+        ResizeMode="CanMinimize"
+        WindowStartupLocation="CenterScreen"
+        Title="Picturepark Content Uploader" 
+        Height="342" Width="500">
+
+    <Window.Resources>
+        <viewModels:MainWindowModel x:Key="ViewModel" />
+    </Window.Resources>
+
+    <StackPanel Margin="8" DataContext="{StaticResource ViewModel}">
+        <TextBlock Text="File" Margin="0,0,0,4" FontWeight="Bold" />
+        <dialogs:FileOpenPicker Margin="0,0,0,8" FilePath="{Binding FilePath, Mode=TwoWay}" />
+
+        <GroupBox Header="Connection" Margin="0,0,0,8">
+            <StackPanel Margin="4,4,4,0">
+                <TextBlock Text="Server" Margin="0,0,0,4" FontWeight="Bold" />
+                <TextBox Text="{Binding Server}" Margin="0,0,0,8" />
+
+                <TextBlock Text="Username" Margin="0,0,0,4" FontWeight="Bold" />
+                <TextBox Text="{Binding Username}" Margin="0,0,0,8" />
+
+                <TextBlock Text="Password" Margin="0,0,0,4" FontWeight="Bold" />
+                <TextBox Text="{Binding Password}" Margin="0,0,0,8" />
+            </StackPanel>
+        </GroupBox>
+
+        <Button Content="Upload" 
+                Padding="8" 
+                Command="{Binding UploadCommand}" Margin="0,0,0,8" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Content="Register Context Menu" Command="{Binding RegisterContextMenuCommand}" Padding="4" Margin="0,0,4,0" />
+            <Button Content="Unregister Context Menu" Command="{Binding UnregisterContextMenuCommand}" Padding="4" Grid.Column="1" Margin="4,0,0,0" />
+        </Grid>
+    </StackPanel>
+</Window>

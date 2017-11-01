@@ -1,21 +1,16 @@
 ﻿{
+  "x-generator": "NSwag v11.10.0.0 (NJsonSchema v9.8.3.0 (Newtonsoft.Json v9.0.0.0))",
   "swagger": "2.0",
   "info": {
-    "title": "Picturepark 9 API",
-    "description": "Picturepark 9 Api Description",
-    "termsOfService": "Terms of service",
+    "title": "Picturepark CloudManager API V1",
+    "description": "OpenAPI specification of Picturepark CloudManager API V1",
     "contact": {
-      "name": "Picturepark",
+      "name": "Picturepark sales",
       "email": "sales@picturepark.com"
     },
-    "version": "V1"
+    "version": "1.0"
   },
-  "host": "localhost:42651",
-  "basePath": "",
-  "schemes": [
-    "http",
-    "https"
-  ],
+  "schemes": [],
   "consumes": [
     "application/json"
   ],
@@ -23,16 +18,17 @@
     "application/json"
   ],
   "paths": {
-    "/Customer": {
+    "/customer": {
       "post": {
         "tags": [
-          "Customers"
+          "Customer"
         ],
-        "operationId": "Customers_Create",
+        "operationId": "Customer_Create",
         "parameters": [
           {
             "name": "createRequest",
             "in": "body",
+            "required": true,
             "schema": {
               "$ref": "#/definitions/CustomerCreateRequest"
             },
@@ -46,6 +42,19 @@
               "$ref": "#/definitions/CustomerConfigurationItem"
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         },
         "security": [
@@ -56,13 +65,14 @@
       },
       "put": {
         "tags": [
-          "Customers"
+          "Customer"
         ],
-        "operationId": "Customers_Update",
+        "operationId": "Customer_Update",
         "parameters": [
           {
             "name": "updateRequest",
             "in": "body",
+            "required": true,
             "schema": {
               "$ref": "#/definitions/CustomerUpdateRequest"
             },
@@ -76,6 +86,19 @@
               "$ref": "#/definitions/CustomerConfigurationItem"
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         },
         "security": [
@@ -85,16 +108,16 @@
         ]
       }
     },
-    "/Customer/{CustomerId}": {
+    "/customer/{customerId}": {
       "get": {
         "tags": [
-          "Customers"
+          "Customer"
         ],
-        "operationId": "Customers_Get",
+        "operationId": "Customer_Get",
         "parameters": [
           {
             "type": "string",
-            "name": "CustomerId",
+            "name": "customerId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -107,6 +130,19 @@
               "$ref": "#/definitions/CustomerConfigurationItem"
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         },
         "security": [
@@ -117,13 +153,13 @@
       },
       "delete": {
         "tags": [
-          "Customers"
+          "Customer"
         ],
-        "operationId": "Customers_Delete",
+        "operationId": "Customer_Delete",
         "parameters": [
           {
             "type": "string",
-            "name": "CustomerId",
+            "name": "customerId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -136,6 +172,19 @@
               "type": "boolean"
             },
             "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         },
         "security": [
@@ -145,16 +194,16 @@
         ]
       }
     },
-    "/Customer/Search": {
+    "/customer/search": {
       "get": {
         "tags": [
-          "Customers"
+          "Customer"
         ],
-        "operationId": "Customers_List",
+        "operationId": "Customer_List",
         "parameters": [
           {
             "type": "string",
-            "name": "CustomerId",
+            "name": "customerId",
             "in": "query",
             "required": true,
             "x-nullable": true
@@ -167,6 +216,19 @@
               "$ref": "#/definitions/CustomerSearchResult"
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         },
         "security": [
@@ -177,13 +239,14 @@
       },
       "post": {
         "tags": [
-          "Customers"
+          "Customer"
         ],
-        "operationId": "Customers_Search",
+        "operationId": "Customer_Search",
         "parameters": [
           {
             "name": "searchRequest",
             "in": "body",
+            "required": true,
             "schema": {
               "$ref": "#/definitions/CustomerSearchRequest"
             },
@@ -197,6 +260,19 @@
               "$ref": "#/definitions/CustomerSearchResult"
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         },
         "security": [
@@ -206,16 +282,16 @@
         ]
       }
     },
-    "/Customer/{CustomerId}/Users": {
+    "/customer/{customerId}/users": {
       "get": {
         "tags": [
-          "Customers"
+          "Customer"
         ],
-        "operationId": "Customers_GetAllUsers",
+        "operationId": "Customer_GetAllUsers",
         "parameters": [
           {
             "type": "string",
-            "name": "CustomerId",
+            "name": "customerId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -227,10 +303,23 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/UserViewItem"
+                "$ref": "#/definitions/User"
               }
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         },
         "security": [
@@ -240,16 +329,16 @@
         ]
       }
     },
-    "/Customer/{CustomerId}/ExternalProvider": {
+    "/customer/{customerId}/externalProvider": {
       "post": {
         "tags": [
-          "Customers"
+          "Customer"
         ],
-        "operationId": "Customers_AddExternalProviders",
+        "operationId": "Customer_AddExternalProviders",
         "parameters": [
           {
             "type": "string",
-            "name": "CustomerId",
+            "name": "customerId",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -257,6 +346,7 @@
           {
             "name": "addRequest",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "array",
               "items": {
@@ -273,6 +363,19 @@
               "$ref": "#/definitions/CustomerConfigurationItem"
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         },
         "security": [
@@ -282,54 +385,16 @@
         ]
       }
     },
-    "/Services/ShutdownAll": {
+    "/customer/{customerAlias}/restore": {
       "post": {
         "tags": [
-          "Services"
+          "Customer"
         ],
-        "operationId": "Services_ShutdownAll",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/Services/RestartAll": {
-      "post": {
-        "tags": [
-          "Services"
-        ],
-        "operationId": "Services_RestartAll",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/Services/{ServiceName}/Restart": {
-      "post": {
-        "tags": [
-          "Services"
-        ],
-        "operationId": "Services_RestartService",
+        "operationId": "Customer_Restore",
         "parameters": [
           {
             "type": "string",
-            "name": "ServiceName",
+            "name": "customerAlias",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -338,6 +403,19 @@
         "responses": {
           "200": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         },
         "security": [
@@ -347,16 +425,80 @@
         ]
       }
     },
-    "/Services/{ServiceName}/Shutdown": {
-      "post": {
+    "/services/shutdownAll": {
+      "get": {
         "tags": [
-          "Services"
+          "Service"
         ],
-        "operationId": "Services_ShutdownService",
+        "operationId": "Service_ShutdownAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/services/restartAll": {
+      "get": {
+        "tags": [
+          "Service"
+        ],
+        "operationId": "Service_RestartAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/services/{serviceName}/restart": {
+      "get": {
+        "tags": [
+          "Service"
+        ],
+        "operationId": "Service_RestartService",
         "parameters": [
           {
             "type": "string",
-            "name": "ServiceName",
+            "name": "serviceName",
             "in": "path",
             "required": true,
             "x-nullable": false
@@ -365,6 +507,1117 @@
         "responses": {
           "200": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/services/{serviceName}/shutdown": {
+      "get": {
+        "tags": [
+          "Service"
+        ],
+        "operationId": "Service_ShutdownService",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "serviceName",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/services/pingAllActiveNodes": {
+      "get": {
+        "tags": [
+          "Service"
+        ],
+        "operationId": "Service_PingAllActiveNodes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/services/getAllActiveNodes": {
+      "get": {
+        "tags": [
+          "Service"
+        ],
+        "operationId": "Service_GetAllActiveNodes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NodeInfo"
+              }
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/updates/environment": {
+      "get": {
+        "tags": [
+          "Update"
+        ],
+        "operationId": "Update_GetAvailableEnvironmentUpdates",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UpdateInfo"
+              }
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/updates/environment/version": {
+      "get": {
+        "tags": [
+          "Update"
+        ],
+        "operationId": "Update_GetEnvironmentVersion",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/VersionInfo"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/updates/environment/reactivate": {
+      "post": {
+        "tags": [
+          "Update"
+        ],
+        "operationId": "Update_ReactivateEnvironment",
+        "parameters": [
+          {
+            "name": "reactivationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ReactivationEnvironmentRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/updates/environment/deactivate": {
+      "post": {
+        "tags": [
+          "Update"
+        ],
+        "operationId": "Update_DeactivateEnvironment",
+        "parameters": [
+          {
+            "name": "deactivationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeactivationEnvironmentRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/updates/environment/update": {
+      "post": {
+        "tags": [
+          "Update"
+        ],
+        "operationId": "Update_UpdateEnvironment",
+        "parameters": [
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateEnvironmentRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/updates/customers/{customerId}": {
+      "get": {
+        "tags": [
+          "Update"
+        ],
+        "operationId": "Update_GetAvailableCustomerUpdates",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UpdateInfo"
+              }
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/updates/customers/version": {
+      "get": {
+        "tags": [
+          "Update"
+        ],
+        "operationId": "Update_GetCustomerVersions",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CustomerVersionInfo"
+              }
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/updates/customers/{customerId}/version": {
+      "get": {
+        "tags": [
+          "Update"
+        ],
+        "operationId": "Update_GetCustomerVersion",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerVersionInfo"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/updates/customers/reactivate": {
+      "post": {
+        "tags": [
+          "Update"
+        ],
+        "operationId": "Update_ReactivateCustomers",
+        "parameters": [
+          {
+            "name": "reactivationRequests",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReactivationCustomerRequest"
+              }
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/updates/customers/deactivate": {
+      "post": {
+        "tags": [
+          "Update"
+        ],
+        "operationId": "Update_DeactivateCustomers",
+        "parameters": [
+          {
+            "name": "deactivationRequests",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DeactivationCustomerRequest"
+              }
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/updates/customers/update": {
+      "post": {
+        "tags": [
+          "Update"
+        ],
+        "operationId": "Update_UpdateCustomers",
+        "parameters": [
+          {
+            "name": "updateRequests",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UpdateCustomerRequest"
+              }
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/backup/customer/repository": {
+      "put": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_CreateRepository",
+        "parameters": [
+          {
+            "name": "snapshotRepositoryCustomerCreateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotRepositoryCustomerCreateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SnapshotRepository"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/backup/customer/snapshot": {
+      "put": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_CreateSnapshot",
+        "parameters": [
+          {
+            "name": "snapshotCustomerCreateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotCustomerCreateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Snapshot"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/backup/customer/restore": {
+      "post": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_RestoreSnapshot",
+        "parameters": [
+          {
+            "name": "snapshotCustomerRestoreRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotCustomerRestoreRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SnapshotRestore"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/backup/environment/repository": {
+      "put": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_CreateRepository2",
+        "parameters": [
+          {
+            "name": "snapshotRepositoryEnvironmentCreateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotRepositoryEnvironmentCreateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SnapshotRepository"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/backup/environment/snapshot": {
+      "put": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_CreateSnapshot2",
+        "parameters": [
+          {
+            "name": "snapshotEnvironmentCreateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotEnvironmentCreateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Snapshot"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/backup/environment/restore": {
+      "post": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_RestoreSnapshot2",
+        "parameters": [
+          {
+            "name": "snapshotEnvironmentRestoreRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotEnvironmentRestoreRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SnapshotRestore"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/backup/customer/snapshot/search": {
+      "post": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_Search",
+        "parameters": [
+          {
+            "name": "snapshotCustomerSearchRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotCustomerSearchRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SnapshotCustomerSearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/backup/customer/snapshot/searchRepositories": {
+      "post": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_SearchRepositories",
+        "parameters": [
+          {
+            "name": "searchRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotRepositoryCustomerSearchRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/backup/customer/clone": {
+      "post": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_CloneCustomer",
+        "parameters": [
+          {
+            "name": "cloneRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotCustomerCloneRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Customer"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/{customerAlias}/{userId}/getUserDeveloperFlag": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_GetUserDeveloperFlag",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "customerAlias",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "type": "string",
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/{customerAlias}/updateUserDeveloperFlag": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_UpdateUserDeveloperFlag",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "customerAlias",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "name": "userDeveloperFlagUpdateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserDeveloperFlagUpdateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserDeveloperFlagUpdateRequest"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
           }
         },
         "security": [
@@ -380,147 +1633,119 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Enabled",
-        "CacheRetentionTimeInMinutes",
-        "UseSsl",
-        "ElasticSearchNumberOfShards",
-        "ElasticSearchNumberOfReplicas",
-        "RootSearchIndexNumberOfShards",
-        "RootSearchIndexNumberOfReplicas"
+        "cacheRetentionTimeInMinutes",
+        "useSsl",
+        "elasticSearchNumberOfShards",
+        "elasticSearchNumberOfReplicas",
+        "rootContentSearchIndexNumberOfShards",
+        "rootContentSearchIndexNumberOfReplicas",
+        "rootListItemSearchIndexNumberOfShards",
+        "rootListItemSearchIndexNumberOfReplicas",
+        "indexedFieldThreshold"
       ],
       "properties": {
-        "Id": {
+        "alias": {
           "type": "string"
         },
-        "Name": {
+        "name": {
           "type": "string"
         },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "DeactivationComment": {
+        "prefix": {
           "type": "string"
         },
-        "InitialCatalog": {
+        "baseUrl": {
           "type": "string"
         },
-        "MetadataCatalog": {
+        "storagePath": {
           "type": "string"
         },
-        "StatisticsCatalog": {
-          "type": "string"
-        },
-        "DocumentHistoryCatalog": {
-          "type": "string"
-        },
-        "LiveStreamCatalog": {
-          "type": "string"
-        },
-        "CacheCatalog": {
-          "type": "string"
-        },
-        "DatabaseVersion": {
-          "type": "string"
-        },
-        "BaseUrl": {
-          "type": "string"
-        },
-        "StoragePath": {
-          "type": "string"
-        },
-        "WatermarkPath": {
-          "type": "string"
-        },
-        "CacheRetentionTimeInMinutes": {
+        "cacheRetentionTimeInMinutes": {
           "type": "integer",
           "format": "int32"
         },
-        "CustomerHosts": {
+        "customerHosts": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
-        "UseSsl": {
+        "useSsl": {
           "type": "boolean"
         },
-        "CDNUrl": {
+        "cdnUrl": {
           "type": "string"
         },
-        "SupportContactEmailAddress": {
+        "supportContactEmailAddress": {
           "type": "string"
         },
-        "ExternalProviders": {
+        "externalProviders": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ExternalProviderItem"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
-        "ServiceProviders": {
+        "identityServerProviders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IdentityServerProvider"
+          }
+        },
+        "serviceProviders": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/CustomerServiceProviderItem"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
-        "CorsAllowedHosts": {
+        "corsAllowedHosts": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
-        "ElasticSearchNumberOfShards": {
+        "elasticSearchNumberOfShards": {
           "type": "integer",
           "format": "int32"
         },
-        "ElasticSearchNumberOfReplicas": {
+        "elasticSearchNumberOfReplicas": {
           "type": "integer",
           "format": "int32"
         },
-        "RootSearchIndexNumberOfShards": {
+        "rootContentSearchIndexNumberOfShards": {
           "type": "integer",
           "format": "int32"
         },
-        "RootSearchIndexNumberOfReplicas": {
+        "rootContentSearchIndexNumberOfReplicas": {
           "type": "integer",
           "format": "int32"
         },
-        "NoReplyEmailAddress": {
+        "rootListItemSearchIndexNumberOfShards": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rootListItemSearchIndexNumberOfReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "indexedFieldThreshold": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "noReplyEmailAddress": {
           "type": "string"
         },
-        "LanguageConfiguration": {
+        "languageConfiguration": {
           "$ref": "#/definitions/LanguageConfigurationItem"
         },
-        "OutputFormats": {
+        "outputFormats": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/OutputFormatStoreItem"
-          },
-          "xml": {
-            "wrapped": true
+            "$ref": "#/definitions/OutputFormat"
           }
         },
-        "BusinessProcessEngineConnectionString": {
+        "businessProcessEngineConnectionString": {
           "type": "string"
         },
-        "CreateTransferBusinessProcess": {
+        "createTransferBusinessProcess": {
           "type": "string"
         }
       }
@@ -529,37 +1754,35 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "ProviderName"
+        "providerName"
       ],
       "properties": {
-        "Id": {
+        "id": {
           "type": "string"
         },
-        "ProviderName": {
+        "providerName": {
           "$ref": "#/definitions/ExternalProviderName"
         },
-        "ApplicationId": {
+        "applicationId": {
           "type": "string"
         },
-        "ApplicationSecret": {
+        "applicationSecret": {
           "type": "string"
         },
-        "Services": {
+        "services": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/OAuthServiceApi"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
-        "RedirectUri": {
+        "redirectUri": {
           "type": "string"
         }
       }
     },
     "ExternalProviderName": {
-      "type": "integer",
+      "type": "string",
+      "description": "",
       "x-enumNames": [
         "Google",
         "Windows",
@@ -568,90 +1791,92 @@
         "Picturepark"
       ],
       "enum": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "description": ""
+        "Google",
+        "Windows",
+        "Dropbox",
+        "Buffer",
+        "Picturepark"
+      ]
     },
     "OAuthServiceApi": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "OAuthServiceType"
+        "oAuthServiceType"
       ],
       "properties": {
-        "Scopes": {
+        "scopes": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
-        "OAuthServiceType": {
+        "oAuthServiceType": {
           "$ref": "#/definitions/OAuthServiceType"
         }
       }
     },
     "OAuthServiceType": {
-      "type": "integer",
+      "type": "string",
+      "description": "",
       "x-enumNames": [
         "Drive",
         "SocialMedia",
-        "AssetStore"
+        "ContentStore"
       ],
       "enum": [
-        1,
-        2,
-        3
-      ],
-      "description": ""
+        "Drive",
+        "SocialMedia",
+        "ContentStore"
+      ]
+    },
+    "IdentityServerProvider": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
     },
     "CustomerServiceProviderItem": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Id": {
+        "id": {
           "type": "string"
         },
-        "Scopes": {
+        "scopes": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
-        "AllowedMessages": {
+        "allowedMessages": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/CustomerAllowedMessage"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
-        "AllowedCommands": {
+        "allowedCommands": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/CustomerAllowedCommand"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
-        "Configuration": {
+        "userRoleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "settings": {
           "type": "string"
         }
       }
@@ -660,10 +1885,10 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Name": {
+        "name": {
           "type": "string"
         },
-        "Target": {
+        "target": {
           "type": "string"
         }
       }
@@ -672,7 +1897,7 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Name": {
+        "name": {
           "type": "string"
         }
       }
@@ -681,120 +1906,91 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "SystemLanguages": {
+        "systemLanguages": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
-        "MetadataLanguages": {
+        "metadataLanguages": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
-        "DefaultLanguage": {
+        "defaultLanguage": {
           "type": "string"
         }
       }
     },
-    "OutputFormatStoreItem": {
+    "OutputFormat": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Static",
-        "System",
-        "Dynamic",
-        "DataExtraction",
-        "Temporary",
-        "Render"
+        "static",
+        "system",
+        "dynamic",
+        "dataExtraction",
+        "temporary",
+        "render"
       ],
       "properties": {
-        "Static": {
+        "id": {
+          "type": "string"
+        },
+        "static": {
           "type": "boolean"
         },
-        "System": {
+        "system": {
           "type": "boolean"
         },
-        "Dynamic": {
+        "dynamic": {
           "type": "boolean"
         },
-        "DataExtraction": {
+        "dataExtraction": {
           "type": "boolean"
         },
-        "Temporary": {
+        "temporary": {
           "type": "boolean"
         },
-        "SourceOutputFormats": {
+        "sourceOutputFormats": {
           "$ref": "#/definitions/SourceOutputFormats"
         },
-        "Render": {
+        "render": {
           "type": "boolean"
         },
-        "Format": {
+        "format": {
           "$ref": "#/definitions/FormatBase"
         }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/BaseStoreItem"
-        }
-      ]
+      }
     },
     "SourceOutputFormats": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Image": {
+        "image": {
           "type": "string"
         },
-        "Video": {
+        "video": {
           "type": "string"
         },
-        "Document": {
+        "document": {
           "type": "string"
         },
-        "Audio": {
+        "audio": {
           "type": "string"
         }
       }
     },
     "FormatBase": {
       "type": "object",
-      "discriminator": "Kind",
+      "discriminator": "kind",
       "additionalProperties": false,
       "required": [
-        "Kind"
+        "kind"
       ],
       "properties": {
-        "DefaultOutputExtension": {
-          "type": "string"
-        },
-        "AllowedOutputExtensions": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
-          }
-        },
-        "Kind": {
+        "kind": {
           "type": "string"
         }
       }
@@ -803,57 +1999,54 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "ColorTransformationIntent",
-        "RenderFirstFrameOnly",
-        "KeepClippingPath",
-        "CloneExif",
-        "CloneIptc",
-        "CloneAdobeResources",
-        "CloneXmp"
+        "colorTransformationIntent",
+        "renderFirstFrameOnly",
+        "keepClippingPath",
+        "cloneExif",
+        "cloneIptc",
+        "cloneAdobeResources",
+        "cloneXmp"
       ],
       "properties": {
-        "ColorProfile": {
+        "colorProfile": {
           "$ref": "#/definitions/ColorProfile"
         },
-        "ColorTransformationIntent": {
+        "colorTransformationIntent": {
           "$ref": "#/definitions/ColorTransformationIntent"
         },
-        "HorizontalResolution": {
+        "horizontalResolution": {
           "type": "number",
           "format": "double"
         },
-        "VerticalResolution": {
+        "verticalResolution": {
           "type": "number",
           "format": "double"
         },
-        "RenderFirstFrameOnly": {
+        "renderFirstFrameOnly": {
           "type": "boolean"
         },
-        "KeepClippingPath": {
+        "keepClippingPath": {
           "type": "boolean"
         },
-        "CloneExif": {
+        "cloneExif": {
           "type": "boolean"
         },
-        "CloneIptc": {
+        "cloneIptc": {
           "type": "boolean"
         },
-        "CloneAdobeResources": {
+        "cloneAdobeResources": {
           "type": "boolean"
         },
-        "CloneXmp": {
+        "cloneXmp": {
           "type": "boolean"
         },
-        "ResizeAction": {
+        "resizeAction": {
           "$ref": "#/definitions/ResizeAction"
         },
-        "Actions": {
+        "actions": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ImageActionBase"
-          },
-          "xml": {
-            "wrapped": true
           }
         }
       },
@@ -864,7 +2057,8 @@
       ]
     },
     "ColorProfile": {
-      "type": "integer",
+      "type": "string",
+      "description": "",
       "x-enumNames": [
         "AdobeRgb1998",
         "AppleRgb",
@@ -898,41 +2092,41 @@
         "Isonewspaper26v4Grey"
       ],
       "enum": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30
-      ],
-      "description": ""
+        "AdobeRgb1998",
+        "AppleRgb",
+        "ColorMatchRgb",
+        "EciRgbV1",
+        "EciRgbV2",
+        "Srgb",
+        "SrgbColorSpaceProfile",
+        "EuropeIsoCoatedFogra27",
+        "EuroscaleCoated",
+        "EuroscaleUncoated",
+        "IsoCoated",
+        "IsoCoatedEciV2",
+        "JapanColor2001Coated",
+        "JapanColor2001Uncoated",
+        "JapanColor2002Newspaper",
+        "JapanWebCoated",
+        "UsSheetfedCoated",
+        "UsSheetfedUncoated",
+        "UsWebCoatedSwop",
+        "UsWebUncoated",
+        "IsoCoatedV2Grey1cBas",
+        "IsoCoated300EciV2",
+        "CoatedFogra27",
+        "CoatedFogra39",
+        "UncoatedFogra29",
+        "WebCoatedFogra28",
+        "WebCoatedSwop2006Grade3",
+        "WebCoatedSwop2006Grade5",
+        "Isonewspaper26v4",
+        "Isonewspaper26v4Grey"
+      ]
     },
     "ColorTransformationIntent": {
-      "type": "integer",
+      "type": "string",
+      "description": "",
       "x-enumNames": [
         "RelativeColorimetricBpc",
         "AbsoluteColorimetric",
@@ -941,59 +2135,59 @@
         "Saturation"
       ],
       "enum": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "description": ""
+        "RelativeColorimetricBpc",
+        "AbsoluteColorimetric",
+        "Perceptual",
+        "RelativeColorimetric",
+        "Saturation"
+      ]
     },
     "ResizeAction": {
       "type": "object",
+      "description": "Does not implement the IImageAction interface. The ResizeAction is directly exposed within ImageFormat.",
       "additionalProperties": false,
       "required": [
-        "Width",
-        "Height",
-        "ResizeMode"
+        "width",
+        "height",
+        "resizeMode"
       ],
       "properties": {
-        "Width": {
+        "width": {
           "type": "integer",
           "format": "int32"
         },
-        "Height": {
+        "height": {
           "type": "integer",
           "format": "int32"
         },
-        "ResizeMode": {
+        "resizeMode": {
           "$ref": "#/definitions/ResizeMode"
         }
       }
     },
     "ResizeMode": {
-      "type": "integer",
+      "type": "string",
+      "description": "",
       "x-enumNames": [
         "Fit",
         "Shrink",
         "Resize"
       ],
       "enum": [
-        0,
-        1,
-        2
-      ],
-      "description": ""
+        "Fit",
+        "Shrink",
+        "Resize"
+      ]
     },
     "ImageActionBase": {
       "type": "object",
-      "discriminator": "Kind",
+      "discriminator": "kind",
       "additionalProperties": false,
       "required": [
-        "Kind"
+        "kind"
       ],
       "properties": {
-        "Kind": {
+        "kind": {
           "type": "string"
         }
       }
@@ -1002,13 +2196,13 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "AlphaHandling"
+        "alphaHandling"
       ],
       "properties": {
-        "AlphaHandling": {
+        "alphaHandling": {
           "$ref": "#/definitions/AlphaHandling"
         },
-        "ReplacementRgbColorHexCode": {
+        "replacementRgbColorHexCode": {
           "type": "string"
         }
       },
@@ -1019,42 +2213,42 @@
       ]
     },
     "AlphaHandling": {
-      "type": "integer",
+      "type": "string",
+      "description": "",
       "x-enumNames": [
         "DiscardAlpha",
         "ReplaceAlpha",
         "ReplaceInvertedAlpha"
       ],
       "enum": [
-        1,
-        2,
-        3
-      ],
-      "description": ""
+        "DiscardAlpha",
+        "ReplaceAlpha",
+        "ReplaceInvertedAlpha"
+      ]
     },
     "CropAction": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "X",
-        "Y",
-        "Width",
-        "Height"
+        "x",
+        "y",
+        "width",
+        "height"
       ],
       "properties": {
-        "X": {
+        "x": {
           "type": "integer",
           "format": "int32"
         },
-        "Y": {
+        "y": {
           "type": "integer",
           "format": "int32"
         },
-        "Width": {
+        "width": {
           "type": "integer",
           "format": "int32"
         },
-        "Height": {
+        "height": {
           "type": "integer",
           "format": "int32"
         }
@@ -1069,20 +2263,20 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Amount",
-        "Radius",
-        "Threshold"
+        "amount",
+        "radius",
+        "threshold"
       ],
       "properties": {
-        "Amount": {
+        "amount": {
           "type": "number",
           "format": "double"
         },
-        "Radius": {
+        "radius": {
           "type": "number",
           "format": "double"
         },
-        "Threshold": {
+        "threshold": {
           "type": "number",
           "format": "double"
         }
@@ -1097,42 +2291,42 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Opacity",
-        "WidthRatio",
-        "HeightRatio"
+        "opacity",
+        "widthRatio",
+        "heightRatio"
       ],
       "properties": {
-        "WatermarkFilePath": {
+        "watermarkFilePath": {
           "type": "string"
         },
-        "WatermarkText": {
+        "watermarkText": {
           "type": "string"
         },
-        "MarginLeft": {
+        "marginLeft": {
           "type": "integer",
           "format": "int32"
         },
-        "MarginTop": {
+        "marginTop": {
           "type": "integer",
           "format": "int32"
         },
-        "MarginRight": {
+        "marginRight": {
           "type": "integer",
           "format": "int32"
         },
-        "MarginBottom": {
+        "marginBottom": {
           "type": "integer",
           "format": "int32"
         },
-        "Opacity": {
+        "opacity": {
           "type": "number",
           "format": "double"
         },
-        "WidthRatio": {
+        "widthRatio": {
           "type": "number",
           "format": "double"
         },
-        "HeightRatio": {
+        "heightRatio": {
           "type": "number",
           "format": "double"
         }
@@ -1147,19 +2341,13 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1173,34 +2361,28 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Quality",
-        "IsProgressive",
-        "ChromaSubsamplingEnabled"
+        "quality",
+        "isProgressive",
+        "chromaSubsamplingEnabled"
       ],
       "properties": {
-        "Quality": {
+        "quality": {
           "type": "integer",
           "format": "int32"
         },
-        "IsProgressive": {
+        "isProgressive": {
           "type": "boolean"
         },
-        "ChromaSubsamplingEnabled": {
+        "chromaSubsamplingEnabled": {
           "type": "boolean"
         },
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1214,25 +2396,19 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Interlaced"
+        "interlaced"
       ],
       "properties": {
-        "Interlaced": {
+        "interlaced": {
           "type": "boolean"
         },
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1246,33 +2422,27 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "AlphaPremultiplied",
-        "CompressionType",
-        "IncludeUnspecifiedTiffExtraChannels"
+        "alphaPremultiplied",
+        "compressionType",
+        "includeUnspecifiedTiffExtraChannels"
       ],
       "properties": {
-        "AlphaPremultiplied": {
+        "alphaPremultiplied": {
           "type": "boolean"
         },
-        "CompressionType": {
+        "compressionType": {
           "$ref": "#/definitions/CompressionType"
         },
-        "IncludeUnspecifiedTiffExtraChannels": {
+        "includeUnspecifiedTiffExtraChannels": {
           "type": "boolean"
         },
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1283,7 +2453,8 @@
       ]
     },
     "CompressionType": {
-      "type": "integer",
+      "type": "string",
+      "description": "",
       "x-enumNames": [
         "None",
         "Lzw",
@@ -1291,12 +2462,11 @@
         "Zip"
       ],
       "enum": [
-        1,
-        2,
-        3,
-        4
-      ],
-      "description": ""
+        "None",
+        "Lzw",
+        "Rle",
+        "Zip"
+      ]
     },
     "VideoFormatBase": {
       "type": "object",
@@ -1311,40 +2481,41 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Preset"
+        "preset"
       ],
       "properties": {
-        "ResizeAction": {
+        "resizeAction": {
           "$ref": "#/definitions/ResizeAction2"
         },
-        "AudioCodec": {
-          "$ref": "#/definitions/AudioFormatBase"
+        "audioCodec": {
+          "description": "Gets or sets the encoding audio codec.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/AudioFormatBase"
+            }
+          ]
         },
-        "Preset": {
-          "$ref": "#/definitions/Preset"
+        "preset": {
+          "description": "Gets or sets the encoding codec preset.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/Preset"
+            }
+          ]
         },
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
-        "Actions": {
+        "actions": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/IVideoAction"
-          },
-          "xml": {
-            "wrapped": true
           }
         }
       },
@@ -1358,20 +2529,20 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Width",
-        "Height",
-        "ResizeMode"
+        "width",
+        "height",
+        "resizeMode"
       ],
       "properties": {
-        "Width": {
+        "width": {
           "type": "integer",
           "format": "int32"
         },
-        "Height": {
+        "height": {
           "type": "integer",
           "format": "int32"
         },
-        "ResizeMode": {
+        "resizeMode": {
           "$ref": "#/definitions/ResizeMode"
         }
       }
@@ -1389,29 +2560,24 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "VideoPresetId"
+        "videoPresetId"
       ],
       "properties": {
-        "VideoPresetId": {
+        "videoPresetId": {
           "type": "string",
+          "description": "Id of Squeeze preset.",
           "format": "guid"
         },
-        "CustomerId": {
+        "customerId": {
           "type": "string"
         },
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1425,34 +2591,28 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "MaxNumberOfSprites",
-        "Quality"
+        "maxNumberOfSprites",
+        "quality"
       ],
       "properties": {
-        "SpriteResizeAction": {
+        "spriteResizeAction": {
           "$ref": "#/definitions/ResizeAction2"
         },
-        "MaxNumberOfSprites": {
+        "maxNumberOfSprites": {
           "type": "integer",
           "format": "int32"
         },
-        "Quality": {
+        "quality": {
           "type": "integer",
           "format": "int32"
         },
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1466,25 +2626,19 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "PositionInSeconds"
+        "positionInSeconds"
       ],
       "properties": {
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
-        "PositionInSeconds": {
+        "positionInSeconds": {
           "type": "integer",
           "format": "int32"
         }
@@ -1499,37 +2653,43 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Profile",
-        "Coder"
+        "profile",
+        "coder"
       ],
       "properties": {
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
-        "Profile": {
-          "$ref": "#/definitions/Profile"
+        "profile": {
+          "description": "Gets or sets the encoding profile.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/Profile"
+            }
+          ]
         },
-        "Coder": {
-          "$ref": "#/definitions/Coder"
+        "coder": {
+          "description": "Gets or sets the encoding coder.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/Coder"
+            }
+          ]
         },
-        "Bitrate": {
+        "bitrate": {
           "type": "integer",
+          "description": "Gets or sets the bitrate of the encoding.",
           "format": "int32"
         },
-        "VariableBitRate": {
+        "variableBitRate": {
           "type": "integer",
+          "description": "Gets or sets the encoding variable bit rate (VBR) - 1 is lowest quality and 5 is highest quality.",
           "format": "int32"
         }
       },
@@ -1540,7 +2700,8 @@
       ]
     },
     "Profile": {
-      "type": "integer",
+      "type": "string",
+      "description": "",
       "x-enumNames": [
         "aac_low",
         "mpeg2_aac_low",
@@ -1548,51 +2709,45 @@
         "aac_main"
       ],
       "enum": [
-        0,
-        1,
-        2,
-        3
-      ],
-      "description": ""
+        "aac_low",
+        "mpeg2_aac_low",
+        "aac_ltp",
+        "aac_main"
+      ]
     },
     "Coder": {
-      "type": "integer",
+      "type": "string",
+      "description": "",
       "x-enumNames": [
         "twoloop",
         "anmr",
         "fast"
       ],
       "enum": [
-        0,
-        1,
-        2
-      ],
-      "description": ""
+        "twoloop",
+        "anmr",
+        "fast"
+      ]
     },
     "AudioPresetFormat": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "AudioPresetId"
+        "audioPresetId"
       ],
       "properties": {
-        "AudioPresetId": {
+        "audioPresetId": {
           "type": "string",
+          "description": "Id of Squeeze preset.",
           "format": "guid"
         },
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1606,19 +2761,13 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1632,27 +2781,23 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
-        "Bitrate": {
+        "bitrate": {
           "type": "integer",
+          "description": "Gets or sets the encoding bitrate.",
           "format": "int32"
         },
-        "Quality": {
+        "quality": {
           "type": "integer",
+          "description": "Gets or sets the encoding quality.\nValues can be set it range of 0 to 9, where a lower value is a higher quality.",
           "format": "int32"
         }
       },
@@ -1675,19 +2820,13 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -1701,38 +2840,33 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "JpegQuality",
-        "FastWebView",
-        "ReduceFileSize",
-        "ExtractFullText"
+        "jpegQuality",
+        "fastWebView",
+        "reduceFileSize",
+        "extractFullText"
       ],
       "properties": {
-        "JpegQuality": {
+        "jpegQuality": {
           "type": "integer",
+          "description": "JpegQuality parameter value must be between 0 and 100.",
           "format": "int32"
         },
-        "FastWebView": {
+        "fastWebView": {
           "type": "boolean"
         },
-        "ReduceFileSize": {
+        "reduceFileSize": {
           "type": "boolean"
         },
-        "DefaultOutputExtension": {
+        "defaultOutputExtension": {
           "type": "string"
         },
-        "AllowedOutputExtensions": {
+        "allowedOutputExtensions": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
-        "ExtractFullText": {
+        "extractFullText": {
           "type": "boolean"
         }
       },
@@ -1743,7 +2877,8 @@
       ]
     },
     "Preset": {
-      "type": "integer",
+      "type": "string",
+      "description": "",
       "x-enumNames": [
         "ultrafast",
         "superfast",
@@ -1755,526 +2890,205 @@
         "slower"
       ],
       "enum": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
-      ],
-      "description": ""
+        "ultrafast",
+        "superfast",
+        "veryfast",
+        "faster",
+        "fast",
+        "medium",
+        "slow",
+        "slower"
+      ]
     },
     "IVideoAction": {
       "type": "object",
       "additionalProperties": false
     },
-    "BaseStoreItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "Version"
-      ],
-      "properties": {
-        "Id": {
-          "type": "string"
-        },
-        "Version": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "Audit": {
-          "$ref": "#/definitions/StoreAudit"
-        }
-      }
-    },
-    "StoreAudit": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "CreationDate",
-        "ModificationDate"
-      ],
-      "properties": {
-        "CreationDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "CreatedByUser": {
-          "$ref": "#/definitions/UserItem"
-        },
-        "ModificationDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "ModifiedByUser": {
-          "$ref": "#/definitions/UserItem"
-        }
-      }
-    },
-    "UserItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Id": {
-          "type": "string"
-        },
-        "FirstName": {
-          "type": "string"
-        },
-        "LastName": {
-          "type": "string"
-        },
-        "EmailAddress": {
-          "type": "string"
-        }
-      }
-    },
     "CustomerConfigurationItem": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "UseSsl",
-        "ElasticSearchNumberOfShards",
-        "ElasticSearchNumberOfReplicas",
-        "RootSearchIndexNumberOfShards",
-        "RootSearchIndexNumberOfReplicas",
-        "RedisDatabaseIndex"
+        "useSsl",
+        "elasticSearchNumberOfShards",
+        "elasticSearchNumberOfReplicas",
+        "rootContentSearchIndexNumberOfShards",
+        "rootContentSearchIndexNumberOfReplicas",
+        "rootListItemSearchIndexNumberOfShards",
+        "rootListItemSearchIndexNumberOfReplicas",
+        "indexedFieldThreshold",
+        "redisDatabaseIndex",
+        "lifeCycle"
       ],
       "properties": {
-        "Id": {
+        "id": {
           "type": "string"
         },
-        "Name": {
+        "lifelineId": {
           "type": "string"
         },
-        "InitialCatalog": {
+        "namespace": {
           "type": "string"
         },
-        "MetadataCatalog": {
+        "alias": {
           "type": "string"
         },
-        "StatisticsCatalog": {
+        "name": {
           "type": "string"
         },
-        "DocumentHistoryCatalog": {
+        "mainCatalog": {
           "type": "string"
         },
-        "LiveStreamCatalog": {
+        "userCatalog": {
           "type": "string"
         },
-        "CacheCatalog": {
+        "mailCatalog": {
           "type": "string"
         },
-        "WatermarkPath": {
+        "transferCatalog": {
           "type": "string"
         },
-        "StoragePath": {
+        "shareCatalog": {
           "type": "string"
         },
-        "CustomerHosts": {
+        "outputCatalog": {
+          "type": "string"
+        },
+        "notificationCatalog": {
+          "type": "string"
+        },
+        "businessProcessCatalog": {
+          "type": "string"
+        },
+        "listItemCatalog": {
+          "type": "string"
+        },
+        "contentCatalog": {
+          "type": "string"
+        },
+        "tokenCatalog": {
+          "type": "string"
+        },
+        "documentHistoryCatalog": {
+          "type": "string"
+        },
+        "liveStreamCatalog": {
+          "type": "string"
+        },
+        "cacheCatalog": {
+          "type": "string"
+        },
+        "watermarkPath": {
+          "type": "string"
+        },
+        "storagePath": {
+          "type": "string"
+        },
+        "contractVersion": {
+          "type": "string"
+        },
+        "customerHosts": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
-        "UseSsl": {
+        "useSsl": {
           "type": "boolean"
         },
-        "ExternalProviders": {
+        "externalProviders": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/ExternalProviderItem"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
-        "ServiceProviders": {
+        "serviceProviders": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/CustomerServiceProviderItem"
-          },
-          "xml": {
-            "wrapped": true
           }
         },
-        "SupportContactEmailAddress": {
+        "supportContactEmailAddress": {
           "type": "string"
         },
-        "BaseUrl": {
+        "baseUrl": {
           "type": "string"
         },
-        "CDNUrl": {
+        "cdnUrl": {
           "type": "string"
         },
-        "ElasticSearchNumberOfShards": {
+        "elasticSearchNumberOfShards": {
           "type": "integer",
           "format": "int32"
         },
-        "ElasticSearchNumberOfReplicas": {
+        "elasticSearchNumberOfReplicas": {
           "type": "integer",
           "format": "int32"
         },
-        "RootSearchIndexNumberOfShards": {
+        "rootContentSearchIndexNumberOfShards": {
           "type": "integer",
           "format": "int32"
         },
-        "RootSearchIndexNumberOfReplicas": {
+        "rootContentSearchIndexNumberOfReplicas": {
           "type": "integer",
           "format": "int32"
         },
-        "CorsAllowedHosts": {
+        "rootListItemSearchIndexNumberOfShards": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rootListItemSearchIndexNumberOfReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "indexedFieldThreshold": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "corsAllowedHosts": {
           "type": "array",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         },
-        "NoReplyEmailAddress": {
+        "noReplyEmailAddress": {
           "type": "string"
         },
-        "LanguageConfiguration": {
+        "languageConfiguration": {
           "$ref": "#/definitions/LanguageConfigurationItem"
         },
-        "BusinessProcessEngineConnectionString": {
+        "businessProcessEngineConnectionString": {
           "type": "string"
         },
-        "CreateTransferBusinessProcess": {
+        "createTransferBusinessProcess": {
           "type": "string"
         },
-        "RedisDatabaseIndex": {
-          "type": "integer",
-          "format": "int32"
-        }
-      }
-    },
-    "CustomerUpdateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "Enabled",
-        "CacheRetentionTimeInMinutes",
-        "UseSsl"
-      ],
-      "properties": {
-        "Id": {
-          "type": "string"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "Enabled": {
-          "type": "boolean"
-        },
-        "CustomerHosts": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
-          }
-        },
-        "CacheRetentionTimeInMinutes": {
+        "redisDatabaseIndex": {
           "type": "integer",
           "format": "int32"
         },
-        "UseSsl": {
-          "type": "boolean"
+        "lifeCycle": {
+          "$ref": "#/definitions/LifeCycle"
         },
-        "CDNUrl": {
-          "type": "string"
-        },
-        "SupportContactEmailAddress": {
-          "type": "string"
-        },
-        "CorsAllowedHosts": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
-          }
-        },
-        "NoReplyEmailAddress": {
-          "type": "string"
+        "deactivationMessage": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
         }
       }
     },
-    "CustomerSearchResult": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/BaseResultOfCustomerViewItem"
-        }
-      ]
-    },
-    "BaseResultOfCustomerViewItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "TotalResults"
-      ],
-      "properties": {
-        "TotalResults": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "Results": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CustomerViewItem"
-          },
-          "xml": {
-            "wrapped": true
-          }
-        },
-        "PageToken": {
-          "type": "string"
-        }
-      }
-    },
-    "CustomerViewItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Id": {
-          "type": "string"
-        },
-        "Name": {
-          "type": "string"
-        },
-        "DeactivationComment": {
-          "type": "string"
-        },
-        "CustomerHosts": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
-          }
-        },
-        "InitialCatalog": {
-          "type": "string"
-        },
-        "DatabaseVersion": {
-          "type": "string"
-        },
-        "StoragePath": {
-          "type": "string"
-        },
-        "WatermarkPath": {
-          "type": "string"
-        }
-      }
-    },
-    "UserViewItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "UserRoleIds": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
-          }
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/UserItem"
-        }
-      ]
-    },
-    "CustomerSearchRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "Start",
-        "Limit"
-      ],
-      "properties": {
-        "SearchString": {
-          "type": "string"
-        },
-        "Sort": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
-          },
-          "xml": {
-            "wrapped": true
-          }
-        },
-        "Start": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "Limit": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "Filter": {
-          "$ref": "#/definitions/FilterBase"
-        }
-      }
-    },
-    "SortInfo": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "Direction"
-      ],
-      "properties": {
-        "Field": {
-          "type": "string"
-        },
-        "Direction": {
-          "$ref": "#/definitions/SortDirection"
-        }
-      }
-    },
-    "SortDirection": {
-      "type": "integer",
+    "LifeCycle": {
+      "type": "string",
+      "description": "",
       "x-enumNames": [
-        "Asc",
-        "Desc"
+        "Draft",
+        "Active",
+        "Inactive",
+        "Deleted"
       ],
       "enum": [
-        1,
-        2
-      ],
-      "description": ""
-    },
-    "FilterBase": {
-      "type": "object",
-      "discriminator": "Kind",
-      "additionalProperties": false,
-      "required": [
-        "Kind"
-      ],
-      "properties": {
-        "Kind": {
-          "type": "string"
-        }
-      }
-    },
-    "AndFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Filters": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/FilterBase"
-          },
-          "xml": {
-            "wrapped": true
-          }
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
+        "Draft",
+        "Active",
+        "Inactive",
+        "Deleted"
       ]
-    },
-    "OrFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Filters": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/FilterBase"
-          },
-          "xml": {
-            "wrapped": true
-          }
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "NotFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Filter": {
-          "$ref": "#/definitions/FilterBase"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "DateRangeFilter": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Field": {
-          "type": "string"
-        },
-        "Range": {
-          "$ref": "#/definitions/DateRange"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "DateRange": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Names": {
-          "$ref": "#/definitions/TranslatedStringDictionary"
-        },
-        "From": {
-          "type": "string"
-        },
-        "To": {
-          "type": "string"
-        }
-      }
     },
     "TranslatedStringDictionary": {
       "type": "object",
@@ -2288,12 +3102,1171 @@
         }
       ]
     },
-    "ExistsFilter": {
+    "PictureparkException": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "traceLevel",
+        "httpStatusCode",
+        "kind"
+      ],
+      "properties": {
+        "traceLevel": {
+          "$ref": "#/definitions/TraceLevel"
+        },
+        "traceId": {
+          "type": "string"
+        },
+        "traceJobId": {
+          "type": "string"
+        },
+        "httpStatusCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "kind": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/Exception"
+        }
+      ]
+    },
+    "TraceLevel": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Critical",
+        "Error",
+        "Warning",
+        "Information",
+        "Verbose"
+      ],
+      "enum": [
+        "Critical",
+        "Error",
+        "Warning",
+        "Information",
+        "Verbose"
+      ]
+    },
+    "Exception": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Field": {
+        "message": {
           "type": "string"
+        },
+        "innerException": {
+          "$ref": "#/definitions/Exception"
+        },
+        "stackTrace": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      }
+    },
+    "PictureparkApplicationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "PictureparkBusinessException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        },
+        "customerAlias": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "PictureparkArgumentNullException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "argumentName": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "ContentNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "BusinessProcessDefinitionCreateException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "processDefinitionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "BusinessProcessDefinitionNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "processDefinitionId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "BusinessProcessNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "businessProcessId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "CustomerHostNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "hostName": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "CustomerNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "DocumentNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "documentId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "DocumentVersionNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "documentId": {
+          "type": "string"
+        },
+        "documentVersion": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "DriveRequestException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "DuplicateRightException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "permissionSetId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "DuplicateDocumentException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "documentId": {
+          "type": "string"
+        },
+        "documentType": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "DuplicateAggregatorException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aggregatorName": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "FailedToLockException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "resourceId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "IndexException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "indexName": {
+          "type": "string"
+        },
+        "debugInformation": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "InvalidArgumentException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "argumentName": {
+          "type": "string"
+        },
+        "argumentValue": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "InvalidCustomerException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "PictureparkInvalidMetadataException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "metadataErrors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MetadataError"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "MetadataError": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lineNumber",
+        "linePosition"
+      ],
+      "properties": {
+        "errorType": {
+          "type": "string"
+        },
+        "lineNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "linePosition": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "path": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "schemaId": {
+          "type": "string"
+        }
+      }
+    },
+    "InvalidStateTransitionException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "transition": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/InvalidStateException"
+        }
+      ]
+    },
+    "InvalidStateException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "resourceId": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "InvalidUserOrPasswordException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "PictureparkMappingException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "indexName": {
+          "type": "string"
+        },
+        "debugInformation": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "MessagePerformerTaskCanceledException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "messageId": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "NotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reference": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "ObjectStoreException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rowErrorMessages": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "ObjectStoreResponseException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rowErrorMessages": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "PictureparkOperationCanceledException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "OperationTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "OutputNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string"
+        },
+        "outputFormatId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "PermissionException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "permission": {
+          "type": "string"
+        },
+        "operation": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "QueryException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "debugInformation": {
+          "type": "string"
+        },
+        "serverError": {
+          "$ref": "#/definitions/StorageServerError"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "StorageServerError": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/StorageError"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "StorageError": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "index": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "resourceId": {
+          "type": "string"
+        },
+        "resourceType": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "rootCause": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StorageRootCause"
+          }
+        },
+        "causedBy": {
+          "$ref": "#/definitions/StorageCausedBy"
+        }
+      }
+    },
+    "StorageRootCause": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "index": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "resourceId": {
+          "type": "string"
+        },
+        "resourceType": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    },
+    "StorageCausedBy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reason": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "innerCausedBy": {
+          "$ref": "#/definitions/StorageCausedBy"
+        }
+      }
+    },
+    "RenderingException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "RenderingJobItemNotSetException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "ServiceProviderCreateException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "virtualHost": {
+          "type": "string"
+        },
+        "detailErrorMessage": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "ServiceProviderDeleteException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "serviceProviderId": {
+          "type": "string"
+        },
+        "detailedErrorMessage": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "ServiceProviderNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "missingServiceProviderId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "TokenValidationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "UnknownException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exceptionDetail": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "UserNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "missingUserId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "UserPermanentlyRemovedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "removedUserId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "UserRoleAssignedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userRoleId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "UserRolesRightsAssignedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentPermissionSetId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "CustomerUpdateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lifeCycle",
+        "backupEnabled",
+        "cacheRetentionTimeInMinutes",
+        "useSsl"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "lifeCycle": {
+          "$ref": "#/definitions/LifeCycle"
+        },
+        "deactivationMessage": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "backupEnabled": {
+          "type": "boolean"
+        },
+        "customerHosts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cacheRetentionTimeInMinutes": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "useSsl": {
+          "type": "boolean"
+        },
+        "cdnUrl": {
+          "type": "string"
+        },
+        "baseUrl": {
+          "type": "string"
+        },
+        "supportContactEmailAddress": {
+          "type": "string"
+        },
+        "corsAllowedHosts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "noReplyEmailAddress": {
+          "type": "string"
+        },
+        "indexedFieldThreshold": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "CustomerSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfCustomer"
+        }
+      ]
+    },
+    "BaseResultOfCustomer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "totalResults"
+      ],
+      "properties": {
+        "totalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Customer"
+          }
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "Customer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lifeCycle"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "alias": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "deactivationComment": {
+          "type": "string"
+        },
+        "customerHosts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mainCatalog": {
+          "type": "string"
+        },
+        "contractVersion": {
+          "type": "string"
+        },
+        "storagePath": {
+          "type": "string"
+        },
+        "watermarkPath": {
+          "type": "string"
+        },
+        "lifeCycle": {
+          "$ref": "#/definitions/LifeCycle"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userRoleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomerSearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "limit"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        },
+        "start": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "filter": {
+          "$ref": "#/definitions/FilterBase"
+        }
+      }
+    },
+    "SortInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "direction"
+      ],
+      "properties": {
+        "field": {
+          "type": "string"
+        },
+        "direction": {
+          "$ref": "#/definitions/SortDirection"
+        }
+      }
+    },
+    "SortDirection": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Asc",
+        "Desc"
+      ],
+      "enum": [
+        "Asc",
+        "Desc"
+      ]
+    },
+    "FilterBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "description": "The FilterBase is the base class for all filters.",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "AndFilter": {
+      "type": "object",
+      "description": "The AndFilter> is a compound filter and returns documents that match all of the specified filters.",
+      "additionalProperties": false,
+      "properties": {
+        "filters": {
+          "type": "array",
+          "description": "Accepts all filters.",
+          "items": {
+            "$ref": "#/definitions/FilterBase"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "OrFilter": {
+      "type": "object",
+      "description": "The OrFilter is a compound filter and returns documents that match any of the specified filters.",
+      "additionalProperties": false,
+      "properties": {
+        "filters": {
+          "type": "array",
+          "description": "Accepts all filters.",
+          "items": {
+            "$ref": "#/definitions/FilterBase"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "NotFilter": {
+      "type": "object",
+      "description": "The NotFilter is a compound filter and returns documents that do not match the specified filter.",
+      "additionalProperties": false,
+      "properties": {
+        "filter": {
+          "description": "Limits the result set.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "DateRangeFilter": {
+      "type": "object",
+      "description": "The DateRangeFilter returns documents with fields that have date values within a certain range.",
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
+        },
+        "range": {
+          "description": "The date range. Supported pattern: now(+-)(int)(YMDHm).",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DateRange"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "DateRange": {
+      "type": "object",
+      "description": "The date range class used in aggregators and filters.",
+      "additionalProperties": false,
+      "properties": {
+        "names": {
+          "description": "Tranlsated range names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "from": {
+          "type": "string",
+          "description": "The from value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
+        },
+        "to": {
+          "type": "string",
+          "description": "The to value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
+        }
+      }
+    },
+    "ExistsFilter": {
+      "type": "object",
+      "description": "The ExistsFilter returns documents that have at least one non-null value in the original field.",
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         }
       },
       "allOf": [
@@ -2304,16 +4277,28 @@
     },
     "GeoBoundingBoxFilter": {
       "type": "object",
+      "description": "The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.",
       "additionalProperties": false,
       "properties": {
-        "Field": {
-          "type": "string"
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         },
-        "TopLeft": {
-          "$ref": "#/definitions/GeoLocation"
+        "topLeft": {
+          "description": "The top left longitude/latitude configuration.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         },
-        "BottomRight": {
-          "$ref": "#/definitions/GeoLocation"
+        "bottomRight": {
+          "description": "The bottom right longitude/latitude configuration.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2326,15 +4311,15 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "Lat",
-        "Lon"
+        "lat",
+        "lon"
       ],
       "properties": {
-        "Lat": {
+        "lat": {
           "type": "number",
           "format": "double"
         },
-        "Lon": {
+        "lon": {
           "type": "number",
           "format": "double"
         }
@@ -2342,19 +4327,27 @@
     },
     "GeoDistanceFilter": {
       "type": "object",
+      "description": "The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point.",
       "additionalProperties": false,
       "required": [
-        "Distance"
+        "distance"
       ],
       "properties": {
-        "Field": {
-          "type": "string"
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         },
-        "Location": {
-          "$ref": "#/definitions/GeoLocation"
+        "location": {
+          "description": "The longitude/latitude configuration for the point of origin.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         },
-        "Distance": {
+        "distance": {
           "type": "number",
+          "description": "The range distance in meters.",
           "format": "double"
         }
       },
@@ -2366,16 +4359,28 @@
     },
     "GeoDistanceRangeFilter": {
       "type": "object",
+      "description": "The GeoDistanceRangeFilter returns documents that exists within a range from a specific point.",
       "additionalProperties": false,
       "properties": {
-        "Field": {
-          "type": "string"
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         },
-        "Location": {
-          "$ref": "#/definitions/GeoLocation"
+        "location": {
+          "description": "The longitude/latitude configuration for the point of origin.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/GeoLocation"
+            }
+          ]
         },
-        "Range": {
-          "$ref": "#/definitions/NumericRange"
+        "range": {
+          "description": "The numeric range.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumericRange"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2388,31 +4393,42 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "Names": {
-          "$ref": "#/definitions/TranslatedStringDictionary"
+        "names": {
+          "description": "Tranlsated range names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         },
-        "From": {
+        "from": {
           "type": "number",
+          "description": "The from value.",
           "format": "double"
         },
-        "To": {
+        "to": {
           "type": "number",
+          "description": "The to value.",
           "format": "double"
         }
       }
     },
     "NestedFilter": {
       "type": "object",
+      "description": "The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.",
       "additionalProperties": false,
       "properties": {
-        "Path": {
-          "type": "string"
+        "path": {
+          "type": "string",
+          "description": "The path pointing to the nested object."
         },
-        "Join": {
-          "type": "boolean"
-        },
-        "Filter": {
-          "$ref": "#/definitions/FilterBase"
+        "filter": {
+          "description": "Limits the result set.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2423,13 +4439,20 @@
     },
     "NumericRangeFilter": {
       "type": "object",
+      "description": "The NumericRangeFilter returns documents with fields that have numeric values within a certain range.",
       "additionalProperties": false,
       "properties": {
-        "Field": {
-          "type": "string"
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         },
-        "Range": {
-          "$ref": "#/definitions/NumericRange"
+        "range": {
+          "description": "The numeric range with from and to properties.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/NumericRange"
+            }
+          ]
         }
       },
       "allOf": [
@@ -2440,13 +4463,16 @@
     },
     "PrefixFilter": {
       "type": "object",
+      "description": "The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).",
       "additionalProperties": false,
       "properties": {
-        "Field": {
-          "type": "string"
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         },
-        "Prefix": {
-          "type": "string"
+        "prefix": {
+          "type": "string",
+          "description": "The prefix term to filter on."
         }
       },
       "allOf": [
@@ -2457,13 +4483,16 @@
     },
     "TermFilter": {
       "type": "object",
+      "description": "The TermFilter returns documents that contain the exact term specified in the inverted index.",
       "additionalProperties": false,
       "properties": {
-        "Field": {
-          "type": "string"
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         },
-        "Term": {
-          "type": "string"
+        "term": {
+          "type": "string",
+          "description": "The term to filter on."
         }
       },
       "allOf": [
@@ -2474,21 +4503,18 @@
     },
     "TermsFilter": {
       "type": "object",
+      "description": "The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).",
       "additionalProperties": false,
       "properties": {
-        "Field": {
-          "type": "string"
+        "field": {
+          "type": "string",
+          "description": "The elastic search index field to execute the filter on."
         },
-        "Terms": {
+        "terms": {
           "type": "array",
+          "description": "A list of OR combined terms.",
           "items": {
-            "type": "string",
-            "xml": {
-              "name": "String"
-            }
-          },
-          "xml": {
-            "wrapped": true
+            "type": "string"
           }
         }
       },
@@ -2500,13 +4526,23 @@
     },
     "AggregationFilter": {
       "type": "object",
+      "description": "An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition.",
       "additionalProperties": false,
       "properties": {
-        "AggregationName": {
-          "type": "string"
+        "aggregationName": {
+          "type": "string",
+          "description": "The name of the aggregation this filter is connected to."
         },
-        "Filter": {
-          "$ref": "#/definitions/FilterBase"
+        "filter": {
+          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        },
+        "temporaryAggregatorRequestId": {
+          "type": "string"
         }
       },
       "allOf": [
@@ -2514,29 +4550,691 @@
           "$ref": "#/definitions/FilterBase"
         }
       ]
+    },
+    "ChildFilter": {
+      "type": "object",
+      "description": "The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.",
+      "additionalProperties": false,
+      "properties": {
+        "childType": {
+          "type": "string",
+          "description": "The elastic search index type to filter as a child."
+        },
+        "filter": {
+          "description": "The filter to apply on the child entity. It accepts all filters.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "ParentFilter": {
+      "type": "object",
+      "description": "The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.",
+      "additionalProperties": false,
+      "properties": {
+        "parentType": {
+          "type": "string",
+          "description": "The elastic search index type to filter as a parent."
+        },
+        "filter": {
+          "description": "The filter to apply on the child entity. It accepts all filters.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FilterBase"
+        }
+      ]
+    },
+    "NodeInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lastResponseTime"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "hostName": {
+          "type": "string"
+        },
+        "lastResponseTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "serviceName": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "versionInfo": {
+          "type": "string"
+        },
+        "release": {
+          "type": "string"
+        },
+        "logLevel": {
+          "type": "string"
+        }
+      }
+    },
+    "UpdateInfo": {
+      "type": "object",
+      "description": "The UpdateInfoViewItem is the view item for update commands.",
+      "additionalProperties": false,
+      "required": [
+        "creationDate"
+      ],
+      "properties": {
+        "updateVersion": {
+          "type": "string",
+          "description": "The version of the update command."
+        },
+        "objectStoreVersion": {
+          "type": "string",
+          "description": "The version of the object store (elastic search) at the time of the update command creation."
+        },
+        "creationDate": {
+          "type": "string",
+          "description": "The creation date of the update command.",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the update command."
+        },
+        "creator": {
+          "type": "string",
+          "description": "The creator of the update command."
+        }
+      }
+    },
+    "VersionInfo": {
+      "type": "object",
+      "description": "The version view item for the environment.",
+      "additionalProperties": false,
+      "properties": {
+        "fileVersion": {
+          "type": "string",
+          "description": "The manual file version of Picturepark.Contract.dll."
+        },
+        "fileProductVersion": {
+          "type": "string",
+          "description": "The GitVersionTask generated file product version of Picturepark.Configuration.dll."
+        },
+        "contractVersion": {
+          "type": "string",
+          "description": "The current contract version stored in CustomerDoc / EnvironmentDoc."
+        },
+        "release": {
+          "type": "string",
+          "description": "The bamboo release version. Only provided on bamboo deployments."
+        }
+      }
+    },
+    "ReactivationEnvironmentRequest": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "DeactivationEnvironmentRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "deactivationMessage": {
+          "description": "Language specific deactivation messages.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        }
+      }
+    },
+    "UpdateEnvironmentRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "targetVersion": {
+          "type": "string",
+          "description": "The maximal target version.\nIn case the highest available update version is lower than the desired target version, the environments's contract version will be raised to the highest available update version."
+        }
+      }
+    },
+    "CustomerVersionInfo": {
+      "type": "object",
+      "description": "The version view item for the customer.",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string",
+          "description": "The customer id."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/VersionInfo"
+        }
+      ]
+    },
+    "ReactivationCustomerRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string",
+          "description": "The customer id."
+        }
+      }
+    },
+    "DeactivationCustomerRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string",
+          "description": "The customer id."
+        },
+        "deactivationMessage": {
+          "description": "Language specific deactivation messages.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        }
+      }
+    },
+    "UpdateCustomerRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "targetVersion": {
+          "type": "string",
+          "description": "The maximal target version.\nIn case the highest available update version is lower than the desired target version, the customer's contract version will be raised to the highest available update version."
+        },
+        "customerId": {
+          "type": "string",
+          "description": "The customer id."
+        }
+      }
+    },
+    "SnapshotRepositoryCustomerCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerAlias": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/SnapshotRepositoryBaseCreateRequest"
+        }
+      ]
+    },
+    "SnapshotRepositoryBaseCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "repositoryName": {
+          "type": "string"
+        }
+      }
+    },
+    "SnapshotRepository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entityType"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "entityId": {
+          "type": "string"
+        },
+        "entityType": {
+          "$ref": "#/definitions/BackupEntityType"
+        }
+      }
+    },
+    "BackupEntityType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Enviroment",
+        "Customer"
+      ],
+      "enum": [
+        "Enviroment",
+        "Customer"
+      ]
+    },
+    "SnapshotCustomerCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerAlias": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/SnapshotBaseCreateRequest"
+        }
+      ]
+    },
+    "SnapshotBaseCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reason",
+        "timestamp"
+      ],
+      "properties": {
+        "snapshotName": {
+          "type": "string",
+          "description": "The SnapshotName. Must be unique.\nThe name usually will be enriched with Reason, ContractVersion and DateTime information."
+        },
+        "repositoryName": {
+          "type": "string",
+          "description": "The Repository in which the snapshot will be created."
+        },
+        "indices": {
+          "type": "array",
+          "description": "The Indices being part of the snapshot.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reason": {
+          "description": "The snapshot backup reason will be added to the snapshot name.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BackupReason"
+            }
+          ]
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Timestamp when creating the requst (utc). If there is a more recent snapshot in the repository, it will keep/return the latest one,\ninstead of creating a new one.",
+          "format": "date-time"
+        }
+      }
+    },
+    "BackupReason": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Custom",
+        "Update",
+        "Deletion"
+      ],
+      "enum": [
+        "Custom",
+        "Update",
+        "Deletion"
+      ]
+    },
+    "Snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "durationInMilliseconds",
+        "endTime",
+        "endTimeInMilliseconds",
+        "startTime",
+        "startTimeInMilliseconds",
+        "entityType",
+        "restoreDate"
+      ],
+      "properties": {
+        "durationInMilliseconds": {
+          "type": "integer",
+          "description": "The snapshot creation DurationInMilliseconds.",
+          "format": "int64"
+        },
+        "endTime": {
+          "type": "string",
+          "description": "The snapshot EndTime.",
+          "format": "date-time"
+        },
+        "endTimeInMilliseconds": {
+          "type": "integer",
+          "description": "The snapshot EndTimeInMilliseconds.",
+          "format": "int64"
+        },
+        "failures": {
+          "type": "array",
+          "description": "The snapshot elastic search shard Falures.",
+          "items": {
+            "$ref": "#/definitions/SnapshotShardFailure"
+          }
+        },
+        "indices": {
+          "type": "array",
+          "description": "The snapshot Indices.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "string",
+          "description": "The snapshot Name."
+        },
+        "repositoryName": {
+          "type": "string",
+          "description": "The repository name."
+        },
+        "startTime": {
+          "type": "string",
+          "description": "The snapshot StartTime.",
+          "format": "date-time"
+        },
+        "startTimeInMilliseconds": {
+          "type": "integer",
+          "description": "The snapshot StartTimeInMilliseconds.",
+          "format": "int64"
+        },
+        "state": {
+          "type": "string",
+          "description": "The snapshot State."
+        },
+        "entityId": {
+          "type": "string"
+        },
+        "entityType": {
+          "$ref": "#/definitions/BackupEntityType"
+        },
+        "restoreDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "SnapshotShardFailure": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "index": {
+          "type": "string",
+          "description": "The Index having the shard failure."
+        },
+        "nodeId": {
+          "type": "string",
+          "description": "The elastic search NodeId."
+        },
+        "reason": {
+          "type": "string",
+          "description": "The elastic serach shard failure Reason."
+        },
+        "shardId": {
+          "type": "string",
+          "description": "The failing elastic search ShardId."
+        },
+        "status": {
+          "type": "string",
+          "description": "The snapshot failure status."
+        }
+      }
+    },
+    "SnapshotCustomerRestoreRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerAlias": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/SnapshotBaseRestoreRequest"
+        }
+      ]
+    },
+    "SnapshotBaseRestoreRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "snapshotName": {
+          "type": "string"
+        },
+        "repositoryName": {
+          "type": "string"
+        },
+        "indices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SnapshotRestore": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "restoreDate"
+      ],
+      "properties": {
+        "restoreDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "repositoryName": {
+          "type": "string"
+        },
+        "snapshotName": {
+          "type": "string"
+        },
+        "indices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SnapshotRepositoryEnvironmentCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/SnapshotRepositoryBaseCreateRequest"
+        }
+      ]
+    },
+    "SnapshotEnvironmentCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/SnapshotBaseCreateRequest"
+        }
+      ]
+    },
+    "SnapshotEnvironmentRestoreRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/SnapshotBaseRestoreRequest"
+        }
+      ]
+    },
+    "SnapshotCustomerSearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "limit"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        },
+        "start": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "repositoryNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "customerAlias": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        }
+      }
+    },
+    "SnapshotCustomerSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "elapsedMilliseconds"
+      ],
+      "properties": {
+        "elapsedMilliseconds": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfSnapshot"
+        }
+      ]
+    },
+    "BaseResultOfSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "totalResults"
+      ],
+      "properties": {
+        "totalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Snapshot"
+          }
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "SnapshotRepositoryCustomerSearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        },
+        "customerAlias": {
+          "type": "string"
+        }
+      }
+    },
+    "SnapshotCustomerCloneRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "snapshotName": {
+          "type": "string"
+        },
+        "repositoryName": {
+          "type": "string"
+        },
+        "sourceCustomerAlias": {
+          "type": "string"
+        },
+        "customerName": {
+          "type": "string"
+        },
+        "customerAlias": {
+          "type": "string"
+        },
+        "customerHosts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "corsAllowedHosts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "storagePath": {
+          "type": "string"
+        },
+        "baseUrl": {
+          "type": "string"
+        },
+        "redirectUri": {
+          "type": "string"
+        }
+      }
+    },
+    "UserDeveloperFlagUpdateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isDeveloper"
+      ],
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "isDeveloper": {
+          "type": "boolean"
+        }
+      }
     }
   },
   "parameters": {},
   "responses": {},
-  "securityDefinitions": {
-    "oauth2": {
-      "type": "oauth2",
-      "description": "Foo",
-      "flow": "password",
-      "tokenUrl": "/token",
-      "scopes": {
-        "read": "Read access to protected resources",
-        "write": "Write access to protected resources"
-      }
-    },
-    "Bearer": {
-      "type": "apiKey",
-      "name": "Authorization",
-      "in": "header",
-      "scopes": {
-        "read": "Read access to protected resources",
-        "write": "Write access to protected resources"
-      }
-    }
-  }
+  "securityDefinitions": {},
+  "tags": []
 }

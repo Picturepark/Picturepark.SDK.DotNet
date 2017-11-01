@@ -246,3 +246,7 @@ ModelManifest.xml
 Configuration.json
 
 project.lock.json
+/src/Picturepark.SDK.V1.Tests/Temp
+
+appsettings.json
+appsettings.development.json

@@ -1,5 +1,4 @@
-﻿using Picturepark.API.Contract.V1.ServiceProvider;
-using Picturepark.SDK.V1.ServiceProvider.Buffer;
+﻿using Picturepark.SDK.V1.ServiceProvider.Buffer;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
@@ -8,6 +7,8 @@ using System.Reactive;
 using System.Reactive.Linq;
 using System.Text;
 using Picturepark.SDK.V1.Authentication;
+using Picturepark.SDK.V1.Contract;
+using Picturepark.SDK.V1.ServiceProvider.Contract;
 
 namespace Picturepark.SDK.V1.ServiceProvider
 {
@@ -20,18 +21,15 @@ namespace Picturepark.SDK.V1.ServiceProvider
 		private readonly IModel _requestMessageModel;
 		private readonly LiveStreamBuffer _liveStreamBuffer;
 
-		private readonly Dictionary<string, ServiceProvidersClientBase> _serviceProviderCache;
-
 		private LiveStreamConsumer _liveStreamConsumer;
 
 		public ServiceProviderClient(Configuration configuration)
 		{
 			_configuration = configuration;
-			_serviceProviderCache = new Dictionary<string, ServiceProvidersClientBase>();
 
 			ConnectionFactory factory = new ConnectionFactory();
 
-			factory.Uri = $"amqp://{configuration.User}:{configuration.Password}@{configuration.Host}:{configuration.Port}";
+			factory.Uri = new Uri($"amqp://{configuration.User}:{configuration.Password}@{configuration.Host}:{configuration.Port}");
 			factory.AutomaticRecoveryEnabled = true;
 			factory.VirtualHost = configuration.ServiceProviderId;
 			factory.NetworkRecoveryInterval = TimeSpan.FromSeconds(10);
@@ -85,7 +83,7 @@ namespace Picturepark.SDK.V1.ServiceProvider
 			// consumer
 			var consumer = new EventingBasicConsumer(_requestMessageModel);
 			consumer.Received += (o, e) => { _liveStreamConsumer.OnReceived(o, e); };
-			_liveStreamModel.BasicConsume(queue: queueName, noAck: false, consumer: consumer);
+			_liveStreamModel.BasicConsume(queue: queueName, autoAck: false, consumer: consumer);
 
 			return result;
 		}
@@ -106,30 +104,13 @@ namespace Picturepark.SDK.V1.ServiceProvider
 			// consumer
 			var consumer = new EventingBasicConsumer(_requestMessageModel);
 			consumer.Received += Request_Received;
-			_requestMessageModel.BasicConsume(queue: queueName, noAck: false, consumer: consumer);
+			_requestMessageModel.BasicConsume(queue: queueName, autoAck: false, consumer: consumer);
 
 			// create observable
 			return Observable.FromEventPattern<ServiceProviderRequestEventArgs>(
 				ev => ServiceProviderRequestEvent += ev,
 				ev => ServiceProviderRequestEvent -= ev
 			);
-		}
-
-		public ServiceProvidersClientBase GetConfigurationClient(string baseUrl, string username, string password)
-		{
-			// TODO BRO: Lock
-			if (_serviceProviderCache.ContainsKey(baseUrl))
-			{
-				return _serviceProviderCache[baseUrl];
-			}
-			else
-			{
-				var client = new ServiceProvidersClientBase(new UsernamePasswordAuthClient(baseUrl, username, password));
-				client.BaseUrl = baseUrl;
-
-				_serviceProviderCache[baseUrl] = client;
-				return client;
-			}
 		}
 
 		private void Request_Received(object sender, BasicDeliverEventArgs e)

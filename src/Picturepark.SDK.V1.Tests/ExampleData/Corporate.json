@@ -135,7 +135,7 @@
 				"Keyword"
 			],
 			"MetadataSchemaNamespace": "Corporate",
-			"Scope": "Asset",
+			"Scope": "Content",
 			"Names": {
 				"en": "Corporate Details",
 				"de": "Corporate Details",
@@ -248,7 +248,7 @@
 			"SortOrder": 4
 		}
 	],
-	"MetadataObjectTransferItems": [
+	"ListItemTransferItems": [
 		[
 			{
 				"Id": "f5bec70820754035ae50332efa63dae9",

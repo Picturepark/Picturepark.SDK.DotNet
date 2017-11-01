@@ -1,11 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 using Picturepark.SDK.V1.Authentication;
 using Picturepark.SDK.V1.Contract;
 
@@ -14,44 +10,54 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 	public class SDKClientFixture : IDisposable
 	{
 		private readonly PictureparkClient _client;
-		private readonly Configuration _configuration;
+		private readonly TestConfiguration _configuration;
 
 		public SDKClientFixture()
 		{
-			var configurationJson = File.ReadAllText("Configuration.json");
-			_configuration = JsonConvert.DeserializeObject<Configuration>(configurationJson);
+			ProjectDirectory = Path.GetFullPath(Path.GetDirectoryName(typeof(SDKClientFixture).GetTypeInfo().Assembly.Location) + "/../../../");
 
-			var authClient = new UsernamePasswordAuthClient(_configuration.ApiBaseUrl, _configuration.ApiEmail, _configuration.ApiPassword);
-			_client = new PictureparkClient(_configuration.ApiBaseUrl, authClient);
+			// Fix
+			if (!File.Exists(ProjectDirectory + "Configuration.json"))
+				ProjectDirectory += "../";
 
-			// _client.SetExceptionHandler((ex, translatedMessage) =>
-			// {
-			// 	throw ex;
-			// });
+			if (!Directory.Exists(TempDirectory))
+				Directory.CreateDirectory(TempDirectory);
+
+			var configurationJson = File.ReadAllText(ProjectDirectory + "Configuration.json");
+			_configuration = JsonConvert.DeserializeObject<TestConfiguration>(configurationJson);
+
+			var authClient = new AccessTokenAuthClient(_configuration.Server, _configuration.AccessToken, _configuration.CustomerAlias);
+			_client = new PictureparkClient(new PictureparkClientSettings(authClient));
 		}
 
-		public Configuration Configuration => _configuration;
+		public string ProjectDirectory { get; }
+
+		public string TempDirectory => ProjectDirectory + "/Temp";
+
+		public string ExampleFilesBasePath => ProjectDirectory + "/ExampleData/Pool";
+
+		public TestConfiguration Configuration => _configuration;
 
 		public PictureparkClient Client => _client;
 
-		public Contract.AssetSearchResult GetRandomAssets(string searchString, int limit)
+		public Contract.ContentSearchResult GetRandomContents(string searchString, int limit)
 		{
-			return RandomHelper.GetRandomAssets(_client, searchString, limit);
+			return RandomHelper.GetRandomContents(_client, searchString, limit);
 		}
 
-		public string GetRandomAssetId(string searchString, int limit)
+		public string GetRandomContentId(string searchString, int limit)
 		{
-			return RandomHelper.GetRandomAssetId(_client, searchString, limit);
+			return RandomHelper.GetRandomContentId(_client, searchString, limit);
 		}
 
-		public string GetRandomAssetPermissionSetId(int limit)
+		public string GetRandomContentPermissionSetId(int limit)
 		{
-			return RandomHelper.GetRandomAssetPermissionSetId(_client, limit);
+			return RandomHelper.GetRandomContentPermissionSetId(_client, limit);
 		}
 
-		public string GetRandomBatchTransferId(TransferState? transferState, int limit)
+		public string GetRandomTransferId(TransferState? transferState, int limit)
 		{
-			return RandomHelper.GetRandomBatchTransferId(_client, transferState, limit);
+			return RandomHelper.GetRandomTransferId(_client, transferState, limit);
 		}
 
 		public string GetRandomFileTransferId(int limit)
@@ -64,9 +70,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 			return RandomHelper.GetRandomMetadataPermissionSetId(_client, limit);
 		}
 
-		public string GetRandomMetadataSchemaId(int limit)
+		public string GetRandomSchemaId(int limit)
 		{
-			return RandomHelper.GetRandomMetadataSchemaId(_client, limit);
+			return RandomHelper.GetRandomSchemaId(_client, limit);
 		}
 
 		public string GetRandomObjectId(string metadataSchemaId, int limit)

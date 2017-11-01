@@ -1,9 +1,9 @@
 ﻿{
-	"ExampleFilesBasePath": "C:\\Projects\\Picturepark.Tests.Files\\Picturepark.DataGeneration\\Assets\\Pool",
-	"TempPath": "D:\\Temp",
-	"ApiBaseUrl": "https://devnext.preview-picturepark.com",
-	"ApiEmail": "",
-	"ApiPassword": "",
+	"Server": "https://devnext.preview-picturepark.com",
+	"CustomerAlias": "",
+	"Username": "",
+	"Password": "",
+	"AccessToken": "",
 	"EmailRecipient": {
 		"FirstName": "Firstname",
 		"LastName": "Lastname",

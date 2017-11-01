@@ -2,10 +2,8 @@
 using Picturepark.SDK.V1.Tests.Fixtures;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -13,8 +11,8 @@ namespace Picturepark.SDK.V1.Tests
 {
 	public class TransferTests : IClassFixture<SDKClientFixture>
 	{
-		private SDKClientFixture _fixture;
-		private PictureparkClient _client;
+		private readonly SDKClientFixture _fixture;
+		private readonly PictureparkClient _client;
 
 		public TransferTests(SDKClientFixture fixture)
 		{
@@ -24,167 +22,126 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
-		public async Task ShouldCreateBatchAndUploadFiles()
+		public async Task ShouldCreateTransferFromFiles()
 		{
-			var filePaths = new List<string>();
-			filePaths.Add(Path.Combine(_fixture.Configuration.ExampleFilesBasePath, "0322_ERSauUNQ3ag.jpg"));
-			filePaths.Add(Path.Combine(_fixture.Configuration.ExampleFilesBasePath, "0314_JYFmYif4n70.jpg"));
-			filePaths.Add(Path.Combine(_fixture.Configuration.ExampleFilesBasePath, "0050_6qORI5j_6n8.jpg"));
+			var transferName = new Random().Next(1000, 9999).ToString();
+			var files = new List<string> { Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg") };
 
-			string batchName = nameof(ShouldCreateBatchAndUploadFiles) + "-" + new Random().Next(1000, 9999).ToString();
-			List<string> fileNames = filePaths.Select(file => Path.GetFileName(file)).ToList();
-
-			// Create batch
-			TransferViewItem transfer = await _client.Transfers.CreateBatchAsync(fileNames, batchName);
-
-			// Upload files
-			string directoryPath = Path.GetDirectoryName(filePaths.First());
-
-			await _client.Transfers.UploadFilesAsync(
-				filePaths,
-				directoryPath,
-				transfer,
-				successDelegate: (file) =>
-				{
-					Console.WriteLine(file);
-				},
-				errorDelegate: (error) =>
-				{
-					Console.WriteLine(error);
-				}
-			);
-
-			// Import batch
-			await ImportBatchAsync(transfer, batchName);
-
-			// Import metadata
-			var request = new FileTransferSearchRequest() { Limit = 1000 };
-			FileTransferSearchResult fileTransferSearchResult = await _client.Transfers.SearchFilesAsync(request);
-			string fileTransferId = fileTransferSearchResult.Results.Where(i => i.TransferId == transfer.Id).Select(i => i.Id).FirstOrDefault();
-
-			// Todo SAF
-			// Program.metadataApiExamples.ImportMetadata(null, fileTransferId);
+			var result = await _client.Transfers.CreateTransferAsync(files, transferName);
+			Assert.NotNull(result);
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
-		public async Task ShouldCreateBatchFromFiles()
+		public async Task ShouldCreateTransferFromWebUrls()
 		{
-			string batchName = new Random().Next(1000, 9999).ToString();
-			var files = new List<string>() { Path.Combine(_fixture.Configuration.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg") };
+			var transferName = "UrlImport " + new Random().Next(1000, 9999);
 
-			TransferViewItem result = await _client.Transfers.CreateBatchAsync(files, batchName);
-		}
-
-		[Fact]
-		[Trait("Stack", "Transfers")]
-		public async Task ShouldCreateBatchFromWebUrls()
-		{
-			string batchName = "UrlImport " + new Random().Next(1000, 9999).ToString();
-
-			var urls = new List<string>();
-			urls.Add("https://picturepark.com/wp-content/uploads/2013/06/home-marquee.jpg");
-			urls.Add("http://cdn1.spiegel.de/images/image-733178-900_breitwand_180x67-zgpe-733178.jpg");
-			urls.Add("http://cdn3.spiegel.de/images/image-1046236-700_poster_16x9-ymle-1046236.jpg");
-			urls.Add("https://dgpcopy.next-picturepark.com/Go/A6ZYegLz/D/15/1");
-
-			var request = new CreateTransferRequest()
+			var urls = new List<string>
 			{
-				Name = batchName,
+				"https://picturepark.com/wp-content/uploads/2013/06/home-marquee.jpg",
+				"http://cdn1.spiegel.de/images/image-733178-900_breitwand_180x67-zgpe-733178.jpg",
+				"http://cdn3.spiegel.de/images/image-1046236-700_poster_16x9-ymle-1046236.jpg",
+				"https://dgpcopy.next-picturepark.com/Go/A6ZYegLz/D/15/1"
+			};
+			var request = new CreateTransferRequest
+			{
+				Name = transferName,
 				TransferType = TransferType.WebDownload,
-				WebLinks = urls.Select(url => new TransferWebLink() { Url = url, Identifier = Guid.NewGuid().ToString() }).ToList()
+				WebLinks = urls.Select(url => new TransferWebLink { Url = url, Identifier = Guid.NewGuid().ToString() }).ToList()
 			};
 
-			TransferViewItem result = await _client.Transfers.CreateBatchAsync(request);
+			var result = await _client.Transfers.CreateTransferAsync(request);
+			Assert.NotNull(result);
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldDeleteBatch()
 		{
-			string batchTransferId = _fixture.GetRandomBatchTransferId(TransferState.ImportCompleted, 10);
+			var transferId = _fixture.GetRandomTransferId(TransferState.TransferReady, 10);
 
-			Assert.True(batchTransferId != string.Empty);
+			Assert.True(transferId != string.Empty);
 
-			await _client.Transfers.DeleteAsync(batchTransferId);
+			await _client.Transfers.DeleteAsync(transferId);
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
-		public async Task ShouldGetBatch()
+		public async Task ShouldGetTransfer()
 		{
-			string batchTransferId = _fixture.GetRandomBatchTransferId(null, 20);
-			TransferDetailViewItem result = await _client.Transfers.GetAsync(batchTransferId);
+			var transferId = _fixture.GetRandomTransferId(null, 20);
+			TransferDetail result = await _client.Transfers.GetAsync(transferId);
+			Assert.NotNull(result);
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldGetFile()
 		{
-			string fileTransferId = _fixture.GetRandomFileTransferId(20);
-			FileTransferDetailViewItem result = await _client.Transfers.GetFileAsync(fileTransferId);
+			var fileTransferId = _fixture.GetRandomFileTransferId(20);
+			FileTransferDetail result = await _client.Transfers.GetFileAsync(fileTransferId);
+			Assert.NotNull(result);
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldSearchTransfers()
 		{
-			var request = new TransferSearchRequest() { Limit = 5, SearchString = "*" };
+			var request = new TransferSearchRequest { Limit = 5, SearchString = "*" };
 			TransferSearchResult result = await _client.Transfers.SearchAsync(request);
+			Assert.NotNull(result);
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldSearchFiles()
 		{
-			var request = new FileTransferSearchRequest() { Limit = 20, SearchString = "*" };
+			var request = new FileTransferSearchRequest { Limit = 20, SearchString = "*" };
 			FileTransferSearchResult result = await _client.Transfers.SearchFilesAsync(request);
+			Assert.NotNull(result);
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldUploadAndImportFiles()
 		{
-			int desiredUploadFiles = 10;
-			string batchName = nameof(ShouldUploadAndImportFiles) + "-" + new Random().Next(1000, 9999).ToString();
+			const int desiredUploadFiles = 10;
+			var transferName = nameof(ShouldUploadAndImportFiles) + "-" + new Random().Next(1000, 9999);
 
-			var filesInDirectory = Directory.GetFiles(_fixture.Configuration.ExampleFilesBasePath, "*").ToList();
+			var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, "*").ToList();
 
-			int numberOfFilesInDir = filesInDirectory.Count;
-			int numberOfUploadFiles = Math.Min(desiredUploadFiles, numberOfFilesInDir);
+			var numberOfFilesInDir = filesInDirectory.Count;
+			var numberOfUploadFiles = Math.Min(desiredUploadFiles, numberOfFilesInDir);
 
-			int randomNumber = new Random().Next(0, numberOfFilesInDir - numberOfUploadFiles);
-			List<string> importFilePaths = filesInDirectory.Skip(randomNumber).Take(numberOfUploadFiles).ToList();
+			var randomNumber = new Random().Next(0, numberOfFilesInDir - numberOfUploadFiles);
+			var importFilePaths = filesInDirectory.Skip(randomNumber).Take(numberOfUploadFiles).ToList();
 
-			TransferViewItem transfer = await _client.Transfers.CreateBatchAsync(importFilePaths.Select(file => Path.GetFileName(file)).ToList(), batchName);
+			Transfer transfer = await _client.Transfers.CreateTransferAsync(importFilePaths.Select(Path.GetFileName).ToList(), transferName);
 
 			await _client.Transfers.UploadFilesAsync(
 				importFilePaths,
-				_fixture.Configuration.ExampleFilesBasePath,
+				_fixture.ExampleFilesBasePath,
 				transfer,
-				successDelegate: (file) =>
-				{
-					Console.WriteLine(file);
-				},
-				errorDelegate: (error) =>
-				{
-					Console.WriteLine(error);
-				});
+				concurrentUploads: 4,
+				chunkSize: 20 * 1024,
+				successDelegate: Console.WriteLine,
+				errorDelegate: Console.WriteLine);
 
-			await ImportBatchAsync(transfer, batchName);
+			await ImportTransferAsync(transfer, transferName);
 		}
 
-		internal async Task ImportBatchAsync(TransferViewItem transfer, string collectionName)
+		internal async Task ImportTransferAsync(Transfer transfer, string collectionName)
 		{
-			var request = new FileTransfer2AssetCreateRequest
+			var request = new FileTransfer2ContentCreateRequest
 			{
 				TransferId = transfer.Id,
-				AssetPermissionSetIds = new List<string>(),
+				ContentPermissionSetIds = new List<string>(),
 				Metadata = null,
-				MetadataSchemaIds = new List<string>()
+				LayerSchemaIds = new List<string>()
 			};
 
-			await _client.Transfers.ImportBatchAsync(transfer, request);
+			await _client.Transfers.ImportTransferAsync(transfer, request);
 		}
 	}
 }

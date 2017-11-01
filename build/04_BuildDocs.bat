@@ -1,0 +1,1 @@
+call "%~dp0/../tools/docfx/docfx.exe" "%~dp0/../docs/api/docfx.json"

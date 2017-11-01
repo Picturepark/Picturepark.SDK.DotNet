@@ -23,32 +23,32 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Permissions")]
-		public async Task ShouldGetAssetPermissions()
+		public async Task ShouldGetContentPermissions()
 		{
-			string permissionSetId = _fixture.GetRandomAssetPermissionSetId(20);
+			string permissionSetId = _fixture.GetRandomContentPermissionSetId(20);
 			Assert.False(string.IsNullOrEmpty(permissionSetId));
 
-			AssetPermissionSetDetailViewItem result = await _client.Permissions.GetAssetPermissionsAsync(permissionSetId);
+			ContentPermissionSetDetail result = await _client.Permissions.GetContentPermissionsAsync(permissionSetId);
 			Assert.False(string.IsNullOrEmpty(result.Id));
 		}
 
 		[Fact]
 		[Trait("Stack", "Permissions")]
-		public async Task ShouldGetMetadataPermissions()
+		public async Task ShouldGetSchemaPermissions()
 		{
 			string permissionSetId = _fixture.GetRandomMetadataPermissionSetId(20);
 			Assert.False(string.IsNullOrEmpty(permissionSetId));
 
-			MetadataPermissionSetDetailViewItem result = await _client.Permissions.GetMetadataPermissionsAsync(permissionSetId);
+			SchemaPermissionSetDetail result = await _client.Permissions.GetSchemaPermissionsAsync(permissionSetId);
 			Assert.False(string.IsNullOrEmpty(result.Id));
 		}
 
 		[Fact]
 		[Trait("Stack", "Permissions")]
-		public async Task ShouldSearchAssetPermissions()
+		public async Task ShouldSearchContentPermissions()
 		{
 			var request = new PermissionSetSearchRequest() { Limit = 20 };
-			PermissionSetSearchResult result = await _client.Permissions.SearchAssetPermissionsAsync(request);
+			PermissionSetSearchResult result = await _client.Permissions.SearchContentPermissionsAsync(request);
 
 			Assert.True(result.Results.Count() > 0);
 		}
@@ -58,7 +58,7 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldSearchMetadataPermissions()
 		{
 			var request = new PermissionSetSearchRequest() { Limit = 20 };
-			PermissionSetSearchResult result = await _client.Permissions.SearchMetadataPermissionsAsync(request);
+			PermissionSetSearchResult result = await _client.Permissions.SearchSchemaPermissionsAsync(request);
 
 			Assert.True(result.Results.Count() > 0);
 		}
