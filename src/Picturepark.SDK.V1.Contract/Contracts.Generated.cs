@@ -456,7 +456,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcessDetails</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        BusinessProcessWaitResult GetDetails(string processId);
+        BusinessProcessDetails GetDetails(string processId);
     
         /// <summary>Get details</summary>
         /// <param name="processId">The process id</param>
@@ -464,7 +464,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcessDetails</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<BusinessProcessWaitResult> GetDetailsAsync(string processId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcessDetails> GetDetailsAsync(string processId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -2899,6 +2899,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("BusinessProcessDetails", typeof(BusinessProcessDetails))]
     [JsonInheritanceAttribute("BusinessProcessBulkResponse", typeof(BusinessProcessBulkResponse))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcess 
@@ -4842,6 +4843,56 @@ namespace Picturepark.SDK.V1.Contract
         public static BusinessProcessWaitResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BusinessProcessDetails : BusinessProcess
+    {
+        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BusinessProcessDetailsDataBase Details { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessDetails FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetails>(data);
+        }
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("BusinessProcessDetailsDataBulkResponse", typeof(BusinessProcessDetailsDataBulkResponse))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BusinessProcessDetailsDataBase 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessDetailsDataBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataBase>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BusinessProcessDetailsDataBulkResponse : BusinessProcessDetailsDataBase
+    {
+        [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BulkResponse Response { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessDetailsDataBulkResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataBulkResponse>(data);
         }
     }
     

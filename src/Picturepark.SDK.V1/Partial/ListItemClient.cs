@@ -86,10 +86,11 @@ namespace Picturepark.SDK.V1
 				return new List<ListItem>();
 			}
 
-			var createRequest = await CreateManyCoreAsync(listItemCreateRequests, cancellationToken ?? CancellationToken.None);
-			var result = await createRequest.Wait4MetadataAsync(_businessProcessClient);
+			var businessProcess = await CreateManyCoreAsync(listItemCreateRequests, cancellationToken ?? CancellationToken.None);
+			await businessProcess.Wait4MetadataAsync(_businessProcessClient);
+			var details = await _businessProcessClient.GetDetailsAsync(businessProcess.Id);
 
-			var bulkResult = (BusinessProcessBulkResponse)result.BusinessProcess;
+			var bulkResult = (BusinessProcessDetailsDataBulkResponse)details.Details;
 			if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
 				throw new Exception("Could not save all objects");
 

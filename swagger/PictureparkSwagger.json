@@ -1617,7 +1617,7 @@
           "200": {
             "description": "BusinessProcessDetails",
             "schema": {
-              "$ref": "#/definitions/BusinessProcessWaitResult"
+              "$ref": "#/definitions/BusinessProcessDetails"
             },
             "x-nullable": true
           },
@@ -8119,6 +8119,47 @@
           "$ref": "#/definitions/BusinessProcess"
         }
       }
+    },
+    "BusinessProcessDetails": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "details": {
+          "$ref": "#/definitions/BusinessProcessDetailsDataBase"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BusinessProcess"
+        }
+      ]
+    },
+    "BusinessProcessDetailsDataBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "BusinessProcessDetailsDataBulkResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "response": {
+          "$ref": "#/definitions/BulkResponse"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BusinessProcessDetailsDataBase"
+        }
+      ]
     },
     "DocumentHistorySearchRequest": {
       "type": "object",

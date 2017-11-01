@@ -3134,7 +3134,7 @@ namespace Picturepark.SDK.V1
         /// <returns>BusinessProcessDetails</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public BusinessProcessWaitResult GetDetails(string processId)
+        public BusinessProcessDetails GetDetails(string processId)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetDetailsAsync(processId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -3145,7 +3145,7 @@ namespace Picturepark.SDK.V1
         /// <returns>BusinessProcessDetails</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<BusinessProcessWaitResult> GetDetailsAsync(string processId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BusinessProcessDetails> GetDetailsAsync(string processId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (processId == null)
                 throw new System.ArgumentNullException("processId");
@@ -3180,10 +3180,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BusinessProcessWaitResult); 
+                            var result_ = default(BusinessProcessDetails); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitResult>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetails>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -3230,7 +3230,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(BusinessProcessWaitResult);
+                        return default(BusinessProcessDetails);
                     }
                     finally
                     {
