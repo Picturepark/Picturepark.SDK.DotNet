@@ -9,11 +9,11 @@ using Xunit;
 
 namespace Picturepark.SDK.V1.Tests
 {
-	public class BusinessProcessTests : IClassFixture<BusinessProcessFixture>
+	public class BusinessProcessTests : IClassFixture<SDKClientFixture>
 	{
 		private readonly PictureparkClient _client;
 
-		public BusinessProcessTests(BusinessProcessFixture fixture)
+		public BusinessProcessTests(SDKClientFixture fixture)
 		{
 			_client = fixture.Client;
 		}
