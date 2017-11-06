@@ -26,12 +26,12 @@ Register the Picturepark .NET service classes in the ASP.NET Core dependency inj
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-	services.AddApplicationInsightsTelemetry(Configuration);
-	services.AddMvc();
+    services.AddApplicationInsightsTelemetry(Configuration);
+    services.AddMvc();
 
-	services.AddSingleton<IPictureparkClientSettings>(
-		new PictureparkClientSettings(new AccessTokenAuthClient("https://api.mypcpserver.com", "AccessToken", "CustomerAlias")));
-	services.AddScoped<IPictureparkClient, PictureparkClient>();
+    services.AddScoped<IPictureparkClient, PictureparkClient>();
+    services.AddSingleton<IPictureparkClientSettings>(
+        new PictureparkClientSettings(new AccessTokenAuthClient("https://api.server.com", "AccessToken", "CustomerAlias")));
 }
 ```
 
