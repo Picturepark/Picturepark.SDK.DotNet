@@ -325,7 +325,7 @@
         ]
       }
     },
-    "/v1/contents/createBatchContentDownload": {
+    "/v1/contents/downloadLinks": {
       "post": {
         "tags": [
           "Content"
@@ -338,7 +338,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ContentBatchDownloadRequest"
+              "$ref": "#/definitions/ContentDownloadLinkCreateRequest"
             },
             "x-nullable": true,
             "description": "The content batch download request"
@@ -348,7 +348,7 @@
           "200": {
             "description": "ContentBatchDonloadItem",
             "schema": {
-              "$ref": "#/definitions/ContentBatchDownloadItem"
+              "$ref": "#/definitions/DownloadLink"
             },
             "x-nullable": true
           },
@@ -7315,19 +7315,19 @@
         }
       }
     },
-    "ContentBatchDownloadRequest": {
+    "ContentDownloadLinkCreateRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "contents": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ContentBatchDownloadRequestItem"
+            "$ref": "#/definitions/ContentDownloadRequestItem"
           }
         }
       }
     },
-    "ContentBatchDownloadRequestItem": {
+    "ContentDownloadRequestItem": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7339,7 +7339,7 @@
         }
       }
     },
-    "ContentBatchDownloadItem": {
+    "DownloadLink": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -11566,6 +11566,9 @@
         "fileTransferCount": {
           "type": "integer",
           "format": "int64"
+        },
+        "collectionId": {
+          "type": "string"
         }
       }
     },
@@ -16774,6 +16777,14 @@
           "items": {
             "type": "string"
           }
+        },
+        "missingResultsDisplayPatterns": {
+          "description": "Display pattern to use for rendering details when 0 results are returned",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         }
       }
     },

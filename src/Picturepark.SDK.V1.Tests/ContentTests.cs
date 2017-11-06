@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using System.IO;
+using System.Net.Http;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Tests.Fixtures;
@@ -104,27 +105,79 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Contents")]
-		public async Task ShouldCreateDownloadLinks()
+		public async Task ShouldCreateDownloadLinkForSingleFile()
 		{
-			var request = new ContentBatchDownloadRequest
+			var contentId = _fixture.GetRandomContentId(".jpg", 50);
+
+			var createDownloadLinkRequest = new ContentDownloadLinkCreateRequest
 			{
-				Contents = new List<ContentBatchDownloadRequestItem>()
+				Contents = new List<ContentDownloadRequestItem>
+				{
+					new ContentDownloadRequestItem { ContentId = contentId, OutputFormatId = "Original" }
+				}
 			};
+
+			var result = await _client.Contents.CreateDownloadLinkAsync(createDownloadLinkRequest);
+			Assert.NotNull(result.DownloadUrl);
+
+			using (var httpClient = new HttpClient())
+			using (var response = await httpClient.GetAsync(result.DownloadUrl))
+			{
+				response.EnsureSuccessStatusCode();
+
+				var fileName = response.Content.Headers.ContentDisposition.FileName;
+				Assert.EndsWith(".jpg", fileName);
+
+				var filePath = Path.Combine(_fixture.TempDirectory, fileName);
+
+				using (var stream = await response.Content.ReadAsStreamAsync())
+				using (var fileStream = File.Create(filePath))
+				{
+					stream.CopyTo(fileStream);
+				}
+			}
+		}
+
+		[Fact]
+		[Trait("Stack", "Contents")]
+		public async Task ShouldCreateDownloadLinkForMultipeFiles()
+		{
 			var contentId1 = _fixture.GetRandomContentId(".jpg", 50);
 			var contentId2 = _fixture.GetRandomContentId(".jpg", 50);
-			Assert.False(string.IsNullOrEmpty(contentId1));
 
-			request.Contents.Add(new ContentBatchDownloadRequestItem { ContentId = contentId1, OutputFormatId = "Original" });
-			if (contentId1 != contentId2)
-				request.Contents.Add(new ContentBatchDownloadRequestItem { ContentId = contentId2, OutputFormatId = "Original" });
+			var createDownloadLinkRequest = new ContentDownloadLinkCreateRequest
+			{
+				Contents = new List<ContentDownloadRequestItem>
+				{
+					new ContentDownloadRequestItem { ContentId = contentId1, OutputFormatId = "Original" },
+					new ContentDownloadRequestItem { ContentId = contentId2, OutputFormatId = "Original" }
+				}
+			};
 
-			var result = await _client.Contents.CreateDownloadLinkAsync(request);
-			Assert.NotNull(result.DownloadToken);
+			var result = await _client.Contents.CreateDownloadLinkAsync(createDownloadLinkRequest);
+			Assert.NotNull(result.DownloadUrl);
+
+			using (var httpClient = new HttpClient())
+			using (var response = await httpClient.GetAsync(result.DownloadUrl))
+			{
+				response.EnsureSuccessStatusCode();
+
+				var fileName = response.Content.Headers.ContentDisposition.FileName;
+				Assert.EndsWith(".zip", fileName);
+
+				var filePath = Path.Combine(_fixture.TempDirectory, fileName);
+
+				using (var stream = await response.Content.ReadAsStreamAsync())
+				using (var fileStream = File.Create(filePath))
+				{
+					stream.CopyTo(fileStream);
+				}
+			}
 		}
 
 		// [Fact]
 		[Trait("Stack", "Contents")]
-		public async Task ShouldCreateVirtualContents()
+		public async Task ShouldCreateContents()
 		{
 			//// TODO BRO: Implement
 

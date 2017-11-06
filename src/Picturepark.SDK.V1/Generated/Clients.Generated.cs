@@ -638,7 +638,7 @@ namespace Picturepark.SDK.V1
         /// <returns>ContentBatchDonloadItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public ContentBatchDownloadItem CreateDownloadLink(ContentBatchDownloadRequest request)
+        public DownloadLink CreateDownloadLink(ContentDownloadLinkCreateRequest request)
         {
             return System.Threading.Tasks.Task.Run(async () => await CreateDownloadLinkAsync(request, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -649,10 +649,10 @@ namespace Picturepark.SDK.V1
         /// <returns>ContentBatchDonloadItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<ContentBatchDownloadItem> CreateDownloadLinkAsync(ContentBatchDownloadRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DownloadLink> CreateDownloadLinkAsync(ContentDownloadLinkCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/createBatchContentDownload");
+            urlBuilder_.Append("v1/contents/downloadLinks");
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -683,10 +683,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(ContentBatchDownloadItem); 
+                            var result_ = default(DownloadLink); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBatchDownloadItem>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<DownloadLink>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -733,7 +733,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(ContentBatchDownloadItem);
+                        return default(DownloadLink);
                     }
                     finally
                     {

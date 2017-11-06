@@ -101,7 +101,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>ContentBatchDonloadItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ContentBatchDownloadItem CreateDownloadLink(ContentBatchDownloadRequest request);
+        DownloadLink CreateDownloadLink(ContentDownloadLinkCreateRequest request);
     
         /// <summary>Creates a content batch download</summary>
         /// <param name="request">The content batch download request</param>
@@ -109,7 +109,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>ContentBatchDonloadItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<ContentBatchDownloadItem> CreateDownloadLinkAsync(ContentBatchDownloadRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DownloadLink> CreateDownloadLinkAsync(ContentDownloadLinkCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Create Single</summary>
         /// <param name="createRequest">The content create request.</param>
@@ -4010,24 +4010,24 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentBatchDownloadRequest 
+    public partial class ContentDownloadLinkCreateRequest 
     {
         [Newtonsoft.Json.JsonProperty("contents", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<ContentBatchDownloadRequestItem> Contents { get; set; }
+        public System.Collections.Generic.List<ContentDownloadRequestItem> Contents { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ContentBatchDownloadRequest FromJson(string data)
+        public static ContentDownloadLinkCreateRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBatchDownloadRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDownloadLinkCreateRequest>(data);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentBatchDownloadRequestItem 
+    public partial class ContentDownloadRequestItem 
     {
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
@@ -4040,9 +4040,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ContentBatchDownloadRequestItem FromJson(string data)
+        public static ContentDownloadRequestItem FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBatchDownloadRequestItem>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDownloadRequestItem>(data);
         }
     }
     
@@ -4061,7 +4061,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentBatchDownloadItem : DownloadItem
+    public partial class DownloadLink : DownloadItem
     {
         [Newtonsoft.Json.JsonProperty("downloadToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DownloadToken { get; set; }
@@ -4074,9 +4074,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ContentBatchDownloadItem FromJson(string data)
+        public static DownloadLink FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBatchDownloadItem>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DownloadLink>(data);
         }
     }
     
@@ -8363,6 +8363,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("fileTransferCount", Required = Newtonsoft.Json.Required.Always)]
         public long FileTransferCount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CollectionId { get; set; }
     
         public string ToJson() 
         {
@@ -13824,6 +13827,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.</summary>
         [Newtonsoft.Json.JsonProperty("extendedSimpleSearchFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<string> ExtendedSimpleSearchFields { get; set; }
+    
+        /// <summary>Display pattern to use for rendering details when 0 results are returned</summary>
+        [Newtonsoft.Json.JsonProperty("missingResultsDisplayPatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary MissingResultsDisplayPatterns { get; set; }
     
         public string ToJson() 
         {
