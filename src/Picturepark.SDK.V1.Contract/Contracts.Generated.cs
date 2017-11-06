@@ -7150,23 +7150,25 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>The version view item for the environment.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class VersionInfo 
     {
-        [Newtonsoft.Json.JsonProperty("comments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Comments { get; set; }
+        /// <summary>The manual file version of Picturepark.Contract.dll.</summary>
+        [Newtonsoft.Json.JsonProperty("fileVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileVersion { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("event", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Event Event { get; set; }
+        /// <summary>The GitVersionTask generated file product version of Picturepark.Configuration.dll.</summary>
+        [Newtonsoft.Json.JsonProperty("fileProductVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileProductVersion { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("modifier", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Modifier { get; set; }
+        /// <summary>The current contract version stored in CustomerDoc / EnvironmentDoc.</summary>
+        [Newtonsoft.Json.JsonProperty("contractVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContractVersion { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("modifyDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime? ModifyDate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Version { get; set; }
+        /// <summary>The bamboo release version. Only provided on bamboo deployments.</summary>
+        [Newtonsoft.Json.JsonProperty("release", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Release { get; set; }
     
         public string ToJson() 
         {
@@ -7177,90 +7179,6 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<VersionInfo>(data);
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class Event 
-    {
-        [Newtonsoft.Json.JsonProperty("action", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public EventAction? Action { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("changed", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Changed { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("instanceID", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string InstanceID { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("parameters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Parameters { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("softwareAgent", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SoftwareAgent { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("when", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime? When { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static Event FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Event>(data);
-        }
-    }
-    
-    /// <summary>Corresponds to stEvt.ActionChoice</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum EventAction
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Converted")]
-        Converted = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Copied")]
-        Copied = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Created")]
-        Created = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Cropped")]
-        Cropped = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Edited")]
-        Edited = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Filtered")]
-        Filtered = 5,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Formatted")]
-        Formatted = 6,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "VersionUpdated")]
-        VersionUpdated = 7,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Printed")]
-        Printed = 8,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Published")]
-        Published = 9,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Managed")]
-        Managed = 10,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Produced")]
-        Produced = 11,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Resized")]
-        Resized = 12,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Saved")]
-        Saved = 13,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Derived")]
-        Derived = 14,
-    
     }
     
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
@@ -11553,7 +11471,7 @@ namespace Picturepark.SDK.V1.Contract
         public string VersionID { get; set; }
     
         [Newtonsoft.Json.JsonProperty("versions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<VersionInfo> Versions { get; set; }
+        public System.Collections.Generic.List<VersionInfo2> Versions { get; set; }
     
         public string ToJson() 
         {
@@ -11642,6 +11560,119 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "None")]
         None = 1,
     
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class Event 
+    {
+        [Newtonsoft.Json.JsonProperty("action", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public EventAction? Action { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("changed", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Changed { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("instanceID", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string InstanceID { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("parameters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Parameters { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("softwareAgent", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SoftwareAgent { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("when", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? When { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static Event FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Event>(data);
+        }
+    }
+    
+    /// <summary>Corresponds to stEvt.ActionChoice</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum EventAction
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Converted")]
+        Converted = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Copied")]
+        Copied = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Created")]
+        Created = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Cropped")]
+        Cropped = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Edited")]
+        Edited = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Filtered")]
+        Filtered = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Formatted")]
+        Formatted = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "VersionUpdated")]
+        VersionUpdated = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Printed")]
+        Printed = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Published")]
+        Published = 9,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Managed")]
+        Managed = 10,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Produced")]
+        Produced = 11,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Resized")]
+        Resized = 12,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Saved")]
+        Saved = 13,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Derived")]
+        Derived = 14,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class VersionInfo2 
+    {
+        [Newtonsoft.Json.JsonProperty("comments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Comments { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("event", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Event Event { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("modifier", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Modifier { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("modifyDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? ModifyDate { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Version { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static VersionInfo2 FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<VersionInfo2>(data);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]

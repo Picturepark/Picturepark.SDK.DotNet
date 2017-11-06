@@ -10474,88 +10474,26 @@
     },
     "VersionInfo": {
       "type": "object",
+      "description": "The version view item for the environment.",
       "additionalProperties": false,
       "properties": {
-        "comments": {
-          "type": "string"
-        },
-        "event": {
-          "$ref": "#/definitions/Event"
-        },
-        "modifier": {
-          "type": "string"
-        },
-        "modifyDate": {
+        "fileVersion": {
           "type": "string",
-          "format": "date-time"
+          "description": "The manual file version of Picturepark.Contract.dll."
         },
-        "version": {
-          "type": "string"
+        "fileProductVersion": {
+          "type": "string",
+          "description": "The GitVersionTask generated file product version of Picturepark.Configuration.dll."
+        },
+        "contractVersion": {
+          "type": "string",
+          "description": "The current contract version stored in CustomerDoc / EnvironmentDoc."
+        },
+        "release": {
+          "type": "string",
+          "description": "The bamboo release version. Only provided on bamboo deployments."
         }
       }
-    },
-    "Event": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "action": {
-          "$ref": "#/definitions/EventAction"
-        },
-        "changed": {
-          "type": "string"
-        },
-        "instanceID": {
-          "type": "string"
-        },
-        "parameters": {
-          "type": "string"
-        },
-        "softwareAgent": {
-          "type": "string"
-        },
-        "when": {
-          "type": "string",
-          "format": "date-time"
-        }
-      }
-    },
-    "EventAction": {
-      "type": "string",
-      "description": "Corresponds to stEvt.ActionChoice",
-      "x-enumNames": [
-        "Converted",
-        "Copied",
-        "Created",
-        "Cropped",
-        "Edited",
-        "Filtered",
-        "Formatted",
-        "VersionUpdated",
-        "Printed",
-        "Published",
-        "Managed",
-        "Produced",
-        "Resized",
-        "Saved",
-        "Derived"
-      ],
-      "enum": [
-        "Converted",
-        "Copied",
-        "Created",
-        "Cropped",
-        "Edited",
-        "Filtered",
-        "Formatted",
-        "VersionUpdated",
-        "Printed",
-        "Published",
-        "Managed",
-        "Produced",
-        "Resized",
-        "Saved",
-        "Derived"
-      ]
     },
     "ShareBaseDetail": {
       "type": "object",
@@ -14610,7 +14548,7 @@
         "versions": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VersionInfo"
+            "$ref": "#/definitions/VersionInfo2"
           }
         }
       }
@@ -14687,6 +14625,91 @@
         "All",
         "None"
       ]
+    },
+    "Event": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/EventAction"
+        },
+        "changed": {
+          "type": "string"
+        },
+        "instanceID": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "string"
+        },
+        "softwareAgent": {
+          "type": "string"
+        },
+        "when": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "EventAction": {
+      "type": "string",
+      "description": "Corresponds to stEvt.ActionChoice",
+      "x-enumNames": [
+        "Converted",
+        "Copied",
+        "Created",
+        "Cropped",
+        "Edited",
+        "Filtered",
+        "Formatted",
+        "VersionUpdated",
+        "Printed",
+        "Published",
+        "Managed",
+        "Produced",
+        "Resized",
+        "Saved",
+        "Derived"
+      ],
+      "enum": [
+        "Converted",
+        "Copied",
+        "Created",
+        "Cropped",
+        "Edited",
+        "Filtered",
+        "Formatted",
+        "VersionUpdated",
+        "Printed",
+        "Published",
+        "Managed",
+        "Produced",
+        "Resized",
+        "Saved",
+        "Derived"
+      ]
+    },
+    "VersionInfo2": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "comments": {
+          "type": "string"
+        },
+        "event": {
+          "$ref": "#/definitions/Event"
+        },
+        "modifier": {
+          "type": "string"
+        },
+        "modifyDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
     },
     "XmpNote": {
       "type": "object",
