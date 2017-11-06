@@ -30,8 +30,8 @@ public void ConfigureServices(IServiceCollection services)
     services.AddMvc();
 
     services.AddScoped<IPictureparkClient, PictureparkClient>();
-    services.AddSingleton<IPictureparkClientSettings>(
-        new PictureparkClientSettings(new AccessTokenAuthClient("https://api.server.com", "AccessToken", "CustomerAlias")));
+    services.AddSingleton<IPictureparkClientSettings>(new PictureparkClientSettings(
+        new AccessTokenAuthClient("https://api.server.com", "AccessToken", "CustomerAlias")));
 }
 ```
 
