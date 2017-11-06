@@ -956,7 +956,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>ShareBaseDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ShareBaseDetail GetShare(string token);
+        ShareDetail GetShare(string token);
     
         /// <summary>Get Share</summary>
         /// <param name="token">The token</param>
@@ -964,7 +964,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>ShareBaseDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<ShareBaseDetail> GetShareAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ShareDetail> GetShareAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -979,7 +979,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        BaseResultOfShareBase Update(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int? timeout = null);
+        ShareDetail Update(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int? timeout = null);
     
         /// <summary>Update single</summary>
         /// <param name="id">The share id.</param>
@@ -990,14 +990,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<BaseResultOfShareBase> UpdateAsync(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ShareDetail> UpdateAsync(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get single</summary>
         /// <param name="id">Share Id (not token, use PublicAccess to get share by token)</param>
         /// <returns>Polymorph share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ShareBaseDetail Get(string id);
+        ShareDetail Get(string id);
     
         /// <summary>Get single</summary>
         /// <param name="id">Share Id (not token, use PublicAccess to get share by token)</param>
@@ -1005,7 +1005,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Polymorph share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<ShareBaseDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ShareDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete many</summary>
         /// <param name="shareIds">A list of ListItemCreateRequests.</param>
@@ -1630,17 +1630,11 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "Content")]
         Content = 0,
     
-        [System.Runtime.Serialization.EnumMember(Value = "BasicShare")]
-        BasicShare = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "EmbedShare")]
-        EmbedShare = 2,
-    
         [System.Runtime.Serialization.EnumMember(Value = "Metadata")]
-        Metadata = 3,
+        Metadata = 1,
     
         [System.Runtime.Serialization.EnumMember(Value = "FileTransfer")]
-        FileTransfer = 4,
+        FileTransfer = 2,
     
     }
     
@@ -7181,11 +7175,8 @@ namespace Picturepark.SDK.V1.Contract
         }
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
-    [JsonInheritanceAttribute("ShareBasicDetail", typeof(ShareBasicDetail))]
-    [JsonInheritanceAttribute("ShareEmbedDetail", typeof(ShareEmbedDetail))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ShareBaseDetail 
+    public partial class ShareDetail 
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
@@ -7199,16 +7190,14 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserAudit Audit { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("entityType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public EntityType EntityType { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("contentSelections", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<ContentDetail2> ContentSelections { get; set; }
+        public System.Collections.Generic.List<ShareContentDetail> ContentSelections { get; set; }
     
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<string> LayerSchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ShareDataBase Data { get; set; }
     
         [Newtonsoft.Json.JsonProperty("mailTemplateId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MailTemplateId { get; set; }
@@ -7224,29 +7213,25 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public OutputAccess OutputAccess { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("shareType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ShareType ShareType { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ShareBaseDetail FromJson(string data)
+        public static ShareDetail FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareBaseDetail>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDetail>(data);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentDetail2 
+    public partial class ShareContentDetail 
     {
-        [Newtonsoft.Json.JsonProperty("trashed", Required = Newtonsoft.Json.Required.Always)]
-        public bool Trashed { get; set; }
-    
-        /// <summary>The entity type of a content document is content.</summary>
-        [Newtonsoft.Json.JsonProperty("entityType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public EntityType EntityType { get; set; }
-    
         /// <summary>The id of the schema with schema type content.</summary>
         [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentSchemaId { get; set; }
@@ -7264,18 +7249,8 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
-        /// <summary>An optional id list of content permission sets. Controls content accessibility outside of content ownership.</summary>
-        [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> ContentPermissionSetIds { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("outputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<Output> Outputs { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserAudit Audit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("ownerTokenId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OwnerTokenId { get; set; }
+        public System.Collections.Generic.List<ShareOutputBase> Outputs { get; set; }
     
         [Newtonsoft.Json.JsonProperty("contentType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -7291,110 +7266,109 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ContentDetail2 FromJson(string data)
+        public static ShareContentDetail FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetail2>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareContentDetail>(data);
         }
     }
     
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
-    [JsonInheritanceAttribute("CardTemplate", typeof(CardTemplate))]
-    [JsonInheritanceAttribute("ListTemplate", typeof(ListTemplate))]
-    [JsonInheritanceAttribute("BasicTemplate", typeof(BasicTemplate))]
+    [JsonInheritanceAttribute("ShareOutputBasic", typeof(ShareOutputBasic))]
+    [JsonInheritanceAttribute("ShareOutputEmbed", typeof(ShareOutputEmbed))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class TemplateBase 
+    public partial class ShareOutputBase 
     {
-        [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Width { get; set; }
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Height { get; set; }
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static TemplateBase FromJson(string data)
+        public static ShareOutputBase FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TemplateBase>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareOutputBase>(data);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class CardTemplate : TemplateBase
-    {
-        [Newtonsoft.Json.JsonProperty("showNavigation", Required = Newtonsoft.Json.Required.Always)]
-        public bool ShowNavigation { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("showOverlay", Required = Newtonsoft.Json.Required.Always)]
-        public bool ShowOverlay { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("showLogo", Required = Newtonsoft.Json.Required.Always)]
-        public bool ShowLogo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("showFooter", Required = Newtonsoft.Json.Required.Always)]
-        public bool ShowFooter { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static CardTemplate FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CardTemplate>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ListTemplate : TemplateBase
+    public partial class ShareOutputBasic : ShareOutputBase
     {
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ListTemplate FromJson(string data)
+        public static ShareOutputBasic FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListTemplate>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareOutputBasic>(data);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class BasicTemplate : TemplateBase
+    public partial class ShareOutputEmbed : ShareOutputBase
     {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BasicTemplate FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BasicTemplate>(data);
-        }
-    }
+        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Token { get; set; }
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum OutputAccess
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Full")]
-        Full = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Preview")]
-        Preview = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "None")]
-        None = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ShareBasicDetail : ShareBaseDetail
-    {
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareOutputEmbed FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareOutputEmbed>(data);
+        }
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("ShareDataEmbed", typeof(ShareDataEmbed))]
+    [JsonInheritanceAttribute("ShareDataBasic", typeof(ShareDataBasic))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ShareDataBase 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareDataBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDataBase>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ShareDataEmbed : ShareDataBase
+    {
+        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Token { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareDataEmbed FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDataEmbed>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ShareDataBasic : ShareDataBase
+    {
         [Newtonsoft.Json.JsonProperty("mailRecipients", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<MailRecipient> MailRecipients { get; set; }
     
@@ -7404,14 +7378,17 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LanguageCode { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ShareBasicDetail FromJson(string data)
+        public static ShareDataBasic FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareBasicDetail>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDataBasic>(data);
         }
     }
     
@@ -7510,53 +7487,107 @@ namespace Picturepark.SDK.V1.Contract
         }
     }
     
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("CardTemplate", typeof(CardTemplate))]
+    [JsonInheritanceAttribute("ListTemplate", typeof(ListTemplate))]
+    [JsonInheritanceAttribute("BasicTemplate", typeof(BasicTemplate))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ShareEmbedDetail : ShareBaseDetail
+    public partial class TemplateBase 
     {
-        [Newtonsoft.Json.JsonProperty("embedContentItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<EmbedContentDetail> EmbedContentItems { get; set; }
+        [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Width { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Url { get; set; }
+        [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Height { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ShareEmbedDetail FromJson(string data)
+        public static TemplateBase FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareEmbedDetail>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TemplateBase>(data);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class EmbedContentDetail 
+    public partial class CardTemplate : TemplateBase
     {
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
+        [Newtonsoft.Json.JsonProperty("showNavigation", Required = Newtonsoft.Json.Required.Always)]
+        public bool ShowNavigation { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputFormatId { get; set; }
+        [Newtonsoft.Json.JsonProperty("showOverlay", Required = Newtonsoft.Json.Required.Always)]
+        public bool ShowOverlay { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Token { get; set; }
+        [Newtonsoft.Json.JsonProperty("showLogo", Required = Newtonsoft.Json.Required.Always)]
+        public bool ShowLogo { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Url { get; set; }
+        [Newtonsoft.Json.JsonProperty("showFooter", Required = Newtonsoft.Json.Required.Always)]
+        public bool ShowFooter { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static EmbedContentDetail FromJson(string data)
+        public static CardTemplate FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<EmbedContentDetail>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CardTemplate>(data);
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ListTemplate : TemplateBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListTemplate FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListTemplate>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BasicTemplate : TemplateBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BasicTemplate FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BasicTemplate>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum OutputAccess
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Full")]
+        Full = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Preview")]
+        Preview = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "None")]
+        None = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ShareType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Basic")]
+        Basic = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Embed")]
+        Embed = 1,
+    
     }
     
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
@@ -7647,103 +7678,6 @@ namespace Picturepark.SDK.V1.Contract
         public static ShareEmbedUpdateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareEmbedUpdateRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class BaseResultOfShareBase 
-    {
-        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
-        public long TotalResults { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<ShareBase> Results { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BaseResultOfShareBase FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfShareBase>(data);
-        }
-    }
-    
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
-    [JsonInheritanceAttribute("ShareBasic", typeof(ShareBasic))]
-    [JsonInheritanceAttribute("ShareEmbed", typeof(ShareEmbed))]
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ShareBase 
-    {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> ContentIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserAudit Audit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("entityType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public EntityType EntityType { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("expirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime? ExpirationDate { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ShareBase FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareBase>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ShareBasic : ShareBase
-    {
-        [Newtonsoft.Json.JsonProperty("mailRecipients", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<MailRecipient> MailRecipients { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("internalRecipients", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<InternalRecipient> InternalRecipients { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Description { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ShareBasic FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareBasic>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ShareEmbed : ShareBase
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ShareEmbed FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareEmbed>(data);
         }
     }
     
@@ -7952,7 +7886,30 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SearchBehaviourBaseResultOfShareBase : BaseResultOfShareBase
+    public partial class BaseResultOfShare 
+    {
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<Share> Results { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfShare FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfShare>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SearchBehaviourBaseResultOfShare : BaseResultOfShare
     {
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
@@ -7965,14 +7922,14 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static SearchBehaviourBaseResultOfShareBase FromJson(string data)
+        public static SearchBehaviourBaseResultOfShare FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviourBaseResultOfShareBase>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviourBaseResultOfShare>(data);
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ShareSearchResult : SearchBehaviourBaseResultOfShareBase
+    public partial class ShareSearchResult : SearchBehaviourBaseResultOfShare
     {
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
@@ -7985,6 +7942,40 @@ namespace Picturepark.SDK.V1.Contract
         public static ShareSearchResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareSearchResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class Share 
+    {
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> ContentIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserAudit Audit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("expirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? ExpirationDate { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("shareType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ShareType ShareType { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static Share FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Share>(data);
         }
     }
     

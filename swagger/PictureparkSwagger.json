@@ -3403,7 +3403,7 @@
         ]
       }
     },
-    "/v1/publicAccess/getShare": {
+    "/v1/publicAccess/shares/{token}": {
       "get": {
         "tags": [
           "PublicAccess"
@@ -3414,9 +3414,9 @@
           {
             "type": "string",
             "name": "token",
-            "in": "query",
+            "in": "path",
             "required": true,
-            "x-nullable": true,
+            "x-nullable": false,
             "description": "The token"
           }
         ],
@@ -3424,7 +3424,7 @@
           "200": {
             "description": "ShareBaseDetail",
             "schema": {
-              "$ref": "#/definitions/ShareBaseDetail"
+              "$ref": "#/definitions/ShareDetail"
             },
             "x-nullable": true
           },
@@ -3497,7 +3497,7 @@
           "200": {
             "description": "Share",
             "schema": {
-              "$ref": "#/definitions/BaseResultOfShareBase"
+              "$ref": "#/definitions/ShareDetail"
             },
             "x-nullable": true
           },
@@ -3544,7 +3544,7 @@
           "200": {
             "description": "Polymorph share",
             "schema": {
-              "$ref": "#/definitions/ShareBaseDetail"
+              "$ref": "#/definitions/ShareDetail"
             },
             "x-nullable": true
           },
@@ -5168,15 +5168,11 @@
       "description": "",
       "x-enumNames": [
         "Content",
-        "BasicShare",
-        "EmbedShare",
         "Metadata",
         "FileTransfer"
       ],
       "enum": [
         "Content",
-        "BasicShare",
-        "EmbedShare",
         "Metadata",
         "FileTransfer"
       ]
@@ -10495,14 +10491,12 @@
         }
       }
     },
-    "ShareBaseDetail": {
+    "ShareDetail": {
       "type": "object",
-      "discriminator": "kind",
       "additionalProperties": false,
       "required": [
-        "entityType",
         "outputAccess",
-        "kind"
+        "shareType"
       ],
       "properties": {
         "id": {
@@ -10517,13 +10511,10 @@
         "audit": {
           "$ref": "#/definitions/UserAudit"
         },
-        "entityType": {
-          "$ref": "#/definitions/EntityType"
-        },
         "contentSelections": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ContentDetail2"
+            "$ref": "#/definitions/ShareContentDetail"
           }
         },
         "layerSchemaIds": {
@@ -10531,6 +10522,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "data": {
+          "$ref": "#/definitions/ShareDataBase"
         },
         "mailTemplateId": {
           "type": "string"
@@ -10545,31 +10539,18 @@
         "outputAccess": {
           "$ref": "#/definitions/OutputAccess"
         },
-        "kind": {
-          "type": "string"
+        "shareType": {
+          "$ref": "#/definitions/ShareType"
         }
       }
     },
-    "ContentDetail2": {
+    "ShareContentDetail": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "trashed",
-        "entityType",
         "contentType"
       ],
       "properties": {
-        "trashed": {
-          "type": "boolean"
-        },
-        "entityType": {
-          "description": "The entity type of a content document is content.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/EntityType"
-            }
-          ]
-        },
         "contentSchemaId": {
           "type": "string",
           "description": "The id of the schema with schema type content."
@@ -10590,24 +10571,11 @@
         "id": {
           "type": "string"
         },
-        "contentPermissionSetIds": {
-          "type": "array",
-          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
-          "items": {
-            "type": "string"
-          }
-        },
         "outputs": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Output"
+            "$ref": "#/definitions/ShareOutputBase"
           }
-        },
-        "audit": {
-          "$ref": "#/definitions/UserAudit"
-        },
-        "ownerTokenId": {
-          "type": "string"
         },
         "contentType": {
           "$ref": "#/definitions/ContentType"
@@ -10619,6 +10587,173 @@
               "$ref": "#/definitions/DisplayValueDictionary"
             }
           ]
+        }
+      }
+    },
+    "ShareOutputBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "contentId": {
+          "type": "string"
+        },
+        "outputFormatId": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "ShareOutputBasic": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareOutputBase"
+        }
+      ]
+    },
+    "ShareOutputEmbed": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareOutputBase"
+        }
+      ]
+    },
+    "ShareDataBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "ShareDataEmbed": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "token": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareDataBase"
+        }
+      ]
+    },
+    "ShareDataBasic": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mailRecipients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MailRecipient"
+          }
+        },
+        "internalRecipients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InternalRecipient"
+          }
+        },
+        "languageCode": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareDataBase"
+        }
+      ]
+    },
+    "MailRecipient": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userEmail": {
+          "$ref": "#/definitions/UserEmail"
+        },
+        "token": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "UserEmail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "InternalRecipient": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "recipient": {
+          "$ref": "#/definitions/UserItem"
+        },
+        "token": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "UserItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
         }
       }
     },
@@ -10704,138 +10839,17 @@
         "None"
       ]
     },
-    "ShareBasicDetail": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "url": {
-          "type": "string"
-        },
-        "mailRecipients": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/MailRecipient"
-          }
-        },
-        "internalRecipients": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/InternalRecipient"
-          }
-        },
-        "languageCode": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareBaseDetail"
-        }
+    "ShareType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Basic",
+        "Embed"
+      ],
+      "enum": [
+        "Basic",
+        "Embed"
       ]
-    },
-    "MailRecipient": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "userEmail": {
-          "$ref": "#/definitions/UserEmail"
-        },
-        "token": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      }
-    },
-    "UserEmail": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "emailAddress": {
-          "type": "string"
-        }
-      }
-    },
-    "InternalRecipient": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "recipient": {
-          "$ref": "#/definitions/UserItem"
-        },
-        "token": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      }
-    },
-    "UserItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "emailAddress": {
-          "type": "string"
-        }
-      }
-    },
-    "ShareEmbedDetail": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "embedContentItems": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/EmbedContentDetail"
-          }
-        },
-        "token": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareBaseDetail"
-        }
-      ]
-    },
-    "EmbedContentDetail": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentId": {
-          "type": "string"
-        },
-        "outputFormatId": {
-          "type": "string"
-        },
-        "token": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      }
     },
     "ShareBaseUpdateRequest": {
       "type": "object",
@@ -10912,99 +10926,6 @@
       "allOf": [
         {
           "$ref": "#/definitions/ShareBaseUpdateRequest"
-        }
-      ]
-    },
-    "BaseResultOfShareBase": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "totalResults"
-      ],
-      "properties": {
-        "totalResults": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "results": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ShareBase"
-          }
-        },
-        "pageToken": {
-          "type": "string"
-        }
-      }
-    },
-    "ShareBase": {
-      "type": "object",
-      "discriminator": "kind",
-      "additionalProperties": false,
-      "required": [
-        "entityType",
-        "kind"
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "contentIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "id": {
-          "type": "string"
-        },
-        "audit": {
-          "$ref": "#/definitions/UserAudit"
-        },
-        "entityType": {
-          "$ref": "#/definitions/EntityType"
-        },
-        "expirationDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "kind": {
-          "type": "string"
-        }
-      }
-    },
-    "ShareBasic": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "mailRecipients": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/MailRecipient"
-          }
-        },
-        "internalRecipients": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/InternalRecipient"
-          }
-        },
-        "description": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareBase"
-        }
-      ]
-    },
-    "ShareEmbed": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareBase"
         }
       ]
     },
@@ -11239,11 +11160,11 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/SearchBehaviourBaseResultOfShareBase"
+          "$ref": "#/definitions/SearchBehaviourBaseResultOfShare"
         }
       ]
     },
-    "SearchBehaviourBaseResultOfShareBase": {
+    "SearchBehaviourBaseResultOfShare": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -11259,9 +11180,62 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/BaseResultOfShareBase"
+          "$ref": "#/definitions/BaseResultOfShare"
         }
       ]
+    },
+    "BaseResultOfShare": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "totalResults"
+      ],
+      "properties": {
+        "totalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Share"
+          }
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "Share": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shareType"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "contentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "audit": {
+          "$ref": "#/definitions/UserAudit"
+        },
+        "expirationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "shareType": {
+          "$ref": "#/definitions/ShareType"
+        }
+      }
     },
     "SendMessageRequest": {
       "type": "object",

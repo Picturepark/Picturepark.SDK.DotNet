@@ -7201,7 +7201,7 @@ namespace Picturepark.SDK.V1
         /// <returns>ShareBaseDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public ShareBaseDetail GetShare(string token)
+        public ShareDetail GetShare(string token)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetShareAsync(token, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -7212,12 +7212,14 @@ namespace Picturepark.SDK.V1
         /// <returns>ShareBaseDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<ShareBaseDetail> GetShareAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ShareDetail> GetShareAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (token == null)
+                throw new System.ArgumentNullException("token");
+    
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/publicAccess/getShare?");
-            if (token != null) urlBuilder_.Append("token=").Append(System.Uri.EscapeDataString(System.Convert.ToString(token, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            urlBuilder_.Length--;
+            urlBuilder_.Append("v1/publicAccess/shares/{token}");
+            urlBuilder_.Replace("{token}", System.Uri.EscapeDataString(System.Convert.ToString(token, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
             try
@@ -7245,10 +7247,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(ShareBaseDetail); 
+                            var result_ = default(ShareDetail); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ShareBaseDetail>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDetail>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -7295,7 +7297,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(ShareBaseDetail);
+                        return default(ShareDetail);
                     }
                     finally
                     {
@@ -7340,7 +7342,7 @@ namespace Picturepark.SDK.V1
         /// <returns>Share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public BaseResultOfShareBase Update(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int? timeout = null)
+        public ShareDetail Update(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int? timeout = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await UpdateAsync(id, updateRequest, resolve, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -7354,7 +7356,7 @@ namespace Picturepark.SDK.V1
         /// <returns>Share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<BaseResultOfShareBase> UpdateAsync(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ShareDetail> UpdateAsync(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -7398,10 +7400,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BaseResultOfShareBase); 
+                            var result_ = default(ShareDetail); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfShareBase>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDetail>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -7448,7 +7450,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(BaseResultOfShareBase);
+                        return default(ShareDetail);
                     }
                     finally
                     {
@@ -7469,7 +7471,7 @@ namespace Picturepark.SDK.V1
         /// <returns>Polymorph share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public ShareBaseDetail Get(string id)
+        public ShareDetail Get(string id)
         {
             return System.Threading.Tasks.Task.Run(async () => await GetAsync(id, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -7480,7 +7482,7 @@ namespace Picturepark.SDK.V1
         /// <returns>Polymorph share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<ShareBaseDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ShareDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -7515,10 +7517,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(ShareBaseDetail); 
+                            var result_ = default(ShareDetail); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ShareBaseDetail>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDetail>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception) 
@@ -7565,7 +7567,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(ShareBaseDetail);
+                        return default(ShareDetail);
                     }
                     finally
                     {

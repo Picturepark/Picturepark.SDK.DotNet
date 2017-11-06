@@ -80,9 +80,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 			return RandomHelper.GetRandomObjectId(_client, metadataSchemaId, limit);
 		}
 
-		public string GetRandomShareId(EntityType entityType, int limit)
+		public string GetRandomShareId(ShareType shareType, int limit)
 		{
-			return RandomHelper.GetRandomShareId(_client, entityType, limit);
+			return RandomHelper.GetRandomShareId(_client, shareType, limit);
 		}
 
 		public void Dispose()
