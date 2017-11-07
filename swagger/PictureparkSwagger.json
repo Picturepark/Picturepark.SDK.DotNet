@@ -6250,14 +6250,11 @@
         "referenceDocType": {
           "type": "string"
         },
-        "notificationId": {
-          "type": "string"
-        },
         "businessProcessScope": {
           "$ref": "#/definitions/BusinessProcessScope"
         },
         "lifeCycle": {
-          "$ref": "#/definitions/BusinessProcessLifeCylce"
+          "$ref": "#/definitions/BusinessProcessLifeCycle"
         },
         "startDate": {
           "type": "string",
@@ -6296,20 +6293,22 @@
         "User"
       ]
     },
-    "BusinessProcessLifeCylce": {
+    "BusinessProcessLifeCycle": {
       "type": "string",
       "description": "",
       "x-enumNames": [
         "Draft",
-        "Started",
-        "Ended",
-        "Cancelled"
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "Failed"
       ],
       "enum": [
         "Draft",
-        "Started",
-        "Ended",
-        "Cancelled"
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "Failed"
       ]
     },
     "BusinessProcessStateItem": {
@@ -10604,10 +10603,141 @@
         "outputFormatId": {
           "type": "string"
         },
+        "detail": {
+          "$ref": "#/definitions/OutputDataBase"
+        },
         "kind": {
           "type": "string"
         }
       }
+    },
+    "OutputDataBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "fileExtension": {
+          "type": "string"
+        },
+        "fileName": {
+          "type": "string"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "fileSizeInBytes": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "sha1Hash": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "OutputDataImage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "height": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDataBase"
+        }
+      ]
+    },
+    "OutputDataAudio": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "durationInSeconds": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDataBase"
+        }
+      ]
+    },
+    "OutputDataVideo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "durationInSeconds",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "durationInSeconds": {
+          "type": "number",
+          "format": "double"
+        },
+        "width": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "height": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sprites": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Sprite"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDataBase"
+        }
+      ]
+    },
+    "OutputDataDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pageCount"
+      ],
+      "properties": {
+        "pageCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDataBase"
+        }
+      ]
+    },
+    "OutputDataDefault": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDataBase"
+        }
+      ]
     },
     "ShareOutputBasic": {
       "type": "object",
@@ -10643,6 +10773,9 @@
         "kind"
       ],
       "properties": {
+        "url": {
+          "type": "string"
+        },
         "kind": {
           "type": "string"
         }
@@ -10653,9 +10786,6 @@
       "additionalProperties": false,
       "properties": {
         "token": {
-          "type": "string"
-        },
-        "url": {
           "type": "string"
         }
       },
@@ -10682,9 +10812,6 @@
           }
         },
         "languageCode": {
-          "type": "string"
-        },
-        "url": {
           "type": "string"
         }
       },

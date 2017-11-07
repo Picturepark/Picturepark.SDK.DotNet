@@ -2910,9 +2910,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("referenceDocType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReferenceDocType { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("notificationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string NotificationId { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("businessProcessScope", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -2921,7 +2918,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BusinessProcessLifeCylce LifeCycle { get; set; }
+        public BusinessProcessLifeCycle LifeCycle { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -2963,19 +2960,22 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum BusinessProcessLifeCylce
+    public enum BusinessProcessLifeCycle
     {
         [System.Runtime.Serialization.EnumMember(Value = "Draft")]
         Draft = 0,
     
-        [System.Runtime.Serialization.EnumMember(Value = "Started")]
-        Started = 1,
+        [System.Runtime.Serialization.EnumMember(Value = "InProgress")]
+        InProgress = 1,
     
-        [System.Runtime.Serialization.EnumMember(Value = "Ended")]
-        Ended = 2,
+        [System.Runtime.Serialization.EnumMember(Value = "Succeeded")]
+        Succeeded = 2,
     
         [System.Runtime.Serialization.EnumMember(Value = "Cancelled")]
         Cancelled = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Failed")]
+        Failed = 4,
     
     }
     
@@ -7284,6 +7284,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OutputFormatId { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("detail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public OutputDataBase Detail { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -7292,6 +7295,135 @@ namespace Picturepark.SDK.V1.Contract
         public static ShareOutputBase FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareOutputBase>(data);
+        }
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("OutputDataImage", typeof(OutputDataImage))]
+    [JsonInheritanceAttribute("OutputDataAudio", typeof(OutputDataAudio))]
+    [JsonInheritanceAttribute("OutputDataVideo", typeof(OutputDataVideo))]
+    [JsonInheritanceAttribute("OutputDataDocument", typeof(OutputDataDocument))]
+    [JsonInheritanceAttribute("OutputDataDefault", typeof(OutputDataDefault))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class OutputDataBase 
+    {
+        [Newtonsoft.Json.JsonProperty("fileExtension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileExtension { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fileName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("filePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FilePath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fileSizeInBytes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? FileSizeInBytes { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("sha1Hash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Sha1Hash { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputDataBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDataBase>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class OutputDataImage : OutputDataBase
+    {
+        [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.Always)]
+        public int Width { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.Always)]
+        public int Height { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputDataImage FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDataImage>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class OutputDataAudio : OutputDataBase
+    {
+        [Newtonsoft.Json.JsonProperty("durationInSeconds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? DurationInSeconds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputDataAudio FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDataAudio>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class OutputDataVideo : OutputDataBase
+    {
+        [Newtonsoft.Json.JsonProperty("durationInSeconds", Required = Newtonsoft.Json.Required.Always)]
+        public double DurationInSeconds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.Always)]
+        public int Width { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.Always)]
+        public int Height { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("sprites", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<Sprite> Sprites { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputDataVideo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDataVideo>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class OutputDataDocument : OutputDataBase
+    {
+        [Newtonsoft.Json.JsonProperty("pageCount", Required = Newtonsoft.Json.Required.Always)]
+        public int PageCount { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputDataDocument FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDataDocument>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class OutputDataDefault : OutputDataBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputDataDefault FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDataDefault>(data);
         }
     }
     
@@ -7335,6 +7467,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.9.17.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareDataBase 
     {
+        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -7351,9 +7486,6 @@ namespace Picturepark.SDK.V1.Contract
     {
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Token { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Url { get; set; }
     
         public string ToJson() 
         {
@@ -7377,9 +7509,6 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LanguageCode { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Url { get; set; }
     
         public string ToJson() 
         {
