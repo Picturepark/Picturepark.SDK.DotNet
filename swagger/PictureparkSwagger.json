@@ -2304,7 +2304,7 @@
         ]
       }
     },
-    "/v1/listItems/{objectId}": {
+    "/v1/listItems/{listItemId}": {
       "delete": {
         "tags": [
           "ListItem"
@@ -2315,7 +2315,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "objectId",
+            "name": "listItemId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -2356,9 +2356,7 @@
             ]
           }
         ]
-      }
-    },
-    "/v1/listItems/{listItemId}": {
+      },
       "get": {
         "tags": [
           "ListItem"
@@ -3009,7 +3007,6 @@
             "type": "string",
             "name": "fieldId",
             "in": "query",
-            "required": true,
             "x-nullable": true,
             "description": "The optional field id."
           }
@@ -4633,7 +4630,7 @@
         ]
       }
     },
-    "/v1/users/getUser/{userId}": {
+    "/v1/users/{userId}": {
       "get": {
         "tags": [
           "User"
