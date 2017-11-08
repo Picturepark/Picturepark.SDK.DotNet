@@ -238,6 +238,17 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Contents")]
+		public async Task ShouldThrowExceptionWhenContentNotFound()
+		{
+			var contentId = "foobar.baz";
+			await Assert.ThrowsAsync(typeof(ContentNotFoundException), async () =>
+			{
+				await _client.Contents.GetAsync(contentId);
+			});
+		}
+
+		[Fact]
+		[Trait("Stack", "Contents")]
 		public async Task ShouldDownloadSingleResized()
 		{
 			// Download a resized version of an image file
