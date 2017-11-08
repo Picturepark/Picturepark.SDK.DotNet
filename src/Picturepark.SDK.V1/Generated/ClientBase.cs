@@ -4,6 +4,7 @@ using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
+using System.Reflection;
 
 namespace Picturepark.SDK.V1
 {
@@ -18,18 +19,22 @@ namespace Picturepark.SDK.V1
 		protected ClientBase(IPictureparkClientSettings settings)
 		{
 			_settings = settings;
-			BaseUrl = _settings.BaseUrl;
+
+			GetType().GetRuntimeProperty("BaseUrl").SetValue(this, _settings.BaseUrl);
 			Alias = _settings.CustomerAlias;
 
-			_jsonSettings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() =>
+			_jsonSettings = new Lazy<Newtonsoft.Json.JsonSerializerSettings>(() =>
 			{
-				var jsonSettings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
+				var jsonSettings = new Newtonsoft.Json.JsonSerializerSettings
+				{
+					Converters = new Newtonsoft.Json.JsonConverter[]
+					{
+						new JsonExceptionConverter()
+					}
+				};
 				return jsonSettings;
 			});
 		}
-
-		/// <summary>Gets or sets the base URL.</summary>
-		public string BaseUrl { get; protected set; }
 
 		public string Alias { get; protected set; }
 
