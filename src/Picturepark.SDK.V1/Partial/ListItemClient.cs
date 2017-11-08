@@ -208,7 +208,7 @@ namespace Picturepark.SDK.V1
 			{
 				if (referencedProperty.PropertyType.GetTypeInfo().ImplementedInterfaces.Contains(typeof(IList)))
 				{
-					// SchemaItems
+					// SingleTagbox
 					var values = (IList)referencedProperty.GetValue(obj);
 					if (values != null)
 					{
@@ -234,7 +234,7 @@ namespace Picturepark.SDK.V1
 				}
 				else
 				{
-					// SchemaItem
+					// MultiTagbox
 					// TODO(rsu): Always false?
 					if (referencedProperty.GetType().GetProperty("refId") == null)
 					{

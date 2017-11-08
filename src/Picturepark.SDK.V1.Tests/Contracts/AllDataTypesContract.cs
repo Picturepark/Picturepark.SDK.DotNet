@@ -52,11 +52,11 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
 		////public List<int> IntegerArrayField { get; set; }
 
-		public SimpleReferenceObject SchemaItemField { get; set; }
+		public SimpleReferenceObject SingleTagboxField { get; set; }
 
-		public List<SimpleReferenceObject> SchemaItemsField { get; set; }
+		public List<SimpleReferenceObject> MultiTagboxField { get; set; }
 
-		public SimpleObject ObjectField { get; set; }
+		public SimpleObject SingleFieldsetField { get; set; }
 
 		public List<SimpleObject> ObjectsField { get; set; }
 
@@ -65,9 +65,6 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 		public TranslatedStringDictionary TranslatedStringField { get; set; }
 
 		////public List<string> StringArrayField { get; set; }
-
-		// TODO: Use correct contract
-		////public Dictionary<string, string> TranslatedStringField { get; set; }
 
 		[PictureparkContentRelation(
 			"RelationName",
@@ -98,7 +95,6 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 		public string Name { get; set; }
 	}
 
-	// TODO: Use correct contract
 	[PictureparkSchemaType(SchemaType.Struct)]
 	public class SimpleRelation : Relation
 	{
