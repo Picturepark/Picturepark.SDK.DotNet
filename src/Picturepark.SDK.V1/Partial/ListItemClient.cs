@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -11,6 +9,7 @@ using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Contract.Interfaces;
 using Newtonsoft.Json.Linq;
+using System.Net.Http;
 
 namespace Picturepark.SDK.V1
 {
@@ -18,7 +17,8 @@ namespace Picturepark.SDK.V1
 	{
 		private readonly IBusinessProcessClient _businessProcessClient;
 
-		public ListItemClient(IBusinessProcessClient businessProcessClient, IPictureparkClientSettings settings) : this(settings)
+		public ListItemClient(IBusinessProcessClient businessProcessClient, IPictureparkClientSettings settings, HttpClient httpClient)
+			: this(settings, httpClient)
 		{
 			_businessProcessClient = businessProcessClient;
 		}

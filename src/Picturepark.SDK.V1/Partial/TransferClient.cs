@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
+using System.Net.Http;
 
 namespace Picturepark.SDK.V1
 {
@@ -15,7 +16,8 @@ namespace Picturepark.SDK.V1
 		private readonly BusinessProcessClient _businessProcessClient;
 		private volatile List<string> _fileNameBlacklist;
 
-		public TransferClient(BusinessProcessClient businessProcessClient, IPictureparkClientSettings settings) : this(settings)
+		public TransferClient(BusinessProcessClient businessProcessClient, IPictureparkClientSettings settings, HttpClient httpClient)
+			: this(settings, httpClient)
 		{
 			BaseUrl = businessProcessClient.BaseUrl;
 			_businessProcessClient = businessProcessClient;

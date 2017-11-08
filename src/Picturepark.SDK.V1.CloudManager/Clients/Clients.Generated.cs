@@ -16,8 +16,11 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
         private string _baseUrl = "";
         
-        public CustomerClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public CustomerClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -52,7 +55,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -142,8 +145,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -162,7 +163,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -252,8 +253,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -276,7 +275,7 @@ namespace Picturepark.SDK.V1.CloudManager
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer/{customerId}");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -363,8 +362,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -387,7 +384,7 @@ namespace Picturepark.SDK.V1.CloudManager
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer/{customerId}");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -474,8 +471,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -496,7 +491,7 @@ namespace Picturepark.SDK.V1.CloudManager
             urlBuilder_.Append("customerId=").Append(System.Uri.EscapeDataString(customerId != null ? System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture) : "null")).Append("&");
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -583,8 +578,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -603,7 +596,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer/search");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -693,8 +686,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -717,7 +708,7 @@ namespace Picturepark.SDK.V1.CloudManager
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer/{customerId}/users");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -804,8 +795,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -828,7 +817,7 @@ namespace Picturepark.SDK.V1.CloudManager
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer/{customerId}/externalProvider");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -918,8 +907,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -942,7 +929,7 @@ namespace Picturepark.SDK.V1.CloudManager
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer/{customerAlias}/restore");
             urlBuilder_.Replace("{customerAlias}", System.Uri.EscapeDataString(System.Convert.ToString(customerAlias, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1018,8 +1005,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1031,8 +1016,11 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
         private string _baseUrl = "";
         
-        public ServiceClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public ServiceClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -1067,7 +1055,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/services/shutdownAll");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1141,8 +1129,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1161,7 +1147,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/services/restartAll");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1235,8 +1221,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1259,7 +1243,7 @@ namespace Picturepark.SDK.V1.CloudManager
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/services/{serviceName}/restart");
             urlBuilder_.Replace("{serviceName}", System.Uri.EscapeDataString(System.Convert.ToString(serviceName, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1333,8 +1317,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1357,7 +1339,7 @@ namespace Picturepark.SDK.V1.CloudManager
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/services/{serviceName}/shutdown");
             urlBuilder_.Replace("{serviceName}", System.Uri.EscapeDataString(System.Convert.ToString(serviceName, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1431,8 +1413,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1451,7 +1431,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/services/pingAllActiveNodes");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1525,8 +1505,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1545,7 +1523,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/services/getAllActiveNodes");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1632,8 +1610,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1645,8 +1621,11 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
         private string _baseUrl = "";
         
-        public UpdateClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public UpdateClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -1681,7 +1660,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/environment");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1768,8 +1747,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1788,7 +1765,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/environment/version");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1875,8 +1852,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1895,7 +1870,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/environment/reactivate");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1972,8 +1947,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1992,7 +1965,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/environment/deactivate");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2069,8 +2042,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2089,7 +2060,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/environment/update");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2166,8 +2137,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2190,7 +2159,7 @@ namespace Picturepark.SDK.V1.CloudManager
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/customers/{customerId}");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2277,8 +2246,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2297,7 +2264,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/customers/version");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2384,8 +2351,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2408,7 +2373,7 @@ namespace Picturepark.SDK.V1.CloudManager
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/customers/{customerId}/version");
             urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(System.Convert.ToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2495,8 +2460,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2515,7 +2478,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/customers/reactivate");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2592,8 +2555,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2612,7 +2573,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/customers/deactivate");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2689,8 +2650,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2709,7 +2668,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/customers/update");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2786,8 +2745,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2799,8 +2756,11 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
         private string _baseUrl = "";
         
-        public CloudBackupClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public CloudBackupClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -2835,7 +2795,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/customer/repository");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2925,8 +2885,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2945,7 +2903,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/customer/snapshot");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -3035,8 +2993,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3055,7 +3011,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/customer/restore");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -3145,8 +3101,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3165,7 +3119,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/environment/repository");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -3255,8 +3209,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3275,7 +3227,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/environment/snapshot");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -3365,8 +3317,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3385,7 +3335,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/environment/restore");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -3475,8 +3425,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3495,7 +3443,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/customer/snapshot/search");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -3585,8 +3533,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3605,7 +3551,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/customer/snapshot/searchRepositories");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -3695,8 +3641,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3715,7 +3659,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/customer/clone");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -3805,8 +3749,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3818,8 +3760,11 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
         private string _baseUrl = "";
         
-        public UserClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public UserClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -3862,7 +3807,7 @@ namespace Picturepark.SDK.V1.CloudManager
             urlBuilder_.Replace("{customerAlias}", System.Uri.EscapeDataString(System.Convert.ToString(customerAlias, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{userId}", System.Uri.EscapeDataString(System.Convert.ToString(userId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -3949,8 +3894,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3973,7 +3916,7 @@ namespace Picturepark.SDK.V1.CloudManager
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/{customerAlias}/updateUserDeveloperFlag");
             urlBuilder_.Replace("{customerAlias}", System.Uri.EscapeDataString(System.Convert.ToString(customerAlias, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -4063,8 +4006,6 @@ namespace Picturepark.SDK.V1.CloudManager
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     

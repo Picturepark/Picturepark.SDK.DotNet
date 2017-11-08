@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Conversion;
+using System.Net.Http;
 
 namespace Picturepark.SDK.V1
 {
@@ -12,7 +13,8 @@ namespace Picturepark.SDK.V1
 	{
 		private readonly BusinessProcessClient _businessProcessClient;
 
-		public SchemaClient(BusinessProcessClient businessProcessesClient, IPictureparkClientSettings settings) : this(settings)
+		public SchemaClient(BusinessProcessClient businessProcessesClient, IPictureparkClientSettings settings, HttpClient httpClient)
+			: this(settings, httpClient)
 		{
 			BaseUrl = businessProcessesClient.BaseUrl;
 			_businessProcessClient = businessProcessesClient;

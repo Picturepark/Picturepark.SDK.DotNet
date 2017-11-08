@@ -14,8 +14,11 @@ namespace Picturepark.SDK.V1
     public partial class ContentClient : ClientBase, IContentClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public ContentClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public ContentClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -60,7 +63,7 @@ namespace Picturepark.SDK.V1
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -150,8 +153,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -187,7 +188,7 @@ namespace Picturepark.SDK.V1
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -274,8 +275,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -300,7 +299,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/contents/many/ownership/transfer");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -390,8 +389,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -416,7 +413,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/contents/aggregate");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -506,8 +503,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -538,7 +533,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/contents/{channelId}/aggregate");
             urlBuilder_.Replace("{channelId}", System.Uri.EscapeDataString(System.Convert.ToString(channelId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -628,8 +623,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -654,7 +647,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/contents/downloadLinks");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -744,8 +737,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -781,7 +772,7 @@ namespace Picturepark.SDK.V1
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -871,8 +862,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -909,7 +898,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{outputFormatId}", System.Uri.EscapeDataString(System.Convert.ToString(outputFormatId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -936,7 +925,7 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200" || status_ == "206") 
                         {
                             var responseStream_ = await response_.Content.ReadAsStreamAsync().ConfigureAwait(false);
-                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, client_, response_); 
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_); 
                             client_ = null; response_ = null; // response and client are disposed by FileResponse
                             return fileResponse_;
                         }
@@ -944,7 +933,7 @@ namespace Picturepark.SDK.V1
                         if (status_ == "206") 
                         {
                             var responseStream_ = await response_.Content.ReadAsStreamAsync().ConfigureAwait(false);
-                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, client_, response_); 
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_); 
                             client_ = null; response_ = null; // response and client are disposed by FileResponse
                             return fileResponse_;
                         }
@@ -1004,8 +993,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1040,7 +1027,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{size}", System.Uri.EscapeDataString(System.Convert.ToString(size, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1066,7 +1053,7 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200" || status_ == "206") 
                         {
                             var responseStream_ = await response_.Content.ReadAsStreamAsync().ConfigureAwait(false);
-                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, client_, response_); 
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_); 
                             client_ = null; response_ = null; // response and client are disposed by FileResponse
                             return fileResponse_;
                         }
@@ -1126,8 +1113,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1174,7 +1159,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Replace("{width}", System.Uri.EscapeDataString(System.Convert.ToString(width, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{height}", System.Uri.EscapeDataString(System.Convert.ToString(height, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1200,7 +1185,7 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200" || status_ == "206") 
                         {
                             var responseStream_ = await response_.Content.ReadAsStreamAsync().ConfigureAwait(false);
-                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, client_, response_); 
+                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_); 
                             client_ = null; response_ = null; // response and client are disposed by FileResponse
                             return fileResponse_;
                         }
@@ -1260,8 +1245,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1302,7 +1285,7 @@ namespace Picturepark.SDK.V1
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1409,8 +1392,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1454,7 +1435,7 @@ namespace Picturepark.SDK.V1
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1544,8 +1525,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1589,7 +1568,7 @@ namespace Picturepark.SDK.V1
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1679,8 +1658,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1705,7 +1682,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/contents/search");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1795,8 +1772,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1827,7 +1802,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/contents/{channelId}/search");
             urlBuilder_.Replace("{channelId}", System.Uri.EscapeDataString(System.Convert.ToString(channelId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1917,8 +1892,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -1952,7 +1925,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2028,8 +2001,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2058,7 +2029,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/contents/{contentId}/file");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2148,8 +2119,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2191,7 +2160,7 @@ namespace Picturepark.SDK.V1
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2280,8 +2249,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2306,7 +2273,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/contents/many/deactivate");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2396,8 +2363,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2422,7 +2387,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/contents/many/reactivate");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2512,8 +2477,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2538,7 +2501,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/contents/many/metadata");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2628,8 +2591,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2654,7 +2615,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/contents/many/metadata/filter");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2744,8 +2705,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2770,7 +2729,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/contents/many/permissions");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2860,8 +2819,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -2871,8 +2828,11 @@ namespace Picturepark.SDK.V1
     public partial class BusinessProcessClient : ClientBase, IBusinessProcessClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public BusinessProcessClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public BusinessProcessClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -2907,7 +2867,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/businessProcesses/search");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -2997,8 +2957,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3037,7 +2995,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -3124,8 +3082,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3154,7 +3110,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/businessProcesses/{processId}/details");
             urlBuilder_.Replace("{processId}", System.Uri.EscapeDataString(System.Convert.ToString(processId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -3241,8 +3197,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3252,8 +3206,11 @@ namespace Picturepark.SDK.V1
     public partial class DocumentHistoryClient : ClientBase, IDocumentHistoryClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public DocumentHistoryClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public DocumentHistoryClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -3288,7 +3245,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/history/search");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -3378,8 +3335,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3408,7 +3363,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/history/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -3495,8 +3450,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3531,7 +3484,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{version}", System.Uri.EscapeDataString(System.Convert.ToString(version, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -3618,8 +3571,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3654,7 +3605,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{oldVersion}", System.Uri.EscapeDataString(System.Convert.ToString(oldVersion, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -3741,8 +3692,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3783,7 +3732,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Replace("{oldVersion}", System.Uri.EscapeDataString(System.Convert.ToString(oldVersion, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{newVersion}", System.Uri.EscapeDataString(System.Convert.ToString(newVersion, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -3870,8 +3819,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -3881,8 +3828,11 @@ namespace Picturepark.SDK.V1
     public partial class JsonSchemaClient : ClientBase, IJsonSchemaClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public JsonSchemaClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public JsonSchemaClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -3921,7 +3871,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/jsonSchemas/{schemaId}");
             urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -4008,8 +3958,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -4019,8 +3967,11 @@ namespace Picturepark.SDK.V1
     public partial class ListItemClient : ClientBase, IListItemClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public ListItemClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public ListItemClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -4068,7 +4019,7 @@ namespace Picturepark.SDK.V1
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -4158,8 +4109,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -4184,7 +4133,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/listItems/many");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -4274,8 +4223,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -4302,7 +4249,7 @@ namespace Picturepark.SDK.V1
             if (ids != null) foreach (var item_ in ids) { urlBuilder_.Append("ids=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -4389,8 +4336,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -4415,7 +4360,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/listItems/many");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -4505,8 +4450,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -4531,7 +4474,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/listItems/aggregate");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -4621,8 +4564,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -4647,7 +4588,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/listItems/search");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -4737,8 +4678,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -4772,7 +4711,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -4846,8 +4785,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -4884,7 +4821,7 @@ namespace Picturepark.SDK.V1
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -4977,8 +4914,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -5022,7 +4957,7 @@ namespace Picturepark.SDK.V1
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -5112,8 +5047,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -5138,7 +5071,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/listItems/many/fields/filter");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -5228,8 +5161,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -5254,7 +5185,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/listItems/many/fields");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -5344,8 +5275,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -5386,7 +5315,7 @@ namespace Picturepark.SDK.V1
             if (states != null) foreach (var item_ in states) { urlBuilder_.Append("states=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -5473,8 +5402,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -5484,8 +5411,11 @@ namespace Picturepark.SDK.V1
     public partial class LiveStreamClient : ClientBase, ILiveStreamClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public LiveStreamClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public LiveStreamClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -5520,7 +5450,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/liveStream/search");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -5610,8 +5540,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -5621,8 +5549,11 @@ namespace Picturepark.SDK.V1
     public partial class SchemaClient : ClientBase, ISchemaClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public SchemaClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public SchemaClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -5659,7 +5590,7 @@ namespace Picturepark.SDK.V1
             if (ids != null) foreach (var item_ in ids) { urlBuilder_.Append("ids=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -5746,8 +5677,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -5772,7 +5701,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/schemas");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -5862,8 +5791,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -5892,7 +5819,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/schemas/{schemaId}");
             urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -5979,8 +5906,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -6011,7 +5936,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/schemas/{schemaId}");
             urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -6101,8 +6026,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -6131,7 +6054,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/schemas/{schemaId}");
             urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -6218,8 +6141,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -6252,7 +6173,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("fieldId=").Append(System.Uri.EscapeDataString(fieldId != null ? System.Convert.ToString(fieldId, System.Globalization.CultureInfo.InvariantCulture) : "null")).Append("&");
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -6339,8 +6260,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -6365,7 +6284,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/schemas/search");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -6455,8 +6374,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -6466,8 +6383,11 @@ namespace Picturepark.SDK.V1
     public partial class PermissionClient : ClientBase, IPermissionClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public PermissionClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public PermissionClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -6506,7 +6426,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/permission/userPermissions/{permission}");
             urlBuilder_.Replace("{permission}", System.Uri.EscapeDataString(System.Convert.ToString(permission, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -6593,8 +6513,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -6619,7 +6537,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/permission/contentPermissionSets/search");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -6709,8 +6627,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -6739,7 +6655,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/permission/contentPermissionSets/{permissionSetId}");
             urlBuilder_.Replace("{permissionSetId}", System.Uri.EscapeDataString(System.Convert.ToString(permissionSetId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -6826,8 +6742,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -6852,7 +6766,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/permission/schemaPermissionSets/search");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -6942,8 +6856,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -6972,7 +6884,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/permission/schemaPermissionSets/{permissionSetId}");
             urlBuilder_.Replace("{permissionSetId}", System.Uri.EscapeDataString(System.Convert.ToString(permissionSetId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -7059,8 +6971,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -7070,8 +6980,11 @@ namespace Picturepark.SDK.V1
     public partial class PublicAccessClient : ClientBase, IPublicAccessClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public PublicAccessClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public PublicAccessClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -7104,7 +7017,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/publicAccess/version");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -7191,8 +7104,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -7221,7 +7132,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/publicAccess/shares/{token}");
             urlBuilder_.Replace("{token}", System.Uri.EscapeDataString(System.Convert.ToString(token, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -7308,8 +7219,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -7319,8 +7228,11 @@ namespace Picturepark.SDK.V1
     public partial class ShareClient : ClientBase, IShareClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public ShareClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public ShareClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -7371,7 +7283,7 @@ namespace Picturepark.SDK.V1
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -7461,8 +7373,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -7491,7 +7401,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/shares/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -7578,8 +7488,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -7604,7 +7512,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/shares/deleteMany");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -7694,8 +7602,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -7720,7 +7626,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/shares/aggregate");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -7810,8 +7716,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -7840,7 +7744,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/shares");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -7950,8 +7854,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -7976,7 +7878,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/shares/search");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -8066,8 +7968,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -8077,8 +7977,11 @@ namespace Picturepark.SDK.V1
     public partial class ServiceProviderClient : ClientBase, IServiceProviderClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public ServiceProviderClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public ServiceProviderClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -8111,7 +8014,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/serviceProviders/{serviceProviderId}/message");
             urlBuilder_.Replace("{serviceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -8188,8 +8091,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -8212,7 +8113,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/serviceProviders/{serviceProviderId}/configuration");
             urlBuilder_.Replace("{serviceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -8299,8 +8200,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -8323,7 +8222,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/serviceProviders/{serviceProviderId}/configuration");
             urlBuilder_.Replace("{serviceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -8413,8 +8312,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -8424,8 +8321,11 @@ namespace Picturepark.SDK.V1
     public partial class TransferClient : ClientBase, ITransferClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public TransferClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public TransferClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -8458,7 +8358,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/transfers/files/delete");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -8540,8 +8440,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -8564,7 +8462,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/transfers/files/blacklist");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -8651,8 +8549,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -8677,7 +8573,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/transfers/{transferId}/cancel");
             urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -8751,8 +8647,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -8777,7 +8671,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/transfers");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -8867,8 +8761,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -8897,7 +8789,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/transfers/{transferId}");
             urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -8971,8 +8863,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -9001,7 +8891,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/transfers/{transferId}");
             urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -9088,8 +8978,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -9118,7 +9006,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/transfers/files/{fileTransferId}");
             urlBuilder_.Replace("{fileTransferId}", System.Uri.EscapeDataString(System.Convert.ToString(fileTransferId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -9205,8 +9093,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -9237,7 +9123,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/transfers/{transferId}/import");
             urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -9327,8 +9213,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -9357,7 +9241,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/transfers/{transferId}/partialImport");
             urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -9447,8 +9331,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -9473,7 +9355,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/transfers/search");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -9563,8 +9445,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -9589,7 +9469,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/transfers/files/search");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -9679,8 +9559,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -9727,7 +9605,7 @@ namespace Picturepark.SDK.V1
             if (totalChunks != null) urlBuilder_.Append("totalChunks=").Append(System.Uri.EscapeDataString(System.Convert.ToString(totalChunks, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -9808,8 +9686,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -9819,8 +9695,11 @@ namespace Picturepark.SDK.V1
     public partial class UserClient : ClientBase, IUserClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public UserClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public UserClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -9855,7 +9734,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/users/search");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -9945,8 +9824,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -9975,7 +9852,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/users/getUser/{userId}");
             urlBuilder_.Replace("{userId}", System.Uri.EscapeDataString(System.Convert.ToString(userId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -10062,8 +9939,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -10092,7 +9967,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/users/owner/{tokenId}");
             urlBuilder_.Replace("{tokenId}", System.Uri.EscapeDataString(System.Convert.ToString(tokenId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -10179,8 +10054,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -10201,7 +10074,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/users/channels");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -10288,8 +10161,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -10299,8 +10170,11 @@ namespace Picturepark.SDK.V1
     public partial class OutputClient : ClientBase, IOutputClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public OutputClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public OutputClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -10335,7 +10209,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/outputs");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -10425,8 +10299,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -10457,7 +10329,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append("v1/outputs/{outputId}");
             urlBuilder_.Replace("{outputId}", System.Uri.EscapeDataString(System.Convert.ToString(outputId, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -10564,8 +10436,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -10575,8 +10445,11 @@ namespace Picturepark.SDK.V1
     public partial class ProfileClient : ClientBase, IProfileClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-        public ProfileClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration) : base(configuration)
+        private System.Net.Http.HttpClient _httpClient; 
+    
+        public ProfileClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
+            _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
@@ -10609,7 +10482,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/profile");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -10696,8 +10569,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
@@ -10720,7 +10591,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append("v1/profile");
     
-            var client_ = await CreateHttpClientAsync(cancellationToken).ConfigureAwait(false);
+            var client_ = _httpClient;
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -10810,8 +10681,6 @@ namespace Picturepark.SDK.V1
             }
             finally
             {
-                if (client_ != null)
-                    client_.Dispose();
             }
         }
     
