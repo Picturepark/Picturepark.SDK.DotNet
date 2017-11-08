@@ -13,7 +13,7 @@
       "generateClientClasses": true,
       "generateClientInterfaces": true,
       "generateDtoTypes": true,
-      "injectHttpClient": false,
+      "injectHttpClient": true,
       "disposeHttpClient": true,
       "generateExceptionClasses": true,
       "exceptionClass": "ApiException",

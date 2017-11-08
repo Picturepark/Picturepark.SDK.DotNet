@@ -12,7 +12,7 @@
       "generateClientClasses": true,
       "generateClientInterfaces": true,
       "generateDtoTypes": true,
-      "injectHttpClient": false,
+      "injectHttpClient": true,
       "protectedMethods": [
         "ListItemClient.CreateManyAsync",
         "SchemaClient.UpdateAsync",
