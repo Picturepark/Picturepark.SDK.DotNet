@@ -10594,6 +10594,10 @@
         "outputFormatId": {
           "type": "string"
         },
+        "url": {
+          "type": "string",
+          "description": "Url to directly download output. In case of BasicShare if not fetched using a token, a placeholder {token} is included which needs to be replaced with the recipient's token"
+        },
         "detail": {
           "$ref": "#/definitions/OutputDataBase"
         },
@@ -10744,9 +10748,6 @@
       "additionalProperties": false,
       "properties": {
         "token": {
-          "type": "string"
-        },
-        "url": {
           "type": "string"
         }
       },
