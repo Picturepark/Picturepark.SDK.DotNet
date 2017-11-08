@@ -14,6 +14,8 @@ namespace Picturepark.SDK.V1
     public partial class ContentClient : ClientBase, IContentClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        private string _baseUrl = "";
+        
         private System.Net.Http.HttpClient _httpClient; 
     
         public ContentClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
@@ -26,6 +28,12 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
+    
+        public string BaseUrl 
+        {
+            get { return _baseUrl; }
+            set { _baseUrl = value; }
+        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -58,7 +66,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("contentId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/{contentId}/ownership/transfer?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/{contentId}/ownership/transfer?");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
@@ -66,7 +74,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(updateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -182,7 +190,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/many?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/many?");
             foreach (var item_ in ids) { urlBuilder_.Append("ids=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
@@ -191,7 +199,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -297,12 +305,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> TransferOwnershipManyAsync(ContentsOwnershipTransferRequest contentsOwnershipTransferRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/many/ownership/transfer");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/many/ownership/transfer");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentsOwnershipTransferRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -411,12 +419,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ContentAggregationRequest contentAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/aggregate");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/aggregate");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentAggregationRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -530,13 +538,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("channelId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/{channelId}/aggregate");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/{channelId}/aggregate");
             urlBuilder_.Replace("{channelId}", System.Uri.EscapeDataString(System.Convert.ToString(channelId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentAggregationRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -645,12 +653,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<DownloadLink> CreateDownloadLinkAsync(ContentDownloadLinkCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/downloadLinks");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/downloadLinks");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -766,7 +774,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents?");
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
@@ -775,7 +783,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(createRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -894,14 +902,14 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("outputFormatId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/downloads/{contentId}/{outputFormatId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/downloads/{contentId}/{outputFormatId}");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{outputFormatId}", System.Uri.EscapeDataString(System.Convert.ToString(outputFormatId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Headers.TryAddWithoutValidation("range", range != null ? System.Convert.ToString(range, System.Globalization.CultureInfo.InvariantCulture) : null);
                     request_.Method = new System.Net.Http.HttpMethod("GET");
@@ -1023,14 +1031,14 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("size");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/thumbnails/{contentId}/{size}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/thumbnails/{contentId}/{size}");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{size}", System.Uri.EscapeDataString(System.Convert.ToString(size, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -1153,7 +1161,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("height");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/downloads/{contentId}/{outputFormatId}/{width}/{height}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/downloads/{contentId}/{outputFormatId}/{width}/{height}");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{outputFormatId}", System.Uri.EscapeDataString(System.Convert.ToString(outputFormatId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{width}", System.Uri.EscapeDataString(System.Convert.ToString(width, System.Globalization.CultureInfo.InvariantCulture)));
@@ -1162,7 +1170,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -1279,7 +1287,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/{contentId}?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/{contentId}?");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
@@ -1288,7 +1296,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -1428,7 +1436,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/{contentId}?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/{contentId}?");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -1438,7 +1446,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(updateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -1561,7 +1569,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/{contentId}/permissions?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/{contentId}/permissions?");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -1571,7 +1579,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(updateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -1680,12 +1688,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ContentSearchResult> SearchAsync(ContentSearchRequest contentSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/search");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/search");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentSearchRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -1799,13 +1807,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("channelId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/{channelId}/search");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/{channelId}/search");
             urlBuilder_.Replace("{channelId}", System.Uri.EscapeDataString(System.Convert.ToString(channelId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentSearchRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -1920,7 +1928,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("timeout");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/{contentId}/deactivate?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/{contentId}/deactivate?");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
@@ -1928,7 +1936,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(string.Empty);
                     request_.Content = content_;
@@ -2026,13 +2034,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("contentId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/{contentId}/file");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/{contentId}/file");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(updateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -2153,7 +2161,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/{contentId}/reactivate?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/{contentId}/reactivate?");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -2163,7 +2171,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(string.Empty);
                     request_.Content = content_;
@@ -2271,12 +2279,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> DeactivateManyAsync(ContentDeactivationRequest deactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/many/deactivate");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/many/deactivate");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(deactivationRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -2385,12 +2393,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> ReactivateManyAsync(ContentReactivationRequest reactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/many/reactivate");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/many/reactivate");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(reactivationRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -2499,12 +2507,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> UpdateMetadataManyAsync(ContentsMetadataUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/many/metadata");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/many/metadata");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(updateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -2613,12 +2621,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> UpdateMetadataByFilterAsync(FilterContentsMetadataUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/many/metadata/filter");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/many/metadata/filter");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(updateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -2727,12 +2735,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> UpdatePermissionsManyAsync(System.Collections.Generic.IEnumerable<UpdateContentPermissionsRequest> updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/contents/many/permissions");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/many/permissions");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(updateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -2828,6 +2836,8 @@ namespace Picturepark.SDK.V1
     public partial class BusinessProcessClient : ClientBase, IBusinessProcessClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        private string _baseUrl = "";
+        
         private System.Net.Http.HttpClient _httpClient; 
     
         public BusinessProcessClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
@@ -2840,6 +2850,12 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
+    
+        public string BaseUrl 
+        {
+            get { return _baseUrl; }
+            set { _baseUrl = value; }
+        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -2865,12 +2881,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcessSearchResult> SearchAsync(BusinessProcessSearchRequest businessProcessSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/businessProcesses/search");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/businessProcesses/search");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(businessProcessSearchRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -2989,7 +3005,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("timeout");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/businessProcesses/{processId}/wait?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/businessProcesses/{processId}/wait?");
             urlBuilder_.Replace("{processId}", System.Uri.EscapeDataString(System.Convert.ToString(processId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("states=").Append(System.Uri.EscapeDataString(states != null ? System.Convert.ToString(states, System.Globalization.CultureInfo.InvariantCulture) : "null")).Append("&");
             urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -2998,7 +3014,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -3107,13 +3123,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("processId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/businessProcesses/{processId}/details");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/businessProcesses/{processId}/details");
             urlBuilder_.Replace("{processId}", System.Uri.EscapeDataString(System.Convert.ToString(processId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -3206,6 +3222,8 @@ namespace Picturepark.SDK.V1
     public partial class DocumentHistoryClient : ClientBase, IDocumentHistoryClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        private string _baseUrl = "";
+        
         private System.Net.Http.HttpClient _httpClient; 
     
         public DocumentHistoryClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
@@ -3218,6 +3236,12 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
+    
+        public string BaseUrl 
+        {
+            get { return _baseUrl; }
+            set { _baseUrl = value; }
+        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -3243,12 +3267,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<DocumentHistorySearchResult> SearchAsync(DocumentHistorySearchRequest documentHistorySearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/history/search");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/history/search");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(documentHistorySearchRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -3360,13 +3384,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("id");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/history/{id}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/history/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -3480,14 +3504,14 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("version");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/history/{id}/{version}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/history/{id}/{version}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{version}", System.Uri.EscapeDataString(System.Convert.ToString(version, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -3601,14 +3625,14 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("oldVersion");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/history/{id}/difference/{oldVersion}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/history/{id}/difference/{oldVersion}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{oldVersion}", System.Uri.EscapeDataString(System.Convert.ToString(oldVersion, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -3727,7 +3751,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("newVersion");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/history/{id}/difference/{oldVersion}/{newVersion}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/history/{id}/difference/{oldVersion}/{newVersion}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{oldVersion}", System.Uri.EscapeDataString(System.Convert.ToString(oldVersion, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{newVersion}", System.Uri.EscapeDataString(System.Convert.ToString(newVersion, System.Globalization.CultureInfo.InvariantCulture)));
@@ -3735,7 +3759,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -3828,6 +3852,8 @@ namespace Picturepark.SDK.V1
     public partial class JsonSchemaClient : ClientBase, IJsonSchemaClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        private string _baseUrl = "";
+        
         private System.Net.Http.HttpClient _httpClient; 
     
         public JsonSchemaClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
@@ -3840,6 +3866,12 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
+    
+        public string BaseUrl 
+        {
+            get { return _baseUrl; }
+            set { _baseUrl = value; }
+        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -3868,13 +3900,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("schemaId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/jsonSchemas/{schemaId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/jsonSchemas/{schemaId}");
             urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -3967,6 +3999,8 @@ namespace Picturepark.SDK.V1
     public partial class ListItemClient : ClientBase, IListItemClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        private string _baseUrl = "";
+        
         private System.Net.Http.HttpClient _httpClient; 
     
         public ListItemClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
@@ -3979,6 +4013,12 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
+    
+        public string BaseUrl 
+        {
+            get { return _baseUrl; }
+            set { _baseUrl = value; }
+        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -4013,7 +4053,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/listItems?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems?");
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
@@ -4022,7 +4062,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(listItem, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -4131,12 +4171,12 @@ namespace Picturepark.SDK.V1
         protected async System.Threading.Tasks.Task<BusinessProcess> CreateManyCoreAsync(System.Collections.Generic.IEnumerable<ListItemCreateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/listItems/many");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/many");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(objects, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -4245,14 +4285,14 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/listItems/many?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/many?");
             if (ids != null) foreach (var item_ in ids) { urlBuilder_.Append("ids=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("DELETE");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -4358,12 +4398,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(System.Collections.Generic.IEnumerable<ListItemUpdateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/listItems/many");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/many");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(objects, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -4472,12 +4512,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ListItemAggregationRequest listItemAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/listItems/aggregate");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/aggregate");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(listItemAggregationRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -4586,12 +4626,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ListItemSearchResult> SearchAsync(ListItemSearchRequest listItemSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/listItems/search");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/search");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(listItemSearchRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -4706,7 +4746,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("timeout");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/listItems/{objectId}?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/{objectId}?");
             urlBuilder_.Replace("{objectId}", System.Uri.EscapeDataString(System.Convert.ToString(objectId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
@@ -4714,7 +4754,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("DELETE");
     
@@ -4815,7 +4855,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/listItems/{listItemId}?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/{listItemId}?");
             urlBuilder_.Replace("{listItemId}", System.Uri.EscapeDataString(System.Convert.ToString(listItemId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
@@ -4824,7 +4864,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -4950,7 +4990,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/listItems/{listItemId}?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/{listItemId}?");
             urlBuilder_.Replace("{listItemId}", System.Uri.EscapeDataString(System.Convert.ToString(listItemId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -4960,7 +5000,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(updateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -5069,12 +5109,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> UpdateFieldsByFilterAsync(ListItemFieldsFilterUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/listItems/many/fields/filter");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/many/fields/filter");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(updateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -5183,12 +5223,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> UpdateFieldsAsync(ListItemFieldsUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/listItems/many/fields");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/many/fields");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(updateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -5309,7 +5349,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("timeout");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/listItems/{processId}/wait?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/{processId}/wait?");
             urlBuilder_.Replace("{processId}", System.Uri.EscapeDataString(System.Convert.ToString(processId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (states != null) foreach (var item_ in states) { urlBuilder_.Append("states=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
@@ -5318,7 +5358,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -5411,6 +5451,8 @@ namespace Picturepark.SDK.V1
     public partial class LiveStreamClient : ClientBase, ILiveStreamClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        private string _baseUrl = "";
+        
         private System.Net.Http.HttpClient _httpClient; 
     
         public LiveStreamClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
@@ -5423,6 +5465,12 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
+    
+        public string BaseUrl 
+        {
+            get { return _baseUrl; }
+            set { _baseUrl = value; }
+        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -5448,12 +5496,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ObjectSearchResult> SearchAsync(LiveStreamSearchRequest liveStreamSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/liveStream/search");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/liveStream/search");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(liveStreamSearchRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -5549,6 +5597,8 @@ namespace Picturepark.SDK.V1
     public partial class SchemaClient : ClientBase, ISchemaClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        private string _baseUrl = "";
+        
         private System.Net.Http.HttpClient _httpClient; 
     
         public SchemaClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
@@ -5561,6 +5611,12 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
+    
+        public string BaseUrl 
+        {
+            get { return _baseUrl; }
+            set { _baseUrl = value; }
+        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -5586,14 +5642,14 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<SchemaDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/schemas?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas?");
             if (ids != null) foreach (var item_ in ids) { urlBuilder_.Append("ids=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -5699,12 +5755,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> CreateAsync(SchemaCreateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/schemas");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(schema, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -5816,13 +5872,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("schemaId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/schemas/{schemaId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas/{schemaId}");
             urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -5933,13 +5989,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("schemaId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/schemas/{schemaId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas/{schemaId}");
             urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(schema, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -6051,13 +6107,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("schemaId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/schemas/{schemaId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas/{schemaId}");
             urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("DELETE");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -6168,7 +6224,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("schemaId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/schemas/{schemaId}/exists?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas/{schemaId}/exists?");
             urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("fieldId=").Append(System.Uri.EscapeDataString(fieldId != null ? System.Convert.ToString(fieldId, System.Globalization.CultureInfo.InvariantCulture) : "null")).Append("&");
             urlBuilder_.Length--;
@@ -6176,7 +6232,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -6282,12 +6338,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<SchemaSearchResult> SearchAsync(SchemaSearchRequest schemaSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/schemas/search");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas/search");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(schemaSearchRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -6383,6 +6439,8 @@ namespace Picturepark.SDK.V1
     public partial class PermissionClient : ClientBase, IPermissionClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        private string _baseUrl = "";
+        
         private System.Net.Http.HttpClient _httpClient; 
     
         public PermissionClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
@@ -6395,6 +6453,12 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
+    
+        public string BaseUrl 
+        {
+            get { return _baseUrl; }
+            set { _baseUrl = value; }
+        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -6423,13 +6487,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("permission");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/permission/userPermissions/{permission}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/permission/userPermissions/{permission}");
             urlBuilder_.Replace("{permission}", System.Uri.EscapeDataString(System.Convert.ToString(permission, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -6535,12 +6599,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<PermissionSetSearchResult> SearchContentPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/permission/contentPermissionSets/search");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/permission/contentPermissionSets/search");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -6652,13 +6716,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("permissionSetId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/permission/contentPermissionSets/{permissionSetId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/permission/contentPermissionSets/{permissionSetId}");
             urlBuilder_.Replace("{permissionSetId}", System.Uri.EscapeDataString(System.Convert.ToString(permissionSetId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -6764,12 +6828,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<PermissionSetSearchResult> SearchSchemaPermissionsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/permission/schemaPermissionSets/search");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/permission/schemaPermissionSets/search");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -6881,13 +6945,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("permissionSetId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/permission/schemaPermissionSets/{permissionSetId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/permission/schemaPermissionSets/{permissionSetId}");
             urlBuilder_.Replace("{permissionSetId}", System.Uri.EscapeDataString(System.Convert.ToString(permissionSetId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -6980,6 +7044,8 @@ namespace Picturepark.SDK.V1
     public partial class PublicAccessClient : ClientBase, IPublicAccessClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        private string _baseUrl = "";
+        
         private System.Net.Http.HttpClient _httpClient; 
     
         public PublicAccessClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
@@ -6992,6 +7058,12 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
+    
+        public string BaseUrl 
+        {
+            get { return _baseUrl; }
+            set { _baseUrl = value; }
+        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -7015,12 +7087,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<VersionInfo> GetVersionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/publicAccess/version");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/publicAccess/version");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -7129,13 +7201,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("token");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/publicAccess/shares/{token}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/publicAccess/shares/{token}");
             urlBuilder_.Replace("{token}", System.Uri.EscapeDataString(System.Convert.ToString(token, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -7228,6 +7300,8 @@ namespace Picturepark.SDK.V1
     public partial class ShareClient : ClientBase, IShareClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        private string _baseUrl = "";
+        
         private System.Net.Http.HttpClient _httpClient; 
     
         public ShareClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
@@ -7240,6 +7314,12 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
+    
+        public string BaseUrl 
+        {
+            get { return _baseUrl; }
+            set { _baseUrl = value; }
+        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -7277,7 +7357,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("resolve");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/shares/{id}?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/shares/{id}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -7286,7 +7366,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(updateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -7398,13 +7478,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("id");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/shares/{id}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/shares/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(System.Convert.ToString(id, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -7510,12 +7590,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> shareIds, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/shares/deleteMany");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/shares/deleteMany");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(shareIds, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -7624,12 +7704,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ShareAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/shares/aggregate");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/shares/aggregate");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -7742,12 +7822,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<CreateShareResult> CreateAsync(ShareBaseCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/shares");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/shares");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -7876,12 +7956,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ShareSearchResult> SearchAsync(ShareSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/shares/search");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/shares/search");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -7977,6 +8057,8 @@ namespace Picturepark.SDK.V1
     public partial class ServiceProviderClient : ClientBase, IServiceProviderClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        private string _baseUrl = "";
+        
         private System.Net.Http.HttpClient _httpClient; 
     
         public ServiceProviderClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
@@ -7989,6 +8071,12 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
+    
+        public string BaseUrl 
+        {
+            get { return _baseUrl; }
+            set { _baseUrl = value; }
+        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -8011,13 +8099,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("serviceProviderId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/serviceProviders/{serviceProviderId}/message");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/serviceProviders/{serviceProviderId}/message");
             urlBuilder_.Replace("{serviceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -8110,13 +8198,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("serviceProviderId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/serviceProviders/{serviceProviderId}/configuration");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/serviceProviders/{serviceProviderId}/configuration");
             urlBuilder_.Replace("{serviceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -8219,13 +8307,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("serviceProviderId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/serviceProviders/{serviceProviderId}/configuration");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/serviceProviders/{serviceProviderId}/configuration");
             urlBuilder_.Replace("{serviceProviderId}", System.Uri.EscapeDataString(System.Convert.ToString(serviceProviderId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(configuration, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -8321,6 +8409,8 @@ namespace Picturepark.SDK.V1
     public partial class TransferClient : ClientBase, ITransferClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        private string _baseUrl = "";
+        
         private System.Net.Http.HttpClient _httpClient; 
     
         public TransferClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
@@ -8333,6 +8423,12 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
+    
+        public string BaseUrl 
+        {
+            get { return _baseUrl; }
+            set { _baseUrl = value; }
+        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -8356,12 +8452,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task DeleteFilesAsync(FileTransferDeleteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/transfers/files/delete");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/transfers/files/delete");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -8460,12 +8556,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<Blacklist> GetBlacklistAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/transfers/files/blacklist");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/transfers/files/blacklist");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -8570,13 +8666,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("transferId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/transfers/{transferId}/cancel");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/transfers/{transferId}/cancel");
             urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
     
@@ -8669,12 +8765,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<Transfer> CreateAsync(CreateTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/transfers");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/transfers");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -8786,13 +8882,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("transferId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/transfers/{transferId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/transfers/{transferId}");
             urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("DELETE");
     
@@ -8888,13 +8984,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("transferId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/transfers/{transferId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/transfers/{transferId}");
             urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -9003,13 +9099,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("fileTransferId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/transfers/files/{fileTransferId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/transfers/files/{fileTransferId}");
             urlBuilder_.Replace("{fileTransferId}", System.Uri.EscapeDataString(System.Convert.ToString(fileTransferId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -9120,13 +9216,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("transferId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/transfers/{transferId}/import");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/transfers/{transferId}/import");
             urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -9238,13 +9334,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("transferId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/transfers/{transferId}/partialImport");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/transfers/{transferId}/partialImport");
             urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -9353,12 +9449,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<TransferSearchResult> SearchAsync(TransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/transfers/search");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/transfers/search");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -9467,12 +9563,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<FileTransferSearchResult> SearchFilesAsync(FileTransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/transfers/files/search");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/transfers/files/search");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -9595,7 +9691,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("identifier");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/transfers/{transferId}/files/{identifier}/upload?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/transfers/{transferId}/files/{identifier}/upload?");
             urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(System.Convert.ToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{identifier}", System.Uri.EscapeDataString(System.Convert.ToString(identifier, System.Globalization.CultureInfo.InvariantCulture)));
             if (relativePath != null) urlBuilder_.Append("relativePath=").Append(System.Uri.EscapeDataString(System.Convert.ToString(relativePath, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -9608,7 +9704,7 @@ namespace Picturepark.SDK.V1
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var boundary_ = System.Guid.NewGuid().ToString();
                     var content_ = new System.Net.Http.MultipartFormDataContent(boundary_);
@@ -9695,6 +9791,8 @@ namespace Picturepark.SDK.V1
     public partial class UserClient : ClientBase, IUserClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        private string _baseUrl = "";
+        
         private System.Net.Http.HttpClient _httpClient; 
     
         public UserClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
@@ -9707,6 +9805,12 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
+    
+        public string BaseUrl 
+        {
+            get { return _baseUrl; }
+            set { _baseUrl = value; }
+        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -9732,12 +9836,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<UserSearchResult> SearchAsync(UserSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/users/search");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/users/search");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(searchRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -9849,13 +9953,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("userId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/users/getUser/{userId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/users/getUser/{userId}");
             urlBuilder_.Replace("{userId}", System.Uri.EscapeDataString(System.Convert.ToString(userId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -9964,13 +10068,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("tokenId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/users/owner/{tokenId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/users/owner/{tokenId}");
             urlBuilder_.Replace("{tokenId}", System.Uri.EscapeDataString(System.Convert.ToString(tokenId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -10072,12 +10176,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<Channel>> GetChannelsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/users/channels");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/users/channels");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -10170,6 +10274,8 @@ namespace Picturepark.SDK.V1
     public partial class OutputClient : ClientBase, IOutputClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        private string _baseUrl = "";
+        
         private System.Net.Http.HttpClient _httpClient; 
     
         public OutputClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
@@ -10182,6 +10288,12 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
+    
+        public string BaseUrl 
+        {
+            get { return _baseUrl; }
+            set { _baseUrl = value; }
+        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -10207,12 +10319,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<System.Collections.Generic.List<OutputDetail>> GetByContentIdsAsync(ContentsByIdsRequest contentsByIdsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/outputs");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/outputs");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentsByIdsRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -10326,13 +10438,13 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("outputId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/outputs/{outputId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/outputs/{outputId}");
             urlBuilder_.Replace("{outputId}", System.Uri.EscapeDataString(System.Convert.ToString(outputId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -10445,6 +10557,8 @@ namespace Picturepark.SDK.V1
     public partial class ProfileClient : ClientBase, IProfileClient
     {
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
+        private string _baseUrl = "";
+        
         private System.Net.Http.HttpClient _httpClient; 
     
         public ProfileClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
@@ -10457,6 +10571,12 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
+    
+        public string BaseUrl 
+        {
+            get { return _baseUrl; }
+            set { _baseUrl = value; }
+        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -10480,12 +10600,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<UserProfile> GetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/profile");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/profile");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -10589,12 +10709,12 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<UserProfile> UpdateAsync(UserProfile profile, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append("v1/profile");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/profile");
     
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(profile, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";

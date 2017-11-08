@@ -58,7 +58,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(createRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -166,7 +166,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(updateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -278,7 +278,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -387,7 +387,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("DELETE");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -494,7 +494,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -599,7 +599,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(searchRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -711,7 +711,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -820,7 +820,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(addRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -932,7 +932,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(string.Empty);
                     request_.Content = content_;
@@ -1058,7 +1058,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
     
@@ -1150,7 +1150,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
     
@@ -1246,7 +1246,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
     
@@ -1342,7 +1342,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
     
@@ -1434,7 +1434,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
     
@@ -1526,7 +1526,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -1663,7 +1663,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -1768,7 +1768,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -1873,7 +1873,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(reactivationRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -1968,7 +1968,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(deactivationRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -2063,7 +2063,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(updateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -2162,7 +2162,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -2267,7 +2267,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -2376,7 +2376,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -2481,7 +2481,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(reactivationRequests, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -2576,7 +2576,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(deactivationRequests, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -2671,7 +2671,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(updateRequests, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -2798,7 +2798,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(snapshotRepositoryCustomerCreateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -2906,7 +2906,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(snapshotCustomerCreateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -3014,7 +3014,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(snapshotCustomerRestoreRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -3122,7 +3122,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(snapshotRepositoryEnvironmentCreateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -3230,7 +3230,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(snapshotEnvironmentCreateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -3338,7 +3338,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(snapshotEnvironmentRestoreRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -3446,7 +3446,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(snapshotCustomerSearchRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -3554,7 +3554,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(searchRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -3662,7 +3662,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(cloneRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
@@ -3810,7 +3810,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
@@ -3919,7 +3919,7 @@ namespace Picturepark.SDK.V1.CloudManager
             var client_ = _httpClient;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(userDeveloperFlagUpdateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";

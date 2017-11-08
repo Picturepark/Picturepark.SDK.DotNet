@@ -11,6 +11,7 @@ namespace Picturepark.SDK.V1.CloudManager
 		public CloudManagerClient(IPictureparkClientSettings settings)
 		{
 			_httpClient = new HttpClient();
+			_httpClient.Timeout = settings.HttpTimeout;
 			Initialize(settings, _httpClient);
 		}
 

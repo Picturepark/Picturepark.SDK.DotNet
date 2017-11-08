@@ -13,6 +13,7 @@ namespace Picturepark.SDK.V1
 		public PictureparkClient(IPictureparkClientSettings settings)
 		{
 			_httpClient = new HttpClient();
+			_httpClient.Timeout = settings.HttpTimeout;
 			Initialize(settings, _httpClient);
 		}
 
