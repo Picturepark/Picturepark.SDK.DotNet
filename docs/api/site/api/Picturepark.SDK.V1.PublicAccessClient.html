@@ -162,11 +162,12 @@
               
               <a id="Picturepark_SDK_V1_PublicAccessClient_GetShare_" data-uid="Picturepark.SDK.V1.PublicAccessClient.GetShare*"></a>
               <h4 id="Picturepark_SDK_V1_PublicAccessClient_GetShare_System_String_" data-uid="Picturepark.SDK.V1.PublicAccessClient.GetShare(System.String)">GetShare(String)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Get Share</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public ShareBaseDetail GetShare(string token)</code></pre>
+                <pre><code class="lang-csharp hljs">public ShareDetail GetShare(string token)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -181,7 +182,8 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">token</span></td>
-                    <td></td>
+                    <td><p>The token</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -195,8 +197,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ShareBaseDetail.html">ShareBaseDetail</a></td>
-                    <td></td>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ShareDetail.html">ShareDetail</a></td>
+                    <td><p>ShareBaseDetail</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -218,7 +221,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -227,11 +230,12 @@
               
               <a id="Picturepark_SDK_V1_PublicAccessClient_GetShareAsync_" data-uid="Picturepark.SDK.V1.PublicAccessClient.GetShareAsync*"></a>
               <h4 id="Picturepark_SDK_V1_PublicAccessClient_GetShareAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.PublicAccessClient.GetShareAsync(System.String,System.Threading.CancellationToken)">GetShareAsync(String, CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Get Share</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;ShareBaseDetail&gt; GetShareAsync(string token, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;ShareDetail&gt; GetShareAsync(string token, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -246,7 +250,8 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">token</span></td>
-                    <td></td>
+                    <td><p>The token</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Threading.CancellationToken</span></td>
@@ -266,8 +271,9 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ShareBaseDetail.html">ShareBaseDetail</a>&gt;</td>
-                    <td></td>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ShareDetail.html">ShareDetail</a>&gt;</td>
+                    <td><p>ShareBaseDetail</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -289,7 +295,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -298,7 +304,8 @@
               
               <a id="Picturepark_SDK_V1_PublicAccessClient_GetVersion_" data-uid="Picturepark.SDK.V1.PublicAccessClient.GetVersion*"></a>
               <h4 id="Picturepark_SDK_V1_PublicAccessClient_GetVersion" data-uid="Picturepark.SDK.V1.PublicAccessClient.GetVersion">GetVersion()</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Get Version</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -315,7 +322,8 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.VersionInfo.html">VersionInfo</a></td>
-                    <td></td>
+                    <td><p>VersionInfo</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -335,13 +343,19 @@
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
                 </tbody>
               </table>
               
               
               <a id="Picturepark_SDK_V1_PublicAccessClient_GetVersionAsync_" data-uid="Picturepark.SDK.V1.PublicAccessClient.GetVersionAsync*"></a>
               <h4 id="Picturepark_SDK_V1_PublicAccessClient_GetVersionAsync_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.PublicAccessClient.GetVersionAsync(System.Threading.CancellationToken)">GetVersionAsync(CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Get Version</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -376,7 +390,8 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.VersionInfo.html">VersionInfo</a>&gt;</td>
-                    <td></td>
+                    <td><p>VersionInfo</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -394,6 +409,11 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
                     <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>

@@ -94,7 +94,7 @@
               
               <a id="Picturepark_SDK_V1_Contract_IShareClient_Aggregate_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Aggregate*"></a>
               <h4 id="Picturepark_SDK_V1_Contract_IShareClient_Aggregate_Picturepark_SDK_V1_Contract_ShareAggregationRequest_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Aggregate(Picturepark.SDK.V1.Contract.ShareAggregationRequest)">Aggregate(ShareAggregationRequest)</h4>
-              <div class="markdown level1 summary"><p>Aggregates own shares</p>
+              <div class="markdown level1 summary"><p>Aggregate</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
@@ -160,7 +160,7 @@
               
               <a id="Picturepark_SDK_V1_Contract_IShareClient_AggregateAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.AggregateAsync*"></a>
               <h4 id="Picturepark_SDK_V1_Contract_IShareClient_AggregateAsync_Picturepark_SDK_V1_Contract_ShareAggregationRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.AggregateAsync(Picturepark.SDK.V1.Contract.ShareAggregationRequest,System.Threading.CancellationToken)">AggregateAsync(ShareAggregationRequest, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Aggregates own shares</p>
+              <div class="markdown level1 summary"><p>Aggregate</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
@@ -232,7 +232,7 @@
               
               <a id="Picturepark_SDK_V1_Contract_IShareClient_Create_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Create*"></a>
               <h4 id="Picturepark_SDK_V1_Contract_IShareClient_Create_Picturepark_SDK_V1_Contract_ShareBaseCreateRequest_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Create(Picturepark.SDK.V1.Contract.ShareBaseCreateRequest)">Create(ShareBaseCreateRequest)</h4>
-              <div class="markdown level1 summary"><p>Create a new share (basic or embed).</p>
+              <div class="markdown level1 summary"><p>Create single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
@@ -308,7 +308,7 @@
               
               <a id="Picturepark_SDK_V1_Contract_IShareClient_CreateAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.CreateAsync*"></a>
               <h4 id="Picturepark_SDK_V1_Contract_IShareClient_CreateAsync_Picturepark_SDK_V1_Contract_ShareBaseCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.CreateAsync(Picturepark.SDK.V1.Contract.ShareBaseCreateRequest,System.Threading.CancellationToken)">CreateAsync(ShareBaseCreateRequest, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Create a new share (basic or embed).</p>
+              <div class="markdown level1 summary"><p>Create single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
@@ -390,7 +390,7 @@
               
               <a id="Picturepark_SDK_V1_Contract_IShareClient_DeleteMany_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.DeleteMany*"></a>
               <h4 id="Picturepark_SDK_V1_Contract_IShareClient_DeleteMany_System_Collections_Generic_IEnumerable_System_String__" data-uid="Picturepark.SDK.V1.Contract.IShareClient.DeleteMany(System.Collections.Generic.IEnumerable{System.String})">DeleteMany(IEnumerable&lt;String&gt;)</h4>
-              <div class="markdown level1 summary"><p>Delete Many</p>
+              <div class="markdown level1 summary"><p>Delete many</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
@@ -456,7 +456,7 @@
               
               <a id="Picturepark_SDK_V1_Contract_IShareClient_DeleteManyAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.DeleteManyAsync*"></a>
               <h4 id="Picturepark_SDK_V1_Contract_IShareClient_DeleteManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.DeleteManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">DeleteManyAsync(IEnumerable&lt;String&gt;, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Delete Many</p>
+              <div class="markdown level1 summary"><p>Delete many</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
@@ -528,12 +528,12 @@
               
               <a id="Picturepark_SDK_V1_Contract_IShareClient_Get_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Get*"></a>
               <h4 id="Picturepark_SDK_V1_Contract_IShareClient_Get_System_String_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Get(System.String)">Get(String)</h4>
-              <div class="markdown level1 summary"><p>Get share by id (basic or embed)</p>
+              <div class="markdown level1 summary"><p>Get single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ShareBaseDetail Get(string id)</code></pre>
+                <pre><code class="lang-csharp hljs">ShareDetail Get(string id)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -563,7 +563,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ShareBaseDetail.html">ShareBaseDetail</a></td>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ShareDetail.html">ShareDetail</a></td>
                     <td><p>Polymorph share</p>
 </td>
                   </tr>
@@ -594,12 +594,12 @@
               
               <a id="Picturepark_SDK_V1_Contract_IShareClient_GetAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.GetAsync*"></a>
               <h4 id="Picturepark_SDK_V1_Contract_IShareClient_GetAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.GetAsync(System.String,System.Threading.CancellationToken)">GetAsync(String, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Get share by id (basic or embed)</p>
+              <div class="markdown level1 summary"><p>Get single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;ShareBaseDetail&gt; GetAsync(string id, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;ShareDetail&gt; GetAsync(string id, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -635,7 +635,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ShareBaseDetail.html">ShareBaseDetail</a>&gt;</td>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ShareDetail.html">ShareDetail</a>&gt;</td>
                     <td><p>Polymorph share</p>
 </td>
                   </tr>
@@ -665,13 +665,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IShareClient_Search_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Search*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_Search_Picturepark_SDK_V1_Contract_ContentSearchRequest_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Search(Picturepark.SDK.V1.Contract.ContentSearchRequest)">Search(ContentSearchRequest)</h4>
-              <div class="markdown level1 summary"><p>Search shares</p>
+              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_Search_Picturepark_SDK_V1_Contract_ShareSearchRequest_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Search(Picturepark.SDK.V1.Contract.ShareSearchRequest)">Search(ShareSearchRequest)</h4>
+              <div class="markdown level1 summary"><p>Search</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">BaseResultOfShareBase Search(ContentSearchRequest request)</code></pre>
+                <pre><code class="lang-csharp hljs">ShareSearchResult Search(ShareSearchRequest request)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -684,7 +684,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentSearchRequest.html">ContentSearchRequest</a></td>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ShareSearchRequest.html">ShareSearchRequest</a></td>
                     <td><span class="parametername">request</span></td>
                     <td><p>Search request</p>
 </td>
@@ -701,7 +701,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfShareBase.html">BaseResultOfShareBase</a></td>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ShareSearchResult.html">ShareSearchResult</a></td>
                     <td><p>Share search result</p>
 </td>
                   </tr>
@@ -731,13 +731,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IShareClient_SearchAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.SearchAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_SearchAsync_Picturepark_SDK_V1_Contract_ContentSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.SearchAsync(Picturepark.SDK.V1.Contract.ContentSearchRequest,System.Threading.CancellationToken)">SearchAsync(ContentSearchRequest, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Search shares</p>
+              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_SearchAsync_Picturepark_SDK_V1_Contract_ShareSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.SearchAsync(Picturepark.SDK.V1.Contract.ShareSearchRequest,System.Threading.CancellationToken)">SearchAsync(ShareSearchRequest, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Search</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;BaseResultOfShareBase&gt; SearchAsync(ContentSearchRequest request, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;ShareSearchResult&gt; SearchAsync(ShareSearchRequest request, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -750,7 +750,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentSearchRequest.html">ContentSearchRequest</a></td>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ShareSearchRequest.html">ShareSearchRequest</a></td>
                     <td><span class="parametername">request</span></td>
                     <td><p>Search request</p>
 </td>
@@ -773,7 +773,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfShareBase.html">BaseResultOfShareBase</a>&gt;</td>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ShareSearchResult.html">ShareSearchResult</a>&gt;</td>
                     <td><p>Share search result</p>
 </td>
                   </tr>
@@ -804,12 +804,12 @@
               
               <a id="Picturepark_SDK_V1_Contract_IShareClient_Update_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Update*"></a>
               <h4 id="Picturepark_SDK_V1_Contract_IShareClient_Update_System_String_Picturepark_SDK_V1_Contract_ShareBaseUpdateRequest_System_Boolean_System_Nullable_System_Int32__" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Update(System.String,Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest,System.Boolean,System.Nullable{System.Int32})">Update(String, ShareBaseUpdateRequest, Boolean, Nullable&lt;Int32&gt;)</h4>
-              <div class="markdown level1 summary"><p>Update Single - Share</p>
+              <div class="markdown level1 summary"><p>Update single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">BaseResultOfShareBase Update(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int ? timeout = null)</code></pre>
+                <pre><code class="lang-csharp hljs">ShareDetail Update(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int ? timeout = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -857,7 +857,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfShareBase.html">BaseResultOfShareBase</a></td>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ShareDetail.html">ShareDetail</a></td>
                     <td><p>Share</p>
 </td>
                   </tr>
@@ -888,12 +888,12 @@
               
               <a id="Picturepark_SDK_V1_Contract_IShareClient_UpdateAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync*"></a>
               <h4 id="Picturepark_SDK_V1_Contract_IShareClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ShareBaseUpdateRequest_System_Boolean_System_Nullable_System_Int32__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest,System.Boolean,System.Nullable{System.Int32},System.Threading.CancellationToken)">UpdateAsync(String, ShareBaseUpdateRequest, Boolean, Nullable&lt;Int32&gt;, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Update Single - Share</p>
+              <div class="markdown level1 summary"><p>Update single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;BaseResultOfShareBase&gt; UpdateAsync(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int ? timeout = null, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;ShareDetail&gt; UpdateAsync(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int ? timeout = null, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -947,7 +947,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfShareBase.html">BaseResultOfShareBase</a>&gt;</td>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ShareDetail.html">ShareDetail</a>&gt;</td>
                     <td><p>Share</p>
 </td>
                   </tr>

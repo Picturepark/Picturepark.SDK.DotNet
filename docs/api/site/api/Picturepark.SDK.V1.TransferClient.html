@@ -192,14 +192,14 @@
               </h3>
               
               
-              <a id="Picturepark_SDK_V1_TransferClient_CancelBatch_" data-uid="Picturepark.SDK.V1.TransferClient.CancelBatch*"></a>
-              <h4 id="Picturepark_SDK_V1_TransferClient_CancelBatch_System_String_" data-uid="Picturepark.SDK.V1.TransferClient.CancelBatch(System.String)">CancelBatch(String)</h4>
-              <div class="markdown level1 summary"><p>Cancels an active batch. Valid states: TODO</p>
+              <a id="Picturepark_SDK_V1_TransferClient_CancelTransfer_" data-uid="Picturepark.SDK.V1.TransferClient.CancelTransfer*"></a>
+              <h4 id="Picturepark_SDK_V1_TransferClient_CancelTransfer_System_String_" data-uid="Picturepark.SDK.V1.TransferClient.CancelTransfer(System.String)">CancelTransfer(String)</h4>
+              <div class="markdown level1 summary"><p>Cancels an active transfer. Valid states: TODO</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public void CancelBatch(string transferId)</code></pre>
+                <pre><code class="lang-csharp hljs">public void CancelTransfer(string transferId)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -219,7 +219,7 @@
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_CancelBatch_System_String_">ITransferClient.CancelBatch(String)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_CancelTransfer_System_String_">ITransferClient.CancelTransfer(String)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -236,21 +236,21 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
               </table>
               
               
-              <a id="Picturepark_SDK_V1_TransferClient_CancelBatchAsync_" data-uid="Picturepark.SDK.V1.TransferClient.CancelBatchAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_TransferClient_CancelBatchAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.CancelBatchAsync(System.String,System.Threading.CancellationToken)">CancelBatchAsync(String, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Cancels an active batch. Valid states: TODO</p>
+              <a id="Picturepark_SDK_V1_TransferClient_CancelTransferAsync_" data-uid="Picturepark.SDK.V1.TransferClient.CancelTransferAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_TransferClient_CancelTransferAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.CancelTransferAsync(System.String,System.Threading.CancellationToken)">CancelTransferAsync(String, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Cancels an active transfer. Valid states: TODO</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task CancelBatchAsync(string transferId, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task CancelTransferAsync(string transferId, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -291,7 +291,7 @@
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_CancelBatchAsync_System_String_System_Threading_CancellationToken_">ITransferClient.CancelBatchAsync(String, CancellationToken)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_CancelTransferAsync_System_String_System_Threading_CancellationToken_">ITransferClient.CancelTransferAsync(String, CancellationToken)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -308,7 +308,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -317,7 +317,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_Create_" data-uid="Picturepark.SDK.V1.TransferClient.Create*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_Create_Picturepark_SDK_V1_Contract_CreateTransferRequest_" data-uid="Picturepark.SDK.V1.TransferClient.Create(Picturepark.SDK.V1.Contract.CreateTransferRequest)">Create(CreateTransferRequest)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Create Transfer</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -336,7 +337,8 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.CreateTransferRequest.html">CreateTransferRequest</a></td>
                     <td><span class="parametername">request</span></td>
-                    <td></td>
+                    <td><p>The create transfer request</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -351,7 +353,8 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.Transfer.html">Transfer</a></td>
-                    <td></td>
+                    <td><p>Transfer</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -373,7 +376,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -382,7 +385,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_CreateAsync_" data-uid="Picturepark.SDK.V1.TransferClient.CreateAsync*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_CreateAsync_Picturepark_SDK_V1_Contract_CreateTransferRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.CreateAsync(Picturepark.SDK.V1.Contract.CreateTransferRequest,System.Threading.CancellationToken)">CreateAsync(CreateTransferRequest, CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Create Transfer</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -401,7 +405,8 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.CreateTransferRequest.html">CreateTransferRequest</a></td>
                     <td><span class="parametername">request</span></td>
-                    <td></td>
+                    <td><p>The create transfer request</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Threading.CancellationToken</span></td>
@@ -422,7 +427,8 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.Transfer.html">Transfer</a>&gt;</td>
-                    <td></td>
+                    <td><p>Transfer</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -444,20 +450,20 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
               </table>
               
               
-              <a id="Picturepark_SDK_V1_TransferClient_CreateBatchAsync_" data-uid="Picturepark.SDK.V1.TransferClient.CreateBatchAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_TransferClient_CreateBatchAsync_List_System_String__System_String_" data-uid="Picturepark.SDK.V1.TransferClient.CreateBatchAsync(List{System.String},System.String)">CreateBatchAsync(List&lt;String&gt;, String)</h4>
+              <a id="Picturepark_SDK_V1_TransferClient_CreateTransferAsync_" data-uid="Picturepark.SDK.V1.TransferClient.CreateTransferAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_TransferClient_CreateTransferAsync_List_System_String__System_String_" data-uid="Picturepark.SDK.V1.TransferClient.CreateTransferAsync(List{System.String},System.String)">CreateTransferAsync(List&lt;String&gt;, String)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;Transfer&gt; CreateBatchAsync(List&lt;string&gt; fileNames, string batchName)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;Transfer&gt; CreateTransferAsync(List&lt;string&gt; fileNames, string transferName)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -476,7 +482,7 @@
                   </tr>
                   <tr>
                     <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">batchName</span></td>
+                    <td><span class="parametername">transferName</span></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -497,16 +503,16 @@
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_CreateBatchAsync_List_System_String__System_String_">ITransferClient.CreateBatchAsync(List&lt;String&gt;, String)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_CreateTransferAsync_List_System_String__System_String_">ITransferClient.CreateTransferAsync(List&lt;String&gt;, String)</a></div>
               
               
-              <a id="Picturepark_SDK_V1_TransferClient_CreateBatchAsync_" data-uid="Picturepark.SDK.V1.TransferClient.CreateBatchAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_TransferClient_CreateBatchAsync_Picturepark_SDK_V1_Contract_CreateTransferRequest_" data-uid="Picturepark.SDK.V1.TransferClient.CreateBatchAsync(Picturepark.SDK.V1.Contract.CreateTransferRequest)">CreateBatchAsync(CreateTransferRequest)</h4>
+              <a id="Picturepark_SDK_V1_TransferClient_CreateTransferAsync_" data-uid="Picturepark.SDK.V1.TransferClient.CreateTransferAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_TransferClient_CreateTransferAsync_Picturepark_SDK_V1_Contract_CreateTransferRequest_" data-uid="Picturepark.SDK.V1.TransferClient.CreateTransferAsync(Picturepark.SDK.V1.Contract.CreateTransferRequest)">CreateTransferAsync(CreateTransferRequest)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;Transfer&gt; CreateBatchAsync(CreateTransferRequest request)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;Transfer&gt; CreateTransferAsync(CreateTransferRequest request)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -541,12 +547,13 @@
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_CreateBatchAsync_Picturepark_SDK_V1_Contract_CreateTransferRequest_">ITransferClient.CreateBatchAsync(CreateTransferRequest)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_CreateTransferAsync_Picturepark_SDK_V1_Contract_CreateTransferRequest_">ITransferClient.CreateTransferAsync(CreateTransferRequest)</a></div>
               
               
               <a id="Picturepark_SDK_V1_TransferClient_Delete_" data-uid="Picturepark.SDK.V1.TransferClient.Delete*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_Delete_System_String_" data-uid="Picturepark.SDK.V1.TransferClient.Delete(System.String)">Delete(String)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Delete Transfer</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -565,7 +572,8 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">transferId</span></td>
-                    <td></td>
+                    <td><p>The tranfer id</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -587,7 +595,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -596,7 +604,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_DeleteAsync_" data-uid="Picturepark.SDK.V1.TransferClient.DeleteAsync*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_DeleteAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.DeleteAsync(System.String,System.Threading.CancellationToken)">DeleteAsync(String, CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Delete Transfer</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -615,7 +624,8 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">transferId</span></td>
-                    <td></td>
+                    <td><p>The tranfer id</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Threading.CancellationToken</span></td>
@@ -636,7 +646,8 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">System.Threading.Tasks.Task</span></td>
-                    <td></td>
+                    <td><p>Transfer</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -658,7 +669,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -667,7 +678,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_DeleteFiles_" data-uid="Picturepark.SDK.V1.TransferClient.DeleteFiles*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_DeleteFiles_Picturepark_SDK_V1_Contract_FileTransferDeleteRequest_" data-uid="Picturepark.SDK.V1.TransferClient.DeleteFiles(Picturepark.SDK.V1.Contract.FileTransferDeleteRequest)">DeleteFiles(FileTransferDeleteRequest)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Delete Files</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -686,7 +698,8 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.FileTransferDeleteRequest.html">FileTransferDeleteRequest</a></td>
                     <td><span class="parametername">request</span></td>
-                    <td></td>
+                    <td><p>The filetransfer delete request</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -708,7 +721,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -717,7 +730,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_DeleteFilesAsync_" data-uid="Picturepark.SDK.V1.TransferClient.DeleteFilesAsync*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_DeleteFilesAsync_Picturepark_SDK_V1_Contract_FileTransferDeleteRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.DeleteFilesAsync(Picturepark.SDK.V1.Contract.FileTransferDeleteRequest,System.Threading.CancellationToken)">DeleteFilesAsync(FileTransferDeleteRequest, CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Delete Files</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -736,7 +750,8 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.FileTransferDeleteRequest.html">FileTransferDeleteRequest</a></td>
                     <td><span class="parametername">request</span></td>
-                    <td></td>
+                    <td><p>The filetransfer delete request</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Threading.CancellationToken</span></td>
@@ -779,7 +794,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -788,7 +803,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_Get_" data-uid="Picturepark.SDK.V1.TransferClient.Get*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_Get_System_String_" data-uid="Picturepark.SDK.V1.TransferClient.Get(System.String)">Get(String)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Get Transferdetail</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -807,7 +823,8 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">transferId</span></td>
-                    <td></td>
+                    <td><p>The tranfer id</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -822,7 +839,8 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.TransferDetail.html">TransferDetail</a></td>
-                    <td></td>
+                    <td><p>TransferDetail</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -844,7 +862,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -853,7 +871,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_GetAsync_" data-uid="Picturepark.SDK.V1.TransferClient.GetAsync*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_GetAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.GetAsync(System.String,System.Threading.CancellationToken)">GetAsync(String, CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Get Transferdetail</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -872,7 +891,8 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">transferId</span></td>
-                    <td></td>
+                    <td><p>The tranfer id</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Threading.CancellationToken</span></td>
@@ -893,7 +913,8 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.TransferDetail.html">TransferDetail</a>&gt;</td>
-                    <td></td>
+                    <td><p>TransferDetail</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -915,7 +936,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -924,7 +945,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_GetBlacklist_" data-uid="Picturepark.SDK.V1.TransferClient.GetBlacklist*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_GetBlacklist" data-uid="Picturepark.SDK.V1.TransferClient.GetBlacklist">GetBlacklist()</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Get Blacklist</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -941,7 +963,8 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.Blacklist.html">Blacklist</a></td>
-                    <td></td>
+                    <td><p>Blacklist</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -963,7 +986,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -972,7 +995,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_GetBlacklistAsync_" data-uid="Picturepark.SDK.V1.TransferClient.GetBlacklistAsync*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_GetBlacklistAsync_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.GetBlacklistAsync(System.Threading.CancellationToken)">GetBlacklistAsync(CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Get Blacklist</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -1007,7 +1031,8 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.Blacklist.html">Blacklist</a>&gt;</td>
-                    <td></td>
+                    <td><p>Blacklist</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1029,7 +1054,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1038,7 +1063,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_GetFile_" data-uid="Picturepark.SDK.V1.TransferClient.GetFile*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_GetFile_System_String_" data-uid="Picturepark.SDK.V1.TransferClient.GetFile(System.String)">GetFile(String)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Get File</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -1057,7 +1083,8 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">fileTransferId</span></td>
-                    <td></td>
+                    <td><p>The filetransfer id</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1072,7 +1099,8 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.FileTransferDetail.html">FileTransferDetail</a></td>
-                    <td></td>
+                    <td><p>FileTransferDetail</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1094,7 +1122,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1103,7 +1131,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_GetFileAsync_" data-uid="Picturepark.SDK.V1.TransferClient.GetFileAsync*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_GetFileAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.GetFileAsync(System.String,System.Threading.CancellationToken)">GetFileAsync(String, CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Get File</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -1122,7 +1151,8 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">fileTransferId</span></td>
-                    <td></td>
+                    <td><p>The filetransfer id</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Threading.CancellationToken</span></td>
@@ -1143,7 +1173,8 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.FileTransferDetail.html">FileTransferDetail</a>&gt;</td>
-                    <td></td>
+                    <td><p>FileTransferDetail</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1165,20 +1196,21 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
               </table>
               
               
-              <a id="Picturepark_SDK_V1_TransferClient_ImportBatch_" data-uid="Picturepark.SDK.V1.TransferClient.ImportBatch*"></a>
-              <h4 id="Picturepark_SDK_V1_TransferClient_ImportBatch_System_String_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_" data-uid="Picturepark.SDK.V1.TransferClient.ImportBatch(System.String,Picturepark.SDK.V1.Contract.FileTransfer2ContentCreateRequest)">ImportBatch(String, FileTransfer2ContentCreateRequest)</h4>
-              <div class="markdown level1 summary"></div>
+              <a id="Picturepark_SDK_V1_TransferClient_ImportTransfer_" data-uid="Picturepark.SDK.V1.TransferClient.ImportTransfer*"></a>
+              <h4 id="Picturepark_SDK_V1_TransferClient_ImportTransfer_System_String_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_" data-uid="Picturepark.SDK.V1.TransferClient.ImportTransfer(System.String,Picturepark.SDK.V1.Contract.FileTransfer2ContentCreateRequest)">ImportTransfer(String, FileTransfer2ContentCreateRequest)</h4>
+              <div class="markdown level1 summary"><p>Delete Transfer</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Transfer ImportBatch(string transferId, FileTransfer2ContentCreateRequest request)</code></pre>
+                <pre><code class="lang-csharp hljs">public Transfer ImportTransfer(string transferId, FileTransfer2ContentCreateRequest request)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1193,12 +1225,14 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">transferId</span></td>
-                    <td></td>
+                    <td><p>The tranfer id</p>
+</td>
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.FileTransfer2ContentCreateRequest.html">FileTransfer2ContentCreateRequest</a></td>
                     <td><span class="parametername">request</span></td>
-                    <td></td>
+                    <td><p>The filetransfer to content create request</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1213,12 +1247,13 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.Transfer.html">Transfer</a></td>
-                    <td></td>
+                    <td><p>Transfer</p>
+</td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_ImportBatch_System_String_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_">ITransferClient.ImportBatch(String, FileTransfer2ContentCreateRequest)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_ImportTransfer_System_String_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_">ITransferClient.ImportTransfer(String, FileTransfer2ContentCreateRequest)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -1235,20 +1270,20 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
               </table>
               
               
-              <a id="Picturepark_SDK_V1_TransferClient_ImportBatchAsync_" data-uid="Picturepark.SDK.V1.TransferClient.ImportBatchAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_TransferClient_ImportBatchAsync_Picturepark_SDK_V1_Contract_Transfer_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_" data-uid="Picturepark.SDK.V1.TransferClient.ImportBatchAsync(Picturepark.SDK.V1.Contract.Transfer,Picturepark.SDK.V1.Contract.FileTransfer2ContentCreateRequest)">ImportBatchAsync(Transfer, FileTransfer2ContentCreateRequest)</h4>
+              <a id="Picturepark_SDK_V1_TransferClient_ImportTransferAsync_" data-uid="Picturepark.SDK.V1.TransferClient.ImportTransferAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_TransferClient_ImportTransferAsync_Picturepark_SDK_V1_Contract_Transfer_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_" data-uid="Picturepark.SDK.V1.TransferClient.ImportTransferAsync(Picturepark.SDK.V1.Contract.Transfer,Picturepark.SDK.V1.Contract.FileTransfer2ContentCreateRequest)">ImportTransferAsync(Transfer, FileTransfer2ContentCreateRequest)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task ImportBatchAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task ImportTransferAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1288,16 +1323,17 @@
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_ImportBatchAsync_Picturepark_SDK_V1_Contract_Transfer_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_">ITransferClient.ImportBatchAsync(Transfer, FileTransfer2ContentCreateRequest)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_ImportTransferAsync_Picturepark_SDK_V1_Contract_Transfer_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_">ITransferClient.ImportTransferAsync(Transfer, FileTransfer2ContentCreateRequest)</a></div>
               
               
-              <a id="Picturepark_SDK_V1_TransferClient_ImportBatchAsync_" data-uid="Picturepark.SDK.V1.TransferClient.ImportBatchAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_TransferClient_ImportBatchAsync_System_String_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.ImportBatchAsync(System.String,Picturepark.SDK.V1.Contract.FileTransfer2ContentCreateRequest,System.Threading.CancellationToken)">ImportBatchAsync(String, FileTransfer2ContentCreateRequest, CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
+              <a id="Picturepark_SDK_V1_TransferClient_ImportTransferAsync_" data-uid="Picturepark.SDK.V1.TransferClient.ImportTransferAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_TransferClient_ImportTransferAsync_System_String_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.ImportTransferAsync(System.String,Picturepark.SDK.V1.Contract.FileTransfer2ContentCreateRequest,System.Threading.CancellationToken)">ImportTransferAsync(String, FileTransfer2ContentCreateRequest, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Delete Transfer</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;Transfer&gt; ImportBatchAsync(string transferId, FileTransfer2ContentCreateRequest request, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;Transfer&gt; ImportTransferAsync(string transferId, FileTransfer2ContentCreateRequest request, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1312,12 +1348,14 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">transferId</span></td>
-                    <td></td>
+                    <td><p>The tranfer id</p>
+</td>
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.FileTransfer2ContentCreateRequest.html">FileTransfer2ContentCreateRequest</a></td>
                     <td><span class="parametername">request</span></td>
-                    <td></td>
+                    <td><p>The filetransfer to content create request</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Threading.CancellationToken</span></td>
@@ -1338,12 +1376,13 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.Transfer.html">Transfer</a>&gt;</td>
-                    <td></td>
+                    <td><p>Transfer</p>
+</td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_ImportBatchAsync_System_String_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_System_Threading_CancellationToken_">ITransferClient.ImportBatchAsync(String, FileTransfer2ContentCreateRequest, CancellationToken)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_ImportTransferAsync_System_String_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_System_Threading_CancellationToken_">ITransferClient.ImportTransferAsync(String, FileTransfer2ContentCreateRequest, CancellationToken)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -1360,7 +1399,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1369,7 +1408,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_PartialImport_" data-uid="Picturepark.SDK.V1.TransferClient.PartialImport*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_PartialImport_System_String_Picturepark_SDK_V1_Contract_FileTransferPartial2ContentCreateRequest_" data-uid="Picturepark.SDK.V1.TransferClient.PartialImport(System.String,Picturepark.SDK.V1.Contract.FileTransferPartial2ContentCreateRequest)">PartialImport(String, FileTransferPartial2ContentCreateRequest)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Create a partial import</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -1388,12 +1428,14 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">transferId</span></td>
-                    <td></td>
+                    <td><p>The transfer id</p>
+</td>
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.FileTransferPartial2ContentCreateRequest.html">FileTransferPartial2ContentCreateRequest</a></td>
                     <td><span class="parametername">request</span></td>
-                    <td></td>
+                    <td><p>The filetransfer partial to content create request</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1430,7 +1472,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1439,7 +1481,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_PartialImportAsync_" data-uid="Picturepark.SDK.V1.TransferClient.PartialImportAsync*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_PartialImportAsync_System_String_Picturepark_SDK_V1_Contract_FileTransferPartial2ContentCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.PartialImportAsync(System.String,Picturepark.SDK.V1.Contract.FileTransferPartial2ContentCreateRequest,System.Threading.CancellationToken)">PartialImportAsync(String, FileTransferPartial2ContentCreateRequest, CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Create a partial import</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -1458,12 +1501,14 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">transferId</span></td>
-                    <td></td>
+                    <td><p>The transfer id</p>
+</td>
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.FileTransferPartial2ContentCreateRequest.html">FileTransferPartial2ContentCreateRequest</a></td>
                     <td><span class="parametername">request</span></td>
-                    <td></td>
+                    <td><p>The filetransfer partial to content create request</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Threading.CancellationToken</span></td>
@@ -1506,7 +1551,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1515,7 +1560,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_Search_" data-uid="Picturepark.SDK.V1.TransferClient.Search*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_Search_Picturepark_SDK_V1_Contract_TransferSearchRequest_" data-uid="Picturepark.SDK.V1.TransferClient.Search(Picturepark.SDK.V1.Contract.TransferSearchRequest)">Search(TransferSearchRequest)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Search</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -1534,7 +1580,8 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.TransferSearchRequest.html">TransferSearchRequest</a></td>
                     <td><span class="parametername">request</span></td>
-                    <td></td>
+                    <td><p>The transfer search request</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1549,7 +1596,8 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.TransferSearchResult.html">TransferSearchResult</a></td>
-                    <td></td>
+                    <td><p>TransferSearchResult</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1571,7 +1619,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1580,7 +1628,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_SearchAsync_" data-uid="Picturepark.SDK.V1.TransferClient.SearchAsync*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_SearchAsync_Picturepark_SDK_V1_Contract_TransferSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.SearchAsync(Picturepark.SDK.V1.Contract.TransferSearchRequest,System.Threading.CancellationToken)">SearchAsync(TransferSearchRequest, CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Search</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -1599,7 +1648,8 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.TransferSearchRequest.html">TransferSearchRequest</a></td>
                     <td><span class="parametername">request</span></td>
-                    <td></td>
+                    <td><p>The transfer search request</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Threading.CancellationToken</span></td>
@@ -1620,7 +1670,8 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.TransferSearchResult.html">TransferSearchResult</a>&gt;</td>
-                    <td></td>
+                    <td><p>TransferSearchResult</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1642,7 +1693,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1651,7 +1702,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_SearchFiles_" data-uid="Picturepark.SDK.V1.TransferClient.SearchFiles*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_SearchFiles_Picturepark_SDK_V1_Contract_FileTransferSearchRequest_" data-uid="Picturepark.SDK.V1.TransferClient.SearchFiles(Picturepark.SDK.V1.Contract.FileTransferSearchRequest)">SearchFiles(FileTransferSearchRequest)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Search for files</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -1670,7 +1722,8 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.FileTransferSearchRequest.html">FileTransferSearchRequest</a></td>
                     <td><span class="parametername">request</span></td>
-                    <td></td>
+                    <td><p>The file transfer search request</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1685,7 +1738,8 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.FileTransferSearchResult.html">FileTransferSearchResult</a></td>
-                    <td></td>
+                    <td><p>FileTransferSearchResult</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1707,7 +1761,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1716,7 +1770,8 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_SearchFilesAsync_" data-uid="Picturepark.SDK.V1.TransferClient.SearchFilesAsync*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_SearchFilesAsync_Picturepark_SDK_V1_Contract_FileTransferSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.SearchFilesAsync(Picturepark.SDK.V1.Contract.FileTransferSearchRequest,System.Threading.CancellationToken)">SearchFilesAsync(FileTransferSearchRequest, CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Search for files</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -1735,7 +1790,8 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.FileTransferSearchRequest.html">FileTransferSearchRequest</a></td>
                     <td><span class="parametername">request</span></td>
-                    <td></td>
+                    <td><p>The file transfer search request</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Threading.CancellationToken</span></td>
@@ -1756,7 +1812,8 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.FileTransferSearchResult.html">FileTransferSearchResult</a>&gt;</td>
-                    <td></td>
+                    <td><p>FileTransferSearchResult</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1778,7 +1835,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1787,11 +1844,12 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_UploadFile_" data-uid="Picturepark.SDK.V1.TransferClient.UploadFile*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_UploadFile_System_String_System_String_Picturepark_SDK_V1_Contract_FileParameter_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__" data-uid="Picturepark.SDK.V1.TransferClient.UploadFile(System.String,System.String,Picturepark.SDK.V1.Contract.FileParameter,System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64})">UploadFile(String, String, FileParameter, String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Upload file</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public void UploadFile(string transferId, string identifier, FileParameter formFile = null, string flowRelativePath = null, long ? flowChunkNumber = null, long ? flowCurrentChunkSize = null, long ? flowTotalSize = null, long ? flowTotalChunks = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public void UploadFile(string transferId, string identifier, FileParameter formFile = null, string relativePath = null, long ? chunkNumber = null, long ? currentChunkSize = null, long ? totalSize = null, long ? totalChunks = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1816,33 +1874,38 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.FileParameter.html">FileParameter</a></td>
                     <td><span class="parametername">formFile</span></td>
-                    <td></td>
+                    <td><p>Gets or sets the form file.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">flowRelativePath</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
-                    <td><span class="parametername">flowChunkNumber</span></td>
-                    <td><p>Starts with 1</p>
+                    <td><span class="parametername">relativePath</span></td>
+                    <td><p>Relative path of the uploading file</p>
 </td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
-                    <td><span class="parametername">flowCurrentChunkSize</span></td>
-                    <td></td>
+                    <td><span class="parametername">chunkNumber</span></td>
+                    <td><p>Current chunk number. starts with 1</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
-                    <td><span class="parametername">flowTotalSize</span></td>
-                    <td></td>
+                    <td><span class="parametername">currentChunkSize</span></td>
+                    <td><p>Size in bytes of the current chunk</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
-                    <td><span class="parametername">flowTotalChunks</span></td>
-                    <td></td>
+                    <td><span class="parametername">totalSize</span></td>
+                    <td><p>Total size in bytes of the uploading file</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+                    <td><span class="parametername">totalChunks</span></td>
+                    <td><p>Total chunks of the uploading file</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1864,7 +1927,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1873,11 +1936,12 @@
               
               <a id="Picturepark_SDK_V1_TransferClient_UploadFileAsync_" data-uid="Picturepark.SDK.V1.TransferClient.UploadFileAsync*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_UploadFileAsync_System_String_System_String_Picturepark_SDK_V1_Contract_FileParameter_System_String_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.UploadFileAsync(System.String,System.String,Picturepark.SDK.V1.Contract.FileParameter,System.String,System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.Threading.CancellationToken)">UploadFileAsync(String, String, FileParameter, String, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Upload file</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task UploadFileAsync(string transferId, string identifier, FileParameter formFile = null, string flowRelativePath = null, long ? flowChunkNumber = null, long ? flowCurrentChunkSize = null, long ? flowTotalSize = null, long ? flowTotalChunks = null, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task UploadFileAsync(string transferId, string identifier, FileParameter formFile = null, string relativePath = null, long ? chunkNumber = null, long ? currentChunkSize = null, long ? totalSize = null, long ? totalChunks = null, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1902,33 +1966,38 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.FileParameter.html">FileParameter</a></td>
                     <td><span class="parametername">formFile</span></td>
-                    <td></td>
+                    <td><p>Gets or sets the form file.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">flowRelativePath</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
-                    <td><span class="parametername">flowChunkNumber</span></td>
-                    <td><p>Starts with 1</p>
+                    <td><span class="parametername">relativePath</span></td>
+                    <td><p>Relative path of the uploading file</p>
 </td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
-                    <td><span class="parametername">flowCurrentChunkSize</span></td>
-                    <td></td>
+                    <td><span class="parametername">chunkNumber</span></td>
+                    <td><p>Current chunk number. starts with 1</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
-                    <td><span class="parametername">flowTotalSize</span></td>
-                    <td></td>
+                    <td><span class="parametername">currentChunkSize</span></td>
+                    <td><p>Size in bytes of the current chunk</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
-                    <td><span class="parametername">flowTotalChunks</span></td>
-                    <td></td>
+                    <td><span class="parametername">totalSize</span></td>
+                    <td><p>Total size in bytes of the uploading file</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int64</span>&gt;</td>
+                    <td><span class="parametername">totalChunks</span></td>
+                    <td><p>Total chunks of the uploading file</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Threading.CancellationToken</span></td>
@@ -1971,7 +2040,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1979,12 +2048,12 @@
               
               
               <a id="Picturepark_SDK_V1_TransferClient_UploadFilesAsync_" data-uid="Picturepark.SDK.V1.TransferClient.UploadFilesAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_TransferClient_UploadFilesAsync_IEnumerable_System_String__System_String_Picturepark_SDK_V1_Contract_Transfer_System_Int32_System_Boolean_System_Action_System_String__System_Action_System_Exception__" data-uid="Picturepark.SDK.V1.TransferClient.UploadFilesAsync(IEnumerable{System.String},System.String,Picturepark.SDK.V1.Contract.Transfer,System.Int32,System.Boolean,System.Action{System.String},System.Action{System.Exception})">UploadFilesAsync(IEnumerable&lt;String&gt;, String, Transfer, Int32, Boolean, Action&lt;String&gt;, Action&lt;Exception&gt;)</h4>
+              <h4 id="Picturepark_SDK_V1_TransferClient_UploadFilesAsync_IEnumerable_System_String__System_String_Picturepark_SDK_V1_Contract_Transfer_System_Int32_System_Int32_System_Boolean_System_Action_System_String__System_Action_System_Exception__" data-uid="Picturepark.SDK.V1.TransferClient.UploadFilesAsync(IEnumerable{System.String},System.String,Picturepark.SDK.V1.Contract.Transfer,System.Int32,System.Int32,System.Boolean,System.Action{System.String},System.Action{System.Exception})">UploadFilesAsync(IEnumerable&lt;String&gt;, String, Transfer, Int32, Int32, Boolean, Action&lt;String&gt;, Action&lt;Exception&gt;)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task UploadFilesAsync(IEnumerable&lt;string&gt; files, string exportDirectory, Transfer transfer, int concurrentUploads = 4, bool waitForTransferCompletion = true, Action&lt;string&gt; successDelegate = null, Action&lt;Exception&gt; errorDelegate = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task UploadFilesAsync(IEnumerable&lt;string&gt; files, string exportDirectory, Transfer transfer, int concurrentUploads = 4, int chunkSize = 1048576, bool waitForTransferCompletion = true, Action&lt;string&gt; successDelegate = null, Action&lt;Exception&gt; errorDelegate = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -2014,6 +2083,11 @@
                   <tr>
                     <td><span class="xref">System.Int32</span></td>
                     <td><span class="parametername">concurrentUploads</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Int32</span></td>
+                    <td><span class="parametername">chunkSize</span></td>
                     <td></td>
                   </tr>
                   <tr>
@@ -2049,7 +2123,7 @@
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_UploadFilesAsync_IEnumerable_System_String__System_String_Picturepark_SDK_V1_Contract_Transfer_System_Int32_System_Boolean_System_Action_System_String__System_Action_System_Exception__">ITransferClient.UploadFilesAsync(IEnumerable&lt;String&gt;, String, Transfer, Int32, Boolean, Action&lt;String&gt;, Action&lt;Exception&gt;)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_UploadFilesAsync_IEnumerable_System_String__System_String_Picturepark_SDK_V1_Contract_Transfer_System_Int32_System_Int32_System_Boolean_System_Action_System_String__System_Action_System_Exception__">ITransferClient.UploadFilesAsync(IEnumerable&lt;String&gt;, String, Transfer, Int32, Int32, Boolean, Action&lt;String&gt;, Action&lt;Exception&gt;)</a></div>
                         </article>
           </div>
           

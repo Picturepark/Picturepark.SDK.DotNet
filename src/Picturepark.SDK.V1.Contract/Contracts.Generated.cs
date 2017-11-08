@@ -4041,21 +4041,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class DownloadItem 
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static DownloadItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DownloadItem>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class DownloadLink : DownloadItem
+    public partial class DownloadLink 
     {
         [Newtonsoft.Json.JsonProperty("downloadToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DownloadToken { get; set; }

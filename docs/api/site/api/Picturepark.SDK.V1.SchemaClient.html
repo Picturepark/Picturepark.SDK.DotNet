@@ -253,7 +253,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -406,7 +406,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -767,7 +767,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -839,7 +839,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -957,7 +957,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1097,7 +1097,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1110,7 +1110,7 @@
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public List&lt;SchemaDetail&gt; GenerateSchemaFromPOCO(Type type, List&lt;SchemaDetail&gt; schemaList, bool generateDependencySchema = true)</code></pre>
+                <pre><code class="lang-csharp hljs">public List&lt;SchemaDetail&gt; GenerateSchemaFromPOCO(Type type, List&lt;SchemaDetail&gt; schemaList = null, bool generateDependencySchema = true)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1219,149 +1219,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_SchemaClient_GetAll_" data-uid="Picturepark.SDK.V1.SchemaClient.GetAll*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_GetAll_System_Collections_Generic_IEnumerable_System_String__" data-uid="Picturepark.SDK.V1.SchemaClient.GetAll(System.Collections.Generic.IEnumerable{System.String})">GetAll(IEnumerable&lt;String&gt;)</h4>
-              <div class="markdown level1 summary"><p>Get Many</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public List&lt;SchemaDetail&gt; GetAll(IEnumerable&lt;string&gt; ids = null)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-                    <td><span class="parametername">ids</span></td>
-                    <td><p>Comma separated list of schema ids</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>&gt;</td>
-                    <td><p>SchemaDetail</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetAll_System_Collections_Generic_IEnumerable_System_String__">ISchemaClient.GetAll(IEnumerable&lt;String&gt;)</a></div>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_SchemaClient_GetAllAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.GetAllAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_GetAllAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.GetAllAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">GetAllAsync(IEnumerable&lt;String&gt;, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Get Many</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;List&lt;SchemaDetail&gt;&gt; GetAllAsync(IEnumerable&lt;string&gt; ids = null, CancellationToken cancellationToken = null)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-                    <td><span class="parametername">ids</span></td>
-                    <td><p>Comma separated list of schema ids</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>&gt;&gt;</td>
-                    <td><p>SchemaDetail</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetAllAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_">ISchemaClient.GetAllAsync(IEnumerable&lt;String&gt;, CancellationToken)</a></div>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1435,7 +1293,149 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_SchemaClient_GetMany_" data-uid="Picturepark.SDK.V1.SchemaClient.GetMany*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_GetMany_System_Collections_Generic_IEnumerable_System_String__" data-uid="Picturepark.SDK.V1.SchemaClient.GetMany(System.Collections.Generic.IEnumerable{System.String})">GetMany(IEnumerable&lt;String&gt;)</h4>
+              <div class="markdown level1 summary"><p>Get Many</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public List&lt;SchemaDetail&gt; GetMany(IEnumerable&lt;string&gt; ids = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="parametername">ids</span></td>
+                    <td><p>Comma separated list of schema ids</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>&gt;</td>
+                    <td><p>SchemaDetail</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetMany_System_Collections_Generic_IEnumerable_System_String__">ISchemaClient.GetMany(IEnumerable&lt;String&gt;)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
                     <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_SchemaClient_GetManyAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.GetManyAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">GetManyAsync(IEnumerable&lt;String&gt;, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Get Many</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task&lt;List&lt;SchemaDetail&gt;&gt; GetManyAsync(IEnumerable&lt;string&gt; ids = null, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="parametername">ids</span></td>
+                    <td><p>Comma separated list of schema ids</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Threading.CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>&gt;&gt;</td>
+                    <td><p>SchemaDetail</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_">ISchemaClient.GetManyAsync(IEnumerable&lt;String&gt;, CancellationToken)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1449,7 +1449,7 @@
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public BaseResultOfSchema Search(SchemaSearchRequest schemaSearchRequest)</code></pre>
+                <pre><code class="lang-csharp hljs">public SchemaSearchResult Search(SchemaSearchRequest schemaSearchRequest)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1479,7 +1479,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfSchema.html">BaseResultOfSchema</a></td>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaSearchResult.html">SchemaSearchResult</a></td>
                     <td><p>Schema result set.</p>
 </td>
                   </tr>
@@ -1503,7 +1503,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1517,7 +1517,7 @@
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;BaseResultOfSchema&gt; SearchAsync(SchemaSearchRequest schemaSearchRequest, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;SchemaSearchResult&gt; SearchAsync(SchemaSearchRequest schemaSearchRequest, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1553,7 +1553,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfSchema.html">BaseResultOfSchema</a>&gt;</td>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaSearchResult.html">SchemaSearchResult</a>&gt;</td>
                     <td><p>Schema result set.</p>
 </td>
                   </tr>
@@ -1577,7 +1577,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1827,7 +1827,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1905,7 +1905,7 @@
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
