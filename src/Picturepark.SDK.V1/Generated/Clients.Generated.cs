@@ -4722,32 +4722,32 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Delete Single</summary>
-        /// <param name="objectId">The list item id.</param>
+        /// <param name="listItemId">The list item id.</param>
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public void Delete(string objectId, int timeout)
+        public void Delete(string listItemId, int timeout)
         {
-            System.Threading.Tasks.Task.Run(async () => await DeleteAsync(objectId, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            System.Threading.Tasks.Task.Run(async () => await DeleteAsync(listItemId, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Delete Single</summary>
-        /// <param name="objectId">The list item id.</param>
+        /// <param name="listItemId">The list item id.</param>
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task DeleteAsync(string objectId, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteAsync(string listItemId, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (objectId == null)
-                throw new System.ArgumentNullException("objectId");
+            if (listItemId == null)
+                throw new System.ArgumentNullException("listItemId");
     
             if (timeout == null)
                 throw new System.ArgumentNullException("timeout");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/{objectId}?");
-            urlBuilder_.Replace("{objectId}", System.Uri.EscapeDataString(System.Convert.ToString(objectId, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/{listItemId}?");
+            urlBuilder_.Replace("{listItemId}", System.Uri.EscapeDataString(System.Convert.ToString(listItemId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
@@ -6206,7 +6206,7 @@ namespace Picturepark.SDK.V1
         /// <returns>ExistsResponse</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public ExistsResponse Exists(string schemaId, string fieldId)
+        public ExistsResponse Exists(string schemaId, string fieldId = null)
         {
             return System.Threading.Tasks.Task.Run(async () => await ExistsAsync(schemaId, fieldId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -6218,7 +6218,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<ExistsResponse> ExistsAsync(string schemaId, string fieldId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ExistsResponse> ExistsAsync(string schemaId, string fieldId = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (schemaId == null)
                 throw new System.ArgumentNullException("schemaId");
@@ -6226,7 +6226,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas/{schemaId}/exists?");
             urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(System.Convert.ToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Append("fieldId=").Append(System.Uri.EscapeDataString(fieldId != null ? System.Convert.ToString(fieldId, System.Globalization.CultureInfo.InvariantCulture) : "null")).Append("&");
+            if (fieldId != null) urlBuilder_.Append("fieldId=").Append(System.Uri.EscapeDataString(System.Convert.ToString(fieldId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
             var client_ = _httpClient;
@@ -9953,7 +9953,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("userId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/users/getUser/{userId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/users/{userId}");
             urlBuilder_.Replace("{userId}", System.Uri.EscapeDataString(System.Convert.ToString(userId, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;

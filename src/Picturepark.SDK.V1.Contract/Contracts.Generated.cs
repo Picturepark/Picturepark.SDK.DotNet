@@ -646,19 +646,19 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<ListItemSearchResult> SearchAsync(ListItemSearchRequest listItemSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete Single</summary>
-        /// <param name="objectId">The list item id.</param>
+        /// <param name="listItemId">The list item id.</param>
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        void Delete(string objectId, int timeout);
+        void Delete(string listItemId, int timeout);
     
         /// <summary>Delete Single</summary>
-        /// <param name="objectId">The list item id.</param>
+        /// <param name="listItemId">The list item id.</param>
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task DeleteAsync(string objectId, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteAsync(string listItemId, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get Single</summary>
         /// <param name="listItemId">The list item id.</param>
@@ -827,7 +827,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>ExistsResponse</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ExistsResponse Exists(string schemaId, string fieldId);
+        ExistsResponse Exists(string schemaId, string fieldId = null);
     
         /// <summary>Exists</summary>
         /// <param name="schemaId">The schema id.</param>
@@ -836,7 +836,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ExistsResponse> ExistsAsync(string schemaId, string fieldId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ExistsResponse> ExistsAsync(string schemaId, string fieldId = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Search</summary>
         /// <param name="schemaSearchRequest">The schema search request.</param>
