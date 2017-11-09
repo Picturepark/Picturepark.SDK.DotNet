@@ -120,7 +120,6 @@ namespace Picturepark.SDK.V1
 			var convertedObject = new ListItem
 			{
 				ContentSchemaId = listItem.ContentSchemaId,
-				EntityType = listItem.EntityType,
 				Id = listItem.Id,
 				Content = listItem.Content
 			};

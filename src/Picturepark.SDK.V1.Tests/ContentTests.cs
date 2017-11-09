@@ -297,12 +297,11 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldGet()
 		{
-			// Todo: Typed Aufruf?  CustomContentDetail<ContentMetadata> result = Get<ContentMetadata>(contentId);
 			string contentId = _fixture.GetRandomContentId(".jpg", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
 
 			ContentDetail result = await _client.Contents.GetAsync(contentId);
-			Assert.True(result.EntityType == EntityType.Content);
+			Assert.NotNull(result.Id);
 		}
 
 		[Fact]
@@ -486,7 +485,6 @@ namespace Picturepark.SDK.V1.Tests
 			Assert.False(string.IsNullOrEmpty(contentId));
 
 			ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);
-			Assert.True(contentDetail.EntityType == EntityType.Content);
 
 			var contentPermissionSetIds = new List<string> { "aaa" + new Random().Next(0, 999), "bbb" + new Random().Next(0, 999) };
 			contentDetail.ContentPermissionSetIds = contentPermissionSetIds;

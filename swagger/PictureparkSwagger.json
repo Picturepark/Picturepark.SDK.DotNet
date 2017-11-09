@@ -4990,7 +4990,6 @@
       "additionalProperties": false,
       "required": [
         "contentType",
-        "entityType",
         "trashed"
       ],
       "properties": {
@@ -5029,14 +5028,6 @@
           "allOf": [
             {
               "$ref": "#/definitions/DisplayValueDictionary"
-            }
-          ]
-        },
-        "entityType": {
-          "description": "The entity type",
-          "allOf": [
-            {
-              "$ref": "#/definitions/EntityType"
             }
           ]
         },
@@ -5158,20 +5149,6 @@
             "type": "string"
           }
         }
-      ]
-    },
-    "EntityType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Content",
-        "Metadata",
-        "FileTransfer"
-      ],
-      "enum": [
-        "Content",
-        "Metadata",
-        "FileTransfer"
       ]
     },
     "DataDictionary": {
@@ -7626,20 +7603,9 @@
     "Content": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "entityType"
-      ],
       "properties": {
         "audit": {
           "$ref": "#/definitions/UserAudit"
-        },
-        "entityType": {
-          "description": "The entity type of a content document is content.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/EntityType"
-            }
-          ]
         },
         "contentSchemaId": {
           "type": "string",
@@ -8347,9 +8313,6 @@
       "type": "object",
       "description": "The detail view item for the list item.",
       "additionalProperties": false,
-      "required": [
-        "entityType"
-      ],
       "properties": {
         "content": {
           "description": "The content data of the list item."
@@ -8363,14 +8326,6 @@
           "allOf": [
             {
               "$ref": "#/definitions/DisplayValueDictionary"
-            }
-          ]
-        },
-        "entityType": {
-          "description": "The entity type of the list item is metadata.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/EntityType"
             }
           ]
         },
@@ -8568,9 +8523,6 @@
       "type": "object",
       "description": "A document stored in the elastic search metadata index, with fields corresponding to the the schemantics of its underlying list schema.",
       "additionalProperties": false,
-      "required": [
-        "entityType"
-      ],
       "properties": {
         "content": {
           "description": "The content data of the list item."
@@ -8584,14 +8536,6 @@
           "allOf": [
             {
               "$ref": "#/definitions/DisplayValueDictionary"
-            }
-          ]
-        },
-        "entityType": {
-          "description": "The entity type of the list item is metadata.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/EntityType"
             }
           ]
         },
@@ -11702,8 +11646,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "state",
-        "entityType"
+        "state"
       ],
       "properties": {
         "id": {
@@ -11726,9 +11669,6 @@
         },
         "state": {
           "$ref": "#/definitions/FileTransferState"
-        },
-        "entityType": {
-          "$ref": "#/definitions/EntityType"
         },
         "fileMetadata": {
           "$ref": "#/definitions/FileMetadata"
@@ -16552,8 +16492,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "state",
-        "entityType"
+        "state"
       ],
       "properties": {
         "id": {
@@ -16570,9 +16509,6 @@
         },
         "state": {
           "$ref": "#/definitions/FileTransferState"
-        },
-        "entityType": {
-          "$ref": "#/definitions/EntityType"
         },
         "contentId": {
           "type": "string"
@@ -16830,8 +16766,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "sortOrder",
-        "entityType"
+        "sortOrder"
       ],
       "properties": {
         "id": {
@@ -16844,9 +16779,6 @@
         "searchIndexId": {
           "type": "string",
           "description": "The search index id."
-        },
-        "entityType": {
-          "$ref": "#/definitions/EntityType"
         },
         "schemaIds": {
           "type": "array",
