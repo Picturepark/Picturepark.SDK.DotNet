@@ -41,13 +41,11 @@ namespace Picturepark.SDK.V1.Conversion
 			SchemaCreate(classProperties, type, string.Empty, schemaList, 0, generateRelatedSchemas);
 
 			var sortedList = new List<SchemaDetail>();
-
 			foreach (var schemaItem in schemaList)
 			{
 				var dependencyList = schemaList.FindAll(s => s.Dependencies.Any(d => d.Id == schemaItem.Id));
 
 				int? index = null;
-
 				if (dependencyList.Any())
 				{
 					foreach (var dependency in dependencyList)
@@ -74,12 +72,17 @@ namespace Picturepark.SDK.V1.Conversion
 		{
 			var schemaId = contractType.Name;
 
-			var typeAttributes = contractType.GetTypeInfo().GetCustomAttributes(typeof(PictureparkSchemaTypeAttribute), true).Select(i => i as PictureparkSchemaTypeAttribute).ToList();
+			var typeAttributes = contractType.GetTypeInfo()
+				.GetCustomAttributes(typeof(PictureparkSchemaTypeAttribute), true)
+				.Select(i => i as PictureparkSchemaTypeAttribute)
+				.ToList();
 
 			if (!typeAttributes.Any())
 				throw new Exception("No PictureparkSchemaTypeAttribute set on class: " + contractType.Name);
 
-			var types = typeAttributes.Select(typeAttribute => typeAttribute.SchemaType).ToList();
+			var types = typeAttributes
+				.Select(typeAttribute => typeAttribute.SchemaType)
+				.ToList();
 
 			var schemaItem = new SchemaDetail
 			{
@@ -92,7 +95,11 @@ namespace Picturepark.SDK.V1.Conversion
 				DisplayPatterns = new List<DisplayPattern>()
 			};
 
-			var displayPatternAttributes = contractType.GetTypeInfo().GetCustomAttributes(typeof(PictureparkDisplayPatternAttribute), true).Select(i => i as PictureparkDisplayPatternAttribute).ToList();
+			var displayPatternAttributes = contractType.GetTypeInfo()
+				.GetCustomAttributes(typeof(PictureparkDisplayPatternAttribute), true)
+				.Select(i => i as PictureparkDisplayPatternAttribute)
+				.ToList();
+
 			foreach (var displayPatternAttribute in displayPatternAttributes)
 			{
 				var displayPattern = new DisplayPattern
@@ -106,14 +113,22 @@ namespace Picturepark.SDK.V1.Conversion
 			}
 
 			// Assign name translations
-			var nameTranslationAttributes = contractType.GetTypeInfo().GetCustomAttributes(typeof(PictureparkNameTranslationAttribute), true).Select(i => i as PictureparkNameTranslationAttribute).ToList();
+			var nameTranslationAttributes = contractType.GetTypeInfo()
+				.GetCustomAttributes(typeof(PictureparkNameTranslationAttribute), true)
+				.Select(i => i as PictureparkNameTranslationAttribute)
+				.ToList();
+
 			foreach (var translationAttribute in nameTranslationAttributes)
 			{
 				schemaItem.Names[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
 			}
 
 			// Assign description translations
-			var descriptionTranslationAttributes = contractType.GetTypeInfo().GetCustomAttributes(typeof(PictureparkDescriptionTranslationAttribute), true).Select(i => i as PictureparkDescriptionTranslationAttribute).ToList();
+			var descriptionTranslationAttributes = contractType.GetTypeInfo()
+				.GetCustomAttributes(typeof(PictureparkDescriptionTranslationAttribute), true)
+				.Select(i => i as PictureparkDescriptionTranslationAttribute)
+				.ToList();
+
 			foreach (var translationAttribute in descriptionTranslationAttributes)
 			{
 				schemaItem.Descriptions[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
@@ -271,7 +286,8 @@ namespace Picturepark.SDK.V1.Conversion
 
 							propertyInfo.IsArray = true;
 
-							if (property.PropertyType.GenericTypeArguments.Any() && typeof(IReference).GetTypeInfo().IsAssignableFrom(property.PropertyType.GenericTypeArguments.First().GetTypeInfo()))
+							if (property.PropertyType.GenericTypeArguments.Any() &&
+								typeof(IReference).GetTypeInfo().IsAssignableFrom(property.PropertyType.GenericTypeArguments.First().GetTypeInfo()))
 							{
 								propertyInfo.IsReference = true;
 							}
@@ -299,7 +315,11 @@ namespace Picturepark.SDK.V1.Conversion
 				}
 
 				var customAttributes = property.GetCustomAttributes(true);
-				var searchAttribute = customAttributes.Where(i => i.GetType().GetTypeInfo().ImplementedInterfaces.Any(j => j == typeof(IPictureparkAttribute))).Select(i => i as IPictureparkAttribute).ToList();
+				var searchAttribute = customAttributes
+					.Where(i => i.GetType().GetTypeInfo().ImplementedInterfaces.Any(j => j == typeof(IPictureparkAttribute)))
+					.Select(i => i as IPictureparkAttribute)
+					.ToList();
+
 				propertyInfo.PictureparkAttributes = searchAttribute;
 				contactPropertiesInfo.Add(propertyInfo);
 			}
