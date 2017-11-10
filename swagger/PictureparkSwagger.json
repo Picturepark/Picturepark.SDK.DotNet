@@ -10439,8 +10439,8 @@
         "description": {
           "type": "string"
         },
-        "audit": {
-          "$ref": "#/definitions/UserAudit"
+        "creator": {
+          "$ref": "#/definitions/ShareUser"
         },
         "contentSelections": {
           "type": "array",
@@ -10472,6 +10472,21 @@
         },
         "shareType": {
           "$ref": "#/definitions/ShareType"
+        }
+      }
+    },
+    "ShareUser": {
+      "type": "object",
+      "description": "Reduced set of user information used for shares",
+      "additionalProperties": false,
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "Name of user"
+        },
+        "emailHash": {
+          "type": "string",
+          "description": "MD5 hash of email address. Can be used to display gravatar image"
         }
       }
     },

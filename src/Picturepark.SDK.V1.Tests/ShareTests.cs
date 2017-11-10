@@ -23,10 +23,25 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Shares")]
 		public async Task ShouldAggregate()
 		{
-			// Create share
-			await ShouldCreateEmbedShare();
+			var outputFormatIds = new List<string>() { "Original" };
 
-			var request = new ShareAggregationRequest()
+			var shareContentItems = new List<ShareContent>
+			{
+				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds },
+				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds }
+			};
+
+			var createRequest = new ShareEmbedCreateRequest
+			{
+				Contents = shareContentItems,
+				Description = "Description of Embed share bbb",
+				ExpirationDate = new DateTime(2020, 12, 31),
+				Name = "Embed share bbb"
+			};
+
+			await _client.Shares.CreateAsync(createRequest);
+
+			var request = new ShareAggregationRequest
 			{
 				SearchString = string.Empty,
 				Aggregators = new List<AggregatorBase>

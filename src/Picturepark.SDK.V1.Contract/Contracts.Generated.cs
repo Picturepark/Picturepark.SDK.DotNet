@@ -7135,8 +7135,8 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserAudit Audit { get; set; }
+        [Newtonsoft.Json.JsonProperty("creator", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ShareUser Creator { get; set; }
     
         [Newtonsoft.Json.JsonProperty("contentSelections", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<ShareContentDetail> ContentSelections { get; set; }
@@ -7174,6 +7174,29 @@ namespace Picturepark.SDK.V1.Contract
         public static ShareDetail FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDetail>(data);
+        }
+    }
+    
+    /// <summary>Reduced set of user information used for shares</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ShareUser 
+    {
+        /// <summary>Name of user</summary>
+        [Newtonsoft.Json.JsonProperty("displayName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DisplayName { get; set; }
+    
+        /// <summary>MD5 hash of email address. Can be used to display gravatar image</summary>
+        [Newtonsoft.Json.JsonProperty("emailHash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string EmailHash { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareUser FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareUser>(data);
         }
     }
     
