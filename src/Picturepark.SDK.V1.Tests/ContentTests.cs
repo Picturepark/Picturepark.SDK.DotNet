@@ -26,25 +26,46 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldAggregateByChannel()
 		{
-			const string channelId = "rootChannel";
-
-			var request = new ContentAggregationRequest { SearchString = string.Empty };
-			var result = await _client.Contents.AggregateByChannelAsync(channelId, request);
-
-			// Check default channel aggregation
-			var originalWidthResults = result.AggregationResults.SingleOrDefault(i => i.Name == "Original Width");
-			Assert.NotNull(originalWidthResults);
-			Assert.True(originalWidthResults.AggregationResultItems.Count > 0);
-
-			request.Aggregators = new List<AggregatorBase>
+			/// Arrange
+			var channelId = "rootChannel";
+			var request = new ContentAggregationRequest
 			{
-				new TermsAggregator { Name = "Permissions", Field = "permissionSetIds", Size = 10 }
+				SearchString = string.Empty
 			};
 
-			result = await _client.Contents.AggregateByChannelAsync(channelId, request);
+			/// Act
+			var result = await _client.Contents.AggregateByChannelAsync(channelId, request);
 
-			// Check added aggregation
-			var permissionSetResults = result.AggregationResults.SingleOrDefault(i => i.Name == "Permissions");
+			/// Assert
+			var originalWidthResults = result.AggregationResults
+				.SingleOrDefault(i => i.Name == "Original Width");
+
+			Assert.NotNull(originalWidthResults);
+			Assert.True(originalWidthResults.AggregationResultItems.Count > 0);
+		}
+
+		[Fact]
+		[Trait("Stack", "Contents")]
+		public async Task ShouldAggregateByChannelWithTermsAggregator()
+		{
+			/// Arrange
+			var channelId = "rootChannel";
+			var request = new ContentAggregationRequest
+			{
+				SearchString = string.Empty,
+				Aggregators = new List<AggregatorBase>
+				{
+					new TermsAggregator { Name = "Permissions", Field = "permissionSetIds", Size = 10 }
+				}
+			};
+
+			/// Act
+			var result = await _client.Contents.AggregateByChannelAsync(channelId, request);
+
+			/// Assert
+			var permissionSetResults = result.AggregationResults
+				.SingleOrDefault(i => i.Name == "Permissions");
+
 			Assert.NotNull(permissionSetResults);
 			Assert.True(permissionSetResults.AggregationResultItems.Count > 0);
 		}
