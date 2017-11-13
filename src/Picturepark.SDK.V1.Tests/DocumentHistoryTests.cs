@@ -1,13 +1,11 @@
 ﻿using Picturepark.SDK.V1.Contract;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-using System.IO;
 using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Tests.Fixtures;
+using Newtonsoft.Json.Linq;
 
 namespace Picturepark.SDK.V1.Tests
 {
@@ -24,10 +22,34 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "DocumentHistory")]
+		public async Task ShouldSearch()
+		{
+			/// Arrange
+			var request = new DocumentHistorySearchRequest
+			{
+				Start = 0,
+				Limit = 10,
+			};
+
+			/// Act
+			var result = await _client.DocumentHistory.SearchAsync(request);
+
+			/// Assert
+			Assert.True(result.Results.Any());
+		}
+
+		[Fact]
+		[Trait("Stack", "DocumentHistory")]
 		public async Task ShouldGet()
 		{
-			string documentId = _fixture.GetRandomContentId(".jpg", 20);
-			DocumentHistory result = await _client.DocumentHistory.GetAsync(documentId);
+			/// Arrange
+			var documentId = _fixture.GetRandomContentId(".jpg", 20);
+
+			/// Act
+			var result = await _client.DocumentHistory.GetAsync(documentId);
+
+			/// Assert
+			Assert.True(result.DocumentId == documentId);
 		}
 
 		[Fact(Skip = "TODO")]
@@ -67,23 +89,45 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "DocumentHistory")]
-		public async Task ShouldGetHistory1()
+		public async Task ShouldGetDifferenceWithLatestVersion()
 		{
+			/// Arrange
 			string documentId = _fixture.GetRandomContentId(".jpg", 20);
 			long oldVersionId = 1;
 
-			DocumentHistoryDifference result = await _client.DocumentHistory.GetDifferenceLatestAsync(documentId, oldVersionId);
+			/// Act
+			var difference = await _client.DocumentHistory.GetDifferenceLatestAsync(documentId, oldVersionId);
+
+			/// Assert
+			Assert.Equal(difference.OldDocumentVersion, difference.NewDocumentVersion); // no new version
 		}
 
-		[Fact(Skip = "TODO")]
+		[Fact(Skip = "Cannot change metadata (NPE)/unable to create a new history version.")]
 		[Trait("Stack", "DocumentHistory")]
-		public async Task ShouldGetHistory2()
+		public async Task ShouldGetDifferenceOfTwoVersions()
 		{
+			/// Arrange
 			string documentId = _fixture.GetRandomContentId(".jpg", 20);
 			long oldVersionId = 1;
 			long newVersionId = 2;
 
-			DocumentHistoryDifference result = await _client.DocumentHistory.GetDifferenceAsync(documentId, oldVersionId, newVersionId);
+			/// Act
+			var content = await _client.Contents.GetAsync(documentId);
+
+			var tuple = content.Metadata.First();
+			var value = (JObject)tuple.Value;
+			value[value.Properties().First().Name] = "foo bar";
+			content.Metadata[tuple.Key] = tuple.Value;
+
+			var request = new UpdateContentMetadataRequest
+			{
+				Id = documentId,
+				SchemaIds = content.Metadata.Keys.ToList(),
+				Metadata = content.Metadata
+			};
+
+			await _client.Contents.UpdateMetadataAsync(documentId, request, true);
+			var difference = await _client.DocumentHistory.GetDifferenceAsync(documentId, oldVersionId, newVersionId);
 		}
 
 		[Fact]
