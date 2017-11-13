@@ -4,6 +4,7 @@ using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Xunit;
+using System.Linq;
 
 namespace Picturepark.SDK.V1.Tests
 {
@@ -40,13 +41,20 @@ namespace Picturepark.SDK.V1.Tests
 
 			/// Assert
 			Assert.NotNull(results);
+			Assert.True(results.Results.Any());
 		}
 
-		[Fact(Skip = "TODO: Finalize")]
+		[Fact]
 		[Trait("Stack", "BusinessProcesses")]
 		public async Task ShouldGetBusinessProcessDetails()
 		{
 			/// Arrange
+
+			// 1. Create or update schema
+			var schemas = _client.Schemas.GenerateSchemaFromPOCO(typeof(BusinessProcessTest));
+			await _client.Schemas.CreateOrUpdateAsync(schemas.First(), false);
+
+			// 2. Create list items
 			var listItemDetail1 = await _client.ListItems.CreateAsync(new ListItemCreateRequest
 			{
 				Content = new BusinessProcessTest { Name = "Test1" },
@@ -59,9 +67,14 @@ namespace Picturepark.SDK.V1.Tests
 				ContentSchemaId = nameof(BusinessProcessTest)
 			});
 
+			// 3. Initialize change request
 			var updateRequest = new ListItemFieldsUpdateRequest
 			{
-				ListItemIds = new List<string> { listItemDetail1.Id, listItemDetail2.Id },
+				ListItemIds = new List<string>
+				{
+					listItemDetail1.Id,
+					listItemDetail2.Id
+				},
 				ChangeCommands = new List<MetadataValuesSchemaUpdateCommand>
 				{
 					new MetadataValuesSchemaUpdateCommand
