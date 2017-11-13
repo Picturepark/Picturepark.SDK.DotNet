@@ -441,7 +441,7 @@ namespace Picturepark.SDK.V1.Tests
 			};
 
 			BusinessProcess updateResult = await _client.Contents.UpdateFileAsync(contentId, updateRequest);
-			BusinessProcessWaitResult waitResult = await updateResult.Wait4StateAsync("Completed", _client.BusinessProcesses);
+			BusinessProcessWaitResult waitResult = await updateResult.WaitForStateAsync("Completed", _client.BusinessProcesses);
 
 			Assert.True(waitResult.HasStateHit);
 		}
@@ -471,7 +471,7 @@ namespace Picturepark.SDK.V1.Tests
 			};
 
 			BusinessProcess result = await _client.Contents.UpdateMetadataManyAsync(updateRequest);
-			BusinessProcessWaitResult waitResult = await result.Wait4MetadataAsync(_client.BusinessProcesses);
+			BusinessProcessWaitResult waitResult = await result.WaitForMetadataAsync(_client.BusinessProcesses);
 
 			Assert.True(waitResult.HasStateHit);
 		}
@@ -490,7 +490,7 @@ namespace Picturepark.SDK.V1.Tests
 			contentDetail.ContentPermissionSetIds = contentPermissionSetIds;
 
 			BusinessProcess result = await _client.Contents.UpdatePermissionsManyAsync(new List<UpdateContentPermissionsRequest> { new UpdateContentPermissionsRequest { ContentId = contentDetail.Id, ContentPermissionSetIds = contentDetail.ContentPermissionSetIds } });
-			await result.Wait4StateAsync("Completed", _client.BusinessProcesses);
+			await result.WaitForStateAsync("Completed", _client.BusinessProcesses);
 
 			contentDetail = await _client.Contents.GetAsync(contentId);
 			var currentContentPermissionSetIds = contentDetail.ContentPermissionSetIds.Select(i => i).ToList();

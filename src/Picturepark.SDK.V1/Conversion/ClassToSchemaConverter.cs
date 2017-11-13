@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Picturepark.SDK.V1.Contract.Attributes.Analyzer;
-using Picturepark.SDK.V1.Contract.Interfaces;
 using Newtonsoft.Json;
 
 namespace Picturepark.SDK.V1.Conversion
@@ -286,8 +285,8 @@ namespace Picturepark.SDK.V1.Conversion
 
 							propertyInfo.IsArray = true;
 
-							if (property.PropertyType.GenericTypeArguments.Any() &&
-								typeof(IReference).GetTypeInfo().IsAssignableFrom(property.PropertyType.GenericTypeArguments.First().GetTypeInfo()))
+							if (property.GetCustomAttribute<PictureparkReferenceAttribute>() != null ||
+								property.PropertyType.GenericTypeArguments.FirstOrDefault().GetTypeInfo().GetCustomAttribute<PictureparkReferenceAttribute>() != null)
 							{
 								propertyInfo.IsReference = true;
 							}
@@ -300,7 +299,7 @@ namespace Picturepark.SDK.V1.Conversion
 						propertyInfo.FullName = property.PropertyType.FullName;
 						propertyInfo.AssemblyFullName = typeInfo.Assembly.FullName;
 
-						if (typeof(IReference).GetTypeInfo().IsAssignableFrom(typeInfo))
+						if (typeInfo.GetCustomAttribute<PictureparkReferenceAttribute>() != null)
 						{
 							propertyInfo.IsReference = true;
 						}
@@ -434,12 +433,14 @@ namespace Picturepark.SDK.V1.Conversion
 								Index = true
 							};
 							break;
+
 						case TypeCode.DateTime:
 							fieldData = new FieldDateTimeArray
 							{
 								Index = true
 							};
 							break;
+
 						case TypeCode.Int16:
 						case TypeCode.Int32:
 						case TypeCode.Int64:
@@ -448,6 +449,7 @@ namespace Picturepark.SDK.V1.Conversion
 								Index = true
 							};
 							break;
+
 						default:
 							throw new Exception($"TypeCode {typeCode} is not supported.");
 					}

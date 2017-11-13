@@ -171,7 +171,7 @@ namespace Picturepark.SDK.V1
 
 		private async Task WaitForCompletionAsync(BusinessProcess process)
 		{
-			var wait = await process.Wait4StateAsync("Completed", _businessProcessClient);
+			var wait = await process.WaitForStateAsync("Completed", _businessProcessClient);
 
 			var errors = wait.BusinessProcess.StateHistory?
 				.Where(i => i.Error != null)

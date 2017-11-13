@@ -1,11 +1,7 @@
 ﻿using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Contract.Attributes.Analyzer;
 using Picturepark.SDK.V1.Contract;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
 {

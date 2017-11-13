@@ -7,9 +7,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Extensions;
-using Picturepark.SDK.V1.Contract.Interfaces;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
+using Picturepark.SDK.V1.Contract.Attributes;
 
 namespace Picturepark.SDK.V1
 {
@@ -55,7 +55,7 @@ namespace Picturepark.SDK.V1
 			return await UpdateAsync(objectId, updateRequest, resolve, timeout, patterns, cancellationToken);
 		}
 
-		public async Task<List<ListItem>> CreateFromPOCO(object obj, string schemaId)
+		public async Task<IEnumerable<ListItem>> CreateFromPOCO(object obj, string schemaId)
 		{
 			var listItems = new List<ListItemCreateRequest>();
 
@@ -78,7 +78,7 @@ namespace Picturepark.SDK.V1
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task<List<ListItem>> CreateManyAsync(IEnumerable<ListItemCreateRequest> listItems, CancellationToken? cancellationToken = null)
+		public async Task<IEnumerable<ListItem>> CreateManyAsync(IEnumerable<ListItemCreateRequest> listItems, CancellationToken? cancellationToken = null)
 		{
 			var listItemCreateRequests = listItems as IList<ListItemCreateRequest> ?? listItems.ToList();
 			if (!listItemCreateRequests.Any())
@@ -87,12 +87,15 @@ namespace Picturepark.SDK.V1
 			}
 
 			var businessProcess = await CreateManyCoreAsync(listItemCreateRequests, cancellationToken ?? CancellationToken.None);
-			await businessProcess.Wait4MetadataAsync(_businessProcessClient);
+			await businessProcess.WaitForMetadataAsync(_businessProcessClient);
+
 			var details = await _businessProcessClient.GetDetailsAsync(businessProcess.Id);
 
 			var bulkResult = (BusinessProcessDetailsDataBulkResponse)details.Details;
 			if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
+			{
 				throw new Exception("Could not save all objects");
+			}
 
 			// Fetch created objects
 			var searchResult = await SearchAsync(new ListItemSearchRequest
@@ -112,7 +115,7 @@ namespace Picturepark.SDK.V1
 		public async Task UpdateListItemAsync(ListItemUpdateRequest updateRequest)
 		{
 			var result = await UpdateManyAsync(new List<ListItemUpdateRequest>() { updateRequest });
-			var wait = await result.Wait4MetadataAsync(_businessProcessClient);
+			var wait = await result.WaitForMetadataAsync(_businessProcessClient);
 		}
 
 		public async Task UpdateListItemAsync(ListItemDetail listItem, object obj, string schemaId)
@@ -150,12 +153,12 @@ namespace Picturepark.SDK.V1
 				type.GetTypeInfo().IsPrimitive ||
 				new Type[]
 				{
-			typeof(string),
-			typeof(decimal),
-			typeof(DateTime),
-			typeof(DateTimeOffset),
-			typeof(TimeSpan),
-			typeof(Guid)
+					typeof(string),
+					typeof(decimal),
+					typeof(DateTime),
+					typeof(DateTimeOffset),
+					typeof(TimeSpan),
+					typeof(Guid)
 				}.Contains(type) ||
 				Convert.GetTypeCode(type) != TypeCode.Object;
 		}
@@ -175,9 +178,19 @@ namespace Picturepark.SDK.V1
 
 			foreach (var result in results)
 			{
-				var object2Update = referencedListItems.SingleOrDefault(i => i.ListItemId == result.Id);
-				var reference = object2Update.Content as IReference;
-				reference.refId = result.Id;
+				var objectToUpdate = referencedListItems.SingleOrDefault(i => i.ListItemId == result.Id);
+
+				var reference = objectToUpdate.Content as IReferenceObject;
+				if (reference != null)
+				{
+					reference.RefId = result.Id;
+				}
+				else
+				{
+					throw new InvalidOperationException("The referenced class '" +
+						objectToUpdate.Content.GetType().FullName +
+						"' does not implement IReferenceObject or inherit from ReferenceObject.");
+				}
 			}
 
 			return results;
@@ -186,7 +199,11 @@ namespace Picturepark.SDK.V1
 		private void BuildReferencedListItems(object obj, List<ListItemCreateRequest> referencedListItems)
 		{
 			// Scan child properties for references
-			var nonReferencedProperties = obj.GetType().GetProperties().Where(i => !typeof(IReference).IsAssignableFrom(i.PropertyType.GenericTypeArguments.FirstOrDefault()) && !typeof(IReference).IsAssignableFrom(i.PropertyType));
+			var nonReferencedProperties = obj.GetType()
+				.GetProperties()
+				.Where(i => i.PropertyType.GenericTypeArguments.FirstOrDefault()?.GetTypeInfo().GetCustomAttribute<PictureparkReferenceAttribute>() == null &&
+							i.PropertyType.GetTypeInfo().GetCustomAttribute<PictureparkReferenceAttribute>() == null);
+
 			foreach (var property in nonReferencedProperties.Where(i => !IsSimpleType(i.PropertyType)))
 			{
 				if (property.PropertyType.GetTypeInfo().ImplementedInterfaces.Contains(typeof(IList)))
@@ -202,19 +219,24 @@ namespace Picturepark.SDK.V1
 				}
 			}
 
-			var referencedProperties = obj.GetType().GetProperties().Where(i => typeof(IReference).IsAssignableFrom(i.PropertyType.GenericTypeArguments.FirstOrDefault()) || typeof(IReference).IsAssignableFrom(i.PropertyType));
+			var referencedProperties = obj.GetType()
+				.GetProperties()
+				.Where(i => i.PropertyType.GenericTypeArguments.FirstOrDefault()?.GetTypeInfo().GetCustomAttribute<PictureparkReferenceAttribute>() != null ||
+							i.PropertyType.GetTypeInfo().GetCustomAttribute<PictureparkReferenceAttribute>() != null);
+
 			foreach (var referencedProperty in referencedProperties)
 			{
-				if (referencedProperty.PropertyType.GetTypeInfo().ImplementedInterfaces.Contains(typeof(IList)))
+				var isListProperty = referencedProperty.PropertyType.GetTypeInfo().ImplementedInterfaces.Contains(typeof(IList));
+				if (isListProperty)
 				{
-					// SingleTagbox
+					// MultiTagbox
 					var values = (IList)referencedProperty.GetValue(obj);
 					if (values != null)
 					{
 						foreach (var value in values)
 						{
-							var refIdValue = (string)value.GetType().GetProperty("refId").GetValue(value);
-							if (string.IsNullOrEmpty(refIdValue))
+							var refObject = value as IReferenceObject;
+							if (refObject == null || string.IsNullOrEmpty(refObject.RefId))
 							{
 								var schemaId = value.GetType().Name;
 
@@ -233,17 +255,19 @@ namespace Picturepark.SDK.V1
 				}
 				else
 				{
-					// MultiTagbox
-					// TODO(rsu): Always false?
-					if (referencedProperty.GetType().GetProperty("refId") == null)
+					// SingleTagbox
+					var value = referencedProperty.GetValue(obj);
+					if (value != null)
 					{
-						var value = referencedProperty.GetValue(obj);
-						if (value != null)
+						var refObject = value as IReferenceObject;
+						if (refObject == null || string.IsNullOrEmpty(refObject.RefId))
 						{
 							var schemaId = value.GetType().Name;
 
-							// Add metadata object if it does not already exist
-							if (referencedListItems.Where(i => i.ContentSchemaId == schemaId).Select(i => i.Content).All(i => i != value))
+							var hasValueBeenAdded = referencedListItems
+								.Any(i => i.ContentSchemaId == schemaId && i.Content == value);
+
+							if (!hasValueBeenAdded)
 							{
 								referencedListItems.Insert(0, new ListItemCreateRequest
 								{

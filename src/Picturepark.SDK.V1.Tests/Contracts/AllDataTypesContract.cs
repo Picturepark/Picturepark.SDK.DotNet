@@ -1,13 +1,8 @@
-﻿using Newtonsoft.Json;
-using Picturepark.SDK.V1.Contract;
+﻿using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
-using Picturepark.SDK.V1.Contract.Interfaces;
 using Picturepark.SDK.V1.Contract.SystemTypes;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
 {
@@ -79,14 +74,13 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 		public List<SimpleRelation> RelationsField { get; set; }
 	}
 
+	[PictureparkReference]
 	[PictureparkSchemaType(SchemaType.List)]
 	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.simpleReferenceObject.nameField}}")]
 	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.simpleReferenceObject.nameField}}")]
-	public class SimpleReferenceObject : IReference
+	public class SimpleReferenceObject : ReferenceObject
 	{
 		public string NameField { get; set; }
-
-		public string refId { get; set; }
 	}
 
 	[PictureparkSchemaType(SchemaType.Struct)]

@@ -1,6 +1,4 @@
-﻿using Picturepark.SDK.V1.Contract;
-using Picturepark.SDK.V1.Tests.Contracts;
-using System.Collections.Generic;
+﻿using Picturepark.SDK.V1.Tests.Contracts;
 using System.Linq;
 using System.Threading.Tasks;
 

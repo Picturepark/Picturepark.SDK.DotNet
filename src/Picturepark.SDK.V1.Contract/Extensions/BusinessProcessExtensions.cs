@@ -6,19 +6,25 @@ namespace Picturepark.SDK.V1.Contract.Extensions
 {
 	public static class BusinessProcessExtensions
 	{
-		public static async Task<BusinessProcessWaitResult> Wait4StateAsync(this BusinessProcess process, string states, IBusinessProcessClient businessProcessesClient)
+		public static async Task<BusinessProcessWaitResult> WaitForStateAsync(this BusinessProcess process, string state, IBusinessProcessClient businessProcessesClient)
 		{
-			return await businessProcessesClient.WaitForStatesAsync(process.Id, states, 60 * 1000);
+			return await businessProcessesClient.WaitForStatesAsync(process.Id, state, 60 * 1000);
 		}
 
-		public static async Task<BusinessProcessWaitResult> Wait4MetadataAsync(this BusinessProcess process, IBusinessProcessClient businessProcessClient)
+		public static async Task<BusinessProcessWaitResult> WaitForMetadataAsync(this BusinessProcess process, IBusinessProcessClient businessProcessClient)
 		{
 			var waitResult = await businessProcessClient.WaitForStatesAsync(process.Id, "Completed", 60 * 1000);
 			if (waitResult.HasStateHit == false)
 			{
-				// TODO: Deserialize exception
 				var exception = waitResult.BusinessProcess.StateHistory.SingleOrDefault(i => i.Error != null);
-				throw new Exception(exception.Error.Exception);
+				if (exception != null)
+				{
+					throw PictureparkException.FromJson(exception.Error.Exception);
+				}
+				else
+				{
+					throw new InvalidOperationException("The state has not hit but no error could be found.");
+				}
 			}
 
 			return waitResult;
