@@ -3,9 +3,10 @@ using Picturepark.SDK.V1.Contract.Attributes.Providers;
 
 namespace Picturepark.SDK.V1.Contract.Attributes
 {
-	public class PictureparkSchemaIndexingAttribute
+	[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
+	public class PictureparkSchemaIndexingAttribute : Attribute, IPictureparkAttribute
 	{
-		public PictureparkSchemaIndexingAttribute(string name, string schemaIndexingInfo)
+		public PictureparkSchemaIndexingAttribute(string schemaIndexingInfo)
 		{
 			if (!string.IsNullOrEmpty(schemaIndexingInfo))
 			{
@@ -13,7 +14,7 @@ namespace Picturepark.SDK.V1.Contract.Attributes
 			}
 		}
 
-		public PictureparkSchemaIndexingAttribute(string name, Type schemaIndexingInfoProvider)
+		public PictureparkSchemaIndexingAttribute(Type schemaIndexingInfoProvider)
 		{
 			var provider = Activator.CreateInstance(schemaIndexingInfoProvider);
 			if (provider is ISchemaIndexingInfoProvider)

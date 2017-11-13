@@ -1,4 +1,6 @@
-﻿using System;
+﻿#pragma warning disable SA1201 // Elements must appear in the correct order
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +9,8 @@ using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Newtonsoft.Json;
+using Picturepark.SDK.V1.Contract.Attributes;
+using Picturepark.SDK.V1.Contract.Attributes.Providers;
 
 namespace Picturepark.SDK.V1.Tests
 {
@@ -23,14 +27,86 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Schema")]
-
 		public async Task ShouldCreateAllTypesSchemaFromClass()
 		{
+			/// Act
 			var allTypes = _client.Schemas.GenerateSchemaFromPOCO(typeof(AllDataTypesContract));
-
 			foreach (var schema in allTypes)
 			{
 				await _client.Schemas.CreateOrUpdateAsync(schema, true);
+			}
+		}
+
+		[Fact]
+		[Trait("Stack", "Schema")]
+		public void ShouldInvokeFilterProvider()
+		{
+			/// Act
+			var allTypes = _client.Schemas.GenerateSchemaFromPOCO(typeof(ClassWithSimpleRelationAndFilterProvider));
+
+			/// Assert
+			var type = allTypes.Single(t => t.Id == nameof(ClassWithSimpleRelationAndFilterProvider));
+			var field = (FieldSingleRelation)type.Fields.Single(f => f.Id == "relationField");
+			var filter = (TermFilter)field.RelationTypes.First().Filter;
+
+			Assert.Equal("contentType", filter.Field);
+			Assert.Equal("Bitmap", filter.Term);
+		}
+
+		[PictureparkSchemaType(SchemaType.Content)]
+		public class ClassWithSimpleRelationAndFilterProvider
+		{
+			[PictureparkContentRelation("RelationName", typeof(RelationFieldFilterProvider))]
+			public SimpleRelation RelationField { get; set; }
+
+			public class RelationFieldFilterProvider : IFilterProvider
+			{
+				public FilterBase GetFilter()
+				{
+					return new TermFilter { Field = "contentType", Term = "Bitmap" };
+				}
+			}
+		}
+
+		[Fact]
+		[Trait("Stack", "Schema")]
+		public void ShouldInvoke()
+		{
+			/// Act
+			var allTypes = _client.Schemas.GenerateSchemaFromPOCO(typeof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider));
+
+			/// Assert
+			var type = allTypes.Single(t => t.Id == nameof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider));
+			var field = (FieldSingleRelation)type.Fields.Single(f => f.Id == "relationField");
+			var indexingInfo = field.SchemaIndexingInfo;
+
+			Assert.Equal("relationInfo", indexingInfo.Fields.First().Id);
+			Assert.Equal(11, indexingInfo.Fields.First().Boost);
+		}
+
+		[PictureparkSchemaType(SchemaType.Content)]
+		public class ClassWithSimpleRelationAndSchemaIndexingInfoProvider
+		{
+			[PictureparkContentRelation("RelationName", "{ 'kind': 'TermFilter', 'field': 'contentType', term: 'Bitmap' }")]
+			[PictureparkSchemaIndexing(typeof(RelationFieldSchemaIndexingInfoProvider))]
+			public SimpleRelation RelationField { get; set; }
+
+			public class RelationFieldSchemaIndexingInfoProvider : ISchemaIndexingInfoProvider
+			{
+				public SchemaIndexingInfo GetSchemaIndexingInfo()
+				{
+					return new SchemaIndexingInfo
+					{
+						Fields = new List<FieldIndexingInfo>
+						{
+							new FieldIndexingInfo
+							{
+								Id = "relationInfo",
+								Boost = 11
+							}
+						}
+					};
+				}
 			}
 		}
 
@@ -52,7 +128,7 @@ namespace Picturepark.SDK.V1.Tests
 			}
 
 			var generatedPersonSchema = await _client.Schemas.GetAsync("Person");
-			Assert.Contains(generatedPersonSchema.Types, i => i == SchemaType.List || i == SchemaType.Struct );
+			Assert.Contains(generatedPersonSchema.Types, i => i == SchemaType.List || i == SchemaType.Struct);
 
 			var personShot = _client.Schemas.GenerateSchemaFromPOCO(typeof(PersonShot));
 

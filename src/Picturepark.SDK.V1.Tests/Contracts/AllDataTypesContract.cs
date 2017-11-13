@@ -13,14 +13,12 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}")]
 	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}")]
 	[PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}: {{data.allDataTypesContract.integerField}}")]
-
 	[
 		PictureparkNameTranslation("x-default", "All datatypes"),
 		PictureparkNameTranslation("de", "Alle datatypen"),
 		PictureparkDescriptionTranslation("x-default", "All datatypes for testing"),
 		PictureparkDescriptionTranslation("de", "Alle Datentypen für Testing")
 	]
-
 	public class AllDataTypesContract
 	{
 		[PictureparkNameTranslation("x-default", "Yes or no")]

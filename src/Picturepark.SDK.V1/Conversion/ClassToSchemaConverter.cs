@@ -511,6 +511,7 @@ namespace Picturepark.SDK.V1.Conversion
 			}
 			else
 			{
+				var schemaIndexing = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkSchemaIndexingAttribute>().SingleOrDefault();
 				var schemaItemInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkSchemaItemAttribute>().SingleOrDefault();
 				var relationInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkContentRelationAttribute>().ToList();
 				var maxRecursionInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkMaximumRecursionAttribute>().SingleOrDefault();
@@ -533,9 +534,10 @@ namespace Picturepark.SDK.V1.Conversion
 					{
 						fieldData = new FieldMultiRelation
 						{
+							Index = true,
 							RelationTypes = relationTypes,
 							SchemaId = contractPropertyInfo.TypeName,
-							Index = true
+							SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
 						};
 					}
 					else if (contractPropertyInfo.IsReference)
@@ -545,7 +547,8 @@ namespace Picturepark.SDK.V1.Conversion
 							Index = true,
 							SimpleSearch = true,
 							SchemaId = contractPropertyInfo.TypeName,
-							Filter = schemaItemInfos?.Filter
+							Filter = schemaItemInfos?.Filter,
+							SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
 						};
 					}
 					else
@@ -554,7 +557,8 @@ namespace Picturepark.SDK.V1.Conversion
 						{
 							Index = true,
 							SimpleSearch = true,
-							SchemaId = contractPropertyInfo.TypeName
+							SchemaId = contractPropertyInfo.TypeName,
+							SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
 						};
 					}
 				}
@@ -567,7 +571,8 @@ namespace Picturepark.SDK.V1.Conversion
 							Index = true,
 							SimpleSearch = true,
 							RelationTypes = relationTypes,
-							SchemaId = contractPropertyInfo.TypeName
+							SchemaId = contractPropertyInfo.TypeName,
+							SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
 						};
 					}
 					else if (contractPropertyInfo.TypeName == "GeoPoint")
@@ -584,7 +589,8 @@ namespace Picturepark.SDK.V1.Conversion
 							Index = true,
 							SimpleSearch = true,
 							SchemaId = contractPropertyInfo.TypeName,
-							Filter = schemaItemInfos?.Filter
+							Filter = schemaItemInfos?.Filter,
+							SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
 						};
 					}
 					else
@@ -593,7 +599,8 @@ namespace Picturepark.SDK.V1.Conversion
 						{
 							Index = true,
 							SimpleSearch = true,
-							SchemaId = contractPropertyInfo.TypeName
+							SchemaId = contractPropertyInfo.TypeName,
+							SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
 						};
 					}
 				}

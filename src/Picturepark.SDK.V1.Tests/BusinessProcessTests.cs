@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Contracts;
@@ -22,7 +20,8 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "BusinessProcesses")]
 		public async Task ShouldSearchBusinessProcesses()
 		{
-			var results = await _client.BusinessProcesses.SearchAsync(new BusinessProcessSearchRequest
+			/// Arrange
+			var request = new BusinessProcessSearchRequest
 			{
 				Start = 0,
 				Limit = 20,
@@ -34,7 +33,12 @@ namespace Picturepark.SDK.V1.Tests
 						Direction = SortDirection.Desc
 					}
 				}
-			});
+			};
+
+			/// Act
+			var results = await _client.BusinessProcesses.SearchAsync(request);
+
+			/// Assert
 			Assert.NotNull(results);
 		}
 
@@ -42,8 +46,18 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "BusinessProcesses")]
 		public async Task ShouldGetBusinessProcessDetails()
 		{
-			var listItemDetail1 = await _client.ListItems.CreateAsync(new ListItemCreateRequest { Content = new BusinessProcessTest { Name = "Test1" }, ContentSchemaId = nameof(BusinessProcessTest) });
-			var listItemDetail2 = await _client.ListItems.CreateAsync(new ListItemCreateRequest { Content = new BusinessProcessTest { Name = "Test2" }, ContentSchemaId = nameof(BusinessProcessTest) });
+			/// Arrange
+			var listItemDetail1 = await _client.ListItems.CreateAsync(new ListItemCreateRequest
+			{
+				Content = new BusinessProcessTest { Name = "Test1" },
+				ContentSchemaId = nameof(BusinessProcessTest)
+			});
+
+			var listItemDetail2 = await _client.ListItems.CreateAsync(new ListItemCreateRequest
+			{
+				Content = new BusinessProcessTest { Name = "Test2" },
+				ContentSchemaId = nameof(BusinessProcessTest)
+			});
 
 			var updateRequest = new ListItemFieldsUpdateRequest
 			{
@@ -60,13 +74,14 @@ namespace Picturepark.SDK.V1.Tests
 					}
 				}
 			};
+
+			/// Act
 			var businessProcess = await _client.ListItems.UpdateFieldsAsync(updateRequest);
-
 			var waitResult = await _client.BusinessProcesses.WaitForStatesAsync(businessProcess.Id, "Completed", 10 * 1000);
-
-			Assert.True(waitResult.HasStateHit);
-
 			var details = await _client.BusinessProcesses.GetDetailsAsync(businessProcess.Id);
+
+			/// Assert
+			Assert.True(waitResult.HasStateHit);
 		}
 	}
 }
