@@ -876,24 +876,28 @@ namespace Picturepark.SDK.V1
         /// <summary>Downloads content in a specific outputformat</summary>
         /// <param name="contentId">The content id</param>
         /// <param name="outputFormatId">The output format id</param>
+        /// <param name="width">Optional width in pixels to resize image</param>
+        /// <param name="height">Optional height in pixels to resize image</param>
         /// <param name="range">the range</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public FileResponse Download(string contentId, string outputFormatId, string range = null)
+        public FileResponse Download(string contentId, string outputFormatId, int? width = null, int? height = null, string range = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await DownloadAsync(contentId, outputFormatId, range, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await DownloadAsync(contentId, outputFormatId, width, height, range, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Downloads content in a specific outputformat</summary>
         /// <param name="contentId">The content id</param>
         /// <param name="outputFormatId">The output format id</param>
+        /// <param name="width">Optional width in pixels to resize image</param>
+        /// <param name="height">Optional height in pixels to resize image</param>
         /// <param name="range">the range</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<FileResponse> DownloadAsync(string contentId, string outputFormatId, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileResponse> DownloadAsync(string contentId, string outputFormatId, int? width = null, int? height = null, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
                 throw new System.ArgumentNullException("contentId");
@@ -902,9 +906,12 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("outputFormatId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/downloads/{contentId}/{outputFormatId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/downloads/{contentId}/{outputFormatId}?");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{outputFormatId}", System.Uri.EscapeDataString(System.Convert.ToString(outputFormatId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (width != null) urlBuilder_.Append("width=").Append(System.Uri.EscapeDataString(System.Convert.ToString(width, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            if (height != null) urlBuilder_.Append("height=").Append(System.Uri.EscapeDataString(System.Convert.ToString(height, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Length--;
     
             var client_ = _httpClient;
             try
@@ -1007,22 +1014,26 @@ namespace Picturepark.SDK.V1
         /// <summary>Get Thumbnail</summary>
         /// <param name="contentId">The Content id</param>
         /// <param name="size">Thumbnail size. Either small, medium or large</param>
+        /// <param name="width">Optional width in pixels to resize image</param>
+        /// <param name="height">Optional height in pixels to resize image</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public FileResponse DownloadThumbnail(string contentId, ThumbnailSize size)
+        public FileResponse DownloadThumbnail(string contentId, ThumbnailSize size, int? width = null, int? height = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await DownloadThumbnailAsync(contentId, size, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await DownloadThumbnailAsync(contentId, size, width, height, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Get Thumbnail</summary>
         /// <param name="contentId">The Content id</param>
         /// <param name="size">Thumbnail size. Either small, medium or large</param>
+        /// <param name="width">Optional width in pixels to resize image</param>
+        /// <param name="height">Optional height in pixels to resize image</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<FileResponse> DownloadThumbnailAsync(string contentId, ThumbnailSize size, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FileResponse> DownloadThumbnailAsync(string contentId, ThumbnailSize size, int? width = null, int? height = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
                 throw new System.ArgumentNullException("contentId");
@@ -1031,141 +1042,12 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("size");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/thumbnails/{contentId}/{size}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/thumbnails/{contentId}/{size}?");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{size}", System.Uri.EscapeDataString(System.Convert.ToString(size, System.Globalization.CultureInfo.InvariantCulture)));
-    
-            var client_ = _httpClient;
-            try
-            {
-                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
-                {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200" || status_ == "206") 
-                        {
-                            var responseStream_ = await response_.Content.ReadAsStreamAsync().ConfigureAwait(false);
-                            var fileResponse_ = new FileResponse(status_, headers_, responseStream_, null, response_); 
-                            client_ = null; response_ = null; // response and client are disposed by FileResponse
-                            return fileResponse_;
-                        }
-                        else
-                        if (status_ == "404") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("A server side error occurred.", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception_) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(FileResponse);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-            }
-        }
-    
-        /// <summary>Download resized content</summary>
-        /// <param name="contentId">The Content id</param>
-        /// <param name="outputFormatId">The output format id</param>
-        /// <param name="width">The content width</param>
-        /// <param name="height">The content height</param>
-        /// <returns>HttpResponseMessage</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public FileResponse DownloadResized(string contentId, string outputFormatId, int width, int height)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await DownloadResizedAsync(contentId, outputFormatId, width, height, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <summary>Download resized content</summary>
-        /// <param name="contentId">The Content id</param>
-        /// <param name="outputFormatId">The output format id</param>
-        /// <param name="width">The content width</param>
-        /// <param name="height">The content height</param>
-        /// <returns>HttpResponseMessage</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<FileResponse> DownloadResizedAsync(string contentId, string outputFormatId, int width, int height, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (contentId == null)
-                throw new System.ArgumentNullException("contentId");
-    
-            if (outputFormatId == null)
-                throw new System.ArgumentNullException("outputFormatId");
-    
-            if (width == null)
-                throw new System.ArgumentNullException("width");
-    
-            if (height == null)
-                throw new System.ArgumentNullException("height");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/downloads/{contentId}/{outputFormatId}/{width}/{height}");
-            urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Replace("{outputFormatId}", System.Uri.EscapeDataString(System.Convert.ToString(outputFormatId, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Replace("{width}", System.Uri.EscapeDataString(System.Convert.ToString(width, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Replace("{height}", System.Uri.EscapeDataString(System.Convert.ToString(height, System.Globalization.CultureInfo.InvariantCulture)));
+            if (width != null) urlBuilder_.Append("width=").Append(System.Uri.EscapeDataString(System.Convert.ToString(width, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            if (height != null) urlBuilder_.Append("height=").Append(System.Uri.EscapeDataString(System.Convert.ToString(height, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Length--;
     
             var client_ = _httpClient;
             try

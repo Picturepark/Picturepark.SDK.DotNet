@@ -247,7 +247,7 @@ namespace Picturepark.SDK.V1.Tests
 			if (File.Exists(filePath))
 				File.Delete(filePath);
 
-			using (var response = await _client.Contents.DownloadAsync(contentId, "Original", "bytes=0-20000000"))
+			using (var response = await _client.Contents.DownloadAsync(contentId, "Original", null, null, "bytes=0-20000000"))
 			{
 				var stream = response.Stream;
 				Assert.Equal(true, stream.CanRead);
@@ -284,7 +284,7 @@ namespace Picturepark.SDK.V1.Tests
 			if (File.Exists(filePath))
 				File.Delete(filePath);
 
-			using (var response = await _client.Contents.DownloadResizedAsync(contentId, "Original", 200, 200))
+			using (var response = await _client.Contents.DownloadAsync(contentId, "Original", 200, 200))
 			{
 				response.Stream.SaveFile(filePath);
 			}

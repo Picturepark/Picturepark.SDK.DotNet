@@ -478,6 +478,22 @@
             "description": "The output format id"
           },
           {
+            "type": "integer",
+            "name": "width",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional width in pixels to resize image",
+            "format": "int32"
+          },
+          {
+            "type": "integer",
+            "name": "height",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional height in pixels to resize image",
+            "format": "int32"
+          },
+          {
             "type": "string",
             "name": "range",
             "in": "header",
@@ -558,83 +574,21 @@
               "Medium",
               "Large"
             ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "HttpResponseMessage",
-            "schema": {
-              "type": "file"
-            },
-            "x-nullable": true
-          },
-          "404": {
-            "description": ""
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "content_read"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/contents/downloads/{contentId}/{outputFormatId}/{width}/{height}": {
-      "get": {
-        "tags": [
-          "Content"
-        ],
-        "summary": "Download resized content",
-        "description": "Provides a endpoint to get reseized content",
-        "operationId": "Content_DownloadResized",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "contentId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The Content id"
-          },
-          {
-            "type": "string",
-            "name": "outputFormatId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The output format id"
           },
           {
             "type": "integer",
             "name": "width",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The content width",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional width in pixels to resize image",
             "format": "int32"
           },
           {
             "type": "integer",
             "name": "height",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The content height",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional height in pixels to resize image",
             "format": "int32"
           }
         ],
@@ -5114,7 +5068,8 @@
         "SourceCode",
         "Database",
         "Cad",
-        "Model3d"
+        "Model3d",
+        "ContentItem"
       ],
       "enum": [
         "Unknown",
@@ -5136,7 +5091,8 @@
         "SourceCode",
         "Database",
         "Cad",
-        "Model3d"
+        "Model3d",
+        "ContentItem"
       ]
     },
     "DisplayValueDictionary": {
@@ -10441,6 +10397,9 @@
         },
         "creator": {
           "$ref": "#/definitions/ShareUser"
+        },
+        "audit": {
+          "$ref": "#/definitions/UserAudit"
         },
         "contentSelections": {
           "type": "array",

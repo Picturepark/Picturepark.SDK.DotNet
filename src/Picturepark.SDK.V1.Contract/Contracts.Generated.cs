@@ -133,59 +133,46 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Downloads content in a specific outputformat</summary>
         /// <param name="contentId">The content id</param>
         /// <param name="outputFormatId">The output format id</param>
+        /// <param name="width">Optional width in pixels to resize image</param>
+        /// <param name="height">Optional height in pixels to resize image</param>
         /// <param name="range">the range</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        FileResponse Download(string contentId, string outputFormatId, string range = null);
+        FileResponse Download(string contentId, string outputFormatId, int? width = null, int? height = null, string range = null);
     
         /// <summary>Downloads content in a specific outputformat</summary>
         /// <param name="contentId">The content id</param>
         /// <param name="outputFormatId">The output format id</param>
+        /// <param name="width">Optional width in pixels to resize image</param>
+        /// <param name="height">Optional height in pixels to resize image</param>
         /// <param name="range">the range</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<FileResponse> DownloadAsync(string contentId, string outputFormatId, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> DownloadAsync(string contentId, string outputFormatId, int? width = null, int? height = null, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get Thumbnail</summary>
         /// <param name="contentId">The Content id</param>
         /// <param name="size">Thumbnail size. Either small, medium or large</param>
+        /// <param name="width">Optional width in pixels to resize image</param>
+        /// <param name="height">Optional height in pixels to resize image</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        FileResponse DownloadThumbnail(string contentId, ThumbnailSize size);
+        FileResponse DownloadThumbnail(string contentId, ThumbnailSize size, int? width = null, int? height = null);
     
         /// <summary>Get Thumbnail</summary>
         /// <param name="contentId">The Content id</param>
         /// <param name="size">Thumbnail size. Either small, medium or large</param>
+        /// <param name="width">Optional width in pixels to resize image</param>
+        /// <param name="height">Optional height in pixels to resize image</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<FileResponse> DownloadThumbnailAsync(string contentId, ThumbnailSize size, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Download resized content</summary>
-        /// <param name="contentId">The Content id</param>
-        /// <param name="outputFormatId">The output format id</param>
-        /// <param name="width">The content width</param>
-        /// <param name="height">The content height</param>
-        /// <returns>HttpResponseMessage</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        FileResponse DownloadResized(string contentId, string outputFormatId, int width, int height);
-    
-        /// <summary>Download resized content</summary>
-        /// <param name="contentId">The Content id</param>
-        /// <param name="outputFormatId">The output format id</param>
-        /// <param name="width">The content width</param>
-        /// <param name="height">The content height</param>
-        /// <returns>HttpResponseMessage</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<FileResponse> DownloadResizedAsync(string contentId, string outputFormatId, int width, int height, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<FileResponse> DownloadThumbnailAsync(string contentId, ThumbnailSize size, int? width = null, int? height = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get Single</summary>
         /// <param name="contentId">The content id.</param>
@@ -1601,6 +1588,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = "Model3d")]
         Model3d = 19,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ContentItem")]
+        ContentItem = 20,
     
     }
     
@@ -7137,6 +7127,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("creator", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ShareUser Creator { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserAudit Audit { get; set; }
     
         [Newtonsoft.Json.JsonProperty("contentSelections", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<ShareContentDetail> ContentSelections { get; set; }
