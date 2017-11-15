@@ -92,7 +92,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			// TODO: Create ContentHelper to update and wait with one call
 			var updateResult = await _client.Contents.UpdateMetadataManyAsync(updateRequest);
-			var waitResult = await updateResult.WaitForMetadataAsync(_client.BusinessProcesses);
+			var waitResult = await updateResult.WaitForCompletionAsync(_client.BusinessProcesses);
 
 			// Refetch content and compare versions
 			var updatedContent = await _client.DocumentHistory.GetAsync(contentId);
@@ -101,7 +101,7 @@ namespace Picturepark.SDK.V1.Tests
 			var difference = await _client.DocumentHistory.GetDifferenceLatestAsync(contentId, 1);
 
 			/// Assert
-			Assert.True(waitResult.HasStateHit);
+			Assert.True(waitResult.HasLifeCycleHit);
 			Assert.NotEqual(updatedContent.DocumentVersion, 0);
 			Assert.True(difference.NewValues.ToString().Contains(@"""location"": ""testlocation"""));		}
 

@@ -6,28 +6,30 @@ namespace Picturepark.SDK.V1.Contract.Extensions
 {
 	public static class BusinessProcessExtensions
 	{
-		public static async Task<BusinessProcessWaitResult> WaitForStateAsync(this BusinessProcess process, string state, IBusinessProcessClient businessProcessesClient)
+		public static async Task<BusinessProcessWaitResult> WaitForCompletionAsync(this BusinessProcess process, IBusinessProcessClient businessProcessesClient)
 		{
-			return await businessProcessesClient.WaitForStatesAsync(process.Id, state, 60 * 1000);
-		}
+			var waitResult = await businessProcessesClient.WaitForCompletionAsync(process.Id, 60 * 1000);
 
-		public static async Task<BusinessProcessWaitResult> WaitForMetadataAsync(this BusinessProcess process, IBusinessProcessClient businessProcessClient)
-		{
-			var waitResult = await businessProcessClient.WaitForStatesAsync(process.Id, "Completed", 60 * 1000);
-			if (waitResult.HasStateHit == false)
+			if (waitResult.HasLifeCycleHit)
+				return waitResult;
+
+			var errors = waitResult.BusinessProcess.StateHistory?
+				.Where(i => i.Error != null)
+				.Select(i => i.Error)
+				.ToList();
+
+			if (errors != null && errors.Any())
 			{
-				var exception = waitResult.BusinessProcess.StateHistory.SingleOrDefault(i => i.Error != null);
-				if (exception != null)
+				if (errors.Count == 1)
 				{
-					throw PictureparkException.FromJson(exception.Error.Exception);
+					throw PictureparkException.FromJson(errors.First().Exception);
 				}
-				else
-				{
-					throw new InvalidOperationException("The state has not hit but no error could be found.");
-				}
+
+				var exceptions = errors.Select(error => PictureparkException.FromJson(error.Exception));
+				throw new AggregateException(exceptions);
 			}
 
-			return waitResult;
+			throw new InvalidOperationException("The state has not hit but no error could be found.");
 		}
 	}
 }

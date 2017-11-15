@@ -2858,39 +2858,158 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Wait for states</summary>
+        /// <summary>Wait</summary>
         /// <param name="processId">The process id</param>
         /// <param name="states">The states to wait for</param>
-        /// <param name="timeout">The timeout in ms</param>
+        /// <param name="lifeCycleIds">Business process lifeCycle to wait for</param>
+        /// <param name="timeout">The timeout in ms to wait for completion.</param>
         /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public BusinessProcessWaitResult WaitForStates(string processId, string states, int timeout)
+        public BusinessProcessWaitResult Wait(string processId, System.Collections.Generic.IEnumerable<string> states = null, System.Collections.Generic.IEnumerable<BusinessProcessLifeCycle> lifeCycleIds = null, int? timeout = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await WaitForStatesAsync(processId, states, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await WaitAsync(processId, states, lifeCycleIds, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
-        /// <summary>Wait for states</summary>
+        /// <summary>Wait</summary>
         /// <param name="processId">The process id</param>
         /// <param name="states">The states to wait for</param>
-        /// <param name="timeout">The timeout in ms</param>
+        /// <param name="lifeCycleIds">Business process lifeCycle to wait for</param>
+        /// <param name="timeout">The timeout in ms to wait for completion.</param>
         /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, string states, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitAsync(string processId, System.Collections.Generic.IEnumerable<string> states = null, System.Collections.Generic.IEnumerable<BusinessProcessLifeCycle> lifeCycleIds = null, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (processId == null)
                 throw new System.ArgumentNullException("processId");
     
-            if (timeout == null)
-                throw new System.ArgumentNullException("timeout");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/businessProcesses/{processId}/wait?");
             urlBuilder_.Replace("{processId}", System.Uri.EscapeDataString(System.Convert.ToString(processId, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Append("states=").Append(System.Uri.EscapeDataString(states != null ? System.Convert.ToString(states, System.Globalization.CultureInfo.InvariantCulture) : "null")).Append("&");
-            urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            if (states != null) foreach (var item_ in states) { urlBuilder_.Append("states=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+            if (lifeCycleIds != null) foreach (var item_ in lifeCycleIds) { urlBuilder_.Append("lifeCycleIds=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Length--;
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(BusinessProcessWaitResult); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitResult>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception_) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception_) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(BusinessProcessWaitResult);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
+        /// <summary>Wait</summary>
+        /// <param name="processId">The process id</param>
+        /// <param name="timeout">The timeout in ms to wait for completion.</param>
+        /// <returns>BusinessProcessWaitResult</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public BusinessProcessWaitResult WaitForCompletion(string processId, int? timeout = null)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await WaitForCompletionAsync(processId, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Wait</summary>
+        /// <param name="processId">The process id</param>
+        /// <param name="timeout">The timeout in ms to wait for completion.</param>
+        /// <returns>BusinessProcessWaitResult</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        public async System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForCompletionAsync(string processId, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (processId == null)
+                throw new System.ArgumentNullException("processId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/businessProcesses/{processId}/waitCompletion?");
+            urlBuilder_.Replace("{processId}", System.Uri.EscapeDataString(System.Convert.ToString(processId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
             var client_ = _httpClient;
@@ -5187,133 +5306,6 @@ namespace Picturepark.SDK.V1
                         }
             
                         return default(BusinessProcess);
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-            }
-        }
-    
-        /// <summary>Wait For States</summary>
-        /// <param name="processId">The business process id.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
-        /// <param name="states">Comma-separated list of business process states to wait for.</param>
-        /// <returns>BusinessProcessWaitResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        [System.Obsolete]
-        public BusinessProcessWaitResult WaitForStates(string processId, int timeout, System.Collections.Generic.IEnumerable<string> states = null)
-        {
-            return System.Threading.Tasks.Task.Run(async () => await WaitForStatesAsync(processId, timeout, states, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
-        }
-    
-        /// <summary>Wait For States</summary>
-        /// <param name="processId">The business process id.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
-        /// <param name="states">Comma-separated list of business process states to wait for.</param>
-        /// <returns>BusinessProcessWaitResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        [System.Obsolete]
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, int timeout, System.Collections.Generic.IEnumerable<string> states = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            if (processId == null)
-                throw new System.ArgumentNullException("processId");
-    
-            if (timeout == null)
-                throw new System.ArgumentNullException("timeout");
-    
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/{processId}/wait?");
-            urlBuilder_.Replace("{processId}", System.Uri.EscapeDataString(System.Convert.ToString(processId, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            if (states != null) foreach (var item_ in states) { urlBuilder_.Append("states=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
-            urlBuilder_.Length--;
-    
-            var client_ = _httpClient;
-            try
-            {
-                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
-                {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        foreach (var item_ in response_.Content.Headers)
-                            headers_[item_.Key] = item_.Value;
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BusinessProcessWaitResult); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitResult>(responseData_, _settings.Value);
-                                return result_; 
-                            } 
-                            catch (System.Exception exception_) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
-                            }
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception_) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
-                        }
-            
-                        return default(BusinessProcessWaitResult);
                     }
                     finally
                     {

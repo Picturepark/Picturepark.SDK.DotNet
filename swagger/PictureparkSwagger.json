@@ -1488,9 +1488,9 @@
         "tags": [
           "BusinessProcess"
         ],
-        "summary": "Wait for states",
-        "description": "Wait for given process states.",
-        "operationId": "BusinessProcess_WaitForStates",
+        "summary": "Wait",
+        "description": "Wait for given process state or lifeCycle. LifeCycles are the same over all business processes. States depend on specific states of the business process.",
+        "operationId": "BusinessProcess_Wait",
         "parameters": [
           {
             "type": "string",
@@ -1501,20 +1501,90 @@
             "description": "The process id"
           },
           {
-            "type": "string",
+            "type": "array",
             "name": "states",
             "in": "query",
-            "required": true,
             "x-nullable": true,
-            "description": "The states to wait for"
+            "collectionFormat": "multi",
+            "description": "The states to wait for",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "type": "array",
+            "name": "lifeCycleIds",
+            "in": "query",
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "Business process lifeCycle to wait for",
+            "items": {
+              "$ref": "#/definitions/BusinessProcessLifeCycle"
+            }
           },
           {
             "type": "integer",
             "name": "timeout",
             "in": "query",
+            "x-nullable": true,
+            "description": "The timeout in ms to wait for completion.",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcessWaitResult",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/businessProcesses/{processId}/waitCompletion": {
+      "get": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Wait",
+        "description": "Wait for given process to complete (either with success, failure or cancel)",
+        "operationId": "BusinessProcess_WaitForCompletion",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "processId",
+            "in": "path",
             "required": true,
             "x-nullable": false,
-            "description": "The timeout in ms",
+            "description": "The process id"
+          },
+          {
+            "type": "integer",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "The timeout in ms to wait for completion.",
             "format": "int32"
           }
         ],
@@ -2560,76 +2630,6 @@
           {
             "Bearer": [
               "listitem_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/listItems/{processId}/wait": {
-      "get": {
-        "tags": [
-          "ListItem"
-        ],
-        "summary": "Wait For States",
-        "description": "Waits for any specified business process states to be hit. If the timeout is reached, the wait process will be stopped and the wait result returned.",
-        "operationId": "ListItem_WaitForStates",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "processId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The business process id."
-          },
-          {
-            "type": "array",
-            "name": "states",
-            "in": "query",
-            "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "Comma-separated list of business process states to wait for.",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "integer",
-            "name": "timeout",
-            "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Maximum time in milliseconds to wait for the business process completed state.",
-            "format": "int32"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcessWaitResult",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcessWaitResult"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "deprecated": true,
-        "security": [
-          {
-            "Bearer": [
-              "listitem_read"
             ]
           }
         ]
@@ -6161,10 +6161,12 @@
       "discriminator": "kind",
       "additionalProperties": false,
       "required": [
+        "supportsCancellation",
         "businessProcessScope",
         "lifeCycle",
         "startDate",
         "endDate",
+        "finished",
         "kind"
       ],
       "properties": {
@@ -6180,6 +6182,9 @@
         "referenceDocType": {
           "type": "string"
         },
+        "supportsCancellation": {
+          "type": "boolean"
+        },
         "businessProcessScope": {
           "$ref": "#/definitions/BusinessProcessScope"
         },
@@ -6194,16 +6199,19 @@
           "type": "string",
           "format": "date-time"
         },
+        "finished": {
+          "type": "boolean"
+        },
         "stateHistory": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/BusinessProcessStateItem"
           }
         },
-        "processDefinitionName": {
+        "currentState": {
           "type": "string"
         },
-        "currentState": {
+        "processDefinitionName": {
           "type": "string"
         },
         "kind": {
@@ -6231,6 +6239,7 @@
         "InProgress",
         "Succeeded",
         "Cancelled",
+        "CancellationInProgress",
         "Failed"
       ],
       "enum": [
@@ -6238,6 +6247,7 @@
         "InProgress",
         "Succeeded",
         "Cancelled",
+        "CancellationInProgress",
         "Failed"
       ]
     },
@@ -8008,17 +8018,25 @@
       "additionalProperties": false,
       "required": [
         "hasStateHit",
-        "processEnded"
+        "hasLifeCycleHit",
+        "lifeCycleHit",
+        "finished"
       ],
       "properties": {
         "hasStateHit": {
           "type": "boolean"
         },
-        "processEnded": {
-          "type": "boolean"
-        },
         "stateHit": {
           "type": "string"
+        },
+        "hasLifeCycleHit": {
+          "type": "boolean"
+        },
+        "lifeCycleHit": {
+          "$ref": "#/definitions/BusinessProcessLifeCycle"
+        },
+        "finished": {
+          "type": "boolean"
         },
         "businessProcess": {
           "$ref": "#/definitions/BusinessProcess"

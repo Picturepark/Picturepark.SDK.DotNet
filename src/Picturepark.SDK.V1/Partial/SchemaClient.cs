@@ -90,7 +90,7 @@ namespace Picturepark.SDK.V1
 				Types = metadataSchema.Types,
 				LayerSchemaIds = metadataSchema.LayerSchemaIds
 			});
-			await WaitForCompletionAsync(process);
+			await process.WaitForCompletionAsync(_businessProcessClient);
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
@@ -103,7 +103,7 @@ namespace Picturepark.SDK.V1
 		public async Task DeleteAsync(string schemaId)
 		{
 			var process = await DeleteCoreAsync(schemaId);
-			await WaitForCompletionAsync(process);
+			await process.WaitForCompletionAsync(_businessProcessClient);
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
@@ -149,7 +149,7 @@ namespace Picturepark.SDK.V1
 		public async Task UpdateAsync(string schemaId, SchemaUpdateRequest updateRequest)
 		{
 			var process = await UpdateCoreAsync(schemaId, updateRequest);
-			await WaitForCompletionAsync(process);
+			await process.WaitForCompletionAsync(_businessProcessClient);
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
@@ -167,22 +167,6 @@ namespace Picturepark.SDK.V1
 		public bool Exists(string schemaId)
 		{
 			return Task.Run(async () => await ExistsAsync(schemaId)).GetAwaiter().GetResult();
-		}
-
-		private async Task WaitForCompletionAsync(BusinessProcess process)
-		{
-			var wait = await process.WaitForStateAsync("Completed", _businessProcessClient);
-
-			var errors = wait.BusinessProcess.StateHistory?
-				.Where(i => i.Error != null)
-				.Select(i => i.Error)
-				.ToList();
-
-			if (errors != null && errors.Any())
-			{
-				var exceptions = errors.Select(error => DeserializeException(error.Exception));
-				throw new AggregateException(exceptions);
-			}
 		}
 	}
 }

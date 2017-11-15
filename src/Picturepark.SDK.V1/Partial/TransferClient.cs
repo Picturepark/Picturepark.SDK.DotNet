@@ -64,20 +64,20 @@ namespace Picturepark.SDK.V1
 
 			if (waitForTransferCompletion)
 			{
-				await Wait4States(transfer.BusinessProcessId, TransferState.TransferReady.ToString());
+				await Wait4Completion(transfer.BusinessProcessId);
 			}
 		}
 
 		public async Task ImportTransferAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest)
 		{
 			var importTransfer = await ImportTransferAsync(transfer.Id, createRequest);
-			await Wait4States(importTransfer.BusinessProcessId, TransferState.ImportCompleted.ToString());
+			await Wait4Completion(importTransfer.BusinessProcessId);
 		}
 
 		public async Task<Transfer> CreateTransferAsync(CreateTransferRequest request)
 		{
 			var result = await CreateAsync(request);
-			await Wait4States(result.BusinessProcessId, TransferState.Created.ToString());
+			await Wait4Completion(result.BusinessProcessId);
 			return result;
 		}
 
@@ -93,7 +93,7 @@ namespace Picturepark.SDK.V1
 			};
 
 			var result = await CreateAsync(request);
-			await Wait4States(result.BusinessProcessId, TransferState.Created.ToString());
+			await Wait4Completion(result.BusinessProcessId);
 
 			return result;
 		}
@@ -171,11 +171,11 @@ namespace Picturepark.SDK.V1
 			await Task.WhenAll(uploadTasks).ConfigureAwait(false);
 		}
 
-		private async Task<BusinessProcessWaitResult> Wait4States(string businessProcessId, string states, int timeout = 10 * 60 * 1000)
+		private async Task<BusinessProcessWaitResult> Wait4Completion(string businessProcessId, int timeout = 10 * 60 * 1000)
 		{
-			var waitResult = await _businessProcessClient.WaitForStatesAsync(businessProcessId, states, timeout);
+			var waitResult = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout);
 
-			if (waitResult.HasStateHit)
+			if (waitResult.HasLifeCycleHit)
 				return waitResult;
 
 			var error = waitResult.BusinessProcess.StateHistory.SingleOrDefault(i => i.Error != null);
@@ -183,7 +183,7 @@ namespace Picturepark.SDK.V1
 			// Not finished
 			if (error == null)
 			{
-				throw new TimeoutException($"Wait for business process on states {states} timed out after {timeout / 1000} seconds");
+				throw new TimeoutException($"Wait for business process on completion timed out after {timeout / 1000} seconds");
 			}
 
 			// Throw deserialized exception

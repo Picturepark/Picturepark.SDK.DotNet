@@ -419,24 +419,43 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<BusinessProcessSearchResult> SearchAsync(BusinessProcessSearchRequest businessProcessSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Wait for states</summary>
+        /// <summary>Wait</summary>
         /// <param name="processId">The process id</param>
         /// <param name="states">The states to wait for</param>
-        /// <param name="timeout">The timeout in ms</param>
+        /// <param name="lifeCycleIds">Business process lifeCycle to wait for</param>
+        /// <param name="timeout">The timeout in ms to wait for completion.</param>
         /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        BusinessProcessWaitResult WaitForStates(string processId, string states, int timeout);
+        BusinessProcessWaitResult Wait(string processId, System.Collections.Generic.IEnumerable<string> states = null, System.Collections.Generic.IEnumerable<BusinessProcessLifeCycle> lifeCycleIds = null, int? timeout = null);
     
-        /// <summary>Wait for states</summary>
+        /// <summary>Wait</summary>
         /// <param name="processId">The process id</param>
         /// <param name="states">The states to wait for</param>
-        /// <param name="timeout">The timeout in ms</param>
+        /// <param name="lifeCycleIds">Business process lifeCycle to wait for</param>
+        /// <param name="timeout">The timeout in ms to wait for completion.</param>
         /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, string states, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitAsync(string processId, System.Collections.Generic.IEnumerable<string> states = null, System.Collections.Generic.IEnumerable<BusinessProcessLifeCycle> lifeCycleIds = null, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Wait</summary>
+        /// <param name="processId">The process id</param>
+        /// <param name="timeout">The timeout in ms to wait for completion.</param>
+        /// <returns>BusinessProcessWaitResult</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcessWaitResult WaitForCompletion(string processId, int? timeout = null);
+    
+        /// <summary>Wait</summary>
+        /// <param name="processId">The process id</param>
+        /// <param name="timeout">The timeout in ms to wait for completion.</param>
+        /// <returns>BusinessProcessWaitResult</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForCompletionAsync(string processId, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get details</summary>
         /// <param name="processId">The process id</param>
@@ -716,27 +735,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<BusinessProcess> UpdateFieldsAsync(ListItemFieldsUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Wait For States</summary>
-        /// <param name="processId">The business process id.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
-        /// <param name="states">Comma-separated list of business process states to wait for.</param>
-        /// <returns>BusinessProcessWaitResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        [System.Obsolete]
-        BusinessProcessWaitResult WaitForStates(string processId, int timeout, System.Collections.Generic.IEnumerable<string> states = null);
-    
-        /// <summary>Wait For States</summary>
-        /// <param name="processId">The business process id.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
-        /// <param name="states">Comma-separated list of business process states to wait for.</param>
-        /// <returns>BusinessProcessWaitResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        [System.Obsolete]
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, int timeout, System.Collections.Generic.IEnumerable<string> states = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -2880,6 +2878,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("referenceDocType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReferenceDocType { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("supportsCancellation", Required = Newtonsoft.Json.Required.Always)]
+        public bool SupportsCancellation { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("businessProcessScope", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -2898,14 +2899,17 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime EndDate { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("finished", Required = Newtonsoft.Json.Required.Always)]
+        public bool Finished { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("stateHistory", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<BusinessProcessStateItem> StateHistory { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("processDefinitionName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ProcessDefinitionName { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("currentState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CurrentState { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("processDefinitionName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ProcessDefinitionName { get; set; }
     
         public string ToJson() 
         {
@@ -2944,8 +2948,11 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "Cancelled")]
         Cancelled = 3,
     
+        [System.Runtime.Serialization.EnumMember(Value = "CancellationInProgress")]
+        CancellationInProgress = 4,
+    
         [System.Runtime.Serialization.EnumMember(Value = "Failed")]
-        Failed = 4,
+        Failed = 5,
     
     }
     
@@ -4770,11 +4777,19 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("hasStateHit", Required = Newtonsoft.Json.Required.Always)]
         public bool HasStateHit { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("processEnded", Required = Newtonsoft.Json.Required.Always)]
-        public bool ProcessEnded { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("stateHit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string StateHit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("hasLifeCycleHit", Required = Newtonsoft.Json.Required.Always)]
+        public bool HasLifeCycleHit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("lifeCycleHit", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BusinessProcessLifeCycle LifeCycleHit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("finished", Required = Newtonsoft.Json.Required.Always)]
+        public bool Finished { get; set; }
     
         [Newtonsoft.Json.JsonProperty("businessProcess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BusinessProcess BusinessProcess { get; set; }

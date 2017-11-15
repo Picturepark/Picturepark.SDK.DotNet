@@ -128,6 +128,9 @@ namespace Picturepark.SDK.V1.Tests
 				successDelegate: Console.WriteLine,
 				errorDelegate: Console.WriteLine);
 
+			// TODO BRO: Remove after fixing backend
+			await Task.Delay(2000);
+
 			await ImportTransferAsync(transfer, transferName);
 		}
 

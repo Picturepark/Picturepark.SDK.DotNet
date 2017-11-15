@@ -87,7 +87,7 @@ namespace Picturepark.SDK.V1
 			}
 
 			var businessProcess = await CreateManyCoreAsync(listItemCreateRequests, cancellationToken ?? CancellationToken.None);
-			await businessProcess.WaitForMetadataAsync(_businessProcessClient);
+			await businessProcess.WaitForCompletionAsync(_businessProcessClient);
 
 			var details = await _businessProcessClient.GetDetailsAsync(businessProcess.Id);
 
@@ -115,7 +115,7 @@ namespace Picturepark.SDK.V1
 		public async Task UpdateListItemAsync(ListItemUpdateRequest updateRequest)
 		{
 			var result = await UpdateManyAsync(new List<ListItemUpdateRequest>() { updateRequest });
-			var wait = await result.WaitForMetadataAsync(_businessProcessClient);
+			var wait = await result.WaitForCompletionAsync(_businessProcessClient);
 		}
 
 		public async Task UpdateListItemAsync(ListItemDetail listItem, object obj, string schemaId)
