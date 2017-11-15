@@ -24,50 +24,87 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Contents")]
-		public async Task ShouldAggregateByChannel()
+		public async Task ShouldUpdateTransferOwnership()
 		{
 			/// Arrange
-			var channelId = "rootChannel";
-			var request = new ContentAggregationRequest
-			{
-				SearchString = string.Empty
-			};
+			var contentId = _fixture.GetRandomContentId(".jpg", 50);
 
 			/// Act
-			var result = await _client.Contents.AggregateByChannelAsync(channelId, request);
+			var previousContent = await _client.Contents.GetAsync(contentId);
+			var previousOwner = await _client.Users.GetByOwnerTokenAsync(previousContent.OwnerTokenId);
+			var searchResult = await _client.Users.SearchAsync(new UserSearchRequest { Limit = 10 });
+
+			var request = new ContentOwnershipTransferRequest
+			{
+				ContentId = contentId,
+				TransferUserId = searchResult.Results.First().Id
+			};
+			await _client.Contents.UpdateTransferOwnershipAsync(contentId, request);
+
+			var newContent = await _client.Contents.GetAsync(contentId);
+			var newOwner = await _client.Users.GetByOwnerTokenAsync(newContent.OwnerTokenId);
 
 			/// Assert
-			var originalWidthResults = result.AggregationResults
-				.SingleOrDefault(i => i.Name == "Original Width");
-
-			Assert.NotNull(originalWidthResults);
-			Assert.True(originalWidthResults.AggregationResultItems.Count > 0);
+			Assert.Equal(previousContent.Id, newContent.Id);
+			Assert.NotEqual(previousContent.OwnerTokenId, newContent.OwnerTokenId);
+			Assert.NotEqual(previousOwner.Id, newOwner.Id);
+			Assert.Equal(searchResult.Results.First().Id, newOwner.Id);
 		}
 
 		[Fact]
 		[Trait("Stack", "Contents")]
-		public async Task ShouldAggregateByChannelWithTermsAggregator()
+		public async Task ShouldGetMany()
 		{
 			/// Arrange
-			var channelId = "rootChannel";
-			var request = new ContentAggregationRequest
+			var contentIds = new string[]
 			{
-				SearchString = string.Empty,
-				Aggregators = new List<AggregatorBase>
-				{
-					new TermsAggregator { Name = "Permissions", Field = "permissionSetIds", Size = 10 }
-				}
+				_fixture.GetRandomContentId(".jpg", 50),
+				_fixture.GetRandomContentId(".jpg", 50)
 			};
 
 			/// Act
-			var result = await _client.Contents.AggregateByChannelAsync(channelId, request);
+			var contents = await _client.Contents.GetManyAsync(contentIds, true);
 
 			/// Assert
-			var permissionSetResults = result.AggregationResults
-				.SingleOrDefault(i => i.Name == "Permissions");
+			Assert.Equal(2, contents.Count);
+			Assert.Equal(contentIds[0], contents[0].Id);
+			Assert.Equal(contentIds[1], contents[1].Id);
+		}
 
-			Assert.NotNull(permissionSetResults);
-			Assert.True(permissionSetResults.AggregationResultItems.Count > 0);
+		[Fact]
+		[Trait("Stack", "Contents")]
+		public async Task ShouldTransferOwnershipMany()
+		{
+			/// Arrange
+			var contentIds = new string[]
+			{
+				_fixture.GetRandomContentId(".jpg", 50),
+				_fixture.GetRandomContentId(".jpg", 50)
+			};
+
+			/// Act
+			var previousContents = await _client.Contents.GetManyAsync(contentIds, true);
+			var previousOwner = await _client.Users.GetByOwnerTokenAsync(previousContents[0].OwnerTokenId);
+			var searchResult = await _client.Users.SearchAsync(new UserSearchRequest { Limit = 10 });
+
+			var request = new ContentsOwnershipTransferRequest
+			{
+				ContentIds = contentIds.ToList(),
+				TransferUserId = searchResult.Results.First().Id
+			};
+			var businessProcess = await _client.Contents.TransferOwnershipManyAsync(request);
+			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+
+			var newContents = await _client.Contents.GetManyAsync(contentIds, true);
+			var newOwner1 = await _client.Users.GetByOwnerTokenAsync(newContents[0].OwnerTokenId);
+			var newOwner2 = await _client.Users.GetByOwnerTokenAsync(newContents[1].OwnerTokenId);
+
+			/// Assert
+			Assert.Equal(previousContents[0].Id, newContents[0].Id);
+			Assert.Equal(previousContents[1].Id, newContents[1].Id);
+
+			Assert.Equal(newOwner1.Id, newOwner2.Id);
+			Assert.Equal(searchResult.Results.First().Id, newOwner1.Id);
 		}
 
 		[Fact]
@@ -126,10 +163,58 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Contents")]
+		public async Task ShouldAggregateByChannel()
+		{
+			/// Arrange
+			var channelId = "rootChannel";
+			var request = new ContentAggregationRequest
+			{
+				SearchString = string.Empty
+			};
+
+			/// Act
+			var result = await _client.Contents.AggregateByChannelAsync(channelId, request);
+
+			/// Assert
+			var originalWidthResults = result.AggregationResults
+				.SingleOrDefault(i => i.Name == "Original Width");
+
+			Assert.NotNull(originalWidthResults);
+			Assert.True(originalWidthResults.AggregationResultItems.Count > 0);
+		}
+
+		[Fact]
+		[Trait("Stack", "Contents")]
+		public async Task ShouldAggregateByChannelWithTermsAggregator()
+		{
+			/// Arrange
+			var channelId = "rootChannel";
+			var request = new ContentAggregationRequest
+			{
+				SearchString = string.Empty,
+				Aggregators = new List<AggregatorBase>
+				{
+					new TermsAggregator { Name = "Permissions", Field = "permissionSetIds", Size = 10 }
+				}
+			};
+
+			/// Act
+			var result = await _client.Contents.AggregateByChannelAsync(channelId, request);
+
+			/// Assert
+			var permissionSetResults = result.AggregationResults
+				.SingleOrDefault(i => i.Name == "Permissions");
+
+			Assert.NotNull(permissionSetResults);
+			Assert.True(permissionSetResults.AggregationResultItems.Count > 0);
+		}
+
+		[Fact]
+		[Trait("Stack", "Contents")]
 		public async Task ShouldCreateDownloadLinkForSingleFile()
 		{
+			/// Arrange
 			var contentId = _fixture.GetRandomContentId(".jpg", 50);
-
 			var createDownloadLinkRequest = new ContentDownloadLinkCreateRequest
 			{
 				Contents = new List<ContentDownloadRequestItem>
@@ -138,6 +223,7 @@ namespace Picturepark.SDK.V1.Tests
 				}
 			};
 
+			/// Act
 			var result = await _client.Contents.CreateDownloadLinkAsync(createDownloadLinkRequest);
 			Assert.NotNull(result.DownloadUrl);
 
@@ -155,6 +241,9 @@ namespace Picturepark.SDK.V1.Tests
 				using (var fileStream = File.Create(filePath))
 				{
 					stream.CopyTo(fileStream);
+
+					/// Assert
+					Assert.True(stream.Length > 10);
 				}
 			}
 		}
@@ -163,6 +252,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldCreateDownloadLinkForMultipeFiles()
 		{
+			/// Arrange
 			var contentId1 = _fixture.GetRandomContentId(".jpg", 50);
 			var contentId2 = _fixture.GetRandomContentId(".jpg", 50);
 
@@ -175,6 +265,7 @@ namespace Picturepark.SDK.V1.Tests
 				}
 			};
 
+			/// Act
 			var result = await _client.Contents.CreateDownloadLinkAsync(createDownloadLinkRequest);
 			Assert.NotNull(result.DownloadUrl);
 
@@ -192,6 +283,9 @@ namespace Picturepark.SDK.V1.Tests
 				using (var fileStream = File.Create(filePath))
 				{
 					stream.CopyTo(fileStream);
+
+					/// Assert
+					Assert.True(stream.Length > 10);
 				}
 			}
 		}
