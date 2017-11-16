@@ -23,20 +23,15 @@ namespace Picturepark.SDK.V1
 			_businessProcessClient = businessProcessClient;
 		}
 
-		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItem, bool resolve = false, int timeout = 60000)
-		{
-			return await CreateAsync(listItem, resolve, timeout, null);
-		}
-
 		public ListItemDetail Create(ListItemCreateRequest listItem, bool resolve = false, int timeout = 60000)
 		{
 			return Task.Run(async () => await CreateAsync(listItem, resolve: resolve, timeout: timeout)).GetAwaiter().GetResult();
 		}
 
-		public async Task DeleteAsync(string objectId, CancellationToken cancellationToken = default(CancellationToken))
+		/// <exception cref="ApiException">A server side error occurred.</exception>
+		public async Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItem, bool resolve = false, int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			await DeleteAsync(objectId, 60000, cancellationToken);
+			return await CreateAsync(listItem, resolve, timeout, null, cancellationToken);
 		}
 
 		public void Delete(string objectId)
@@ -44,28 +39,64 @@ namespace Picturepark.SDK.V1
 			Task.Run(async () => await DeleteAsync(objectId)).GetAwaiter().GetResult();
 		}
 
+		public async Task DeleteAsync(string objectId, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			await DeleteAsync(objectId, 60000, cancellationToken);
+		}
+
 		public ListItemDetail Update(string objectId, ListItemUpdateRequest updateRequest, bool resolve = false, List<string> patterns = null, int timeout = 60000)
 		{
-			return Task.Run(async () => await UpdateAsync(objectId, updateRequest, resolve, timeout, patterns)).GetAwaiter().GetResult();
+			// TODO: ListItemClient.Update: Is this method really needed? The only diff are the order of the parameters...
+			return Task.Run(async () => await UpdateAsync(objectId, updateRequest, resolve, patterns, timeout)).GetAwaiter().GetResult();
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public async Task<ListItemDetail> UpdateAsync(string objectId, ListItemUpdateRequest updateRequest, bool resolve = false, List<string> patterns = null, int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken))
 		{
+			// TODO: ListItemClient.UpdateAsync: Is this method really needed? The only diff are the order of the parameters...
 			return await UpdateAsync(objectId, updateRequest, resolve, timeout, patterns, cancellationToken);
 		}
 
-		public async Task<IEnumerable<ListItem>> CreateFromPOCOAsync(object obj, string schemaId)
+		public async Task UpdateAsync(ListItemDetail listItem, object obj, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			var convertedObject = new ListItem
+			{
+				ContentSchemaId = listItem.ContentSchemaId,
+				Id = listItem.Id,
+				Content = listItem.Content
+			};
+
+			await UpdateAsync(convertedObject, obj, schemaId, cancellationToken);
+		}
+
+		public async Task UpdateAsync(ListItem listItem, object obj, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			var request = new ListItemUpdateRequest()
+			{
+				Id = listItem.Id,
+				Content = obj
+			};
+
+			await UpdateAsync(request, cancellationToken);
+		}
+
+		public async Task UpdateAsync(ListItemUpdateRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			var businessProcess = await UpdateManyAsync(new List<ListItemUpdateRequest>() { updateRequest }, cancellationToken);
+			var waitResult = await businessProcess.WaitForCompletionAsync(_businessProcessClient, cancellationToken);
+		}
+
+		public async Task<IEnumerable<ListItem>> CreateFromPOCOAsync(object obj, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var listItems = new List<ListItemCreateRequest>();
-
-			var referencedObjects = await CreateReferencedObjects(obj);
+			var referencedObjects = await CreateReferencedObjectsAsync(obj, cancellationToken);
 
 			listItems.Add(new ListItemCreateRequest
 			{
 				ContentSchemaId = schemaId,
 				Content = obj
 			});
+
 			var objectResult = await CreateManyAsync(listItems);
 
 			var allResults = objectResult.Concat(referencedObjects).ToList();
@@ -78,7 +109,7 @@ namespace Picturepark.SDK.V1
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task<IEnumerable<ListItem>> CreateManyAsync(IEnumerable<ListItemCreateRequest> listItems, CancellationToken? cancellationToken = null)
+		public async Task<IEnumerable<ListItem>> CreateManyAsync(IEnumerable<ListItemCreateRequest> listItems, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var listItemCreateRequests = listItems as IList<ListItemCreateRequest> ?? listItems.ToList();
 			if (!listItemCreateRequests.Any())
@@ -86,10 +117,10 @@ namespace Picturepark.SDK.V1
 				return new List<ListItem>();
 			}
 
-			var businessProcess = await CreateManyCoreAsync(listItemCreateRequests, cancellationToken ?? CancellationToken.None);
+			var businessProcess = await CreateManyCoreAsync(listItemCreateRequests, cancellationToken);
 			await businessProcess.WaitForCompletionAsync(_businessProcessClient);
 
-			var details = await _businessProcessClient.GetDetailsAsync(businessProcess.Id);
+			var details = await _businessProcessClient.GetDetailsAsync(businessProcess.Id, cancellationToken);
 
 			var bulkResult = (BusinessProcessDetailsDataBulkResponse)details.Details;
 			if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
@@ -98,7 +129,7 @@ namespace Picturepark.SDK.V1
 			}
 
 			// Fetch created objects
-			var searchResult = await SearchAsync(new ListItemSearchRequest
+			var searchRequest = new ListItemSearchRequest
 			{
 				Start = 0,
 				Limit = 1000,
@@ -107,42 +138,15 @@ namespace Picturepark.SDK.V1
 					Field = "id",
 					Terms = bulkResult.Response.Rows.Select(i => i.Id).ToList()
 				}
-			});
+			};
 
+			var searchResult = await SearchAsync(searchRequest, cancellationToken);
 			return searchResult.Results;
 		}
 
-		public async Task UpdateListItemAsync(ListItemUpdateRequest updateRequest)
+		public async Task<T> GetObjectAsync<T>(string objectId, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var result = await UpdateManyAsync(new List<ListItemUpdateRequest>() { updateRequest });
-			var wait = await result.WaitForCompletionAsync(_businessProcessClient);
-		}
-
-		public async Task UpdateListItemAsync(ListItemDetail listItem, object obj, string schemaId)
-		{
-			var convertedObject = new ListItem
-			{
-				ContentSchemaId = listItem.ContentSchemaId,
-				Id = listItem.Id,
-				Content = listItem.Content
-			};
-			await UpdateListItemAsync(convertedObject, obj, schemaId);
-		}
-
-		public async Task UpdateListItemAsync(ListItem listItem, object obj, string schemaId)
-		{
-			var request = new ListItemUpdateRequest()
-			{
-				Id = listItem.Id,
-				Content = obj
-			};
-
-			await UpdateListItemAsync(request);
-		}
-
-		public async Task<T> GetObjectAsync<T>(string objectId, string schemaId)
-		{
-			var listItem = await GetAsync(objectId, true);
+			var listItem = await GetAsync(objectId, true, cancellationToken: cancellationToken);
 			return (listItem.Content as JObject).ToObject<T>();
 		}
 
@@ -163,7 +167,7 @@ namespace Picturepark.SDK.V1
 				Convert.GetTypeCode(type) != TypeCode.Object;
 		}
 
-		private async Task<IEnumerable<ListItem>> CreateReferencedObjects(object obj)
+		private async Task<IEnumerable<ListItem>> CreateReferencedObjectsAsync(object obj, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var referencedListItems = new List<ListItemCreateRequest>();
 			BuildReferencedListItems(obj, referencedListItems);
@@ -174,7 +178,7 @@ namespace Picturepark.SDK.V1
 				referencedObject.ListItemId = Guid.NewGuid().ToString("N");
 			}
 
-			var results = await CreateManyAsync(referencedListItems);
+			var results = await CreateManyAsync(referencedListItems, cancellationToken);
 
 			foreach (var result in results)
 			{

@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Contract.Extensions
 {
 	public static class BusinessProcessExtensions
 	{
-		public static async Task<BusinessProcessWaitResult> WaitForCompletionAsync(this BusinessProcess process, IBusinessProcessClient businessProcessesClient)
+		public static async Task<BusinessProcessWaitResult> WaitForCompletionAsync(this BusinessProcess process, IBusinessProcessClient businessProcessesClient, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var waitResult = await businessProcessesClient.WaitForCompletionAsync(process.Id, 60 * 1000);
+			var waitResult = await businessProcessesClient.WaitForCompletionAsync(process.Id, 60 * 1000, cancellationToken);
 
 			if (waitResult.HasLifeCycleHit)
 				return waitResult;

@@ -117,7 +117,7 @@ namespace Picturepark.SDK.V1.Tests
 				Id = result.Id,
 				Content = new Tag { Name = "Foo" }
 			};
-			await _client.ListItems.UpdateListItemAsync(request);
+			await _client.ListItems.UpdateAsync(request);
 
 			/// Assert
 			var newItem = await _client.ListItems.GetAsync(result.Id, true);
@@ -352,7 +352,7 @@ namespace Picturepark.SDK.V1.Tests
 			player.Firstname = "xy jviorej ivorejvioe";
 
 			// Update on server
-			await _client.ListItems.UpdateListItemAsync(playerItem, player, nameof(SoccerPlayer));
+			await _client.ListItems.UpdateAsync(playerItem, player, nameof(SoccerPlayer));
 		}
 	}
 }
