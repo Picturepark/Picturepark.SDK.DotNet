@@ -8,6 +8,7 @@ using System.Net.Http;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Tests.Fixtures;
+using Newtonsoft.Json;
 
 namespace Picturepark.SDK.V1.Tests
 {
@@ -34,10 +35,11 @@ namespace Picturepark.SDK.V1.Tests
 			var previousOwner = await _client.Users.GetByOwnerTokenAsync(previousContent.OwnerTokenId);
 			var searchResult = await _client.Users.SearchAsync(new UserSearchRequest { Limit = 10 });
 
+			var newUser = searchResult.Results.First(u => u.Id != previousOwner.Id);
 			var request = new ContentOwnershipTransferRequest
 			{
 				ContentId = contentId,
-				TransferUserId = searchResult.Results.First().Id
+				TransferUserId = newUser.Id
 			};
 			await _client.Contents.UpdateTransferOwnershipAsync(contentId, request);
 
@@ -48,7 +50,7 @@ namespace Picturepark.SDK.V1.Tests
 			Assert.Equal(previousContent.Id, newContent.Id);
 			Assert.NotEqual(previousContent.OwnerTokenId, newContent.OwnerTokenId);
 			Assert.NotEqual(previousOwner.Id, newOwner.Id);
-			Assert.Equal(searchResult.Results.First().Id, newOwner.Id);
+			Assert.Equal(newUser.Id, newOwner.Id);
 		}
 
 		[Fact]
@@ -87,10 +89,11 @@ namespace Picturepark.SDK.V1.Tests
 			var previousOwner = await _client.Users.GetByOwnerTokenAsync(previousContents[0].OwnerTokenId);
 			var searchResult = await _client.Users.SearchAsync(new UserSearchRequest { Limit = 10 });
 
+			var newUser = searchResult.Results.First(u => u.Id != previousOwner.Id);
 			var request = new ContentsOwnershipTransferRequest
 			{
 				ContentIds = contentIds.ToList(),
-				TransferUserId = searchResult.Results.First().Id
+				TransferUserId = newUser.Id
 			};
 			var businessProcess = await _client.Contents.TransferOwnershipManyAsync(request);
 			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
@@ -104,7 +107,7 @@ namespace Picturepark.SDK.V1.Tests
 			Assert.Equal(previousContents[1].Id, newContents[1].Id);
 
 			Assert.Equal(newOwner1.Id, newOwner2.Id);
-			Assert.Equal(searchResult.Results.First().Id, newOwner1.Id);
+			Assert.Equal(newUser.Id, newOwner1.Id);
 		}
 
 		[Fact]
@@ -294,12 +297,20 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldCreateContents()
 		{
-			//// TODO BRO: Implement
+			/// Arrange
+			var request = new CreateContentRequest
+			{
+				Content = JsonConvert.DeserializeObject(@"{ ""name"": ""foo"" }"),
+				ContentSchemaId = "Tag",
+				Metadata = new DataDictionary()
+			};
 
+			/// Act
+			var result = await _client.Contents.CreateContentAsync(request, true);
+
+			/// Assert
 			string contentId = _fixture.GetRandomContentId(".jpg", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
-
-			await Task.FromResult<object>(null);
 		}
 
 		[Fact]
@@ -349,6 +360,85 @@ namespace Picturepark.SDK.V1.Tests
 				response.Stream.SaveFile(filePath);
 				Assert.True(File.Exists(filePath));
 			}
+		}
+
+		[Fact]
+		[Trait("Stack", "Contents")]
+		public async Task ShouldDownloadThumbnail()
+		{
+			/// Arrange
+			var contentId = _fixture.GetRandomContentId(".jpg", 20);
+
+			/// Act
+			using (var response = await _client.Contents.DownloadThumbnailAsync(contentId, ThumbnailSize.Medium))
+			{
+				var stream = new MemoryStream();
+				await response.Stream.CopyToAsync(stream);
+
+				/// Assert
+				Assert.True(stream.Length > 10);
+				Assert.True(stream.CanRead);
+			}
+		}
+
+		// [Fact]
+		[Trait("Stack", "Contents")]
+		public async Task ShouldUpdateMetadata()
+		{
+			/// Arrange
+			var contentId = _fixture.GetRandomContentId(".jpg", 20);
+			var request = new UpdateContentMetadataRequest
+			{
+				Id = contentId,
+				SchemaIds = new List<string> { "Drive" },
+				Metadata = new DataDictionary
+				{
+					{
+						"Drive",
+						new Dictionary<string, object>
+						{
+						}
+					}
+				}
+			};
+
+			/// Act
+			var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+			/// Assert
+			Assert.True(true);
+		}
+
+		[Fact]
+		[Trait("Stack", "Contents")]
+		public async Task ShouldUpdateMetadataMany()
+		{
+			/// Arrange
+			var contentId = _fixture.GetRandomContentId(".jpg", 20);
+
+			var content = await _client.Contents.GetAsync(contentId);
+			var updateRequest = new ContentsMetadataUpdateRequest
+			{
+				ContentIds = new List<string> { content.Id },
+				ChangeCommands = new List<MetadataValuesChangeCommandBase>
+				{
+					new MetadataValuesSchemaUpsertCommand
+					{
+						SchemaId = "Drive",
+						Value = new DataDictionary
+						{
+							{ "location", "testlocation" }
+						}
+					}
+				}
+			};
+
+			/// Act
+			var result = await _client.Contents.UpdateMetadataManyAsync(updateRequest);
+			var waitResult = await result.WaitForCompletionAsync(_client.BusinessProcesses);
+
+			/// Assert
+			Assert.True(waitResult.HasLifeCycleHit);
 		}
 
 		[Fact]
@@ -436,10 +526,30 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Contents")]
-		public async Task ShouldGetResolved()
+		public async Task ShouldGetWithResolvedObjects()
 		{
-			string contentId = _fixture.GetRandomContentId(".jpg", 20);
-			ContentDetail result = await _client.Contents.GetAsync(contentId, true);
+			/// Arrange
+			var contentId = _fixture.GetRandomContentId(".jpg", 20);
+
+			/// Act
+			var result = await _client.Contents.GetAsync(contentId, true);
+
+			/// Assert
+			Assert.NotNull(result); // TODO: Add better asserts
+		}
+
+		[Fact]
+		[Trait("Stack", "Contents")]
+		public async Task ShouldGetWithoutResolvedObjects()
+		{
+			/// Arrange
+			var contentId = _fixture.GetRandomContentId(".jpg", 20);
+
+			/// Act
+			var result = await _client.Contents.GetAsync(contentId, false);
+
+			/// Assert
+			Assert.NotNull(result); // TODO: Add better asserts
 		}
 
 		[Fact]
@@ -557,36 +667,6 @@ namespace Picturepark.SDK.V1.Tests
 
 			BusinessProcess updateResult = await _client.Contents.UpdateFileAsync(contentId, updateRequest);
 			BusinessProcessWaitResult waitResult = await updateResult.WaitForCompletionAsync(_client.BusinessProcesses);
-
-			Assert.True(waitResult.HasLifeCycleHit);
-		}
-
-		[Fact]
-		[Trait("Stack", "Contents")]
-		public async Task ShouldUpdateMetadata()
-		{
-			string contentId = _fixture.GetRandomContentId(".jpg", 20);
-
-			ContentDetail content = await _client.Contents.GetAsync(contentId);
-
-			var updateRequest = new ContentsMetadataUpdateRequest
-			{
-				ContentIds = new List<string> { content.Id },
-				ChangeCommands = new List<MetadataValuesChangeCommandBase>
-				{
-					new MetadataValuesSchemaUpsertCommand
-					{
-							SchemaId = "Drive",
-							Value = new DataDictionary
-							{
-								{ "location", "testlocation" }
-							}
-					}
-				}
-			};
-
-			BusinessProcess result = await _client.Contents.UpdateMetadataManyAsync(updateRequest);
-			BusinessProcessWaitResult waitResult = await result.WaitForCompletionAsync(_client.BusinessProcesses);
 
 			Assert.True(waitResult.HasLifeCycleHit);
 		}
