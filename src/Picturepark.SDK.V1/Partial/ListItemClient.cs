@@ -55,7 +55,7 @@ namespace Picturepark.SDK.V1
 			return await UpdateAsync(objectId, updateRequest, resolve, timeout, patterns, cancellationToken);
 		}
 
-		public async Task<IEnumerable<ListItem>> CreateFromPOCO(object obj, string schemaId)
+		public async Task<IEnumerable<ListItem>> CreateFromPOCOAsync(object obj, string schemaId)
 		{
 			var listItems = new List<ListItemCreateRequest>();
 

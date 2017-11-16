@@ -20,7 +20,7 @@ namespace Picturepark.SDK.V1.Contract
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		Task<ListItemDetail> UpdateAsync(string objectId, ListItemUpdateRequest updateRequest, bool resolve = false, List<string> patterns = null, int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken));
 
-		Task<IEnumerable<ListItem>> CreateFromPOCO(object obj, string schemaId);
+		Task<IEnumerable<ListItem>> CreateFromPOCOAsync(object obj, string schemaId);
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		Task<IEnumerable<ListItem>> CreateManyAsync(IEnumerable<ListItemCreateRequest> listItems, CancellationToken? cancellationToken = null);
