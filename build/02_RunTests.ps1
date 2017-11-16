@@ -35,7 +35,7 @@ try {
 	}
 	
 	dotnet restore "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/" --no-cache
-	dotnet test "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Picturepark.SDK.V1.Tests.csproj" -c RELEASE
+	exec { dotnet test "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Picturepark.SDK.V1.Tests.csproj" -c RELEASE }
 } 
 catch [Exception] { 
     "Failed to run unit tests: $_.Exception.Message" 
