@@ -306,7 +306,7 @@ namespace Picturepark.SDK.V1.Tests
 			};
 
 			/// Act
-			var result = await _client.Contents.CreateContentAsync(request, true);
+			var result = await _client.Contents.CreateContentAsync(request, true); // TODO: Fix NPE in ShouldCreateContents test
 
 			/// Assert
 			string contentId = _fixture.GetRandomContentId(".jpg", 20);
@@ -357,7 +357,7 @@ namespace Picturepark.SDK.V1.Tests
 				var stream = response.Stream;
 				Assert.Equal(true, stream.CanRead);
 
-				response.Stream.SaveFile(filePath);
+				await response.Stream.WriteToFileAsync(filePath);
 				Assert.True(File.Exists(filePath));
 			}
 		}
@@ -403,7 +403,7 @@ namespace Picturepark.SDK.V1.Tests
 			};
 
 			/// Act
-			var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+			var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true); // TODO: Fix NPE in ShouldUpdateMetadata test
 
 			/// Assert
 			Assert.True(true);
@@ -503,7 +503,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			using (var response = await _client.Contents.DownloadAsync(contentId, "Original", 200, 200))
 			{
-				response.Stream.SaveFile(filePath);
+				await response.Stream.WriteToFileAsync(filePath);
 			}
 
 			Assert.True(File.Exists(filePath));
@@ -525,7 +525,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			using (var response = await _client.Contents.DownloadThumbnailAsync(contentId, ThumbnailSize.Small))
 			{
-				response.Stream.SaveFile(filePath);
+				await response.Stream.WriteToFileAsync(filePath);
 			}
 
 			Assert.True(File.Exists(filePath));

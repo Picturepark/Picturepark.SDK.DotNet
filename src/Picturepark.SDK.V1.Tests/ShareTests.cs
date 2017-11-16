@@ -5,6 +5,7 @@ using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Extensions;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Fixtures;
+using System.Linq;
 
 namespace Picturepark.SDK.V1.Tests
 {
@@ -23,6 +24,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Shares")]
 		public async Task ShouldAggregate()
 		{
+			/// Arrange
 			var outputFormatIds = new List<string>() { "Original" };
 
 			var shareContentItems = new List<ShareContent>
@@ -41,6 +43,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			await _client.Shares.CreateAsync(createRequest);
 
+			/// Act
 			var request = new ShareAggregationRequest
 			{
 				SearchString = string.Empty,
@@ -54,18 +57,54 @@ namespace Picturepark.SDK.V1.Tests
 					}
 				}
 			};
+
 			var result = await _client.Shares.AggregateAsync(request);
 
+			/// Assert
 			var aggregation = result.GetByName("ShareType");
 			Assert.NotNull(aggregation);
-
 			Assert.True(aggregation.AggregationResultItems.Count >= 1);
+		}
+
+		// [Fact]
+		[Trait("Stack", "Shares")]
+		public async Task ShouldDeleteMany()
+		{
+			/// Arrange
+			var outputFormatIds = new List<string>() { "Original" };
+
+			var shareContentItems = new List<ShareContent>
+			{
+				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds },
+				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds }
+			};
+
+			var createRequest = new ShareEmbedCreateRequest
+			{
+				Contents = shareContentItems,
+				Description = "Description of Embed share bbb",
+				ExpirationDate = new DateTime(2020, 12, 31),
+				Name = "Embed share bbb"
+			};
+
+			var createResult = await _client.Shares.CreateAsync(createRequest);
+			var share = await _client.Shares.GetAsync(createResult.ShareId);
+			Assert.Equal(createResult.ShareId, share.Id);
+
+			/// Act
+			var shareIds = new List<string> { createResult.ShareId };
+			var businessProcess = await _client.Shares.DeleteManyAsync(shareIds); // TODO: Result of ShareClient.DeleteManyAsync is boolean and not BusinessProcess
+			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+
+			/// Assert
+			await Assert.ThrowsAsync<ApiException>(async () => await _client.Shares.GetAsync(createResult.ShareId));
 		}
 
 		[Fact]
 		[Trait("Stack", "Shares")]
 		public async Task ShouldCreateBasicShare()
 		{
+			/// Arrange
 			var outputFormatIds = new List<string>() { "Original" };
 
 			var shareContentItems = new List<ShareContent>()
@@ -74,27 +113,30 @@ namespace Picturepark.SDK.V1.Tests
 				new ShareContent() { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds }
 			};
 
-			var recipients = new List<UserEmail>()
-			{
-				_fixture.Configuration.EmailRecipient
-			};
-
 			var request = new ShareBasicCreateRequest()
 			{
 				Contents = shareContentItems,
 				Description = "Description of Basic share aaa",
 				ExpirationDate = new DateTime(2020, 12, 31),
 				Name = "Basic share aaa",
-				RecipientsEmail = recipients
+				RecipientsEmail = new List<UserEmail>()
+				{
+					_fixture.Configuration.EmailRecipient
+				}
 			};
 
+			/// Act
 			var result = await _client.Shares.CreateAsync(request);
+
+			/// Assert
+			Assert.NotNull(result);
 		}
 
 		[Fact]
 		[Trait("Stack", "Shares")]
 		public async Task ShouldCreateBasicShareWithWrongContentsAndFail()
 		{
+			/// Arrange
 			var outputFormatIds = new List<string>() { "Original" };
 
 			var shareContentItems = new List<ShareContent>()
@@ -103,20 +145,19 @@ namespace Picturepark.SDK.V1.Tests
 				new ShareContent() { ContentId = "NonExistingId2", OutputFormatIds = outputFormatIds }
 			};
 
-			var recipients = new List<UserEmail>()
-			{
-				_fixture.Configuration.EmailRecipient
-			};
-
 			var request = new ShareBasicCreateRequest()
 			{
 				Contents = shareContentItems,
 				Description = "Description of share with wrong content ids",
 				ExpirationDate = new DateTime(2020, 12, 31),
 				Name = "Share with wrong content ids",
-				RecipientsEmail = recipients
+				RecipientsEmail = new List<UserEmail>()
+				{
+					_fixture.Configuration.EmailRecipient
+				}
 			};
 
+			/// Act and Assert
 			await Assert.ThrowsAsync<ContentNotFoundException>(async () =>
 			{
 				var result = await _client.Shares.CreateAsync(request);
@@ -127,6 +168,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Shares")]
 		public async Task ShouldCreateEmbedShare()
 		{
+			// Arrange
 			var outputFormatIds = new List<string>() { "Original" };
 
 			var shareContentItems = new List<ShareContent>
@@ -135,7 +177,7 @@ namespace Picturepark.SDK.V1.Tests
 				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds }
 			};
 
-			var request = new ShareEmbedCreateRequest()
+			var request = new ShareEmbedCreateRequest
 			{
 				Contents = shareContentItems,
 				Description = "Description of Embed share bbb",
@@ -143,33 +185,49 @@ namespace Picturepark.SDK.V1.Tests
 				Name = "Embed share bbb"
 			};
 
-			var result = await _client.Shares.CreateAsync(request);
+			// Act
+			var createResult = await _client.Shares.CreateAsync(request);
+
+			/// Assert
+			var share = await _client.Shares.GetAsync(createResult.ShareId);
+			Assert.Equal(createResult.ShareId, share.Id);
 		}
 
 		[Fact]
 		[Trait("Stack", "Shares")]
 		public async Task ShouldGetBasicShare()
 		{
-			string shareId = _fixture.GetRandomShareId(ShareType.Basic, 20);
+			/// Arrange
+			var shareId = _fixture.GetRandomShareId(ShareType.Basic, 20);
+
+			/// Act
 			var result = await _client.Shares.GetAsync(shareId);
+
+			/// Assert
+			Assert.Equal(shareId, result.Id);
 		}
 
 		[Fact]
 		[Trait("Stack", "Shares")]
 		public async Task ShouldGetEmbedShare()
 		{
-			string shareId = _fixture.GetRandomShareId(ShareType.Embed, 200);
+			/// Arrange
+			var shareId = _fixture.GetRandomShareId(ShareType.Embed, 200);
+
+			/// Act
 			var result = await _client.Shares.GetAsync(shareId);
+
+			/// Assert
+			Assert.Equal(shareId, result.Id);
 		}
 
 		[Fact]
 		[Trait("Stack", "Shares")]
 		public async Task ShouldSearch()
 		{
+			/// Arrange
 			// TODO: Create better search example
 			var shareType = ShareType.Basic;
-
-			var shares = new List<Share>();
 
 			var request = new ShareSearchRequest
 			{
@@ -178,13 +236,18 @@ namespace Picturepark.SDK.V1.Tests
 				Filter = new TermFilter { Field = "shareType" }
 			};
 
+			/// Act
 			var result = await _client.Shares.SearchAsync(request);
 
+			/// Assert
+			var shares = new List<Share>();
 			foreach (var item in result.Results)
 			{
 				if (item.ShareType == shareType)
 					shares.Add(item);
 			}
+
+			Assert.True(shares.Any());
 		}
 	}
 }
