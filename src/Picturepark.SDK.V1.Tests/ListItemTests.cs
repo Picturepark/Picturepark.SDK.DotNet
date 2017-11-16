@@ -144,6 +144,49 @@ namespace Picturepark.SDK.V1.Tests
 		}
 
 		[Fact]
+		[Trait("Stack", "BusinessProcesses")]
+		public async Task ShouldUpdateFieldsByFilter()
+		{
+			/// Arrange
+			var objectName = "ThisObjectB" + new Random().Next(0, 999999);
+			var listItem = new ListItemCreateRequest
+			{
+				ContentSchemaId = nameof(Tag),
+				Content = new Tag { Name = objectName }
+			};
+			ListItemDetail listItemDetail = await _client.ListItems.CreateAsync(listItem);
+
+			/// Act
+			var updateRequest = new ListItemFieldsFilterUpdateRequest
+			{
+				ListItemFilterRequest = new ListItemFilterRequest // TODO: ListItemFieldsFilterUpdateRequest.ListItemFilterRequest: Rename to FilterRequest
+				{
+					Filter = new TermFilter { Field = "id", Term = listItemDetail.Id }
+				},
+				ChangeCommands = new List<MetadataValuesSchemaUpdateCommand>
+				{
+					new MetadataValuesSchemaUpdateCommand
+					{
+						SchemaId = nameof(Tag),
+						Value = new DataDictionary
+						{
+							{ "name", "Foo" }
+						}
+					}
+				}
+			};
+
+			/// Act
+			var businessProcess = await _client.ListItems.UpdateFieldsByFilterAsync(updateRequest);
+			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, 10 * 1000);
+
+			ListItemDetail result = await _client.ListItems.GetAsync(listItemDetail.Id, true);
+
+			/// Assert
+			Assert.Equal("Foo", result.ConvertToType<Tag>(nameof(Tag)).Name);
+		}
+
+		[Fact]
 		[Trait("Stack", "ListItem")]
 		public async Task ShouldCreateWithHelper()
 		{
