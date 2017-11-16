@@ -1,11 +1,7 @@
 ﻿using Picturepark.SDK.V1.Contract;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-using System.IO;
 using Picturepark.SDK.V1.Tests.Fixtures;
 
 namespace Picturepark.SDK.V1.Tests

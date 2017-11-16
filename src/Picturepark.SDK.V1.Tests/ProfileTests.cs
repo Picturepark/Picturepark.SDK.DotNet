@@ -28,9 +28,10 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Profile")]
 		public async Task ShouldUpdateProfile()
 		{
-			// Act
+			// Arrange
 			var profile = await _client.Profile.GetAsync();
 
+			// Act
 			profile.FirstName = profile.FirstName + "1";
 			var updated = await _client.Profile.UpdateAsync(profile);
 
