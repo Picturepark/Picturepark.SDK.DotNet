@@ -1,11 +1,9 @@
-﻿using Picturepark.SDK.V1.Contract;
+﻿using Newtonsoft.Json;
+using Picturepark.SDK.V1.Contract;
+using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Tests.Fixtures;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests
@@ -25,15 +23,16 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "SchemaCreation")]
 		public void ShouldIgnoreJsonProperty()
 		{
-			var jsonTransform = _client.Schemas.GenerateSchemaFromPOCO(typeof(JsonTransform));
-			var schema = jsonTransform.First();
+			/// Act
+			var jsonTransformSchemas = _client.Schemas.GenerateSchemaFromPOCO(typeof(JsonTransform)); // TODO: Rename to GenerateSchemaFromType or just GenerateSchema
 
-			Assert.False(schema.Fields.Any(i => i.Id == nameof(JsonTransform.IgnoredString)));
+			/// Assert
+			var jsonTransformSchema = jsonTransformSchemas.First();
 
-			var schemaSimpleRelation = jsonTransform.First(i => i.Id == nameof(SimpleRelation));
+			Assert.False(jsonTransformSchema.Fields.Any(i => i.Id == nameof(JsonTransform.IgnoredString)));
+			var schemaSimpleRelation = jsonTransformSchemas.First(i => i.Id == nameof(SimpleRelation));
 
 			Assert.True(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationInfo).ToLowerCamelCase()));
-
 			Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationId).ToLowerCamelCase()));
 			Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationType).ToLowerCamelCase()));
 			Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.TargetContext).ToLowerCamelCase()));
@@ -44,11 +43,31 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "SchemaCreation")]
 		public void ShouldUseRenamedJsonProperty()
 		{
-			var jsonTransform = _client.Schemas.GenerateSchemaFromPOCO(typeof(JsonTransform));
-			var schemaJsonTransform = jsonTransform.First(i => i.Id == nameof(JsonTransform));
+			/// Act
+			var jsonTransformSchemas = _client.Schemas.GenerateSchemaFromPOCO(typeof(JsonTransform));
 
-			Assert.False(schemaJsonTransform.Fields.Any(i => i.Id == nameof(JsonTransform.OldName).ToLowerCamelCase()));
-			Assert.True(schemaJsonTransform.Fields.Any(i => i.Id == "_newName"));
+			/// Assert
+			var jsonTransformSchema = jsonTransformSchemas.First(i => i.Id == nameof(JsonTransform));
+
+			Assert.False(jsonTransformSchema.Fields.Any(i => i.Id == nameof(JsonTransform.OldName).ToLowerCamelCase()));
+			Assert.True(jsonTransformSchema.Fields.Any(i => i.Id == "_newName"));
+		}
+
+		[PictureparkSchemaType(SchemaType.Struct)]
+		public class JsonTransform
+		{
+			[JsonIgnore]
+			public string IgnoredString { get; set; }
+
+			[JsonProperty("_newName")]
+			public string OldName { get; set; }
+
+			[PictureparkContentRelation(
+				"RelationName",
+				"{ 'kind': 'TermFilter', 'field': 'contentType', term: 'Bitmap' }"
+			)]
+
+			public SimpleRelation RelationField { get; set; }
 		}
 	}
 }
