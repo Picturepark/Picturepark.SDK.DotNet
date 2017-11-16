@@ -23,12 +23,27 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Permissions")]
+		public async Task ShouldGetUserPermissions()
+		{
+			/// Act
+			var result = await _client.Permissions.GetUserPermissionsAsync(UserRight.ManageCollections);
+
+			/// Assert
+			Assert.True(result);
+		}
+
+		[Fact]
+		[Trait("Stack", "Permissions")]
 		public async Task ShouldGetContentPermissions()
 		{
+			/// Arrange
 			string permissionSetId = _fixture.GetRandomContentPermissionSetId(20);
 			Assert.False(string.IsNullOrEmpty(permissionSetId));
 
+			/// Act
 			ContentPermissionSetDetail result = await _client.Permissions.GetContentPermissionsAsync(permissionSetId);
+
+			/// Assert
 			Assert.False(string.IsNullOrEmpty(result.Id));
 		}
 
@@ -36,10 +51,14 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Permissions")]
 		public async Task ShouldGetSchemaPermissions()
 		{
+			/// Arrange
 			string permissionSetId = _fixture.GetRandomMetadataPermissionSetId(20);
 			Assert.False(string.IsNullOrEmpty(permissionSetId));
 
+			/// Act
 			SchemaPermissionSetDetail result = await _client.Permissions.GetSchemaPermissionsAsync(permissionSetId);
+
+			/// Assert
 			Assert.False(string.IsNullOrEmpty(result.Id));
 		}
 
@@ -47,9 +66,13 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Permissions")]
 		public async Task ShouldSearchContentPermissions()
 		{
+			/// Arrange
 			var request = new PermissionSetSearchRequest() { Limit = 20 };
+
+			/// Act
 			PermissionSetSearchResult result = await _client.Permissions.SearchContentPermissionsAsync(request);
 
+			/// Assert
 			Assert.True(result.Results.Count() > 0);
 		}
 
@@ -57,9 +80,13 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Permissions")]
 		public async Task ShouldSearchMetadataPermissions()
 		{
+			/// Arrange
 			var request = new PermissionSetSearchRequest() { Limit = 20 };
+
+			/// Act
 			PermissionSetSearchResult result = await _client.Permissions.SearchSchemaPermissionsAsync(request);
 
+			/// Assert
 			Assert.True(result.Results.Count() > 0);
 		}
 	}
