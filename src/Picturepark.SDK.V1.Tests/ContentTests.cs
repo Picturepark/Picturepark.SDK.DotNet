@@ -411,6 +411,39 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Contents")]
+		public async Task ShouldUpdateMetadataByFilter()
+		{
+			/// Arrange
+			var contentId = _fixture.GetRandomContentId(".jpg", 20);
+			var request = new FilterContentsMetadataUpdateRequest
+			{
+				ContentFilterRequest = new ContentFilterRequest
+				{
+					Filter = new TermFilter { Field = "id", Term = contentId }
+				},
+				ChangeCommands = new List<MetadataValuesChangeCommandBase>
+				{
+					new MetadataValuesSchemaUpsertCommand
+					{
+						SchemaId = "Drive",
+						Value = new DataDictionary
+						{
+							{ "location", "testlocation" }
+						}
+					}
+				}
+			};
+
+			/// Act
+			var businessProcess = await _client.Contents.UpdateMetadataByFilterAsync(request);
+			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+
+			/// Assert
+			Assert.True(waitResult.HasLifeCycleHit);
+		}
+
+		[Fact]
+		[Trait("Stack", "Contents")]
 		public async Task ShouldUpdateMetadataMany()
 		{
 			/// Arrange
