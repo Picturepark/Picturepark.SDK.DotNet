@@ -93,7 +93,7 @@ namespace Picturepark.SDK.V1
 			};
 
 			var result = await CreateAsync(request);
-			await Wait4Completion(result.BusinessProcessId);
+			await Wait4State(result.BusinessProcessId, new List<string> { TransferState.Created.ToString() });
 
 			return result;
 		}
@@ -176,6 +176,26 @@ namespace Picturepark.SDK.V1
 			var waitResult = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout);
 
 			if (waitResult.HasLifeCycleHit)
+				return waitResult;
+
+			var error = waitResult.BusinessProcess.StateHistory.SingleOrDefault(i => i.Error != null);
+
+			// Not finished
+			if (error == null)
+			{
+				throw new TimeoutException($"Wait for business process on completion timed out after {timeout / 1000} seconds");
+			}
+
+			// Throw deserialized exception
+			var exception = DeserializeException(error.Error.Exception);
+			throw exception;
+		}
+
+		private async Task<BusinessProcessWaitResult> Wait4State(string businessProcessId, IEnumerable<string> states, int timeout = 10 * 60 * 1000)
+		{
+			var waitResult = await _businessProcessClient.WaitAsync(businessProcessId, states, null, timeout);
+
+			if (waitResult.HasStateHit)
 				return waitResult;
 
 			var error = waitResult.BusinessProcess.StateHistory.SingleOrDefault(i => i.Error != null);
