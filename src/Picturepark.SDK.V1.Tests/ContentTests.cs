@@ -675,21 +675,61 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldUpdatePermissions()
 		{
-			string contentId = _fixture.GetRandomContentId(".jpg", 20);
+			// Arrange
+			var contentId = _fixture.GetRandomContentId(".jpg", 20);
+			var contentDetail = await _client.Contents.GetAsync(contentId);
 
-			Assert.False(string.IsNullOrEmpty(contentId));
+			var contentPermissionSetIds = new List<string>
+			{
+				"aaa" + new Random().Next(0, 999),
+				"bbb" + new Random().Next(0, 999)
+			};
 
-			ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);
+			var request = new UpdateContentPermissionsRequest
+			{
+				ContentId = contentDetail.Id,
+				ContentPermissionSetIds = contentPermissionSetIds
+			};
 
-			var contentPermissionSetIds = new List<string> { "aaa" + new Random().Next(0, 999), "bbb" + new Random().Next(0, 999) };
-			contentDetail.ContentPermissionSetIds = contentPermissionSetIds;
+			// Act
+			var result = await _client.Contents.UpdatePermissionsAsync(contentDetail.Id, request, true);
 
-			BusinessProcess result = await _client.Contents.UpdatePermissionsManyAsync(new List<UpdateContentPermissionsRequest> { new UpdateContentPermissionsRequest { ContentId = contentDetail.Id, ContentPermissionSetIds = contentDetail.ContentPermissionSetIds } });
+			var currentContentDetail = await _client.Contents.GetAsync(contentId);
+			var currentContentPermissionSetIds = currentContentDetail.ContentPermissionSetIds.Select(i => i).ToList();
+
+			// Assert
+			Assert.True(!contentPermissionSetIds.Except(currentContentPermissionSetIds).Any());
+			Assert.True(!currentContentPermissionSetIds.Except(contentPermissionSetIds).Any());
+		}
+
+		[Fact]
+		[Trait("Stack", "Contents")]
+		public async Task ShouldUpdatePermissionsMany()
+		{
+			// Arrange
+			var contentId = _fixture.GetRandomContentId(".jpg", 20);
+			var contentDetail = await _client.Contents.GetAsync(contentId);
+
+			var contentPermissionSetIds = new List<string>
+			{
+				"aaa" + new Random().Next(0, 999),
+				"bbb" + new Random().Next(0, 999)
+			};
+
+			var request = new UpdateContentPermissionsRequest
+			{
+				ContentId = contentDetail.Id,
+				ContentPermissionSetIds = contentPermissionSetIds
+			};
+
+			/// Act
+			var result = await _client.Contents.UpdatePermissionsManyAsync(new List<UpdateContentPermissionsRequest> { request });
 			await result.WaitForCompletionAsync(_client.BusinessProcesses);
 
-			contentDetail = await _client.Contents.GetAsync(contentId);
-			var currentContentPermissionSetIds = contentDetail.ContentPermissionSetIds.Select(i => i).ToList();
+			var currentContentDetail = await _client.Contents.GetAsync(contentId);
+			var currentContentPermissionSetIds = currentContentDetail.ContentPermissionSetIds.Select(i => i).ToList();
 
+			/// Assert
 			Assert.True(!contentPermissionSetIds.Except(currentContentPermissionSetIds).Any());
 			Assert.True(!currentContentPermissionSetIds.Except(contentPermissionSetIds).Any());
 		}
