@@ -70,7 +70,7 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Schema")]
-		public void ShouldInvoke()
+		public void ShouldInvokeSchemaIndexingInfoProvider()
 		{
 			/// Act
 			var allTypes = _client.Schemas.GenerateSchemaFromPOCO(typeof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider));
