@@ -608,19 +608,65 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldTrashAndUntrashRandomContent()
 		{
-			string contentId = _fixture.GetRandomContentId(".jpg", 20);
+			/// Arrange
+			var contentId = _fixture.GetRandomContentId(".jpg", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
 
-			var contentDetail = await _client.Contents.GetAsync(contentId);
+			var contentDetail = await _client.Contents.GetAsync(contentId); // Should not throw
 
-			// Trash
+			/// Act
+
+			// Deactivate
 			await _client.Contents.DeactivateAsync(contentId);
-
 			await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Contents.GetAsync(contentId));
 
-			// UnTrash
+			// Reactivate
 			var reactivatedContent = await _client.Contents.ReactivateAsync(contentId, resolve: false, timeout: 60000);
+
+			/// Assert
 			Assert.True(reactivatedContent != null);
+			Assert.NotNull(await _client.Contents.GetAsync(contentId));
+		}
+
+		[Fact]
+		[Trait("Stack", "Contents")]
+		public async Task ShouldTrashAndUntrashRandomContentMany()
+		{
+			/// Arrange
+			var contentIds = new List<string>
+			{
+				_fixture.GetRandomContentId(".jpg", 20),
+				_fixture.GetRandomContentId(".jpg", 20)
+			};
+
+			var response = await _client.Contents.GetManyAsync(contentIds, true); // Should not throw
+
+			/// Act
+
+			// Deactivate
+			var deactivationRequest = new ContentDeactivationRequest
+			{
+				ContentIds = contentIds
+			};
+
+			var businessProcess = await _client.Contents.DeactivateManyAsync(deactivationRequest);
+			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+
+			await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Contents.GetAsync(contentIds[0]));
+			await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Contents.GetAsync(contentIds[1]));
+
+			// Reactivate
+			var reactivateRequest = new ContentReactivationRequest
+			{
+				ContentIds = contentIds
+			};
+
+			businessProcess = await _client.Contents.ReactivateManyAsync(reactivateRequest);
+			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+
+			/// Assert
+			Assert.NotNull(await _client.Contents.GetAsync(contentIds[0]));
+			Assert.NotNull(await _client.Contents.GetAsync(contentIds[1]));
 		}
 
 		[Fact]
