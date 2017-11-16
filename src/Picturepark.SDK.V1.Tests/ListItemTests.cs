@@ -25,32 +25,33 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "ListItem")]
 		public async Task ShouldAggregateObjects()
 		{
+			/// Arrange
 			var fieldName = nameof(Country).ToLowerCamelCase() + "." + nameof(Country.RegionCode).ToLowerCamelCase();
-
 			var request = new ListItemAggregationRequest
 			{
+				SearchString = "*",
 				SchemaIds = new List<string> { nameof(Country) },
 				Aggregators = new List<AggregatorBase>
 				{
 					new TermsAggregator { Name = fieldName, Field = fieldName, Size = 20 }
-				},
-				SearchString = "*"
+				}
 			};
 
+			/// Act
 			ObjectAggregationResult result = await _client.ListItems.AggregateAsync(request);
+			AggregationResult aggregation = result.GetByName(fieldName);
 
-			var aggregation = result.GetByName(fieldName);
-
+			/// Assert
 			Assert.NotNull(aggregation);
 			Assert.Equal(aggregation.AggregationResultItems.Count, 20);
 		}
 
 		[Fact]
 		[Trait("Stack", "ListItem")]
-		public async Task ShouldCreateAndDeleteObject()
+		public async Task ShouldDelete()
 		{
-			string objectName = "ThisObjectA" + new Random().Next(0, 999999);
-
+			/// Arrange
+			var objectName = "ThisObjectA" + new Random().Next(0, 999999);
 			var createRequest = new ListItemCreateRequest
 			{
 				ContentSchemaId = nameof(Tag),
@@ -60,21 +61,44 @@ namespace Picturepark.SDK.V1.Tests
 			ListItemDetail listItem = await _client.ListItems.CreateAsync(createRequest);
 			Assert.False(string.IsNullOrEmpty(listItem.Id));
 
+			/// Act
 			await _client.ListItems.DeleteAsync(listItem.Id);
 
-			// TODO: Throw specific 404 exception
+			/// Assert
+			// TODO: ListItemClient.GetAsync: Throw specific 404 exception
 			await Assert.ThrowsAsync<ApiException>(async () => await _client.ListItems.GetAsync(listItem.Id, true));
+		}
+
+		[Fact]
+		[Trait("Stack", "ListItem")]
+		public async Task ShouldDeleteMany()
+		{
+			/// Arrange
+			var objectName = "ThisObjectA" + new Random().Next(0, 999999);
+			var createRequest = new ListItemCreateRequest
+			{
+				ContentSchemaId = nameof(Tag),
+				Content = new Tag { Name = objectName }
+			};
+
+			ListItemDetail listItem1 = await _client.ListItems.CreateAsync(createRequest);
+			ListItemDetail listItem2 = await _client.ListItems.CreateAsync(createRequest);
+
+			/// Act
+			var businessProcess = await _client.ListItems.DeleteManyAsync(new List<string> { listItem1.Id, listItem2.Id });
+			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+
+			/// Assert
+			await Assert.ThrowsAsync<ApiException>(async () => await _client.ListItems.GetAsync(listItem1.Id, true));
+			await Assert.ThrowsAsync<ApiException>(async () => await _client.ListItems.GetAsync(listItem2.Id, true));
 		}
 
 		[Fact]
 		[Trait("Stack", "ListItem")]
 		public async Task ShouldCreateAndUpdateObject()
 		{
-			// ---------------------------------------------------------------------------
-			// Create Object
-			// ---------------------------------------------------------------------------
-			string objectName = "ThisObjectD" + new Random().Next(0, 999999);
-
+			/// Arrange
+			var objectName = "ThisObjectD" + new Random().Next(0, 999999);
 			var objects = new List<ListItemCreateRequest>
 			{
 				new ListItemCreateRequest
@@ -85,48 +109,55 @@ namespace Picturepark.SDK.V1.Tests
 			};
 
 			var results = await _client.ListItems.CreateManyAsync(objects);
-			Assert.Equal(results.Count(), 1);
-
 			var result = results.First();
 
-			// Update object, assign MetadataSchemaIds
+			/// Act
 			var request = new ListItemUpdateRequest
 			{
 				Id = result.Id,
-				Content = new Tag { Name = objectName }
+				Content = new Tag { Name = "Foo" }
 			};
-
-			var requests = new List<ListItemUpdateRequest> { request };
-
 			await _client.ListItems.UpdateListItemAsync(request);
+
+			/// Assert
+			var newItem = await _client.ListItems.GetAsync(result.Id, true);
+			Assert.Equal("Foo", newItem.ConvertToType<Tag>(nameof(Tag)).Name);
 		}
 
 		[Fact]
 		[Trait("Stack", "ListItem")]
-		public async Task ShouldCreateObject()
+		public async Task ShouldCreate()
 		{
-			string objectName = "ThisObjectB" + new Random().Next(0, 999999);
-
+			/// Arrange
+			var objectName = "ThisObjectB" + new Random().Next(0, 999999);
 			var listItem = new ListItemCreateRequest
 			{
 				ContentSchemaId = nameof(Tag),
 				Content = new Tag { Name = objectName }
 			};
 
+			/// Act
 			ListItemDetail result = await _client.ListItems.CreateAsync(listItem);
+
+			/// Assert
 			Assert.False(string.IsNullOrEmpty(result.Id));
 		}
 
 		[Fact]
 		[Trait("Stack", "ListItem")]
-		public async Task ShouldCreateObjectWithHelper()
+		public async Task ShouldCreateWithHelper()
 		{
-			// Using Helper method
-			var createdObject = await _client.ListItems.CreateFromPOCO(
-				new Tag
-				{
-					Name = "ThisObjectB" + new Random().Next(0, 999999)
-				}, nameof(Tag));
+			/// Arrange
+			var tag = new Tag
+			{
+				Name = "ThisObjectB" + new Random().Next(0, 999999)
+			};
+
+			/// Act
+			var createdObjects = await _client.ListItems.CreateFromPOCO(tag, nameof(Tag));
+
+			/// Assert
+			Assert.Equal(1, createdObjects.Count());
 		}
 
 		[Fact]
@@ -134,7 +165,11 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldCreateComplexObjectWithHelper()
 		{
 			// Reusable as reference
-			var dog = new Dog { Name = "Dogname1", PlaysCatch = true };
+			var dog = new Dog
+			{
+				Name = "Dogname1",
+				PlaysCatch = true
+			};
 
 			// Using Helper method
 			var soccerPlayerTree = await _client.ListItems.CreateFromPOCO(
@@ -154,10 +189,14 @@ namespace Picturepark.SDK.V1.Tests
 					},
 					OwnsPets = new List<Pet>
 					{
-						new Cat { Name = "Catname1", ChasesLaser = true },
+						new Cat
+						{
+							Name = "Catname1",
+							ChasesLaser = true
+						},
 						dog
 					}
-				}, nameof(SoccerPlayer));
+				}, nameof(SoccerPlayer)); // TODO: We should add an attribute to the class with its schema name instead of passing it as parameter
 
 			var soccerTrainerTree = await _client.ListItems.CreateFromPOCO(
 				new SoccerTrainer

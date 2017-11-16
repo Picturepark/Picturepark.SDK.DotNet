@@ -91,6 +91,9 @@ namespace Picturepark.SDK.V1.Tests
 			/// Act
 			var businessProcess = await _client.ListItems.UpdateFieldsAsync(updateRequest);
 			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, 10 * 1000);
+
+			// var waitResult = await _client.BusinessProcesses.WaitAsync(businessProcess.Id, new string[] { "Complete" }, timeout: 10 * 1000);
+			// TODO: What is the correct state name?
 			var details = await _client.BusinessProcesses.GetDetailsAsync(businessProcess.Id);
 
 			/// Assert

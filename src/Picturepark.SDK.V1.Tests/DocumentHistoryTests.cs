@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Tests.Fixtures;
+using System;
 
 namespace Picturepark.SDK.V1.Tests
 {
@@ -71,8 +72,10 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldGetDifferenceOfContentChange()
 		{
 			/// Arrange
+			string location = "testlocation" + new Random().Next(0, 999999);
 			string contentId = _fixture.GetRandomContentId(".jpg", 20);
 			var content = await _client.Contents.GetAsync(contentId);
+			var history = await _client.DocumentHistory.GetAsync(contentId);
 
 			var updateRequest = new ContentsMetadataUpdateRequest
 			{
@@ -84,7 +87,7 @@ namespace Picturepark.SDK.V1.Tests
 						SchemaId = "Drive",
 						Value = new DataDictionary
 						{
-							{ "Location", "testlocation" }
+							{ "Location", location }
 						}
 					}
 				}
@@ -95,15 +98,16 @@ namespace Picturepark.SDK.V1.Tests
 			var waitResult = await updateResult.WaitForCompletionAsync(_client.BusinessProcesses);
 
 			// Refetch content and compare versions
-			var updatedContent = await _client.DocumentHistory.GetAsync(contentId);
+			var updatedHistory = await _client.DocumentHistory.GetAsync(contentId);
 
 			/// Act
-			var difference = await _client.DocumentHistory.GetDifferenceLatestAsync(contentId, 1);
+			var difference = await _client.DocumentHistory.GetDifferenceAsync(contentId, history.DocumentVersion, updatedHistory.DocumentVersion);
 
 			/// Assert
 			Assert.True(waitResult.HasLifeCycleHit);
-			Assert.NotEqual(updatedContent.DocumentVersion, 0);
-			Assert.True(difference.NewValues.ToString().Contains(@"""location"": ""testlocation"""));		}
+			Assert.NotEqual(updatedHistory.DocumentVersion, 0);
+			Assert.True(difference.NewValues.ToString().Contains(@"""location"": """ + location + @""""));
+		}
 
 		[Fact]
 		[Trait("Stack", "DocumentHistory")]

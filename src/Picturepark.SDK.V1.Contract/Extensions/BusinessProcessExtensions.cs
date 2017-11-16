@@ -29,7 +29,7 @@ namespace Picturepark.SDK.V1.Contract.Extensions
 				throw new AggregateException(exceptions);
 			}
 
-			throw new InvalidOperationException("The state has not hit but no error could be found.");
+			throw new InvalidOperationException("The state has not hit but no error could be found."); // TODO: Is this a timeout exception?
 		}
 	}
 }
