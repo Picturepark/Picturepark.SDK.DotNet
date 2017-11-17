@@ -40,6 +40,7 @@ namespace Picturepark.SDK.V1
 
 		internal PictureparkException DeserializeException(string exception)
 		{
+			// TODO: Remove BusinessProcessExtensions and use methods in BusinessProcessClient
 			var result = default(PictureparkException);
 			try
 			{

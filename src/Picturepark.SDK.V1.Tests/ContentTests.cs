@@ -718,19 +718,13 @@ namespace Picturepark.SDK.V1.Tests
 			Transfer transfer = await _client.Transfers.CreateTransferAsync(filePaths.Select(Path.GetFileName).ToList(), transferName);
 
 			// Upload file
-			await _client.Transfers.UploadFilesAsync(
-				filePaths,
-				directoryPath,
-				transfer,
-				successDelegate: (file) =>
-				{
-					Console.WriteLine(file);
-				},
-				errorDelegate: (error) =>
-				{
-					Console.WriteLine(error);
-				}
-			);
+			var uploadOptions = new UploadOptions
+			{
+				SuccessDelegate = Console.WriteLine,
+				ErrorDelegate = Console.WriteLine
+			};
+
+			await _client.Transfers.UploadFilesAsync(transfer, filePaths, uploadOptions);
 
 			// Search filetransfers to get id
 			var request = new FileTransferSearchRequest() { Limit = 20, SearchString = "*", Filter = new TermFilter { Field = "transferId", Term = transfer.Id } };

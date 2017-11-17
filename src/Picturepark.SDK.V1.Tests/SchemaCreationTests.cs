@@ -24,7 +24,7 @@ namespace Picturepark.SDK.V1.Tests
 		public void ShouldIgnoreJsonProperty()
 		{
 			/// Act
-			var jsonTransformSchemas = _client.Schemas.GenerateSchemaFromPOCO(typeof(JsonTransform)); // TODO: Rename to GenerateSchemaFromType or just GenerateSchema
+			var jsonTransformSchemas = _client.Schemas.GenerateSchemaFromPOCO(typeof(JsonTransform)); // TODO: SchemaClient.GenerateSchemaFromPOCO: Rename to GenerateSchemaFromType or just GenerateSchema
 
 			/// Assert
 			var jsonTransformSchema = jsonTransformSchemas.First();

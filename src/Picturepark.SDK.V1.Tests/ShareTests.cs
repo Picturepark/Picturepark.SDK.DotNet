@@ -68,6 +68,42 @@ namespace Picturepark.SDK.V1.Tests
 
 		// [Fact]
 		[Trait("Stack", "Shares")]
+		public async Task ShouldUpdate()
+		{
+			/// Arrange
+			var outputFormatIds = new List<string>() { "Original" };
+
+			var shareContentItems = new List<ShareContent>
+			{
+				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds },
+				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds }
+			};
+
+			var createRequest = new ShareEmbedCreateRequest
+			{
+				Contents = shareContentItems,
+				Description = "Description of Embed share bbb",
+				ExpirationDate = new DateTime(2020, 12, 31),
+				Name = "Embed share bbb"
+			};
+
+			var createResult = await _client.Shares.CreateAsync(createRequest);
+
+			/// Act
+			var request = new ShareBaseUpdateRequest
+			{
+				Description = "Foo"
+			};
+
+			var result = await _client.Shares.UpdateAsync(createResult.ShareId, request, true);
+
+			/// Assert
+			var share = await _client.Shares.GetAsync(createResult.ShareId);
+			Assert.Equal("Foo", share.Description);
+		}
+
+		// [Fact]
+		[Trait("Stack", "Shares")]
 		public async Task ShouldDeleteMany()
 		{
 			/// Arrange
@@ -93,7 +129,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			/// Act
 			var shareIds = new List<string> { createResult.ShareId };
-			var businessProcess = await _client.Shares.DeleteManyAsync(shareIds); // TODO: Result of ShareClient.DeleteManyAsync is boolean and not BusinessProcess
+			var businessProcess = await _client.Shares.DeleteManyAsync(shareIds); // TODO: ShareClient.DeleteManyAsync: Result is boolean and not BusinessProcess
 			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
 			/// Assert

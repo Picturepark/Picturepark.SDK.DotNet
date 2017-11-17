@@ -23,36 +23,44 @@ namespace Picturepark.SDK.V1
 			_businessProcessClient = businessProcessClient;
 		}
 
-		public async Task UploadFilesAsync(
+		public async Task<Transfer> UploadFilesAsync(
+			string transferName,
 			IEnumerable<string> files,
-			string exportDirectory,
-			Transfer transfer,
-			int concurrentUploads = 4,
-			int chunkSize = 1024 * 1024,
-			bool waitForTransferCompletion = true,
-			Action<string> successDelegate = null,
-			Action<Exception> errorDelegate = null
-			)
+			UploadOptions uploadOptions)
 		{
+			var filteredFileNames = FilterFilesByBlacklist(files.ToList());
+			Transfer transfer = await CreateTransferAsync(filteredFileNames.Select(Path.GetFileName).ToList(), transferName);
+			await UploadFilesAsync(transfer, filteredFileNames, uploadOptions);
+			return transfer;
+		}
+
+		public async Task UploadFilesAsync(
+			Transfer transfer,
+			IEnumerable<string> files,
+			UploadOptions uploadOptions)
+		{
+			uploadOptions = uploadOptions ?? new UploadOptions();
+
 			var exceptions = new List<Exception>();
 
 			// Limits concurrent downloads
-			var throttler = new SemaphoreSlim(concurrentUploads);
+			var throttler = new SemaphoreSlim(uploadOptions.ConcurrentUploads);
 
 			var filteredFileNames = FilterFilesByBlacklist(files.ToList());
 
 			// TODO: File by file uploads
-			var allTasks = filteredFileNames.Select(file => Task.Run(async () =>
+			var allTasks = filteredFileNames
+				.Select(file => Task.Run(async () =>
 				{
 					try
 					{
-						await UploadFileAsync(throttler, transfer.Id, file, chunkSize);
-						successDelegate?.Invoke(file);
+						await UploadFileAsync(throttler, transfer.Id, file, uploadOptions.ChunkSize);
+						uploadOptions.SuccessDelegate?.Invoke(file);
 					}
 					catch (Exception ex)
 					{
 						exceptions.Add(ex);
-						errorDelegate?.Invoke(ex);
+						uploadOptions.ErrorDelegate?.Invoke(ex);
 					}
 				}))
 				.ToList();
@@ -62,23 +70,23 @@ namespace Picturepark.SDK.V1
 			if (exceptions.Any())
 				throw new AggregateException(exceptions);
 
-			if (waitForTransferCompletion)
+			if (uploadOptions.WaitForTransferCompletion)
 			{
-				await Wait4Completion(transfer.BusinessProcessId);
+				await WaitForCompletionAsync(transfer.BusinessProcessId);
 			}
 		}
 
 		public async Task ImportTransferAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest)
 		{
-			var importTransfer = await ImportTransferAsync(transfer.Id, createRequest);
-			await Wait4Completion(importTransfer.BusinessProcessId);
+			var importedTransfer = await ImportTransferAsync(transfer.Id, createRequest);
+			await WaitForCompletionAsync(importedTransfer.BusinessProcessId);
 		}
 
 		public async Task<Transfer> CreateTransferAsync(CreateTransferRequest request)
 		{
-			var result = await CreateAsync(request);
-			await Wait4Completion(result.BusinessProcessId);
-			return result;
+			var transfer = await CreateAsync(request);
+			await WaitForCompletionAsync(transfer.BusinessProcessId);
+			return transfer;
 		}
 
 		public async Task<Transfer> CreateTransferAsync(List<string> fileNames, string transferName)
@@ -93,16 +101,16 @@ namespace Picturepark.SDK.V1
 			};
 
 			var result = await CreateAsync(request);
-			await Wait4State(result.BusinessProcessId, new List<string> { TransferState.Created.ToString() });
+			await WaitForStatesAsync(result.BusinessProcessId, new List<string> { TransferState.Created.ToString() });
 
 			return result;
 		}
 
-		internal async Task<string> GetFileTransferIdFromTransferId(string transferId)
+		internal async Task<string> GetFileTransferIdFromTransferIdAsync(string transferId)
 		{
 			var request = new FileTransferSearchRequest()
 			{
-				Limit = 1000
+				Limit = 1000 // TODO: Isn't this bad for performance? Can't we just add a TermFilter with the transferId?
 			};
 
 			var result = await SearchFilesAsync(request);
@@ -111,7 +119,7 @@ namespace Picturepark.SDK.V1
 			return fileTransferId;
 		}
 
-		internal async Task UploadFileAsync(SemaphoreSlim throttler, string transferId, string absoluteFilePath, int chunkSize = 1024 * 1024)
+		private async Task UploadFileAsync(SemaphoreSlim throttler, string transferId, string absoluteFilePath, int chunkSize = 1024 * 1024)
 		{
 			var fileName = Path.GetFileName(absoluteFilePath);
 			var identifier = fileName;
@@ -171,8 +179,9 @@ namespace Picturepark.SDK.V1
 			await Task.WhenAll(uploadTasks).ConfigureAwait(false);
 		}
 
-		private async Task<BusinessProcessWaitResult> Wait4Completion(string businessProcessId, int timeout = 10 * 60 * 1000)
+		private async Task<BusinessProcessWaitResult> WaitForCompletionAsync(string businessProcessId, int timeout = 10 * 60 * 1000)
 		{
+			// TODO: Remove BusinessProcessExtensions and use methods in BusinessProcessClient
 			var waitResult = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout);
 
 			if (waitResult.HasLifeCycleHit)
@@ -191,8 +200,9 @@ namespace Picturepark.SDK.V1
 			throw exception;
 		}
 
-		private async Task<BusinessProcessWaitResult> Wait4State(string businessProcessId, IEnumerable<string> states, int timeout = 10 * 60 * 1000)
+		private async Task<BusinessProcessWaitResult> WaitForStatesAsync(string businessProcessId, IEnumerable<string> states, int timeout = 10 * 60 * 1000)
 		{
+			// TODO: Remove BusinessProcessExtensions and use methods in BusinessProcessClient
 			var waitResult = await _businessProcessClient.WaitAsync(businessProcessId, states, null, timeout);
 
 			if (waitResult.HasStateHit)

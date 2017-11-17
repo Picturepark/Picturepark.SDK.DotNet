@@ -239,7 +239,7 @@ namespace Picturepark.SDK.V1.Tests
 						},
 						dog
 					}
-				}, nameof(SoccerPlayer)); // TODO: We should add an attribute to the class with its schema name instead of passing it as parameter
+				}, nameof(SoccerPlayer)); // TODO: ListItemClient.CreateFromPOCOAsync: We should add an attribute to the class with its schema name instead of passing it as parameter
 
 			var soccerTrainerTree = await _client.ListItems.CreateFromPOCOAsync(
 				new SoccerTrainer

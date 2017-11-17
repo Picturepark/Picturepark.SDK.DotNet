@@ -22,21 +22,78 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
+		public async Task ShouldGetBlacklist()
+		{
+			/// Act
+			var blacklist = await _client.Transfers.GetBlacklistAsync();
+
+			/// Assert
+			Assert.NotNull(blacklist?.Items);
+		}
+
+		[Fact]
+		[Trait("Stack", "Transfers")]
 		public async Task ShouldCreateTransferFromFiles()
 		{
+			/// Arrange
 			var transferName = new Random().Next(1000, 9999).ToString();
-			var files = new List<string> { Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg") };
+			var files = new List<string>
+			{
+				Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
+			};
 
+			/// Act
 			var result = await _client.Transfers.CreateTransferAsync(files, transferName);
+
+			/// Assert
 			Assert.NotNull(result);
+		}
+
+		// [Fact]
+		[Trait("Stack", "Transfers")]
+		public async Task ShouldDeleteFiles()
+		{
+			// TODO: Fix ShouldDeleteFiles unit test
+
+			/// Arrange
+			var transferName = new Random().Next(1000, 9999).ToString();
+			var files = new List<string>
+			{
+				Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
+			};
+
+			var transfer = await _client.Transfers.CreateTransferAsync(files, transferName);
+			var searchRequest = new FileTransferSearchRequest
+			{
+				Limit = 20,
+				SearchString = "*",
+				Filter = new TermFilter { Field = "transferId", Term = transfer.Id }
+			};
+
+			var fileParameter = new FileParameter(new MemoryStream(new byte[] { 1, 2, 3 }));
+			await _client.Transfers.UploadFileAsync(transfer.Id, "foobar", fileParameter);
+
+			FileTransferSearchResult result = await _client.Transfers.SearchFilesAsync(searchRequest);
+
+			/// Act
+			var request = new FileTransferDeleteRequest
+			{
+				TransferId = transfer.Id,
+				FileTransferIds = new List<string> { result.Results[0].Id }
+			};
+
+			await _client.Transfers.DeleteFilesAsync(request);
+
+			/// Assert
+			await Assert.ThrowsAsync<ApiException>(async () => await _client.Transfers.GetAsync(transfer.Id)); // TODO: TransferClient.GetAsync: Should correctly throw NotFoundException
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldCreateTransferFromWebUrls()
 		{
+			/// Arrange
 			var transferName = "UrlImport " + new Random().Next(1000, 9999);
-
 			var urls = new List<string>
 			{
 				"https://picturepark.com/wp-content/uploads/2013/06/home-marquee.jpg",
@@ -44,62 +101,98 @@ namespace Picturepark.SDK.V1.Tests
 				"http://cdn3.spiegel.de/images/image-1046236-700_poster_16x9-ymle-1046236.jpg",
 				"https://dgpcopy.next-picturepark.com/Go/A6ZYegLz/D/15/1"
 			};
+
+			/// Act
 			var request = new CreateTransferRequest
 			{
 				Name = transferName,
 				TransferType = TransferType.WebDownload,
-				WebLinks = urls.Select(url => new TransferWebLink { Url = url, Identifier = Guid.NewGuid().ToString() }).ToList()
+				WebLinks = urls.Select(url => new TransferWebLink
+				{
+					Url = url,
+					Identifier = Guid.NewGuid().ToString()
+				}).ToList()
 			};
 
-			var result = await _client.Transfers.CreateTransferAsync(request);
+			Transfer result = await _client.Transfers.CreateTransferAsync(request);
+
+			/// Assert
 			Assert.NotNull(result);
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
-		public async Task ShouldDeleteBatch()
+		public async Task ShouldDelete()
 		{
+			/// Arrange
 			var transferId = _fixture.GetRandomTransferId(TransferState.TransferReady, 10);
+			var transfer = await _client.Transfers.GetAsync(transferId);
 
-			Assert.True(transferId != string.Empty);
-
+			/// Act
 			await _client.Transfers.DeleteAsync(transferId);
+
+			/// Assert
+			await Assert.ThrowsAsync<ApiException>(async () => await _client.Transfers.GetAsync(transferId)); // TODO: TransferClient.GetAsync: Should correctly throw NotFoundException
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
-		public async Task ShouldGetTransfer()
+		public async Task ShouldGet()
 		{
+			/// Arrange
 			var transferId = _fixture.GetRandomTransferId(null, 20);
+
+			/// Act
 			TransferDetail result = await _client.Transfers.GetAsync(transferId);
+
+			/// Assert
 			Assert.NotNull(result);
+			Assert.Equal(transferId, result.Id);
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldGetFile()
 		{
+			/// Arrange
 			var fileTransferId = _fixture.GetRandomFileTransferId(20);
+
+			/// Act
 			FileTransferDetail result = await _client.Transfers.GetFileAsync(fileTransferId);
+
+			/// Assert
 			Assert.NotNull(result);
+			Assert.Equal(fileTransferId, result.Id);
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
-		public async Task ShouldSearchTransfers()
+		public async Task ShouldSearch()
 		{
+			/// Arrange
 			var request = new TransferSearchRequest { Limit = 5, SearchString = "*" };
+
+			/// Act
 			TransferSearchResult result = await _client.Transfers.SearchAsync(request);
+
+			/// Assert
 			Assert.NotNull(result);
+			Assert.Equal(5, result.Results.Count);
 		}
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldSearchFiles()
 		{
+			/// Arrange
 			var request = new FileTransferSearchRequest { Limit = 20, SearchString = "*" };
+
+			/// Act
 			FileTransferSearchResult result = await _client.Transfers.SearchFilesAsync(request);
+
+			/// Assert
 			Assert.NotNull(result);
+			Assert.Equal(20, result.Results.Count);
 		}
 
 		[Fact]
@@ -117,16 +210,15 @@ namespace Picturepark.SDK.V1.Tests
 			var randomNumber = new Random().Next(0, numberOfFilesInDir - numberOfUploadFiles);
 			var importFilePaths = filesInDirectory.Skip(randomNumber).Take(numberOfUploadFiles).ToList();
 
-			Transfer transfer = await _client.Transfers.CreateTransferAsync(importFilePaths.Select(Path.GetFileName).ToList(), transferName);
+			var uploadOptions = new UploadOptions
+			{
+				ConcurrentUploads = 4,
+				ChunkSize = 20 * 1024,
+				SuccessDelegate = Console.WriteLine,
+				ErrorDelegate = Console.WriteLine
+			};
 
-			await _client.Transfers.UploadFilesAsync(
-				importFilePaths,
-				_fixture.ExampleFilesBasePath,
-				transfer,
-				concurrentUploads: 4,
-				chunkSize: 20 * 1024,
-				successDelegate: Console.WriteLine,
-				errorDelegate: Console.WriteLine);
+			var transfer = await _client.Transfers.UploadFilesAsync(transferName, importFilePaths, uploadOptions);
 
 			await ImportTransferAsync(transfer, transferName);
 		}

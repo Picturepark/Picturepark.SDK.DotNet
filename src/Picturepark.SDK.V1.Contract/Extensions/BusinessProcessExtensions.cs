@@ -9,7 +9,12 @@ namespace Picturepark.SDK.V1.Contract.Extensions
 	{
 		public static async Task<BusinessProcessWaitResult> WaitForCompletionAsync(this BusinessProcess process, IBusinessProcessClient businessProcessesClient, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var waitResult = await businessProcessesClient.WaitForCompletionAsync(process.Id, 60 * 1000, cancellationToken);
+			return await WaitForCompletionAsync(process, businessProcessesClient, 60 * 1000, cancellationToken);
+		}
+
+		public static async Task<BusinessProcessWaitResult> WaitForCompletionAsync(this BusinessProcess process, IBusinessProcessClient businessProcessesClient, int timeout, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			var waitResult = await businessProcessesClient.WaitForCompletionAsync(process.Id, timeout, cancellationToken);
 
 			if (waitResult.HasLifeCycleHit)
 				return waitResult;
@@ -30,7 +35,7 @@ namespace Picturepark.SDK.V1.Contract.Extensions
 				throw new AggregateException(exceptions);
 			}
 
-			throw new InvalidOperationException("The state has not hit but no error could be found."); // TODO: Is this a timeout exception?
+			throw new TimeoutException($"Wait for business process on completion timed out after {timeout / 1000} seconds");
 		}
 	}
 }
