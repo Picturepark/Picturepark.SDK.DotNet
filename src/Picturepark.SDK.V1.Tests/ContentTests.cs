@@ -467,8 +467,8 @@ namespace Picturepark.SDK.V1.Tests
 			};
 
 			/// Act
-			var result = await _client.Contents.UpdateMetadataManyAsync(updateRequest);
-			var waitResult = await result.WaitForCompletionAsync(_client.BusinessProcesses);
+			var businessProcess = await _client.Contents.UpdateMetadataManyAsync(updateRequest);
+			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
 			/// Assert
 			Assert.True(waitResult.HasLifeCycleHit);
@@ -738,8 +738,8 @@ namespace Picturepark.SDK.V1.Tests
 				FileTransferId = result.Results.First().Id
 			};
 
-			BusinessProcess updateResult = await _client.Contents.UpdateFileAsync(contentId, updateRequest);
-			BusinessProcessWaitResult waitResult = await updateResult.WaitForCompletionAsync(_client.BusinessProcesses);
+			var businessProcess = await _client.Contents.UpdateFileAsync(contentId, updateRequest);
+			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
 			Assert.True(waitResult.HasLifeCycleHit);
 		}
@@ -796,8 +796,8 @@ namespace Picturepark.SDK.V1.Tests
 			};
 
 			/// Act
-			var result = await _client.Contents.UpdatePermissionsManyAsync(new List<UpdateContentPermissionsRequest> { request });
-			await result.WaitForCompletionAsync(_client.BusinessProcesses);
+			var businessProcess = await _client.Contents.UpdatePermissionsManyAsync(new List<UpdateContentPermissionsRequest> { request });
+			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
 			var currentContentDetail = await _client.Contents.GetAsync(contentId);
 			var currentContentPermissionSetIds = currentContentDetail.ContentPermissionSetIds.Select(i => i).ToList();

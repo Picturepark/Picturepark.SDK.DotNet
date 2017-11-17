@@ -83,7 +83,7 @@ namespace Picturepark.SDK.V1
 		public async Task UpdateAsync(ListItemUpdateRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var businessProcess = await UpdateManyAsync(new List<ListItemUpdateRequest>() { updateRequest }, cancellationToken);
-			var waitResult = await businessProcess.WaitForCompletionAsync(_businessProcessClient, cancellationToken);
+			var waitResult = await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id, cancellationToken);
 		}
 
 		public async Task<IEnumerable<ListItem>> CreateFromPOCOAsync(object obj, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
@@ -118,7 +118,7 @@ namespace Picturepark.SDK.V1
 			}
 
 			var businessProcess = await CreateManyCoreAsync(listItemCreateRequests, cancellationToken);
-			await businessProcess.WaitForCompletionAsync(_businessProcessClient);
+			await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id);
 
 			var details = await _businessProcessClient.GetDetailsAsync(businessProcess.Id, cancellationToken);
 

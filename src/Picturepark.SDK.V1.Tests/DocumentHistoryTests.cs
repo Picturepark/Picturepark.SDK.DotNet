@@ -94,8 +94,8 @@ namespace Picturepark.SDK.V1.Tests
 			};
 
 			// TODO: Create ContentHelper to update and wait with one call
-			var updateResult = await _client.Contents.UpdateMetadataManyAsync(updateRequest);
-			var waitResult = await updateResult.WaitForCompletionAsync(_client.BusinessProcesses);
+			var businessProcess = await _client.Contents.UpdateMetadataManyAsync(updateRequest);
+			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
 			// Refetch content and compare versions
 			var updatedHistory = await _client.DocumentHistory.GetAsync(contentId);

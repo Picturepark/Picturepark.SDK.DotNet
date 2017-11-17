@@ -2866,9 +2866,9 @@ namespace Picturepark.SDK.V1
         /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public BusinessProcessWaitResult Wait(string processId, System.Collections.Generic.IEnumerable<string> states = null, System.Collections.Generic.IEnumerable<BusinessProcessLifeCycle> lifeCycleIds = null, int? timeout = null)
+        protected BusinessProcessWaitResult WaitCore(string processId, System.Collections.Generic.IEnumerable<string> states = null, System.Collections.Generic.IEnumerable<BusinessProcessLifeCycle> lifeCycleIds = null, int? timeout = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await WaitAsync(processId, states, lifeCycleIds, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await WaitCoreAsync(processId, states, lifeCycleIds, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Wait</summary>
@@ -2880,7 +2880,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitAsync(string processId, System.Collections.Generic.IEnumerable<string> states = null, System.Collections.Generic.IEnumerable<BusinessProcessLifeCycle> lifeCycleIds = null, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        protected async System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitCoreAsync(string processId, System.Collections.Generic.IEnumerable<string> states = null, System.Collections.Generic.IEnumerable<BusinessProcessLifeCycle> lifeCycleIds = null, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (processId == null)
                 throw new System.ArgumentNullException("processId");
@@ -2989,9 +2989,9 @@ namespace Picturepark.SDK.V1
         /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public BusinessProcessWaitResult WaitForCompletion(string processId, int? timeout = null)
+        protected BusinessProcessWaitResult WaitForCompletionCore(string processId, int? timeout = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await WaitForCompletionAsync(processId, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await WaitForCompletionCoreAsync(processId, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Wait</summary>
@@ -3001,7 +3001,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForCompletionAsync(string processId, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        protected async System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForCompletionCoreAsync(string processId, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (processId == null)
                 throw new System.ArgumentNullException("processId");

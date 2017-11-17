@@ -73,7 +73,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public async Task CreateAsync(SchemaDetail metadataSchema)
 		{
-			var process = await CreateAsync(new SchemaCreateRequest
+			var businessProcess = await CreateAsync(new SchemaCreateRequest
 			{
 				Aggregations = metadataSchema.Aggregations,
 				Descriptions = metadataSchema.Descriptions,
@@ -90,7 +90,8 @@ namespace Picturepark.SDK.V1
 				Types = metadataSchema.Types,
 				LayerSchemaIds = metadataSchema.LayerSchemaIds
 			});
-			await process.WaitForCompletionAsync(_businessProcessClient);
+
+			await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id);
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
@@ -103,7 +104,7 @@ namespace Picturepark.SDK.V1
 		public async Task DeleteAsync(string schemaId)
 		{
 			var process = await DeleteCoreAsync(schemaId);
-			await process.WaitForCompletionAsync(_businessProcessClient);
+			await _businessProcessClient.WaitForCompletionAsync(process.Id);
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
@@ -149,7 +150,7 @@ namespace Picturepark.SDK.V1
 		public async Task UpdateAsync(string schemaId, SchemaUpdateRequest updateRequest)
 		{
 			var process = await UpdateCoreAsync(schemaId, updateRequest);
-			await process.WaitForCompletionAsync(_businessProcessClient);
+			await _businessProcessClient.WaitForCompletionAsync(process.Id);
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>

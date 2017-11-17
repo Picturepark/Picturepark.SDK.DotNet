@@ -419,44 +419,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<BusinessProcessSearchResult> SearchAsync(BusinessProcessSearchRequest businessProcessSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Wait</summary>
-        /// <param name="processId">The process id</param>
-        /// <param name="states">The states to wait for</param>
-        /// <param name="lifeCycleIds">Business process lifeCycle to wait for</param>
-        /// <param name="timeout">The timeout in ms to wait for completion.</param>
-        /// <returns>BusinessProcessWaitResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        BusinessProcessWaitResult Wait(string processId, System.Collections.Generic.IEnumerable<string> states = null, System.Collections.Generic.IEnumerable<BusinessProcessLifeCycle> lifeCycleIds = null, int? timeout = null);
-    
-        /// <summary>Wait</summary>
-        /// <param name="processId">The process id</param>
-        /// <param name="states">The states to wait for</param>
-        /// <param name="lifeCycleIds">Business process lifeCycle to wait for</param>
-        /// <param name="timeout">The timeout in ms to wait for completion.</param>
-        /// <returns>BusinessProcessWaitResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitAsync(string processId, System.Collections.Generic.IEnumerable<string> states = null, System.Collections.Generic.IEnumerable<BusinessProcessLifeCycle> lifeCycleIds = null, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Wait</summary>
-        /// <param name="processId">The process id</param>
-        /// <param name="timeout">The timeout in ms to wait for completion.</param>
-        /// <returns>BusinessProcessWaitResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        BusinessProcessWaitResult WaitForCompletion(string processId, int? timeout = null);
-    
-        /// <summary>Wait</summary>
-        /// <param name="processId">The process id</param>
-        /// <param name="timeout">The timeout in ms to wait for completion.</param>
-        /// <returns>BusinessProcessWaitResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcessWaitResult> WaitForCompletionAsync(string processId, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
         /// <summary>Get details</summary>
         /// <param name="processId">The process id</param>
         /// <returns>BusinessProcessDetails</returns>
