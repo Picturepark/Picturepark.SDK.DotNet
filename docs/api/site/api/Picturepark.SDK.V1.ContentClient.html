@@ -91,13 +91,10 @@
               <div class="inheritedMembers">
                 <h5>Inherited Members</h5>
                 <div>
-                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_BaseUrl">ClientBase.BaseUrl</a>
-                </div>
-                <div>
                   <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_Alias">ClientBase.Alias</a>
                 </div>
                 <div>
-                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpClientAsync_CancellationToken_">ClientBase.CreateHttpClientAsync(CancellationToken)</a>
+                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_CancellationToken_">ClientBase.CreateHttpRequestMessageAsync(CancellationToken)</a>
                 </div>
                 <div>
                   <span class="xref">System.Object.ToString()</span>
@@ -132,12 +129,12 @@
               
               
               <a id="Picturepark_SDK_V1_ContentClient__ctor_" data-uid="Picturepark.SDK.V1.ContentClient.#ctor*"></a>
-              <h4 id="Picturepark_SDK_V1_ContentClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkClientSettings_" data-uid="Picturepark.SDK.V1.ContentClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkClientSettings)">ContentClient(IPictureparkClientSettings)</h4>
+              <h4 id="Picturepark_SDK_V1_ContentClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkClientSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.ContentClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkClientSettings,System.Net.Http.HttpClient)">ContentClient(IPictureparkClientSettings, Net.Http.HttpClient)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public ContentClient(IPictureparkClientSettings configuration)</code></pre>
+                <pre><code class="lang-csharp hljs">public ContentClient(IPictureparkClientSettings configuration, Net.Http.HttpClient httpClient)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -152,6 +149,38 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.IPictureparkClientSettings.html">IPictureparkClientSettings</a></td>
                     <td><span class="parametername">configuration</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Net.Http.HttpClient</span></td>
+                    <td><span class="parametername">httpClient</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3 id="properties">Properties
+              </h3>
+              
+              
+              <a id="Picturepark_SDK_V1_ContentClient_BaseUrl_" data-uid="Picturepark.SDK.V1.ContentClient.BaseUrl*"></a>
+              <h4 id="Picturepark_SDK_V1_ContentClient_BaseUrl" data-uid="Picturepark.SDK.V1.ContentClient.BaseUrl">BaseUrl</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public string BaseUrl { get; set; }</code></pre>
+              </div>
+              <h5 class="propertyValue">Property Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -1123,13 +1152,13 @@
               
               
               <a id="Picturepark_SDK_V1_ContentClient_Download_" data-uid="Picturepark.SDK.V1.ContentClient.Download*"></a>
-              <h4 id="Picturepark_SDK_V1_ContentClient_Download_System_String_System_String_System_String_" data-uid="Picturepark.SDK.V1.ContentClient.Download(System.String,System.String,System.String)">Download(String, String, String)</h4>
+              <h4 id="Picturepark_SDK_V1_ContentClient_Download_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_" data-uid="Picturepark.SDK.V1.ContentClient.Download(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">Download(String, String, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, String)</h4>
               <div class="markdown level1 summary"><p>Downloads content in a specific outputformat</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public FileResponse Download(string contentId, string outputFormatId, string range = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public FileResponse Download(string contentId, string outputFormatId, int ? width = null, int ? height = null, string range = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1151,6 +1180,18 @@
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">outputFormatId</span></td>
                     <td><p>The output format id</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="parametername">width</span></td>
+                    <td><p>Optional width in pixels to resize image</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="parametername">height</span></td>
+                    <td><p>Optional height in pixels to resize image</p>
 </td>
                   </tr>
                   <tr>
@@ -1178,7 +1219,7 @@
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_Download_System_String_System_String_System_String_">IContentClient.Download(String, String, String)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_Download_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_">IContentClient.Download(String, String, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, String)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -1203,13 +1244,13 @@
               
               
               <a id="Picturepark_SDK_V1_ContentClient_DownloadAsync_" data-uid="Picturepark.SDK.V1.ContentClient.DownloadAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_ContentClient_DownloadAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.DownloadAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">DownloadAsync(String, String, String, CancellationToken)</h4>
+              <h4 id="Picturepark_SDK_V1_ContentClient_DownloadAsync_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.DownloadAsync(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">DownloadAsync(String, String, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, String, CancellationToken)</h4>
               <div class="markdown level1 summary"><p>Downloads content in a specific outputformat</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;FileResponse&gt; DownloadAsync(string contentId, string outputFormatId, string range = null, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;FileResponse&gt; DownloadAsync(string contentId, string outputFormatId, int ? width = null, int ? height = null, string range = null, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1231,6 +1272,18 @@
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">outputFormatId</span></td>
                     <td><p>The output format id</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="parametername">width</span></td>
+                    <td><p>Optional width in pixels to resize image</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="parametername">height</span></td>
+                    <td><p>Optional height in pixels to resize image</p>
 </td>
                   </tr>
                   <tr>
@@ -1264,7 +1317,7 @@
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_DownloadAsync_System_String_System_String_System_String_System_Threading_CancellationToken_">IContentClient.DownloadAsync(String, String, String, CancellationToken)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_DownloadAsync_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_">IContentClient.DownloadAsync(String, String, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, String, CancellationToken)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -1289,12 +1342,12 @@
               
               
               <a id="Picturepark_SDK_V1_ContentClient_DownloadFilesAsync_" data-uid="Picturepark.SDK.V1.ContentClient.DownloadFilesAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_ContentClient_DownloadFilesAsync_Picturepark_SDK_V1_Contract_ContentSearchResult_System_String_System_Boolean_System_Int32_System_String_System_String_System_Action_Picturepark_SDK_V1_Contract_ContentDetail__System_Action_System_Exception__" data-uid="Picturepark.SDK.V1.ContentClient.DownloadFilesAsync(Picturepark.SDK.V1.Contract.ContentSearchResult,System.String,System.Boolean,System.Int32,System.String,System.String,System.Action{Picturepark.SDK.V1.Contract.ContentDetail},System.Action{System.Exception})">DownloadFilesAsync(ContentSearchResult, String, Boolean, Int32, String, String, Action&lt;ContentDetail&gt;, Action&lt;Exception&gt;)</h4>
+              <h4 id="Picturepark_SDK_V1_ContentClient_DownloadFilesAsync_Picturepark_SDK_V1_Contract_ContentSearchResult_System_String_System_Boolean_System_Int32_System_String_System_String_System_Action_Picturepark_SDK_V1_Contract_ContentDetail__System_Action_System_Exception__CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.DownloadFilesAsync(Picturepark.SDK.V1.Contract.ContentSearchResult,System.String,System.Boolean,System.Int32,System.String,System.String,System.Action{Picturepark.SDK.V1.Contract.ContentDetail},System.Action{System.Exception},CancellationToken)">DownloadFilesAsync(ContentSearchResult, String, Boolean, Int32, String, String, Action&lt;ContentDetail&gt;, Action&lt;Exception&gt;, CancellationToken)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task DownloadFilesAsync(ContentSearchResult contents, string exportDirectory, bool overwriteIfExists, int concurrentDownloads = 4, string outputFormat = &quot;Original&quot;, string outputExtension = &quot;&quot;, Action&lt;ContentDetail&gt; successDelegate = null, Action&lt;Exception&gt; errorDelegate = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task DownloadFilesAsync(ContentSearchResult contents, string exportDirectory, bool overwriteIfExists, int concurrentDownloads = 4, string outputFormat = &quot;Original&quot;, string outputExtension = &quot;&quot;, Action&lt;ContentDetail&gt; successDelegate = null, Action&lt;Exception&gt; errorDelegate = null, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1346,6 +1399,11 @@
                     <td><span class="parametername">errorDelegate</span></td>
                     <td></td>
                   </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td></td>
+                  </tr>
                 </tbody>
               </table>
               <h5 class="returns">Returns</h5>
@@ -1364,195 +1422,17 @@
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_DownloadFilesAsync_Picturepark_SDK_V1_Contract_ContentSearchResult_System_String_System_Boolean_System_Int32_System_String_System_String_System_Action_Picturepark_SDK_V1_Contract_ContentDetail__System_Action_System_Exception__">IContentClient.DownloadFilesAsync(ContentSearchResult, String, Boolean, Int32, String, String, Action&lt;ContentDetail&gt;, Action&lt;Exception&gt;)</a></div>
-              
-              
-              <a id="Picturepark_SDK_V1_ContentClient_DownloadResized_" data-uid="Picturepark.SDK.V1.ContentClient.DownloadResized*"></a>
-              <h4 id="Picturepark_SDK_V1_ContentClient_DownloadResized_System_String_System_String_System_Int32_System_Int32_" data-uid="Picturepark.SDK.V1.ContentClient.DownloadResized(System.String,System.String,System.Int32,System.Int32)">DownloadResized(String, String, Int32, Int32)</h4>
-              <div class="markdown level1 summary"><p>Download resized content</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public FileResponse DownloadResized(string contentId, string outputFormatId, int width, int height)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">contentId</span></td>
-                    <td><p>The Content id</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">outputFormatId</span></td>
-                    <td><p>The output format id</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Int32</span></td>
-                    <td><span class="parametername">width</span></td>
-                    <td><p>The content width</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Int32</span></td>
-                    <td><span class="parametername">height</span></td>
-                    <td><p>The content height</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.FileResponse.html">FileResponse</a></td>
-                    <td><p>HttpResponseMessage</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_DownloadResized_System_String_System_String_System_Int32_System_Int32_">IContentClient.DownloadResized(String, String, Int32, Int32)</a></div>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_ContentClient_DownloadResizedAsync_" data-uid="Picturepark.SDK.V1.ContentClient.DownloadResizedAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_ContentClient_DownloadResizedAsync_System_String_System_String_System_Int32_System_Int32_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.DownloadResizedAsync(System.String,System.String,System.Int32,System.Int32,System.Threading.CancellationToken)">DownloadResizedAsync(String, String, Int32, Int32, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Download resized content</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;FileResponse&gt; DownloadResizedAsync(string contentId, string outputFormatId, int width, int height, CancellationToken cancellationToken = null)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">contentId</span></td>
-                    <td><p>The Content id</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">outputFormatId</span></td>
-                    <td><p>The output format id</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Int32</span></td>
-                    <td><span class="parametername">width</span></td>
-                    <td><p>The content width</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Int32</span></td>
-                    <td><span class="parametername">height</span></td>
-                    <td><p>The content height</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.FileResponse.html">FileResponse</a>&gt;</td>
-                    <td><p>HttpResponseMessage</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_DownloadResizedAsync_System_String_System_String_System_Int32_System_Int32_System_Threading_CancellationToken_">IContentClient.DownloadResizedAsync(String, String, Int32, Int32, CancellationToken)</a></div>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_DownloadFilesAsync_Picturepark_SDK_V1_Contract_ContentSearchResult_System_String_System_Boolean_System_Int32_System_String_System_String_System_Action_Picturepark_SDK_V1_Contract_ContentDetail__System_Action_System_Exception__CancellationToken_">IContentClient.DownloadFilesAsync(ContentSearchResult, String, Boolean, Int32, String, String, Action&lt;ContentDetail&gt;, Action&lt;Exception&gt;, CancellationToken)</a></div>
               
               
               <a id="Picturepark_SDK_V1_ContentClient_DownloadThumbnail_" data-uid="Picturepark.SDK.V1.ContentClient.DownloadThumbnail*"></a>
-              <h4 id="Picturepark_SDK_V1_ContentClient_DownloadThumbnail_System_String_Picturepark_SDK_V1_Contract_ThumbnailSize_" data-uid="Picturepark.SDK.V1.ContentClient.DownloadThumbnail(System.String,Picturepark.SDK.V1.Contract.ThumbnailSize)">DownloadThumbnail(String, ThumbnailSize)</h4>
+              <h4 id="Picturepark_SDK_V1_ContentClient_DownloadThumbnail_System_String_Picturepark_SDK_V1_Contract_ThumbnailSize_System_Nullable_System_Int32__System_Nullable_System_Int32__" data-uid="Picturepark.SDK.V1.ContentClient.DownloadThumbnail(System.String,Picturepark.SDK.V1.Contract.ThumbnailSize,System.Nullable{System.Int32},System.Nullable{System.Int32})">DownloadThumbnail(String, ThumbnailSize, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</h4>
               <div class="markdown level1 summary"><p>Get Thumbnail</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public FileResponse DownloadThumbnail(string contentId, ThumbnailSize size)</code></pre>
+                <pre><code class="lang-csharp hljs">public FileResponse DownloadThumbnail(string contentId, ThumbnailSize size, int ? width = null, int ? height = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1576,6 +1456,18 @@
                     <td><p>Thumbnail size. Either small, medium or large</p>
 </td>
                   </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="parametername">width</span></td>
+                    <td><p>Optional width in pixels to resize image</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="parametername">height</span></td>
+                    <td><p>Optional height in pixels to resize image</p>
+</td>
+                  </tr>
                 </tbody>
               </table>
               <h5 class="returns">Returns</h5>
@@ -1595,7 +1487,7 @@
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_DownloadThumbnail_System_String_Picturepark_SDK_V1_Contract_ThumbnailSize_">IContentClient.DownloadThumbnail(String, ThumbnailSize)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_DownloadThumbnail_System_String_Picturepark_SDK_V1_Contract_ThumbnailSize_System_Nullable_System_Int32__System_Nullable_System_Int32__">IContentClient.DownloadThumbnail(String, ThumbnailSize, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -1620,13 +1512,13 @@
               
               
               <a id="Picturepark_SDK_V1_ContentClient_DownloadThumbnailAsync_" data-uid="Picturepark.SDK.V1.ContentClient.DownloadThumbnailAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_ContentClient_DownloadThumbnailAsync_System_String_Picturepark_SDK_V1_Contract_ThumbnailSize_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.DownloadThumbnailAsync(System.String,Picturepark.SDK.V1.Contract.ThumbnailSize,System.Threading.CancellationToken)">DownloadThumbnailAsync(String, ThumbnailSize, CancellationToken)</h4>
+              <h4 id="Picturepark_SDK_V1_ContentClient_DownloadThumbnailAsync_System_String_Picturepark_SDK_V1_Contract_ThumbnailSize_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.DownloadThumbnailAsync(System.String,Picturepark.SDK.V1.Contract.ThumbnailSize,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">DownloadThumbnailAsync(String, ThumbnailSize, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, CancellationToken)</h4>
               <div class="markdown level1 summary"><p>Get Thumbnail</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;FileResponse&gt; DownloadThumbnailAsync(string contentId, ThumbnailSize size, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;FileResponse&gt; DownloadThumbnailAsync(string contentId, ThumbnailSize size, int ? width = null, int ? height = null, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1648,6 +1540,18 @@
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ThumbnailSize.html">ThumbnailSize</a></td>
                     <td><span class="parametername">size</span></td>
                     <td><p>Thumbnail size. Either small, medium or large</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="parametername">width</span></td>
+                    <td><p>Optional width in pixels to resize image</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="parametername">height</span></td>
+                    <td><p>Optional height in pixels to resize image</p>
 </td>
                   </tr>
                   <tr>
@@ -1675,7 +1579,7 @@
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_DownloadThumbnailAsync_System_String_Picturepark_SDK_V1_Contract_ThumbnailSize_System_Threading_CancellationToken_">IContentClient.DownloadThumbnailAsync(String, ThumbnailSize, CancellationToken)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_DownloadThumbnailAsync_System_String_Picturepark_SDK_V1_Contract_ThumbnailSize_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Threading_CancellationToken_">IContentClient.DownloadThumbnailAsync(String, ThumbnailSize, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, CancellationToken)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -2233,7 +2137,8 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentDetail.html">ContentDetail</a></td>
-                    <td></td>
+                    <td><p>The content detail.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -2344,13 +2249,13 @@
               
               
               <a id="Picturepark_SDK_V1_ContentClient_ReactivateAsync_" data-uid="Picturepark.SDK.V1.ContentClient.ReactivateAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_ContentClient_ReactivateAsync_System_String_System_Boolean_System_Int32_" data-uid="Picturepark.SDK.V1.ContentClient.ReactivateAsync(System.String,System.Boolean,System.Int32)">ReactivateAsync(String, Boolean, Int32)</h4>
+              <h4 id="Picturepark_SDK_V1_ContentClient_ReactivateAsync_System_String_System_Boolean_System_Int32_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.ReactivateAsync(System.String,System.Boolean,System.Int32,CancellationToken)">ReactivateAsync(String, Boolean, Int32, CancellationToken)</h4>
               <div class="markdown level1 summary"><p>Reactivates an content.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;ContentDetail&gt; ReactivateAsync(string contentId, bool resolve = true, int timeout = 60000)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;ContentDetail&gt; ReactivateAsync(string contentId, bool resolve = true, int timeout = 60000, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -2380,6 +2285,12 @@
                     <td><p>The timeout.</p>
 </td>
                   </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>The cancellation token.</p>
+</td>
+                  </tr>
                 </tbody>
               </table>
               <h5 class="returns">Returns</h5>
@@ -2393,13 +2304,13 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentDetail.html">ContentDetail</a>&gt;</td>
-                    <td><p>The task.</p>
+                    <td><p>The content detail.</p>
 </td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_ReactivateAsync_System_String_System_Boolean_System_Int32_">IContentClient.ReactivateAsync(String, Boolean, Int32)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_ReactivateAsync_System_String_System_Boolean_System_Int32_CancellationToken_">IContentClient.ReactivateAsync(String, Boolean, Int32, CancellationToken)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>

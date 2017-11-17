@@ -367,12 +367,12 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IListItemClient_CreateAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.CreateAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_CreateAsync_Picturepark_SDK_V1_Contract_ListItemCreateRequest_System_Boolean_System_Int32_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.CreateAsync(Picturepark.SDK.V1.Contract.ListItemCreateRequest,System.Boolean,System.Int32)">CreateAsync(ListItemCreateRequest, Boolean, Int32)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_CreateAsync_Picturepark_SDK_V1_Contract_ListItemCreateRequest_System_Boolean_System_Int32_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.CreateAsync(Picturepark.SDK.V1.Contract.ListItemCreateRequest,System.Boolean,System.Int32,CancellationToken)">CreateAsync(ListItemCreateRequest, Boolean, Int32, CancellationToken)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;ListItemDetail&gt; CreateAsync(ListItemCreateRequest listItem, bool resolve = false, int timeout = 60000)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;ListItemDetail&gt; CreateAsync(ListItemCreateRequest listItem, bool resolve = false, int timeout = 60000, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -397,6 +397,11 @@
                   <tr>
                     <td><span class="xref">System.Int32</span></td>
                     <td><span class="parametername">timeout</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -524,13 +529,13 @@
               </table>
               
               
-              <a id="Picturepark_SDK_V1_Contract_IListItemClient_CreateFromPOCO_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.CreateFromPOCO*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_CreateFromPOCO_System_Object_System_String_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.CreateFromPOCO(System.Object,System.String)">CreateFromPOCO(Object, String)</h4>
+              <a id="Picturepark_SDK_V1_Contract_IListItemClient_CreateFromPOCOAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.CreateFromPOCOAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_CreateFromPOCOAsync_System_Object_System_String_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.CreateFromPOCOAsync(System.Object,System.String,CancellationToken)">CreateFromPOCOAsync(Object, String, CancellationToken)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;List&lt;ListItem&gt;&gt; CreateFromPOCO(object obj, string schemaId)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;IEnumerable&lt;ListItem&gt;&gt; CreateFromPOCOAsync(object obj, string schemaId, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -552,6 +557,11 @@
                     <td><span class="parametername">schemaId</span></td>
                     <td></td>
                   </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td></td>
+                  </tr>
                 </tbody>
               </table>
               <h5 class="returns">Returns</h5>
@@ -564,7 +574,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">Task</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItem.html">ListItem</a>&gt;&gt;</td>
+                    <td><span class="xref">Task</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItem.html">ListItem</a>&gt;&gt;</td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -572,12 +582,12 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IListItemClient_CreateManyAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.CreateManyAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_CreateManyAsync_IEnumerable_Picturepark_SDK_V1_Contract_ListItemCreateRequest__System_Nullable_CancellationToken__" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.CreateManyAsync(IEnumerable{Picturepark.SDK.V1.Contract.ListItemCreateRequest},System.Nullable{CancellationToken})">CreateManyAsync(IEnumerable&lt;ListItemCreateRequest&gt;, Nullable&lt;CancellationToken&gt;)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_CreateManyAsync_IEnumerable_Picturepark_SDK_V1_Contract_ListItemCreateRequest__CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.CreateManyAsync(IEnumerable{Picturepark.SDK.V1.Contract.ListItemCreateRequest},CancellationToken)">CreateManyAsync(IEnumerable&lt;ListItemCreateRequest&gt;, CancellationToken)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;List&lt;ListItem&gt;&gt; CreateManyAsync(IEnumerable&lt;ListItemCreateRequest&gt; listItems, CancellationToken? cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;IEnumerable&lt;ListItem&gt;&gt; CreateManyAsync(IEnumerable&lt;ListItemCreateRequest&gt; listItems, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -595,7 +605,7 @@
                     <td></td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">CancellationToken</span>&gt;</td>
+                    <td><span class="xref">CancellationToken</span></td>
                     <td><span class="parametername">cancellationToken</span></td>
                     <td></td>
                   </tr>
@@ -611,7 +621,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">Task</span>&lt;<span class="xref">List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItem.html">ListItem</a>&gt;&gt;</td>
+                    <td><span class="xref">Task</span>&lt;<span class="xref">IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItem.html">ListItem</a>&gt;&gt;</td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -668,7 +678,7 @@
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">void Delete(string objectId, int timeout)</code></pre>
+                <pre><code class="lang-csharp hljs">void Delete(string listItemId, int timeout)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -682,7 +692,7 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">objectId</span></td>
+                    <td><span class="parametername">listItemId</span></td>
                     <td><p>The list item id.</p>
 </td>
                   </tr>
@@ -771,7 +781,7 @@
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task DeleteAsync(string objectId, int timeout, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task DeleteAsync(string listItemId, int timeout, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -785,7 +795,7 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">objectId</span></td>
+                    <td><span class="parametername">listItemId</span></td>
                     <td><p>The list item id.</p>
 </td>
                   </tr>
@@ -1140,12 +1150,12 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IListItemClient_GetObjectAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetObjectAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_GetObjectAsync__1_System_String_System_String_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetObjectAsync``1(System.String,System.String)">GetObjectAsync&lt;T&gt;(String, String)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_GetObjectAsync__1_System_String_System_String_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetObjectAsync``1(System.String,System.String,CancellationToken)">GetObjectAsync&lt;T&gt;(String, String, CancellationToken)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;T&gt; GetObjectAsync&lt;T&gt;(string objectId, string schemaId)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;T&gt; GetObjectAsync&lt;T&gt;(string objectId, string schemaId, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1165,6 +1175,11 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">schemaId</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -1486,6 +1501,167 @@
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
                     <td><p>Internal server error</p>
 </td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_Picturepark_SDK_V1_Contract_ListItem_System_Object_System_String_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(Picturepark.SDK.V1.Contract.ListItem,System.Object,System.String,CancellationToken)">UpdateAsync(ListItem, Object, String, CancellationToken)</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task UpdateAsync(ListItem listItem, object obj, string schemaId, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ListItem.html">ListItem</a></td>
+                    <td><span class="parametername">listItem</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Object</span></td>
+                    <td><span class="parametername">obj</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">schemaId</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_Picturepark_SDK_V1_Contract_ListItemDetail_System_Object_System_String_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(Picturepark.SDK.V1.Contract.ListItemDetail,System.Object,System.String,CancellationToken)">UpdateAsync(ListItemDetail, Object, String, CancellationToken)</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task UpdateAsync(ListItemDetail listItem, object obj, string schemaId, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemDetail.html">ListItemDetail</a></td>
+                    <td><span class="parametername">listItem</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Object</span></td>
+                    <td><span class="parametername">obj</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">schemaId</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_Picturepark_SDK_V1_Contract_ListItemUpdateRequest_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(Picturepark.SDK.V1.Contract.ListItemUpdateRequest,CancellationToken)">UpdateAsync(ListItemUpdateRequest, CancellationToken)</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task UpdateAsync(ListItemUpdateRequest updateRequest, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemUpdateRequest.html">ListItemUpdateRequest</a></td>
+                    <td><span class="parametername">updateRequest</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td></td>
                   </tr>
                 </tbody>
               </table>
@@ -1946,152 +2122,6 @@
               </table>
               
               
-              <a id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateListItemAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateListItemAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateListItemAsync_Picturepark_SDK_V1_Contract_ListItem_System_Object_System_String_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateListItemAsync(Picturepark.SDK.V1.Contract.ListItem,System.Object,System.String)">UpdateListItemAsync(ListItem, Object, String)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task UpdateListItemAsync(ListItem listItem, object obj, string schemaId)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ListItem.html">ListItem</a></td>
-                    <td><span class="parametername">listItem</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Object</span></td>
-                    <td><span class="parametername">obj</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">schemaId</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Task</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateListItemAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateListItemAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateListItemAsync_Picturepark_SDK_V1_Contract_ListItemDetail_System_Object_System_String_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateListItemAsync(Picturepark.SDK.V1.Contract.ListItemDetail,System.Object,System.String)">UpdateListItemAsync(ListItemDetail, Object, String)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task UpdateListItemAsync(ListItemDetail listItem, object obj, string schemaId)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemDetail.html">ListItemDetail</a></td>
-                    <td><span class="parametername">listItem</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Object</span></td>
-                    <td><span class="parametername">obj</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">schemaId</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Task</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateListItemAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateListItemAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateListItemAsync_Picturepark_SDK_V1_Contract_ListItemUpdateRequest_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateListItemAsync(Picturepark.SDK.V1.Contract.ListItemUpdateRequest)">UpdateListItemAsync(ListItemUpdateRequest)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task UpdateListItemAsync(ListItemUpdateRequest updateRequest)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemUpdateRequest.html">ListItemUpdateRequest</a></td>
-                    <td><span class="parametername">updateRequest</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Task</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
               <a id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateMany_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateMany*"></a>
               <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateMany_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ListItemUpdateRequest__" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateMany(System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemUpdateRequest})">UpdateMany(IEnumerable&lt;ListItemUpdateRequest&gt;)</h4>
               <div class="markdown level1 summary"><p>Update Many</p>
@@ -2203,169 +2233,6 @@
                   <tr>
                     <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;</td>
                     <td><p>BusinessProcess</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IListItemClient_WaitForStates_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.WaitForStates*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_WaitForStates_System_String_System_Int32_System_Collections_Generic_IEnumerable_System_String__" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.WaitForStates(System.String,System.Int32,System.Collections.Generic.IEnumerable{System.String})">WaitForStates(String, Int32, IEnumerable&lt;String&gt;)</h4>
-              <div class="markdown level1 summary"><p>Wait For States</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">[Obsolete]
-BusinessProcessWaitResult WaitForStates(string processId, int timeout, IEnumerable&lt;string&gt; states = null)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">processId</span></td>
-                    <td><p>The business process id.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Int32</span></td>
-                    <td><span class="parametername">timeout</span></td>
-                    <td><p>Maximum time in milliseconds to wait for the business process completed state.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-                    <td><span class="parametername">states</span></td>
-                    <td><p>Comma-separated list of business process states to wait for.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitResult.html">BusinessProcessWaitResult</a></td>
-                    <td><p>BusinessProcessWaitResult</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IListItemClient_WaitForStatesAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.WaitForStatesAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_WaitForStatesAsync_System_String_System_Int32_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.WaitForStatesAsync(System.String,System.Int32,System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">WaitForStatesAsync(String, Int32, IEnumerable&lt;String&gt;, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Wait For States</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">[Obsolete]
-Task&lt;BusinessProcessWaitResult&gt; WaitForStatesAsync(string processId, int timeout, IEnumerable&lt;string&gt; states = null, CancellationToken cancellationToken = null)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">processId</span></td>
-                    <td><p>The business process id.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Int32</span></td>
-                    <td><span class="parametername">timeout</span></td>
-                    <td><p>Maximum time in milliseconds to wait for the business process completed state.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-                    <td><span class="parametername">states</span></td>
-                    <td><p>Comma-separated list of business process states to wait for.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitResult.html">BusinessProcessWaitResult</a>&gt;</td>
-                    <td><p>BusinessProcessWaitResult</p>
 </td>
                   </tr>
                 </tbody>

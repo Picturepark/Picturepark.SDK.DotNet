@@ -91,13 +91,10 @@
               <div class="inheritedMembers">
                 <h5>Inherited Members</h5>
                 <div>
-                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_BaseUrl">ClientBase.BaseUrl</a>
-                </div>
-                <div>
                   <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_Alias">ClientBase.Alias</a>
                 </div>
                 <div>
-                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpClientAsync_CancellationToken_">ClientBase.CreateHttpClientAsync(CancellationToken)</a>
+                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_CancellationToken_">ClientBase.CreateHttpRequestMessageAsync(CancellationToken)</a>
                 </div>
                 <div>
                   <span class="xref">System.Object.ToString()</span>
@@ -132,12 +129,12 @@
               
               
               <a id="Picturepark_SDK_V1_PermissionClient__ctor_" data-uid="Picturepark.SDK.V1.PermissionClient.#ctor*"></a>
-              <h4 id="Picturepark_SDK_V1_PermissionClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkClientSettings_" data-uid="Picturepark.SDK.V1.PermissionClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkClientSettings)">PermissionClient(IPictureparkClientSettings)</h4>
+              <h4 id="Picturepark_SDK_V1_PermissionClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkClientSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.PermissionClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkClientSettings,System.Net.Http.HttpClient)">PermissionClient(IPictureparkClientSettings, Net.Http.HttpClient)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public PermissionClient(IPictureparkClientSettings configuration)</code></pre>
+                <pre><code class="lang-csharp hljs">public PermissionClient(IPictureparkClientSettings configuration, Net.Http.HttpClient httpClient)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -152,6 +149,38 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.IPictureparkClientSettings.html">IPictureparkClientSettings</a></td>
                     <td><span class="parametername">configuration</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Net.Http.HttpClient</span></td>
+                    <td><span class="parametername">httpClient</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3 id="properties">Properties
+              </h3>
+              
+              
+              <a id="Picturepark_SDK_V1_PermissionClient_BaseUrl_" data-uid="Picturepark.SDK.V1.PermissionClient.BaseUrl*"></a>
+              <h4 id="Picturepark_SDK_V1_PermissionClient_BaseUrl" data-uid="Picturepark.SDK.V1.PermissionClient.BaseUrl">BaseUrl</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public string BaseUrl { get; set; }</code></pre>
+              </div>
+              <h5 class="propertyValue">Property Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
                     <td></td>
                   </tr>
                 </tbody>

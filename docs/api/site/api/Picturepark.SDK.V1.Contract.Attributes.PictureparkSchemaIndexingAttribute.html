@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class PictureparkContentRelationAttribute
+    <title>Class PictureparkSchemaIndexingAttribute
    | Picturepark.SDK.V1 API </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class PictureparkContentRelationAttribute
+    <meta name="title" content="Class PictureparkSchemaIndexingAttribute
    | Picturepark.SDK.V1 API ">
     <meta name="generator" content="docfx 2.16.7.0">
     
@@ -78,7 +78,7 @@
             <article class="content wrap" id="_content">
               
               
-              <h1 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkContentRelationAttribute" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute">Class PictureparkContentRelationAttribute
+              <h1 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkSchemaIndexingAttribute" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaIndexingAttribute">Class PictureparkSchemaIndexingAttribute
               </h1>
               <div class="markdown level0 summary"></div>
               <div class="markdown level0 conceptual"></div>
@@ -86,7 +86,7 @@
                 <h5>Inheritance</h5>
                   <div class="level0"><span class="xref">System.Object</span></div>
                   <div class="level1"><span class="xref">System.Attribute</span></div>
-                  <div class="level2"><span class="xref">PictureparkContentRelationAttribute</span></div>
+                  <div class="level2"><span class="xref">PictureparkSchemaIndexingAttribute</span></div>
               </div>
               <div class="inheritedMembers">
                 <h5>Inherited Members</h5>
@@ -231,22 +231,22 @@
               </div>
               <h6><strong>Namespace</strong>:Picturepark.SDK.V1.Contract.Attributes</h6>
               <h6><strong>Assembly</strong>:cs.temp.dll.dll</h6>
-              <h5 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkContentRelationAttribute_syntax">Syntax</h5>
+              <h5 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkSchemaIndexingAttribute_syntax">Syntax</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = true)]
-public class PictureparkContentRelationAttribute : Attribute, _Attribute, IPictureparkAttribute</code></pre>
+                <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
+public class PictureparkSchemaIndexingAttribute : Attribute, _Attribute, IPictureparkAttribute</code></pre>
               </div>
               <h3 id="constructors">Constructors
               </h3>
               
               
-              <a id="Picturepark_SDK_V1_Contract_Attributes_PictureparkContentRelationAttribute__ctor_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute.#ctor*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkContentRelationAttribute__ctor_System_String_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute.#ctor(System.String)">PictureparkContentRelationAttribute(String)</h4>
+              <a id="Picturepark_SDK_V1_Contract_Attributes_PictureparkSchemaIndexingAttribute__ctor_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaIndexingAttribute.#ctor*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkSchemaIndexingAttribute__ctor_System_String_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaIndexingAttribute.#ctor(System.String)">PictureparkSchemaIndexingAttribute(String)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">protected PictureparkContentRelationAttribute(string name)</code></pre>
+                <pre><code class="lang-csharp hljs">public PictureparkSchemaIndexingAttribute(string schemaIndexingInfo)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -260,20 +260,20 @@ public class PictureparkContentRelationAttribute : Attribute, _Attribute, IPictu
                 <tbody>
                   <tr>
                     <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">name</span></td>
+                    <td><span class="parametername">schemaIndexingInfo</span></td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
               
               
-              <a id="Picturepark_SDK_V1_Contract_Attributes_PictureparkContentRelationAttribute__ctor_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute.#ctor*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkContentRelationAttribute__ctor_System_String_System_String_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute.#ctor(System.String,System.String)">PictureparkContentRelationAttribute(String, String)</h4>
+              <a id="Picturepark_SDK_V1_Contract_Attributes_PictureparkSchemaIndexingAttribute__ctor_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaIndexingAttribute.#ctor*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkSchemaIndexingAttribute__ctor_System_Type_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaIndexingAttribute.#ctor(System.Type)">PictureparkSchemaIndexingAttribute(Type)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public PictureparkContentRelationAttribute(string name, string filter)</code></pre>
+                <pre><code class="lang-csharp hljs">public PictureparkSchemaIndexingAttribute(Type schemaIndexingInfoProvider)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -285,46 +285,9 @@ public class PictureparkContentRelationAttribute : Attribute, _Attribute, IPictu
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">name</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">filter</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_Attributes_PictureparkContentRelationAttribute__ctor_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute.#ctor*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkContentRelationAttribute__ctor_System_String_System_Type_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute.#ctor(System.String,System.Type)">PictureparkContentRelationAttribute(String, Type)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public PictureparkContentRelationAttribute(string name, Type filterProvider)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">name</span></td>
-                    <td></td>
-                  </tr>
                   <tr>
                     <td><span class="xref">System.Type</span></td>
-                    <td><span class="parametername">filterProvider</span></td>
+                    <td><span class="parametername">schemaIndexingInfoProvider</span></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -333,13 +296,13 @@ public class PictureparkContentRelationAttribute : Attribute, _Attribute, IPictu
               </h3>
               
               
-              <a id="Picturepark_SDK_V1_Contract_Attributes_PictureparkContentRelationAttribute_Filter_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute.Filter*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkContentRelationAttribute_Filter" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute.Filter">Filter</h4>
+              <a id="Picturepark_SDK_V1_Contract_Attributes_PictureparkSchemaIndexingAttribute_SchemaIndexingInfo_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaIndexingAttribute.SchemaIndexingInfo*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkSchemaIndexingAttribute_SchemaIndexingInfo" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaIndexingAttribute.SchemaIndexingInfo">SchemaIndexingInfo</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public FilterBase Filter { get; }</code></pre>
+                <pre><code class="lang-csharp hljs">public SchemaIndexingInfo SchemaIndexingInfo { get; }</code></pre>
               </div>
               <h5 class="propertyValue">Property Value</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -351,57 +314,7 @@ public class PictureparkContentRelationAttribute : Attribute, _Attribute, IPictu
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.FilterBase.html">FilterBase</a></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_Attributes_PictureparkContentRelationAttribute_Name_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute.Name*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkContentRelationAttribute_Name" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute.Name">Name</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
-              </div>
-              <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_Attributes_PictureparkContentRelationAttribute_TargetContext_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute.TargetContext*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkContentRelationAttribute_TargetContext" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute.TargetContext">TargetContext</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public TargetContext TargetContext { get; }</code></pre>
-              </div>
-              <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.TargetContext.html">TargetContext</a></td>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaIndexingInfo.html">SchemaIndexingInfo</a></td>
                     <td></td>
                   </tr>
                 </tbody>

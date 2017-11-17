@@ -196,44 +196,17 @@
                   </tr>
                 </tbody>
               </table>
-              
-              
-              <a id="Picturepark_SDK_V1_ClientBase_BaseUrl_" data-uid="Picturepark.SDK.V1.ClientBase.BaseUrl*"></a>
-              <h4 id="Picturepark_SDK_V1_ClientBase_BaseUrl" data-uid="Picturepark.SDK.V1.ClientBase.BaseUrl">BaseUrl</h4>
-              <div class="markdown level1 summary"><p>Gets or sets the base URL.</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string BaseUrl { get; protected set; }</code></pre>
-              </div>
-              <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
               <h3 id="methods">Methods
               </h3>
               
               
-              <a id="Picturepark_SDK_V1_ClientBase_CreateHttpClientAsync_" data-uid="Picturepark.SDK.V1.ClientBase.CreateHttpClientAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_ClientBase_CreateHttpClientAsync_CancellationToken_" data-uid="Picturepark.SDK.V1.ClientBase.CreateHttpClientAsync(CancellationToken)">CreateHttpClientAsync(CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Creates an HTTP client with a bearer authentication token from the IAuthClient.</p>
-</div>
+              <a id="Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_" data-uid="Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_CancellationToken_" data-uid="Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(CancellationToken)">CreateHttpRequestMessageAsync(CancellationToken)</h4>
+              <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">protected Task&lt;HttpClient&gt; CreateHttpClientAsync(CancellationToken cancellationToken)</code></pre>
+                <pre><code class="lang-csharp hljs">protected Task&lt;HttpRequestMessage&gt; CreateHttpRequestMessageAsync(CancellationToken cancellationToken)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -248,8 +221,7 @@
                   <tr>
                     <td><span class="xref">CancellationToken</span></td>
                     <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
+                    <td></td>
                   </tr>
                 </tbody>
               </table>
@@ -263,9 +235,8 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">Task</span>&lt;<span class="xref">HttpClient</span>&gt;</td>
-                    <td><p>The HTTP client.</p>
-</td>
+                    <td><span class="xref">Task</span>&lt;<span class="xref">HttpRequestMessage</span>&gt;</td>
+                    <td></td>
                   </tr>
                 </tbody>
               </table>
