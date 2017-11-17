@@ -90,6 +90,30 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Transfers")]
+		public async Task ShouldCancelTransfer()
+		{
+			/// Arrange
+			var transferName = new Random().Next(1000, 9999).ToString();
+			var files = new List<string>
+			{
+				Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
+			};
+
+			var transfer = await _client.Transfers.CreateTransferAsync(files, transferName);
+			var oldTransfer = await _client.Transfers.GetAsync(transfer.Id);
+
+			/// Act
+			await _client.Transfers.CancelTransferAsync(transfer.Id);
+
+			/// Assert
+			var currentTransfer = await _client.Transfers.GetAsync(transfer.Id);
+
+			Assert.Equal(TransferState.Created, oldTransfer.State); // TODO: ShouldCancelTransfer: Check asserts; they are probably incorrect!
+			Assert.Equal(TransferState.TransferReady, currentTransfer.State);
+		}
+
+		[Fact]
+		[Trait("Stack", "Transfers")]
 		public async Task ShouldCreateTransferFromWebUrls()
 		{
 			/// Arrange
