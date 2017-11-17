@@ -715,7 +715,7 @@ namespace Picturepark.SDK.V1.Tests
 			};
 			var directoryPath = Path.GetDirectoryName(filePaths.First());
 			string transferName = nameof(ShouldUpdateFile) + "-" + new Random().Next(1000, 9999);
-			Transfer transfer = await _client.Transfers.CreateTransferAsync(filePaths.Select(Path.GetFileName).ToList(), transferName);
+			Transfer transfer = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, filePaths.Select(Path.GetFileName).ToList());
 
 			// Upload file
 			var uploadOptions = new UploadOptions

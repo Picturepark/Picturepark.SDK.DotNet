@@ -43,7 +43,7 @@ namespace Picturepark.SDK.V1.Tests
 			};
 
 			/// Act
-			var result = await _client.Transfers.CreateTransferAsync(files, transferName);
+			var result = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, files);
 
 			/// Assert
 			Assert.NotNull(result);
@@ -62,7 +62,7 @@ namespace Picturepark.SDK.V1.Tests
 				Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
 			};
 
-			var transfer = await _client.Transfers.CreateTransferAsync(files, transferName);
+			var transfer = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, files);
 			var searchRequest = new FileTransferSearchRequest
 			{
 				Limit = 20,
@@ -99,7 +99,7 @@ namespace Picturepark.SDK.V1.Tests
 				Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
 			};
 
-			var transfer = await _client.Transfers.CreateTransferAsync(files, transferName);
+			var transfer = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, files);
 			var oldTransfer = await _client.Transfers.GetAsync(transfer.Id);
 
 			/// Act
@@ -138,7 +138,7 @@ namespace Picturepark.SDK.V1.Tests
 				}).ToList()
 			};
 
-			Transfer result = await _client.Transfers.CreateTransferAsync(request);
+			Transfer result = await _client.Transfers.CreateAndWaitForCompletionAsync(request);
 
 			/// Assert
 			Assert.NotNull(result);
@@ -257,7 +257,7 @@ namespace Picturepark.SDK.V1.Tests
 				LayerSchemaIds = new List<string>()
 			};
 
-			await _client.Transfers.ImportTransferAsync(transfer, request);
+			await _client.Transfers.ImportAndWaitForCompletionAsync(transfer, request);
 		}
 	}
 }

@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Contract
 {
 	public partial interface ITransferClient
 	{
-		Task<Transfer> UploadFilesAsync(string transferName, IEnumerable<string> filePaths, UploadOptions uploadOptions);
+		Task<Transfer> UploadFilesAsync(string transferName, IEnumerable<string> filePaths, UploadOptions uploadOptions, CancellationToken cancellationToken = default(CancellationToken));
 
-		Task UploadFilesAsync(Transfer transfer, IEnumerable<string> filePaths, UploadOptions uploadOptions);
+		Task UploadFilesAsync(Transfer transfer, IEnumerable<string> filePaths, UploadOptions uploadOptions, CancellationToken cancellationToken = default(CancellationToken));
 
-		Task ImportTransferAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest);
+		Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, CancellationToken cancellationToken = default(CancellationToken));
 
-		Task<Transfer> CreateTransferAsync(CreateTransferRequest request);
+		Task<Transfer> CreateAndWaitForCompletionAsync(CreateTransferRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
-		Task<Transfer> CreateTransferAsync(List<string> fileNames, string transferName);
+		Task<Transfer> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<string> fileNames, CancellationToken cancellationToken = default(CancellationToken));
 	}
 
 	public class UploadOptions

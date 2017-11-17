@@ -38,25 +38,6 @@ namespace Picturepark.SDK.V1
 
 		public string Alias { get; protected set; }
 
-		internal PictureparkException DeserializeException(string exception)
-		{
-			// TODO: Remove BusinessProcessExtensions and use methods in BusinessProcessClient
-			var result = default(PictureparkException);
-			try
-			{
-				result = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(exception, _jsonSettings.Value);
-			}
-			catch (Exception ex)
-			{
-				throw new Exception($"Could not deserialize the exception: {exception}", ex);
-			}
-
-			if (result == null)
-				result = new PictureparkException();
-
-			throw result;
-		}
-
 		protected async Task<HttpRequestMessage> CreateHttpRequestMessageAsync(CancellationToken cancellationToken)
 		{
 			var message = new HttpRequestMessage();

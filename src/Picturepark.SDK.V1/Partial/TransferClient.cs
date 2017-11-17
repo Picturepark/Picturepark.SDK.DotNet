@@ -23,21 +23,15 @@ namespace Picturepark.SDK.V1
 			_businessProcessClient = businessProcessClient;
 		}
 
-		public async Task<Transfer> UploadFilesAsync(
-			string transferName,
-			IEnumerable<string> files,
-			UploadOptions uploadOptions)
+		public async Task<Transfer> UploadFilesAsync(string transferName, IEnumerable<string> files, UploadOptions uploadOptions, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var filteredFileNames = FilterFilesByBlacklist(files.ToList());
-			Transfer transfer = await CreateTransferAsync(filteredFileNames.Select(Path.GetFileName).ToList(), transferName);
-			await UploadFilesAsync(transfer, filteredFileNames, uploadOptions);
+			Transfer transfer = await CreateAndWaitForCompletionAsync(transferName, filteredFileNames.Select(Path.GetFileName), cancellationToken);
+			await UploadFilesAsync(transfer, filteredFileNames, uploadOptions, cancellationToken);
 			return transfer;
 		}
 
-		public async Task UploadFilesAsync(
-			Transfer transfer,
-			IEnumerable<string> files,
-			UploadOptions uploadOptions)
+		public async Task UploadFilesAsync(Transfer transfer, IEnumerable<string> files, UploadOptions uploadOptions, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			uploadOptions = uploadOptions ?? new UploadOptions();
 
@@ -45,16 +39,15 @@ namespace Picturepark.SDK.V1
 
 			// Limits concurrent downloads
 			var throttler = new SemaphoreSlim(uploadOptions.ConcurrentUploads);
-
 			var filteredFileNames = FilterFilesByBlacklist(files.ToList());
 
 			// TODO: File by file uploads
-			var allTasks = filteredFileNames
+			var tasks = filteredFileNames
 				.Select(file => Task.Run(async () =>
 				{
 					try
 					{
-						await UploadFileAsync(throttler, transfer.Id, file, uploadOptions.ChunkSize);
+						await UploadFileAsync(throttler, transfer.Id, file, uploadOptions.ChunkSize, cancellationToken);
 						uploadOptions.SuccessDelegate?.Invoke(file);
 					}
 					catch (Exception ex)
@@ -62,34 +55,35 @@ namespace Picturepark.SDK.V1
 						exceptions.Add(ex);
 						uploadOptions.ErrorDelegate?.Invoke(ex);
 					}
-				}))
-				.ToList();
+				}));
 
-			await Task.WhenAll(allTasks).ConfigureAwait(false);
+			await Task.WhenAll(tasks).ConfigureAwait(false);
 
 			if (exceptions.Any())
+			{
 				throw new AggregateException(exceptions);
+			}
 
 			if (uploadOptions.WaitForTransferCompletion)
 			{
-				await WaitForCompletionAsync(transfer.BusinessProcessId);
+				await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, cancellationToken);
 			}
 		}
 
-		public async Task ImportTransferAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest)
+		public async Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var importedTransfer = await ImportTransferAsync(transfer.Id, createRequest);
-			await WaitForCompletionAsync(importedTransfer.BusinessProcessId);
+			var importedTransfer = await ImportTransferAsync(transfer.Id, createRequest, cancellationToken);
+			await _businessProcessClient.WaitForCompletionAsync(importedTransfer.BusinessProcessId, cancellationToken);
 		}
 
-		public async Task<Transfer> CreateTransferAsync(CreateTransferRequest request)
+		public async Task<Transfer> CreateAndWaitForCompletionAsync(CreateTransferRequest request, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var transfer = await CreateAsync(request);
-			await WaitForCompletionAsync(transfer.BusinessProcessId);
+			var transfer = await CreateAsync(request, cancellationToken);
+			await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, cancellationToken);
 			return transfer;
 		}
 
-		public async Task<Transfer> CreateTransferAsync(List<string> fileNames, string transferName)
+		public async Task<Transfer> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<string> fileNames, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var filteredFileNames = FilterFilesByBlacklist(fileNames);
 
@@ -100,26 +94,12 @@ namespace Picturepark.SDK.V1
 				Files = filteredFileNames.Select(i => new TransferUploadFile { FileName = i, Identifier = Guid.NewGuid().ToString() }).ToList()
 			};
 
-			var result = await CreateAsync(request);
-			await WaitForStatesAsync(result.BusinessProcessId, new List<string> { TransferState.Created.ToString() });
-
-			return result;
+			var transfer = await CreateAsync(request, cancellationToken);
+			await _businessProcessClient.WaitAsync(transfer.BusinessProcessId, new[] { TransferState.Created.ToString() }, null, null, cancellationToken);
+			return transfer;
 		}
 
-		internal async Task<string> GetFileTransferIdFromTransferIdAsync(string transferId)
-		{
-			var request = new FileTransferSearchRequest()
-			{
-				Limit = 1000 // TODO: Isn't this bad for performance? Can't we just add a TermFilter with the transferId?
-			};
-
-			var result = await SearchFilesAsync(request);
-			var fileTransferId = result.Results.Where(i => i.TransferId == transferId).Select(i => i.Id).FirstOrDefault();
-
-			return fileTransferId;
-		}
-
-		private async Task UploadFileAsync(SemaphoreSlim throttler, string transferId, string absoluteFilePath, int chunkSize = 1024 * 1024)
+		private async Task UploadFileAsync(SemaphoreSlim throttler, string transferId, string absoluteFilePath, int chunkSize, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var fileName = Path.GetFileName(absoluteFilePath);
 			var identifier = fileName;
@@ -132,7 +112,7 @@ namespace Picturepark.SDK.V1
 
 			for (var chunkNumber = 1; chunkNumber <= totalChunks; chunkNumber++)
 			{
-				await throttler.WaitAsync();
+				await throttler.WaitAsync(cancellationToken);
 
 				var number = chunkNumber;
 				uploadTasks.Add(Task.Run(async () =>
@@ -153,7 +133,7 @@ namespace Picturepark.SDK.V1
 							var buffer = new byte[currentChunkSize];
 							fileStream.Position = position;
 
-							await fileStream.ReadAsync(buffer, 0, currentChunkSize);
+							await fileStream.ReadAsync(buffer, 0, currentChunkSize, cancellationToken);
 
 							using (var memoryStream = new MemoryStream(buffer))
 							{
@@ -165,7 +145,8 @@ namespace Picturepark.SDK.V1
 									number,
 									currentChunkSize,
 									fileSize,
-									totalChunks);
+									totalChunks,
+									cancellationToken);
 							}
 						}
 					}
@@ -179,52 +160,10 @@ namespace Picturepark.SDK.V1
 			await Task.WhenAll(uploadTasks).ConfigureAwait(false);
 		}
 
-		private async Task<BusinessProcessWaitResult> WaitForCompletionAsync(string businessProcessId, int timeout = 10 * 60 * 1000)
-		{
-			// TODO: Remove BusinessProcessExtensions and use methods in BusinessProcessClient
-			var waitResult = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout);
-
-			if (waitResult.HasLifeCycleHit)
-				return waitResult;
-
-			var error = waitResult.BusinessProcess.StateHistory.SingleOrDefault(i => i.Error != null);
-
-			// Not finished
-			if (error == null)
-			{
-				throw new TimeoutException($"Wait for business process on completion timed out after {timeout / 1000} seconds");
-			}
-
-			// Throw deserialized exception
-			var exception = DeserializeException(error.Error.Exception);
-			throw exception;
-		}
-
-		private async Task<BusinessProcessWaitResult> WaitForStatesAsync(string businessProcessId, IEnumerable<string> states, int timeout = 10 * 60 * 1000)
-		{
-			// TODO: Remove BusinessProcessExtensions and use methods in BusinessProcessClient
-			var waitResult = await _businessProcessClient.WaitAsync(businessProcessId, states, null, timeout);
-
-			if (waitResult.HasStateHit)
-				return waitResult;
-
-			var error = waitResult.BusinessProcess.StateHistory.SingleOrDefault(i => i.Error != null);
-
-			// Not finished
-			if (error == null)
-			{
-				throw new TimeoutException($"Wait for business process on completion timed out after {timeout / 1000} seconds");
-			}
-
-			// Throw deserialized exception
-			var exception = DeserializeException(error.Error.Exception);
-			throw exception;
-		}
-
-		private List<string> FilterFilesByBlacklist(List<string> files)
+		private IEnumerable<string> FilterFilesByBlacklist(IEnumerable<string> files)
 		{
 			var blacklist = GetCachedBlacklist();
-			var filteredFileNames = files.Where(i => !blacklist.Contains(Path.GetFileName(i).ToLowerInvariant())).ToList();
+			var filteredFileNames = files.Where(i => !blacklist.Contains(Path.GetFileName(i).ToLowerInvariant()));
 			return filteredFileNames;
 		}
 
