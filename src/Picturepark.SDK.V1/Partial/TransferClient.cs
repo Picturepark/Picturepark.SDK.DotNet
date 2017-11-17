@@ -238,7 +238,7 @@ namespace Picturepark.SDK.V1
 				if (_fileNameBlacklist != null)
 					return _fileNameBlacklist;
 
-				var blacklist = GetBlacklist();
+				var blacklist = GetBlacklist(); // TODO: GetCachedBlacklist: Use async version
 				_fileNameBlacklist = blacklist.Items.Select(i => i.Match.ToLowerInvariant()).ToList();
 			}
 
