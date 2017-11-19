@@ -589,6 +589,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Contents")]
 		public async Task ShouldSearch()
 		{
+			/// Arrange
 			var channelIds = new List<string> { "rootChannel" };
 
 			var sortInfos = new List<SortInfo>
@@ -597,7 +598,6 @@ namespace Picturepark.SDK.V1.Tests
 			};
 
 			var filter = new TermFilter { Field = "contentSchemaId", Term = "ImageMetadata" };
-
 			var request = new ContentSearchRequest
 			{
 				ChannelIds = channelIds,
@@ -608,7 +608,10 @@ namespace Picturepark.SDK.V1.Tests
 				Limit = 8
 			};
 
+			/// Act
 			ContentSearchResult result = await _client.Contents.SearchAsync(request);
+
+			/// Assert
 			Assert.True(result.Results.Count > 0);
 		}
 

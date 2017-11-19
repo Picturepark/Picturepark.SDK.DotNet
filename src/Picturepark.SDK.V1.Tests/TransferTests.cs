@@ -223,17 +223,21 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldUploadAndImportFiles()
 		{
+			/// Arrange
 			const int desiredUploadFiles = 10;
 			var transferName = nameof(ShouldUploadAndImportFiles) + "-" + new Random().Next(1000, 9999);
 
 			var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, "*").ToList();
 
-			var numberOfFilesInDir = filesInDirectory.Count;
-			var numberOfUploadFiles = Math.Min(desiredUploadFiles, numberOfFilesInDir);
+			var numberOfFilesInDirectory = filesInDirectory.Count;
+			var numberOfUploadFiles = Math.Min(desiredUploadFiles, numberOfFilesInDirectory);
 
-			var randomNumber = new Random().Next(0, numberOfFilesInDir - numberOfUploadFiles);
-			var importFilePaths = filesInDirectory.Skip(randomNumber).Take(numberOfUploadFiles).ToList();
+			var randomNumber = new Random().Next(0, numberOfFilesInDirectory - numberOfUploadFiles);
+			var importFilePaths = filesInDirectory
+				.Skip(randomNumber)
+				.Take(numberOfUploadFiles);
 
+			/// Act
 			var uploadOptions = new UploadOptions
 			{
 				ConcurrentUploads = 4,
@@ -241,23 +245,19 @@ namespace Picturepark.SDK.V1.Tests
 				SuccessDelegate = Console.WriteLine,
 				ErrorDelegate = Console.WriteLine
 			};
-
 			var transfer = await _client.Transfers.UploadFilesAsync(transferName, importFilePaths, uploadOptions);
 
-			await ImportTransferAsync(transfer, transferName);
-		}
-
-		internal async Task ImportTransferAsync(Transfer transfer, string collectionName)
-		{
-			var request = new FileTransfer2ContentCreateRequest
+			var createRequest = new FileTransfer2ContentCreateRequest // TODO: Rename FileTransfer2ContentCreateRequest (better name?, use "to" instead of 2)
 			{
 				TransferId = transfer.Id,
 				ContentPermissionSetIds = new List<string>(),
 				Metadata = null,
 				LayerSchemaIds = new List<string>()
 			};
+			await _client.Transfers.ImportAndWaitForCompletionAsync(transfer, createRequest);
 
-			await _client.Transfers.ImportAndWaitForCompletionAsync(transfer, request);
+			/// Assert
+			// TODO: How to get all uploaded content items?
 		}
 	}
 }

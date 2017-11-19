@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -23,29 +22,24 @@ namespace Picturepark.SDK.V1.Contract
 		/// <returns>The created transfer object.</returns>
 		Task UploadFilesAsync(Transfer transfer, IEnumerable<string> filePaths, UploadOptions uploadOptions, CancellationToken cancellationToken = default(CancellationToken));
 
+		/// <summary>Transfers the uploaded files and waits for its completions.</summary>
+		/// <param name="transfer">The transfer.</param>
+		/// <param name="createRequest">The create request.</param>
+		/// <param name="cancellationToken">The cancellcation token.</param>
+		/// <returns>The task.</returns>
 		Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, CancellationToken cancellationToken = default(CancellationToken));
 
+		/// <summary>Creates a transfer and waits for its completion.</summary>
+		/// <param name="request">The create request.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The transfer.</returns>
 		Task<Transfer> CreateAndWaitForCompletionAsync(CreateTransferRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
+		/// <summary>Creates a transfer and waits for its completion.</summary>
+		/// <param name="transferName">The name of the transfer.</param>
+		/// <param name="fileNames">The file names of the transfer.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The transfer.</returns>
 		Task<Transfer> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<string> fileNames, CancellationToken cancellationToken = default(CancellationToken));
-	}
-
-	/// <summary>The file upload options.</summary>
-	public class UploadOptions
-	{
-		/// <summary>Gets or sets the number of concurrent uploads (default: 4).</summary>
-		public int ConcurrentUploads { get; set; } = 4;
-
-		/// <summary>Gets or sets the chunk size (default: 1024 kb).</summary>
-		public int ChunkSize { get; set; } = 1024 * 1024;
-
-		/// <summary>Gets or sets a value indicating whether to wait for the completion of the transfer.</summary>
-		public bool WaitForTransferCompletion { get; set; } = true;
-
-		/// <summary>Gets or sets the success delegate which is called when a file has been uploaded.</summary>
-		public Action<string> SuccessDelegate { get; set; } = null;
-
-		/// <summary>Gets or sets the error delegate which is called when file upload failed.</summary>
-		public Action<Exception> ErrorDelegate { get; set; } = null;
 	}
 }

@@ -23,15 +23,27 @@ namespace Picturepark.SDK.V1
 			_businessProcessClient = businessProcessClient;
 		}
 
-		public async Task<Transfer> UploadFilesAsync(string transferName, IEnumerable<string> files, UploadOptions uploadOptions, CancellationToken cancellationToken = default(CancellationToken))
+		/// <summary>Uploads multiple files from the filesystem.</summary>
+		/// <param name="transferName">The name of the created transfer.</param>
+		/// <param name="filePaths">The file paths on the filesystem.</param>
+		/// <param name="uploadOptions">The file upload options.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The created transfer object.</returns>
+		public async Task<Transfer> UploadFilesAsync(string transferName, IEnumerable<string> filePaths, UploadOptions uploadOptions, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var filteredFileNames = FilterFilesByBlacklist(files.ToList());
+			var filteredFileNames = FilterFilesByBlacklist(filePaths.ToList());
 			Transfer transfer = await CreateAndWaitForCompletionAsync(transferName, filteredFileNames.Select(Path.GetFileName), cancellationToken);
 			await UploadFilesAsync(transfer, filteredFileNames, uploadOptions, cancellationToken);
 			return transfer;
 		}
 
-		public async Task UploadFilesAsync(Transfer transfer, IEnumerable<string> files, UploadOptions uploadOptions, CancellationToken cancellationToken = default(CancellationToken))
+		/// <summary>Uploads multiple files from the filesystem.</summary>
+		/// <param name="transfer">The existing transfer object.</param>
+		/// <param name="filePaths">The file paths on the filesystem.</param>
+		/// <param name="uploadOptions">The file upload options.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The created transfer object.</returns>
+		public async Task UploadFilesAsync(Transfer transfer, IEnumerable<string> filePaths, UploadOptions uploadOptions, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			uploadOptions = uploadOptions ?? new UploadOptions();
 
@@ -39,7 +51,7 @@ namespace Picturepark.SDK.V1
 
 			// Limits concurrent downloads
 			var throttler = new SemaphoreSlim(uploadOptions.ConcurrentUploads);
-			var filteredFileNames = FilterFilesByBlacklist(files.ToList());
+			var filteredFileNames = FilterFilesByBlacklist(filePaths.ToList());
 
 			// TODO: File by file uploads
 			var tasks = filteredFileNames
@@ -70,12 +82,21 @@ namespace Picturepark.SDK.V1
 			}
 		}
 
+		/// <summary>Transfers the uploaded files and waits for its completions.</summary>
+		/// <param name="transfer">The transfer.</param>
+		/// <param name="createRequest">The create request.</param>
+		/// <param name="cancellationToken">The cancellcation token.</param>
+		/// <returns>The task.</returns>
 		public async Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var importedTransfer = await ImportTransferAsync(transfer.Id, createRequest, cancellationToken);
 			await _businessProcessClient.WaitForCompletionAsync(importedTransfer.BusinessProcessId, cancellationToken);
 		}
 
+		/// <summary>Creates a transfer and waits for its completion.</summary>
+		/// <param name="request">The create request.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The transfer.</returns>
 		public async Task<Transfer> CreateAndWaitForCompletionAsync(CreateTransferRequest request, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var transfer = await CreateAsync(request, cancellationToken);
@@ -83,6 +104,11 @@ namespace Picturepark.SDK.V1
 			return transfer;
 		}
 
+		/// <summary>Creates a transfer and waits for its completion.</summary>
+		/// <param name="transferName">The name of the transfer.</param>
+		/// <param name="fileNames">The file names of the transfer.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The transfer.</returns>
 		public async Task<Transfer> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<string> fileNames, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var filteredFileNames = FilterFilesByBlacklist(fileNames);
