@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Picturepark.SDK.V1.Contract
 {
+	// TODO: Make this internal?
 	public static class PropertyHelper
 	{
 		public static string GetName<TObject>(Expression<Func<TObject, object>> propertyRefExpr)
