@@ -1,6 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Fixtures;
+using Picturepark.SDK.V1.Contract;
+using System.Linq;
 
 namespace Picturepark.SDK.V1.Tests
 {
@@ -13,6 +15,48 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			_fixture = fixture;
 			_client = _fixture.Client;
+		}
+
+		[Fact]
+		[Trait("Stack", "Contents")]
+		public async Task ShouldSearch()
+		{
+			/// Act
+			var searchResult = await _client.Users.SearchAsync(new UserSearchRequest { Limit = 10 });
+
+			/// Assert
+			Assert.True(searchResult.Results.Any());
+		}
+
+		[Fact]
+		[Trait("Stack", "Contents")]
+		public async Task ShouldGetUser()
+		{
+			/// Arrange
+			var contentId = _fixture.GetRandomContentId(".jpg", 50);
+			var content = await _client.Contents.GetAsync(contentId);
+			var owner = await _client.Users.GetByOwnerTokenAsync(content.OwnerTokenId);
+
+			/// Act
+			var user = await _client.Users.GetUserAsync(owner.Id); // TODO: UserClient.GetUserAsync: Rename to GetAsync
+
+			/// Assert
+			Assert.Equal(owner.Id, user.Id);
+		}
+
+		[Fact]
+		[Trait("Stack", "Contents")]
+		public async Task ShouldGetByOwnerToken()
+		{
+			/// Arrange
+			var contentId = _fixture.GetRandomContentId(".jpg", 50);
+			var content = await _client.Contents.GetAsync(contentId);
+
+			/// Act
+			var owner = await _client.Users.GetByOwnerTokenAsync(content.OwnerTokenId);
+
+			/// Assert
+			Assert.NotNull(owner);
 		}
 
 		[Fact]
