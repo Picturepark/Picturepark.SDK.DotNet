@@ -121,10 +121,7 @@ namespace Picturepark.SDK.V1.Tests
 
 			foreach (var schema in person)
 			{
-				if (await _client.Schemas.ExistsAsync(schema.Id) == false)
-				{
-					await _client.Schemas.CreateAsync(schema, true);
-				}
+				await _client.Schemas.CreateOrUpdateAsync(schema, true);
 			}
 
 			var generatedPersonSchema = await _client.Schemas.GetAsync("Person");

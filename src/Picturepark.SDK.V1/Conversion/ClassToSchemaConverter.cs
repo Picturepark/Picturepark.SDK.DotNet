@@ -173,9 +173,6 @@ namespace Picturepark.SDK.V1.Conversion
 				var fieldData = GetFieldData(contractPropertyInfo);
 
 				fieldData.Id = fieldName.ToLowerCamelCase();
-				fieldData.FieldNamespace = $"{schemaId}_{fieldData.Id}";
-				if (!string.IsNullOrEmpty(parentSchemaId))
-					fieldData.FieldNamespace = $"{parentSchemaId}_{fieldData.FieldNamespace}";
 
 				if (fieldData.Names == null)
 				{
