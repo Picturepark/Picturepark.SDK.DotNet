@@ -49,10 +49,10 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
 	public class SoccerPlayer : Person
 	{
-		[PictureparkSchemaItem("{ 'kind': 'TermFilter', 'field': 'contentType', Term: 'FC Aarau' }")]
+		[PictureparkTagbox("{ 'kind': 'TermFilter', 'field': 'contentType', Term: 'FC Aarau' }")]
 		public Club Club { get; set; }
 
-		[PictureparkSchemaItem("{ 'kind': 'TermFilter', 'field': 'contentType', Term: 'Krummbein' }")]
+		[PictureparkTagbox("{ 'kind': 'TermFilter', 'field': 'contentType', Term: 'Krummbein' }")]
 		public List<Pet> OwnsPets { get; set; }
 
 		public List<Addresses> Addresses { get; set; }

@@ -509,7 +509,7 @@ namespace Picturepark.SDK.V1.Conversion
 			else
 			{
 				var schemaIndexing = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkSchemaIndexingAttribute>().SingleOrDefault();
-				var schemaItemInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkSchemaItemAttribute>().SingleOrDefault();
+				var schemaItemInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkTagboxAttribute>().SingleOrDefault();
 				var relationInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkContentRelationAttribute>().ToList();
 				var maxRecursionInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkMaximumRecursionAttribute>().SingleOrDefault();
 
