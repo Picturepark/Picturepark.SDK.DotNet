@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
-using Picturepark.SDK.V1.Contract.Interfaces;
 using System.Collections.Generic;
 
 namespace Picturepark.Microsite.Example.Contracts.Jobs
@@ -14,7 +13,7 @@ namespace Picturepark.Microsite.Example.Contracts.Jobs
 	[PictureparkDisplayPattern(DisplayPatternType.Detail, TemplateEngine.DotLiquid, "{{data.requiredSkill.name.x-default}}")]
 	[PictureparkNameTranslation("x-default", "Required Skill")]
 	[PictureparkNameTranslation("fr", "Exigences")]
-	public class RequiredSkill : IReference
+	public class RequiredSkill : ReferenceObject
 	{
 		[PictureparkRequired]
 		public TranslatedStringDictionary Name { get; set; }
@@ -33,8 +32,5 @@ namespace Picturepark.Microsite.Example.Contracts.Jobs
 		[PictureparkNameTranslation("en", "Solutions")]
 		[PictureparkNameTranslation("de", "Lösungen")]
 		public List<Solution> Solutions { get; set; } = new List<Solution>();
-
-		[JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-		public string refId { get; set; }
 	}
 }

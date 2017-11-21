@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
-using Picturepark.SDK.V1.Contract.Interfaces;
 
 namespace Picturepark.Microsite.Example.Contracts.Jobs
 {
@@ -13,7 +12,7 @@ namespace Picturepark.Microsite.Example.Contracts.Jobs
 	[PictureparkDisplayPattern(DisplayPatternType.Detail, TemplateEngine.DotLiquid, "{{data.officeLocation.name}}")]
 	[PictureparkNameTranslation("x-default", "Office Locations")]
 	[PictureparkNameTranslation("fr", "Bases opérationnelles à travers")]
-	public class OfficeLocation : IReference
+	public class OfficeLocation : ReferenceObject
 	{
 		public string Name { get; set; }
 
@@ -26,8 +25,5 @@ namespace Picturepark.Microsite.Example.Contracts.Jobs
 		[PictureparkNameTranslation("en", "Kind")]
 		[PictureparkNameTranslation("de", "Art")]
 		public string Kind { get; set; }
-
-		[JsonIgnore]
-		public string refId { get; set; }
 	}
 }
