@@ -194,14 +194,14 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldSearch()
 		{
 			/// Arrange
-			var request = new TransferSearchRequest { Limit = 5, SearchString = "*" };
+			var request = new TransferSearchRequest { Limit = 1, SearchString = "*" };
 
 			/// Act
 			TransferSearchResult result = await _client.Transfers.SearchAsync(request);
 
 			/// Assert
 			Assert.NotNull(result);
-			Assert.Equal(5, result.Results.Count);
+			Assert.Equal(1, result.Results.Count);
 		}
 
 		[Fact]
