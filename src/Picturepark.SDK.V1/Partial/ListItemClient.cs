@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
-using Picturepark.SDK.V1.Contract.Extensions;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using Picturepark.SDK.V1.Contract.Attributes;

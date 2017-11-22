@@ -20,8 +20,7 @@ namespace Picturepark.SDK.V1
 		{
 			_settings = settings;
 
-			GetType().GetRuntimeProperty("BaseUrl").SetValue(this, _settings.BaseUrl);
-			Alias = _settings.CustomerAlias;
+			GetType().GetRuntimeProperty("BaseUrl").SetValue(this, _settings.BaseUrl); // TODO: Disable GenerateBaseUrlProperty (NSwag) and implement it in this class!
 
 			_jsonSettings = new Lazy<Newtonsoft.Json.JsonSerializerSettings>(() =>
 			{
@@ -36,7 +35,7 @@ namespace Picturepark.SDK.V1
 			});
 		}
 
-		public string Alias { get; protected set; }
+		public string Alias => _settings.CustomerAlias; // TODO: Rename ClientBase.Alias property to CustomerAlias
 
 		protected async Task<HttpRequestMessage> CreateHttpRequestMessageAsync(CancellationToken cancellationToken)
 		{
