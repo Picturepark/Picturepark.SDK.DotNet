@@ -591,10 +591,13 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			/// Arrange
 			var channelIds = new List<string> { "rootChannel" };
+			var searchFieldPath =
+				nameof(ContentDetail.Audit).ToLowerCamelCase() + "." +
+				nameof(UserAudit.CreationDate).ToLowerCamelCase();
 
 			var sortInfos = new List<SortInfo>
 			{
-				new SortInfo { Direction = SortDirection.Asc, Field = PropertyHelper.GetName<ContentDetail>(i => i.Audit.CreationDate) }
+				new SortInfo { Direction = SortDirection.Asc, Field = searchFieldPath }
 			};
 
 			var filter = new TermFilter { Field = "contentSchemaId", Term = "ImageMetadata" };

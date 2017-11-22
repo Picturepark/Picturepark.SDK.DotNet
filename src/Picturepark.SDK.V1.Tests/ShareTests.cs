@@ -51,7 +51,7 @@ namespace Picturepark.SDK.V1.Tests
 				{
 					new TermsAggregator
 					{
-						Field = PropertyHelper.GetName<Share>(i => i.ShareType),
+						Field = nameof(Share.ShareType).ToLowerCamelCase(),
 						Size = 10,
 						Name = "ShareType"
 					}
