@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B3412393-9444-4901-9F57-46015BC30766}"
 	ProjectSection(SolutionItems) = preProject
@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		version.json = version.json
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Public API", "Public API", "{4B2AA4DC-FA39-4146-8AA2-50D1908601AB}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 API", "02 API", "{4B2AA4DC-FA39-4146-8AA2-50D1908601AB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Picturepark.SDK.V1", "Picturepark.SDK.V1\Picturepark.SDK.V1.csproj", "{F7E87671-10C3-4090-A10A-70E359F8A26D}"
 EndProject
@@ -25,9 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Picturepark.SDK.V1.Tests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Picturepark.SDK.V1.Localization", "Picturepark.SDK.V1.Localization\Picturepark.SDK.V1.Localization.csproj", "{D64ABD48-6CAE-4DDD-B9EA-857DEAC2047B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Management API", "Management API", "{88E65D30-2F71-46D3-AA5B-542EFDD0D57C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 Management API", "03 Management API", "{88E65D30-2F71-46D3-AA5B-542EFDD0D57C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{99AB8223-6232-4A34-910C-42F116B29AF7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 Docs", "01 Docs", "{99AB8223-6232-4A34-910C-42F116B29AF7}"
 	ProjectSection(SolutionItems) = preProject
 		..\LICENSE.md = ..\LICENSE.md
 		..\README.md = ..\README.md
