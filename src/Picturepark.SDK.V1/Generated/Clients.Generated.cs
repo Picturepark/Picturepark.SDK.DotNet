@@ -47,9 +47,9 @@ namespace Picturepark.SDK.V1
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public ContentDetail UpdateTransferOwnership(string contentId, ContentOwnershipTransferRequest updateRequest, int? timeout = null)
+        public ContentDetail TransferOwnership(string contentId, ContentOwnershipTransferRequest updateRequest, int? timeout = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await UpdateTransferOwnershipAsync(contentId, updateRequest, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await TransferOwnershipAsync(contentId, updateRequest, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Update Single - OwnershipTransfer</summary>
@@ -60,7 +60,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<ContentDetail> UpdateTransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentDetail> TransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
                 throw new System.ArgumentNullException("contentId");
@@ -2983,7 +2983,7 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Wait</summary>
+        /// <summary>Wait for completion</summary>
         /// <param name="processId">The process id</param>
         /// <param name="timeout">The timeout in ms to wait for completion.</param>
         /// <returns>BusinessProcessWaitResult</returns>
@@ -2994,7 +2994,7 @@ namespace Picturepark.SDK.V1
             return System.Threading.Tasks.Task.Run(async () => await WaitForCompletionCoreAsync(processId, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
-        /// <summary>Wait</summary>
+        /// <summary>Wait for completion</summary>
         /// <param name="processId">The process id</param>
         /// <param name="timeout">The timeout in ms to wait for completion.</param>
         /// <returns>BusinessProcessWaitResult</returns>
@@ -4834,6 +4834,7 @@ namespace Picturepark.SDK.V1
         /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ListItemNotFoundException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public ListItemDetail Get(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
@@ -4845,6 +4846,7 @@ namespace Picturepark.SDK.V1
         /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ListItemNotFoundException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         public async System.Threading.Tasks.Task<ListItemDetail> GetAsync(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -4903,7 +4905,21 @@ namespace Picturepark.SDK.V1
                         if (status_ == "404") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("A server side error occurred.", status_, responseData_, headers_, null);
+                            var result_ = default(ListItemNotFoundException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemNotFoundException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception_) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
+                            }
+                            if (result_ == null)
+                                result_ = new ListItemNotFoundException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
                         }
                         else
                         if (status_ == "500") 
@@ -9810,9 +9826,9 @@ namespace Picturepark.SDK.V1
         /// <returns>UserDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public UserDetail GetUser(string userId)
+        public UserDetail Get(string userId)
         {
-            return System.Threading.Tasks.Task.Run(async () => await GetUserAsync(userId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await GetAsync(userId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Get Userdetail by id</summary>
@@ -9821,7 +9837,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<UserDetail> GetUserAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UserDetail> GetAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (userId == null)
                 throw new System.ArgumentNullException("userId");

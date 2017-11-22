@@ -4327,7 +4327,7 @@
     },
     "GeoDistanceFilter": {
       "type": "object",
-      "description": "The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point.",
+      "description": "The GeoDistanceFilter returns documents that include only hits that exists within a specific distance from a geo point.",
       "additionalProperties": false,
       "required": [
         "distance"
@@ -4356,62 +4356,6 @@
           "$ref": "#/definitions/FilterBase"
         }
       ]
-    },
-    "GeoDistanceRangeFilter": {
-      "type": "object",
-      "description": "The GeoDistanceRangeFilter returns documents that exists within a range from a specific point.",
-      "additionalProperties": false,
-      "properties": {
-        "field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        },
-        "location": {
-          "description": "The longitude/latitude configuration for the point of origin.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/GeoLocation"
-            }
-          ]
-        },
-        "range": {
-          "description": "The numeric range.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/NumericRange"
-            }
-          ]
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "NumericRange": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "names": {
-          "description": "Tranlsated range names.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        },
-        "from": {
-          "type": "number",
-          "description": "The from value.",
-          "format": "double"
-        },
-        "to": {
-          "type": "number",
-          "description": "The to value.",
-          "format": "double"
-        }
-      }
     },
     "NestedFilter": {
       "type": "object",
@@ -4460,6 +4404,30 @@
           "$ref": "#/definitions/FilterBase"
         }
       ]
+    },
+    "NumericRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "names": {
+          "description": "Tranlsated range names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "from": {
+          "type": "number",
+          "description": "The from value.",
+          "format": "double"
+        },
+        "to": {
+          "type": "number",
+          "description": "The to value.",
+          "format": "double"
+        }
+      }
     },
     "PrefixFilter": {
       "type": "object",
@@ -4534,7 +4502,7 @@
           "description": "The name of the aggregation this filter is connected to."
         },
         "filter": {
-          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.",
+          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceFilter.",
           "allOf": [
             {
               "$ref": "#/definitions/FilterBase"

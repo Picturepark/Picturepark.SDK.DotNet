@@ -75,7 +75,7 @@ namespace Picturepark.SDK.V1.Tests
 					listItemDetail1.Id,
 					listItemDetail2.Id
 				},
-				ChangeCommands = new List<MetadataValuesSchemaUpdateCommand>
+				ChangeCommands = new List<MetadataValuesChangeCommandBase>
 				{
 					new MetadataValuesSchemaUpdateCommand
 					{
