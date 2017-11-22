@@ -225,6 +225,8 @@ namespace Picturepark.SDK.V1.Tests
 		{
 			/// Arrange
 			const int desiredUploadFiles = 10;
+			const int timeout = 2 * 60 * 1000;
+
 			var transferName = nameof(ShouldUploadAndImportFiles) + "-" + new Random().Next(1000, 9999);
 
 			var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, "*").ToList();
@@ -254,7 +256,8 @@ namespace Picturepark.SDK.V1.Tests
 				Metadata = null,
 				LayerSchemaIds = new List<string>()
 			};
-			await _client.Transfers.ImportAndWaitForCompletionAsync(transfer, createRequest);
+
+			await _client.Transfers.ImportAndWaitForCompletionAsync(transfer, createRequest, timeout);
 
 			/// Assert
 			// TODO: How to get all uploaded content items?

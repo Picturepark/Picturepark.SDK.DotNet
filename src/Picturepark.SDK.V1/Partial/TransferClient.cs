@@ -85,12 +85,13 @@ namespace Picturepark.SDK.V1
 		/// <summary>Transfers the uploaded files and waits for its completions.</summary>
 		/// <param name="transfer">The transfer.</param>
 		/// <param name="createRequest">The create request.</param>
+		/// <param name="timeout">The timeout in ms to wait for completion.</param>
 		/// <param name="cancellationToken">The cancellcation token.</param>
 		/// <returns>The task.</returns>
-		public async Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, int timeout = 60 * 1000, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var importedTransfer = await ImportTransferAsync(transfer.Id, createRequest, cancellationToken);
-			await _businessProcessClient.WaitForCompletionAsync(importedTransfer.BusinessProcessId, cancellationToken);
+			await _businessProcessClient.WaitForCompletionAsync(importedTransfer.BusinessProcessId, timeout, cancellationToken);
 		}
 
 		/// <summary>Creates a transfer and waits for its completion.</summary>
