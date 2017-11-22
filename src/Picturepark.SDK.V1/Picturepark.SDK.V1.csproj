@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<Description>Picturepark DotNet SDK</Description>
+		<Description>Picturepark .NET SDK: The client implementations to access the Picturepark backend.</Description>
 		<AssemblyTitle>Picturepark.SDK.V1</AssemblyTitle>
 		<TargetFrameworks>netstandard1.3;net45</TargetFrameworks>
 		<NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>

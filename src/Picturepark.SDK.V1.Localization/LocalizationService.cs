@@ -18,47 +18,32 @@ namespace Picturepark.SDK.V1.Localization
 		public static string ResolveErrorCode(PictureparkException exception, string language) // TODO: LocalizationService: Use language enum instead of string?
 		{
 			var errorAsString = exception.GetType().Name;
-			var cultureInfo = new CultureInfo(language);
-			var catalog = GetCatalog(language);
-
-			// catalog not found, so try to get the base catalog immediately
-			if (catalog == null)
-			{
-				cultureInfo = cultureInfo.Parent;
-				catalog = GetCatalog(cultureInfo.TwoLetterISOLanguageName);
-			}
-
-			// no catalog, just return the error code as a string
-			if (catalog == null)
-			{
-				return errorAsString;
-			}
-
-			var value = catalog.GetString(errorAsString);
-
-			// try on base catalog if no translation is found
-			if (!cultureInfo.IsNeutralCulture && value == errorAsString)
-			{
-				cultureInfo = cultureInfo.Parent;
-				catalog = GetCatalog(cultureInfo.TwoLetterISOLanguageName);
-				value = catalog.GetString(errorAsString);
-			}
-
-			// render data into translated string
-			return Template.Parse(value).Render(Hash.FromAnonymousObject(exception));
+			return ResolveLocalizedText(errorAsString, Hash.FromAnonymousObject(exception), language);
 		}
 
 		public static string ResolveLocalizedText(int code, string language)
 		{
-			return ResolveLocalizedText(code, new Dictionary<string, object>(), language);
+			return ResolveLocalizedText(code.ToString(), new Dictionary<string, object>(), language);
 		}
 
 		public static string ResolveLocalizedText(int code, IDictionary<string, object> additionalData, string language)
 		{
-			var codeAsString = code.ToString();
+			return ResolveLocalizedText(code.ToString(), additionalData, language);
+		}
 
+		public static string ResolveLocalizedText(string code, string language)
+		{
+			return ResolveLocalizedText(code, new Dictionary<string, object>(), language);
+		}
+
+		public static string ResolveLocalizedText(string code, IDictionary<string, object> additionalData, string language)
+		{
+			return ResolveLocalizedText(code, Hash.FromDictionary(additionalData), language);
+		}
+
+		private static string ResolveLocalizedText(string code, Hash additionalData, string language)
+		{
 			var cultureInfo = new CultureInfo(language);
-
 			var catalog = GetCatalog(language);
 
 			// catalog not found, so try to get the base catalog immediately
@@ -71,21 +56,21 @@ namespace Picturepark.SDK.V1.Localization
 			// no catalog, just return the error code as a string
 			if (catalog == null)
 			{
-				return codeAsString;
+				return code;
 			}
 
-			var value = catalog.GetString(codeAsString);
+			var value = catalog.GetString(code);
 
 			// try on base catalog if no translation is found
-			if (!cultureInfo.IsNeutralCulture && value == codeAsString)
+			if (!cultureInfo.IsNeutralCulture && value == code)
 			{
 				cultureInfo = cultureInfo.Parent;
 				catalog = GetCatalog(cultureInfo.TwoLetterISOLanguageName);
-				value = catalog.GetString(codeAsString);
+				value = catalog.GetString(code);
 			}
 
 			// render data into translated string
-			return Template.Parse(value).Render(Hash.FromDictionary(additionalData));
+			return Template.Parse(value).Render(additionalData);
 		}
 
 		private static ICatalog GetCatalog(string language)

@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<Description>Picturepark DotNet SDK Contracts</Description>
+		<Description>Picturepark .NET SDK Contracts: The SDK's contracts (DTOs and client interfaces).</Description>
 		<AssemblyTitle>Picturepark.SDK.V1.Contract</AssemblyTitle>
 		<TargetFrameworks>netstandard1.3;net45</TargetFrameworks>
 		<NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>
