@@ -15,7 +15,7 @@ namespace Picturepark.SDK.V1.Localization
 
 		private static readonly ConcurrentDictionary<string, ICatalog> s_CachedCatalogs = new ConcurrentDictionary<string, ICatalog>();
 
-		public static string ResolveErrorCode(PictureparkException exception, string language)
+		public static string ResolveErrorCode(PictureparkException exception, string language) // TODO: LocalizationService: Use language enum instead of string?
 		{
 			var errorAsString = exception.GetType().Name;
 			var cultureInfo = new CultureInfo(language);
@@ -46,6 +46,11 @@ namespace Picturepark.SDK.V1.Localization
 
 			// render data into translated string
 			return Template.Parse(value).Render(Hash.FromAnonymousObject(exception));
+		}
+
+		public static string ResolveLocalizedText(int code, string language)
+		{
+			return ResolveLocalizedText(code, new Dictionary<string, object>(), language);
 		}
 
 		public static string ResolveLocalizedText(int code, IDictionary<string, object> additionalData, string language)
