@@ -38,7 +38,7 @@ namespace Picturepark.SDK.V1.Tests
 			var owner = await _client.Users.GetByOwnerTokenAsync(content.OwnerTokenId);
 
 			/// Act
-			var user = await _client.Users.GetUserAsync(owner.Id); // TODO: UserClient.GetUserAsync: Rename to GetAsync
+			var user = await _client.Users.GetAsync(owner.Id);
 
 			/// Assert
 			Assert.Equal(owner.Id, user.Id);

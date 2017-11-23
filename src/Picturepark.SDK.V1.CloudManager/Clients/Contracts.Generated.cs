@@ -3095,7 +3095,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("ExistsFilter", typeof(ExistsFilter))]
     [JsonInheritanceAttribute("GeoBoundingBoxFilter", typeof(GeoBoundingBoxFilter))]
     [JsonInheritanceAttribute("GeoDistanceFilter", typeof(GeoDistanceFilter))]
-    [JsonInheritanceAttribute("GeoDistanceRangeFilter", typeof(GeoDistanceRangeFilter))]
     [JsonInheritanceAttribute("NestedFilter", typeof(NestedFilter))]
     [JsonInheritanceAttribute("NumericRangeFilter", typeof(NumericRangeFilter))]
     [JsonInheritanceAttribute("PrefixFilter", typeof(PrefixFilter))]
@@ -3291,7 +3290,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
-    /// <summary>The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point.</summary>
+    /// <summary>The GeoDistanceFilter returns documents that include only hits that exists within a specific distance from a geo point.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class GeoDistanceFilter : FilterBase
     {
@@ -3315,59 +3314,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static GeoDistanceFilter FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoDistanceFilter>(data);
-        }
-    }
-    
-    /// <summary>The GeoDistanceRangeFilter returns documents that exists within a range from a specific point.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class GeoDistanceRangeFilter : FilterBase
-    {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Field { get; set; }
-    
-        /// <summary>The longitude/latitude configuration for the point of origin.</summary>
-        [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public GeoLocation Location { get; set; }
-    
-        /// <summary>The numeric range.</summary>
-        [Newtonsoft.Json.JsonProperty("range", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public NumericRange Range { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static GeoDistanceRangeFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoDistanceRangeFilter>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class NumericRange 
-    {
-        /// <summary>Tranlsated range names.</summary>
-        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        /// <summary>The from value.</summary>
-        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? From { get; set; }
-    
-        /// <summary>The to value.</summary>
-        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? To { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static NumericRange FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRange>(data);
         }
     }
     
@@ -3414,6 +3360,32 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static NumericRangeFilter FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRangeFilter>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class NumericRange 
+    {
+        /// <summary>Tranlsated range names.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        /// <summary>The from value.</summary>
+        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? From { get; set; }
+    
+        /// <summary>The to value.</summary>
+        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? To { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static NumericRange FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRange>(data);
         }
     }
     
@@ -3494,7 +3466,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AggregationName { get; set; }
     
-        /// <summary>The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.</summary>
+        /// <summary>The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceFilter.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     

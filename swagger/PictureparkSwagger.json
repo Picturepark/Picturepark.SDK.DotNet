@@ -30,7 +30,7 @@
         ],
         "summary": "Update Single - OwnershipTransfer",
         "description": "The update of content transfer is executed asynchronous. However, for the specified timeout completion of the update process is awaited.\nIf the update process is not completed by reaching the specified timeout, the update process continues, but null is returned.",
-        "operationId": "Content_UpdateTransferOwnership",
+        "operationId": "Content_TransferOwnership",
         "parameters": [
           {
             "type": "string",
@@ -1567,8 +1567,8 @@
         "tags": [
           "BusinessProcess"
         ],
-        "summary": "Wait",
-        "description": "Wait for given process to complete (either with success, failure or cancel)",
+        "summary": "Wait for completion",
+        "description": "Wait for given process to complete with lifeCycle \"Succeeded\", \"Cancelled\" or \"Failed\"",
         "operationId": "BusinessProcess_WaitForCompletion",
         "parameters": [
           {
@@ -2425,7 +2425,11 @@
             "x-nullable": true
           },
           "404": {
-            "description": ""
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ListItemNotFoundException"
+            },
+            "x-nullable": true
           },
           "500": {
             "description": "Internal server error",
@@ -4590,7 +4594,7 @@
           "User"
         ],
         "summary": "Get Userdetail by id",
-        "operationId": "User_GetUser",
+        "operationId": "User_Get",
         "parameters": [
           {
             "type": "string",
@@ -4929,8 +4933,7 @@
       "additionalProperties": false,
       "properties": {
         "contentId": {
-          "type": "string",
-          "description": "The content id."
+          "type": "string"
         },
         "transferUserId": {
           "type": "string",
@@ -6631,7 +6634,7 @@
     },
     "GeoDistanceFilter": {
       "type": "object",
-      "description": "The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point.",
+      "description": "The GeoDistanceFilter returns documents that include only hits that exists within a specific distance from a geo point.",
       "additionalProperties": false,
       "required": [
         "distance"
@@ -6660,62 +6663,6 @@
           "$ref": "#/definitions/FilterBase"
         }
       ]
-    },
-    "GeoDistanceRangeFilter": {
-      "type": "object",
-      "description": "The GeoDistanceRangeFilter returns documents that exists within a range from a specific point.",
-      "additionalProperties": false,
-      "properties": {
-        "field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        },
-        "location": {
-          "description": "The longitude/latitude configuration for the point of origin.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/GeoLocation"
-            }
-          ]
-        },
-        "range": {
-          "description": "The numeric range.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/NumericRange"
-            }
-          ]
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "NumericRange": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "names": {
-          "description": "Tranlsated range names.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        },
-        "from": {
-          "type": "number",
-          "description": "The from value.",
-          "format": "double"
-        },
-        "to": {
-          "type": "number",
-          "description": "The to value.",
-          "format": "double"
-        }
-      }
     },
     "NestedFilter": {
       "type": "object",
@@ -6764,6 +6711,30 @@
           "$ref": "#/definitions/FilterBase"
         }
       ]
+    },
+    "NumericRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "names": {
+          "description": "Tranlsated range names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "from": {
+          "type": "number",
+          "description": "The from value.",
+          "format": "double"
+        },
+        "to": {
+          "type": "number",
+          "description": "The to value.",
+          "format": "double"
+        }
+      }
     },
     "PrefixFilter": {
       "type": "object",
@@ -6838,7 +6809,7 @@
           "description": "The name of the aggregation this filter is connected to."
         },
         "filter": {
-          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.",
+          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceFilter.",
           "allOf": [
             {
               "$ref": "#/definitions/FilterBase"
@@ -7000,7 +6971,7 @@
           "type": "array",
           "description": "A list of numeric ranges in meter.",
           "items": {
-            "$ref": "#/definitions/NumericRange"
+            "$ref": "#/definitions/GeoDistance"
           }
         }
       },
@@ -7009,6 +6980,28 @@
           "$ref": "#/definitions/AggregatorBase"
         }
       ]
+    },
+    "GeoDistance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "distance"
+      ],
+      "properties": {
+        "names": {
+          "description": "Tranlsated range names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "distance": {
+          "type": "number",
+          "description": "The to value.",
+          "format": "double"
+        }
+      }
     },
     "NestedAggregator": {
       "type": "object",
@@ -7704,6 +7697,10 @@
         "kind"
       ],
       "properties": {
+        "schemaId": {
+          "type": "string",
+          "description": "The id of the schema to which the operation scope is addressed."
+        },
         "kind": {
           "type": "string"
         }
@@ -7714,10 +7711,6 @@
       "description": "Updates schema values.",
       "additionalProperties": false,
       "properties": {
-        "schemaId": {
-          "type": "string",
-          "description": "The id of the schema with type content or layer to be updated."
-        },
         "value": {
           "description": "The metadata values containing a set of changes. Update is additive and will not remove values. To remove complete fields use the MetadataValuesFieldRemoveCommand instead.",
           "allOf": [
@@ -7738,10 +7731,6 @@
       "description": "Adds or updates schema values.",
       "additionalProperties": false,
       "properties": {
-        "schemaId": {
-          "type": "string",
-          "description": "The id of the schema with type content or layer to be updated."
-        },
         "value": {
           "description": "The metadata values containing a set of changes. Update is additive and will not remove values. To remove complete fields use the MetadataValuesFieldRemoveCommand instead.",
           "allOf": [
@@ -7761,12 +7750,6 @@
       "type": "object",
       "description": "Removes schema values.",
       "additionalProperties": false,
-      "properties": {
-        "schemaId": {
-          "type": "string",
-          "description": "The id of the schema with type layer to be removed."
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/MetadataValuesChangeCommandBase"
@@ -7778,9 +7761,9 @@
       "description": "Removes a field and its value from the schema values.",
       "additionalProperties": false,
       "properties": {
-        "fieldNamespace": {
+        "fieldPath": {
           "type": "string",
-          "description": "The fully qualified field name of the field to be removed, e.g. \"Data.SchemaId.FieldId\"."
+          "description": "The path of the field to be removed (within tha data structure), e.g. \"data.schemaId.fieldId\""
         }
       },
       "allOf": [
@@ -7794,9 +7777,13 @@
       "description": "Adds a list item id reference to a multi tagbox.",
       "additionalProperties": false,
       "properties": {
+        "fieldPath": {
+          "type": "string",
+          "description": "The path of the field relative to the Content or Layer schema values defined by the schemaId property"
+        },
         "fieldNamespace": {
           "type": "string",
-          "description": "The fully qualified field name of the multi tagbox field."
+          "description": "The field namespace"
         },
         "referenceId": {
           "type": "string",
@@ -7814,9 +7801,13 @@
       "description": "Removes a list item id reference from a multi tagbox.",
       "additionalProperties": false,
       "properties": {
+        "fieldPath": {
+          "type": "string",
+          "description": "The path of the field relative to the Content or Layer schema values defined by the schemaId property"
+        },
         "fieldNamespace": {
           "type": "string",
-          "description": "The fully qualified field name of the multi tagbox field."
+          "description": "The field namespace"
         },
         "referenceId": {
           "type": "string",
@@ -8519,6 +8510,20 @@
         }
       }
     },
+    "ListItemNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "listItemId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "ListItemUpdateRequest": {
       "type": "object",
       "description": "A request structure for updating a list item.",
@@ -8550,7 +8555,7 @@
           "type": "array",
           "description": "The change commads to be applied to the list items",
           "items": {
-            "$ref": "#/definitions/MetadataValuesSchemaUpdateCommand"
+            "$ref": "#/definitions/MetadataValuesChangeCommandBase"
           }
         }
       }
@@ -8613,7 +8618,7 @@
           "type": "array",
           "description": "The change commads to be applied to the list items",
           "items": {
-            "$ref": "#/definitions/MetadataValuesSchemaUpdateCommand"
+            "$ref": "#/definitions/MetadataValuesChangeCommandBase"
           }
         }
       }

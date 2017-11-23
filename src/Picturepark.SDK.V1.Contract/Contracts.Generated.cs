@@ -18,7 +18,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ContentDetail UpdateTransferOwnership(string contentId, ContentOwnershipTransferRequest updateRequest, int? timeout = null);
+        ContentDetail TransferOwnership(string contentId, ContentOwnershipTransferRequest updateRequest, int? timeout = null);
     
         /// <summary>Update Single - OwnershipTransfer</summary>
         /// <param name="contentId">The content id.</param>
@@ -28,7 +28,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> UpdateTransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> TransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get Many</summary>
         /// <param name="ids">Comma-separated list of contentIds</param>
@@ -633,6 +633,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ListItemNotFoundException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         ListItemDetail Get(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null);
     
@@ -641,6 +642,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ListItemNotFoundException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ListItemDetail> GetAsync(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1262,7 +1264,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>UserDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        UserDetail GetUser(string userId);
+        UserDetail Get(string userId);
     
         /// <summary>Get Userdetail by id</summary>
         /// <param name="userId">The user id</param>
@@ -1270,7 +1272,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<UserDetail> GetUserAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UserDetail> GetAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get userdetail by owner token</summary>
         /// <param name="tokenId">The token id</param>
@@ -1373,7 +1375,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentOwnershipTransferRequest 
     {
-        /// <summary>The content id.</summary>
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
     
@@ -1790,6 +1791,7 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
     [JsonInheritanceAttribute("PictureparkBusinessException", typeof(PictureparkBusinessException))]
+    [JsonInheritanceAttribute("ListItemNotFoundException", typeof(ListItemNotFoundException))]
     [JsonInheritanceAttribute("PermissionException", typeof(PermissionException))]
     [JsonInheritanceAttribute("OutputNotFoundException", typeof(OutputNotFoundException))]
     [JsonInheritanceAttribute("PictureparkApplicationException", typeof(PictureparkApplicationException))]
@@ -3114,7 +3116,6 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ExistsFilter", typeof(ExistsFilter))]
     [JsonInheritanceAttribute("GeoBoundingBoxFilter", typeof(GeoBoundingBoxFilter))]
     [JsonInheritanceAttribute("GeoDistanceFilter", typeof(GeoDistanceFilter))]
-    [JsonInheritanceAttribute("GeoDistanceRangeFilter", typeof(GeoDistanceRangeFilter))]
     [JsonInheritanceAttribute("NestedFilter", typeof(NestedFilter))]
     [JsonInheritanceAttribute("NumericRangeFilter", typeof(NumericRangeFilter))]
     [JsonInheritanceAttribute("PrefixFilter", typeof(PrefixFilter))]
@@ -3323,7 +3324,7 @@ namespace Picturepark.SDK.V1.Contract
         }
     }
     
-    /// <summary>The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point.</summary>
+    /// <summary>The GeoDistanceFilter returns documents that include only hits that exists within a specific distance from a geo point.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class GeoDistanceFilter : FilterBase
     {
@@ -3347,59 +3348,6 @@ namespace Picturepark.SDK.V1.Contract
         public static GeoDistanceFilter FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoDistanceFilter>(data);
-        }
-    }
-    
-    /// <summary>The GeoDistanceRangeFilter returns documents that exists within a range from a specific point.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class GeoDistanceRangeFilter : FilterBase
-    {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Field { get; set; }
-    
-        /// <summary>The longitude/latitude configuration for the point of origin.</summary>
-        [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public GeoLocation Location { get; set; }
-    
-        /// <summary>The numeric range.</summary>
-        [Newtonsoft.Json.JsonProperty("range", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public NumericRange Range { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static GeoDistanceRangeFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoDistanceRangeFilter>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class NumericRange 
-    {
-        /// <summary>Tranlsated range names.</summary>
-        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        /// <summary>The from value.</summary>
-        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? From { get; set; }
-    
-        /// <summary>The to value.</summary>
-        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? To { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static NumericRange FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRange>(data);
         }
     }
     
@@ -3446,6 +3394,32 @@ namespace Picturepark.SDK.V1.Contract
         public static NumericRangeFilter FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRangeFilter>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class NumericRange 
+    {
+        /// <summary>Tranlsated range names.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        /// <summary>The from value.</summary>
+        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? From { get; set; }
+    
+        /// <summary>The to value.</summary>
+        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? To { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static NumericRange FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRange>(data);
         }
     }
     
@@ -3526,7 +3500,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AggregationName { get; set; }
     
-        /// <summary>The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.</summary>
+        /// <summary>The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceFilter.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
@@ -3682,7 +3656,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>A list of numeric ranges in meter.</summary>
         [Newtonsoft.Json.JsonProperty("ranges", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<NumericRange> Ranges { get; set; }
+        public System.Collections.Generic.List<GeoDistance> Ranges { get; set; }
     
         public string ToJson() 
         {
@@ -3692,6 +3666,28 @@ namespace Picturepark.SDK.V1.Contract
         public static GeoDistanceAggregator FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoDistanceAggregator>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class GeoDistance 
+    {
+        /// <summary>Tranlsated range names.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        /// <summary>The to value.</summary>
+        [Newtonsoft.Json.JsonProperty("distance", Required = Newtonsoft.Json.Required.Always)]
+        public double Distance { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static GeoDistance FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoDistance>(data);
         }
     }
     
@@ -4426,6 +4422,10 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MetadataValuesChangeCommandBase 
     {
+        /// <summary>The id of the schema to which the operation scope is addressed.</summary>
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -4441,10 +4441,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MetadataValuesSchemaUpdateCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The id of the schema with type content or layer to be updated.</summary>
-        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SchemaId { get; set; }
-    
         /// <summary>The metadata values containing a set of changes. Update is additive and will not remove values. To remove complete fields use the MetadataValuesFieldRemoveCommand instead.</summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Value { get; set; }
@@ -4464,10 +4460,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MetadataValuesSchemaUpsertCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The id of the schema with type content or layer to be updated.</summary>
-        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SchemaId { get; set; }
-    
         /// <summary>The metadata values containing a set of changes. Update is additive and will not remove values. To remove complete fields use the MetadataValuesFieldRemoveCommand instead.</summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Value { get; set; }
@@ -4487,10 +4479,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MetadataValuesSchemaRemoveCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The id of the schema with type layer to be removed.</summary>
-        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SchemaId { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -4506,9 +4494,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MetadataValuesFieldRemoveCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The fully qualified field name of the field to be removed, e.g. "Data.SchemaId.FieldId".</summary>
-        [Newtonsoft.Json.JsonProperty("fieldNamespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldNamespace { get; set; }
+        /// <summary>The path of the field to be removed (within tha data structure), e.g. "data.schemaId.fieldId"</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
     
         public string ToJson() 
         {
@@ -4525,7 +4513,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MetadataValuesSchemaItemAddCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The fully qualified field name of the multi tagbox field.</summary>
+        /// <summary>The path of the field relative to the Content or Layer schema values defined by the schemaId property</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        /// <summary>The field namespace</summary>
         [Newtonsoft.Json.JsonProperty("fieldNamespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldNamespace { get; set; }
     
@@ -4548,7 +4540,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MetadataValuesSchemaItemRemoveCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The fully qualified field name of the multi tagbox field.</summary>
+        /// <summary>The path of the field relative to the Content or Layer schema values defined by the schemaId property</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        /// <summary>The field namespace</summary>
         [Newtonsoft.Json.JsonProperty("fieldNamespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldNamespace { get; set; }
     
@@ -5253,6 +5249,23 @@ namespace Picturepark.SDK.V1.Contract
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ListItemNotFoundException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("listItemId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ListItemId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemNotFoundException>(data);
+        }
+    }
+    
     /// <summary>A request structure for updating a list item.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.5.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ListItemUpdateRequest 
@@ -5286,7 +5299,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>The change commads to be applied to the list items</summary>
         [Newtonsoft.Json.JsonProperty("changeCommands", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<MetadataValuesSchemaUpdateCommand> ChangeCommands { get; set; }
+        public System.Collections.Generic.List<MetadataValuesChangeCommandBase> ChangeCommands { get; set; }
     
         public string ToJson() 
         {
@@ -5346,7 +5359,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>The change commads to be applied to the list items</summary>
         [Newtonsoft.Json.JsonProperty("changeCommands", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<MetadataValuesSchemaUpdateCommand> ChangeCommands { get; set; }
+        public System.Collections.Generic.List<MetadataValuesChangeCommandBase> ChangeCommands { get; set; }
     
         public string ToJson() 
         {

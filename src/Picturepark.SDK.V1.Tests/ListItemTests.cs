@@ -65,8 +65,7 @@ namespace Picturepark.SDK.V1.Tests
 			await _client.ListItems.DeleteAsync(listItem.Id);
 
 			/// Assert
-			// TODO: ListItemClient.GetAsync: Throw specific 404 exception
-			await Assert.ThrowsAsync<ApiException>(async () => await _client.ListItems.GetAsync(listItem.Id, true));
+			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItem.Id, true));
 		}
 
 		[Fact]
@@ -89,8 +88,8 @@ namespace Picturepark.SDK.V1.Tests
 			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
 			/// Assert
-			await Assert.ThrowsAsync<ApiException>(async () => await _client.ListItems.GetAsync(listItem1.Id, true));
-			await Assert.ThrowsAsync<ApiException>(async () => await _client.ListItems.GetAsync(listItem2.Id, true));
+			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItem1.Id, true));
+			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItem2.Id, true));
 		}
 
 		[Fact]
@@ -163,7 +162,7 @@ namespace Picturepark.SDK.V1.Tests
 				{
 					Filter = new TermFilter { Field = "id", Term = listItemDetail.Id }
 				},
-				ChangeCommands = new List<MetadataValuesSchemaUpdateCommand>
+				ChangeCommands = new List<MetadataValuesChangeCommandBase>
 				{
 					new MetadataValuesSchemaUpdateCommand
 					{

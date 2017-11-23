@@ -41,7 +41,7 @@ namespace Picturepark.SDK.V1.Tests
 				ContentId = contentId,
 				TransferUserId = newUser.Id
 			};
-			await _client.Contents.UpdateTransferOwnershipAsync(contentId, request);
+			await _client.Contents.TransferOwnershipAsync(contentId, request);
 
 			var newContent = await _client.Contents.GetAsync(contentId);
 			var newOwner = await _client.Users.GetByOwnerTokenAsync(newContent.OwnerTokenId);
@@ -87,7 +87,13 @@ namespace Picturepark.SDK.V1.Tests
 			/// Act
 			var previousContents = await _client.Contents.GetManyAsync(contentIds, true);
 			var previousOwner = await _client.Users.GetByOwnerTokenAsync(previousContents[0].OwnerTokenId);
-			var searchResult = await _client.Users.SearchAsync(new UserSearchRequest { Limit = 10 });
+
+			// Search user with ManageContent UserRight
+			var searchResult = await _client.Users.SearchAsync(new UserSearchRequest
+			{
+				Limit = 10,
+				UserRightsFilter = new List<UserRight> { UserRight.ManageContent }
+			});
 
 			var newUser = searchResult.Results.First(u => u.Id != previousOwner.Id);
 			var request = new ContentsOwnershipTransferRequest
