@@ -18,24 +18,21 @@ namespace Picturepark.SDK.V1
 			_businessProcessClient = businessProcessesClient;
 		}
 
-		public List<SchemaDetail> GenerateSchemaFromPOCO(Type type, List<SchemaDetail> schemaList = null, bool generateDependencySchema = true)
+		public async Task<ICollection<SchemaDetail>> GenerateSchemasAsync(Type type, IEnumerable<SchemaDetail> schemaList = null, bool generateDependencySchema = true)
 		{
-			if (schemaList == null)
-				schemaList = new List<SchemaDetail>();
-
 			var schemaConverter = new ClassToSchemaConverter();
-			return schemaConverter.Generate(type, schemaList, generateDependencySchema);
+			return await schemaConverter.GenerateAsync(type, schemaList ?? new List<SchemaDetail>(), generateDependencySchema).ConfigureAwait(false);
 		}
 
 		public async Task CreateOrUpdateAsync(SchemaDetail metadataSchema, bool enableForBinaryFiles)
 		{
 			if (await ExistsAsync(metadataSchema.Id))
 			{
-				await UpdateAsync(metadataSchema, enableForBinaryFiles);
+				await UpdateAsync(metadataSchema, enableForBinaryFiles).ConfigureAwait(false);
 			}
 			else
 			{
-				await CreateAsync(metadataSchema, enableForBinaryFiles);
+				await CreateAsync(metadataSchema, enableForBinaryFiles).ConfigureAwait(false);
 			}
 		}
 
@@ -57,10 +54,11 @@ namespace Picturepark.SDK.V1
 					nameof(ImageMetadata),
 					nameof(VideoMetadata),
 				};
+
 				metadataSchema.ReferencedInContentSchemaIds = binarySchemas;
 			}
 
-			await CreateAsync(metadataSchema);
+			await CreateAsync(metadataSchema).ConfigureAwait(false);
 		}
 
 		public void Create(SchemaDetail metadataSchema, bool enableForBinaryFiles)
@@ -87,9 +85,9 @@ namespace Picturepark.SDK.V1
 				SortOrder = metadataSchema.SortOrder,
 				Types = metadataSchema.Types,
 				LayerSchemaIds = metadataSchema.LayerSchemaIds
-			});
+			}).ConfigureAwait(false);
 
-			await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id);
+			await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
@@ -101,8 +99,8 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public async Task DeleteAsync(string schemaId)
 		{
-			var process = await DeleteCoreAsync(schemaId);
-			await _businessProcessClient.WaitForCompletionAsync(process.Id);
+			var process = await DeleteCoreAsync(schemaId).ConfigureAwait(false);
+			await _businessProcessClient.WaitForCompletionAsync(process.Id).ConfigureAwait(false);
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
@@ -124,6 +122,7 @@ namespace Picturepark.SDK.V1
 					nameof(ImageMetadata),
 					nameof(VideoMetadata),
 				};
+
 				schema.ReferencedInContentSchemaIds = binarySchemas;
 			}
 
@@ -141,14 +140,14 @@ namespace Picturepark.SDK.V1
 				SortOrder = schema.SortOrder,
 				Types = schema.Types,
 				LayerSchemaIds = schema.LayerSchemaIds
-			});
+			}).ConfigureAwait(false);
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public async Task UpdateAsync(string schemaId, SchemaUpdateRequest updateRequest)
 		{
-			var process = await UpdateCoreAsync(schemaId, updateRequest);
-			await _businessProcessClient.WaitForCompletionAsync(process.Id);
+			var process = await UpdateCoreAsync(schemaId, updateRequest).ConfigureAwait(false);
+			await _businessProcessClient.WaitForCompletionAsync(process.Id).ConfigureAwait(false);
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
@@ -160,7 +159,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public async Task<bool> ExistsAsync(string schemaId)
 		{
-			return (await ExistsAsync(schemaId, null)).Exists;
+			return (await ExistsAsync(schemaId, null).ConfigureAwait(false)).Exists;
 		}
 
 		public bool Exists(string schemaId)

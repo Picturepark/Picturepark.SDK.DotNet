@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using Picturepark.SDK.V1.Contract.Attributes.Analyzer;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Conversion
 {
@@ -14,29 +15,26 @@ namespace Picturepark.SDK.V1.Conversion
 	{
 		private readonly List<string> _ignoredProperties = new List<string> { "refId", "_relId", "_relationType", "_targetContext", "_targetId" };
 
-		/// <summary>
-		/// Convert a C# POCO to a picturepark schema definition
-		/// </summary>
-		/// <param name="type">Type of poco to convert</param>
+		/// <summary>Converts a .NET type and its dependencies to a list of Picturepark schema definitions.</summary>
+		/// <param name="type">The type to generate definitions for.</param>
 		/// <param name="generateRelatedSchemas">Generates related schemas as well. E.g. referenced pocos in lists.</param>
 		/// <returns>List of schemas</returns>
-		public List<SchemaDetail> Generate(Type type, bool generateRelatedSchemas = true)
+		public Task<ICollection<SchemaDetail>> GenerateAsync(Type type, bool generateRelatedSchemas = true)
 		{
 			var schemaList = new List<SchemaDetail>();
-			return Generate(type, schemaList, generateRelatedSchemas);
+			return GenerateAsync(type, schemaList, generateRelatedSchemas);
 		}
 
-		/// <summary>
-		/// Convert a C# POCO to a picturepark schema definition
-		/// </summary>
-		/// <param name="type">Type of poco to convert</param>
-		/// <param name="schemaList">Existing list of schemas. Pass if you need to convert several pocos and they reference the same dependant schemas (used to exclude existing schemas).</param>
+		/// <summary>Converts a .NET type and its dependencies to a list of Picturepark schema definitions.</summary>
+		/// <param name="type">The type to generate definitions for.</param>
+		/// <param name="schemaDetails">Existing list of schemas. Pass if you need to convert several pocos and they reference the same dependant schemas (used to exclude existing schemas).</param>
 		/// <param name="generateRelatedSchemas">Generates related schemas as well. E.g. referenced pocos in lists.</param>
 		/// <returns>List of schemas</returns>
-		public List<SchemaDetail> Generate(Type type, List<SchemaDetail> schemaList, bool generateRelatedSchemas = true)
+		public Task<ICollection<SchemaDetail>> GenerateAsync(Type type, IEnumerable<SchemaDetail> schemaDetails, bool generateRelatedSchemas = true)
 		{
 			var classProperties = GetClassProperties(type);
 
+			var schemaList = schemaDetails.ToList();
 			SchemaCreate(classProperties, type, string.Empty, schemaList, 0, generateRelatedSchemas);
 
 			var sortedList = new List<SchemaDetail>();
@@ -64,7 +62,7 @@ namespace Picturepark.SDK.V1.Conversion
 					sortedList.Add(schemaItem);
 			}
 
-			return sortedList;
+			return Task.FromResult((ICollection<SchemaDetail>)sortedList);
 		}
 
 		private SchemaDetail SchemaCreate(List<ContractPropertyInfo> classProperties, Type contractType, string parentSchemaId, List<SchemaDetail> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)

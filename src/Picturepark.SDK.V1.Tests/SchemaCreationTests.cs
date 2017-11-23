@@ -4,6 +4,7 @@ using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests
@@ -21,10 +22,10 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "SchemaCreation")]
-		public void ShouldIgnoreJsonProperty()
+		public async Task ShouldIgnoreJsonProperty()
 		{
 			/// Act
-			var jsonTransformSchemas = _client.Schemas.GenerateSchemaFromPOCO(typeof(JsonTransform)); // TODO: SchemaClient.GenerateSchemaFromPOCO: Rename to GenerateSchemaFromType or just GenerateSchema
+			var jsonTransformSchemas = await _client.Schemas.GenerateSchemasAsync(typeof(JsonTransform));
 
 			/// Assert
 			var jsonTransformSchema = jsonTransformSchemas.First();
@@ -41,10 +42,10 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "SchemaCreation")]
-		public void ShouldUseRenamedJsonProperty()
+		public async Task ShouldUseRenamedJsonProperty()
 		{
 			/// Act
-			var jsonTransformSchemas = _client.Schemas.GenerateSchemaFromPOCO(typeof(JsonTransform));
+			var jsonTransformSchemas = await _client.Schemas.GenerateSchemasAsync(typeof(JsonTransform));
 
 			/// Assert
 			var jsonTransformSchema = jsonTransformSchemas.First(i => i.Id == nameof(JsonTransform));

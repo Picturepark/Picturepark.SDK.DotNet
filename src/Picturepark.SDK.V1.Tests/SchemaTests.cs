@@ -30,7 +30,7 @@ namespace Picturepark.SDK.V1.Tests
 		public async Task ShouldCreateAllTypesSchemaFromClass()
 		{
 			/// Act
-			var allTypes = _client.Schemas.GenerateSchemaFromPOCO(typeof(AllDataTypesContract));
+			var allTypes = await _client.Schemas.GenerateSchemasAsync(typeof(AllDataTypesContract));
 			foreach (var schema in allTypes)
 			{
 				await _client.Schemas.CreateOrUpdateAsync(schema, true);
@@ -39,10 +39,10 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Schema")]
-		public void ShouldInvokeFilterProvider()
+		public async Task ShouldInvokeFilterProvider()
 		{
 			/// Act
-			var allTypes = _client.Schemas.GenerateSchemaFromPOCO(typeof(ClassWithSimpleRelationAndFilterProvider));
+			var allTypes = await _client.Schemas.GenerateSchemasAsync(typeof(ClassWithSimpleRelationAndFilterProvider));
 
 			/// Assert
 			var type = allTypes.Single(t => t.Id == nameof(ClassWithSimpleRelationAndFilterProvider));
@@ -70,10 +70,10 @@ namespace Picturepark.SDK.V1.Tests
 
 		[Fact]
 		[Trait("Stack", "Schema")]
-		public void ShouldInvokeSchemaIndexingInfoProvider()
+		public async Task ShouldInvokeSchemaIndexingInfoProvider()
 		{
 			/// Act
-			var allTypes = _client.Schemas.GenerateSchemaFromPOCO(typeof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider));
+			var allTypes = await _client.Schemas.GenerateSchemasAsync(typeof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider));
 
 			/// Assert
 			var type = allTypes.Single(t => t.Id == nameof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider));
@@ -114,7 +114,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Schema")]
 		public async Task ShouldCreateFromClass()
 		{
-			var person = _client.Schemas.GenerateSchemaFromPOCO(typeof(Person));
+			var person = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
 
 			// Expect child schemas and referenced schemas to exist
 			Assert.Equal(person.Count, 8);
@@ -127,7 +127,7 @@ namespace Picturepark.SDK.V1.Tests
 			var generatedPersonSchema = await _client.Schemas.GetAsync("Person");
 			Assert.Contains(generatedPersonSchema.Types, i => i == SchemaType.List || i == SchemaType.Struct);
 
-			var personShot = _client.Schemas.GenerateSchemaFromPOCO(typeof(PersonShot));
+			var personShot = await _client.Schemas.GenerateSchemasAsync(typeof(PersonShot));
 
 			// Expect child schemas and referenced schemas to exist
 			Assert.Equal(personShot.Count, 9);
@@ -145,7 +145,7 @@ namespace Picturepark.SDK.V1.Tests
 		[Trait("Stack", "Schema")]
 		public async Task ShouldDelete()
 		{
-			var tags = _client.Schemas.GenerateSchemaFromPOCO(typeof(Tag));
+			var tags = await _client.Schemas.GenerateSchemasAsync(typeof(Tag));
 
 			Assert.Equal(tags.Count, 1);
 
@@ -294,7 +294,7 @@ namespace Picturepark.SDK.V1.Tests
 
 		public async Task ShouldCreateFromClassGeneric<T>() where T : class
 		{
-			var childSchemas = _client.Schemas.GenerateSchemaFromPOCO(typeof(T));
+			var childSchemas = await _client.Schemas.GenerateSchemasAsync(typeof(T));
 
 			foreach (var schema in childSchemas)
 			{

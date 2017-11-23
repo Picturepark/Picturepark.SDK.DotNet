@@ -28,7 +28,7 @@ namespace Picturepark.SDK.V1.Tests
             /// Arrange
 	        if (await _client.Schemas.ExistsAsync(nameof(AnalyzerTestObject)) == false)
             {
-                var schemas = _client.Schemas.GenerateSchemaFromPOCO(typeof(AnalyzerTestObject));
+                var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(AnalyzerTestObject));
                 foreach (var schema in schemas)
                 {
                     await _client.Schemas.CreateOrUpdateAsync(schema, false);

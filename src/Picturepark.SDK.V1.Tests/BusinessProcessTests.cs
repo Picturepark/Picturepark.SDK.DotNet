@@ -51,7 +51,7 @@ namespace Picturepark.SDK.V1.Tests
 			/// Arrange
 
 			// 1. Create or update schema
-			var schemas = _client.Schemas.GenerateSchemaFromPOCO(typeof(BusinessProcessTest));
+			var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(BusinessProcessTest));
 			await _client.Schemas.CreateOrUpdateAsync(schemas.First(), false);
 
 			// 2. Create list items
