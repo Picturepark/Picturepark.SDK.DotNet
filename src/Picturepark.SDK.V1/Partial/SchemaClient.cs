@@ -18,33 +18,57 @@ namespace Picturepark.SDK.V1
 			_businessProcessClient = businessProcessesClient;
 		}
 
-		public async Task<ICollection<SchemaDetail>> GenerateSchemasAsync(Type type, IEnumerable<SchemaDetail> schemaList = null, bool generateDependencySchema = true)
+		/// <summary>Generates the <see cref="SchemaDetail"/>s for the given type and the referenced types.</summary>
+		/// <param name="type">The type.</param>
+		/// <param name="schemaDetails">The existing schema details.</param>
+		/// <param name="generateDependencySchema">Specifies whether to generate dependent schemas.</param>
+		/// <returns>The collection of schema details.</returns>
+		public async Task<ICollection<SchemaDetail>> GenerateSchemasAsync(Type type, IEnumerable<SchemaDetail> schemaDetails = null, bool generateDependencySchema = true)
 		{
 			var schemaConverter = new ClassToSchemaConverter();
-			return await schemaConverter.GenerateAsync(type, schemaList ?? new List<SchemaDetail>(), generateDependencySchema).ConfigureAwait(false);
+			return await schemaConverter.GenerateAsync(type, schemaDetails ?? new List<SchemaDetail>(), generateDependencySchema).ConfigureAwait(false);
 		}
 
-		public async Task CreateOrUpdateAsync(SchemaDetail metadataSchema, bool enableForBinaryFiles)
+		/// <summary>Creates or updates the given <see cref="SchemaDetail"/>.</summary>
+		/// <param name="schemaDetail">The schema detail.</param>
+		/// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
+		public void CreateOrUpdate(SchemaDetail schemaDetail, bool enableForBinaryFiles)
 		{
-			if (await ExistsAsync(metadataSchema.Id))
+			Task.Run(async () => await CreateOrUpdateAsync(schemaDetail, enableForBinaryFiles)).GetAwaiter().GetResult();
+		}
+
+		/// <summary>Creates or updates the given <see cref="SchemaDetail"/>.</summary>
+		/// <param name="schemaDetail">The schema detail.</param>
+		/// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
+		/// <returns>The task.</returns>
+		public async Task CreateOrUpdateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles)
+		{
+			if (await ExistsAsync(schemaDetail.Id))
 			{
-				await UpdateAsync(metadataSchema, enableForBinaryFiles).ConfigureAwait(false);
+				await UpdateAsync(schemaDetail, enableForBinaryFiles).ConfigureAwait(false);
 			}
 			else
 			{
-				await CreateAsync(metadataSchema, enableForBinaryFiles).ConfigureAwait(false);
+				await CreateAsync(schemaDetail, enableForBinaryFiles).ConfigureAwait(false);
 			}
 		}
 
-		public void CreateOrUpdate(SchemaDetail metadataSchema, bool enableForBinaryFiles)
+		/// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
+		/// <param name="schemaDetail">The schema detail.</param>
+		/// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
+		public void Create(SchemaDetail schemaDetail, bool enableForBinaryFiles)
 		{
-			Task.Run(async () => await CreateOrUpdateAsync(metadataSchema, enableForBinaryFiles)).GetAwaiter().GetResult();
+			Task.Run(async () => await CreateAsync(schemaDetail, enableForBinaryFiles)).GetAwaiter().GetResult();
 		}
 
-		public async Task CreateAsync(SchemaDetail metadataSchema, bool enableForBinaryFiles)
+		/// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
+		/// <param name="schemaDetail">The schema detail.</param>
+		/// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
+		/// <returns>The task.</returns>
+		public async Task CreateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles)
 		{
 			// Map schema to binary schemas
-			if (enableForBinaryFiles && metadataSchema.Types.Contains(SchemaType.Layer))
+			if (enableForBinaryFiles && schemaDetail.Types.Contains(SchemaType.Layer))
 			{
 				var binarySchemas = new List<string>
 				{
@@ -55,47 +79,58 @@ namespace Picturepark.SDK.V1
 					nameof(VideoMetadata),
 				};
 
-				metadataSchema.ReferencedInContentSchemaIds = binarySchemas;
+				schemaDetail.ReferencedInContentSchemaIds = binarySchemas;
 			}
 
-			await CreateAsync(metadataSchema).ConfigureAwait(false);
+			await CreateAsync(schemaDetail).ConfigureAwait(false);
 		}
 
-		public void Create(SchemaDetail metadataSchema, bool enableForBinaryFiles)
-		{
-			Task.Run(async () => await CreateAsync(metadataSchema, enableForBinaryFiles)).GetAwaiter().GetResult();
-		}
-
+		/// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
+		/// <param name="schemaDetail">The schema detail.</param>
+		/// <returns>The task.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task CreateAsync(SchemaDetail metadataSchema)
+		public async Task CreateAsync(SchemaDetail schemaDetail)
 		{
 			var businessProcess = await CreateAsync(new SchemaCreateRequest
 			{
-				Aggregations = metadataSchema.Aggregations,
-				Descriptions = metadataSchema.Descriptions,
-				DisplayPatterns = metadataSchema.DisplayPatterns,
-				Fields = metadataSchema.Fields,
-				Id = metadataSchema.Id,
-				SchemaPermissionSetIds = metadataSchema.SchemaPermissionSetIds,
-				Names = metadataSchema.Names,
-				ParentSchemaId = metadataSchema.ParentSchemaId,
-				Public = metadataSchema.Public,
-				ReferencedInContentSchemaIds = metadataSchema.ReferencedInContentSchemaIds,
-				Sort = metadataSchema.Sort,
-				SortOrder = metadataSchema.SortOrder,
-				Types = metadataSchema.Types,
-				LayerSchemaIds = metadataSchema.LayerSchemaIds
+				Aggregations = schemaDetail.Aggregations,
+				Descriptions = schemaDetail.Descriptions,
+				DisplayPatterns = schemaDetail.DisplayPatterns,
+				Fields = schemaDetail.Fields,
+				Id = schemaDetail.Id,
+				SchemaPermissionSetIds = schemaDetail.SchemaPermissionSetIds,
+				Names = schemaDetail.Names,
+				ParentSchemaId = schemaDetail.ParentSchemaId,
+				Public = schemaDetail.Public,
+				ReferencedInContentSchemaIds = schemaDetail.ReferencedInContentSchemaIds,
+				Sort = schemaDetail.Sort,
+				SortOrder = schemaDetail.SortOrder,
+				Types = schemaDetail.Types,
+				LayerSchemaIds = schemaDetail.LayerSchemaIds
 			}).ConfigureAwait(false);
 
 			await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 		}
 
+		/// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
+		/// <param name="schemaDetail">The schema detail.</param>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public void Create(SchemaDetail metadataSchema)
+		public void Create(SchemaDetail schemaDetail)
 		{
-			Task.Run(async () => await CreateAsync(metadataSchema)).GetAwaiter().GetResult();
+			Task.Run(async () => await CreateAsync(schemaDetail)).GetAwaiter().GetResult();
 		}
 
+		/// <summary>Deletes the a schema.</summary>
+		/// <param name="schemaId">The schema ID.</param>
+		/// <exception cref="ApiException">A server side error occurred.</exception>
+		public void Delete(string schemaId)
+		{
+			Task.Run(async () => await DeleteAsync(schemaId)).GetAwaiter().GetResult();
+		}
+
+		/// <summary>Deletes the a schema.</summary>
+		/// <param name="schemaId">The schema ID.</param>
+		/// <returns>The task.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public async Task DeleteAsync(string schemaId)
 		{
@@ -103,16 +138,14 @@ namespace Picturepark.SDK.V1
 			await _businessProcessClient.WaitForCompletionAsync(process.Id).ConfigureAwait(false);
 		}
 
+		/// <summary>Updates the given <see cref="SchemaDetail"/>.</summary>
+		/// <param name="schemaDetail">The schema detail.</param>
+		/// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
+		/// <returns>The task.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public void Delete(string schemaId)
+		public async Task UpdateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles)
 		{
-			Task.Run(async () => await DeleteAsync(schemaId)).GetAwaiter().GetResult();
-		}
-
-		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task UpdateAsync(SchemaDetail schema, bool enableForBinaryFiles)
-		{
-			if (enableForBinaryFiles && schema.Types.Contains(SchemaType.Layer))
+			if (enableForBinaryFiles && schemaDetail.Types.Contains(SchemaType.Layer))
 			{
 				var binarySchemas = new List<string>
 				{
@@ -123,26 +156,39 @@ namespace Picturepark.SDK.V1
 					nameof(VideoMetadata),
 				};
 
-				schema.ReferencedInContentSchemaIds = binarySchemas;
+				schemaDetail.ReferencedInContentSchemaIds = binarySchemas;
 			}
 
-			await UpdateAsync(schema.Id, new SchemaUpdateRequest
+			await UpdateAsync(schemaDetail.Id, new SchemaUpdateRequest
 			{
-				Aggregations = schema.Aggregations,
-				Descriptions = schema.Descriptions,
-				DisplayPatterns = schema.DisplayPatterns,
-				Fields = schema.Fields,
-				SchemaPermissionSetIds = schema.SchemaPermissionSetIds,
-				Names = schema.Names,
-				Public = schema.Public,
-				ReferencedInContentSchemaIds = schema.ReferencedInContentSchemaIds,
-				Sort = schema.Sort,
-				SortOrder = schema.SortOrder,
-				Types = schema.Types,
-				LayerSchemaIds = schema.LayerSchemaIds
+				Aggregations = schemaDetail.Aggregations,
+				Descriptions = schemaDetail.Descriptions,
+				DisplayPatterns = schemaDetail.DisplayPatterns,
+				Fields = schemaDetail.Fields,
+				SchemaPermissionSetIds = schemaDetail.SchemaPermissionSetIds,
+				Names = schemaDetail.Names,
+				Public = schemaDetail.Public,
+				ReferencedInContentSchemaIds = schemaDetail.ReferencedInContentSchemaIds,
+				Sort = schemaDetail.Sort,
+				SortOrder = schemaDetail.SortOrder,
+				Types = schemaDetail.Types,
+				LayerSchemaIds = schemaDetail.LayerSchemaIds
 			}).ConfigureAwait(false);
 		}
 
+		/// <summary>Updates a schema.</summary>
+		/// <param name="schemaId">The schema ID.</param>
+		/// <param name="updateRequest">The update request.</param>
+		/// <exception cref="ApiException">A server side error occurred.</exception>
+		public void Update(string schemaId, SchemaUpdateRequest updateRequest)
+		{
+			Task.Run(async () => await UpdateAsync(schemaId, updateRequest)).GetAwaiter().GetResult();
+		}
+
+		/// <summary>Updates a schema.</summary>
+		/// <param name="schemaId">The schema ID.</param>
+		/// <param name="updateRequest">The update request.</param>
+		/// <returns>The task.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public async Task UpdateAsync(string schemaId, SchemaUpdateRequest updateRequest)
 		{
@@ -150,21 +196,20 @@ namespace Picturepark.SDK.V1
 			await _businessProcessClient.WaitForCompletionAsync(process.Id).ConfigureAwait(false);
 		}
 
-		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public void Update(string schemaId, SchemaUpdateRequest updateRequest)
+		/// <summary>Checks whether a schema ID already exists.</summary>
+		/// <param name="schemaId">The schema ID.</param>
+		public bool Exists(string schemaId)
 		{
-			Task.Run(async () => await UpdateAsync(schemaId, updateRequest)).GetAwaiter().GetResult();
+			return Task.Run(async () => await ExistsAsync(schemaId)).GetAwaiter().GetResult();
 		}
 
+		/// <summary>Checks whether a schema ID already exists.</summary>
+		/// <param name="schemaId">The schema ID.</param>
+		/// <returns>The task.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public async Task<bool> ExistsAsync(string schemaId)
 		{
 			return (await ExistsAsync(schemaId, null).ConfigureAwait(false)).Exists;
-		}
-
-		public bool Exists(string schemaId)
-		{
-			return Task.Run(async () => await ExistsAsync(schemaId)).GetAwaiter().GetResult();
 		}
 	}
 }
