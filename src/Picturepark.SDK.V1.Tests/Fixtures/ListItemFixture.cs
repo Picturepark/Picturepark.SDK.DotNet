@@ -18,7 +18,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 			if (await Client.Schemas.ExistsAsync(nameof(Tag)) == false)
 			{
 				var schema = await Client.Schemas.GenerateSchemasAsync(typeof(Tag));
-				await Client.Schemas.CreateAsync(schema.First(), true);
+				await Client.Schemas.CreateAndWaitForCompletionAsync(schema.First(), true);
 			}
 		}
 	}

@@ -29,7 +29,7 @@ namespace Picturepark.SDK.V1.Tests
                 var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(AnalyzerTestObject));
                 foreach (var schema in schemas)
                 {
-                    await _client.Schemas.CreateOrUpdateAsync(schema, false);
+                    await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, false);
                 }
 
                 var analyzerValue = new AnalyzerTestObject

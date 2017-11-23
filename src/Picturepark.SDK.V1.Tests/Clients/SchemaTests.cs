@@ -29,7 +29,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var allTypes = await _client.Schemas.GenerateSchemasAsync(typeof(AllDataTypesContract));
 			foreach (var schema in allTypes)
 			{
-				await _client.Schemas.CreateOrUpdateAsync(schema, true);
+				await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
 			}
 		}
 
@@ -44,7 +44,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			foreach (var schema in person)
 			{
-				await _client.Schemas.CreateOrUpdateAsync(schema, true);
+				await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
 			}
 
 			var generatedPersonSchema = await _client.Schemas.GetAsync("Person");
@@ -59,7 +59,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			{
 				if (await _client.Schemas.ExistsAsync(schema.Id) == false)
 				{
-					await _client.Schemas.CreateAsync(schema, true);
+					await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true);
 				}
 			}
 		}
@@ -76,12 +76,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var tag = tags.First();
 			tag.Id = "SchemaToDelete" + new Random().Next(0, 999999);
 
-			await _client.Schemas.CreateAsync(tag, false);
+			await _client.Schemas.CreateAndWaitForCompletionAsync(tag, false);
 
 			string schemaId = tag.Id;
 
 			SchemaDetail schemaDetail = await _client.Schemas.GetAsync(schemaId);
-			await _client.Schemas.DeleteAsync(schemaDetail.Id);
+			await _client.Schemas.DeleteAndWaitForCompletionAsync(schemaDetail.Id);
 
 			await Assert.ThrowsAsync<ApiException>(async () => await _client.Schemas.GetAsync(schemaId));
 		}
@@ -207,7 +207,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			schemaDetail.Names.Remove(language);
 			schemaDetail.Names.Add(language, schemaId);
 
-			await _client.Schemas.UpdateAsync(schemaDetail, false);
+			await _client.Schemas.UpdateAndWaitForCompletionAsync(schemaDetail, false);
 
 			SchemaDetail updatedSchema = await _client.Schemas.GetAsync(schemaId);
 
@@ -223,7 +223,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			{
 				if (await _client.Schemas.ExistsAsync(schema.Id) == false)
 				{
-					await _client.Schemas.CreateAsync(schema, true);
+					await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true);
 				}
 			}
 

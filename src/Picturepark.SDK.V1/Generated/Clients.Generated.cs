@@ -5861,9 +5861,9 @@ namespace Picturepark.SDK.V1
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        protected BusinessProcess UpdateCore(string schemaId, SchemaUpdateRequest schema)
+        public BusinessProcess Update(string schemaId, SchemaUpdateRequest schema)
         {
-            return System.Threading.Tasks.Task.Run(async () => await UpdateCoreAsync(schemaId, schema, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await UpdateAsync(schemaId, schema, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Update Single</summary>
@@ -5873,7 +5873,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        protected async System.Threading.Tasks.Task<BusinessProcess> UpdateCoreAsync(string schemaId, SchemaUpdateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BusinessProcess> UpdateAsync(string schemaId, SchemaUpdateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (schemaId == null)
                 throw new System.ArgumentNullException("schemaId");
@@ -5980,9 +5980,9 @@ namespace Picturepark.SDK.V1
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        protected BusinessProcess DeleteCore(string schemaId)
+        public BusinessProcess Delete(string schemaId)
         {
-            return System.Threading.Tasks.Task.Run(async () => await DeleteCoreAsync(schemaId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await DeleteAsync(schemaId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Delete Single</summary>
@@ -5991,7 +5991,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        protected async System.Threading.Tasks.Task<BusinessProcess> DeleteCoreAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BusinessProcess> DeleteAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (schemaId == null)
                 throw new System.ArgumentNullException("schemaId");
@@ -6096,9 +6096,9 @@ namespace Picturepark.SDK.V1
         /// <returns>ExistsResponse</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public ExistsResponse Exists(string schemaId, string fieldId = null)
+        protected ExistsResponse ExistsCore(string schemaId, string fieldId = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await ExistsAsync(schemaId, fieldId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await ExistsCoreAsync(schemaId, fieldId, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Exists</summary>
@@ -6108,7 +6108,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<ExistsResponse> ExistsAsync(string schemaId, string fieldId = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        protected async System.Threading.Tasks.Task<ExistsResponse> ExistsCoreAsync(string schemaId, string fieldId = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (schemaId == null)
                 throw new System.ArgumentNullException("schemaId");

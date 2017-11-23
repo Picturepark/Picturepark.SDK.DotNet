@@ -770,22 +770,37 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<SchemaDetail> GetAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Exists</summary>
+        /// <summary>Update Single</summary>
         /// <param name="schemaId">The schema id.</param>
-        /// <param name="fieldId">The optional field id.</param>
-        /// <returns>ExistsResponse</returns>
+        /// <param name="schema">The schema update request.</param>
+        /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ExistsResponse Exists(string schemaId, string fieldId = null);
+        BusinessProcess Update(string schemaId, SchemaUpdateRequest schema);
     
-        /// <summary>Exists</summary>
+        /// <summary>Update Single</summary>
         /// <param name="schemaId">The schema id.</param>
-        /// <param name="fieldId">The optional field id.</param>
-        /// <returns>ExistsResponse</returns>
+        /// <param name="schema">The schema update request.</param>
+        /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ExistsResponse> ExistsAsync(string schemaId, string fieldId = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcess> UpdateAsync(string schemaId, SchemaUpdateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Delete Single</summary>
+        /// <param name="schemaId">The schema id.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcess Delete(string schemaId);
+    
+        /// <summary>Delete Single</summary>
+        /// <param name="schemaId">The schema id.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> DeleteAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Search</summary>
         /// <param name="schemaSearchRequest">The schema search request.</param>

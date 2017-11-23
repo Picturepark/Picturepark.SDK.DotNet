@@ -52,7 +52,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			// 1. Create or update schema
 			var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(BusinessProcessTest));
-			await _client.Schemas.CreateOrUpdateAsync(schemas.First(), false);
+			await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schemas.First(), false);
 
 			// 2. Create list items
 			var listItemDetail1 = await _client.ListItems.CreateAsync(new ListItemCreateRequest
@@ -88,9 +88,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
 				}
 			};
 
-			/// Act
 			var businessProcess = await _client.ListItems.UpdateFieldsAsync(updateRequest);
 			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, 10 * 1000);
+
+			/// Act
 			var details = await _client.BusinessProcesses.GetDetailsAsync(businessProcess.Id);
 
 			/// Assert

@@ -17,8 +17,7 @@
         "BusinessProcessClient.WaitForCompletionAsync",
         "BusinessProcessClient.WaitAsync",
         "ListItemClient.CreateManyAsync",
-        "SchemaClient.UpdateAsync",
-        "SchemaClient.DeleteAsync",
+        "SchemaClient.ExistsAsync",
         "JsonSchemaClient.GetAsync"
       ],
       "generateExceptionClasses": true,
