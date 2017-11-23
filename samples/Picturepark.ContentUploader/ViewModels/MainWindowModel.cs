@@ -14,6 +14,8 @@ using Picturepark.SDK.V1.Authentication;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.ContentUploader.Views.OidcClient;
 using Picturepark.ContentUploader.Views;
+using Newtonsoft.Json;
+using System.Security;
 
 namespace Picturepark.ContentUploader.ViewModels
 {
@@ -78,6 +80,12 @@ namespace Picturepark.ContentUploader.ViewModels
             set { ApplicationSettings.SetSetting("RedirectUri", value); }
         }
 
+        public string CustomerId
+        {
+            get { return ApplicationSettings.GetSetting("CustomerId", ""); }
+            set { ApplicationSettings.SetSetting("CustomerId", value); }
+        }
+
         public string CustomerAlias
         {
             get { return ApplicationSettings.GetSetting("CustomerAlias", ""); }
@@ -90,6 +98,10 @@ namespace Picturepark.ContentUploader.ViewModels
             set { ApplicationSettings.SetSetting("RefreshToken", value); }
         }
 
+        public string AccessToken { get; set; }
+
+        public DateTime AccessTokenExpiration { get; set; }
+
         public string FilePath
         {
             get { return _filePath; }
@@ -101,37 +113,6 @@ namespace Picturepark.ContentUploader.ViewModels
             ExceptionBox.Show("An error occurred", exception, Application.Current.MainWindow);
         }
 
-        private async Task<LoginResult> AuthenticateAsync()
-        {
-            var settings = new OidcSettings
-            {
-                Authority = IdentityServer,
-                ClientId = ClientId,
-                ClientSecret = ClientSecret,
-                RedirectUri = RedirectUri,
-                Scope = "all_scopes openid profile picturepark_api",
-                LoadUserProfile = true
-            };
-
-            if (!string.IsNullOrEmpty(RefreshToken))
-            {
-                var refreshResult = await LoginWebView.RefreshTokenAsync(settings, RefreshToken);
-                if (refreshResult.Success)
-                {
-                    RefreshToken = refreshResult.RefreshToken;
-                    return refreshResult;
-                }
-            }
-
-            var result = await LoginWebView.AuthenticateAsync(settings);
-            if (result.Success)
-            {
-                RefreshToken = result.RefreshToken;
-            }
-
-            return result;
-        }
-        
         private async Task UploadAsync()
         {
             if (File.Exists(FilePath))
@@ -140,29 +121,70 @@ namespace Picturepark.ContentUploader.ViewModels
 
                 await RunTaskAsync(async () =>
                 {
-                    var result = await AuthenticateAsync();
-                    if (result.Success)
+                    var accessToken = await GetAccessTokenAsync();
+                    var authClient = new AccessTokenAuthClient(Server, accessToken, CustomerAlias);
+                    using (var client = new PictureparkClient(new PictureparkClientSettings(authClient)))
                     {
-                        var authClient = new AccessTokenAuthClient(Server, result.AccessToken, CustomerAlias);
-                        using (var client = new PictureparkClient(new PictureparkClientSettings(authClient)))
+                        var transfer = await client.Transfers.CreateAsync(new CreateTransferRequest
                         {
-                            var transfer = await client.Transfers.CreateAsync(new CreateTransferRequest
-                            {
-                                Name = fileName,
-                                TransferType = TransferType.FileUpload,
-                                Files = new List<TransferUploadFile> { new TransferUploadFile { FileName = fileName, Identifier = fileName } }
-                            });
+                            Name = fileName,
+                            TransferType = TransferType.FileUpload,
+                            Files = new List<TransferUploadFile> { new TransferUploadFile { FileName = fileName, Identifier = fileName } }
+                        });
 
-                            using (var stream = File.OpenRead(FilePath))
-                                await client.Transfers.UploadFileAsync(transfer.Id, fileName, new FileParameter(stream, fileName), fileName, 1, stream.Length, stream.Length, 1);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Could not authenticate: " + result.ErrorMessage, "Authentication failed");
+                        using (var stream = File.OpenRead(FilePath))
+                            await client.Transfers.UploadFileAsync(transfer.Id, fileName, new FileParameter(stream, fileName), fileName, 1, stream.Length, stream.Length, 1);
                     }
                 });
             }
+        }
+
+        private async Task<string> GetAccessTokenAsync()
+        {
+            if (!string.IsNullOrEmpty(AccessToken) && AccessTokenExpiration > DateTime.Now)
+            {
+                return AccessToken;
+            }
+
+            var tenant = new { id = CustomerId, alias = CustomerAlias };
+            var acrValues = "tenant:" + JsonConvert.SerializeObject(tenant);
+
+            var settings = new OidcSettings
+            {
+                Authority = IdentityServer,
+                ClientId = ClientId,
+                ClientSecret = ClientSecret,
+                RedirectUri = RedirectUri,
+                Scope = "all_scopes openid profile picturepark_api",
+                LoadUserProfile = true,
+                AcrValues = acrValues,
+                UsePkce = false
+            };
+
+            if (!string.IsNullOrEmpty(RefreshToken))
+            {
+                var refreshResult = await LoginWebView.RefreshTokenAsync(settings, RefreshToken);
+                if (refreshResult.Success)
+                {
+                    AccessToken = refreshResult.AccessToken;
+                    AccessTokenExpiration = refreshResult.AccessTokenExpiration;
+                    RefreshToken = refreshResult.RefreshToken;
+
+                    return AccessToken;
+                }
+            }
+
+            var result = await LoginWebView.AuthenticateAsync(settings);
+            if (result.Success)
+            {
+                AccessToken = result.AccessToken;
+                AccessTokenExpiration = result.AccessTokenExpiration;
+                RefreshToken = result.RefreshToken;
+
+                return AccessToken;
+            }
+
+            throw new SecurityException("Could not authenticate with the Picturepark IDS: " + result.ErrorMessage);
         }
 
         private async Task RegisterContextMenuAsync()

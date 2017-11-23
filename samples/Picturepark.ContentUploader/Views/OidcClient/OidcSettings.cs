@@ -18,6 +18,10 @@ namespace Picturepark.ContentUploader.Views.OidcClient
 
         public bool FilterClaims { get; set; } = true;
 
+        public string AcrValues { get; set; }
+
+        public bool UsePkce { get; set; } = true;
+
         public List<string> FilterClaimTypes { get; set; } = new List<string>
         {
             "iss",

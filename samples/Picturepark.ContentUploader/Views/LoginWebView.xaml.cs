@@ -161,8 +161,9 @@ namespace Picturepark.ContentUploader.Views
                 redirectUri: settings.RedirectUri,
                 nonce: nonce,
                 responseMode: OidcConstants.ResponseModes.FormPost,
-                codeChallenge: challenge,
-                codeChallengeMethod: OidcConstants.CodeChallengeMethods.Sha256);
+                acrValues: settings.AcrValues,
+                codeChallenge: settings.UsePkce ? challenge : null,
+                codeChallengeMethod: settings.UsePkce ? OidcConstants.CodeChallengeMethods.Sha256 : null);
         }
 
         private static async Task<OpenIdConnectConfiguration> LoadOpenIdConnectConfigurationAsync(OidcSettings settings)
@@ -196,7 +197,6 @@ namespace Picturepark.ContentUploader.Views
             var provider = JwkNetExtensions.CreateProvider();
             var jwk = provider.ToJsonWebKey();
 
-            // code eintauschen gegen tokens
             var tokenClient = new TokenClient(
                 config.TokenEndpoint,
                 settings.ClientId,
@@ -205,7 +205,7 @@ namespace Picturepark.ContentUploader.Views
             var tokenResponse = await tokenClient.RequestAuthorizationCodePopAsync(
                 code: response.Code,
                 redirectUri: settings.RedirectUri,
-                codeVerifier: verifier,
+                codeVerifier: settings.UsePkce ? verifier : null,
                 algorithm: jwk.Alg,
                 key: jwk.ToJwkString());
 
