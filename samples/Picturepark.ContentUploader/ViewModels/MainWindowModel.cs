@@ -155,7 +155,7 @@ namespace Picturepark.ContentUploader.ViewModels
                 ClientId = ClientId,
                 ClientSecret = ClientSecret,
                 RedirectUri = RedirectUri,
-                Scope = "all_scopes openid profile picturepark_api",
+                Scope = "all_scopes openid profile picturepark_api offline_access",
                 LoadUserProfile = true,
                 AcrValues = acrValues,
                 UsePkce = false
