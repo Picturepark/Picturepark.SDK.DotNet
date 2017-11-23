@@ -6,54 +6,71 @@ namespace Picturepark.SDK.V1.Contract
 {
     public partial interface IBusinessProcessClient
     {
-		/// <summary>Wait</summary>
-		/// <param name="processId">The process id</param>
-		/// <param name="states">The states to wait for</param>
-		/// <param name="lifeCycleIds">Business process lifeCycle to wait for</param>
+		/// <summary>Waits until the business process transitioned into one of the given lifecycles or the timeout is reached.</summary>
+		/// <param name="processId">The process ID.</param>
+		/// <param name="lifeCycleIds">The business process lifecycle IDs to wait for.</param>
 		/// <param name="timeout">The timeout in ms to wait for completion.</param>
-		/// <returns>BusinessProcessWaitResult</returns>
+		/// <returns>The wait result.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		/// <exception cref="PictureparkException">Internal server error</exception>
-		BusinessProcessWaitResult Wait(string processId, IEnumerable<string> states = null, IEnumerable<BusinessProcessLifeCycle> lifeCycleIds = null, int? timeout = null);
+		BusinessProcessWaitResult WaitForLifeCycles(string processId, IEnumerable<BusinessProcessLifeCycle> lifeCycleIds, int? timeout = null);
 
-		/// <summary>Wait</summary>
-		/// <param name="processId">The process id</param>
-		/// <param name="states">The states to wait for</param>
-		/// <param name="lifeCycleIds">Business process lifeCycle to wait for</param>
+		/// <summary>Waits until the business process transitioned into one of the given lifecycles or the timeout is reached.</summary>
+		/// <param name="processId">The process ID.</param>
+		/// <param name="lifeCycleIds">The business process lifecycle IDs to wait for.</param>
 		/// <param name="timeout">The timeout in ms to wait for completion.</param>
-		/// <returns>BusinessProcessWaitResult</returns>
+		/// <returns>The wait result.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		/// <exception cref="PictureparkException">Internal server error</exception>
 		/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-		Task<BusinessProcessWaitResult> WaitAsync(string processId, IEnumerable<string> states = null, IEnumerable<BusinessProcessLifeCycle> lifeCycleIds = null, int? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+		Task<BusinessProcessWaitResult> WaitForLifeCyclesAsync(string processId, IEnumerable<BusinessProcessLifeCycle> lifeCycleIds, int? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
 
-		/// <summary>Wait</summary>
-		/// <param name="processId">The process id</param>
-		/// <returns>BusinessProcessWaitResult</returns>
+		/// <summary>Waits until the business process transitioned into one of the given states or the timeout is reached.</summary>
+		/// <param name="processId">The process ID.</param>
+		/// <param name="states">The states to wait for.</param>
+		/// <param name="timeout">The timeout in ms to wait for completion.</param>
+		/// <returns>The wait result.</returns>
+		/// <exception cref="ApiException">A server side error occurred.</exception>
+		/// <exception cref="PictureparkException">Internal server error</exception>
+		BusinessProcessWaitResult WaitForStates(string processId, IEnumerable<string> states, int? timeout = null);
+
+		/// <summary>Waits until the business process transitioned into one of the given states or the timeout is reached.</summary>
+		/// <param name="processId">The process ID.</param>
+		/// <param name="states">The states to wait for.</param>
+		/// <param name="timeout">The timeout in ms to wait for completion.</param>
+		/// <returns>The wait result.</returns>
+		/// <exception cref="ApiException">A server side error occurred.</exception>
+		/// <exception cref="PictureparkException">Internal server error</exception>
+		/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+		Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, IEnumerable<string> states, int? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+
+		/// <summary>Waits until the business process is completed.</summary>
+		/// <param name="processId">The process ID.</param>
+		/// <returns>The wait result.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		/// <exception cref="PictureparkException">Internal server error</exception>
 		BusinessProcessWaitResult WaitForCompletion(string processId);
 
-		/// <summary>Wait</summary>
-		/// <param name="processId">The process id</param>
-		/// <returns>BusinessProcessWaitResult</returns>
+		/// <summary>Waits until the business process is completed or the timeout is reached.</summary>
+		/// <param name="processId">The process ID.</param>
+		/// <returns>The wait result.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		/// <exception cref="PictureparkException">Internal server error</exception>
 		/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 		Task<BusinessProcessWaitResult> WaitForCompletionAsync(string processId, CancellationToken cancellationToken = default(CancellationToken));
 
-		/// <summary>Wait</summary>
-		/// <param name="processId">The process id</param>
+		/// <summary>Waits until the business process is completed or the timeout is reached.</summary>
+		/// <param name="processId">The process ID.</param>
 		/// <param name="timeout">The timeout in ms to wait for completion.</param>
-		/// <returns>BusinessProcessWaitResult</returns>
+		/// <returns>The wait result.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		/// <exception cref="PictureparkException">Internal server error</exception>
 		BusinessProcessWaitResult WaitForCompletion(string processId, int timeout);
 
-		/// <summary>Wait</summary>
-		/// <param name="processId">The process id</param>
+		/// <summary>Waits until the business process is completed or the timeout is reached.</summary>
+		/// <param name="processId">The process ID.</param>
 		/// <param name="timeout">The timeout in ms to wait for completion.</param>
-		/// <returns>BusinessProcessWaitResult</returns>
+		/// <returns>The wait result.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		/// <exception cref="PictureparkException">Internal server error</exception>
 		/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>

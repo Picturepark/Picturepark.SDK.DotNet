@@ -122,7 +122,7 @@ namespace Picturepark.SDK.V1
 			};
 
 			var transfer = await CreateAsync(request, cancellationToken);
-			await _businessProcessClient.WaitAsync(transfer.BusinessProcessId, new[] { TransferState.Created.ToString() }, null, null, cancellationToken);
+			await _businessProcessClient.WaitForStatesAsync(transfer.BusinessProcessId, new[] { TransferState.Created.ToString() }, null, cancellationToken);
 			return transfer;
 		}
 
