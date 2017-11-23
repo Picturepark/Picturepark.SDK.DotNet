@@ -4,14 +4,14 @@ using System.Threading.Tasks;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Fixtures;
 
-namespace Picturepark.SDK.V1.Tests
+namespace Picturepark.SDK.V1.Tests.Clients
 {
-	public class PermissionTests : IClassFixture<SDKClientFixture>
+	public class PermissionTests : IClassFixture<ClientFixture>
 	{
-		private SDKClientFixture _fixture;
+		private ClientFixture _fixture;
 		private PictureparkClient _client;
 
-		public PermissionTests(SDKClientFixture fixture)
+		public PermissionTests(ClientFixture fixture)
 		{
 			_fixture = fixture;
 			_client = _fixture.Client;

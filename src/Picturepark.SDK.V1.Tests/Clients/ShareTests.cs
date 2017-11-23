@@ -7,14 +7,14 @@ using Xunit;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using System.Linq;
 
-namespace Picturepark.SDK.V1.Tests
+namespace Picturepark.SDK.V1.Tests.Clients
 {
-	public class ShareTests : IClassFixture<SDKClientFixture>
+	public class ShareTests : IClassFixture<ClientFixture>
 	{
-		private readonly SDKClientFixture _fixture;
+		private readonly ClientFixture _fixture;
 		private readonly PictureparkClient _client;
 
-		public ShareTests(SDKClientFixture fixture)
+		public ShareTests(ClientFixture fixture)
 		{
 			_fixture = fixture;
 			_client = _fixture.Client;
@@ -66,7 +66,7 @@ namespace Picturepark.SDK.V1.Tests
 			Assert.True(aggregation.AggregationResultItems.Count >= 1);
 		}
 
-		// [Fact]
+		[Fact(Skip = "Fix")]
 		[Trait("Stack", "Shares")]
 		public async Task ShouldUpdate()
 		{
@@ -102,7 +102,7 @@ namespace Picturepark.SDK.V1.Tests
 			Assert.Equal("Foo", share.Description);
 		}
 
-		// [Fact]
+		[Fact(Skip = "ShareClient.DeleteManyAsync: Result is boolean and not BusinessProcess")]
 		[Trait("Stack", "Shares")]
 		public async Task ShouldDeleteMany()
 		{

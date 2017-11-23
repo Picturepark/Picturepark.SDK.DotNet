@@ -6,13 +6,13 @@ using Picturepark.SDK.V1.Tests.Fixtures;
 using Xunit;
 using System.Linq;
 
-namespace Picturepark.SDK.V1.Tests
+namespace Picturepark.SDK.V1.Tests.Clients
 {
-	public class BusinessProcessTests : IClassFixture<SDKClientFixture>
+	public class BusinessProcessTests : IClassFixture<ClientFixture>
 	{
 		private readonly PictureparkClient _client;
 
-		public BusinessProcessTests(SDKClientFixture fixture)
+		public BusinessProcessTests(ClientFixture fixture)
 		{
 			_client = fixture.Client;
 		}
@@ -91,9 +91,6 @@ namespace Picturepark.SDK.V1.Tests
 			/// Act
 			var businessProcess = await _client.ListItems.UpdateFieldsAsync(updateRequest);
 			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, 10 * 1000);
-
-			// var waitResult = await _client.BusinessProcesses.WaitAsync(businessProcess.Id, new string[] { "Complete" }, timeout: 10 * 1000);
-			// TODO: What is the correct state name?
 			var details = await _client.BusinessProcesses.GetDetailsAsync(businessProcess.Id);
 
 			/// Assert

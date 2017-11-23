@@ -8,14 +8,14 @@ using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Newtonsoft.Json;
 
-namespace Picturepark.SDK.V1.Tests
+namespace Picturepark.SDK.V1.Tests.Clients
 {
-	public class SchemaTests : IClassFixture<SDKClientFixture>
+	public class SchemaTests : IClassFixture<ClientFixture>
 	{
-		private readonly SDKClientFixture _fixture;
+		private readonly ClientFixture _fixture;
 		private readonly PictureparkClient _client;
 
-		public SchemaTests(SDKClientFixture fixture)
+		public SchemaTests(ClientFixture fixture)
 		{
 			_fixture = fixture;
 			_client = _fixture.Client;

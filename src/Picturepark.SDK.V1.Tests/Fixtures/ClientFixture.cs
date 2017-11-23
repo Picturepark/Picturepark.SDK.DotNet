@@ -7,14 +7,14 @@ using Picturepark.SDK.V1.Contract;
 
 namespace Picturepark.SDK.V1.Tests.Fixtures
 {
-	public class SDKClientFixture : IDisposable
+	public class ClientFixture : IDisposable
 	{
 		private readonly PictureparkClient _client;
 		private readonly TestConfiguration _configuration;
 
-		public SDKClientFixture()
+		public ClientFixture()
 		{
-			ProjectDirectory = Path.GetFullPath(Path.GetDirectoryName(typeof(SDKClientFixture).GetTypeInfo().Assembly.Location) + "/../../../");
+			ProjectDirectory = Path.GetFullPath(Path.GetDirectoryName(typeof(ClientFixture).GetTypeInfo().Assembly.Location) + "/../../../");
 
 			// Fix
 			if (!File.Exists(ProjectDirectory + "Configuration.json"))

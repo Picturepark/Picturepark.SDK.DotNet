@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Tests.Fixtures
 {
-	public class BusinessProcessFixture : SDKClientFixture
+	public class BusinessProcessFixture : ClientFixture
 	{
 		public BusinessProcessFixture()
 		{

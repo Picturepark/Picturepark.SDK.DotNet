@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
@@ -10,12 +8,12 @@ using Xunit;
 
 namespace Picturepark.SDK.V1.Tests
 {
-    public class AnalyzerTests : IClassFixture<SDKClientFixture>
+	public class AnalyzerTests : IClassFixture<ClientFixture>
     {
-        private readonly SDKClientFixture _fixture;
+        private readonly ClientFixture _fixture;
         private readonly PictureparkClient _client;
 
-        public AnalyzerTests(SDKClientFixture fixture)
+        public AnalyzerTests(ClientFixture fixture)
         {
             _fixture = fixture;
             _client = _fixture.Client;

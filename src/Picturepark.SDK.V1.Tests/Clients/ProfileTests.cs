@@ -2,13 +2,13 @@
 using Xunit;
 using Picturepark.SDK.V1.Tests.Fixtures;
 
-namespace Picturepark.SDK.V1.Tests
+namespace Picturepark.SDK.V1.Tests.Clients
 {
-	public class ProfileTests : IClassFixture<SDKClientFixture>
+	public class ProfileTests : IClassFixture<ClientFixture>
 	{
 		private readonly PictureparkClient _client;
 
-		public ProfileTests(SDKClientFixture fixture)
+		public ProfileTests(ClientFixture fixture)
 		{
 			_client = fixture.Client;
 		}

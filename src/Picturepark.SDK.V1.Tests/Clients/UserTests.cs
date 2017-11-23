@@ -4,14 +4,14 @@ using Picturepark.SDK.V1.Tests.Fixtures;
 using Picturepark.SDK.V1.Contract;
 using System.Linq;
 
-namespace Picturepark.SDK.V1.Tests
+namespace Picturepark.SDK.V1.Tests.Clients
 {
-	public class UserTests : IClassFixture<SDKClientFixture>
+	public class UserTests : IClassFixture<ClientFixture>
 	{
-		private readonly SDKClientFixture _fixture;
+		private readonly ClientFixture _fixture;
 		private readonly PictureparkClient _client;
 
-		public UserTests(SDKClientFixture fixture)
+		public UserTests(ClientFixture fixture)
 		{
 			_fixture = fixture;
 			_client = _fixture.Client;

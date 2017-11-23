@@ -7,14 +7,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Picturepark.SDK.V1.Tests
+namespace Picturepark.SDK.V1.Tests.Clients
 {
-	public class TransferTests : IClassFixture<SDKClientFixture>
+	public class TransferTests : IClassFixture<ClientFixture>
 	{
-		private readonly SDKClientFixture _fixture;
+		private readonly ClientFixture _fixture;
 		private readonly PictureparkClient _client;
 
-		public TransferTests(SDKClientFixture fixture)
+		public TransferTests(ClientFixture fixture)
 		{
 			_fixture = fixture;
 			_client = _fixture.Client;
@@ -49,7 +49,7 @@ namespace Picturepark.SDK.V1.Tests
 			Assert.NotNull(result);
 		}
 
-		// [Fact]
+		[Fact(Skip = "TransferClient.GetAsync: Should correctly throw NotFoundException")]
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldDeleteFiles()
 		{

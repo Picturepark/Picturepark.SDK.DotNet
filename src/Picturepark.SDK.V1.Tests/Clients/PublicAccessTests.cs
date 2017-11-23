@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
 using Xunit;
 
-namespace Picturepark.SDK.V1.Tests
+namespace Picturepark.SDK.V1.Tests.Clients
 {
-	public class PublicAccessTests : IClassFixture<SDKClientFixture>
+	public class PublicAccessTests : IClassFixture<ClientFixture>
 	{
-		private readonly SDKClientFixture _fixture;
+		private readonly ClientFixture _fixture;
 		private readonly PictureparkClient _client;
 
-		public PublicAccessTests(SDKClientFixture fixture)
+		public PublicAccessTests(ClientFixture fixture)
 		{
 			_fixture = fixture;
 			_client = fixture.Client;

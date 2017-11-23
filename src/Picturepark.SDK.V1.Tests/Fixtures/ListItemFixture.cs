@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Tests.Fixtures
 {
-	public class ListItemFixture : SDKClientFixture
+	public class ListItemFixture : ClientFixture
 	{
 		public ListItemFixture()
 		{

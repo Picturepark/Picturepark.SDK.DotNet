@@ -11,14 +11,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Picturepark.SDK.V1.Tests
+namespace Picturepark.SDK.V1.Tests.Conversion
 {
-	public class SchemaCreationTests : IClassFixture<SDKClientFixture>
+	public class SchemaCreationTests : IClassFixture<ClientFixture>
 	{
-		private readonly SDKClientFixture _fixture;
+		private readonly ClientFixture _fixture;
 		private readonly PictureparkClient _client;
 
-		public SchemaCreationTests(SDKClientFixture fixture)
+		public SchemaCreationTests(ClientFixture fixture)
 		{
 			_fixture = fixture;
 			_client = _fixture.Client;

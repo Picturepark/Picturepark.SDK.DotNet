@@ -10,14 +10,14 @@ using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Newtonsoft.Json;
 
-namespace Picturepark.SDK.V1.Tests
+namespace Picturepark.SDK.V1.Tests.Clients
 {
-	public class ContentTests : IClassFixture<SDKClientFixture>
+	public class ContentTests : IClassFixture<ClientFixture>
 	{
-		private readonly SDKClientFixture _fixture;
+		private readonly ClientFixture _fixture;
 		private readonly PictureparkClient _client;
 
-		public ContentTests(SDKClientFixture fixture)
+		public ContentTests(ClientFixture fixture)
 		{
 			_fixture = fixture;
 			_client = _fixture.Client;
@@ -299,7 +299,7 @@ namespace Picturepark.SDK.V1.Tests
 			}
 		}
 
-		// [Fact]
+		[Fact(Skip = "Fix NPE in ShouldCreateContents test")]
 		[Trait("Stack", "Contents")]
 		public async Task ShouldCreateContents()
 		{
@@ -387,7 +387,7 @@ namespace Picturepark.SDK.V1.Tests
 			}
 		}
 
-		// [Fact]
+		[Fact(Skip = "Fix NPE in ShouldUpdateMetadata test")]
 		[Trait("Stack", "Contents")]
 		public async Task ShouldUpdateMetadata()
 		{
