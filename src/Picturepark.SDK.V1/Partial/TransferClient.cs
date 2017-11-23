@@ -19,7 +19,6 @@ namespace Picturepark.SDK.V1
 		public TransferClient(BusinessProcessClient businessProcessClient, IPictureparkClientSettings settings, HttpClient httpClient)
 			: this(settings, httpClient)
 		{
-			BaseUrl = businessProcessClient.BaseUrl;
 			_businessProcessClient = businessProcessClient;
 		}
 

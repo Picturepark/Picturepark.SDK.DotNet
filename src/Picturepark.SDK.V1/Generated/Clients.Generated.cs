@@ -13,7 +13,6 @@ namespace Picturepark.SDK.V1
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class ContentClient : ClientBase, IContentClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -27,12 +26,6 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
-    
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -2716,7 +2709,6 @@ namespace Picturepark.SDK.V1
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class BusinessProcessClient : ClientBase, IBusinessProcessClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -2730,12 +2722,6 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
-    
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -3220,7 +3206,6 @@ namespace Picturepark.SDK.V1
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class DocumentHistoryClient : ClientBase, IDocumentHistoryClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -3234,12 +3219,6 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
-    
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -3849,7 +3828,6 @@ namespace Picturepark.SDK.V1
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class JsonSchemaClient : ClientBase, IJsonSchemaClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -3863,12 +3841,6 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
-    
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -3995,7 +3967,6 @@ namespace Picturepark.SDK.V1
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class ListItemClient : ClientBase, IListItemClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -4009,12 +3980,6 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
-    
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -5335,7 +5300,6 @@ namespace Picturepark.SDK.V1
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class LiveStreamClient : ClientBase, ILiveStreamClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -5349,12 +5313,6 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
-    
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -5480,7 +5438,6 @@ namespace Picturepark.SDK.V1
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class SchemaClient : ClientBase, ISchemaClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -5494,12 +5451,6 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
-    
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -6321,7 +6272,6 @@ namespace Picturepark.SDK.V1
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class PermissionClient : ClientBase, IPermissionClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -6335,12 +6285,6 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
-    
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -6925,7 +6869,6 @@ namespace Picturepark.SDK.V1
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class PublicAccessClient : ClientBase, IPublicAccessClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -6939,12 +6882,6 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
-    
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -7180,7 +7117,6 @@ namespace Picturepark.SDK.V1
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class ShareClient : ClientBase, IShareClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -7194,12 +7130,6 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
-    
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -7936,7 +7866,6 @@ namespace Picturepark.SDK.V1
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class ServiceProviderClient : ClientBase, IServiceProviderClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -7950,12 +7879,6 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
-    
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -8287,7 +8210,6 @@ namespace Picturepark.SDK.V1
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class TransferClient : ClientBase, ITransferClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -8301,12 +8223,6 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
-    
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -9668,7 +9584,6 @@ namespace Picturepark.SDK.V1
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class UserClient : ClientBase, IUserClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -9682,12 +9597,6 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
-    
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -10150,7 +10059,6 @@ namespace Picturepark.SDK.V1
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class OutputClient : ClientBase, IOutputClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -10164,12 +10072,6 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
-    
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
@@ -10432,7 +10334,6 @@ namespace Picturepark.SDK.V1
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class ProfileClient : ClientBase, IProfileClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
@@ -10446,12 +10347,6 @@ namespace Picturepark.SDK.V1
                 return settings;
             });
     	}
-    
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);

@@ -4,7 +4,6 @@ using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
-using System.Reflection;
 
 namespace Picturepark.SDK.V1
 {
@@ -19,9 +18,6 @@ namespace Picturepark.SDK.V1
 		protected ClientBase(IPictureparkClientSettings settings)
 		{
 			_settings = settings;
-
-			GetType().GetRuntimeProperty("BaseUrl").SetValue(this, _settings.BaseUrl); // TODO: Disable GenerateBaseUrlProperty (NSwag) and implement it in this class!
-
 			_jsonSettings = new Lazy<Newtonsoft.Json.JsonSerializerSettings>(() =>
 			{
 				var jsonSettings = new Newtonsoft.Json.JsonSerializerSettings
@@ -35,7 +31,11 @@ namespace Picturepark.SDK.V1
 			});
 		}
 
-		public string Alias => _settings.CustomerAlias; // TODO: Rename ClientBase.Alias property to CustomerAlias
+		/// <summary>Gets the base URL of the Picturepark API.</summary>
+		public string BaseUrl => _settings.BaseUrl;
+
+		/// <summary>Gets the used customer alias.</summary>
+		public string CustomerAlias => _settings.CustomerAlias;
 
 		protected async Task<HttpRequestMessage> CreateHttpRequestMessageAsync(CancellationToken cancellationToken)
 		{

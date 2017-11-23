@@ -15,7 +15,6 @@ namespace Picturepark.SDK.V1
 		public SchemaClient(BusinessProcessClient businessProcessesClient, IPictureparkClientSettings settings, HttpClient httpClient)
 			: this(settings, httpClient)
 		{
-			BaseUrl = businessProcessesClient.BaseUrl;
 			_businessProcessClient = businessProcessesClient;
 		}
 

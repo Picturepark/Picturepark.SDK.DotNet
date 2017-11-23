@@ -1,4 +1,5 @@
 ﻿{
+  "runtime": "Default",
   "swaggerGenerator": {
     "fromSwagger": {
       "url": "../../swagger/PictureparkSwagger.json",
@@ -13,6 +14,7 @@
       "generateClientInterfaces": true,
       "generateDtoTypes": true,
       "injectHttpClient": true,
+      "disposeHttpClient": true,
       "protectedMethods": [
         "BusinessProcessClient.WaitForCompletionAsync",
         "BusinessProcessClient.WaitAsync",
@@ -27,11 +29,17 @@
       "httpClientType": "System.Net.Http.HttpClient",
       "useHttpRequestMessageCreationMethod": true,
       "useBaseUrl": true,
+      "generateBaseUrlProperty": false,
       "generateSyncMethods": true,
       "clientClassAccessModifier": "public",
+      "typeAccessModifier": "public",
       "generateContractsOutput": true,
       "contractsNamespace": "Picturepark.SDK.V1.Contract",
       "contractsOutputFilePath": "../Picturepark.SDK.V1.Contract/Contracts.Generated.cs",
+      "parameterDateTimeFormat": "s",
+      "generateUpdateJsonSerializerSettingsMethod": true,
+      "serializeTypeInformation": false,
+      "queryNullValue": "",
       "className": "{controller}Client",
       "namespace": "Picturepark.SDK.V1",
       "additionalNamespaceUsages": [],
