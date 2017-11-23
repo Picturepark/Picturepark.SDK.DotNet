@@ -260,7 +260,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			await _client.Transfers.ImportAndWaitForCompletionAsync(transfer, createRequest, timeout);
 
 			/// Assert
-			// TODO: How to get all uploaded content items?
+			var request = new FileTransferSearchRequest() { Limit = 20, SearchString = "*", Filter = new TermFilter { Field = "transferId", Term = transfer.Id } };
+			var result = await _client.Transfers.SearchFilesAsync(request); // TODO: Implement new method TransferClient.SearchFilesByTransferIdAsync()?
+			var contentIds = result.Results.Select(r => r.ContentId);
+
+			Assert.Equal(importFilePaths.Count(), contentIds.Count());
 		}
 	}
 }
