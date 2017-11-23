@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using Picturepark.ContentUploader.ViewModels;
+using System.Net;
 
 namespace Picturepark.ContentUploader.Views
 {
@@ -9,6 +10,13 @@ namespace Picturepark.ContentUploader.Views
         public MainWindow()
         {
             InitializeComponent();
+
+            ServicePointManager.SecurityProtocol =
+                SecurityProtocolType.Ssl3 |
+                SecurityProtocolType.Tls12 |
+                SecurityProtocolType.Tls11 |
+                SecurityProtocolType.Tls;
+
             Loaded += OnLoaded;
         }
 
