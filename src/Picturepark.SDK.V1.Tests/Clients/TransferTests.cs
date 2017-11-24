@@ -122,8 +122,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			{
 				"https://picturepark.com/wp-content/uploads/2013/06/home-marquee.jpg",
 				"http://cdn1.spiegel.de/images/image-733178-900_breitwand_180x67-zgpe-733178.jpg",
-				"http://cdn3.spiegel.de/images/image-1046236-700_poster_16x9-ymle-1046236.jpg",
-				"https://dgpcopy.next-picturepark.com/Go/A6ZYegLz/D/15/1"
+				"http://cdn3.spiegel.de/images/image-1046236-700_poster_16x9-ymle-1046236.jpg"
 			};
 
 			/// Act
