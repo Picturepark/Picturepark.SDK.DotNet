@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.12.5.0 (NJsonSchema v9.10.5.0 (Newtonsoft.Json v9.0.0.0))",
+  "x-generator": "NSwag v11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))",
   "swagger": "2.0",
   "info": {
     "title": "Picturepark API V1",
@@ -65,7 +65,7 @@
             "schema": {
               "$ref": "#/definitions/ContentDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -140,7 +140,7 @@
                 "$ref": "#/definitions/ContentDetail"
               }
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -190,7 +190,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -241,7 +241,7 @@
             "schema": {
               "$ref": "#/definitions/ObjectAggregationResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -300,7 +300,7 @@
             "schema": {
               "$ref": "#/definitions/ObjectAggregationResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -350,7 +350,7 @@
             "schema": {
               "$ref": "#/definitions/DownloadLink"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -428,7 +428,7 @@
             "schema": {
               "$ref": "#/definitions/ContentDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -507,7 +507,7 @@
             "schema": {
               "type": "file"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "206": {
             "description": "HttpResponseMessage",
@@ -598,7 +598,7 @@
             "schema": {
               "type": "file"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "404": {
             "description": ""
@@ -669,7 +669,7 @@
             "schema": {
               "$ref": "#/definitions/ContentNotFoundException"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "200": {
             "description": "ContentDetail",
@@ -760,7 +760,7 @@
             "schema": {
               "$ref": "#/definitions/ContentDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -846,7 +846,7 @@
             "schema": {
               "$ref": "#/definitions/ContentDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -897,7 +897,7 @@
             "schema": {
               "$ref": "#/definitions/ContentSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -956,7 +956,7 @@
             "schema": {
               "$ref": "#/definitions/ContentSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1068,7 +1068,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1144,7 +1144,7 @@
             "schema": {
               "$ref": "#/definitions/ContentDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1194,7 +1194,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1245,7 +1245,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1296,7 +1296,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1347,7 +1347,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1401,7 +1401,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1452,7 +1452,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcessSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1537,7 +1537,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcessWaitResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1594,7 +1594,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcessWaitResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1643,7 +1643,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcessDetails"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1693,7 +1693,7 @@
             "schema": {
               "$ref": "#/definitions/DocumentHistorySearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1741,7 +1741,7 @@
             "schema": {
               "$ref": "#/definitions/DocumentHistory"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1797,7 +1797,7 @@
             "schema": {
               "$ref": "#/definitions/DocumentHistory"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1854,7 +1854,7 @@
             "schema": {
               "$ref": "#/definitions/DocumentHistoryDifference"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1920,7 +1920,7 @@
             "schema": {
               "$ref": "#/definitions/DocumentHistoryDifference"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1967,7 +1967,7 @@
           "200": {
             "description": "JsonSchemaViewItem",
             "schema": {},
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2045,7 +2045,7 @@
             "schema": {
               "$ref": "#/definitions/ListItemDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2099,7 +2099,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2149,7 +2149,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2201,7 +2201,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2252,7 +2252,7 @@
             "schema": {
               "$ref": "#/definitions/ObjectAggregationResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2303,7 +2303,7 @@
             "schema": {
               "$ref": "#/definitions/ListItemSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2422,7 +2422,7 @@
             "schema": {
               "$ref": "#/definitions/ListItemDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "404": {
             "description": "",
@@ -2512,7 +2512,7 @@
             "schema": {
               "$ref": "#/definitions/ListItemDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2563,7 +2563,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2614,7 +2614,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2664,7 +2664,7 @@
             "schema": {
               "$ref": "#/definitions/ObjectSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2717,7 +2717,7 @@
                 "$ref": "#/definitions/SchemaDetail"
               }
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2766,7 +2766,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2815,7 +2815,7 @@
             "schema": {
               "$ref": "#/definitions/SchemaDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2872,7 +2872,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2919,7 +2919,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2975,7 +2975,7 @@
             "schema": {
               "$ref": "#/definitions/ExistsResponse"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3026,7 +3026,7 @@
             "schema": {
               "$ref": "#/definitions/SchemaSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3147,7 +3147,7 @@
             "schema": {
               "$ref": "#/definitions/PermissionSetSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3196,7 +3196,7 @@
             "schema": {
               "$ref": "#/definitions/ContentPermissionSetDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3247,7 +3247,7 @@
             "schema": {
               "$ref": "#/definitions/PermissionSetSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3296,7 +3296,7 @@
             "schema": {
               "$ref": "#/definitions/SchemaPermissionSetDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3335,7 +3335,7 @@
             "schema": {
               "$ref": "#/definitions/VersionInfo"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3381,7 +3381,7 @@
             "schema": {
               "$ref": "#/definitions/ShareDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3454,7 +3454,7 @@
             "schema": {
               "$ref": "#/definitions/ShareDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3501,7 +3501,7 @@
             "schema": {
               "$ref": "#/definitions/ShareDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3555,7 +3555,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3606,7 +3606,7 @@
             "schema": {
               "$ref": "#/definitions/ObjectAggregationResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3685,7 +3685,7 @@
             "schema": {
               "$ref": "#/definitions/CreateShareResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "401": {
             "description": "Not authorized"
@@ -3729,7 +3729,7 @@
             "schema": {
               "$ref": "#/definitions/ShareSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3826,7 +3826,7 @@
             "schema": {
               "$ref": "#/definitions/CustomerServiceProviderConfiguration"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3879,7 +3879,7 @@
             "schema": {
               "$ref": "#/definitions/CustomerServiceProviderConfiguration"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3967,7 +3967,7 @@
             "schema": {
               "$ref": "#/definitions/Blacklist"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4060,7 +4060,7 @@
             "schema": {
               "$ref": "#/definitions/Transfer"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4150,7 +4150,7 @@
             "schema": {
               "$ref": "#/definitions/TransferDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4198,7 +4198,7 @@
             "schema": {
               "$ref": "#/definitions/FileTransferDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4256,7 +4256,7 @@
             "schema": {
               "$ref": "#/definitions/Transfer"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4314,7 +4314,7 @@
             "schema": {
               "$ref": "#/definitions/Transfer"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4364,7 +4364,7 @@
             "schema": {
               "$ref": "#/definitions/TransferSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4414,7 +4414,7 @@
             "schema": {
               "$ref": "#/definitions/FileTransferSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4563,7 +4563,7 @@
             "schema": {
               "$ref": "#/definitions/UserSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4611,7 +4611,7 @@
             "schema": {
               "$ref": "#/definitions/UserDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4659,7 +4659,7 @@
             "schema": {
               "$ref": "#/definitions/UserDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4701,7 +4701,7 @@
                 "$ref": "#/definitions/Channel"
               }
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4755,7 +4755,7 @@
                 "$ref": "#/definitions/OutputDetail"
               }
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4812,7 +4812,7 @@
             "schema": {
               "$ref": "#/definitions/OutputDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4853,7 +4853,7 @@
             "schema": {
               "$ref": "#/definitions/UserProfile"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4901,7 +4901,7 @@
             "schema": {
               "$ref": "#/definitions/UserProfile"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -6451,7 +6451,7 @@
     },
     "AndFilter": {
       "type": "object",
-      "description": "The AndFilter> is a compound filter and returns documents that match all of the specified filters.",
+      "description": "The AndFilter&gt; is a compound filter and returns documents that match all of the specified filters.",
       "additionalProperties": false,
       "properties": {
         "filters": {
@@ -7353,7 +7353,8 @@
         "start",
         "limit",
         "lifeCycleFilter",
-        "searchType"
+        "searchType",
+        "debugMode"
       ],
       "properties": {
         "channelIds": {
@@ -7443,6 +7444,10 @@
               "$ref": "#/definitions/ContentSearchType"
             }
           ]
+        },
+        "debugMode": {
+          "type": "boolean",
+          "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
         }
       }
     },
@@ -7556,6 +7561,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -7587,6 +7595,20 @@
         "id": {
           "type": "string"
         }
+      }
+    },
+    "QueryDebugInformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "general": {
+          "type": "string"
+        },
+        "auditTrail": {
+          "type": "string"
+        },
+        "request": {},
+        "response": {}
       }
     },
     "ContentFileUpdateRequest": {
@@ -8001,6 +8023,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -8371,7 +8396,8 @@
         "start",
         "limit",
         "includeAllSchemaChildren",
-        "includeMetadata"
+        "includeMetadata",
+        "debugMode"
       ],
       "properties": {
         "searchString": {
@@ -8449,6 +8475,10 @@
         "includeMetadata": {
           "type": "boolean",
           "description": "When set to true the content data is included in the result items."
+        },
+        "debugMode": {
+          "type": "boolean",
+          "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
         }
       }
     },
@@ -8481,6 +8511,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -8709,6 +8742,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -9883,7 +9919,8 @@
       "additionalProperties": false,
       "required": [
         "start",
-        "limit"
+        "limit",
+        "debugMode"
       ],
       "properties": {
         "searchString": {
@@ -9921,6 +9958,10 @@
               "$ref": "#/definitions/FilterBase"
             }
           ]
+        },
+        "debugMode": {
+          "type": "boolean",
+          "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
         }
       }
     },
@@ -9972,6 +10013,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -10089,7 +10133,8 @@
       "additionalProperties": false,
       "required": [
         "start",
-        "limit"
+        "limit",
+        "debugMode"
       ],
       "properties": {
         "searchString": {
@@ -10121,6 +10166,10 @@
         },
         "rightFilter": {
           "$ref": "#/definitions/PermissionSetRight"
+        },
+        "debugMode": {
+          "type": "boolean",
+          "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
         }
       }
     },
@@ -10197,6 +10246,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -11162,7 +11214,8 @@
       "additionalProperties": false,
       "required": [
         "start",
-        "limit"
+        "limit",
+        "debugMode"
       ],
       "properties": {
         "searchString": {
@@ -11200,6 +11253,10 @@
               "$ref": "#/definitions/FilterBase"
             }
           ]
+        },
+        "debugMode": {
+          "type": "boolean",
+          "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
         }
       }
     },
@@ -11260,6 +11317,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -16386,6 +16446,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -16482,6 +16545,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -16518,7 +16584,8 @@
       "required": [
         "start",
         "limit",
-        "lifeCycleFilter"
+        "lifeCycleFilter",
+        "debugMode"
       ],
       "properties": {
         "searchString": {
@@ -16556,6 +16623,10 @@
           "items": {
             "$ref": "#/definitions/UserRight"
           }
+        },
+        "debugMode": {
+          "type": "boolean",
+          "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
         }
       }
     },
@@ -16616,6 +16687,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },

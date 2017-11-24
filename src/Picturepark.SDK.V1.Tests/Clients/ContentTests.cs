@@ -25,7 +25,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 		[Fact]
 		[Trait("Stack", "Contents")]
-		public async Task ShouldUpdateTransferOwnership()
+		public async Task ShouldTransferOwnership()
 		{
 			/// Arrange
 			var contentId = _fixture.GetRandomContentId(".jpg", 50);
@@ -33,7 +33,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			/// Act
 			var previousContent = await _client.Contents.GetAsync(contentId);
 			var previousOwner = await _client.Users.GetByOwnerTokenAsync(previousContent.OwnerTokenId);
-			var searchResult = await _client.Users.SearchAsync(new UserSearchRequest { Limit = 10 });
+			var searchResult = await _client.Users.SearchAsync(new UserSearchRequest { Limit = 10, UserRightsFilter = new List<UserRight> { UserRight.ManageContent } });
 
 			var newUser = searchResult.Results.First(u => u.Id != previousOwner.Id);
 			var request = new ContentOwnershipTransferRequest

@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.12.5.0 (NJsonSchema v9.10.5.0 (Newtonsoft.Json v9.0.0.0))",
+  "x-generator": "NSwag v11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))",
   "swagger": "2.0",
   "info": {
     "title": "Picturepark CloudManager API V1",
@@ -2917,7 +2917,8 @@
         "rootListItemSearchIndexNumberOfReplicas",
         "indexedFieldThreshold",
         "redisDatabaseIndex",
-        "lifeCycle"
+        "lifeCycle",
+        "cacheRetentionTimeInMinutes"
       ],
       "properties": {
         "id": {
@@ -3071,6 +3072,10 @@
         },
         "deactivationMessage": {
           "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "cacheRetentionTimeInMinutes": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -4014,6 +4019,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -4057,6 +4065,20 @@
         "lifeCycle": {
           "$ref": "#/definitions/LifeCycle"
         }
+      }
+    },
+    "QueryDebugInformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "general": {
+          "type": "string"
+        },
+        "auditTrail": {
+          "type": "string"
+        },
+        "request": {},
+        "response": {}
       }
     },
     "User": {
@@ -4156,7 +4178,7 @@
     },
     "AndFilter": {
       "type": "object",
-      "description": "The AndFilter> is a compound filter and returns documents that match all of the specified filters.",
+      "description": "The AndFilter&gt; is a compound filter and returns documents that match all of the specified filters.",
       "additionalProperties": false,
       "properties": {
         "filters": {
@@ -5128,6 +5150,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
