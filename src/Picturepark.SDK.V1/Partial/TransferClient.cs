@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
+using System.Net.Http;
 
 namespace Picturepark.SDK.V1
 {
@@ -15,71 +16,100 @@ namespace Picturepark.SDK.V1
 		private readonly BusinessProcessClient _businessProcessClient;
 		private volatile List<string> _fileNameBlacklist;
 
-		public TransferClient(BusinessProcessClient businessProcessClient, IPictureparkClientSettings settings) : this(settings)
+		public TransferClient(BusinessProcessClient businessProcessClient, IPictureparkClientSettings settings, HttpClient httpClient)
+			: this(settings, httpClient)
 		{
-			BaseUrl = businessProcessClient.BaseUrl;
 			_businessProcessClient = businessProcessClient;
 		}
 
-		public async Task UploadFilesAsync(
-			IEnumerable<string> files,
-			string exportDirectory,
-			Transfer transfer,
-			int concurrentUploads = 4,
-			int chunkSize = 1024 * 1024,
-			bool waitForTransferCompletion = true,
-			Action<string> successDelegate = null,
-			Action<Exception> errorDelegate = null
-			)
+		/// <summary>Uploads multiple files from the filesystem.</summary>
+		/// <param name="transferName">The name of the created transfer.</param>
+		/// <param name="filePaths">The file paths on the filesystem.</param>
+		/// <param name="uploadOptions">The file upload options.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The created transfer object.</returns>
+		public async Task<Transfer> UploadFilesAsync(string transferName, IEnumerable<string> filePaths, UploadOptions uploadOptions, CancellationToken cancellationToken = default(CancellationToken))
 		{
+			var filteredFileNames = FilterFilesByBlacklist(filePaths.ToList());
+			Transfer transfer = await CreateAndWaitForCompletionAsync(transferName, filteredFileNames.Select(Path.GetFileName), cancellationToken);
+			await UploadFilesAsync(transfer, filteredFileNames, uploadOptions, cancellationToken);
+			return transfer;
+		}
+
+		/// <summary>Uploads multiple files from the filesystem.</summary>
+		/// <param name="transfer">The existing transfer object.</param>
+		/// <param name="filePaths">The file paths on the filesystem.</param>
+		/// <param name="uploadOptions">The file upload options.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The created transfer object.</returns>
+		public async Task UploadFilesAsync(Transfer transfer, IEnumerable<string> filePaths, UploadOptions uploadOptions, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			uploadOptions = uploadOptions ?? new UploadOptions();
+
 			var exceptions = new List<Exception>();
 
 			// Limits concurrent downloads
-			var throttler = new SemaphoreSlim(concurrentUploads);
-
-			var filteredFileNames = FilterFilesByBlacklist(files.ToList());
+			var throttler = new SemaphoreSlim(uploadOptions.ConcurrentUploads);
+			var filteredFileNames = FilterFilesByBlacklist(filePaths.ToList());
 
 			// TODO: File by file uploads
-			var allTasks = filteredFileNames.Select(file => Task.Run(async () =>
+			var tasks = filteredFileNames
+				.Select(file => Task.Run(async () =>
 				{
 					try
 					{
-						await UploadFileAsync(throttler, transfer.Id, file, chunkSize);
-						successDelegate?.Invoke(file);
+						await UploadFileAsync(throttler, transfer.Id, file, uploadOptions.ChunkSize, cancellationToken);
+						uploadOptions.SuccessDelegate?.Invoke(file);
 					}
 					catch (Exception ex)
 					{
 						exceptions.Add(ex);
-						errorDelegate?.Invoke(ex);
+						uploadOptions.ErrorDelegate?.Invoke(ex);
 					}
-				}))
-				.ToList();
+				}));
 
-			await Task.WhenAll(allTasks).ConfigureAwait(false);
+			await Task.WhenAll(tasks).ConfigureAwait(false);
 
 			if (exceptions.Any())
-				throw new AggregateException(exceptions);
-
-			if (waitForTransferCompletion)
 			{
-				await Wait4States(transfer.BusinessProcessId, TransferState.TransferReady.ToString());
+				throw new AggregateException(exceptions);
+			}
+
+			if (uploadOptions.WaitForTransferCompletion)
+			{
+				await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, cancellationToken);
 			}
 		}
 
-		public async Task ImportTransferAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest)
+		/// <summary>Transfers the uploaded files and waits for its completions.</summary>
+		/// <param name="transfer">The transfer.</param>
+		/// <param name="createRequest">The create request.</param>
+		/// <param name="timeout">The timeout in ms to wait for completion.</param>
+		/// <param name="cancellationToken">The cancellcation token.</param>
+		/// <returns>The task.</returns>
+		public async Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, int timeout = 60 * 1000, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var importTransfer = await ImportTransferAsync(transfer.Id, createRequest);
-			await Wait4States(importTransfer.BusinessProcessId, TransferState.ImportCompleted.ToString());
+			var importedTransfer = await ImportTransferAsync(transfer.Id, createRequest, cancellationToken);
+			await _businessProcessClient.WaitForCompletionAsync(importedTransfer.BusinessProcessId, timeout, cancellationToken);
 		}
 
-		public async Task<Transfer> CreateTransferAsync(CreateTransferRequest request)
+		/// <summary>Creates a transfer and waits for its completion.</summary>
+		/// <param name="request">The create request.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The transfer.</returns>
+		public async Task<Transfer> CreateAndWaitForCompletionAsync(CreateTransferRequest request, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var result = await CreateAsync(request);
-			await Wait4States(result.BusinessProcessId, TransferState.Created.ToString());
-			return result;
+			var transfer = await CreateAsync(request, cancellationToken);
+			await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, cancellationToken);
+			return transfer;
 		}
 
-		public async Task<Transfer> CreateTransferAsync(List<string> fileNames, string transferName)
+		/// <summary>Creates a transfer and waits for its completion.</summary>
+		/// <param name="transferName">The name of the transfer.</param>
+		/// <param name="fileNames">The file names of the transfer.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The transfer.</returns>
+		public async Task<Transfer> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<string> fileNames, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var filteredFileNames = FilterFilesByBlacklist(fileNames);
 
@@ -90,26 +120,12 @@ namespace Picturepark.SDK.V1
 				Files = filteredFileNames.Select(i => new TransferUploadFile { FileName = i, Identifier = Guid.NewGuid().ToString() }).ToList()
 			};
 
-			var result = await CreateAsync(request);
-			await Wait4States(result.BusinessProcessId, TransferState.Created.ToString());
-
-			return result;
+			var transfer = await CreateAsync(request, cancellationToken);
+			await _businessProcessClient.WaitForStatesAsync(transfer.BusinessProcessId, new[] { TransferState.Created.ToString() }, null, cancellationToken);
+			return transfer;
 		}
 
-		internal async Task<string> GetFileTransferIdFromTransferId(string transferId)
-		{
-			var request = new FileTransferSearchRequest()
-			{
-				Limit = 1000
-			};
-
-			var result = await SearchFilesAsync(request);
-			var fileTransferId = result.Results.Where(i => i.TransferId == transferId).Select(i => i.Id).FirstOrDefault();
-
-			return fileTransferId;
-		}
-
-		internal async Task UploadFileAsync(SemaphoreSlim throttler, string transferId, string absoluteFilePath, int chunkSize = 1024 * 1024)
+		private async Task UploadFileAsync(SemaphoreSlim throttler, string transferId, string absoluteFilePath, int chunkSize, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var fileName = Path.GetFileName(absoluteFilePath);
 			var identifier = fileName;
@@ -122,7 +138,7 @@ namespace Picturepark.SDK.V1
 
 			for (var chunkNumber = 1; chunkNumber <= totalChunks; chunkNumber++)
 			{
-				await throttler.WaitAsync();
+				await throttler.WaitAsync(cancellationToken);
 
 				var number = chunkNumber;
 				uploadTasks.Add(Task.Run(async () =>
@@ -143,7 +159,7 @@ namespace Picturepark.SDK.V1
 							var buffer = new byte[currentChunkSize];
 							fileStream.Position = position;
 
-							await fileStream.ReadAsync(buffer, 0, currentChunkSize);
+							await fileStream.ReadAsync(buffer, 0, currentChunkSize, cancellationToken);
 
 							using (var memoryStream = new MemoryStream(buffer))
 							{
@@ -155,7 +171,8 @@ namespace Picturepark.SDK.V1
 									number,
 									currentChunkSize,
 									fileSize,
-									totalChunks);
+									totalChunks,
+									cancellationToken);
 							}
 						}
 					}
@@ -169,30 +186,10 @@ namespace Picturepark.SDK.V1
 			await Task.WhenAll(uploadTasks).ConfigureAwait(false);
 		}
 
-		private async Task<BusinessProcessWaitResult> Wait4States(string businessProcessId, string states, int timeout = 10 * 60 * 1000)
-		{
-			var waitResult = await _businessProcessClient.WaitForStatesAsync(businessProcessId, states, timeout);
-
-			if (waitResult.HasStateHit)
-				return waitResult;
-
-			var error = waitResult.BusinessProcess.StateHistory.SingleOrDefault(i => i.Error != null);
-
-			// Not finished
-			if (error == null)
-			{
-				throw new TimeoutException($"Wait for business process on states {states} timed out after {timeout / 1000} seconds");
-			}
-
-			// Throw deserialized exception
-			var exception = DeserializeException(error.Error.Exception);
-			throw exception;
-		}
-
-		private List<string> FilterFilesByBlacklist(List<string> files)
+		private IEnumerable<string> FilterFilesByBlacklist(IEnumerable<string> files)
 		{
 			var blacklist = GetCachedBlacklist();
-			var filteredFileNames = files.Where(i => !blacklist.Contains(Path.GetFileName(i).ToLowerInvariant())).ToList();
+			var filteredFileNames = files.Where(i => !blacklist.Contains(Path.GetFileName(i).ToLowerInvariant()));
 			return filteredFileNames;
 		}
 
@@ -206,7 +203,7 @@ namespace Picturepark.SDK.V1
 				if (_fileNameBlacklist != null)
 					return _fileNameBlacklist;
 
-				var blacklist = GetBlacklist();
+				var blacklist = GetBlacklist(); // TODO: GetCachedBlacklist: Use async version
 				_fileNameBlacklist = blacklist.Items.Select(i => i.Match.ToLowerInvariant()).ToList();
 			}
 

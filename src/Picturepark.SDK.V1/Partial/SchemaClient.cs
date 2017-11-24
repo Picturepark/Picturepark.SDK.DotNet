@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
-using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Conversion;
+using System.Net.Http;
+using System.Threading;
 
 namespace Picturepark.SDK.V1
 {
@@ -12,42 +12,66 @@ namespace Picturepark.SDK.V1
 	{
 		private readonly BusinessProcessClient _businessProcessClient;
 
-		public SchemaClient(BusinessProcessClient businessProcessesClient, IPictureparkClientSettings settings) : this(settings)
+		public SchemaClient(BusinessProcessClient businessProcessesClient, IPictureparkClientSettings settings, HttpClient httpClient)
+			: this(settings, httpClient)
 		{
-			BaseUrl = businessProcessesClient.BaseUrl;
 			_businessProcessClient = businessProcessesClient;
 		}
 
-		public List<SchemaDetail> GenerateSchemaFromPOCO(Type type, List<SchemaDetail> schemaList = null, bool generateDependencySchema = true)
+		/// <summary>Generates the <see cref="SchemaDetail"/>s for the given type and the referenced types.</summary>
+		/// <param name="type">The type.</param>
+		/// <param name="schemaDetails">The existing schema details.</param>
+		/// <param name="generateDependencySchema">Specifies whether to generate dependent schemas.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The collection of schema details.</returns>
+		public async Task<ICollection<SchemaDetail>> GenerateSchemasAsync(Type type, IEnumerable<SchemaDetail> schemaDetails = null, bool generateDependencySchema = true, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			if (schemaList == null)
-				schemaList = new List<SchemaDetail>();
-
 			var schemaConverter = new ClassToSchemaConverter();
-			return schemaConverter.Generate(type, schemaList, generateDependencySchema);
+			return await schemaConverter.GenerateAsync(type, schemaDetails ?? new List<SchemaDetail>(), generateDependencySchema).ConfigureAwait(false);
 		}
 
-		public async Task CreateOrUpdateAsync(SchemaDetail metadataSchema, bool enableForBinaryFiles)
+		/// <summary>Creates or updates the given <see cref="SchemaDetail"/>.</summary>
+		/// <param name="schemaDetail">The schema detail.</param>
+		/// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
+		public void CreateOrUpdateAndWaitForCompletion(SchemaDetail schemaDetail, bool enableForBinaryFiles)
 		{
-			if (await ExistsAsync(metadataSchema.Id))
+			Task.Run(async () => await CreateOrUpdateAndWaitForCompletionAsync(schemaDetail, enableForBinaryFiles)).GetAwaiter().GetResult();
+		}
+
+		/// <summary>Creates or updates the given <see cref="SchemaDetail"/>.</summary>
+		/// <param name="schemaDetail">The schema detail.</param>
+		/// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The task.</returns>
+		public async Task CreateOrUpdateAndWaitForCompletionAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			if (await ExistsAsync(schemaDetail.Id, null, cancellationToken))
 			{
-				await UpdateAsync(metadataSchema, enableForBinaryFiles);
+				await UpdateAndWaitForCompletionAsync(schemaDetail, enableForBinaryFiles, cancellationToken).ConfigureAwait(false);
 			}
 			else
 			{
-				await CreateAsync(metadataSchema, enableForBinaryFiles);
+				await CreateAndWaitForCompletionAsync(schemaDetail, enableForBinaryFiles, cancellationToken).ConfigureAwait(false);
 			}
 		}
 
-		public void CreateOrUpdate(SchemaDetail metadataSchema, bool enableForBinaryFiles)
+		/// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
+		/// <param name="schemaDetail">The schema detail.</param>
+		/// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
+		public void CreateAndWaitForCompletion(SchemaDetail schemaDetail, bool enableForBinaryFiles)
 		{
-			Task.Run(async () => await CreateOrUpdateAsync(metadataSchema, enableForBinaryFiles)).GetAwaiter().GetResult();
+			Task.Run(async () => await CreateAndWaitForCompletionAsync(schemaDetail, enableForBinaryFiles)).GetAwaiter().GetResult();
 		}
 
-		public async Task CreateAsync(SchemaDetail metadataSchema, bool enableForBinaryFiles)
+		/// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
+		/// <param name="schemaDetail">The schema detail.</param>
+		/// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The task.</returns>
+		public async Task CreateAndWaitForCompletionAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			// Map schema to binary schemas
-			if (enableForBinaryFiles && metadataSchema.Types.Contains(SchemaType.Layer))
+			if (enableForBinaryFiles && schemaDetail.Types.Contains(SchemaType.Layer))
 			{
 				var binarySchemas = new List<string>
 				{
@@ -57,63 +81,78 @@ namespace Picturepark.SDK.V1
 					nameof(ImageMetadata),
 					nameof(VideoMetadata),
 				};
-				metadataSchema.ReferencedInContentSchemaIds = binarySchemas;
+
+				schemaDetail.ReferencedInContentSchemaIds = binarySchemas;
 			}
 
-			await CreateAsync(metadataSchema);
+			await CreateAndWaitForCompletionAsync(schemaDetail, cancellationToken).ConfigureAwait(false);
 		}
 
-		public void Create(SchemaDetail metadataSchema, bool enableForBinaryFiles)
-		{
-			Task.Run(async () => await CreateAsync(metadataSchema, enableForBinaryFiles)).GetAwaiter().GetResult();
-		}
-
+		/// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
+		/// <param name="schemaDetail">The schema detail.</param>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task CreateAsync(SchemaDetail metadataSchema)
+		public void CreateAndWaitForCompletion(SchemaDetail schemaDetail)
 		{
-			var process = await CreateAsync(new SchemaCreateRequest
+			Task.Run(async () => await CreateAndWaitForCompletionAsync(schemaDetail)).GetAwaiter().GetResult();
+		}
+
+		/// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
+		/// <param name="schemaDetail">The schema detail.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The task.</returns>
+		/// <exception cref="ApiException">A server side error occurred.</exception>
+		public async Task CreateAndWaitForCompletionAsync(SchemaDetail schemaDetail, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			var createRequest = new SchemaCreateRequest
 			{
-				Aggregations = metadataSchema.Aggregations,
-				Descriptions = metadataSchema.Descriptions,
-				DisplayPatterns = metadataSchema.DisplayPatterns,
-				Fields = metadataSchema.Fields,
-				Id = metadataSchema.Id,
-				SchemaPermissionSetIds = metadataSchema.SchemaPermissionSetIds,
-				Names = metadataSchema.Names,
-				ParentSchemaId = metadataSchema.ParentSchemaId,
-				Public = metadataSchema.Public,
-				ReferencedInContentSchemaIds = metadataSchema.ReferencedInContentSchemaIds,
-				Sort = metadataSchema.Sort,
-				SortOrder = metadataSchema.SortOrder,
-				Types = metadataSchema.Types,
-				LayerSchemaIds = metadataSchema.LayerSchemaIds
-			});
-			await WaitForCompletionAsync(process);
+				Aggregations = schemaDetail.Aggregations,
+				Descriptions = schemaDetail.Descriptions,
+				DisplayPatterns = schemaDetail.DisplayPatterns,
+				Fields = schemaDetail.Fields,
+				Id = schemaDetail.Id,
+				SchemaPermissionSetIds = schemaDetail.SchemaPermissionSetIds,
+				Names = schemaDetail.Names,
+				ParentSchemaId = schemaDetail.ParentSchemaId,
+				Public = schemaDetail.Public,
+				ReferencedInContentSchemaIds = schemaDetail.ReferencedInContentSchemaIds,
+				Sort = schemaDetail.Sort,
+				SortOrder = schemaDetail.SortOrder,
+				Types = schemaDetail.Types,
+				LayerSchemaIds = schemaDetail.LayerSchemaIds
+			};
+
+			var businessProcess = await CreateAsync(createRequest, cancellationToken).ConfigureAwait(false);
+			await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id, cancellationToken).ConfigureAwait(false);
 		}
 
+		/// <summary>Deletes the a schema.</summary>
+		/// <param name="schemaId">The schema ID.</param>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public void Create(SchemaDetail metadataSchema)
+		public void DeleteAndWaitForCompletion(string schemaId)
 		{
-			Task.Run(async () => await CreateAsync(metadataSchema)).GetAwaiter().GetResult();
+			Task.Run(async () => await DeleteAndWaitForCompletionAsync(schemaId)).GetAwaiter().GetResult();
 		}
 
+		/// <summary>Deletes the a schema.</summary>
+		/// <param name="schemaId">The schema ID.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The task.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task DeleteAsync(string schemaId)
+		public async Task DeleteAndWaitForCompletionAsync(string schemaId, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var process = await DeleteCoreAsync(schemaId);
-			await WaitForCompletionAsync(process);
+			var process = await DeleteAsync(schemaId, cancellationToken).ConfigureAwait(false);
+			await _businessProcessClient.WaitForCompletionAsync(process.Id, cancellationToken).ConfigureAwait(false);
 		}
 
+		/// <summary>Updates the given <see cref="SchemaDetail"/>.</summary>
+		/// <param name="schemaDetail">The schema detail.</param>
+		/// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The task.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public void Delete(string schemaId)
+		public async Task UpdateAndWaitForCompletionAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			Task.Run(async () => await DeleteAsync(schemaId)).GetAwaiter().GetResult();
-		}
-
-		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task UpdateAsync(SchemaDetail schema, bool enableForBinaryFiles)
-		{
-			if (enableForBinaryFiles && schema.Types.Contains(SchemaType.Layer))
+			if (enableForBinaryFiles && schemaDetail.Types.Contains(SchemaType.Layer))
 			{
 				var binarySchemas = new List<string>
 				{
@@ -123,64 +162,67 @@ namespace Picturepark.SDK.V1
 					nameof(ImageMetadata),
 					nameof(VideoMetadata),
 				};
-				schema.ReferencedInContentSchemaIds = binarySchemas;
+
+				schemaDetail.ReferencedInContentSchemaIds = binarySchemas;
 			}
 
-			await UpdateAsync(schema.Id, new SchemaUpdateRequest
+			var updateRequest = new SchemaUpdateRequest
 			{
-				Aggregations = schema.Aggregations,
-				Descriptions = schema.Descriptions,
-				DisplayPatterns = schema.DisplayPatterns,
-				Fields = schema.Fields,
-				SchemaPermissionSetIds = schema.SchemaPermissionSetIds,
-				Names = schema.Names,
-				Public = schema.Public,
-				ReferencedInContentSchemaIds = schema.ReferencedInContentSchemaIds,
-				Sort = schema.Sort,
-				SortOrder = schema.SortOrder,
-				Types = schema.Types,
-				LayerSchemaIds = schema.LayerSchemaIds
-			});
+				Aggregations = schemaDetail.Aggregations,
+				Descriptions = schemaDetail.Descriptions,
+				DisplayPatterns = schemaDetail.DisplayPatterns,
+				Fields = schemaDetail.Fields,
+				SchemaPermissionSetIds = schemaDetail.SchemaPermissionSetIds,
+				Names = schemaDetail.Names,
+				Public = schemaDetail.Public,
+				ReferencedInContentSchemaIds = schemaDetail.ReferencedInContentSchemaIds,
+				Sort = schemaDetail.Sort,
+				SortOrder = schemaDetail.SortOrder,
+				Types = schemaDetail.Types,
+				LayerSchemaIds = schemaDetail.LayerSchemaIds
+			};
+
+			await UpdateAndWaitForCompletionAsync(schemaDetail.Id, updateRequest, cancellationToken).ConfigureAwait(false);
 		}
 
+		/// <summary>Updates a schema.</summary>
+		/// <param name="schemaId">The schema ID.</param>
+		/// <param name="updateRequest">The update request.</param>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task UpdateAsync(string schemaId, SchemaUpdateRequest updateRequest)
+		public void UpdateAndWaitForCompletion(string schemaId, SchemaUpdateRequest updateRequest)
 		{
-			var process = await UpdateCoreAsync(schemaId, updateRequest);
-			await WaitForCompletionAsync(process);
+			Task.Run(async () => await UpdateAndWaitForCompletionAsync(schemaId, updateRequest)).GetAwaiter().GetResult();
 		}
 
+		/// <summary>Updates a schema.</summary>
+		/// <param name="schemaId">The schema ID.</param>
+		/// <param name="updateRequest">The update request.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The task.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public void Update(string schemaId, SchemaUpdateRequest updateRequest)
+		public async Task UpdateAndWaitForCompletionAsync(string schemaId, SchemaUpdateRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			Task.Run(async () => await UpdateAsync(schemaId, updateRequest)).GetAwaiter().GetResult();
+			var process = await UpdateAsync(schemaId, updateRequest, cancellationToken).ConfigureAwait(false);
+			await _businessProcessClient.WaitForCompletionAsync(process.Id, cancellationToken).ConfigureAwait(false);
 		}
 
+		/// <summary>Checks whether a schema ID already exists.</summary>
+		/// <param name="schemaId">The schema ID.</param>
+		/// <param name="fieldId">The optional field ID.</param>
+		public bool Exists(string schemaId, string fieldId = null)
+		{
+			return Task.Run(async () => await ExistsCoreAsync(schemaId, fieldId)).GetAwaiter().GetResult().Exists;
+		}
+
+		/// <summary>Checks whether a schema ID already exists.</summary>
+		/// <param name="schemaId">The schema ID.</param>
+		/// <param name="fieldId">The optional field ID.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The task.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task<bool> ExistsAsync(string schemaId)
+		public async Task<bool> ExistsAsync(string schemaId, string fieldId = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			return (await ExistsAsync(schemaId, null)).Exists;
-		}
-
-		public bool Exists(string schemaId)
-		{
-			return Task.Run(async () => await ExistsAsync(schemaId)).GetAwaiter().GetResult();
-		}
-
-		private async Task WaitForCompletionAsync(BusinessProcess process)
-		{
-			var wait = await process.Wait4StateAsync("Completed", _businessProcessClient);
-
-			var errors = wait.BusinessProcess.StateHistory?
-				.Where(i => i.Error != null)
-				.Select(i => i.Error)
-				.ToList();
-
-			if (errors != null && errors.Any())
-			{
-				var exceptions = errors.Select(error => DeserializeException(error.Exception));
-				throw new AggregateException(exceptions);
-			}
+			return (await ExistsCoreAsync(schemaId, null, cancellationToken).ConfigureAwait(false)).Exists;
 		}
 	}
 }

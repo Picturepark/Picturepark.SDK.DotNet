@@ -1,8 +1,6 @@
 ﻿{
 	"Server": "https://devnext.preview-picturepark.com",
 	"CustomerAlias": "",
-	"Username": "",
-	"Password": "",
 	"AccessToken": "",
 	"EmailRecipient": {
 		"FirstName": "Firstname",

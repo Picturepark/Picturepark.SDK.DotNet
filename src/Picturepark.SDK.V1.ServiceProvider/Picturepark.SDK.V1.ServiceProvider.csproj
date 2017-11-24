@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<Description>Picturepark DotNet SDK ServiceProvider</Description>
+		<Description>Picturepark .NET SDK ServiceProvider</Description>
 		<AssemblyTitle>Picturepark.SDK.V1.ServiceProvider</AssemblyTitle>
 		<TargetFrameworks>netstandard1.6;net46</TargetFrameworks>
 		<NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>

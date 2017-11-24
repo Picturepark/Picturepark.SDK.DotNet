@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<Description>Picturepark DotNet SDK Localization</Description>
+		<Description>Picturepark .NET SDK CloudManager: Manage Picturepark backend instances.</Description>
 		<AssemblyTitle>Picturepark.SDK.V1.CloudManager</AssemblyTitle>
 		<TargetFramework>netstandard1.3</TargetFramework>
 		<NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Tests.Fixtures
 {
-	public class ListItemFixture : SDKClientFixture
+	public class ListItemFixture : ClientFixture
 	{
 		public ListItemFixture()
 		{
@@ -17,8 +17,8 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 		{
 			if (await Client.Schemas.ExistsAsync(nameof(Tag)) == false)
 			{
-				var schema = Client.Schemas.GenerateSchemaFromPOCO(typeof(Tag));
-				await Client.Schemas.CreateAsync(schema.First(), true);
+				var schema = await Client.Schemas.GenerateSchemasAsync(typeof(Tag));
+				await Client.Schemas.CreateAndWaitForCompletionAsync(schema.First(), true);
 			}
 		}
 	}

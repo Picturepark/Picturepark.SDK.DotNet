@@ -52,8 +52,8 @@ namespace Picturepark.Microsite.Example.Controllers
 		[ResponseCache(VaryByHeader = "User-Agent", Duration = 30)]
 		public async Task<FileResult> ImageResized(string id, [FromQuery] int width, [FromQuery] int height)
 		{
-			var thumbnailResponse = await _client.Contents.DownloadResizedAsync(id, "Preview", width, height);
-			return File(thumbnailResponse.Stream, "image/jpeg");
+			var fileResponse = await _client.Contents.DownloadAsync(id, "Preview", width, height);
+			return File(fileResponse.Stream, "image/jpeg");
 		}
 
 		[ResponseCache(VaryByHeader = "User-Agent", Duration = 30)]

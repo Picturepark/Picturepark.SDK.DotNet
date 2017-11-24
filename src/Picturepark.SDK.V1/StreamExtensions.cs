@@ -1,15 +1,15 @@
 ﻿using System.IO;
+using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1
 {
     public static class StreamExtensions
     {
-        // TODO: Make async
-        public static void SaveFile(this Stream stream, string filePath)
+        public static async Task WriteToFileAsync(this Stream stream, string filePath)
         {
             using (var fileStream = File.Create(filePath))
             {
-                stream.CopyTo(fileStream);
+                await stream.CopyToAsync(fileStream);
             }
         }
     }

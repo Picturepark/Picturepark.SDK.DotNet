@@ -11,64 +11,45 @@ namespace Picturepark.SDK.V1
 	public abstract class ClientBase
 	{
 		private readonly IPictureparkClientSettings _settings;
-		private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _jsonSettings;
+		private Lazy<Newtonsoft.Json.JsonSerializerSettings> _jsonSettings;
 
 		/// <summary>Initializes a new instance of the <see cref="ClientBase" /> class.</summary>
 		/// <param name="settings">The client settings.</param>
 		protected ClientBase(IPictureparkClientSettings settings)
 		{
 			_settings = settings;
-			BaseUrl = _settings.BaseUrl;
-			Alias = _settings.CustomerAlias;
-
-			_jsonSettings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() =>
+			_jsonSettings = new Lazy<Newtonsoft.Json.JsonSerializerSettings>(() =>
 			{
-				var jsonSettings = new Newtonsoft.Json.JsonSerializerSettings { Converters = new Newtonsoft.Json.JsonConverter[] { new JsonExceptionConverter() } };
+				var jsonSettings = new Newtonsoft.Json.JsonSerializerSettings
+				{
+					Converters = new Newtonsoft.Json.JsonConverter[]
+					{
+						new JsonExceptionConverter()
+					}
+				};
 				return jsonSettings;
 			});
 		}
 
-		/// <summary>Gets or sets the base URL.</summary>
-		public string BaseUrl { get; protected set; }
+		/// <summary>Gets the base URL of the Picturepark API.</summary>
+		public string BaseUrl => _settings.BaseUrl;
 
-		public string Alias { get; protected set; }
+		/// <summary>Gets the used customer alias.</summary>
+		public string CustomerAlias => _settings.CustomerAlias;
 
-		internal PictureparkException DeserializeException(string exception)
+		protected async Task<HttpRequestMessage> CreateHttpRequestMessageAsync(CancellationToken cancellationToken)
 		{
-			var result = default(PictureparkException);
-			try
-			{
-				result = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(exception, _jsonSettings.Value);
-			}
-			catch (System.Exception ex)
-			{
-				throw new Exception($"Could not deserialize the exception: {exception}", ex);
-			}
-
-			if (result == null)
-				result = new PictureparkException();
-
-			throw result;
-		}
-
-		/// <summary>Creates an HTTP client with a bearer authentication token from the IAuthClient.</summary>
-		/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-		/// <returns>The HTTP client.</returns>
-		protected async Task<HttpClient> CreateHttpClientAsync(CancellationToken cancellationToken)
-		{
-			var client = new HttpClient();
-			client.Timeout = _settings.HttpTimeout;
-			client.BaseAddress = new Uri(BaseUrl, UriKind.Absolute);
-			client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-			client.DefaultRequestHeaders.Add("Picturepark-CustomerAlias", _settings.CustomerAlias);
+			var message = new HttpRequestMessage();
+			message.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+			message.Headers.TryAddWithoutValidation("Picturepark-CustomerAlias", _settings.CustomerAlias);
 
 			if (_settings.AuthClient != null)
 			{
 				foreach (var header in await _settings.AuthClient.GetAuthenticationHeadersAsync())
-					client.DefaultRequestHeaders.TryAddWithoutValidation(header.Key, header.Value);
+					message.Headers.TryAddWithoutValidation(header.Key, header.Value);
 			}
 
-			return client;
+			return message;
 		}
 	}
 }

@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.10.0.0 (NJsonSchema v9.8.3.0 (Newtonsoft.Json v9.0.0.0))",
+  "x-generator": "NSwag v11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))",
   "swagger": "2.0",
   "info": {
     "title": "Picturepark CloudManager API V1",
@@ -2917,7 +2917,8 @@
         "rootListItemSearchIndexNumberOfReplicas",
         "indexedFieldThreshold",
         "redisDatabaseIndex",
-        "lifeCycle"
+        "lifeCycle",
+        "cacheRetentionTimeInMinutes"
       ],
       "properties": {
         "id": {
@@ -3071,6 +3072,10 @@
         },
         "deactivationMessage": {
           "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "cacheRetentionTimeInMinutes": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -4014,6 +4019,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -4057,6 +4065,20 @@
         "lifeCycle": {
           "$ref": "#/definitions/LifeCycle"
         }
+      }
+    },
+    "QueryDebugInformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "general": {
+          "type": "string"
+        },
+        "auditTrail": {
+          "type": "string"
+        },
+        "request": {},
+        "response": {}
       }
     },
     "User": {
@@ -4156,7 +4178,7 @@
     },
     "AndFilter": {
       "type": "object",
-      "description": "The AndFilter> is a compound filter and returns documents that match all of the specified filters.",
+      "description": "The AndFilter&gt; is a compound filter and returns documents that match all of the specified filters.",
       "additionalProperties": false,
       "properties": {
         "filters": {
@@ -4327,7 +4349,7 @@
     },
     "GeoDistanceFilter": {
       "type": "object",
-      "description": "The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point.",
+      "description": "The GeoDistanceFilter returns documents that include only hits that exists within a specific distance from a geo point.",
       "additionalProperties": false,
       "required": [
         "distance"
@@ -4356,62 +4378,6 @@
           "$ref": "#/definitions/FilterBase"
         }
       ]
-    },
-    "GeoDistanceRangeFilter": {
-      "type": "object",
-      "description": "The GeoDistanceRangeFilter returns documents that exists within a range from a specific point.",
-      "additionalProperties": false,
-      "properties": {
-        "field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        },
-        "location": {
-          "description": "The longitude/latitude configuration for the point of origin.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/GeoLocation"
-            }
-          ]
-        },
-        "range": {
-          "description": "The numeric range.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/NumericRange"
-            }
-          ]
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "NumericRange": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "names": {
-          "description": "Tranlsated range names.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        },
-        "from": {
-          "type": "number",
-          "description": "The from value.",
-          "format": "double"
-        },
-        "to": {
-          "type": "number",
-          "description": "The to value.",
-          "format": "double"
-        }
-      }
     },
     "NestedFilter": {
       "type": "object",
@@ -4460,6 +4426,30 @@
           "$ref": "#/definitions/FilterBase"
         }
       ]
+    },
+    "NumericRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "names": {
+          "description": "Tranlsated range names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "from": {
+          "type": "number",
+          "description": "The from value.",
+          "format": "double"
+        },
+        "to": {
+          "type": "number",
+          "description": "The to value.",
+          "format": "double"
+        }
+      }
     },
     "PrefixFilter": {
       "type": "object",
@@ -4534,7 +4524,7 @@
           "description": "The name of the aggregation this filter is connected to."
         },
         "filter": {
-          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.",
+          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceFilter.",
           "allOf": [
             {
               "$ref": "#/definitions/FilterBase"
@@ -5160,6 +5150,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },

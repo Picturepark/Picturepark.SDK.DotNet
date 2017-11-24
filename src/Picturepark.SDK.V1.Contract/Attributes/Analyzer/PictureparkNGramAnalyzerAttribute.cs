@@ -2,8 +2,8 @@
 
 namespace Picturepark.SDK.V1.Contract.Attributes.Analyzer
 {
-    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = true)]
-    public class PictureparkNGramAnalyzerAttribute : PictureparkAnalyzerAttribute, IPictureparkAttribute
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
+    public class PictureparkNGramAnalyzerAttribute : PictureparkAnalyzerAttribute
     {
         public override AnalyzerBase CreateAnalyzer()
         {

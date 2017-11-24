@@ -10,7 +10,7 @@ namespace Picturepark.SDK.V1.Contract
 
 		Task DeactivateAsync(string contentId, CancellationToken cancellationToken = default(CancellationToken));
 
-		Task<ContentDetail> ReactivateAsync(string contentId, bool resolve = true, int timeout = 60000);
+		Task<ContentDetail> ReactivateAsync(string contentId, bool resolve = true, int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken));
 
 		ContentDetail Reactivate(string contentId, bool resolve = true, int timeout = 60000);
 
@@ -22,6 +22,7 @@ namespace Picturepark.SDK.V1.Contract
 			string outputFormat = "Original",
 			string outputExtension = "",
 			Action<ContentDetail> successDelegate = null,
-			Action<Exception> errorDelegate = null);
+			Action<Exception> errorDelegate = null,
+			CancellationToken cancellationToken = default(CancellationToken));
 	}
 }

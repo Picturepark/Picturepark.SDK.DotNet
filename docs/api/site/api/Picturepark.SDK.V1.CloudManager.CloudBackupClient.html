@@ -94,7 +94,7 @@
                   <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_Alias">ClientBase.Alias</a>
                 </div>
                 <div>
-                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpClientAsync_CancellationToken_">ClientBase.CreateHttpClientAsync(CancellationToken)</a>
+                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_CancellationToken_">ClientBase.CreateHttpRequestMessageAsync(CancellationToken)</a>
                 </div>
                 <div>
                   <span class="xref">System.Object.ToString()</span>
@@ -129,12 +129,12 @@
               
               
               <a id="Picturepark_SDK_V1_CloudManager_CloudBackupClient__ctor_" data-uid="Picturepark.SDK.V1.CloudManager.CloudBackupClient.#ctor*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_CloudBackupClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkClientSettings_" data-uid="Picturepark.SDK.V1.CloudManager.CloudBackupClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkClientSettings)">CloudBackupClient(IPictureparkClientSettings)</h4>
+              <h4 id="Picturepark_SDK_V1_CloudManager_CloudBackupClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkClientSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.CloudManager.CloudBackupClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkClientSettings,System.Net.Http.HttpClient)">CloudBackupClient(IPictureparkClientSettings, Net.Http.HttpClient)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public CloudBackupClient(IPictureparkClientSettings configuration)</code></pre>
+                <pre><code class="lang-csharp hljs">public CloudBackupClient(IPictureparkClientSettings configuration, Net.Http.HttpClient httpClient)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -149,6 +149,11 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.IPictureparkClientSettings.html">IPictureparkClientSettings</a></td>
                     <td><span class="parametername">configuration</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Net.Http.HttpClient</span></td>
+                    <td><span class="parametername">httpClient</span></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -238,6 +243,11 @@
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
                 </tbody>
               </table>
               
@@ -302,6 +312,11 @@
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
                 </tbody>
               </table>
               
@@ -358,6 +373,11 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
                     <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -424,6 +444,11 @@
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
                 </tbody>
               </table>
               
@@ -480,6 +505,11 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
                     <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -546,6 +576,11 @@
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
                 </tbody>
               </table>
               
@@ -602,6 +637,11 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
                     <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -668,6 +708,11 @@
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
                 </tbody>
               </table>
               
@@ -724,6 +769,11 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
                     <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -790,6 +840,11 @@
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
                 </tbody>
               </table>
               
@@ -846,6 +901,11 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
                     <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -912,6 +972,11 @@
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
                 </tbody>
               </table>
               
@@ -968,6 +1033,11 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
                     <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1034,6 +1104,11 @@
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
                 </tbody>
               </table>
               
@@ -1090,6 +1165,11 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
                     <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1156,6 +1236,11 @@
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
                 </tbody>
               </table>
               
@@ -1212,6 +1297,11 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
                     <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>
@@ -1276,6 +1366,11 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
                     <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
+                    <td><p>Internal server error</p>
 </td>
                   </tr>
                 </tbody>

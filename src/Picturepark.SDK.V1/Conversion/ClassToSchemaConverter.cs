@@ -6,8 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Picturepark.SDK.V1.Contract.Attributes.Analyzer;
-using Picturepark.SDK.V1.Contract.Interfaces;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Conversion
 {
@@ -15,39 +15,34 @@ namespace Picturepark.SDK.V1.Conversion
 	{
 		private readonly List<string> _ignoredProperties = new List<string> { "refId", "_relId", "_relationType", "_targetContext", "_targetId" };
 
-		/// <summary>
-		/// Convert a C# POCO to a picturepark schema definition
-		/// </summary>
-		/// <param name="type">Type of poco to convert</param>
+		/// <summary>Converts a .NET type and its dependencies to a list of Picturepark schema definitions.</summary>
+		/// <param name="type">The type to generate definitions for.</param>
 		/// <param name="generateRelatedSchemas">Generates related schemas as well. E.g. referenced pocos in lists.</param>
 		/// <returns>List of schemas</returns>
-		public List<SchemaDetail> Generate(Type type, bool generateRelatedSchemas = true)
+		public Task<ICollection<SchemaDetail>> GenerateAsync(Type type, bool generateRelatedSchemas = true)
 		{
 			var schemaList = new List<SchemaDetail>();
-			return Generate(type, schemaList, generateRelatedSchemas);
+			return GenerateAsync(type, schemaList, generateRelatedSchemas);
 		}
 
-		/// <summary>
-		/// Convert a C# POCO to a picturepark schema definition
-		/// </summary>
-		/// <param name="type">Type of poco to convert</param>
-		/// <param name="schemaList">Existing list of schemas. Pass if you need to convert several pocos and they reference the same dependant schemas (used to exclude existing schemas).</param>
+		/// <summary>Converts a .NET type and its dependencies to a list of Picturepark schema definitions.</summary>
+		/// <param name="type">The type to generate definitions for.</param>
+		/// <param name="schemaDetails">Existing list of schemas. Pass if you need to convert several pocos and they reference the same dependant schemas (used to exclude existing schemas).</param>
 		/// <param name="generateRelatedSchemas">Generates related schemas as well. E.g. referenced pocos in lists.</param>
 		/// <returns>List of schemas</returns>
-		public List<SchemaDetail> Generate(Type type, List<SchemaDetail> schemaList, bool generateRelatedSchemas = true)
+		public Task<ICollection<SchemaDetail>> GenerateAsync(Type type, IEnumerable<SchemaDetail> schemaDetails, bool generateRelatedSchemas = true)
 		{
 			var classProperties = GetClassProperties(type);
 
+			var schemaList = schemaDetails.ToList();
 			SchemaCreate(classProperties, type, string.Empty, schemaList, 0, generateRelatedSchemas);
 
 			var sortedList = new List<SchemaDetail>();
-
 			foreach (var schemaItem in schemaList)
 			{
 				var dependencyList = schemaList.FindAll(s => s.Dependencies.Any(d => d.Id == schemaItem.Id));
 
 				int? index = null;
-
 				if (dependencyList.Any())
 				{
 					foreach (var dependency in dependencyList)
@@ -67,19 +62,24 @@ namespace Picturepark.SDK.V1.Conversion
 					sortedList.Add(schemaItem);
 			}
 
-			return sortedList;
+			return Task.FromResult((ICollection<SchemaDetail>)sortedList);
 		}
 
 		private SchemaDetail SchemaCreate(List<ContractPropertyInfo> classProperties, Type contractType, string parentSchemaId, List<SchemaDetail> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
 		{
 			var schemaId = contractType.Name;
 
-			var typeAttributes = contractType.GetTypeInfo().GetCustomAttributes(typeof(PictureparkSchemaTypeAttribute), true).Select(i => i as PictureparkSchemaTypeAttribute).ToList();
+			var typeAttributes = contractType.GetTypeInfo()
+				.GetCustomAttributes(typeof(PictureparkSchemaTypeAttribute), true)
+				.Select(i => i as PictureparkSchemaTypeAttribute)
+				.ToList();
 
 			if (!typeAttributes.Any())
 				throw new Exception("No PictureparkSchemaTypeAttribute set on class: " + contractType.Name);
 
-			var types = typeAttributes.Select(typeAttribute => typeAttribute.SchemaType).ToList();
+			var types = typeAttributes
+				.Select(typeAttribute => typeAttribute.SchemaType)
+				.ToList();
 
 			var schemaItem = new SchemaDetail
 			{
@@ -92,7 +92,11 @@ namespace Picturepark.SDK.V1.Conversion
 				DisplayPatterns = new List<DisplayPattern>()
 			};
 
-			var displayPatternAttributes = contractType.GetTypeInfo().GetCustomAttributes(typeof(PictureparkDisplayPatternAttribute), true).Select(i => i as PictureparkDisplayPatternAttribute).ToList();
+			var displayPatternAttributes = contractType.GetTypeInfo()
+				.GetCustomAttributes(typeof(PictureparkDisplayPatternAttribute), true)
+				.Select(i => i as PictureparkDisplayPatternAttribute)
+				.ToList();
+
 			foreach (var displayPatternAttribute in displayPatternAttributes)
 			{
 				var displayPattern = new DisplayPattern
@@ -106,14 +110,22 @@ namespace Picturepark.SDK.V1.Conversion
 			}
 
 			// Assign name translations
-			var nameTranslationAttributes = contractType.GetTypeInfo().GetCustomAttributes(typeof(PictureparkNameTranslationAttribute), true).Select(i => i as PictureparkNameTranslationAttribute).ToList();
+			var nameTranslationAttributes = contractType.GetTypeInfo()
+				.GetCustomAttributes(typeof(PictureparkNameTranslationAttribute), true)
+				.Select(i => i as PictureparkNameTranslationAttribute)
+				.ToList();
+
 			foreach (var translationAttribute in nameTranslationAttributes)
 			{
 				schemaItem.Names[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
 			}
 
 			// Assign description translations
-			var descriptionTranslationAttributes = contractType.GetTypeInfo().GetCustomAttributes(typeof(PictureparkDescriptionTranslationAttribute), true).Select(i => i as PictureparkDescriptionTranslationAttribute).ToList();
+			var descriptionTranslationAttributes = contractType.GetTypeInfo()
+				.GetCustomAttributes(typeof(PictureparkDescriptionTranslationAttribute), true)
+				.Select(i => i as PictureparkDescriptionTranslationAttribute)
+				.ToList();
+
 			foreach (var translationAttribute in descriptionTranslationAttributes)
 			{
 				schemaItem.Descriptions[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
@@ -159,9 +171,6 @@ namespace Picturepark.SDK.V1.Conversion
 				var fieldData = GetFieldData(contractPropertyInfo);
 
 				fieldData.Id = fieldName.ToLowerCamelCase();
-				fieldData.FieldNamespace = $"{schemaId}_{fieldData.Id}";
-				if (!string.IsNullOrEmpty(parentSchemaId))
-					fieldData.FieldNamespace = $"{parentSchemaId}_{fieldData.FieldNamespace}";
 
 				if (fieldData.Names == null)
 				{
@@ -271,7 +280,8 @@ namespace Picturepark.SDK.V1.Conversion
 
 							propertyInfo.IsArray = true;
 
-							if (property.PropertyType.GenericTypeArguments.Any() && typeof(IReference).GetTypeInfo().IsAssignableFrom(property.PropertyType.GenericTypeArguments.First().GetTypeInfo()))
+							if (property.GetCustomAttribute<PictureparkReferenceAttribute>() != null ||
+								property.PropertyType.GenericTypeArguments.FirstOrDefault().GetTypeInfo().GetCustomAttribute<PictureparkReferenceAttribute>() != null)
 							{
 								propertyInfo.IsReference = true;
 							}
@@ -284,7 +294,7 @@ namespace Picturepark.SDK.V1.Conversion
 						propertyInfo.FullName = property.PropertyType.FullName;
 						propertyInfo.AssemblyFullName = typeInfo.Assembly.FullName;
 
-						if (typeof(IReference).GetTypeInfo().IsAssignableFrom(typeInfo))
+						if (typeInfo.GetCustomAttribute<PictureparkReferenceAttribute>() != null)
 						{
 							propertyInfo.IsReference = true;
 						}
@@ -299,7 +309,11 @@ namespace Picturepark.SDK.V1.Conversion
 				}
 
 				var customAttributes = property.GetCustomAttributes(true);
-				var searchAttribute = customAttributes.Where(i => i.GetType().GetTypeInfo().ImplementedInterfaces.Any(j => j == typeof(IPictureparkAttribute))).Select(i => i as IPictureparkAttribute).ToList();
+				var searchAttribute = customAttributes
+					.Where(i => i.GetType().GetTypeInfo().ImplementedInterfaces.Any(j => j == typeof(IPictureparkAttribute)))
+					.Select(i => i as IPictureparkAttribute)
+					.ToList();
+
 				propertyInfo.PictureparkAttributes = searchAttribute;
 				contactPropertiesInfo.Add(propertyInfo);
 			}
@@ -414,12 +428,14 @@ namespace Picturepark.SDK.V1.Conversion
 								Index = true
 							};
 							break;
+
 						case TypeCode.DateTime:
 							fieldData = new FieldDateTimeArray
 							{
 								Index = true
 							};
 							break;
+
 						case TypeCode.Int16:
 						case TypeCode.Int32:
 						case TypeCode.Int64:
@@ -428,6 +444,7 @@ namespace Picturepark.SDK.V1.Conversion
 								Index = true
 							};
 							break;
+
 						default:
 							throw new Exception($"TypeCode {typeCode} is not supported.");
 					}
@@ -489,7 +506,8 @@ namespace Picturepark.SDK.V1.Conversion
 			}
 			else
 			{
-				var schemaItemInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkSchemaItemAttribute>().SingleOrDefault();
+				var schemaIndexing = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkSchemaIndexingAttribute>().SingleOrDefault();
+				var schemaItemInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkTagboxAttribute>().SingleOrDefault();
 				var relationInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkContentRelationAttribute>().ToList();
 				var maxRecursionInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkMaximumRecursionAttribute>().SingleOrDefault();
 
@@ -511,9 +529,10 @@ namespace Picturepark.SDK.V1.Conversion
 					{
 						fieldData = new FieldMultiRelation
 						{
+							Index = true,
 							RelationTypes = relationTypes,
 							SchemaId = contractPropertyInfo.TypeName,
-							Index = true
+							SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
 						};
 					}
 					else if (contractPropertyInfo.IsReference)
@@ -523,7 +542,8 @@ namespace Picturepark.SDK.V1.Conversion
 							Index = true,
 							SimpleSearch = true,
 							SchemaId = contractPropertyInfo.TypeName,
-							Filter = schemaItemInfos?.Filter
+							Filter = schemaItemInfos?.Filter,
+							SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
 						};
 					}
 					else
@@ -532,7 +552,8 @@ namespace Picturepark.SDK.V1.Conversion
 						{
 							Index = true,
 							SimpleSearch = true,
-							SchemaId = contractPropertyInfo.TypeName
+							SchemaId = contractPropertyInfo.TypeName,
+							SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
 						};
 					}
 				}
@@ -545,7 +566,8 @@ namespace Picturepark.SDK.V1.Conversion
 							Index = true,
 							SimpleSearch = true,
 							RelationTypes = relationTypes,
-							SchemaId = contractPropertyInfo.TypeName
+							SchemaId = contractPropertyInfo.TypeName,
+							SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
 						};
 					}
 					else if (contractPropertyInfo.TypeName == "GeoPoint")
@@ -562,7 +584,8 @@ namespace Picturepark.SDK.V1.Conversion
 							Index = true,
 							SimpleSearch = true,
 							SchemaId = contractPropertyInfo.TypeName,
-							Filter = schemaItemInfos?.Filter
+							Filter = schemaItemInfos?.Filter,
+							SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
 						};
 					}
 					else
@@ -571,7 +594,8 @@ namespace Picturepark.SDK.V1.Conversion
 						{
 							Index = true,
 							SimpleSearch = true,
-							SchemaId = contractPropertyInfo.TypeName
+							SchemaId = contractPropertyInfo.TypeName,
+							SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
 						};
 					}
 				}

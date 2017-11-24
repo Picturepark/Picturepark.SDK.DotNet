@@ -9,7 +9,7 @@
         ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen"
         Title="Picturepark Content Uploader" 
-        Height="342" Width="500">
+        Height="526" Width="500">
 
     <Window.Resources>
         <viewModels:MainWindowModel x:Key="ViewModel" />
@@ -24,11 +24,23 @@
                 <TextBlock Text="Server" Margin="0,0,0,4" FontWeight="Bold" />
                 <TextBox Text="{Binding Server}" Margin="0,0,0,8" />
 
-                <TextBlock Text="Username" Margin="0,0,0,4" FontWeight="Bold" />
-                <TextBox Text="{Binding Username}" Margin="0,0,0,8" />
+                <TextBlock Text="Identity Server" Margin="0,0,0,4" FontWeight="Bold" />
+                <TextBox Text="{Binding IdentityServer}" Margin="0,0,0,8" />
+                
+                <TextBlock Text="Client ID" Margin="0,0,0,4" FontWeight="Bold" />
+                <TextBox Text="{Binding ClientId}" Margin="0,0,0,8" />
 
-                <TextBlock Text="Password" Margin="0,0,0,4" FontWeight="Bold" />
-                <TextBox Text="{Binding Password}" Margin="0,0,0,8" />
+                <TextBlock Text="Client Secret" Margin="0,0,0,4" FontWeight="Bold" />
+                <TextBox Text="{Binding ClientSecret}" Margin="0,0,0,8" />
+
+                <TextBlock Text="Redirect URI" Margin="0,0,0,4" FontWeight="Bold" />
+                <TextBox Text="{Binding RedirectUri}" Margin="0,0,0,8" />
+
+                <TextBlock Text="Customer ID" Margin="0,0,0,4" FontWeight="Bold" />
+                <TextBox Text="{Binding CustomerId}" Margin="0,0,0,8" />
+
+                <TextBlock Text="Customer Alias" Margin="0,0,0,4" FontWeight="Bold" />
+                <TextBox Text="{Binding CustomerAlias}" Margin="0,0,0,8" />
             </StackPanel>
         </GroupBox>
 
@@ -41,6 +53,7 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+            
             <Button Content="Register Context Menu" Command="{Binding RegisterContextMenuCommand}" Padding="4" Margin="0,0,4,0" />
             <Button Content="Unregister Context Menu" Command="{Binding UnregisterContextMenuCommand}" Padding="4" Grid.Column="1" Margin="4,0,0,0" />
         </Grid>

@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.10.0.0 (NJsonSchema v9.8.3.0 (Newtonsoft.Json v9.0.0.0))",
+  "x-generator": "NSwag v11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))",
   "swagger": "2.0",
   "info": {
     "title": "Picturepark API V1",
@@ -30,7 +30,7 @@
         ],
         "summary": "Update Single - OwnershipTransfer",
         "description": "The update of content transfer is executed asynchronous. However, for the specified timeout completion of the update process is awaited.\nIf the update process is not completed by reaching the specified timeout, the update process continues, but null is returned.",
-        "operationId": "Content_UpdateTransferOwnership",
+        "operationId": "Content_TransferOwnership",
         "parameters": [
           {
             "type": "string",
@@ -65,7 +65,7 @@
             "schema": {
               "$ref": "#/definitions/ContentDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -140,7 +140,7 @@
                 "$ref": "#/definitions/ContentDetail"
               }
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -190,7 +190,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -241,7 +241,7 @@
             "schema": {
               "$ref": "#/definitions/ObjectAggregationResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -300,7 +300,7 @@
             "schema": {
               "$ref": "#/definitions/ObjectAggregationResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -325,7 +325,7 @@
         ]
       }
     },
-    "/v1/contents/createBatchContentDownload": {
+    "/v1/contents/downloadLinks": {
       "post": {
         "tags": [
           "Content"
@@ -338,7 +338,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ContentBatchDownloadRequest"
+              "$ref": "#/definitions/ContentDownloadLinkCreateRequest"
             },
             "x-nullable": true,
             "description": "The content batch download request"
@@ -348,9 +348,9 @@
           "200": {
             "description": "ContentBatchDonloadItem",
             "schema": {
-              "$ref": "#/definitions/ContentBatchDownloadItem"
+              "$ref": "#/definitions/DownloadLink"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -428,7 +428,7 @@
             "schema": {
               "$ref": "#/definitions/ContentDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -478,6 +478,22 @@
             "description": "The output format id"
           },
           {
+            "type": "integer",
+            "name": "width",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional width in pixels to resize image",
+            "format": "int32"
+          },
+          {
+            "type": "integer",
+            "name": "height",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional height in pixels to resize image",
+            "format": "int32"
+          },
+          {
             "type": "string",
             "name": "range",
             "in": "header",
@@ -491,7 +507,7 @@
             "schema": {
               "type": "file"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "206": {
             "description": "HttpResponseMessage",
@@ -558,83 +574,21 @@
               "Medium",
               "Large"
             ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "HttpResponseMessage",
-            "schema": {
-              "type": "file"
-            },
-            "x-nullable": true
-          },
-          "404": {
-            "description": ""
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "content_read"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/contents/downloads/{contentId}/{outputFormatId}/{width}/{height}": {
-      "get": {
-        "tags": [
-          "Content"
-        ],
-        "summary": "Download resized content",
-        "description": "Provides a endpoint to get reseized content",
-        "operationId": "Content_DownloadResized",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "contentId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The Content id"
-          },
-          {
-            "type": "string",
-            "name": "outputFormatId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The output format id"
           },
           {
             "type": "integer",
             "name": "width",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The content width",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional width in pixels to resize image",
             "format": "int32"
           },
           {
             "type": "integer",
             "name": "height",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The content height",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional height in pixels to resize image",
             "format": "int32"
           }
         ],
@@ -644,7 +598,7 @@
             "schema": {
               "type": "file"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "404": {
             "description": ""
@@ -715,7 +669,7 @@
             "schema": {
               "$ref": "#/definitions/ContentNotFoundException"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "200": {
             "description": "ContentDetail",
@@ -806,7 +760,7 @@
             "schema": {
               "$ref": "#/definitions/ContentDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -892,7 +846,7 @@
             "schema": {
               "$ref": "#/definitions/ContentDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -943,7 +897,7 @@
             "schema": {
               "$ref": "#/definitions/ContentSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1002,7 +956,7 @@
             "schema": {
               "$ref": "#/definitions/ContentSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1114,7 +1068,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1190,7 +1144,7 @@
             "schema": {
               "$ref": "#/definitions/ContentDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1240,7 +1194,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1291,7 +1245,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1342,7 +1296,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1393,7 +1347,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1447,7 +1401,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1498,7 +1452,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcessSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1534,9 +1488,9 @@
         "tags": [
           "BusinessProcess"
         ],
-        "summary": "Wait for states",
-        "description": "Wait for given process states.",
-        "operationId": "BusinessProcess_WaitForStates",
+        "summary": "Wait",
+        "description": "Wait for given process state or lifeCycle. LifeCycles are the same over all business processes. States depend on specific states of the business process.",
+        "operationId": "BusinessProcess_Wait",
         "parameters": [
           {
             "type": "string",
@@ -1547,20 +1501,33 @@
             "description": "The process id"
           },
           {
-            "type": "string",
+            "type": "array",
             "name": "states",
             "in": "query",
-            "required": true,
             "x-nullable": true,
-            "description": "The states to wait for"
+            "collectionFormat": "multi",
+            "description": "The states to wait for",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "type": "array",
+            "name": "lifeCycleIds",
+            "in": "query",
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "Business process lifeCycle to wait for",
+            "items": {
+              "$ref": "#/definitions/BusinessProcessLifeCycle"
+            }
           },
           {
             "type": "integer",
             "name": "timeout",
             "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "The timeout in ms",
+            "x-nullable": true,
+            "description": "The timeout in ms to wait for completion.",
             "format": "int32"
           }
         ],
@@ -1570,7 +1537,64 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcessWaitResult"
             },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
             "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/businessProcesses/{processId}/waitCompletion": {
+      "get": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Wait for completion",
+        "description": "Wait for given process to complete with lifeCycle \"Succeeded\", \"Cancelled\" or \"Failed\"",
+        "operationId": "BusinessProcess_WaitForCompletion",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The process id"
+          },
+          {
+            "type": "integer",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "The timeout in ms to wait for completion.",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcessWaitResult",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitResult"
+            },
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1619,7 +1643,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcessDetails"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1669,7 +1693,7 @@
             "schema": {
               "$ref": "#/definitions/DocumentHistorySearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1717,7 +1741,7 @@
             "schema": {
               "$ref": "#/definitions/DocumentHistory"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1773,7 +1797,7 @@
             "schema": {
               "$ref": "#/definitions/DocumentHistory"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1830,7 +1854,7 @@
             "schema": {
               "$ref": "#/definitions/DocumentHistoryDifference"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1896,7 +1920,7 @@
             "schema": {
               "$ref": "#/definitions/DocumentHistoryDifference"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1943,7 +1967,7 @@
           "200": {
             "description": "JsonSchemaViewItem",
             "schema": {},
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2021,7 +2045,7 @@
             "schema": {
               "$ref": "#/definitions/ListItemDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2075,7 +2099,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2125,7 +2149,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2177,7 +2201,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2228,7 +2252,7 @@
             "schema": {
               "$ref": "#/definitions/ObjectAggregationResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2279,7 +2303,7 @@
             "schema": {
               "$ref": "#/definitions/ListItemSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2304,7 +2328,7 @@
         ]
       }
     },
-    "/v1/listItems/{objectId}": {
+    "/v1/listItems/{listItemId}": {
       "delete": {
         "tags": [
           "ListItem"
@@ -2315,7 +2339,7 @@
         "parameters": [
           {
             "type": "string",
-            "name": "objectId",
+            "name": "listItemId",
             "in": "path",
             "required": true,
             "x-nullable": false,
@@ -2356,9 +2380,7 @@
             ]
           }
         ]
-      }
-    },
-    "/v1/listItems/{listItemId}": {
+      },
       "get": {
         "tags": [
           "ListItem"
@@ -2400,10 +2422,14 @@
             "schema": {
               "$ref": "#/definitions/ListItemDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "404": {
-            "description": ""
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ListItemNotFoundException"
+            },
+            "x-nullable": true
           },
           "500": {
             "description": "Internal server error",
@@ -2486,7 +2512,7 @@
             "schema": {
               "$ref": "#/definitions/ListItemDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2537,7 +2563,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2588,7 +2614,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2608,76 +2634,6 @@
           {
             "Bearer": [
               "listitem_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/listItems/{processId}/wait": {
-      "get": {
-        "tags": [
-          "ListItem"
-        ],
-        "summary": "Wait For States",
-        "description": "Waits for any specified business process states to be hit. If the timeout is reached, the wait process will be stopped and the wait result returned.",
-        "operationId": "ListItem_WaitForStates",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "processId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The business process id."
-          },
-          {
-            "type": "array",
-            "name": "states",
-            "in": "query",
-            "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "Comma-separated list of business process states to wait for.",
-            "items": {
-              "type": "string"
-            }
-          },
-          {
-            "type": "integer",
-            "name": "timeout",
-            "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Maximum time in milliseconds to wait for the business process completed state.",
-            "format": "int32"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcessWaitResult",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcessWaitResult"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "deprecated": true,
-        "security": [
-          {
-            "Bearer": [
-              "listitem_read"
             ]
           }
         ]
@@ -2708,7 +2664,7 @@
             "schema": {
               "$ref": "#/definitions/ObjectSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2761,7 +2717,7 @@
                 "$ref": "#/definitions/SchemaDetail"
               }
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2810,7 +2766,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2859,7 +2815,7 @@
             "schema": {
               "$ref": "#/definitions/SchemaDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2916,7 +2872,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2963,7 +2919,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3009,7 +2965,6 @@
             "type": "string",
             "name": "fieldId",
             "in": "query",
-            "required": true,
             "x-nullable": true,
             "description": "The optional field id."
           }
@@ -3020,7 +2975,7 @@
             "schema": {
               "$ref": "#/definitions/ExistsResponse"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3071,7 +3026,7 @@
             "schema": {
               "$ref": "#/definitions/SchemaSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3192,7 +3147,7 @@
             "schema": {
               "$ref": "#/definitions/PermissionSetSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3241,7 +3196,7 @@
             "schema": {
               "$ref": "#/definitions/ContentPermissionSetDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3292,7 +3247,7 @@
             "schema": {
               "$ref": "#/definitions/PermissionSetSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3341,7 +3296,7 @@
             "schema": {
               "$ref": "#/definitions/SchemaPermissionSetDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3380,7 +3335,7 @@
             "schema": {
               "$ref": "#/definitions/VersionInfo"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3403,7 +3358,7 @@
         ]
       }
     },
-    "/v1/publicAccess/getShare": {
+    "/v1/publicAccess/shares/{token}": {
       "get": {
         "tags": [
           "PublicAccess"
@@ -3414,9 +3369,9 @@
           {
             "type": "string",
             "name": "token",
-            "in": "query",
+            "in": "path",
             "required": true,
-            "x-nullable": true,
+            "x-nullable": false,
             "description": "The token"
           }
         ],
@@ -3424,9 +3379,9 @@
           "200": {
             "description": "ShareBaseDetail",
             "schema": {
-              "$ref": "#/definitions/ShareBaseDetail"
+              "$ref": "#/definitions/ShareDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3497,9 +3452,9 @@
           "200": {
             "description": "Share",
             "schema": {
-              "$ref": "#/definitions/BaseResultOfShareBase"
+              "$ref": "#/definitions/ShareDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3544,9 +3499,9 @@
           "200": {
             "description": "Polymorph share",
             "schema": {
-              "$ref": "#/definitions/ShareBaseDetail"
+              "$ref": "#/definitions/ShareDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3600,7 +3555,7 @@
             "schema": {
               "$ref": "#/definitions/BusinessProcess"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3651,7 +3606,7 @@
             "schema": {
               "$ref": "#/definitions/ObjectAggregationResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3730,7 +3685,7 @@
             "schema": {
               "$ref": "#/definitions/CreateShareResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "401": {
             "description": "Not authorized"
@@ -3774,7 +3729,7 @@
             "schema": {
               "$ref": "#/definitions/ShareSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3871,7 +3826,7 @@
             "schema": {
               "$ref": "#/definitions/CustomerServiceProviderConfiguration"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3924,7 +3879,7 @@
             "schema": {
               "$ref": "#/definitions/CustomerServiceProviderConfiguration"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4012,7 +3967,7 @@
             "schema": {
               "$ref": "#/definitions/Blacklist"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4105,7 +4060,7 @@
             "schema": {
               "$ref": "#/definitions/Transfer"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4195,7 +4150,7 @@
             "schema": {
               "$ref": "#/definitions/TransferDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4243,7 +4198,7 @@
             "schema": {
               "$ref": "#/definitions/FileTransferDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4301,7 +4256,7 @@
             "schema": {
               "$ref": "#/definitions/Transfer"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4359,7 +4314,7 @@
             "schema": {
               "$ref": "#/definitions/Transfer"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4409,7 +4364,7 @@
             "schema": {
               "$ref": "#/definitions/TransferSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4459,7 +4414,7 @@
             "schema": {
               "$ref": "#/definitions/FileTransferSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4608,7 +4563,7 @@
             "schema": {
               "$ref": "#/definitions/UserSearchResult"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4633,13 +4588,13 @@
         ]
       }
     },
-    "/v1/users/getUser/{userId}": {
+    "/v1/users/{userId}": {
       "get": {
         "tags": [
           "User"
         ],
         "summary": "Get Userdetail by id",
-        "operationId": "User_GetUser",
+        "operationId": "User_Get",
         "parameters": [
           {
             "type": "string",
@@ -4656,7 +4611,7 @@
             "schema": {
               "$ref": "#/definitions/UserDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4704,7 +4659,7 @@
             "schema": {
               "$ref": "#/definitions/UserDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4746,7 +4701,7 @@
                 "$ref": "#/definitions/Channel"
               }
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4800,7 +4755,7 @@
                 "$ref": "#/definitions/OutputDetail"
               }
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4857,7 +4812,7 @@
             "schema": {
               "$ref": "#/definitions/OutputDetail"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4898,7 +4853,7 @@
             "schema": {
               "$ref": "#/definitions/UserProfile"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4946,7 +4901,7 @@
             "schema": {
               "$ref": "#/definitions/UserProfile"
             },
-            "x-nullable": true
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -4978,8 +4933,7 @@
       "additionalProperties": false,
       "properties": {
         "contentId": {
-          "type": "string",
-          "description": "The content id."
+          "type": "string"
         },
         "transferUserId": {
           "type": "string",
@@ -4993,7 +4947,6 @@
       "additionalProperties": false,
       "required": [
         "contentType",
-        "entityType",
         "trashed"
       ],
       "properties": {
@@ -5032,14 +4985,6 @@
           "allOf": [
             {
               "$ref": "#/definitions/DisplayValueDictionary"
-            }
-          ]
-        },
-        "entityType": {
-          "description": "The entity type",
-          "allOf": [
-            {
-              "$ref": "#/definitions/EntityType"
             }
           ]
         },
@@ -5126,7 +5071,8 @@
         "SourceCode",
         "Database",
         "Cad",
-        "Model3d"
+        "Model3d",
+        "ContentItem"
       ],
       "enum": [
         "Unknown",
@@ -5148,7 +5094,8 @@
         "SourceCode",
         "Database",
         "Cad",
-        "Model3d"
+        "Model3d",
+        "ContentItem"
       ]
     },
     "DisplayValueDictionary": {
@@ -5161,24 +5108,6 @@
             "type": "string"
           }
         }
-      ]
-    },
-    "EntityType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Content",
-        "BasicShare",
-        "EmbedShare",
-        "Metadata",
-        "FileTransfer"
-      ],
-      "enum": [
-        "Content",
-        "BasicShare",
-        "EmbedShare",
-        "Metadata",
-        "FileTransfer"
       ]
     },
     "DataDictionary": {
@@ -6235,10 +6164,12 @@
       "discriminator": "kind",
       "additionalProperties": false,
       "required": [
+        "supportsCancellation",
         "businessProcessScope",
         "lifeCycle",
         "startDate",
         "endDate",
+        "finished",
         "kind"
       ],
       "properties": {
@@ -6254,14 +6185,14 @@
         "referenceDocType": {
           "type": "string"
         },
-        "notificationId": {
-          "type": "string"
+        "supportsCancellation": {
+          "type": "boolean"
         },
         "businessProcessScope": {
           "$ref": "#/definitions/BusinessProcessScope"
         },
         "lifeCycle": {
-          "$ref": "#/definitions/BusinessProcessLifeCylce"
+          "$ref": "#/definitions/BusinessProcessLifeCycle"
         },
         "startDate": {
           "type": "string",
@@ -6271,16 +6202,19 @@
           "type": "string",
           "format": "date-time"
         },
+        "finished": {
+          "type": "boolean"
+        },
         "stateHistory": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/BusinessProcessStateItem"
           }
         },
-        "processDefinitionName": {
+        "currentState": {
           "type": "string"
         },
-        "currentState": {
+        "processDefinitionName": {
           "type": "string"
         },
         "kind": {
@@ -6300,20 +6234,24 @@
         "User"
       ]
     },
-    "BusinessProcessLifeCylce": {
+    "BusinessProcessLifeCycle": {
       "type": "string",
       "description": "",
       "x-enumNames": [
         "Draft",
-        "Started",
-        "Ended",
-        "Cancelled"
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "CancellationInProgress",
+        "Failed"
       ],
       "enum": [
         "Draft",
-        "Started",
-        "Ended",
-        "Cancelled"
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "CancellationInProgress",
+        "Failed"
       ]
     },
     "BusinessProcessStateItem": {
@@ -6513,7 +6451,7 @@
     },
     "AndFilter": {
       "type": "object",
-      "description": "The AndFilter> is a compound filter and returns documents that match all of the specified filters.",
+      "description": "The AndFilter&gt; is a compound filter and returns documents that match all of the specified filters.",
       "additionalProperties": false,
       "properties": {
         "filters": {
@@ -6696,7 +6634,7 @@
     },
     "GeoDistanceFilter": {
       "type": "object",
-      "description": "The GeoDistanceRangeFilter returns documents that include only hits that exists within a specific distance from a geo point.",
+      "description": "The GeoDistanceFilter returns documents that include only hits that exists within a specific distance from a geo point.",
       "additionalProperties": false,
       "required": [
         "distance"
@@ -6725,62 +6663,6 @@
           "$ref": "#/definitions/FilterBase"
         }
       ]
-    },
-    "GeoDistanceRangeFilter": {
-      "type": "object",
-      "description": "The GeoDistanceRangeFilter returns documents that exists within a range from a specific point.",
-      "additionalProperties": false,
-      "properties": {
-        "field": {
-          "type": "string",
-          "description": "The elastic search index field to execute the filter on."
-        },
-        "location": {
-          "description": "The longitude/latitude configuration for the point of origin.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/GeoLocation"
-            }
-          ]
-        },
-        "range": {
-          "description": "The numeric range.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/NumericRange"
-            }
-          ]
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/FilterBase"
-        }
-      ]
-    },
-    "NumericRange": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "names": {
-          "description": "Tranlsated range names.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        },
-        "from": {
-          "type": "number",
-          "description": "The from value.",
-          "format": "double"
-        },
-        "to": {
-          "type": "number",
-          "description": "The to value.",
-          "format": "double"
-        }
-      }
     },
     "NestedFilter": {
       "type": "object",
@@ -6829,6 +6711,30 @@
           "$ref": "#/definitions/FilterBase"
         }
       ]
+    },
+    "NumericRange": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "names": {
+          "description": "Tranlsated range names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "from": {
+          "type": "number",
+          "description": "The from value.",
+          "format": "double"
+        },
+        "to": {
+          "type": "number",
+          "description": "The to value.",
+          "format": "double"
+        }
+      }
     },
     "PrefixFilter": {
       "type": "object",
@@ -6903,7 +6809,7 @@
           "description": "The name of the aggregation this filter is connected to."
         },
         "filter": {
-          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceRangeFilter.",
+          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceFilter.",
           "allOf": [
             {
               "$ref": "#/definitions/FilterBase"
@@ -7065,7 +6971,7 @@
           "type": "array",
           "description": "A list of numeric ranges in meter.",
           "items": {
-            "$ref": "#/definitions/NumericRange"
+            "$ref": "#/definitions/GeoDistance"
           }
         }
       },
@@ -7074,6 +6980,28 @@
           "$ref": "#/definitions/AggregatorBase"
         }
       ]
+    },
+    "GeoDistance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "distance"
+      ],
+      "properties": {
+        "names": {
+          "description": "Tranlsated range names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "distance": {
+          "type": "number",
+          "description": "The to value.",
+          "format": "double"
+        }
+      }
     },
     "NestedAggregator": {
       "type": "object",
@@ -7315,19 +7243,19 @@
         }
       }
     },
-    "ContentBatchDownloadRequest": {
+    "ContentDownloadLinkCreateRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "contents": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ContentBatchDownloadRequestItem"
+            "$ref": "#/definitions/ContentDownloadRequestItem"
           }
         }
       }
     },
-    "ContentBatchDownloadRequestItem": {
+    "ContentDownloadRequestItem": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7339,7 +7267,7 @@
         }
       }
     },
-    "ContentBatchDownloadItem": {
+    "DownloadLink": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7349,16 +7277,7 @@
         "downloadUrl": {
           "type": "string"
         }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/DownloadItem"
-        }
-      ]
-    },
-    "DownloadItem": {
-      "type": "object",
-      "additionalProperties": false
+      }
     },
     "CreateContentRequest": {
       "type": "object",
@@ -7434,7 +7353,8 @@
         "start",
         "limit",
         "lifeCycleFilter",
-        "searchType"
+        "searchType",
+        "debugMode"
       ],
       "properties": {
         "channelIds": {
@@ -7524,6 +7444,10 @@
               "$ref": "#/definitions/ContentSearchType"
             }
           ]
+        },
+        "debugMode": {
+          "type": "boolean",
+          "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
         }
       }
     },
@@ -7637,26 +7561,18 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
     "Content": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "entityType"
-      ],
       "properties": {
         "audit": {
           "$ref": "#/definitions/UserAudit"
-        },
-        "entityType": {
-          "description": "The entity type of a content document is content.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/EntityType"
-            }
-          ]
         },
         "contentSchemaId": {
           "type": "string",
@@ -7679,6 +7595,20 @@
         "id": {
           "type": "string"
         }
+      }
+    },
+    "QueryDebugInformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "general": {
+          "type": "string"
+        },
+        "auditTrail": {
+          "type": "string"
+        },
+        "request": {},
+        "response": {}
       }
     },
     "ContentFileUpdateRequest": {
@@ -7789,6 +7719,10 @@
         "kind"
       ],
       "properties": {
+        "schemaId": {
+          "type": "string",
+          "description": "The id of the schema to which the operation scope is addressed."
+        },
         "kind": {
           "type": "string"
         }
@@ -7799,10 +7733,6 @@
       "description": "Updates schema values.",
       "additionalProperties": false,
       "properties": {
-        "schemaId": {
-          "type": "string",
-          "description": "The id of the schema with type content or layer to be updated."
-        },
         "value": {
           "description": "The metadata values containing a set of changes. Update is additive and will not remove values. To remove complete fields use the MetadataValuesFieldRemoveCommand instead.",
           "allOf": [
@@ -7823,10 +7753,6 @@
       "description": "Adds or updates schema values.",
       "additionalProperties": false,
       "properties": {
-        "schemaId": {
-          "type": "string",
-          "description": "The id of the schema with type content or layer to be updated."
-        },
         "value": {
           "description": "The metadata values containing a set of changes. Update is additive and will not remove values. To remove complete fields use the MetadataValuesFieldRemoveCommand instead.",
           "allOf": [
@@ -7846,12 +7772,6 @@
       "type": "object",
       "description": "Removes schema values.",
       "additionalProperties": false,
-      "properties": {
-        "schemaId": {
-          "type": "string",
-          "description": "The id of the schema with type layer to be removed."
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/MetadataValuesChangeCommandBase"
@@ -7863,9 +7783,9 @@
       "description": "Removes a field and its value from the schema values.",
       "additionalProperties": false,
       "properties": {
-        "fieldNamespace": {
+        "fieldPath": {
           "type": "string",
-          "description": "The fully qualified field name of the field to be removed, e.g. \"Data.SchemaId.FieldId\"."
+          "description": "The path of the field to be removed (within tha data structure), e.g. \"data.schemaId.fieldId\""
         }
       },
       "allOf": [
@@ -7879,9 +7799,13 @@
       "description": "Adds a list item id reference to a multi tagbox.",
       "additionalProperties": false,
       "properties": {
+        "fieldPath": {
+          "type": "string",
+          "description": "The path of the field relative to the Content or Layer schema values defined by the schemaId property"
+        },
         "fieldNamespace": {
           "type": "string",
-          "description": "The fully qualified field name of the multi tagbox field."
+          "description": "The field namespace"
         },
         "referenceId": {
           "type": "string",
@@ -7899,9 +7823,13 @@
       "description": "Removes a list item id reference from a multi tagbox.",
       "additionalProperties": false,
       "properties": {
+        "fieldPath": {
+          "type": "string",
+          "description": "The path of the field relative to the Content or Layer schema values defined by the schemaId property"
+        },
         "fieldNamespace": {
           "type": "string",
-          "description": "The fully qualified field name of the multi tagbox field."
+          "description": "The field namespace"
         },
         "referenceId": {
           "type": "string",
@@ -8095,6 +8023,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -8103,17 +8034,25 @@
       "additionalProperties": false,
       "required": [
         "hasStateHit",
-        "processEnded"
+        "hasLifeCycleHit",
+        "lifeCycleHit",
+        "finished"
       ],
       "properties": {
         "hasStateHit": {
           "type": "boolean"
         },
-        "processEnded": {
-          "type": "boolean"
-        },
         "stateHit": {
           "type": "string"
+        },
+        "hasLifeCycleHit": {
+          "type": "boolean"
+        },
+        "lifeCycleHit": {
+          "$ref": "#/definitions/BusinessProcessLifeCycle"
+        },
+        "finished": {
+          "type": "boolean"
         },
         "businessProcess": {
           "$ref": "#/definitions/BusinessProcess"
@@ -8364,9 +8303,6 @@
       "type": "object",
       "description": "The detail view item for the list item.",
       "additionalProperties": false,
-      "required": [
-        "entityType"
-      ],
       "properties": {
         "content": {
           "description": "The content data of the list item."
@@ -8380,14 +8316,6 @@
           "allOf": [
             {
               "$ref": "#/definitions/DisplayValueDictionary"
-            }
-          ]
-        },
-        "entityType": {
-          "description": "The entity type of the list item is metadata.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/EntityType"
             }
           ]
         },
@@ -8468,7 +8396,8 @@
         "start",
         "limit",
         "includeAllSchemaChildren",
-        "includeMetadata"
+        "includeMetadata",
+        "debugMode"
       ],
       "properties": {
         "searchString": {
@@ -8546,6 +8475,10 @@
         "includeMetadata": {
           "type": "boolean",
           "description": "When set to true the content data is included in the result items."
+        },
+        "debugMode": {
+          "type": "boolean",
+          "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
         }
       }
     },
@@ -8578,6 +8511,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -8585,9 +8521,6 @@
       "type": "object",
       "description": "A document stored in the elastic search metadata index, with fields corresponding to the the schemantics of its underlying list schema.",
       "additionalProperties": false,
-      "required": [
-        "entityType"
-      ],
       "properties": {
         "content": {
           "description": "The content data of the list item."
@@ -8604,19 +8537,25 @@
             }
           ]
         },
-        "entityType": {
-          "description": "The entity type of the list item is metadata.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/EntityType"
-            }
-          ]
-        },
         "id": {
           "type": "string",
           "description": "The list item id."
         }
       }
+    },
+    "ListItemNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "listItemId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
     },
     "ListItemUpdateRequest": {
       "type": "object",
@@ -8649,7 +8588,7 @@
           "type": "array",
           "description": "The change commads to be applied to the list items",
           "items": {
-            "$ref": "#/definitions/MetadataValuesSchemaUpdateCommand"
+            "$ref": "#/definitions/MetadataValuesChangeCommandBase"
           }
         }
       }
@@ -8712,7 +8651,7 @@
           "type": "array",
           "description": "The change commads to be applied to the list items",
           "items": {
-            "$ref": "#/definitions/MetadataValuesSchemaUpdateCommand"
+            "$ref": "#/definitions/MetadataValuesChangeCommandBase"
           }
         }
       }
@@ -8803,6 +8742,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -9977,7 +9919,8 @@
       "additionalProperties": false,
       "required": [
         "start",
-        "limit"
+        "limit",
+        "debugMode"
       ],
       "properties": {
         "searchString": {
@@ -10015,6 +9958,10 @@
               "$ref": "#/definitions/FilterBase"
             }
           ]
+        },
+        "debugMode": {
+          "type": "boolean",
+          "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
         }
       }
     },
@@ -10066,6 +10013,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -10183,7 +10133,8 @@
       "additionalProperties": false,
       "required": [
         "start",
-        "limit"
+        "limit",
+        "debugMode"
       ],
       "properties": {
         "searchString": {
@@ -10215,6 +10166,10 @@
         },
         "rightFilter": {
           "$ref": "#/definitions/PermissionSetRight"
+        },
+        "debugMode": {
+          "type": "boolean",
+          "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
         }
       }
     },
@@ -10291,6 +10246,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -10474,97 +10432,33 @@
     },
     "VersionInfo": {
       "type": "object",
+      "description": "The version view item for the environment.",
       "additionalProperties": false,
       "properties": {
-        "comments": {
-          "type": "string"
-        },
-        "event": {
-          "$ref": "#/definitions/Event"
-        },
-        "modifier": {
-          "type": "string"
-        },
-        "modifyDate": {
+        "fileVersion": {
           "type": "string",
-          "format": "date-time"
+          "description": "The manual file version of Picturepark.Contract.dll."
         },
-        "version": {
-          "type": "string"
+        "fileProductVersion": {
+          "type": "string",
+          "description": "The GitVersionTask generated file product version of Picturepark.Configuration.dll."
+        },
+        "contractVersion": {
+          "type": "string",
+          "description": "The current contract version stored in CustomerDoc / EnvironmentDoc."
+        },
+        "release": {
+          "type": "string",
+          "description": "The bamboo release version. Only provided on bamboo deployments."
         }
       }
     },
-    "Event": {
+    "ShareDetail": {
       "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "action": {
-          "$ref": "#/definitions/EventAction"
-        },
-        "changed": {
-          "type": "string"
-        },
-        "instanceID": {
-          "type": "string"
-        },
-        "parameters": {
-          "type": "string"
-        },
-        "softwareAgent": {
-          "type": "string"
-        },
-        "when": {
-          "type": "string",
-          "format": "date-time"
-        }
-      }
-    },
-    "EventAction": {
-      "type": "string",
-      "description": "Corresponds to stEvt.ActionChoice",
-      "x-enumNames": [
-        "Converted",
-        "Copied",
-        "Created",
-        "Cropped",
-        "Edited",
-        "Filtered",
-        "Formatted",
-        "VersionUpdated",
-        "Printed",
-        "Published",
-        "Managed",
-        "Produced",
-        "Resized",
-        "Saved",
-        "Derived"
-      ],
-      "enum": [
-        "Converted",
-        "Copied",
-        "Created",
-        "Cropped",
-        "Edited",
-        "Filtered",
-        "Formatted",
-        "VersionUpdated",
-        "Printed",
-        "Published",
-        "Managed",
-        "Produced",
-        "Resized",
-        "Saved",
-        "Derived"
-      ]
-    },
-    "ShareBaseDetail": {
-      "type": "object",
-      "discriminator": "kind",
       "additionalProperties": false,
       "required": [
-        "entityType",
         "outputAccess",
-        "kind"
+        "shareType"
       ],
       "properties": {
         "id": {
@@ -10576,16 +10470,16 @@
         "description": {
           "type": "string"
         },
+        "creator": {
+          "$ref": "#/definitions/ShareUser"
+        },
         "audit": {
           "$ref": "#/definitions/UserAudit"
-        },
-        "entityType": {
-          "$ref": "#/definitions/EntityType"
         },
         "contentSelections": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ContentDetail2"
+            "$ref": "#/definitions/ShareContentDetail"
           }
         },
         "layerSchemaIds": {
@@ -10593,6 +10487,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "data": {
+          "$ref": "#/definitions/ShareDataBase"
         },
         "mailTemplateId": {
           "type": "string"
@@ -10607,31 +10504,33 @@
         "outputAccess": {
           "$ref": "#/definitions/OutputAccess"
         },
-        "kind": {
-          "type": "string"
+        "shareType": {
+          "$ref": "#/definitions/ShareType"
         }
       }
     },
-    "ContentDetail2": {
+    "ShareUser": {
+      "type": "object",
+      "description": "Reduced set of user information used for shares",
+      "additionalProperties": false,
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "Name of user"
+        },
+        "emailHash": {
+          "type": "string",
+          "description": "MD5 hash of email address. Can be used to display gravatar image"
+        }
+      }
+    },
+    "ShareContentDetail": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "trashed",
-        "entityType",
         "contentType"
       ],
       "properties": {
-        "trashed": {
-          "type": "boolean"
-        },
-        "entityType": {
-          "description": "The entity type of a content document is content.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/EntityType"
-            }
-          ]
-        },
         "contentSchemaId": {
           "type": "string",
           "description": "The id of the schema with schema type content."
@@ -10652,24 +10551,11 @@
         "id": {
           "type": "string"
         },
-        "contentPermissionSetIds": {
-          "type": "array",
-          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
-          "items": {
-            "type": "string"
-          }
-        },
         "outputs": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Output"
+            "$ref": "#/definitions/ShareOutputBase"
           }
-        },
-        "audit": {
-          "$ref": "#/definitions/UserAudit"
-        },
-        "ownerTokenId": {
-          "type": "string"
         },
         "contentType": {
           "$ref": "#/definitions/ContentType"
@@ -10681,6 +10567,302 @@
               "$ref": "#/definitions/DisplayValueDictionary"
             }
           ]
+        }
+      }
+    },
+    "ShareOutputBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "contentId": {
+          "type": "string"
+        },
+        "outputFormatId": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "description": "Url to directly download output. In case of BasicShare if not fetched using a token, a placeholder {token} is included which needs to be replaced with the recipient's token"
+        },
+        "detail": {
+          "$ref": "#/definitions/OutputDataBase"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "OutputDataBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "fileExtension": {
+          "type": "string"
+        },
+        "fileName": {
+          "type": "string"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "fileSizeInBytes": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "sha1Hash": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "OutputDataImage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "height": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDataBase"
+        }
+      ]
+    },
+    "OutputDataAudio": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "durationInSeconds": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDataBase"
+        }
+      ]
+    },
+    "OutputDataVideo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "durationInSeconds",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "durationInSeconds": {
+          "type": "number",
+          "format": "double"
+        },
+        "width": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "height": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sprites": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Sprite"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDataBase"
+        }
+      ]
+    },
+    "OutputDataDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pageCount"
+      ],
+      "properties": {
+        "pageCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDataBase"
+        }
+      ]
+    },
+    "OutputDataDefault": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDataBase"
+        }
+      ]
+    },
+    "ShareOutputBasic": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareOutputBase"
+        }
+      ]
+    },
+    "ShareOutputEmbed": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareOutputBase"
+        }
+      ]
+    },
+    "ShareDataBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "ShareDataEmbed": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareDataBase"
+        }
+      ]
+    },
+    "ShareDataBasic": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mailRecipients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MailRecipient"
+          }
+        },
+        "internalRecipients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/InternalRecipient"
+          }
+        },
+        "languageCode": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareDataBase"
+        }
+      ]
+    },
+    "MailRecipient": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userEmail": {
+          "$ref": "#/definitions/UserEmail"
+        },
+        "token": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "UserEmail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "InternalRecipient": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "recipient": {
+          "$ref": "#/definitions/UserItem"
+        },
+        "token": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "UserItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
         }
       }
     },
@@ -10766,138 +10948,17 @@
         "None"
       ]
     },
-    "ShareBasicDetail": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "url": {
-          "type": "string"
-        },
-        "mailRecipients": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/MailRecipient"
-          }
-        },
-        "internalRecipients": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/InternalRecipient"
-          }
-        },
-        "languageCode": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareBaseDetail"
-        }
+    "ShareType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Basic",
+        "Embed"
+      ],
+      "enum": [
+        "Basic",
+        "Embed"
       ]
-    },
-    "MailRecipient": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "userEmail": {
-          "$ref": "#/definitions/UserEmail"
-        },
-        "token": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      }
-    },
-    "UserEmail": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "emailAddress": {
-          "type": "string"
-        }
-      }
-    },
-    "InternalRecipient": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "recipient": {
-          "$ref": "#/definitions/UserItem"
-        },
-        "token": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      }
-    },
-    "UserItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "emailAddress": {
-          "type": "string"
-        }
-      }
-    },
-    "ShareEmbedDetail": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "embedContentItems": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/EmbedContentDetail"
-          }
-        },
-        "token": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareBaseDetail"
-        }
-      ]
-    },
-    "EmbedContentDetail": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentId": {
-          "type": "string"
-        },
-        "outputFormatId": {
-          "type": "string"
-        },
-        "token": {
-          "type": "string"
-        },
-        "url": {
-          "type": "string"
-        }
-      }
     },
     "ShareBaseUpdateRequest": {
       "type": "object",
@@ -10974,99 +11035,6 @@
       "allOf": [
         {
           "$ref": "#/definitions/ShareBaseUpdateRequest"
-        }
-      ]
-    },
-    "BaseResultOfShareBase": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "totalResults"
-      ],
-      "properties": {
-        "totalResults": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "results": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ShareBase"
-          }
-        },
-        "pageToken": {
-          "type": "string"
-        }
-      }
-    },
-    "ShareBase": {
-      "type": "object",
-      "discriminator": "kind",
-      "additionalProperties": false,
-      "required": [
-        "entityType",
-        "kind"
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "contentIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "id": {
-          "type": "string"
-        },
-        "audit": {
-          "$ref": "#/definitions/UserAudit"
-        },
-        "entityType": {
-          "$ref": "#/definitions/EntityType"
-        },
-        "expirationDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "kind": {
-          "type": "string"
-        }
-      }
-    },
-    "ShareBasic": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "mailRecipients": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/MailRecipient"
-          }
-        },
-        "internalRecipients": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/InternalRecipient"
-          }
-        },
-        "description": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareBase"
-        }
-      ]
-    },
-    "ShareEmbed": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareBase"
         }
       ]
     },
@@ -11246,7 +11214,8 @@
       "additionalProperties": false,
       "required": [
         "start",
-        "limit"
+        "limit",
+        "debugMode"
       ],
       "properties": {
         "searchString": {
@@ -11284,6 +11253,10 @@
               "$ref": "#/definitions/FilterBase"
             }
           ]
+        },
+        "debugMode": {
+          "type": "boolean",
+          "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
         }
       }
     },
@@ -11301,11 +11274,11 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/SearchBehaviourBaseResultOfShareBase"
+          "$ref": "#/definitions/SearchBehaviourBaseResultOfShare"
         }
       ]
     },
-    "SearchBehaviourBaseResultOfShareBase": {
+    "SearchBehaviourBaseResultOfShare": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -11321,9 +11294,65 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/BaseResultOfShareBase"
+          "$ref": "#/definitions/BaseResultOfShare"
         }
       ]
+    },
+    "BaseResultOfShare": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "totalResults"
+      ],
+      "properties": {
+        "totalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Share"
+          }
+        },
+        "pageToken": {
+          "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
+        }
+      }
+    },
+    "Share": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shareType"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "contentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "type": "string"
+        },
+        "audit": {
+          "$ref": "#/definitions/UserAudit"
+        },
+        "expirationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "shareType": {
+          "$ref": "#/definitions/ShareType"
+        }
+      }
     },
     "SendMessageRequest": {
       "type": "object",
@@ -11566,6 +11595,9 @@
         "fileTransferCount": {
           "type": "integer",
           "format": "int64"
+        },
+        "collectionId": {
+          "type": "string"
         }
       }
     },
@@ -11671,8 +11703,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "state",
-        "entityType"
+        "state"
       ],
       "properties": {
         "id": {
@@ -11695,9 +11726,6 @@
         },
         "state": {
           "$ref": "#/definitions/FileTransferState"
-        },
-        "entityType": {
-          "$ref": "#/definitions/EntityType"
         },
         "fileMetadata": {
           "$ref": "#/definitions/FileMetadata"
@@ -14607,7 +14635,7 @@
         "versions": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/VersionInfo"
+            "$ref": "#/definitions/VersionInfo2"
           }
         }
       }
@@ -14684,6 +14712,91 @@
         "All",
         "None"
       ]
+    },
+    "Event": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/EventAction"
+        },
+        "changed": {
+          "type": "string"
+        },
+        "instanceID": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "string"
+        },
+        "softwareAgent": {
+          "type": "string"
+        },
+        "when": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "EventAction": {
+      "type": "string",
+      "description": "Corresponds to stEvt.ActionChoice",
+      "x-enumNames": [
+        "Converted",
+        "Copied",
+        "Created",
+        "Cropped",
+        "Edited",
+        "Filtered",
+        "Formatted",
+        "VersionUpdated",
+        "Printed",
+        "Published",
+        "Managed",
+        "Produced",
+        "Resized",
+        "Saved",
+        "Derived"
+      ],
+      "enum": [
+        "Converted",
+        "Copied",
+        "Created",
+        "Cropped",
+        "Edited",
+        "Filtered",
+        "Formatted",
+        "VersionUpdated",
+        "Printed",
+        "Published",
+        "Managed",
+        "Produced",
+        "Resized",
+        "Saved",
+        "Derived"
+      ]
+    },
+    "VersionInfo2": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "comments": {
+          "type": "string"
+        },
+        "event": {
+          "$ref": "#/definitions/Event"
+        },
+        "modifier": {
+          "type": "string"
+        },
+        "modifyDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "string"
+        }
+      }
     },
     "XmpNote": {
       "type": "object",
@@ -16333,6 +16446,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -16429,6 +16545,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -16436,8 +16555,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "state",
-        "entityType"
+        "state"
       ],
       "properties": {
         "id": {
@@ -16455,9 +16573,6 @@
         "state": {
           "$ref": "#/definitions/FileTransferState"
         },
-        "entityType": {
-          "$ref": "#/definitions/EntityType"
-        },
         "contentId": {
           "type": "string"
         }
@@ -16469,7 +16584,8 @@
       "required": [
         "start",
         "limit",
-        "lifeCycleFilter"
+        "lifeCycleFilter",
+        "debugMode"
       ],
       "properties": {
         "searchString": {
@@ -16507,6 +16623,10 @@
           "items": {
             "$ref": "#/definitions/UserRight"
           }
+        },
+        "debugMode": {
+          "type": "boolean",
+          "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
         }
       }
     },
@@ -16567,6 +16687,9 @@
         },
         "pageToken": {
           "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -16714,8 +16837,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "sortOrder",
-        "entityType"
+        "sortOrder"
       ],
       "properties": {
         "id": {
@@ -16728,9 +16850,6 @@
         "searchIndexId": {
           "type": "string",
           "description": "The search index id."
-        },
-        "entityType": {
-          "$ref": "#/definitions/EntityType"
         },
         "schemaIds": {
           "type": "array",
@@ -16774,6 +16893,14 @@
           "items": {
             "type": "string"
           }
+        },
+        "missingResultsDisplayPatterns": {
+          "description": "Display pattern to use for rendering details when 0 results are returned",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
         }
       }
     },

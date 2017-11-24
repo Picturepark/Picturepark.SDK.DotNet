@@ -26,8 +26,8 @@ All packages support the following target frameworks:
 
 **Management APIs**:
 
-- Picturepark.SDK.V1.CloudManager
-- Picturepark.SDK.V1.ServiceProvider
+- [Picturepark.SDK.V1.CloudManager](https://www.nuget.org/packages/Picturepark.SDK.V1.CloudManager)
+- [Picturepark.SDK.V1.ServiceProvider](https://www.nuget.org/packages/Picturepark.SDK.V1.ServiceProvider)
 
 ## SDK Development
 

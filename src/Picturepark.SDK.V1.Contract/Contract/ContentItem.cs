@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Picturepark.SDK.V1.Contract
+﻿namespace Picturepark.SDK.V1.Contract
 {
 	public class ContentItem<T>
 	{

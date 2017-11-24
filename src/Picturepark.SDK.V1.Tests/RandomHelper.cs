@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Tests
 {
@@ -146,14 +144,14 @@ namespace Picturepark.SDK.V1.Tests
 			return objectId;
 		}
 
-		public static string GetRandomShareId(PictureparkClient client, EntityType entityType, int limit)
+		public static string GetRandomShareId(PictureparkClient client, ShareType shareType, int limit)
 		{
 			var shareId = string.Empty;
 
 			var request = new ShareSearchRequest
 			{
 				Limit = limit,
-				Filter = new TermFilter { Field = "entityType", Term = entityType.ToString() }
+				Filter = new TermFilter { Field = "shareType", Term = shareType.ToString() }
 			};
 
 			var result = client.Shares.Search(request);

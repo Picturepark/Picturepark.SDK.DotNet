@@ -10,10 +10,6 @@ namespace Picturepark.SDK.V1.Tests
 
 		public string AccessToken { get; set; }
 
-		public string Username { get; set; }
-
-		public string Password { get; set; }
-
 		public UserEmail EmailRecipient { get; set; }
 	}
 }
