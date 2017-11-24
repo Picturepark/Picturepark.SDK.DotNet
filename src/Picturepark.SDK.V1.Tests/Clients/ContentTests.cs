@@ -394,7 +394,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
         }
 
-        [Fact(Skip = "Fix NPE in ShouldUpdateMetadata test")]
+        [Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldUpdateMetadata()
         {
@@ -410,13 +410,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         "Drive",
                         new Dictionary<string, object>
                         {
+                            { "location", "test" }
                         }
                     }
                 }
             };
 
             /// Act
-            var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true); // TODO: Fix NPE in ShouldUpdateMetadata test
+            var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true);
 
             /// Assert
             Assert.True(true);
