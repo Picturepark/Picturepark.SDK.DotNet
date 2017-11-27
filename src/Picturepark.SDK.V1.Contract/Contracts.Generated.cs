@@ -112,30 +112,30 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<DownloadLink> CreateDownloadLinkAsync(ContentDownloadLinkCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Create Single</summary>
-        /// <param name="createRequest">The content create request.</param>
+        /// <param name="contentCreateRequest">The content create request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ContentDetail CreateContent(CreateContentRequest createRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
+        ContentDetail CreateContent(ContentCreateRequest contentCreateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
     
         /// <summary>Create Single</summary>
-        /// <param name="createRequest">The content create request.</param>
+        /// <param name="contentCreateRequest">The content create request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> CreateContentAsync(CreateContentRequest createRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> CreateContentAsync(ContentCreateRequest contentCreateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Downloads content in a specific outputformat</summary>
         /// <param name="contentId">The content id</param>
         /// <param name="outputFormatId">The output format id</param>
         /// <param name="width">Optional width in pixels to resize image</param>
         /// <param name="height">Optional height in pixels to resize image</param>
-        /// <param name="range">the range</param>
+        /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -146,7 +146,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="outputFormatId">The output format id</param>
         /// <param name="width">Optional width in pixels to resize image</param>
         /// <param name="height">Optional height in pixels to resize image</param>
-        /// <param name="range">the range</param>
+        /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -4012,7 +4012,7 @@ namespace Picturepark.SDK.V1.Contract
     
     /// <summary>A request structure for creating a content document.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class CreateContentRequest 
+    public partial class ContentCreateRequest 
     {
         /// <summary>The id of a schema with schema type content.</summary>
         [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -4039,9 +4039,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static CreateContentRequest FromJson(string data)
+        public static ContentCreateRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CreateContentRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentCreateRequest>(data);
         }
     }
     
@@ -4105,7 +4105,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CollectionId { get; set; }
     
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
@@ -4119,11 +4119,11 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
+        public int Start { get; set; } = 0;
     
         /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
+        public int Limit { get; set; } = 30;
     
         /// <summary>An optional search filter. Limits the content document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -4688,11 +4688,13 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessSearchRequest 
     {
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
+        public int Start { get; set; } = 0;
     
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
+        public int Limit { get; set; } = 30;
     
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
@@ -5182,11 +5184,11 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
+        public int Start { get; set; } = 0;
     
         /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
+        public int Limit { get; set; } = 30;
     
         /// <summary>An optional search filter. Limits the list item result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -6626,7 +6628,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SchemaSearchRequest 
     {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
@@ -6640,11 +6642,11 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
+        public int Start { get; set; } = 0;
     
         /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
+        public int Limit { get; set; } = 30;
     
         /// <summary>An optional search filter. Limits the schema result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -6835,6 +6837,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PermissionSetSearchRequest 
     {
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
@@ -6845,11 +6848,13 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<SortInfo> Sort { get; set; }
     
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
+        public int Start { get; set; } = 0;
     
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
+        public int Limit { get; set; } = 30;
     
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
@@ -8009,7 +8014,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareSearchRequest 
     {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to empty.</summary>
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
@@ -8023,11 +8028,11 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
+        public int Start { get; set; } = 0;
     
         /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
+        public int Limit { get; set; } = 30;
     
         /// <summary>An optional search filter. Limits the share document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -13482,9 +13487,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TransferSearchRequest 
     {
-        [Newtonsoft.Json.JsonProperty("channel", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Channel { get; set; }
-    
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
@@ -13494,11 +13497,13 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<SortInfo> Sort { get; set; }
     
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
+        public int Start { get; set; } = 0;
     
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
+        public int Limit { get; set; } = 30;
     
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
@@ -13589,11 +13594,13 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<SortInfo> Sort { get; set; }
     
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
+        public int Start { get; set; } = 0;
     
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
+        public int Limit { get; set; } = 30;
     
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
@@ -13709,6 +13716,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserSearchRequest 
     {
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
@@ -13719,11 +13727,13 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<SortInfo> Sort { get; set; }
     
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
+        public int Start { get; set; } = 0;
     
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
+        public int Limit { get; set; } = 30;
     
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }

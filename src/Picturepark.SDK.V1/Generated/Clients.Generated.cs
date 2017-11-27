@@ -741,26 +741,26 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Create Single</summary>
-        /// <param name="createRequest">The content create request.</param>
+        /// <param name="contentCreateRequest">The content create request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public ContentDetail CreateContent(CreateContentRequest createRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
+        public ContentDetail CreateContent(ContentCreateRequest contentCreateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await CreateContentAsync(createRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await CreateContentAsync(contentCreateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Create Single</summary>
-        /// <param name="createRequest">The content create request.</param>
+        /// <param name="contentCreateRequest">The content create request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<ContentDetail> CreateContentAsync(CreateContentRequest createRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentDetail> CreateContentAsync(ContentCreateRequest contentCreateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
@@ -777,7 +777,7 @@ namespace Picturepark.SDK.V1
             {
                 using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(createRequest, _settings.Value));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentCreateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -870,7 +870,7 @@ namespace Picturepark.SDK.V1
         /// <param name="outputFormatId">The output format id</param>
         /// <param name="width">Optional width in pixels to resize image</param>
         /// <param name="height">Optional height in pixels to resize image</param>
-        /// <param name="range">the range</param>
+        /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -884,7 +884,7 @@ namespace Picturepark.SDK.V1
         /// <param name="outputFormatId">The output format id</param>
         /// <param name="width">Optional width in pixels to resize image</param>
         /// <param name="height">Optional height in pixels to resize image</param>
-        /// <param name="range">the range</param>
+        /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>

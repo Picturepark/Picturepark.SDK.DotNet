@@ -385,11 +385,11 @@
         "operationId": "Content_CreateContent",
         "parameters": [
           {
-            "name": "createRequest",
+            "name": "contentCreateRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/CreateContentRequest"
+              "$ref": "#/definitions/ContentCreateRequest"
             },
             "x-nullable": true,
             "description": "The content create request."
@@ -498,7 +498,7 @@
             "name": "range",
             "in": "header",
             "x-nullable": true,
-            "description": "the range"
+            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)"
           }
         ],
         "responses": {
@@ -7279,7 +7279,7 @@
         }
       }
     },
-    "CreateContentRequest": {
+    "ContentCreateRequest": {
       "type": "object",
       "description": "A request structure for creating a content document.",
       "additionalProperties": false,
@@ -7388,7 +7388,7 @@
         },
         "searchString": {
           "type": "string",
-          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
+          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
         },
         "searchBehaviours": {
           "type": "array",
@@ -7407,12 +7407,14 @@
         "start": {
           "type": "integer",
           "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-          "format": "int32"
+          "format": "int32",
+          "default": 0
         },
         "limit": {
           "type": "integer",
           "description": "Limits the document count of the result set. Defaults to 30.",
-          "format": "int32"
+          "format": "int32",
+          "default": 30
         },
         "filter": {
           "description": "An optional search filter. Limits the content document result set.",
@@ -7940,11 +7942,15 @@
       "properties": {
         "start": {
           "type": "integer",
-          "format": "int32"
+          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+          "format": "int32",
+          "default": 0
         },
         "limit": {
           "type": "integer",
-          "format": "int32"
+          "description": "Limits the document count of the result set. Defaults to 30.",
+          "format": "int32",
+          "default": 30
         },
         "filter": {
           "$ref": "#/definitions/FilterBase"
@@ -8421,12 +8427,14 @@
         "start": {
           "type": "integer",
           "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-          "format": "int32"
+          "format": "int32",
+          "default": 0
         },
         "limit": {
           "type": "integer",
           "description": "Limits the document count of the result set. Defaults to 30.",
-          "format": "int32"
+          "format": "int32",
+          "default": 30
         },
         "filter": {
           "description": "An optional search filter. Limits the list item result set.",
@@ -9925,7 +9933,7 @@
       "properties": {
         "searchString": {
           "type": "string",
-          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
+          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
         },
         "searchBehaviours": {
           "type": "array",
@@ -9944,12 +9952,14 @@
         "start": {
           "type": "integer",
           "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-          "format": "int32"
+          "format": "int32",
+          "default": 0
         },
         "limit": {
           "type": "integer",
           "description": "Limits the document count of the result set. Defaults to 30.",
-          "format": "int32"
+          "format": "int32",
+          "default": 30
         },
         "filter": {
           "description": "An optional search filter. Limits the schema result set.",
@@ -10138,7 +10148,8 @@
       ],
       "properties": {
         "searchString": {
-          "type": "string"
+          "type": "string",
+          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
         },
         "searchBehaviours": {
           "type": "array",
@@ -10155,11 +10166,15 @@
         },
         "start": {
           "type": "integer",
-          "format": "int32"
+          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+          "format": "int32",
+          "default": 0
         },
         "limit": {
           "type": "integer",
-          "format": "int32"
+          "description": "Limits the document count of the result set. Defaults to 30.",
+          "format": "int32",
+          "default": 30
         },
         "filter": {
           "$ref": "#/definitions/FilterBase"
@@ -11220,7 +11235,7 @@
       "properties": {
         "searchString": {
           "type": "string",
-          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to empty."
+          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
         },
         "searchBehaviours": {
           "type": "array",
@@ -11239,12 +11254,14 @@
         "start": {
           "type": "integer",
           "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-          "format": "int32"
+          "format": "int32",
+          "default": 0
         },
         "limit": {
           "type": "integer",
           "description": "Limits the document count of the result set. Defaults to 30.",
-          "format": "int32"
+          "format": "int32",
+          "default": 30
         },
         "filter": {
           "description": "An optional search filter. Limits the share document result set.",
@@ -16358,11 +16375,9 @@
         "limit"
       ],
       "properties": {
-        "channel": {
-          "type": "string"
-        },
         "searchString": {
-          "type": "string"
+          "type": "string",
+          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
         },
         "searchBehaviours": {
           "type": "array",
@@ -16378,11 +16393,15 @@
         },
         "start": {
           "type": "integer",
-          "format": "int32"
+          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+          "format": "int32",
+          "default": 0
         },
         "limit": {
           "type": "integer",
-          "format": "int32"
+          "description": "Limits the document count of the result set. Defaults to 30.",
+          "format": "int32",
+          "default": 30
         },
         "filter": {
           "$ref": "#/definitions/FilterBase"
@@ -16477,11 +16496,15 @@
         },
         "start": {
           "type": "integer",
-          "format": "int32"
+          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+          "format": "int32",
+          "default": 0
         },
         "limit": {
           "type": "integer",
-          "format": "int32"
+          "description": "Limits the document count of the result set. Defaults to 30.",
+          "format": "int32",
+          "default": 30
         },
         "filter": {
           "$ref": "#/definitions/FilterBase"
@@ -16589,7 +16612,8 @@
       ],
       "properties": {
         "searchString": {
-          "type": "string"
+          "type": "string",
+          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
         },
         "searchBehaviours": {
           "type": "array",
@@ -16606,11 +16630,15 @@
         },
         "start": {
           "type": "integer",
-          "format": "int32"
+          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+          "format": "int32",
+          "default": 0
         },
         "limit": {
           "type": "integer",
-          "format": "int32"
+          "description": "Limits the document count of the result set. Defaults to 30.",
+          "format": "int32",
+          "default": 30
         },
         "filter": {
           "$ref": "#/definitions/FilterBase"

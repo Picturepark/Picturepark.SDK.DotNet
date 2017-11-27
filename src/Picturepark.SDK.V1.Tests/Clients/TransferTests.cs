@@ -215,7 +215,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			/// Assert
 			Assert.NotNull(result);
-			Assert.Equal(20, result.Results.Count);
+			Assert.True(result.Results.Count >= 1);
 		}
 
 		[Fact]

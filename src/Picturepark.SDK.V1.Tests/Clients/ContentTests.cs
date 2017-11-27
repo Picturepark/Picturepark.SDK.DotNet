@@ -10,6 +10,7 @@ using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Newtonsoft.Json;
 using Picturepark.SDK.V1.Tests.Contracts;
+#pragma warning disable 1587
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -311,7 +312,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, false);
             }
 
-            var request = new CreateContentRequest
+            var request = new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""foo"" }"),
                 ContentSchemaId = "ContentItem",
@@ -621,8 +622,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 SearchString = "*",
                 Sort = sortInfos,
                 Filter = filter,
-                Start = 0,
-                Limit = 8
+                Start = 0
             };
 
             /// Act
