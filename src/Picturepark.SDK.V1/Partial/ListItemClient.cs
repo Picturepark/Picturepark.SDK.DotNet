@@ -85,7 +85,7 @@ namespace Picturepark.SDK.V1
 			var waitResult = await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id, cancellationToken);
 		}
 
-		public async Task<IEnumerable<ListItem>> CreateFromPOCOAsync(object obj, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task<IEnumerable<ListItem>> CreateFromObjectAsync(object obj, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var listItems = new List<ListItemCreateRequest>();
 			var referencedObjects = await CreateReferencedObjectsAsync(obj, cancellationToken);
@@ -108,6 +108,7 @@ namespace Picturepark.SDK.V1
 		}
 
 		/// <exception cref="ApiException">A server side error occurred.</exception>
+		/// <exception cref="PictureparkException">The business process has not been completed.</exception>
 		public async Task<IEnumerable<ListItem>> CreateManyAsync(IEnumerable<ListItemCreateRequest> listItems, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var listItemCreateRequests = listItems as IList<ListItemCreateRequest> ?? listItems.ToList();
@@ -117,30 +118,37 @@ namespace Picturepark.SDK.V1
 			}
 
 			var businessProcess = await CreateManyCoreAsync(listItemCreateRequests, cancellationToken);
-			await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id);
 
-			var details = await _businessProcessClient.GetDetailsAsync(businessProcess.Id, cancellationToken);
-
-			var bulkResult = (BusinessProcessDetailsDataBulkResponse)details.Details;
-			if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
+			var waitResult = await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id);
+			if (waitResult.HasStateHit)
 			{
-				throw new Exception("Could not save all objects");
-			}
+				var details = await _businessProcessClient.GetDetailsAsync(businessProcess.Id, cancellationToken);
 
-			// Fetch created objects
-			var searchRequest = new ListItemSearchRequest
-			{
-				Start = 0,
-				Limit = 1000,
-				Filter = new TermsFilter
+				var bulkResult = (BusinessProcessDetailsDataBulkResponse)details.Details;
+				if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
 				{
-					Field = "id",
-					Terms = bulkResult.Response.Rows.Select(i => i.Id).ToList()
+					throw new Exception("Could not save all objects.");
 				}
-			};
 
-			var searchResult = await SearchAsync(searchRequest, cancellationToken);
-			return searchResult.Results;
+				// Fetch created objects
+				var searchRequest = new ListItemSearchRequest
+				{
+					Start = 0,
+					Limit = 1000,
+					Filter = new TermsFilter
+					{
+						Field = "id",
+						Terms = bulkResult.Response.Rows.Select(i => i.Id).ToList()
+					}
+				};
+
+				var searchResult = await SearchAsync(searchRequest, cancellationToken);
+				return searchResult.Results;
+			}
+			else
+			{
+				throw new Exception("The business process has not been completed.");
+			}
 		}
 
 		public async Task<T> GetObjectAsync<T>(string objectId, string schemaId, CancellationToken cancellationToken = default(CancellationToken))

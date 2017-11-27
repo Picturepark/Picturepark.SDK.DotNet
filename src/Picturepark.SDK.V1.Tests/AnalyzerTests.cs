@@ -45,7 +45,7 @@ namespace Picturepark.SDK.V1.Tests
                     SimpleField = "Simple12Field"
                 };
 
-                await _client.ListItems.CreateFromPOCOAsync(analyzerValue, nameof(AnalyzerTestObject));
+                await _client.ListItems.CreateFromObjectAsync(analyzerValue, nameof(AnalyzerTestObject));
             }
 
             var simpleResults = await _client.ListItems.SearchAsync(new ListItemSearchRequest

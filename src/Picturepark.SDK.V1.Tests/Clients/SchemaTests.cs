@@ -132,10 +132,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		[Trait("Stack", "Schema")]
 		public async Task ShouldGetJsonValidationSchema()
 		{
+			/// Arrange
 			var schemaId = _fixture.GetRandomSchemaId(20);
-			Assert.False(string.IsNullOrEmpty(schemaId));
 
+			/// Act
 			var result = await _client.JsonSchemas.GetAsync(schemaId);
+
+			/// Assert
+			Assert.NotNull(result.Property("definitions"));
 			var stringResult = result.ToString(Formatting.Indented);
 			Assert.NotNull(stringResult);
 		}

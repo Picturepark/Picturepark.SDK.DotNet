@@ -196,7 +196,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			};
 
 			/// Act
-			var createdObjects = await _client.ListItems.CreateFromPOCOAsync(tag, nameof(Tag));
+			var createdObjects = await _client.ListItems.CreateFromObjectAsync(tag, nameof(Tag));
 
 			/// Assert
 			Assert.Equal(1, createdObjects.Count());
@@ -214,7 +214,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			};
 
 			// Using Helper method
-			var soccerPlayerTree = await _client.ListItems.CreateFromPOCOAsync(
+			var soccerPlayerTree = await _client.ListItems.CreateFromObjectAsync(
 				new SoccerPlayer
 				{
 					BirthDate = DateTime.Now,
@@ -240,7 +240,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 					}
 				}, nameof(SoccerPlayer)); // TODO: ListItemClient.CreateFromPOCOAsync: We should add an attribute to the class with its schema name instead of passing it as parameter
 
-			var soccerTrainerTree = await _client.ListItems.CreateFromPOCOAsync(
+			var soccerTrainerTree = await _client.ListItems.CreateFromObjectAsync(
 				new SoccerTrainer
 				{
 					BirthDate = DateTime.Now,
@@ -250,7 +250,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 					TrainerSince = new DateTime(2000, 1, 1)
 				}, nameof(SoccerTrainer));
 
-			var person = await _client.ListItems.CreateFromPOCOAsync(
+			var person = await _client.ListItems.CreateFromObjectAsync(
 				new Person
 				{
 					BirthDate = DateTime.Now,
