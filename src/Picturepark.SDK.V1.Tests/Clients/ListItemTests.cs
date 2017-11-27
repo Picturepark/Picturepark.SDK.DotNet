@@ -206,6 +206,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		[Trait("Stack", "ListItem")]
 		public async Task ShouldCreateComplexObjectWithHelper()
 		{
+			/// Arrange
 			// Reusable as reference
 			var dog = new Dog
 			{
@@ -213,6 +214,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 				PlaysCatch = true
 			};
 
+			/// Act
 			// Using Helper method
 			var soccerPlayerTree = await _client.ListItems.CreateFromObjectAsync(
 				new SoccerPlayer
@@ -250,7 +252,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 					TrainerSince = new DateTime(2000, 1, 1)
 				}, nameof(SoccerTrainer));
 
-			var person = await _client.ListItems.CreateFromObjectAsync(
+			var personTree = await _client.ListItems.CreateFromObjectAsync(
 				new Person
 				{
 					BirthDate = DateTime.Now,
@@ -258,49 +260,68 @@ namespace Picturepark.SDK.V1.Tests.Clients
 					Firstname = "Urxxxxs",
 					LastName = "xxxxxxxx"
 				}, nameof(Person));
+
+			/// Assert
+			Assert.True(soccerPlayerTree.Any());
+			Assert.True(soccerTrainerTree.Any());
+			Assert.True(personTree.Any());
 		}
 
 		[Fact]
 		[Trait("Stack", "ListItem")]
 		public async Task ShouldCreateObjectWithoutHelper()
 		{
-			// Create SoccerPlayer
-			var player = await _client.ListItems.CreateAsync(
-				new ListItemCreateRequest
-				{
-					ContentSchemaId = "SoccerPlayer",
-					Content = new SoccerPlayer
-					{
-						BirthDate = DateTime.Now,
-						EmailAddress = "test@test.com",
-						Firstname = "Urs",
-						LastName = "Brogle"
-					}
-				});
+			/// Arrange
+			var originalPlayer = new SoccerPlayer
+			{
+				BirthDate = DateTime.Now,
+				EmailAddress = "test@test.com",
+				Firstname = "Urs",
+				LastName = "Brogle"
+			};
 
-			Assert.NotNull(player);
+			/// Act
+			var createRequest = new ListItemCreateRequest
+			{
+				ContentSchemaId = "SoccerPlayer",
+				Content = originalPlayer
+			};
+
+			var playerItem = await _client.ListItems.CreateAsync(createRequest);
+
+			/// Assert
+			Assert.NotNull(playerItem);
+
+			var createdPlayer = playerItem.ConvertToType<SoccerPlayer>("SoccerPlayer");
+			Assert.Equal("Urs", createdPlayer.Firstname);
 		}
 
 		[Fact]
 		[Trait("Stack", "ListItem")]
 		public async Task ShouldGetObject()
 		{
-			string objectName = "ThisObjectC" + new Random().Next(0, 999999);
+			/// Arrange
+			var objectName = "ThisObjectC" + new Random().Next(0, 999999);
 
+			/// Act
 			var createRequest = new ListItemCreateRequest
 			{
 				ContentSchemaId = nameof(Tag),
 				Content = new Tag { Name = objectName }
 			};
 
-			ListItemDetail listItem = await _client.ListItems.CreateAsync(createRequest);
+			var listItem = await _client.ListItems.CreateAsync(createRequest);
 			var result = await _client.ListItems.GetAsync(listItem.Id, true);
+
+			/// Assert
+			Assert.NotNull(result);
 		}
 
 		[Fact]
 		[Trait("Stack", "ListItem")]
 		public async Task ShouldGetObjectResolved()
 		{
+			/// Arrange
 			var request = new SchemaSearchRequest
 			{
 				Limit = 100,
@@ -310,23 +331,22 @@ namespace Picturepark.SDK.V1.Tests.Clients
 					Term = SchemaType.List.ToString()
 				}
 			};
-			var result = _client.Schemas.Search(request);
+
+			var result = await _client.Schemas.SearchAsync(request);
 			Assert.True(result.Results.Any());
 
-			string objectId = null;
-
-			// Loop over all metadataSchemaIds until an object is found
-			// For Debugging: foreach (var item in result.Results.Where(i => i.Id == "Esselabore1"))
-			foreach (var item in result.Results)
-			{
-				objectId = _fixture.GetRandomObjectId(item.Id, 20);
-
-				if (!string.IsNullOrEmpty(objectId))
-					break;
-			}
+			// For debugging: .Where(i => i.Id == "Esselabore1"))
+			var objectId = result.Results
+				.Select(i => _fixture.GetRandomObjectId(i.Id, 20))
+				.First(i => !string.IsNullOrEmpty(i));
 
 			Assert.False(string.IsNullOrEmpty(objectId));
-			await _client.ListItems.GetAsync(objectId, true);
+
+			/// Act
+			var listItem = await _client.ListItems.GetAsync(objectId, true);
+
+			/// Assert
+			Assert.Equal(SchemaType.List.ToString(), listItem.ContentSchemaId);
 		}
 
 		[Fact]
@@ -337,7 +357,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			// Get a list of MetadataSchemaIds
 			// ---------------------------------------------------------------------------
 			var searchRequestSchema = new SchemaSearchRequest { Start = 0, Limit = 999, Filter = new TermFilter { Field = "types", Term = SchemaType.List.ToString() } };
-			var searchResultSchema = _client.Schemas.Search(searchRequestSchema);
+			var searchResultSchema = await _client.Schemas.SearchAsync(searchRequestSchema);
 			Assert.True(searchResultSchema.Results.Any());
 
 			List<string> metadataSchemaIds = searchResultSchema.Results.Select(i => i.Id).OrderBy(i => i).ToList();

@@ -58,10 +58,11 @@ namespace Picturepark.SDK.V1
 
 		public async Task UpdateAsync(ListItemDetail listItem, object obj, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
 		{
+			// TODO: ListItemClient.UpdateAsync: Why don't we use listItem directly here?
 			var convertedObject = new ListItem
 			{
-				ContentSchemaId = listItem.ContentSchemaId,
 				Id = listItem.Id,
+				ContentSchemaId = listItem.ContentSchemaId,
 				Content = listItem.Content
 			};
 
@@ -70,13 +71,13 @@ namespace Picturepark.SDK.V1
 
 		public async Task UpdateAsync(ListItem listItem, object obj, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var request = new ListItemUpdateRequest()
+			var updateRequest = new ListItemUpdateRequest()
 			{
 				Id = listItem.Id,
 				Content = obj
 			};
 
-			await UpdateAsync(request, cancellationToken);
+			await UpdateAsync(updateRequest, cancellationToken);
 		}
 
 		public async Task UpdateAsync(ListItemUpdateRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken))
@@ -123,10 +124,16 @@ namespace Picturepark.SDK.V1
 			if (waitResult.HasLifeCycleHit)
 			{
 				var details = await _businessProcessClient.GetDetailsAsync(businessProcess.Id, cancellationToken);
+				if (details.LifeCycle == BusinessProcessLifeCycle.Failed)
+				{
+					// TODO: ListItemClient.CreateManyAsync: Should we check for Succeeded here?
+					throw new Exception("The business process failed to execute.");
+				}
 
 				var bulkResult = (BusinessProcessDetailsDataBulkResponse)details.Details;
 				if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
 				{
+					// TODO: ListItemClient.CreateManyAsync: Use better exception classes in this method.
 					throw new Exception("Could not save all objects.");
 				}
 
