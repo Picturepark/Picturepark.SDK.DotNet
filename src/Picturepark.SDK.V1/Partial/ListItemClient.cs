@@ -96,7 +96,7 @@ namespace Picturepark.SDK.V1
 				Content = obj
 			});
 
-			var objectResult = await CreateManyAsync(listItems);
+			var objectResult = await CreateManyAsync(listItems, cancellationToken);
 
 			var allResults = objectResult.Concat(referencedObjects).ToList();
 			return allResults;
@@ -119,8 +119,8 @@ namespace Picturepark.SDK.V1
 
 			var businessProcess = await CreateManyCoreAsync(listItemCreateRequests, cancellationToken);
 
-			var waitResult = await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id);
-			if (waitResult.HasStateHit)
+			var waitResult = await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id, cancellationToken);
+			if (waitResult.HasLifeCycleHit)
 			{
 				var details = await _businessProcessClient.GetDetailsAsync(businessProcess.Id, cancellationToken);
 
