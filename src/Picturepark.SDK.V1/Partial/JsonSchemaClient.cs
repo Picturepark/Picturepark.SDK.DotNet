@@ -13,7 +13,7 @@ namespace Picturepark.SDK.V1
 	    /// <exception cref="ApiException">A server side error occurred.</exception>
 	    public JObject Get(string schemaId)
 	    {
-		    return Task.Run(async () => await GetAsync(schemaId)).GetAwaiter().GetResult();
+		    return Task.Run(async () => await GetAsync(schemaId).ConfigureAwait(false)).GetAwaiter().GetResult();
 	    }
 
 		/// <summary>Gets an existing JSON Schema by schema ID.</summary>
@@ -23,7 +23,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public async Task<JObject> GetAsync(string schemaId, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await GetCoreAsync(schemaId, cancellationToken) as JObject;
+            return await GetCoreAsync(schemaId, cancellationToken).ConfigureAwait(false) as JObject;
         }
     }
 }

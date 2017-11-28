@@ -17,7 +17,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public async Task<ContentDetail> GetAsync(string contentId, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			return await GetAsync(contentId, true, null, cancellationToken);
+			return await GetAsync(contentId, true, null, cancellationToken).ConfigureAwait(false);
 		}
 
 		/// <summary>Deactivates a content item by ID (i.e. marks the content item as deleted).</summary>
@@ -27,7 +27,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public async Task DeactivateAsync(string contentId, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			await DeactivateAsync(contentId, 60000, cancellationToken);
+			await DeactivateAsync(contentId, 60000, cancellationToken).ConfigureAwait(false);
 		}
 
 		/// <summary>Reactivates a content item by ID (i.e. marks the content item as not deleted).</summary>
@@ -38,7 +38,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public ContentDetail Reactivate(string contentId, bool resolve = true, int timeout = 60000)
 		{
-			return Task.Run(async () => await ReactivateAsync(contentId, resolve, timeout)).GetAwaiter().GetResult();
+			return Task.Run(async () => await ReactivateAsync(contentId, resolve, timeout).ConfigureAwait(false)).GetAwaiter().GetResult();
 		}
 
 		/// <summary>Reactivates a content item by ID (i.e. marks the content item as not deleted).</summary>
@@ -50,7 +50,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public async Task<ContentDetail> ReactivateAsync(string contentId, bool resolve = true, int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			return await ReactivateAsync(contentId, resolve, timeout, null, cancellationToken);
+			return await ReactivateAsync(contentId, resolve, timeout, null, cancellationToken).ConfigureAwait(false);
 		}
 
 		/// <summary>Downloads multiple files.</summary>
@@ -86,12 +86,12 @@ namespace Picturepark.SDK.V1
 
 			foreach (var content in contents.Results)
 			{
-				await throttler.WaitAsync(cancellationToken);
+				await throttler.WaitAsync(cancellationToken).ConfigureAwait(false);
 				allTasks.Add(Task.Run(async () =>
 				{
 					try
 					{
-						var contentDetail = await GetAsync(content.Id, cancellationToken);
+						var contentDetail = await GetAsync(content.Id, cancellationToken).ConfigureAwait(false);
 						var metadata = contentDetail.GetFileMetadata();
 						string fileNameOriginal = metadata.FileName;
 
@@ -110,13 +110,14 @@ namespace Picturepark.SDK.V1
 							{
 								try
 								{
-									using (var response = await DownloadAsync(content.Id, outputFormat, cancellationToken: cancellationToken))
+									using (var response = await DownloadAsync(content.Id, outputFormat, cancellationToken: cancellationToken).ConfigureAwait(false))
 									{
 										using (var fileStream = File.Create(filePath))
 										{
 											response.Stream.CopyTo(fileStream);
 										}
 									}
+
 									successDelegate?.Invoke(contentDetail);
 								}
 								catch (Exception ex)
@@ -137,7 +138,7 @@ namespace Picturepark.SDK.V1
 				}));
 			}
 
-			await Task.WhenAll(allTasks).ConfigureAwait(true);
+			await Task.WhenAll(allTasks).ConfigureAwait(false);
 		}
 	}
 }

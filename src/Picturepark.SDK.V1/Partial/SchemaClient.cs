@@ -35,7 +35,7 @@ namespace Picturepark.SDK.V1
 		/// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
 		public void CreateOrUpdateAndWaitForCompletion(SchemaDetail schemaDetail, bool enableForBinaryFiles)
 		{
-			Task.Run(async () => await CreateOrUpdateAndWaitForCompletionAsync(schemaDetail, enableForBinaryFiles)).GetAwaiter().GetResult();
+			Task.Run(async () => await CreateOrUpdateAndWaitForCompletionAsync(schemaDetail, enableForBinaryFiles).ConfigureAwait(false)).GetAwaiter().GetResult();
 		}
 
 		/// <summary>Creates or updates the given <see cref="SchemaDetail"/>.</summary>
@@ -45,7 +45,7 @@ namespace Picturepark.SDK.V1
 		/// <returns>The task.</returns>
 		public async Task CreateOrUpdateAndWaitForCompletionAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			if (await ExistsAsync(schemaDetail.Id, null, cancellationToken))
+			if (await ExistsAsync(schemaDetail.Id, null, cancellationToken).ConfigureAwait(false))
 			{
 				await UpdateAndWaitForCompletionAsync(schemaDetail, enableForBinaryFiles, cancellationToken).ConfigureAwait(false);
 			}
@@ -60,7 +60,7 @@ namespace Picturepark.SDK.V1
 		/// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
 		public void CreateAndWaitForCompletion(SchemaDetail schemaDetail, bool enableForBinaryFiles)
 		{
-			Task.Run(async () => await CreateAndWaitForCompletionAsync(schemaDetail, enableForBinaryFiles)).GetAwaiter().GetResult();
+			Task.Run(async () => await CreateAndWaitForCompletionAsync(schemaDetail, enableForBinaryFiles).ConfigureAwait(false)).GetAwaiter().GetResult();
 		}
 
 		/// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
@@ -93,7 +93,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public void CreateAndWaitForCompletion(SchemaDetail schemaDetail)
 		{
-			Task.Run(async () => await CreateAndWaitForCompletionAsync(schemaDetail)).GetAwaiter().GetResult();
+			Task.Run(async () => await CreateAndWaitForCompletionAsync(schemaDetail).ConfigureAwait(false)).GetAwaiter().GetResult();
 		}
 
 		/// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
@@ -130,7 +130,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public void DeleteAndWaitForCompletion(string schemaId)
 		{
-			Task.Run(async () => await DeleteAndWaitForCompletionAsync(schemaId)).GetAwaiter().GetResult();
+			Task.Run(async () => await DeleteAndWaitForCompletionAsync(schemaId).ConfigureAwait(false)).GetAwaiter().GetResult();
 		}
 
 		/// <summary>Deletes the a schema.</summary>
@@ -191,7 +191,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public void UpdateAndWaitForCompletion(string schemaId, SchemaUpdateRequest updateRequest)
 		{
-			Task.Run(async () => await UpdateAndWaitForCompletionAsync(schemaId, updateRequest)).GetAwaiter().GetResult();
+			Task.Run(async () => await UpdateAndWaitForCompletionAsync(schemaId, updateRequest).ConfigureAwait(false)).GetAwaiter().GetResult();
 		}
 
 		/// <summary>Updates a schema.</summary>
@@ -211,7 +211,7 @@ namespace Picturepark.SDK.V1
 		/// <param name="fieldId">The optional field ID.</param>
 		public bool Exists(string schemaId, string fieldId = null)
 		{
-			return Task.Run(async () => await ExistsCoreAsync(schemaId, fieldId)).GetAwaiter().GetResult().Exists;
+			return Task.Run(async () => await ExistsCoreAsync(schemaId, fieldId).ConfigureAwait(false)).GetAwaiter().GetResult().Exists;
 		}
 
 		/// <summary>Checks whether a schema ID already exists.</summary>

@@ -45,7 +45,7 @@ namespace Picturepark.SDK.V1
 
 			if (_settings.AuthClient != null)
 			{
-				foreach (var header in await _settings.AuthClient.GetAuthenticationHeadersAsync())
+				foreach (var header in await _settings.AuthClient.GetAuthenticationHeadersAsync().ConfigureAwait(false))
 					message.Headers.TryAddWithoutValidation(header.Key, header.Value);
 			}
 

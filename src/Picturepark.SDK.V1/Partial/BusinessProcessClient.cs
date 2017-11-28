@@ -18,7 +18,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="PictureparkException">Internal server error</exception>
 		public BusinessProcessWaitResult WaitForLifeCycles(string processId, IEnumerable<BusinessProcessLifeCycle> lifeCycleIds, int? timeout = null)
 		{
-			return Task.Run(async () => await WaitForLifeCyclesAsync(processId, lifeCycleIds, timeout, CancellationToken.None)).GetAwaiter().GetResult();
+			return Task.Run(async () => await WaitForLifeCyclesAsync(processId, lifeCycleIds, timeout, CancellationToken.None).ConfigureAwait(false)).GetAwaiter().GetResult();
 		}
 
 		/// <summary>Waits until the business process transitioned into one of the given lifecycles or the timeout is reached.</summary>
@@ -31,7 +31,7 @@ namespace Picturepark.SDK.V1
 		/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 		public async Task<BusinessProcessWaitResult> WaitForLifeCyclesAsync(string processId, IEnumerable<BusinessProcessLifeCycle> lifeCycleIds, int? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var waitResult = await WaitCoreAsync(processId, null, lifeCycleIds, timeout, cancellationToken);
+			var waitResult = await WaitCoreAsync(processId, null, lifeCycleIds, timeout, cancellationToken).ConfigureAwait(false);
 
 			var errors = waitResult.BusinessProcess.StateHistory?
 				.Where(i => i.Error != null)
@@ -61,7 +61,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="PictureparkException">Internal server error</exception>
 		public BusinessProcessWaitResult WaitForStates(string processId, IEnumerable<string> states, int? timeout = null)
 		{
-			return Task.Run(async () => await WaitForStatesAsync(processId, states, timeout, CancellationToken.None)).GetAwaiter().GetResult();
+			return Task.Run(async () => await WaitForStatesAsync(processId, states, timeout, CancellationToken.None).ConfigureAwait(false)).GetAwaiter().GetResult();
 		}
 
 		/// <summary>Waits until the business process transitioned into one of the given states or the timeout is reached.</summary>
@@ -74,7 +74,7 @@ namespace Picturepark.SDK.V1
 		/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 		public async Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, IEnumerable<string> states, int? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var waitResult = await WaitCoreAsync(processId, states, null, timeout, cancellationToken);
+			var waitResult = await WaitCoreAsync(processId, states, null, timeout, cancellationToken).ConfigureAwait(false);
 
 			var errors = waitResult.BusinessProcess.StateHistory?
 				.Where(i => i.Error != null)
@@ -102,7 +102,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="PictureparkException">Internal server error</exception>
 		public BusinessProcessWaitResult WaitForCompletion(string processId)
 		{
-			return Task.Run(async () => await WaitForCompletionCoreAsync(processId, 60 * 1000, CancellationToken.None)).GetAwaiter().GetResult();
+			return Task.Run(async () => await WaitForCompletionCoreAsync(processId, 60 * 1000, CancellationToken.None).ConfigureAwait(false)).GetAwaiter().GetResult();
 		}
 
 		/// <summary>Waits until the business process is completed or the timeout is reached.</summary>
@@ -113,7 +113,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="PictureparkException">Internal server error</exception>
 		public BusinessProcessWaitResult WaitForCompletion(string processId, int timeout)
 		{
-			return Task.Run(async () => await WaitForCompletionCoreAsync(processId, timeout, CancellationToken.None)).GetAwaiter().GetResult();
+			return Task.Run(async () => await WaitForCompletionCoreAsync(processId, timeout, CancellationToken.None).ConfigureAwait(false)).GetAwaiter().GetResult();
 		}
 
 		/// <summary>Waits until the business process is completed or the timeout is reached.</summary>
@@ -124,7 +124,7 @@ namespace Picturepark.SDK.V1
 		/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 		public async Task<BusinessProcessWaitResult> WaitForCompletionAsync(string processId, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			return await WaitForCompletionAsync(processId, 60 * 1000, cancellationToken);
+			return await WaitForCompletionAsync(processId, 60 * 1000, cancellationToken).ConfigureAwait(false);
 		}
 
 		/// <summary>Waits until the business process is completed or the timeout is reached.</summary>
@@ -136,7 +136,7 @@ namespace Picturepark.SDK.V1
 		/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 		public async Task<BusinessProcessWaitResult> WaitForCompletionAsync(string processId, int timeout, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var waitResult = await WaitForCompletionCoreAsync(processId, timeout, cancellationToken);
+			var waitResult = await WaitForCompletionCoreAsync(processId, timeout, cancellationToken).ConfigureAwait(false);
 
 			if (waitResult.HasLifeCycleHit)
 				return waitResult;
