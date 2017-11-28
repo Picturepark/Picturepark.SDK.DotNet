@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Conversion
 {
+	/// <summary>Converts .NET types to Picturepark schemas.</summary>
 	public class ClassToSchemaConverter
 	{
 		private readonly List<string> _ignoredProperties = new List<string> { "refId", "_relId", "_relationType", "_targetContext", "_targetId" };
