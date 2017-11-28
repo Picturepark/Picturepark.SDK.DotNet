@@ -27,18 +27,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		public async Task DeactivateAsync(string contentId, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			await DeactivateAsync(contentId, 60000, cancellationToken).ConfigureAwait(false);
-		}
-
-		/// <summary>Reactivates a content item by ID (i.e. marks the content item as not deleted).</summary>
-		/// <param name="contentId">The content ID.</param>
-		/// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-		/// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
-		/// <returns>The task.</returns>
-		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public ContentDetail Reactivate(string contentId, bool resolve = true, int timeout = 60000)
-		{
-			return Task.Run(async () => await ReactivateAsync(contentId, resolve, timeout).ConfigureAwait(false)).GetAwaiter().GetResult();
+			await DeactivateAsync(contentId, null, cancellationToken).ConfigureAwait(false);
 		}
 
 		/// <summary>Reactivates a content item by ID (i.e. marks the content item as not deleted).</summary>
@@ -48,7 +37,7 @@ namespace Picturepark.SDK.V1
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <returns>The task.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task<ContentDetail> ReactivateAsync(string contentId, bool resolve = true, int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task<ContentDetail> ReactivateAsync(string contentId, bool resolve = true, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			return await ReactivateAsync(contentId, resolve, timeout, null, cancellationToken).ConfigureAwait(false);
 		}

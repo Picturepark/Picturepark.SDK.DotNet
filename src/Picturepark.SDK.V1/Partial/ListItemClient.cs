@@ -25,21 +25,10 @@ namespace Picturepark.SDK.V1
 		/// <param name="createRequest">The create request.</param>
 		/// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
 		/// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
-		/// <returns>The created <see cref="ListItemDetail"/>.</returns>
-		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public ListItemDetail Create(ListItemCreateRequest createRequest, bool resolve = false, int timeout = 60000)
-		{
-			return Task.Run(async () => await CreateAsync(createRequest, resolve: resolve, timeout: timeout).ConfigureAwait(false)).GetAwaiter().GetResult();
-		}
-
-		/// <summary>Creates a <see cref="ListItemDetail"/>.</summary>
-		/// <param name="createRequest">The create request.</param>
-		/// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-		/// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <returns>The created <see cref="ListItemDetail"/>.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task<ListItemDetail> CreateAsync(ListItemCreateRequest createRequest, bool resolve = false, int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task<ListItemDetail> CreateAsync(ListItemCreateRequest createRequest, bool resolve = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			return await CreateAsync(createRequest, resolve, timeout, null, cancellationToken).ConfigureAwait(false);
 		}
@@ -93,7 +82,7 @@ namespace Picturepark.SDK.V1
 
 			var businessProcess = await CreateManyCoreAsync(listItemCreateRequests, cancellationToken).ConfigureAwait(false);
 
-			var waitResult = await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id, cancellationToken).ConfigureAwait(false);
+			var waitResult = await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id, null, cancellationToken).ConfigureAwait(false);
 			if (waitResult.HasLifeCycleHit)
 			{
 				var details = await _businessProcessClient.GetDetailsAsync(businessProcess.Id, cancellationToken).ConfigureAwait(false);
@@ -152,7 +141,7 @@ namespace Picturepark.SDK.V1
 		/// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <returns>The updated <see cref="ListItemDetail"/>.</returns>
-		public async Task<ListItemDetail> UpdateAsync(string listItemId, object content, bool resolve = false, int? timeout = null, IEnumerable<string> patterns = null, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task<ListItemDetail> UpdateAsync(string listItemId, object content, bool resolve = false, TimeSpan? timeout = null, IEnumerable<DisplayPatternType> patterns = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var updateRequest = new ListItemUpdateRequest()
 			{
@@ -170,7 +159,7 @@ namespace Picturepark.SDK.V1
 		/// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <returns>The updated <see cref="ListItemDetail"/>.</returns>
-		public async Task<ListItemDetail> UpdateAsync(ListItemUpdateRequest updateRequest, bool resolve = false, int? timeout = null, IEnumerable<string> patterns = null, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task<ListItemDetail> UpdateAsync(ListItemUpdateRequest updateRequest, bool resolve = false, TimeSpan? timeout = null, IEnumerable<DisplayPatternType> patterns = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			return await UpdateCoreAsync(updateRequest.Id, updateRequest, resolve, timeout, patterns, cancellationToken).ConfigureAwait(false);
 		}
@@ -180,16 +169,6 @@ namespace Picturepark.SDK.V1
 		public void Delete(string listItemId)
 		{
 			Task.Run(async () => await DeleteAsync(listItemId).ConfigureAwait(false)).GetAwaiter().GetResult();
-		}
-
-		/// <summary>Deletes a list item by ID.</summary>
-		/// <param name="listItemId">The list item ID.</param>
-		/// <param name="cancellationToken">The cancellation token.</param>
-		/// <returns>The task.</returns>
-		public async Task DeleteAsync(string listItemId, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			// TODO: ListItemClient.DeleteAsync: Remove this method and provide a default timeout in the generated Delete method.
-			await DeleteAsync(listItemId, 60000, cancellationToken).ConfigureAwait(false);
 		}
 
 		private bool IsSimpleType(Type type)

@@ -95,7 +95,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 				Description = "Foo"
 			};
 
-			var result = await _client.Shares.UpdateAsync(createResult.ShareId, request, true);
+			var result = await _client.Shares.UpdateAsync(createResult.ShareId, request);
 
 			/// Assert
 			var share = await _client.Shares.GetAsync(createResult.ShareId);

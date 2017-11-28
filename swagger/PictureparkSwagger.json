@@ -51,12 +51,12 @@
             "description": "The content ownership transfer request update request."
           },
           {
-            "type": "integer",
+            "type": "string",
             "name": "timeout",
             "in": "query",
             "x-nullable": true,
-            "description": "Maximum time in milliseconds to wait for the business process completed state.",
-            "format": "int32"
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
           }
         ],
         "responses": {
@@ -64,6 +64,13 @@
             "description": "ContentDetail",
             "schema": {
               "$ref": "#/definitions/ContentDetail"
+            },
+            "x-nullable": false
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
             },
             "x-nullable": false
           },
@@ -127,7 +134,7 @@
             "collectionFormat": "multi",
             "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
-              "type": "string"
+              "$ref": "#/definitions/DisplayPatternType"
             }
           }
         ],
@@ -403,12 +410,12 @@
             "description": "Resolves the data of referenced list items into the contents's content."
           },
           {
-            "type": "integer",
+            "type": "string",
             "name": "timeout",
             "in": "query",
             "x-nullable": true,
             "description": "Maximum time in milliseconds to wait for the business process completed state.",
-            "format": "int32"
+            "format": "time-span"
           },
           {
             "type": "array",
@@ -418,7 +425,7 @@
             "collectionFormat": "multi",
             "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
-              "type": "string"
+              "$ref": "#/definitions/DisplayPatternType"
             }
           }
         ],
@@ -427,6 +434,13 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/ContentDetail"
+            },
+            "x-nullable": false
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
             },
             "x-nullable": false
           },
@@ -659,7 +673,7 @@
             "collectionFormat": "multi",
             "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
-              "type": "string"
+              "$ref": "#/definitions/DisplayPatternType"
             }
           }
         ],
@@ -735,12 +749,12 @@
             "description": "Resolves the data of referenced list items into the contents's content."
           },
           {
-            "type": "integer",
+            "type": "string",
             "name": "timeout",
             "in": "query",
             "x-nullable": true,
-            "description": "Maximum time in milliseconds to wait for the business process completed state.",
-            "format": "int32"
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
           },
           {
             "type": "array",
@@ -750,7 +764,7 @@
             "collectionFormat": "multi",
             "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
-              "type": "string"
+              "$ref": "#/definitions/DisplayPatternType"
             }
           }
         ],
@@ -759,6 +773,13 @@
             "description": "ContentDetail",
             "schema": {
               "$ref": "#/definitions/ContentDetail"
+            },
+            "x-nullable": false
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
             },
             "x-nullable": false
           },
@@ -821,12 +842,12 @@
             "description": "Resolves the data of referenced list items into the contents's content."
           },
           {
-            "type": "integer",
+            "type": "string",
             "name": "timeout",
             "in": "query",
             "x-nullable": true,
-            "description": "Maximum time in milliseconds to wait for the business process completed state.",
-            "format": "int32"
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
           },
           {
             "type": "array",
@@ -836,11 +857,18 @@
             "collectionFormat": "multi",
             "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
-              "type": "string"
+              "$ref": "#/definitions/DisplayPatternType"
             }
           }
         ],
         "responses": {
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
+            },
+            "x-nullable": false
+          },
           "200": {
             "description": "ContentDetail",
             "schema": {
@@ -998,18 +1026,25 @@
             "description": "the id of the content to deactivate"
           },
           {
-            "type": "integer",
+            "type": "string",
             "name": "timeout",
             "in": "query",
             "required": true,
-            "x-nullable": false,
+            "x-nullable": true,
             "description": "Maximum time in milliseconds to wait for the business process completed state.",
-            "format": "int32"
+            "format": "time-span"
           }
         ],
         "responses": {
           "200": {
             "description": ""
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
+            },
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -1119,12 +1154,12 @@
             "description": "Resolves the data of referenced list items into the contents's content."
           },
           {
-            "type": "integer",
+            "type": "string",
             "name": "timeout",
             "in": "query",
             "x-nullable": true,
-            "description": "Maximum time in milliseconds to wait for the business process completed state.",
-            "format": "int32"
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
           },
           {
             "type": "array",
@@ -1134,7 +1169,7 @@
             "collectionFormat": "multi",
             "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
-              "type": "string"
+              "$ref": "#/definitions/DisplayPatternType"
             }
           }
         ],
@@ -1143,6 +1178,13 @@
             "description": "ContentDetail",
             "schema": {
               "$ref": "#/definitions/ContentDetail"
+            },
+            "x-nullable": false
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
             },
             "x-nullable": false
           },
@@ -1523,12 +1565,12 @@
             }
           },
           {
-            "type": "integer",
+            "type": "string",
             "name": "timeout",
             "in": "query",
             "x-nullable": true,
-            "description": "The timeout in ms to wait for completion.",
-            "format": "int32"
+            "description": "The timeout to wait for completion.",
+            "format": "time-span"
           }
         ],
         "responses": {
@@ -1580,12 +1622,12 @@
             "description": "The process id"
           },
           {
-            "type": "integer",
+            "type": "string",
             "name": "timeout",
             "in": "query",
             "x-nullable": true,
-            "description": "The timeout in ms to wait for completion.",
-            "format": "int32"
+            "description": "The timeout to wait for completion.",
+            "format": "time-span"
           }
         ],
         "responses": {
@@ -2020,12 +2062,12 @@
             "description": "Resolves the data of referenced list items into the list item's content."
           },
           {
-            "type": "integer",
+            "type": "string",
             "name": "timeout",
             "in": "query",
             "x-nullable": true,
-            "description": "Maximum time in milliseconds to wait for the business process completed state.",
-            "format": "int32"
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
           },
           {
             "type": "array",
@@ -2035,7 +2077,7 @@
             "collectionFormat": "multi",
             "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
-              "type": "string"
+              "$ref": "#/definitions/DisplayPatternType"
             }
           }
         ],
@@ -2044,6 +2086,13 @@
             "description": "ListItemDetail",
             "schema": {
               "$ref": "#/definitions/ListItemDetail"
+            },
+            "x-nullable": false
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
             },
             "x-nullable": false
           },
@@ -2346,18 +2395,24 @@
             "description": "The list item id."
           },
           {
-            "type": "integer",
+            "type": "string",
             "name": "timeout",
             "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Maximum time in milliseconds to wait for the business process completed state.",
-            "format": "int32"
+            "x-nullable": true,
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
           }
         ],
         "responses": {
           "200": {
             "description": ""
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
+            },
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2412,7 +2467,7 @@
             "collectionFormat": "multi",
             "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
-              "type": "string"
+              "$ref": "#/definitions/DisplayPatternType"
             }
           }
         ],
@@ -2487,12 +2542,12 @@
             "description": "Resolves the data of referenced list items into the list item's content."
           },
           {
-            "type": "integer",
+            "type": "string",
             "name": "timeout",
             "in": "query",
             "x-nullable": true,
-            "description": "Maximum time in milliseconds to wait for the business process completed state.",
-            "format": "int32"
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
           },
           {
             "type": "array",
@@ -2502,7 +2557,7 @@
             "collectionFormat": "multi",
             "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
             "items": {
-              "type": "string"
+              "$ref": "#/definitions/DisplayPatternType"
             }
           }
         ],
@@ -3430,22 +3485,6 @@
             },
             "x-nullable": true,
             "description": "The share update request."
-          },
-          {
-            "type": "boolean",
-            "name": "resolve",
-            "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Resolves the data of referenced list items into the shares content."
-          },
-          {
-            "type": "integer",
-            "name": "timeout",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Maximum time in milliseconds to wait for the business process completed state.",
-            "format": "int32"
           }
         ],
         "responses": {
@@ -3453,6 +3492,13 @@
             "description": "Share",
             "schema": {
               "$ref": "#/definitions/ShareDetail"
+            },
+            "x-nullable": false
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
             },
             "x-nullable": false
           },
@@ -3526,27 +3572,26 @@
         ]
       }
     },
-    "/v1/shares/deleteMany": {
-      "post": {
+    "/v1/shares/many": {
+      "delete": {
         "tags": [
           "Share"
         ],
         "summary": "Delete many",
-        "description": "The delete of multiple shares executed asynchronous. To keep track of the deletion progress a business process is returned.",
+        "description": "Deletes multiple shares. Returnes a bulk reponse with information about successful and failed rows.",
         "operationId": "Share_DeleteMany",
         "parameters": [
           {
-            "name": "shareIds",
-            "in": "body",
+            "type": "array",
+            "name": "ids",
+            "in": "query",
             "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
             "x-nullable": true,
-            "description": "A list of ListItemCreateRequests."
+            "collectionFormat": "multi",
+            "description": "A list of shareIds to delete.",
+            "items": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -5320,6 +5365,40 @@
         }
       ]
     },
+    "BusinessProcessWaitTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "businessProcessId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "PictureparkBusinessException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        },
+        "customerAlias": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
     "PictureparkException": {
       "type": "object",
       "discriminator": "kind",
@@ -5395,26 +5474,6 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "PictureparkBusinessException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "customerId": {
-          "type": "string"
-        },
-        "customerAlias": {
-          "type": "string"
-        },
-        "userId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkException"
         }
       ]
     },
@@ -6140,6 +6199,22 @@
         {
           "$ref": "#/definitions/PictureparkBusinessException"
         }
+      ]
+    },
+    "DisplayPatternType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Thumbnail",
+        "List",
+        "Detail",
+        "Name"
+      ],
+      "enum": [
+        "Thumbnail",
+        "List",
+        "Detail",
+        "Name"
       ]
     },
     "ContentsOwnershipTransferRequest": {
@@ -8930,24 +9005,6 @@
         "DotLiquid"
       ]
     },
-    "DisplayPatternType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Thumbnail",
-        "List",
-        "Detail",
-        "Custom",
-        "Name"
-      ],
-      "enum": [
-        "Thumbnail",
-        "List",
-        "Detail",
-        "Custom",
-        "Name"
-      ]
-    },
     "FieldBase": {
       "type": "object",
       "discriminator": "kind",
@@ -9629,9 +9686,6 @@
         },
         "targetContext": {
           "$ref": "#/definitions/TargetContext"
-        },
-        "schemaId": {
-          "type": "string"
         },
         "filter": {
           "$ref": "#/definitions/FilterBase"

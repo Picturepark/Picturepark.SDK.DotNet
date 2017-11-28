@@ -1852,6 +1852,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("BusinessProcessDefinitionCreateException", typeof(BusinessProcessDefinitionCreateException))]
     [JsonInheritanceAttribute("BusinessProcessDefinitionNotFoundException", typeof(BusinessProcessDefinitionNotFoundException))]
     [JsonInheritanceAttribute("BusinessProcessNotFoundException", typeof(BusinessProcessNotFoundException))]
+    [JsonInheritanceAttribute("BusinessProcessWaitTimeoutException", typeof(BusinessProcessWaitTimeoutException))]
     [JsonInheritanceAttribute("CustomerHostNotFoundException", typeof(CustomerHostNotFoundException))]
     [JsonInheritanceAttribute("CustomerNotFoundException", typeof(CustomerNotFoundException))]
     [JsonInheritanceAttribute("DocumentNotFoundException", typeof(DocumentNotFoundException))]
@@ -2056,6 +2057,23 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static BusinessProcessNotFoundException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessNotFoundException>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BusinessProcessWaitTimeoutException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BusinessProcessId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessWaitTimeoutException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitTimeoutException>(data);
         }
     }
     

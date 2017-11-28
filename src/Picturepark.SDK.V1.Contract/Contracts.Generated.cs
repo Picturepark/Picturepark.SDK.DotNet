@@ -14,21 +14,23 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Update Single - OwnershipTransfer</summary>
         /// <param name="contentId">The content id.</param>
         /// <param name="updateRequest">The content ownership transfer request update request.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ContentDetail TransferOwnership(string contentId, ContentOwnershipTransferRequest updateRequest, int? timeout = null);
+        ContentDetail TransferOwnership(string contentId, ContentOwnershipTransferRequest updateRequest, System.TimeSpan? timeout = null);
     
         /// <summary>Update Single - OwnershipTransfer</summary>
         /// <param name="contentId">The content id.</param>
         /// <param name="updateRequest">The content ownership transfer request update request.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> TransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> TransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get Many</summary>
         /// <param name="ids">Comma-separated list of contentIds</param>
@@ -37,7 +39,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>List of ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Collections.Generic.List<ContentDetail> GetMany(System.Collections.Generic.IEnumerable<string> ids, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null);
+        System.Collections.Generic.List<ContentDetail> GetMany(System.Collections.Generic.IEnumerable<string> ids, bool resolve, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
     
         /// <summary>Get Many</summary>
         /// <param name="ids">Comma-separated list of contentIds</param>
@@ -47,7 +49,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.Generic.List<ContentDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.List<ContentDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, bool resolve, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Process many ownership trasnfer request</summary>
         /// <param name="contentsOwnershipTransferRequest">The content ownership transfer request request.</param>
@@ -117,8 +119,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ContentDetail CreateContent(ContentCreateRequest contentCreateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
+        ContentDetail CreateContent(ContentCreateRequest contentCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
     
         /// <summary>Create Single</summary>
         /// <param name="contentCreateRequest">The content create request.</param>
@@ -126,9 +129,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> CreateContentAsync(ContentCreateRequest contentCreateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> CreateContentAsync(ContentCreateRequest contentCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Downloads content in a specific outputformat</summary>
         /// <param name="contentId">The content id</param>
@@ -182,7 +186,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ContentNotFoundException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ContentDetail Get(string contentId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null);
+        ContentDetail Get(string contentId, bool resolve, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
     
         /// <summary>Get Single</summary>
         /// <param name="contentId">The content id.</param>
@@ -193,53 +197,57 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ContentNotFoundException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> GetAsync(string contentId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> GetAsync(string contentId, bool resolve, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update Single - Metadata</summary>
         /// <param name="contentId">The content id.</param>
         /// <param name="updateRequest">The metadata update request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ContentDetail UpdateMetadata(string contentId, UpdateContentMetadataRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
+        ContentDetail UpdateMetadata(string contentId, UpdateContentMetadataRequest updateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
     
         /// <summary>Update Single - Metadata</summary>
         /// <param name="contentId">The content id.</param>
         /// <param name="updateRequest">The metadata update request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, UpdateContentMetadataRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, UpdateContentMetadataRequest updateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update Single - Permissions</summary>
         /// <param name="contentId">The content id.</param>
         /// <param name="updateRequest">The content permission update request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ContentDetail UpdatePermissions(string contentId, UpdateContentPermissionsRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
+        ContentDetail UpdatePermissions(string contentId, UpdateContentPermissionsRequest updateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
     
         /// <summary>Update Single - Permissions</summary>
         /// <param name="contentId">The content id.</param>
         /// <param name="updateRequest">The content permission update request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string contentId, UpdateContentPermissionsRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string contentId, UpdateContentPermissionsRequest updateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Search</summary>
         /// <param name="contentSearchRequest">The content search request.</param>
@@ -277,16 +285,18 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="contentId">the id of the content to deactivate</param>
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        void Deactivate(string contentId, int timeout);
+        void Deactivate(string contentId, System.TimeSpan? timeout);
     
         /// <summary>Deactivates a content</summary>
         /// <param name="contentId">the id of the content to deactivate</param>
         /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task DeactivateAsync(string contentId, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeactivateAsync(string contentId, System.TimeSpan? timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update Single - File</summary>
         /// <param name="contentId">The id of the content to replace</param>
@@ -306,23 +316,25 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Reactivate - Content</summary>
         /// <param name="contentId">The content id.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ContentDetail Reactivate(string contentId, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
+        ContentDetail Reactivate(string contentId, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
     
         /// <summary>Reactivate - Content</summary>
         /// <param name="contentId">The content id.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> ReactivateAsync(string contentId, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> ReactivateAsync(string contentId, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Dactivate Many - Content</summary>
         /// <param name="deactivationRequest">The deactivation request</param>
@@ -535,23 +547,25 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Create Single</summary>
         /// <param name="listItem">List item create request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ListItemDetail Create(ListItemCreateRequest listItem, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
+        ListItemDetail Create(ListItemCreateRequest listItem, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
     
         /// <summary>Create Single</summary>
         /// <param name="listItem">List item create request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItem, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItem, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete Many</summary>
         /// <param name="ids">The list item id list.</param>
@@ -615,18 +629,20 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Delete Single</summary>
         /// <param name="listItemId">The list item id.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        void Delete(string listItemId, int timeout);
+        void Delete(string listItemId, System.TimeSpan? timeout = null);
     
         /// <summary>Delete Single</summary>
         /// <param name="listItemId">The list item id.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task DeleteAsync(string listItemId, int timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteAsync(string listItemId, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get Single</summary>
         /// <param name="listItemId">The list item id.</param>
@@ -635,7 +651,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ListItemNotFoundException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ListItemDetail Get(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null);
+        ListItemDetail Get(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
     
         /// <summary>Get Single</summary>
         /// <param name="listItemId">The list item id.</param>
@@ -645,7 +661,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ListItemNotFoundException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ListItemDetail> GetAsync(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListItemDetail> GetAsync(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update by filter - Fields</summary>
         /// <param name="updateRequest">The metadata update request.</param>
@@ -915,23 +931,21 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Update single</summary>
         /// <param name="id">The share id.</param>
         /// <param name="updateRequest">The share update request.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the shares content.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <returns>Share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ShareDetail Update(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int? timeout = null);
+        ShareDetail Update(string id, ShareBaseUpdateRequest updateRequest);
     
         /// <summary>Update single</summary>
         /// <param name="id">The share id.</param>
         /// <param name="updateRequest">The share update request.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the shares content.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
         /// <returns>Share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ShareDetail> UpdateAsync(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ShareDetail> UpdateAsync(string id, ShareBaseUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get single</summary>
         /// <param name="id">Share Id (not token, use PublicAccess to get share by token)</param>
@@ -949,19 +963,19 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<ShareDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete many</summary>
-        /// <param name="shareIds">A list of ListItemCreateRequests.</param>
+        /// <param name="ids">A list of shareIds to delete.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        BusinessProcess DeleteMany(System.Collections.Generic.IEnumerable<string> shareIds);
+        BusinessProcess DeleteMany(System.Collections.Generic.IEnumerable<string> ids);
     
         /// <summary>Delete many</summary>
-        /// <param name="shareIds">A list of ListItemCreateRequests.</param>
+        /// <param name="ids">A list of shareIds to delete.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> shareIds, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Aggregate</summary>
         /// <param name="request">Aggregation request</param>
@@ -1781,8 +1795,9 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
-    [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
+    [JsonInheritanceAttribute("BusinessProcessWaitTimeoutException", typeof(BusinessProcessWaitTimeoutException))]
     [JsonInheritanceAttribute("PictureparkBusinessException", typeof(PictureparkBusinessException))]
+    [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
     [JsonInheritanceAttribute("ListItemNotFoundException", typeof(ListItemNotFoundException))]
     [JsonInheritanceAttribute("PermissionException", typeof(PermissionException))]
     [JsonInheritanceAttribute("OutputNotFoundException", typeof(OutputNotFoundException))]
@@ -1855,26 +1870,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum TraceLevel
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Critical")]
-        Critical = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Error")]
-        Error = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Warning")]
-        Warning = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Information")]
-        Information = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Verbose")]
-        Verbose = 4,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PictureparkBusinessException : PictureparkException
     {
         [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -1895,6 +1890,43 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkBusinessException>(data);
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BusinessProcessWaitTimeoutException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BusinessProcessId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessWaitTimeoutException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitTimeoutException>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum TraceLevel
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Critical")]
+        Critical = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Error")]
+        Error = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Warning")]
+        Warning = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Information")]
+        Information = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Verbose")]
+        Verbose = 4,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -2792,6 +2824,23 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRolesRightsAssignedException>(data);
         }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum DisplayPatternType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Thumbnail")]
+        Thumbnail = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "List")]
+        List = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Detail")]
+        Detail = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Name")]
+        Name = 3,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -5647,26 +5696,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum DisplayPatternType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Thumbnail")]
-        Thumbnail = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "List")]
-        List = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Detail")]
-        Detail = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Custom")]
-        Custom = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Name")]
-        Name = 4,
-    
-    }
-    
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("FieldBoolean", typeof(FieldBoolean))]
     [JsonInheritanceAttribute("FieldDate", typeof(FieldDate))]
@@ -6357,9 +6386,6 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TargetContext TargetContext { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SchemaId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }

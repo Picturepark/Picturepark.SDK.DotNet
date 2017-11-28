@@ -16,7 +16,7 @@ namespace Picturepark.SDK.V1
 		/// <returns>The wait result.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		/// <exception cref="PictureparkException">Internal server error</exception>
-		public BusinessProcessWaitResult WaitForLifeCycles(string processId, IEnumerable<BusinessProcessLifeCycle> lifeCycleIds, int? timeout = null)
+		public BusinessProcessWaitResult WaitForLifeCycles(string processId, IEnumerable<BusinessProcessLifeCycle> lifeCycleIds, TimeSpan? timeout = null)
 		{
 			return Task.Run(async () => await WaitForLifeCyclesAsync(processId, lifeCycleIds, timeout, CancellationToken.None).ConfigureAwait(false)).GetAwaiter().GetResult();
 		}
@@ -29,7 +29,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		/// <exception cref="PictureparkException">Internal server error</exception>
 		/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-		public async Task<BusinessProcessWaitResult> WaitForLifeCyclesAsync(string processId, IEnumerable<BusinessProcessLifeCycle> lifeCycleIds, int? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task<BusinessProcessWaitResult> WaitForLifeCyclesAsync(string processId, IEnumerable<BusinessProcessLifeCycle> lifeCycleIds, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var waitResult = await WaitCoreAsync(processId, null, lifeCycleIds, timeout, cancellationToken).ConfigureAwait(false);
 
@@ -59,7 +59,7 @@ namespace Picturepark.SDK.V1
 		/// <returns>The wait result.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		/// <exception cref="PictureparkException">Internal server error</exception>
-		public BusinessProcessWaitResult WaitForStates(string processId, IEnumerable<string> states, int? timeout = null)
+		public BusinessProcessWaitResult WaitForStates(string processId, IEnumerable<string> states, TimeSpan? timeout = null)
 		{
 			return Task.Run(async () => await WaitForStatesAsync(processId, states, timeout, CancellationToken.None).ConfigureAwait(false)).GetAwaiter().GetResult();
 		}
@@ -72,7 +72,7 @@ namespace Picturepark.SDK.V1
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		/// <exception cref="PictureparkException">Internal server error</exception>
 		/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-		public async Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, IEnumerable<string> states, int? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, IEnumerable<string> states, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var waitResult = await WaitCoreAsync(processId, states, null, timeout, cancellationToken).ConfigureAwait(false);
 
@@ -97,44 +97,24 @@ namespace Picturepark.SDK.V1
 
 		/// <summary>Waits until the business process is completed.</summary>
 		/// <param name="processId">The process ID.</param>
+		/// <param name="timeout">The timeout wait for completion.</param>
+		/// /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 		/// <returns>The wait result.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		/// <exception cref="PictureparkException">Internal server error</exception>
-		public BusinessProcessWaitResult WaitForCompletion(string processId)
+		public BusinessProcessWaitResult WaitForCompletion(string processId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			return Task.Run(async () => await WaitForCompletionCoreAsync(processId, 60 * 1000, CancellationToken.None).ConfigureAwait(false)).GetAwaiter().GetResult();
+			return Task.Run(async () => await WaitForCompletionCoreAsync(processId, timeout, cancellationToken).ConfigureAwait(false)).GetAwaiter().GetResult();
 		}
 
 		/// <summary>Waits until the business process is completed or the timeout is reached.</summary>
 		/// <param name="processId">The process ID.</param>
-		/// <param name="timeout">The timeout in ms to wait for completion.</param>
-		/// <returns>The wait result.</returns>
-		/// <exception cref="ApiException">A server side error occurred.</exception>
-		/// <exception cref="PictureparkException">Internal server error</exception>
-		public BusinessProcessWaitResult WaitForCompletion(string processId, int timeout)
-		{
-			return Task.Run(async () => await WaitForCompletionCoreAsync(processId, timeout, CancellationToken.None).ConfigureAwait(false)).GetAwaiter().GetResult();
-		}
-
-		/// <summary>Waits until the business process is completed or the timeout is reached.</summary>
-		/// <param name="processId">The process ID.</param>
+		/// <param name="timeout">The timeout wait for completion.</param>
 		/// <returns>The wait result.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		/// <exception cref="PictureparkException">Internal server error</exception>
 		/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-		public async Task<BusinessProcessWaitResult> WaitForCompletionAsync(string processId, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			return await WaitForCompletionAsync(processId, 60 * 1000, cancellationToken).ConfigureAwait(false);
-		}
-
-		/// <summary>Waits until the business process is completed or the timeout is reached.</summary>
-		/// <param name="processId">The process ID.</param>
-		/// <param name="timeout">The timeout in ms to wait for completion.</param>
-		/// <returns>The wait result.</returns>
-		/// <exception cref="ApiException">A server side error occurred.</exception>
-		/// <exception cref="PictureparkException">Internal server error</exception>
-		/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-		public async Task<BusinessProcessWaitResult> WaitForCompletionAsync(string processId, int timeout, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task<BusinessProcessWaitResult> WaitForCompletionAsync(string processId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var waitResult = await WaitForCompletionCoreAsync(processId, timeout, cancellationToken).ConfigureAwait(false);
 
@@ -157,7 +137,7 @@ namespace Picturepark.SDK.V1
 				throw new AggregateException(exceptions);
 			}
 
-			throw new TimeoutException($"Wait for business process on completion timed out after {timeout / 1000} seconds");
+			throw new TimeoutException($"Wait for business process on completion timed out after {timeout?.TotalSeconds} seconds");
 		}
 	}
 }

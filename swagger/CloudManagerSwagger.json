@@ -3278,6 +3278,20 @@
         }
       ]
     },
+    "BusinessProcessWaitTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "businessProcessId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "CustomerHostNotFoundException": {
       "type": "object",
       "additionalProperties": false,

@@ -122,7 +122,7 @@ namespace Picturepark.SDK.V1
 			};
 
 			var businessProcess = await CreateAsync(createRequest, cancellationToken).ConfigureAwait(false);
-			await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id, cancellationToken).ConfigureAwait(false);
+			await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id, cancellationToken: cancellationToken).ConfigureAwait(false);
 		}
 
 		/// <summary>Deletes the a schema.</summary>
@@ -141,7 +141,7 @@ namespace Picturepark.SDK.V1
 		public async Task DeleteAndWaitForCompletionAsync(string schemaId, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var process = await DeleteAsync(schemaId, cancellationToken).ConfigureAwait(false);
-			await _businessProcessClient.WaitForCompletionAsync(process.Id, cancellationToken).ConfigureAwait(false);
+			await _businessProcessClient.WaitForCompletionAsync(process.Id, cancellationToken: cancellationToken).ConfigureAwait(false);
 		}
 
 		/// <summary>Updates the given <see cref="SchemaDetail"/>.</summary>
@@ -203,7 +203,7 @@ namespace Picturepark.SDK.V1
 		public async Task UpdateAndWaitForCompletionAsync(string schemaId, SchemaUpdateRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var process = await UpdateAsync(schemaId, updateRequest, cancellationToken).ConfigureAwait(false);
-			await _businessProcessClient.WaitForCompletionAsync(process.Id, cancellationToken).ConfigureAwait(false);
+			await _businessProcessClient.WaitForCompletionAsync(process.Id, cancellationToken: cancellationToken).ConfigureAwait(false);
 		}
 
 		/// <summary>Checks whether a schema ID already exists.</summary>
