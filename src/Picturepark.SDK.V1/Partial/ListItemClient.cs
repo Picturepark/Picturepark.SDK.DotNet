@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
-using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using Picturepark.SDK.V1.Contract.Attributes;
 
@@ -22,79 +21,44 @@ namespace Picturepark.SDK.V1
 			_businessProcessClient = businessProcessClient;
 		}
 
-		public ListItemDetail Create(ListItemCreateRequest listItem, bool resolve = false, int timeout = 60000)
-		{
-			return Task.Run(async () => await CreateAsync(listItem, resolve: resolve, timeout: timeout).ConfigureAwait(false)).GetAwaiter().GetResult();
-		}
-
+		/// <summary>Creates a <see cref="ListItemDetail"/>.</summary>
+		/// <param name="createRequest">The create request.</param>
+		/// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+		/// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
+		/// <returns>The created <see cref="ListItemDetail"/>.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItem, bool resolve = false, int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken))
+		public ListItemDetail Create(ListItemCreateRequest createRequest, bool resolve = false, int timeout = 60000)
 		{
-			return await CreateAsync(listItem, resolve, timeout, null, cancellationToken).ConfigureAwait(false);
+			return Task.Run(async () => await CreateAsync(createRequest, resolve: resolve, timeout: timeout).ConfigureAwait(false)).GetAwaiter().GetResult();
 		}
 
-		public void Delete(string objectId)
-		{
-			Task.Run(async () => await DeleteAsync(objectId).ConfigureAwait(false)).GetAwaiter().GetResult();
-		}
-
-		public async Task DeleteAsync(string objectId, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			await DeleteAsync(objectId, 60000, cancellationToken).ConfigureAwait(false);
-		}
-
-		public ListItemDetail Update(string objectId, ListItemUpdateRequest updateRequest, bool resolve = false, List<string> patterns = null, int timeout = 60000)
-		{
-			// TODO: ListItemClient.Update: Is this method really needed? The only diff are the order of the parameters...
-			return Task.Run(async () => await UpdateAsync(objectId, updateRequest, resolve, patterns, timeout).ConfigureAwait(false)).GetAwaiter().GetResult();
-		}
-
+		/// <summary>Creates a <see cref="ListItemDetail"/>.</summary>
+		/// <param name="createRequest">The create request.</param>
+		/// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+		/// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The created <see cref="ListItemDetail"/>.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task<ListItemDetail> UpdateAsync(string objectId, ListItemUpdateRequest updateRequest, bool resolve = false, List<string> patterns = null, int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task<ListItemDetail> CreateAsync(ListItemCreateRequest createRequest, bool resolve = false, int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			// TODO: ListItemClient.UpdateAsync: Is this method really needed? The only diff are the order of the parameters...
-			return await UpdateAsync(objectId, updateRequest, resolve, timeout, patterns, cancellationToken).ConfigureAwait(false);
+			return await CreateAsync(createRequest, resolve, timeout, null, cancellationToken).ConfigureAwait(false);
 		}
 
-		public async Task UpdateAsync(ListItemDetail listItem, object obj, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			// TODO: ListItemClient.UpdateAsync: Why don't we use listItem directly here?
-			var convertedObject = new ListItem
-			{
-				Id = listItem.Id,
-				ContentSchemaId = listItem.ContentSchemaId,
-				Content = listItem.Content
-			};
-
-			await UpdateAsync(convertedObject, obj, schemaId, cancellationToken).ConfigureAwait(false);
-		}
-
-		public async Task UpdateAsync(ListItem listItem, object obj, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			var updateRequest = new ListItemUpdateRequest()
-			{
-				Id = listItem.Id,
-				Content = obj
-			};
-
-			await UpdateAsync(updateRequest, cancellationToken).ConfigureAwait(false);
-		}
-
-		public async Task UpdateAsync(ListItemUpdateRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken))
-		{
-			var businessProcess = await UpdateManyAsync(new List<ListItemUpdateRequest>() { updateRequest }, cancellationToken).ConfigureAwait(false);
-			var waitResult = await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id, cancellationToken).ConfigureAwait(false);
-		}
-
-		public async Task<IEnumerable<ListItem>> CreateFromObjectAsync(object obj, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
+		/// <summary>Creates a <see cref="ListItem"/>s based on an object and its references.</summary>
+		/// <param name="content">The object to create <see cref="ListItem"/>s from.</param>
+		/// <param name="schemaId">The schema ID of the object.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The created <see cref="ListItem"/>s.</returns>
+		/// <exception cref="ApiException">A server side error occurred.</exception>
+		public async Task<IEnumerable<ListItem>> CreateFromObjectAsync(object content, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var listItems = new List<ListItemCreateRequest>();
-			var referencedObjects = await CreateReferencedObjectsAsync(obj, cancellationToken).ConfigureAwait(false);
+			var referencedObjects = await CreateReferencedObjectsAsync(content, cancellationToken).ConfigureAwait(false);
 
 			listItems.Add(new ListItemCreateRequest
 			{
 				ContentSchemaId = schemaId,
-				Content = obj
+				Content = content
 			});
 
 			var objectResult = await CreateManyAsync(listItems, cancellationToken).ConfigureAwait(false);
@@ -103,16 +67,25 @@ namespace Picturepark.SDK.V1
 			return allResults;
 		}
 
-		public IEnumerable<ListItem> CreateMany(IEnumerable<ListItemCreateRequest> objects)
-		{
-			return Task.Run(async () => await CreateManyAsync(objects).ConfigureAwait(false)).GetAwaiter().GetResult();
-		}
-
+		/// <summary>Creates multiple <see cref="ListItem"/>s.</summary>
+		/// <param name="createRequests">The create requests.</param>
+		/// <returns>The created <see cref="ListItem"/>s.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		/// <exception cref="PictureparkException">The business process has not been completed.</exception>
-		public async Task<IEnumerable<ListItem>> CreateManyAsync(IEnumerable<ListItemCreateRequest> listItems, CancellationToken cancellationToken = default(CancellationToken))
+		public IEnumerable<ListItem> CreateMany(IEnumerable<ListItemCreateRequest> createRequests)
 		{
-			var listItemCreateRequests = listItems as IList<ListItemCreateRequest> ?? listItems.ToList();
+			return Task.Run(async () => await CreateManyAsync(createRequests).ConfigureAwait(false)).GetAwaiter().GetResult();
+		}
+
+		/// <summary>Creates multiple <see cref="ListItem"/>s.</summary>
+		/// <param name="createRequests">The create requests.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The created <see cref="ListItem"/>s.</returns>
+		/// <exception cref="ApiException">A server side error occurred.</exception>
+		/// <exception cref="PictureparkException">The business process has not been completed.</exception>
+		public async Task<IEnumerable<ListItem>> CreateManyAsync(IEnumerable<ListItemCreateRequest> createRequests, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			var listItemCreateRequests = createRequests as IList<ListItemCreateRequest> ?? createRequests.ToList();
 			if (!listItemCreateRequests.Any())
 			{
 				return new List<ListItem>();
@@ -158,10 +131,65 @@ namespace Picturepark.SDK.V1
 			}
 		}
 
-		public async Task<T> GetObjectAsync<T>(string objectId, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
+		/// <summary>Gets an existing list item and converts its content to the requested type.</summary>
+		/// <typeparam name="T">The requested content type.</typeparam>
+		/// <param name="listItemId">The list item ID.</param>
+		/// <param name="schemaId">The schema ID of the requested type.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The converted object.</returns>
+		/// <exception cref="ApiException">A server side error occurred.</exception>
+		public async Task<T> GetAndConvertToAsync<T>(string listItemId, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var listItem = await GetAsync(objectId, true, cancellationToken: cancellationToken).ConfigureAwait(false);
-			return (listItem.Content as JObject).ToObject<T>();
+			var listItem = await GetAsync(listItemId, true, cancellationToken: cancellationToken).ConfigureAwait(false);
+			return listItem.ConvertTo<T>(schemaId);
+		}
+
+		/// <summary>Updates a list item by providing its content.</summary>
+		/// <param name="listItemId">The list item ID.</param>
+		/// <param name="content">The content which must match the item's schema ID.</param>
+		/// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+		/// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
+		/// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The updated <see cref="ListItemDetail"/>.</returns>
+		public async Task<ListItemDetail> UpdateAsync(string listItemId, object content, bool resolve = false, int? timeout = null, IEnumerable<string> patterns = null, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			var updateRequest = new ListItemUpdateRequest()
+			{
+				Id = listItemId,
+				Content = content
+			};
+
+			return await UpdateAsync(updateRequest, resolve, timeout, patterns, cancellationToken).ConfigureAwait(false);
+		}
+
+		/// <summary>Updates a list item.</summary>
+		/// <param name="updateRequest">The update request.</param>
+		/// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+		/// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
+		/// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The updated <see cref="ListItemDetail"/>.</returns>
+		public async Task<ListItemDetail> UpdateAsync(ListItemUpdateRequest updateRequest, bool resolve = false, int? timeout = null, IEnumerable<string> patterns = null, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			return await UpdateCoreAsync(updateRequest.Id, updateRequest, resolve, timeout, patterns, cancellationToken).ConfigureAwait(false);
+		}
+
+		/// <summary>Deletes a list item by ID.</summary>
+		/// <param name="listItemId">The list item ID.</param>
+		public void Delete(string listItemId)
+		{
+			Task.Run(async () => await DeleteAsync(listItemId).ConfigureAwait(false)).GetAwaiter().GetResult();
+		}
+
+		/// <summary>Deletes a list item by ID.</summary>
+		/// <param name="listItemId">The list item ID.</param>
+		/// <param name="cancellationToken">The cancellation token.</param>
+		/// <returns>The task.</returns>
+		public async Task DeleteAsync(string listItemId, CancellationToken cancellationToken = default(CancellationToken))
+		{
+			// TODO: ListItemClient.DeleteAsync: Remove this method and provide a default timeout in the generated Delete method.
+			await DeleteAsync(listItemId, 60000, cancellationToken).ConfigureAwait(false);
 		}
 
 		private bool IsSimpleType(Type type)

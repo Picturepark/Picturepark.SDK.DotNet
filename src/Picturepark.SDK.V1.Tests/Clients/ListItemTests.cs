@@ -120,7 +120,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			/// Assert
 			var newItem = await _client.ListItems.GetAsync(result.Id, true);
-			Assert.Equal("Foo", newItem.ConvertToType<Tag>(nameof(Tag)).Name);
+			Assert.Equal("Foo", newItem.ConvertTo<Tag>(nameof(Tag)).Name);
 		}
 
 		[Fact]
@@ -182,7 +182,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			ListItemDetail result = await _client.ListItems.GetAsync(listItemDetail.Id, true);
 
 			/// Assert
-			Assert.Equal("Foo", result.ConvertToType<Tag>(nameof(Tag)).Name);
+			Assert.Equal("Foo", result.ConvertTo<Tag>(nameof(Tag)).Name);
 		}
 
 		[Fact]
@@ -292,7 +292,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			/// Assert
 			Assert.NotNull(playerItem);
 
-			var createdPlayer = playerItem.ConvertToType<SoccerPlayer>("SoccerPlayer");
+			var createdPlayer = playerItem.ConvertTo<SoccerPlayer>("SoccerPlayer");
 			Assert.Equal("Urs", createdPlayer.Firstname);
 		}
 
@@ -357,11 +357,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			// ---------------------------------------------------------------------------
 			// Get a list of MetadataSchemaIds
 			// ---------------------------------------------------------------------------
-			var searchRequestSchema = new SchemaSearchRequest { Start = 0, Limit = 999, Filter = new TermFilter { Field = "types", Term = SchemaType.List.ToString() } };
+			var searchRequestSchema = new SchemaSearchRequest
+			{
+				Start = 0,
+				Limit = 999,
+				Filter = new TermFilter
+				{
+					Field = "types",
+					Term = SchemaType.List.ToString()
+				}
+			};
+
 			var searchResultSchema = await _client.Schemas.SearchAsync(searchRequestSchema);
 			Assert.True(searchResultSchema.Results.Any());
 
-			List<string> metadataSchemaIds = searchResultSchema.Results.Select(i => i.Id).OrderBy(i => i).ToList();
+			List<string> metadataSchemaIds = searchResultSchema.Results
+				.Select(i => i.Id)
+				.OrderBy(i => i)
+				.ToList();
 
 			var searchRequestObject = new ListItemSearchRequest() { Start = 0, Limit = 100 };
 			var items = new List<ListItem>();
@@ -377,9 +390,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
 				try
 				{
 					var searchResultObject = await _client.ListItems.SearchAsync(searchRequestObject);
-
 					if (searchResultObject.Results.Any())
+					{
 						items.AddRange(searchResultObject.Results);
+					}
 				}
 				catch (Exception)
 				{
@@ -395,7 +409,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		[Trait("Stack", "ListItem")]
 		public async Task ShouldUpdateObject()
 		{
-			// Search players
+			/// Arrange
 			var players = await _client.ListItems.SearchAsync(new ListItemSearchRequest
 			{
 				Limit = 20,
@@ -403,19 +417,20 @@ namespace Picturepark.SDK.V1.Tests.Clients
 				SchemaIds = new List<string> { "SoccerPlayer" }
 			});
 
-			Assert.True(players.Results.Any());
 			var playerObjectId = players.Results.First().Id;
-
 			var playerItem = await _client.ListItems.GetAsync(playerObjectId, true);
 
-			// Convert first result item to CLR
-			var player = playerItem.ConvertToType<SoccerPlayer>(nameof(SoccerPlayer));
-
-			// Update CLR Object
+			/// Act
+			// Convert first result item
+			var player = playerItem.ConvertTo<SoccerPlayer>(nameof(SoccerPlayer));
 			player.Firstname = "xy jviorej ivorejvioe";
 
 			// Update on server
-			await _client.ListItems.UpdateAsync(playerItem, player, nameof(SoccerPlayer));
+			await _client.ListItems.UpdateAsync(playerItem.Id, player);
+			var updatedPlayer = await _client.ListItems.GetAndConvertToAsync<SoccerPlayer>(playerItem.Id, nameof(SoccerPlayer));
+
+			/// Assert
+			Assert.Equal(player.Firstname, updatedPlayer.Firstname);
 		}
 	}
 }

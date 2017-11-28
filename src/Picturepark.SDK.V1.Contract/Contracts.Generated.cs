@@ -647,29 +647,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ListItemDetail> GetAsync(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Update Single</summary>
-        /// <param name="listItemId">The list item id.</param>
-        /// <param name="updateRequest">The list item update request.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
-        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
-        /// <returns>ListItemDetail</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        ListItemDetail Update(string listItemId, ListItemUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null);
-    
-        /// <summary>Update Single</summary>
-        /// <param name="listItemId">The list item id.</param>
-        /// <param name="updateRequest">The list item update request.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
-        /// <param name="timeout">Maximum time in milliseconds to wait for the business process completed state.</param>
-        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
-        /// <returns>ListItemDetail</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ListItemDetail> UpdateAsync(string listItemId, ListItemUpdateRequest updateRequest, bool resolve, int? timeout = null, System.Collections.Generic.IEnumerable<string> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
         /// <summary>Update by filter - Fields</summary>
         /// <param name="updateRequest">The metadata update request.</param>
         /// <returns>BusinessProcess</returns>
