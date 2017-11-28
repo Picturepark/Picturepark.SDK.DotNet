@@ -336,24 +336,22 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			Assert.True(result.Results.Any());
 
 			// For debugging: .Where(i => i.Id == "Esselabore1"))
-			var objectId = result.Results
-				.Select(i => _fixture.GetRandomObjectId(i.Id, 20))
-				.First(i => !string.IsNullOrEmpty(i));
-
-			Assert.False(string.IsNullOrEmpty(objectId));
+			var tuple = result.Results
+				.Select(i => new { schemaId = i.Id, objectId = _fixture.GetRandomObjectId(i.Id, 20) })
+				.First(i => !string.IsNullOrEmpty(i.objectId));
 
 			/// Act
-			var listItem = await _client.ListItems.GetAsync(objectId, true);
+			var listItem = await _client.ListItems.GetAsync(tuple.objectId, true);
 
 			/// Assert
-			/// TODO: Fix Assert
-			// Assert.Equal(SchemaType.List.ToString(), listItem.ContentSchemaId);
+			Assert.Equal(tuple.schemaId, listItem.ContentSchemaId);
 		}
 
 		[Fact]
 		[Trait("Stack", "ListItem")]
 		public async Task ShouldSearchObjects()
 		{
+			/// Arrange
 			// ---------------------------------------------------------------------------
 			// Get a list of MetadataSchemaIds
 			// ---------------------------------------------------------------------------
@@ -380,6 +378,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var items = new List<ListItem>();
 			List<string> failedMetadataSchemaIds = new List<string>();
 
+			/// Act
 			// ---------------------------------------------------------------------------
 			// Loop over all metadataSchemaIds and make a search for each metadataSchemaId
 			// ---------------------------------------------------------------------------
@@ -401,13 +400,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
 				}
 			}
 
+			/// Assert
 			Assert.True(!failedMetadataSchemaIds.Any());
 			Assert.True(items.Any());
 		}
 
 		[Fact]
 		[Trait("Stack", "ListItem")]
-		public async Task ShouldUpdateObject()
+		public async Task ShouldUpdate()
 		{
 			/// Arrange
 			var players = await _client.ListItems.SearchAsync(new ListItemSearchRequest
@@ -421,12 +421,41 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var playerItem = await _client.ListItems.GetAsync(playerObjectId, true);
 
 			/// Act
-			// Convert first result item
 			var player = playerItem.ConvertTo<SoccerPlayer>(nameof(SoccerPlayer));
 			player.Firstname = "xy jviorej ivorejvioe";
 
-			// Update on server
 			await _client.ListItems.UpdateAsync(playerItem.Id, player);
+			var updatedPlayer = await _client.ListItems.GetAndConvertToAsync<SoccerPlayer>(playerItem.Id, nameof(SoccerPlayer));
+
+			/// Assert
+			Assert.Equal(player.Firstname, updatedPlayer.Firstname);
+		}
+
+		[Fact]
+		[Trait("Stack", "ListItem")]
+		public async Task ShouldUpdateMany()
+		{
+			/// Arrange
+			var players = await _client.ListItems.SearchAsync(new ListItemSearchRequest
+			{
+				Limit = 20,
+				SearchString = "-ivorejvioe",
+				SchemaIds = new List<string> { "SoccerPlayer" }
+			});
+
+			var playerObjectId = players.Results.First().Id;
+			var playerItem = await _client.ListItems.GetAsync(playerObjectId, true);
+
+			/// Act
+			var player = playerItem.ConvertTo<SoccerPlayer>(nameof(SoccerPlayer));
+			player.Firstname = "xy jviorej ivorejvioe";
+
+			var businessProcess = await _client.ListItems.UpdateManyAsync(new ListItemUpdateRequest[]
+			{
+				new ListItemUpdateRequest { Id = playerItem.Id, Content = player }
+			});
+
+			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 			var updatedPlayer = await _client.ListItems.GetAndConvertToAsync<SoccerPlayer>(playerItem.Id, nameof(SoccerPlayer));
 
 			/// Assert
