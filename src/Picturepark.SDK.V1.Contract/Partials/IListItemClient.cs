@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -10,18 +11,10 @@ namespace Picturepark.SDK.V1.Contract
 		/// <param name="createRequest">The create request.</param>
 		/// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
 		/// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
-		/// <returns>The created <see cref="ListItemDetail"/>.</returns>
-		/// <exception cref="ApiException">A server side error occurred.</exception>
-		ListItemDetail Create(ListItemCreateRequest createRequest, bool resolve = false, int timeout = 60000);
-
-		/// <summary>Creates a <see cref="ListItemDetail"/>.</summary>
-		/// <param name="createRequest">The create request.</param>
-		/// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-		/// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <returns>The created <see cref="ListItemDetail"/>.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
-		Task<ListItemDetail> CreateAsync(ListItemCreateRequest createRequest, bool resolve = false, int timeout = 60000, CancellationToken cancellationToken = default(CancellationToken));
+		Task<ListItemDetail> CreateAsync(ListItemCreateRequest createRequest, bool resolve = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>Creates a <see cref="ListItem"/>s based on an object and its references.</summary>
 		/// <param name="content">The object to create <see cref="ListItem"/>s from.</param>
@@ -63,7 +56,7 @@ namespace Picturepark.SDK.V1.Contract
 		/// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <returns>The updated <see cref="ListItemDetail"/>.</returns>
-		Task<ListItemDetail> UpdateAsync(string listItemId, object content, bool resolve = false, int? timeout = null, IEnumerable<string> patterns = null, CancellationToken cancellationToken = default(CancellationToken));
+		Task<ListItemDetail> UpdateAsync(string listItemId, object content, bool resolve = false, TimeSpan? timeout = null, IEnumerable<DisplayPatternType> patterns = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>Updates a list item.</summary>
 		/// <param name="updateRequest">The update request.</param>
@@ -72,16 +65,10 @@ namespace Picturepark.SDK.V1.Contract
 		/// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <returns>The updated <see cref="ListItemDetail"/>.</returns>
-		Task<ListItemDetail> UpdateAsync(ListItemUpdateRequest updateRequest, bool resolve = false, int? timeout = null, IEnumerable<string> patterns = null, CancellationToken cancellationToken = default(CancellationToken));
+		Task<ListItemDetail> UpdateAsync(ListItemUpdateRequest updateRequest, bool resolve = false, TimeSpan? timeout = null, IEnumerable<DisplayPatternType> patterns = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>Deletes a list item by ID.</summary>
 		/// <param name="listItemId">The list item ID.</param>
 		void Delete(string listItemId);
-
-		/// <summary>Deletes a list item by ID.</summary>
-		/// <param name="listItemId">The list item ID.</param>
-		/// <param name="cancellationToken">The cancellation token.</param>
-		/// <returns>The task.</returns>
-		Task DeleteAsync(string listItemId, CancellationToken cancellationToken = default(CancellationToken));
 	}
 }

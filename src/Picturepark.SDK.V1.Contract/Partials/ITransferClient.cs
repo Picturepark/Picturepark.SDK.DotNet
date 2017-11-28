@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -28,7 +29,7 @@ namespace Picturepark.SDK.V1.Contract
 		/// <param name="timeout">The timeout in ms to wait for completion.</param>
 		/// <param name="cancellationToken">The cancellcation token.</param>
 		/// <returns>The task.</returns>
-		Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, int timeout = 60 * 1000, CancellationToken cancellationToken = default(CancellationToken));
+		Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
 
 		/// <summary>Creates a transfer and waits for its completion.</summary>
 		/// <param name="request">The create request.</param>

@@ -553,7 +553,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             string contentId = _fixture.GetRandomContentId(".jpg", 20);
             Assert.False(string.IsNullOrEmpty(contentId));
 
-            ContentDetail result = await _client.Contents.GetAsync(contentId);
+            ContentDetail result = await _client.Contents.GetAsync(contentId, false, new[] { DisplayPatternType.List });
             Assert.NotNull(result.Id);
         }
 
@@ -674,7 +674,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Contents.GetAsync(contentId));
 
             // Reactivate
-            var reactivatedContent = await _client.Contents.ReactivateAsync(contentId, resolve: false, timeout: 60000);
+            var reactivatedContent = await _client.Contents.ReactivateAsync(contentId, resolve: false, timeout: TimeSpan.FromMinutes(1));
 
             /// Assert
             Assert.True(reactivatedContent != null);

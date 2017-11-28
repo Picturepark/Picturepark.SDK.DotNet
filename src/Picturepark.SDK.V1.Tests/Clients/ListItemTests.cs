@@ -177,7 +177,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			/// Act
 			var businessProcess = await _client.ListItems.UpdateFieldsByFilterAsync(updateRequest);
-			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, 10 * 1000);
+			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, TimeSpan.FromSeconds(10));
 
 			ListItemDetail result = await _client.ListItems.GetAsync(listItemDetail.Id, true);
 

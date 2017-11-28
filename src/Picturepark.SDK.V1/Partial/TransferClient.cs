@@ -77,7 +77,7 @@ namespace Picturepark.SDK.V1
 
 			if (uploadOptions.WaitForTransferCompletion)
 			{
-				await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, cancellationToken).ConfigureAwait(false);
+				await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, cancellationToken: cancellationToken).ConfigureAwait(false);
 			}
 		}
 
@@ -87,7 +87,7 @@ namespace Picturepark.SDK.V1
 		/// <param name="timeout">The timeout in ms to wait for completion.</param>
 		/// <param name="cancellationToken">The cancellcation token.</param>
 		/// <returns>The task.</returns>
-		public async Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, int timeout = 60 * 1000, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var importedTransfer = await ImportTransferAsync(transfer.Id, createRequest, cancellationToken).ConfigureAwait(false);
 			await _businessProcessClient.WaitForCompletionAsync(importedTransfer.BusinessProcessId, timeout, cancellationToken).ConfigureAwait(false);
@@ -100,7 +100,7 @@ namespace Picturepark.SDK.V1
 		public async Task<Transfer> CreateAndWaitForCompletionAsync(CreateTransferRequest request, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var transfer = await CreateAsync(request, cancellationToken).ConfigureAwait(false);
-			await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, cancellationToken).ConfigureAwait(false);
+			await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, cancellationToken: cancellationToken).ConfigureAwait(false);
 			return transfer;
 		}
 
