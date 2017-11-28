@@ -19,10 +19,14 @@ namespace Picturepark.SDK.V1.Contract
 		public TranslatedStringDictionary(IDictionary<string, string> dictionary)
 		{
 			if (dictionary == null)
+			{
 				return;
+			}
 
 			foreach (var item in dictionary)
+			{
 				Add(item.Key, item.Value);
+			}
 		}
 
 		/// <summary>
