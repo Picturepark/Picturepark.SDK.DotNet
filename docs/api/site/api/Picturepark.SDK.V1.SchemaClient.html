@@ -91,7 +91,10 @@
               <div class="inheritedMembers">
                 <h5>Inherited Members</h5>
                 <div>
-                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_Alias">ClientBase.Alias</a>
+                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_BaseUrl">ClientBase.BaseUrl</a>
+                </div>
+                <div>
+                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CustomerAlias">ClientBase.CustomerAlias</a>
                 </div>
                 <div>
                   <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_CancellationToken_">ClientBase.CreateHttpRequestMessageAsync(CancellationToken)</a>
@@ -195,33 +198,6 @@
                   </tr>
                 </tbody>
               </table>
-              <h3 id="properties">Properties
-              </h3>
-              
-              
-              <a id="Picturepark_SDK_V1_SchemaClient_BaseUrl_" data-uid="Picturepark.SDK.V1.SchemaClient.BaseUrl*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_BaseUrl" data-uid="Picturepark.SDK.V1.SchemaClient.BaseUrl">BaseUrl</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string BaseUrl { get; set; }</code></pre>
-              </div>
-              <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
               <h3 id="methods">Methods
               </h3>
               
@@ -294,13 +270,14 @@
               </table>
               
               
-              <a id="Picturepark_SDK_V1_SchemaClient_Create_" data-uid="Picturepark.SDK.V1.SchemaClient.Create*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_Create_Picturepark_SDK_V1_Contract_SchemaDetail_" data-uid="Picturepark.SDK.V1.SchemaClient.Create(Picturepark.SDK.V1.Contract.SchemaDetail)">Create(SchemaDetail)</h4>
-              <div class="markdown level1 summary"></div>
+              <a id="Picturepark_SDK_V1_SchemaClient_CreateAndWaitForCompletion_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAndWaitForCompletion*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_CreateAndWaitForCompletion_Picturepark_SDK_V1_Contract_SchemaDetail_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAndWaitForCompletion(Picturepark.SDK.V1.Contract.SchemaDetail)">CreateAndWaitForCompletion(SchemaDetail)</h4>
+              <div class="markdown level1 summary"><p>Creates the given <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>.</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public void Create(SchemaDetail metadataSchema)</code></pre>
+                <pre><code class="lang-csharp hljs">public void CreateAndWaitForCompletion(SchemaDetail schemaDetail)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -314,13 +291,14 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a></td>
-                    <td><span class="parametername">metadataSchema</span></td>
-                    <td></td>
+                    <td><span class="parametername">schemaDetail</span></td>
+                    <td><p>The schema detail.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_Create_Picturepark_SDK_V1_Contract_SchemaDetail_">ISchemaClient.Create(SchemaDetail)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_CreateAndWaitForCompletion_Picturepark_SDK_V1_Contract_SchemaDetail_">ISchemaClient.CreateAndWaitForCompletion(SchemaDetail)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -339,13 +317,14 @@
               </table>
               
               
-              <a id="Picturepark_SDK_V1_SchemaClient_Create_" data-uid="Picturepark.SDK.V1.SchemaClient.Create*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_Create_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_" data-uid="Picturepark.SDK.V1.SchemaClient.Create(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean)">Create(SchemaDetail, Boolean)</h4>
-              <div class="markdown level1 summary"></div>
+              <a id="Picturepark_SDK_V1_SchemaClient_CreateAndWaitForCompletion_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAndWaitForCompletion*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_CreateAndWaitForCompletion_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAndWaitForCompletion(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean)">CreateAndWaitForCompletion(SchemaDetail, Boolean)</h4>
+              <div class="markdown level1 summary"><p>Creates the given <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>.</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public void Create(SchemaDetail metadataSchema, bool enableForBinaryFiles)</code></pre>
+                <pre><code class="lang-csharp hljs">public void CreateAndWaitForCompletion(SchemaDetail schemaDetail, bool enableForBinaryFiles)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -359,18 +338,148 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a></td>
-                    <td><span class="parametername">metadataSchema</span></td>
-                    <td></td>
+                    <td><span class="parametername">schemaDetail</span></td>
+                    <td><p>The schema detail.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Boolean</span></td>
                     <td><span class="parametername">enableForBinaryFiles</span></td>
-                    <td></td>
+                    <td><p>Specifies whether to enable the schema for binary files.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_Create_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_">ISchemaClient.Create(SchemaDetail, Boolean)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_CreateAndWaitForCompletion_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_">ISchemaClient.CreateAndWaitForCompletion(SchemaDetail, Boolean)</a></div>
+              
+              
+              <a id="Picturepark_SDK_V1_SchemaClient_CreateAndWaitForCompletionAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAndWaitForCompletionAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_CreateAndWaitForCompletionAsync_Picturepark_SDK_V1_Contract_SchemaDetail_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAndWaitForCompletionAsync(Picturepark.SDK.V1.Contract.SchemaDetail,CancellationToken)">CreateAndWaitForCompletionAsync(SchemaDetail, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Creates the given <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task CreateAndWaitForCompletionAsync(SchemaDetail schemaDetail, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a></td>
+                    <td><span class="parametername">schemaDetail</span></td>
+                    <td><p>The schema detail.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>The cancellation token.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td><p>The task.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_CreateAndWaitForCompletionAsync_Picturepark_SDK_V1_Contract_SchemaDetail_CancellationToken_">ISchemaClient.CreateAndWaitForCompletionAsync(SchemaDetail, CancellationToken)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_SchemaClient_CreateAndWaitForCompletionAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAndWaitForCompletionAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_CreateAndWaitForCompletionAsync_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAndWaitForCompletionAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean,CancellationToken)">CreateAndWaitForCompletionAsync(SchemaDetail, Boolean, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Creates the given <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task CreateAndWaitForCompletionAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a></td>
+                    <td><span class="parametername">schemaDetail</span></td>
+                    <td><p>The schema detail.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Boolean</span></td>
+                    <td><span class="parametername">enableForBinaryFiles</span></td>
+                    <td><p>Specifies whether to enable the schema for binary files.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>The cancellation token.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td><p>The task.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_CreateAndWaitForCompletionAsync_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_CancellationToken_">ISchemaClient.CreateAndWaitForCompletionAsync(SchemaDetail, Boolean, CancellationToken)</a></div>
               
               
               <a id="Picturepark_SDK_V1_SchemaClient_CreateAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAsync*"></a>
@@ -447,13 +556,14 @@
               </table>
               
               
-              <a id="Picturepark_SDK_V1_SchemaClient_CreateAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_CreateAsync_Picturepark_SDK_V1_Contract_SchemaDetail_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAsync(Picturepark.SDK.V1.Contract.SchemaDetail)">CreateAsync(SchemaDetail)</h4>
-              <div class="markdown level1 summary"></div>
+              <a id="Picturepark_SDK_V1_SchemaClient_CreateOrUpdateAndWaitForCompletion_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateOrUpdateAndWaitForCompletion*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_CreateOrUpdateAndWaitForCompletion_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateOrUpdateAndWaitForCompletion(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean)">CreateOrUpdateAndWaitForCompletion(SchemaDetail, Boolean)</h4>
+              <div class="markdown level1 summary"><p>Creates or updates the given <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>.</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task CreateAsync(SchemaDetail metadataSchema)</code></pre>
+                <pre><code class="lang-csharp hljs">public void CreateOrUpdateAndWaitForCompletion(SchemaDetail schemaDetail, bool enableForBinaryFiles)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -467,53 +577,30 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a></td>
-                    <td><span class="parametername">metadataSchema</span></td>
-                    <td></td>
+                    <td><span class="parametername">schemaDetail</span></td>
+                    <td><p>The schema detail.</p>
+</td>
                   </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
                   <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Task</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_CreateAsync_Picturepark_SDK_V1_Contract_SchemaDetail_">ISchemaClient.CreateAsync(SchemaDetail)</a></div>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><span class="xref">System.Boolean</span></td>
+                    <td><span class="parametername">enableForBinaryFiles</span></td>
+                    <td><p>Specifies whether to enable the schema for binary files.</p>
 </td>
                   </tr>
                 </tbody>
               </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_CreateOrUpdateAndWaitForCompletion_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_">ISchemaClient.CreateOrUpdateAndWaitForCompletion(SchemaDetail, Boolean)</a></div>
               
               
-              <a id="Picturepark_SDK_V1_SchemaClient_CreateAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_CreateAsync_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean)">CreateAsync(SchemaDetail, Boolean)</h4>
-              <div class="markdown level1 summary"></div>
+              <a id="Picturepark_SDK_V1_SchemaClient_CreateOrUpdateAndWaitForCompletionAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateOrUpdateAndWaitForCompletionAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_CreateOrUpdateAndWaitForCompletionAsync_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateOrUpdateAndWaitForCompletionAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean,CancellationToken)">CreateOrUpdateAndWaitForCompletionAsync(SchemaDetail, Boolean, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Creates or updates the given <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>.</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task CreateAsync(SchemaDetail metadataSchema, bool enableForBinaryFiles)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task CreateOrUpdateAndWaitForCompletionAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -527,13 +614,21 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a></td>
-                    <td><span class="parametername">metadataSchema</span></td>
-                    <td></td>
+                    <td><span class="parametername">schemaDetail</span></td>
+                    <td><p>The schema detail.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Boolean</span></td>
                     <td><span class="parametername">enableForBinaryFiles</span></td>
-                    <td></td>
+                    <td><p>Specifies whether to enable the schema for binary files.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>The cancellation token.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -548,208 +643,23 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Task</span></td>
-                    <td></td>
+                    <td><p>The task.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_CreateAsync_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_">ISchemaClient.CreateAsync(SchemaDetail, Boolean)</a></div>
-              
-              
-              <a id="Picturepark_SDK_V1_SchemaClient_CreateOrUpdate_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateOrUpdate*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_CreateOrUpdate_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateOrUpdate(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean)">CreateOrUpdate(SchemaDetail, Boolean)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public void CreateOrUpdate(SchemaDetail metadataSchema, bool enableForBinaryFiles)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a></td>
-                    <td><span class="parametername">metadataSchema</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Boolean</span></td>
-                    <td><span class="parametername">enableForBinaryFiles</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_CreateOrUpdate_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_">ISchemaClient.CreateOrUpdate(SchemaDetail, Boolean)</a></div>
-              
-              
-              <a id="Picturepark_SDK_V1_SchemaClient_CreateOrUpdateAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateOrUpdateAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_CreateOrUpdateAsync_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_" data-uid="Picturepark.SDK.V1.SchemaClient.CreateOrUpdateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean)">CreateOrUpdateAsync(SchemaDetail, Boolean)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task CreateOrUpdateAsync(SchemaDetail metadataSchema, bool enableForBinaryFiles)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a></td>
-                    <td><span class="parametername">metadataSchema</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Boolean</span></td>
-                    <td><span class="parametername">enableForBinaryFiles</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Task</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_CreateOrUpdateAsync_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_">ISchemaClient.CreateOrUpdateAsync(SchemaDetail, Boolean)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_CreateOrUpdateAndWaitForCompletionAsync_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_CancellationToken_">ISchemaClient.CreateOrUpdateAndWaitForCompletionAsync(SchemaDetail, Boolean, CancellationToken)</a></div>
               
               
               <a id="Picturepark_SDK_V1_SchemaClient_Delete_" data-uid="Picturepark.SDK.V1.SchemaClient.Delete*"></a>
               <h4 id="Picturepark_SDK_V1_SchemaClient_Delete_System_String_" data-uid="Picturepark.SDK.V1.SchemaClient.Delete(System.String)">Delete(String)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public void Delete(string schemaId)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">schemaId</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_SchemaClient_DeleteAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.DeleteAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_DeleteAsync_System_String_" data-uid="Picturepark.SDK.V1.SchemaClient.DeleteAsync(System.String)">DeleteAsync(String)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task DeleteAsync(string schemaId)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">schemaId</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Task</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_DeleteAsync_System_String_">ISchemaClient.DeleteAsync(String)</a></div>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_SchemaClient_DeleteCore_" data-uid="Picturepark.SDK.V1.SchemaClient.DeleteCore*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_DeleteCore_System_String_" data-uid="Picturepark.SDK.V1.SchemaClient.DeleteCore(System.String)">DeleteCore(String)</h4>
               <div class="markdown level1 summary"><p>Delete Single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">protected BusinessProcess DeleteCore(string schemaId)</code></pre>
+                <pre><code class="lang-csharp hljs">public BusinessProcess Delete(string schemaId)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -785,6 +695,8 @@
                   </tr>
                 </tbody>
               </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_Delete_System_String_">ISchemaClient.Delete(String)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -808,14 +720,130 @@
               </table>
               
               
-              <a id="Picturepark_SDK_V1_SchemaClient_DeleteCoreAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.DeleteCoreAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_DeleteCoreAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.DeleteCoreAsync(System.String,System.Threading.CancellationToken)">DeleteCoreAsync(String, CancellationToken)</h4>
+              <a id="Picturepark_SDK_V1_SchemaClient_DeleteAndWaitForCompletion_" data-uid="Picturepark.SDK.V1.SchemaClient.DeleteAndWaitForCompletion*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_DeleteAndWaitForCompletion_System_String_" data-uid="Picturepark.SDK.V1.SchemaClient.DeleteAndWaitForCompletion(System.String)">DeleteAndWaitForCompletion(String)</h4>
+              <div class="markdown level1 summary"><p>Deletes the a schema.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public void DeleteAndWaitForCompletion(string schemaId)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">schemaId</span></td>
+                    <td><p>The schema ID.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_DeleteAndWaitForCompletion_System_String_">ISchemaClient.DeleteAndWaitForCompletion(String)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_SchemaClient_DeleteAndWaitForCompletionAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.DeleteAndWaitForCompletionAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_DeleteAndWaitForCompletionAsync_System_String_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.DeleteAndWaitForCompletionAsync(System.String,CancellationToken)">DeleteAndWaitForCompletionAsync(String, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Deletes the a schema.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task DeleteAndWaitForCompletionAsync(string schemaId, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">schemaId</span></td>
+                    <td><p>The schema ID.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>The cancellation token.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td><p>The task.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_DeleteAndWaitForCompletionAsync_System_String_CancellationToken_">ISchemaClient.DeleteAndWaitForCompletionAsync(String, CancellationToken)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_SchemaClient_DeleteAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.DeleteAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_DeleteAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.DeleteAsync(System.String,System.Threading.CancellationToken)">DeleteAsync(String, CancellationToken)</h4>
               <div class="markdown level1 summary"><p>Delete Single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; DeleteCoreAsync(string schemaId, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; DeleteAsync(string schemaId, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -857,6 +885,8 @@
                   </tr>
                 </tbody>
               </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_DeleteAsync_System_String_System_Threading_CancellationToken_">ISchemaClient.DeleteAsync(String, CancellationToken)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -881,12 +911,13 @@
               
               
               <a id="Picturepark_SDK_V1_SchemaClient_Exists_" data-uid="Picturepark.SDK.V1.SchemaClient.Exists*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_Exists_System_String_" data-uid="Picturepark.SDK.V1.SchemaClient.Exists(System.String)">Exists(String)</h4>
-              <div class="markdown level1 summary"></div>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_Exists_System_String_System_String_" data-uid="Picturepark.SDK.V1.SchemaClient.Exists(System.String,System.String)">Exists(String, String)</h4>
+              <div class="markdown level1 summary"><p>Checks whether a schema ID already exists.</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public bool Exists(string schemaId)</code></pre>
+                <pre><code class="lang-csharp hljs">public bool Exists(string schemaId, string fieldId = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -901,7 +932,14 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">schemaId</span></td>
-                    <td></td>
+                    <td><p>The schema ID.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">fieldId</span></td>
+                    <td><p>The optional field ID.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -921,17 +959,92 @@
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_Exists_System_String_">ISchemaClient.Exists(String)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_Exists_System_String_System_String_">ISchemaClient.Exists(String, String)</a></div>
               
               
-              <a id="Picturepark_SDK_V1_SchemaClient_Exists_" data-uid="Picturepark.SDK.V1.SchemaClient.Exists*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_Exists_System_String_System_String_" data-uid="Picturepark.SDK.V1.SchemaClient.Exists(System.String,System.String)">Exists(String, String)</h4>
+              <a id="Picturepark_SDK_V1_SchemaClient_ExistsAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.ExistsAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_ExistsAsync_System_String_System_String_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.ExistsAsync(System.String,System.String,CancellationToken)">ExistsAsync(String, String, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Checks whether a schema ID already exists.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; ExistsAsync(string schemaId, string fieldId = null, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">schemaId</span></td>
+                    <td><p>The schema ID.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">fieldId</span></td>
+                    <td><p>The optional field ID.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>The cancellation token.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+                    <td><p>The task.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_ExistsAsync_System_String_System_String_CancellationToken_">ISchemaClient.ExistsAsync(String, String, CancellationToken)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_SchemaClient_ExistsCore_" data-uid="Picturepark.SDK.V1.SchemaClient.ExistsCore*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_ExistsCore_System_String_System_String_" data-uid="Picturepark.SDK.V1.SchemaClient.ExistsCore(System.String,System.String)">ExistsCore(String, String)</h4>
               <div class="markdown level1 summary"><p>Exists</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public ExistsResponse Exists(string schemaId, string fieldId = null)</code></pre>
+                <pre><code class="lang-csharp hljs">protected ExistsResponse ExistsCore(string schemaId, string fieldId = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -973,8 +1086,6 @@
                   </tr>
                 </tbody>
               </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_Exists_System_String_System_String_">ISchemaClient.Exists(String, String)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -998,74 +1109,14 @@
               </table>
               
               
-              <a id="Picturepark_SDK_V1_SchemaClient_ExistsAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.ExistsAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_ExistsAsync_System_String_" data-uid="Picturepark.SDK.V1.SchemaClient.ExistsAsync(System.String)">ExistsAsync(String)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; ExistsAsync(string schemaId)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">schemaId</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Task</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_ExistsAsync_System_String_">ISchemaClient.ExistsAsync(String)</a></div>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_SchemaClient_ExistsAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.ExistsAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_ExistsAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.ExistsAsync(System.String,System.String,System.Threading.CancellationToken)">ExistsAsync(String, String, CancellationToken)</h4>
+              <a id="Picturepark_SDK_V1_SchemaClient_ExistsCoreAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.ExistsCoreAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_ExistsCoreAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.ExistsCoreAsync(System.String,System.String,System.Threading.CancellationToken)">ExistsCoreAsync(String, String, CancellationToken)</h4>
               <div class="markdown level1 summary"><p>Exists</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;ExistsResponse&gt; ExistsAsync(string schemaId, string fieldId = null, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">protected Task&lt;ExistsResponse&gt; ExistsCoreAsync(string schemaId, string fieldId = null, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1113,8 +1164,6 @@
                   </tr>
                 </tbody>
               </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_ExistsAsync_System_String_System_String_System_Threading_CancellationToken_">ISchemaClient.ExistsAsync(String, String, CancellationToken)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -1138,13 +1187,14 @@
               </table>
               
               
-              <a id="Picturepark_SDK_V1_SchemaClient_GenerateSchemaFromPOCO_" data-uid="Picturepark.SDK.V1.SchemaClient.GenerateSchemaFromPOCO*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_GenerateSchemaFromPOCO_System_Type_List_Picturepark_SDK_V1_Contract_SchemaDetail__System_Boolean_" data-uid="Picturepark.SDK.V1.SchemaClient.GenerateSchemaFromPOCO(System.Type,List{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean)">GenerateSchemaFromPOCO(Type, List&lt;SchemaDetail&gt;, Boolean)</h4>
-              <div class="markdown level1 summary"></div>
+              <a id="Picturepark_SDK_V1_SchemaClient_GenerateSchemasAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.GenerateSchemasAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_GenerateSchemasAsync_System_Type_IEnumerable_Picturepark_SDK_V1_Contract_SchemaDetail__System_Boolean_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.GenerateSchemasAsync(System.Type,IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean,CancellationToken)">GenerateSchemasAsync(Type, IEnumerable&lt;SchemaDetail&gt;, Boolean, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Generates the <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>s for the given type and the referenced types.</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public List&lt;SchemaDetail&gt; GenerateSchemaFromPOCO(Type type, List&lt;SchemaDetail&gt; schemaList = null, bool generateDependencySchema = true)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;ICollection&lt;SchemaDetail&gt;&gt; GenerateSchemasAsync(Type type, IEnumerable&lt;SchemaDetail&gt; schemaDetails = null, bool generateDependencySchema = true, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1159,17 +1209,26 @@
                   <tr>
                     <td><span class="xref">System.Type</span></td>
                     <td><span class="parametername">type</span></td>
-                    <td></td>
+                    <td><p>The type.</p>
+</td>
                   </tr>
                   <tr>
-                    <td><span class="xref">List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>&gt;</td>
-                    <td><span class="parametername">schemaList</span></td>
-                    <td></td>
+                    <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>&gt;</td>
+                    <td><span class="parametername">schemaDetails</span></td>
+                    <td><p>The existing schema details.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Boolean</span></td>
                     <td><span class="parametername">generateDependencySchema</span></td>
-                    <td></td>
+                    <td><p>Specifies whether to generate dependent schemas.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>The cancellation token.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1183,13 +1242,14 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>&gt;</td>
-                    <td></td>
+                    <td><span class="xref">Task</span>&lt;<span class="xref">ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>&gt;&gt;</td>
+                    <td><p>The collection of schema details.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GenerateSchemaFromPOCO_System_Type_List_Picturepark_SDK_V1_Contract_SchemaDetail__System_Boolean_">ISchemaClient.GenerateSchemaFromPOCO(Type, List&lt;SchemaDetail&gt;, Boolean)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GenerateSchemasAsync_System_Type_IEnumerable_Picturepark_SDK_V1_Contract_SchemaDetail__System_Boolean_CancellationToken_">ISchemaClient.GenerateSchemasAsync(Type, IEnumerable&lt;SchemaDetail&gt;, Boolean, CancellationToken)</a></div>
               
               
               <a id="Picturepark_SDK_V1_SchemaClient_Get_" data-uid="Picturepark.SDK.V1.SchemaClient.Get*"></a>
@@ -1620,190 +1680,12 @@
               
               <a id="Picturepark_SDK_V1_SchemaClient_Update_" data-uid="Picturepark.SDK.V1.SchemaClient.Update*"></a>
               <h4 id="Picturepark_SDK_V1_SchemaClient_Update_System_String_Picturepark_SDK_V1_Contract_SchemaUpdateRequest_" data-uid="Picturepark.SDK.V1.SchemaClient.Update(System.String,Picturepark.SDK.V1.Contract.SchemaUpdateRequest)">Update(String, SchemaUpdateRequest)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public void Update(string schemaId, SchemaUpdateRequest updateRequest)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">schemaId</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaUpdateRequest.html">SchemaUpdateRequest</a></td>
-                    <td><span class="parametername">updateRequest</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_SchemaClient_UpdateAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_UpdateAsync_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean)">UpdateAsync(SchemaDetail, Boolean)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task UpdateAsync(SchemaDetail schema, bool enableForBinaryFiles)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a></td>
-                    <td><span class="parametername">schema</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Boolean</span></td>
-                    <td><span class="parametername">enableForBinaryFiles</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Task</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_UpdateAsync_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_">ISchemaClient.UpdateAsync(SchemaDetail, Boolean)</a></div>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_SchemaClient_UpdateAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_SchemaUpdateRequest_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.SchemaUpdateRequest)">UpdateAsync(String, SchemaUpdateRequest)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task UpdateAsync(string schemaId, SchemaUpdateRequest updateRequest)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">schemaId</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaUpdateRequest.html">SchemaUpdateRequest</a></td>
-                    <td><span class="parametername">updateRequest</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Task</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_SchemaUpdateRequest_">ISchemaClient.UpdateAsync(String, SchemaUpdateRequest)</a></div>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_SchemaClient_UpdateCore_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateCore*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_UpdateCore_System_String_Picturepark_SDK_V1_Contract_SchemaUpdateRequest_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateCore(System.String,Picturepark.SDK.V1.Contract.SchemaUpdateRequest)">UpdateCore(String, SchemaUpdateRequest)</h4>
               <div class="markdown level1 summary"><p>Update Single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">protected BusinessProcess UpdateCore(string schemaId, SchemaUpdateRequest schema)</code></pre>
+                <pre><code class="lang-csharp hljs">public BusinessProcess Update(string schemaId, SchemaUpdateRequest schema)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1845,6 +1727,8 @@
                   </tr>
                 </tbody>
               </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_Update_System_String_Picturepark_SDK_V1_Contract_SchemaUpdateRequest_">ISchemaClient.Update(String, SchemaUpdateRequest)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -1868,14 +1752,217 @@
               </table>
               
               
-              <a id="Picturepark_SDK_V1_SchemaClient_UpdateCoreAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateCoreAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_SchemaClient_UpdateCoreAsync_System_String_Picturepark_SDK_V1_Contract_SchemaUpdateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateCoreAsync(System.String,Picturepark.SDK.V1.Contract.SchemaUpdateRequest,System.Threading.CancellationToken)">UpdateCoreAsync(String, SchemaUpdateRequest, CancellationToken)</h4>
+              <a id="Picturepark_SDK_V1_SchemaClient_UpdateAndWaitForCompletion_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateAndWaitForCompletion*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_UpdateAndWaitForCompletion_System_String_Picturepark_SDK_V1_Contract_SchemaUpdateRequest_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateAndWaitForCompletion(System.String,Picturepark.SDK.V1.Contract.SchemaUpdateRequest)">UpdateAndWaitForCompletion(String, SchemaUpdateRequest)</h4>
+              <div class="markdown level1 summary"><p>Updates a schema.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public void UpdateAndWaitForCompletion(string schemaId, SchemaUpdateRequest updateRequest)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">schemaId</span></td>
+                    <td><p>The schema ID.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaUpdateRequest.html">SchemaUpdateRequest</a></td>
+                    <td><span class="parametername">updateRequest</span></td>
+                    <td><p>The update request.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_UpdateAndWaitForCompletion_System_String_Picturepark_SDK_V1_Contract_SchemaUpdateRequest_">ISchemaClient.UpdateAndWaitForCompletion(String, SchemaUpdateRequest)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_SchemaClient_UpdateAndWaitForCompletionAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateAndWaitForCompletionAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_UpdateAndWaitForCompletionAsync_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateAndWaitForCompletionAsync(Picturepark.SDK.V1.Contract.SchemaDetail,System.Boolean,CancellationToken)">UpdateAndWaitForCompletionAsync(SchemaDetail, Boolean, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Updates the given <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task UpdateAndWaitForCompletionAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a></td>
+                    <td><span class="parametername">schemaDetail</span></td>
+                    <td><p>The schema detail.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Boolean</span></td>
+                    <td><span class="parametername">enableForBinaryFiles</span></td>
+                    <td><p>Specifies whether to enable the schema for binary files.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>The cancellation token.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td><p>The task.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_UpdateAndWaitForCompletionAsync_Picturepark_SDK_V1_Contract_SchemaDetail_System_Boolean_CancellationToken_">ISchemaClient.UpdateAndWaitForCompletionAsync(SchemaDetail, Boolean, CancellationToken)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_SchemaClient_UpdateAndWaitForCompletionAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateAndWaitForCompletionAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_UpdateAndWaitForCompletionAsync_System_String_Picturepark_SDK_V1_Contract_SchemaUpdateRequest_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateAndWaitForCompletionAsync(System.String,Picturepark.SDK.V1.Contract.SchemaUpdateRequest,CancellationToken)">UpdateAndWaitForCompletionAsync(String, SchemaUpdateRequest, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Updates a schema.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task UpdateAndWaitForCompletionAsync(string schemaId, SchemaUpdateRequest updateRequest, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">schemaId</span></td>
+                    <td><p>The schema ID.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaUpdateRequest.html">SchemaUpdateRequest</a></td>
+                    <td><span class="parametername">updateRequest</span></td>
+                    <td><p>The update request.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>The cancellation token.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td><p>The task.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_UpdateAndWaitForCompletionAsync_System_String_Picturepark_SDK_V1_Contract_SchemaUpdateRequest_CancellationToken_">ISchemaClient.UpdateAndWaitForCompletionAsync(String, SchemaUpdateRequest, CancellationToken)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_SchemaClient_UpdateAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_SchemaClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_SchemaUpdateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.SchemaUpdateRequest,System.Threading.CancellationToken)">UpdateAsync(String, SchemaUpdateRequest, CancellationToken)</h4>
               <div class="markdown level1 summary"><p>Update Single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; UpdateCoreAsync(string schemaId, SchemaUpdateRequest schema, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; UpdateAsync(string schemaId, SchemaUpdateRequest schema, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1923,6 +2010,8 @@
                   </tr>
                 </tbody>
               </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_SchemaUpdateRequest_System_Threading_CancellationToken_">ISchemaClient.UpdateAsync(String, SchemaUpdateRequest, CancellationToken)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
