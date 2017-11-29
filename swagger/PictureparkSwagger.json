@@ -8981,9 +8981,6 @@
         "displayPatternType"
       ],
       "properties": {
-        "id": {
-          "type": "string"
-        },
         "templateEngine": {
           "$ref": "#/definitions/TemplateEngine"
         },

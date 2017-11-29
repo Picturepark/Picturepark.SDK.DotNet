@@ -103,11 +103,12 @@ namespace Picturepark.SDK.V1.Conversion
 				var displayPattern = new DisplayPattern
 				{
 					DisplayPatternType = displayPatternAttribute.Type,
-					Id = displayPatternAttribute.Type.ToString(),
 					TemplateEngine = displayPatternAttribute.TemplateEngine,
 					Templates = new TranslatedStringDictionary { { "x-default", displayPatternAttribute.DisplayPattern } }
 				};
 				schemaItem.DisplayPatterns.Add(displayPattern);
+
+				//// TODO: Implement fallback for not provided patterns?
 			}
 
 			// Assign name translations
