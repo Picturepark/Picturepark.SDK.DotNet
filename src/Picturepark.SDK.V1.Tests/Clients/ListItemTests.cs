@@ -436,15 +436,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldUpdateMany()
 		{
 			/// Arrange
-			var players = await _client.ListItems.SearchAsync(new ListItemSearchRequest
+			var originalPlayer = new SoccerPlayer
 			{
-				Limit = 20,
-				SearchString = "-ivorejvioe",
-				SchemaIds = new List<string> { "SoccerPlayer" }
-			});
+				BirthDate = DateTime.Now,
+				EmailAddress = "test@test.com",
+				Firstname = "Test",
+				LastName = "Soccerplayer"
+			};
 
-			var playerObjectId = players.Results.First().Id;
-			var playerItem = await _client.ListItems.GetAsync(playerObjectId, true);
+			var createRequest = new ListItemCreateRequest
+			{
+				ContentSchemaId = "SoccerPlayer",
+				Content = originalPlayer
+			};
+
+			var playerItem = await _client.ListItems.CreateAsync(createRequest);
 
 			/// Act
 			var player = playerItem.ConvertTo<SoccerPlayer>(nameof(SoccerPlayer));

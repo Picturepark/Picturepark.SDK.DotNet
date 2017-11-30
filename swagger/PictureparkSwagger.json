@@ -3,7 +3,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Picturepark API V1",
-    "description": "# Getting started\r\nWelcome to the reference for the Picturepark REST API.\r\n\r\n(TBD) more bla bla\r\n\r\n## Client registration\r\nTo use the Picturepark API, you need first to create a new API Client.\r\n\r\nGo to https://{{customerHost}}/Settings/APIClients and create a new API Client based on your desired authentication flow.\r\n\r\n\r\n## Authentication\r\nThe authentication process is based on [OpenID Connect](http://openid.net/connect/).\r\n\r\nThe following OAuth 2.0 flows are supported:\r\n- **Implicit** (Interactive user authentication for SPA Applications)\r\n- **Hybrid** (Interactive user authentication with server based validation)\r\n- **Client credentials** (Server to server, create access tokens that do not expire)\r\n\r\n### Examples\r\nExample authentication implementations can be found here:\r\n- Angular: https://github.com/Picturepark/Picturepark.SDK.TypeScript/tree/master/src/picturepark-sdk-v1-angular-app\r\n- HTML5 Fetch: (TBD)\r\n- .NET: (TBD)\r\n\r\n### Access token lifetime\r\nFor **Implicit** and **Hybrid** flow, the access tokens are short-lived (30mins). You need to refresh your access token after it's expired.\r\nYou can silently refresh the token using a hidden Iframe in the browser: [Angular example](https://damienbod.com/2017/06/02/implementing-a-silent-token-renew-in-angular-for-the-openid-connect-implicit-flow/)\r\n\r\nFor the **Client credentials** flow, you can create an access token that never expires.\r\nGo to https://{{customerHost}}/Settings/APIClients\r\n\r\n**Attention: Adding long lived access tokens to a web application (adding token to Javascripts source code) will expose that token to anyone. Use with care and a very limited set of scopes.**\r\n\r\n### Urls\r\n\r\n- Live: -\r\n- Preview: https://identity.preview-picturepark.com\r\n- Stage: https://identity.stage-picturepark.com\r\n\r\n## SDKs\r\nTo simplify building applications, SDKs for the following languages/frameworks are provided and released as open source under MIT license:\r\n\r\n- .NET\r\n  - [https://github.com/Picturepark/Picturepark.SDK.DotNet](https://github.com/Picturepark/Picturepark.SDK.DotNet)\r\n  - Supports .NET 4.5+ / .NET Standard 1.3+\r\n- JavaScript / TypeScript\r\n  - [https://github.com/Picturepark/Picturepark.SDK.TypeScript](https://github.com/Picturepark/Picturepark.SDK.TypeScript)\r\n  - Supports [Angular](https://angular.io/) 4.3+ / [HTML 5 Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)\r\n\r\nClients for other languages can be created using [Autorest](https://github.com/Azure/autorest) using the following OpenAPI file:\r\n- [Picturepark.SDK.Playground](https://github.com/Picturepark/Picturepark.SDK.Playground/blob/master/swagger/PictureparkSwaggerAutoRest.json)\r\n\r\n\r\n# Concepts\r\n\r\n## HTTP Requests\r\nTo perform API calls, you can specify the following HTTP headers:\r\n\r\n| HTTP Header               | Value                | Required |\r\n| ------------------------- | -------------------- | -------- |\r\n| Accept                    | application/json     | Yes      |\r\n| Authorization             | Bearer {accessToken} | Yes (except for publicAccess/* endpoints) |\r\n| Picturepark-CustomerAlias | Customer identifier  | Yes      |\r\n| Picturepark-Language      | en / de              | No       |\r\n\r\n## Error responses\r\nErrors in Picturepark API are returned using HTTP status codes, as well as a JSON error response object.\r\n\r\nHTTP status 4xx\r\n- Client errors (e.g. wrong data provided by client)\r\n\r\nHTTP status 5xx\r\n- Server errors (something went wrong on the server)\r\n\r\n## Request limits / quota\r\nTo protect the Picturepark API you are limited in the number of API requests per interval.\r\n\r\nIf that limit is exceeded you will get an exception with HTTP status code 429 (Too many requests).\r\n\r\nIf you need more calls per interval, Pictuepark sales (sales@picturepark.com)\r\n\r\n## Permissions / Scopes\r\n\r\nIn order to be able to perform requests, you need the permissions.\r\n\r\n### User permissions\r\nThe authenticated user needs the permission in Picturepark to perform the request.\r\n\r\n### Scopes\r\n\r\nAdditionally, your application needs to define which scopes are required.\r\n\r\nFor all the scopes requested by your application, the users need to confirm these in the consent screen.\r\n\r\n[List of scopes](#section/Authentication)\r\n\r\n\r\n# Search\r\n\r\n(TBD)\r\n\r\n## Simple search\r\n\r\n(TBD)\r\n\r\n## Filtering\r\n\r\n(TBD)",
+    "description": "# Getting started\r\nWelcome to the reference for the Picturepark REST API.\r\n\r\n## Client registration\r\nTo use the Picturepark API, you need first to create a new API Client.\r\n\r\nGo to https://{{customerHost}}/Settings/APIClients and create a new API Client based on your desired authentication flow.\r\n\r\n\r\n## Authentication\r\nThe authentication process is based on [OpenID Connect](http://openid.net/connect/).\r\n\r\nThe following OAuth 2.0 flows are supported:\r\n- **Implicit** (Interactive user authentication for SPA Applications)\r\n- **Hybrid** (Interactive user authentication with server based validation)\r\n- **Client credentials** (Server to server, create access tokens that do not expire)\r\n\r\n### Examples\r\nExample authentication implementations can be found here:\r\n- Angular: https://github.com/Picturepark/Picturepark.SDK.TypeScript/tree/master/src/picturepark-sdk-v1-angular-app\r\n- HTML5 Fetch: (TBD)\r\n- .NET: (TBD)\r\n\r\n### Access token lifetime\r\nFor **Implicit** and **Hybrid** flow, the access tokens are short-lived (30mins). You need to refresh your access token after it's expired.\r\nYou can silently refresh the token using a hidden Iframe in the browser: [Angular example](https://damienbod.com/2017/06/02/implementing-a-silent-token-renew-in-angular-for-the-openid-connect-implicit-flow/)\r\n\r\nFor the **Client credentials** flow, you can create an access token that never expires.\r\nGo to https://{{customerHost}}/Settings/APIClients\r\n\r\n**Attention: Adding long lived access tokens to a web application (adding token to Javascripts source code) will expose that token to anyone. Use with care and a very limited set of scopes.**\r\n\r\n### Urls\r\n\r\n- Live: -\r\n- Preview: https://identity.preview-picturepark.com\r\n- Stage: https://identity.stage-picturepark.com\r\n\r\n## SDKs\r\nTo simplify building applications, SDKs for the following languages/frameworks are provided and released as open source under MIT license:\r\n\r\n- .NET\r\n  - [https://github.com/Picturepark/Picturepark.SDK.DotNet](https://github.com/Picturepark/Picturepark.SDK.DotNet)\r\n  - Supports .NET 4.5+ / .NET Standard 1.3+\r\n- JavaScript / TypeScript\r\n  - [https://github.com/Picturepark/Picturepark.SDK.TypeScript](https://github.com/Picturepark/Picturepark.SDK.TypeScript)\r\n  - Supports [Angular](https://angular.io/) 4.3+ / [HTML 5 Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)\r\n\r\nClients for other languages can be created using [Autorest](https://github.com/Azure/autorest) using the following OpenAPI provided here:\r\n- [Picturepark.SDK.Playground](https://github.com/Picturepark/Picturepark.SDK.Playground)\r\n\r\n\r\n# Concepts\r\n\r\n## HTTP Requests\r\nTo perform API calls, you can specify the following HTTP headers:\r\n\r\n| HTTP Header               | Value                | Required |\r\n| ------------------------- | -------------------- | -------- |\r\n| Accept                    | application/json     | Yes      |\r\n| Authorization             | Bearer {accessToken} | Yes (except for publicAccess/* endpoints) |\r\n| Picturepark-CustomerAlias | Customer identifier  | Yes      |\r\n| Picturepark-Language      | en / de              | No       |\r\n\r\n## Error responses\r\nErrors in Picturepark API are returned using HTTP status codes, as well as a JSON error response object.\r\n\r\nHTTP status 4xx\r\n- Client errors (e.g. wrong data provided by client)\r\n\r\nHTTP status 5xx\r\n- Server errors (something went wrong on the server)\r\n\r\n## Request limits / quota\r\nTo protect the Picturepark API you are limited in the number of API requests per interval.\r\n\r\nIf that limit is exceeded you will get an exception with HTTP status code 429 (Too many requests).\r\n\r\nIf you need more calls per interval, Pictuepark sales (sales@picturepark.com)\r\n\r\n## Permissions / Scopes\r\n\r\nIn order to be able to perform requests, you need the permissions.\r\n\r\n### User permissions\r\nThe authenticated user needs the permission in Picturepark to perform the request.\r\n\r\n### Scopes\r\n\r\nAdditionally, your application needs to define which scopes are required.\r\n\r\nFor all the scopes requested by your application, the users need to confirm these in the consent screen.\r\n\r\n[List of scopes](#section/Authentication)\r\n\r\n\r\n# Search\r\n\r\nMost entities have a search endpoint to search and filter.\r\n\r\nFor list items and contents, the search and filters depend on the available schemas and search configurations.\r\n\r\n\r\n## Simple search\r\n\r\n([Elastic search query string reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html))\r\n\r\nWith the simple search a multi field query is executed.\r\n\r\nallow_leading_wildcard is disabled.\r\n\r\nThe applicable query string syntax can be found [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html).\r\n\r\nThe query is executed against all indexed schema fields with a boolean flag *SimpleSearch* set to `true`.\r\n\r\nRunning the query against multiple fields enables to put the searched fields under thight control and also to expand each query term to an OR clause (field1=\"value\" or field2=\"value\").\r\n\r\n\r\n## Filtering\r\n\r\nAvailable filters:\r\n\r\n- AndFilter\r\n- OrFilter\r\n- NotFilter\r\n- DateRangeFilter\r\n- NumericRangeFilter\r\n- ExistsFilter\r\n- PrefixFilter\r\n- TermFilter\r\n- TermsFilter\r\n- GeoBoundingBoxFilter\r\n- GeoDistanceFilter\r\n- NestedFilter (Obsolete)\r\n- ChildFilter\r\n- ParentFilter",
     "contact": {
       "name": "Picturepark sales",
       "url": "http://www.picturepark.com",
@@ -23,14 +23,14 @@
     "application/json"
   ],
   "paths": {
-    "/v1/contents/{contentId}/ownership/transfer": {
-      "put": {
+    "/v1/contents/{contentId}": {
+      "get": {
         "tags": [
           "Content"
         ],
-        "summary": "Update Single - OwnershipTransfer",
-        "description": "The update of content transfer is executed asynchronous. However, for the specified timeout completion of the update process is awaited.\nIf the update process is not completed by reaching the specified timeout, the update process continues, but null is returned.",
-        "operationId": "Content_TransferOwnership",
+        "summary": "Get detail - single",
+        "description": "Gets a content document by id.",
+        "operationId": "Content_Get",
         "parameters": [
           {
             "type": "string",
@@ -41,38 +41,39 @@
             "description": "The content id."
           },
           {
-            "name": "updateRequest",
-            "in": "body",
+            "type": "boolean",
+            "name": "resolve",
+            "in": "query",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/ContentOwnershipTransferRequest"
-            },
-            "x-nullable": true,
-            "description": "The content ownership transfer request update request."
+            "x-nullable": false,
+            "description": "Resolves the data of referenced list items into the contents's content."
           },
           {
-            "type": "string",
-            "name": "timeout",
+            "type": "array",
+            "name": "patterns",
             "in": "query",
             "x-nullable": true,
-            "description": "Maximum time to wait for the business process completed state.",
-            "format": "time-span"
+            "collectionFormat": "multi",
+            "description": "List of display pattern types. Resolves display values of referenced list items where the display pattern matches.",
+            "items": {
+              "$ref": "#/definitions/DisplayPatternType"
+            }
           }
         ],
         "responses": {
+          "404": {
+            "description": "Content not found",
+            "schema": {
+              "$ref": "#/definitions/ContentNotFoundException"
+            },
+            "x-nullable": false
+          },
           "200": {
             "description": "ContentDetail",
             "schema": {
               "$ref": "#/definitions/ContentDetail"
             },
-            "x-nullable": false
-          },
-          "400": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
-            },
-            "x-nullable": false
+            "x-nullable": true
           },
           "500": {
             "description": "Internal server error",
@@ -91,7 +92,7 @@
         "security": [
           {
             "Bearer": [
-              "content_write"
+              "content_read"
             ]
           }
         ]
@@ -102,7 +103,7 @@
         "tags": [
           "Content"
         ],
-        "summary": "Get Many",
+        "summary": "Get detail - many",
         "description": "Gets multiple content documents by ids.",
         "operationId": "Content_GetMany",
         "parameters": [
@@ -113,7 +114,7 @@
             "required": true,
             "x-nullable": true,
             "collectionFormat": "multi",
-            "description": "Comma-separated list of contentIds",
+            "description": "List of contentIds",
             "items": {
               "type": "string"
             }
@@ -132,7 +133,7 @@
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
+            "description": "List of display pattern types. Resolves display values of referenced list items where the display pattern matches.",
             "items": {
               "$ref": "#/definitions/DisplayPatternType"
             }
@@ -172,30 +173,31 @@
         ]
       }
     },
-    "/v1/contents/many/ownership/transfer": {
+    "/v1/contents/search": {
       "post": {
         "tags": [
           "Content"
         ],
-        "summary": "Process many ownership trasnfer request",
-        "operationId": "Content_TransferOwnershipMany",
+        "summary": "Search",
+        "description": "Searches contents as specified in the search request.",
+        "operationId": "Content_Search",
         "parameters": [
           {
-            "name": "contentsOwnershipTransferRequest",
+            "name": "contentSearchRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ContentsOwnershipTransferRequest"
+              "$ref": "#/definitions/ContentSearchRequest"
             },
             "x-nullable": true,
-            "description": "The content ownership transfer request request."
+            "description": "The content search request."
           }
         ],
         "responses": {
           "200": {
-            "description": "BusinessProcess",
+            "description": "ContentSearchResult",
             "schema": {
-              "$ref": "#/definitions/BusinessProcess"
+              "$ref": "#/definitions/ContentSearchResult"
             },
             "x-nullable": false
           },
@@ -216,7 +218,66 @@
         "security": [
           {
             "Bearer": [
-              "content_write"
+              "content_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contents/{channelId}/search": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Search by channel",
+        "description": "Searches contents as specified in the search request and limits the search results to the specified channel.",
+        "operationId": "Content_SearchByChannel",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "channelId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The channel id."
+          },
+          {
+            "name": "contentSearchRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentSearchRequest"
+            },
+            "x-nullable": true,
+            "description": "The content search request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ContentSearchResult",
+            "schema": {
+              "$ref": "#/definitions/ContentSearchResult"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
             ]
           }
         ]
@@ -228,7 +289,7 @@
           "Content"
         ],
         "summary": "Aggregate",
-        "description": "Aggregates content as specified in the aggregation request.",
+        "description": "Aggregates content fields as specified in the aggregation request.",
         "operationId": "Content_Aggregate",
         "parameters": [
           {
@@ -278,8 +339,8 @@
         "tags": [
           "Content"
         ],
-        "summary": "Aggregate by Channel",
-        "description": "Aggregates content as specified in the aggregation request and limits the aggregation results to the specified channel.",
+        "summary": "Aggregate by channel",
+        "description": "Aggregates content fields as specified in the aggregation request and limits the aggregation results to the specified channel.",
         "operationId": "Content_AggregateByChannel",
         "parameters": [
           {
@@ -337,7 +398,8 @@
         "tags": [
           "Content"
         ],
-        "summary": "Creates a content batch download",
+        "summary": "Create download link",
+        "description": "Creates a download link for one or more contents.",
         "operationId": "Content_CreateDownloadLink",
         "parameters": [
           {
@@ -348,7 +410,7 @@
               "$ref": "#/definitions/ContentDownloadLinkCreateRequest"
             },
             "x-nullable": true,
-            "description": "The content batch download request"
+            "description": "The content download link request"
           }
         ],
         "responses": {
@@ -382,97 +444,13 @@
         ]
       }
     },
-    "/v1/contents": {
-      "post": {
-        "tags": [
-          "Content"
-        ],
-        "summary": "Create Single",
-        "description": "The creation of content is executed asynchronous. However, for the specified timeout completion of the creation process is awaited.\nIf the creation process is not completed by reaching the specified timeout, the creation process continues, but null is returned.",
-        "operationId": "Content_CreateContent",
-        "parameters": [
-          {
-            "name": "contentCreateRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ContentCreateRequest"
-            },
-            "x-nullable": true,
-            "description": "The content create request."
-          },
-          {
-            "type": "boolean",
-            "name": "resolve",
-            "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Resolves the data of referenced list items into the contents's content."
-          },
-          {
-            "type": "string",
-            "name": "timeout",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Maximum time in milliseconds to wait for the business process completed state.",
-            "format": "time-span"
-          },
-          {
-            "type": "array",
-            "name": "patterns",
-            "in": "query",
-            "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
-            "items": {
-              "$ref": "#/definitions/DisplayPatternType"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ContentDetail"
-            },
-            "x-nullable": false
-          },
-          "400": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "content_write"
-            ]
-          }
-        ]
-      }
-    },
     "/v1/contents/downloads/{contentId}/{outputFormatId}": {
       "get": {
         "tags": [
           "Content"
         ],
-        "summary": "Downloads content in a specific outputformat",
+        "summary": "Download output",
+        "description": "Download single content in a specific outputformat. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
         "operationId": "Content_Download",
         "parameters": [
           {
@@ -561,8 +539,8 @@
         "tags": [
           "Content"
         ],
-        "summary": "Get Thumbnail",
-        "description": "Provides a lightweight endpoint to get content thumbnails",
+        "summary": "Download thumbnail",
+        "description": "Provides a lightweight endpoint to get content thumbnails.",
         "operationId": "Content_DownloadThumbnail",
         "parameters": [
           {
@@ -640,105 +618,24 @@
         ]
       }
     },
-    "/v1/contents/{contentId}": {
-      "get": {
+    "/v1/contents": {
+      "post": {
         "tags": [
           "Content"
         ],
-        "summary": "Get Single",
-        "description": "Gets a content document by id.",
-        "operationId": "Content_Get",
+        "summary": "Create - single",
+        "description": "Create a single file-less content item. To import files, see [Transfer](#section/Transfer)",
+        "operationId": "Content_CreateContent",
         "parameters": [
           {
-            "type": "string",
-            "name": "contentId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The content id."
-          },
-          {
-            "type": "boolean",
-            "name": "resolve",
-            "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Resolves the data of referenced list items into the contents's content."
-          },
-          {
-            "type": "array",
-            "name": "patterns",
-            "in": "query",
-            "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
-            "items": {
-              "$ref": "#/definitions/DisplayPatternType"
-            }
-          }
-        ],
-        "responses": {
-          "404": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ContentNotFoundException"
-            },
-            "x-nullable": false
-          },
-          "200": {
-            "description": "ContentDetail",
-            "schema": {
-              "$ref": "#/definitions/ContentDetail"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "content_read"
-            ]
-          }
-        ]
-      },
-      "put": {
-        "tags": [
-          "Content"
-        ],
-        "summary": "Update Single - Metadata",
-        "description": "The update of content metadata is executed asynchronous. However, for the specified timeout completion of the update process is awaited.\nIf the update process is not completed by reaching the specified timeout, the update process continues, but null is returned.",
-        "operationId": "Content_UpdateMetadata",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "contentId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The content id."
-          },
-          {
-            "name": "updateRequest",
+            "name": "contentCreateRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UpdateContentMetadataRequest"
+              "$ref": "#/definitions/ContentCreateRequest"
             },
             "x-nullable": true,
-            "description": "The metadata update request."
+            "description": "The content create request."
           },
           {
             "type": "boolean",
@@ -762,7 +659,7 @@
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
+            "description": "List of display pattern types. Resolves display values of referenced list items where the display pattern matches.",
             "items": {
               "$ref": "#/definitions/DisplayPatternType"
             }
@@ -770,14 +667,14 @@
         ],
         "responses": {
           "200": {
-            "description": "ContentDetail",
+            "description": "",
             "schema": {
               "$ref": "#/definitions/ContentDetail"
             },
             "x-nullable": false
           },
           "400": {
-            "description": "",
+            "description": "The specified wait timeout exceeded",
             "schema": {
               "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
             },
@@ -801,209 +698,6 @@
           {
             "Bearer": [
               "content_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/contents/{contentId}/permissions": {
-      "put": {
-        "tags": [
-          "Content"
-        ],
-        "summary": "Update Single - Permissions",
-        "description": "The update of content permissions is executed asynchronous. However, for the specified timeout completion of the update process is awaited.\nIf the update process is not completed by reaching the specified timeout, the update process continues, but null is returned.",
-        "operationId": "Content_UpdatePermissions",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "contentId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The content id."
-          },
-          {
-            "name": "updateRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/UpdateContentPermissionsRequest"
-            },
-            "x-nullable": true,
-            "description": "The content permission update request."
-          },
-          {
-            "type": "boolean",
-            "name": "resolve",
-            "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Resolves the data of referenced list items into the contents's content."
-          },
-          {
-            "type": "string",
-            "name": "timeout",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Maximum time to wait for the business process completed state.",
-            "format": "time-span"
-          },
-          {
-            "type": "array",
-            "name": "patterns",
-            "in": "query",
-            "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
-            "items": {
-              "$ref": "#/definitions/DisplayPatternType"
-            }
-          }
-        ],
-        "responses": {
-          "400": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
-            },
-            "x-nullable": false
-          },
-          "200": {
-            "description": "ContentDetail",
-            "schema": {
-              "$ref": "#/definitions/ContentDetail"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "content_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/contents/search": {
-      "post": {
-        "tags": [
-          "Content"
-        ],
-        "summary": "Search",
-        "description": "Searches contents as specified in the search request.",
-        "operationId": "Content_Search",
-        "parameters": [
-          {
-            "name": "contentSearchRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ContentSearchRequest"
-            },
-            "x-nullable": true,
-            "description": "The content search request."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "ContentSearchResult",
-            "schema": {
-              "$ref": "#/definitions/ContentSearchResult"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "content_read"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/contents/{channelId}/search": {
-      "post": {
-        "tags": [
-          "Content"
-        ],
-        "summary": "Search By Channel",
-        "description": "Searches contents as specified in the search request and limits the search results to the specified channel.",
-        "operationId": "Content_SearchByChannel",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "channelId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The channel id."
-          },
-          {
-            "name": "contentSearchRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ContentSearchRequest"
-            },
-            "x-nullable": true,
-            "description": "The content search request."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "ContentSearchResult",
-            "schema": {
-              "$ref": "#/definitions/ContentSearchResult"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "content_read"
             ]
           }
         ]
@@ -1014,7 +708,8 @@
         "tags": [
           "Content"
         ],
-        "summary": "Deactivates a content",
+        "summary": "Deactivate - single",
+        "description": "Deactivates a single content. The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the content and all files will be deleted.",
         "operationId": "Content_Deactivate",
         "parameters": [
           {
@@ -1031,7 +726,7 @@
             "in": "query",
             "required": true,
             "x-nullable": true,
-            "description": "Maximum time in milliseconds to wait for the business process completed state.",
+            "description": "Maximum time to wait for the business process completed state.",
             "format": "time-span"
           }
         ],
@@ -1040,9 +735,194 @@
             "description": ""
           },
           "400": {
-            "description": "",
+            "description": "The specified wait timeout exceeded",
             "schema": {
               "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contents/many/deactivate": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Dactivate - many",
+        "description": "Deactivates multiple contents. The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the content and all files will be deleted.",
+        "operationId": "Content_DeactivateMany",
+        "parameters": [
+          {
+            "name": "deactivationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentDeactivationRequest"
+            },
+            "x-nullable": true,
+            "description": "The deactivation request"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contents/{contentId}/reactivate": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Reactivate - single",
+        "description": "Reactivate a previously deactivated content.",
+        "operationId": "Content_Reactivate",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "contentId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The content id."
+          },
+          {
+            "type": "boolean",
+            "name": "resolve",
+            "in": "query",
+            "required": true,
+            "x-nullable": false,
+            "description": "Resolves the data of referenced list items into the contents's content."
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
+          },
+          {
+            "type": "array",
+            "name": "patterns",
+            "in": "query",
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "List of display pattern types. Resolves display values of referenced list items where the display pattern matches.",
+            "items": {
+              "$ref": "#/definitions/DisplayPatternType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ContentDetail",
+            "schema": {
+              "$ref": "#/definitions/ContentDetail"
+            },
+            "x-nullable": false
+          },
+          "400": {
+            "description": "The specified wait timeout exceeded",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contents/many/reactivate": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Reactivate - many",
+        "description": "Reactivate previously deactivated contents.",
+        "operationId": "Content_ReactivateMany",
+        "parameters": [
+          {
+            "name": "reactivationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentReactivationRequest"
+            },
+            "x-nullable": true,
+            "description": "The content reactivation request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
             },
             "x-nullable": false
           },
@@ -1074,8 +954,8 @@
         "tags": [
           "Content"
         ],
-        "summary": "Update Single - File",
-        "description": "Update binary file of existing content. The file must already be uploaded before calling this endpoint.",
+        "summary": "Update file - single",
+        "description": "Update binary file of existing content. The file must already be uploaded before calling this endpoint. See [Transfer](#section/Transfer)",
         "operationId": "Content_UpdateFile",
         "parameters": [
           {
@@ -1128,14 +1008,14 @@
         ]
       }
     },
-    "/v1/contents/{contentId}/reactivate": {
+    "/v1/contents/{contentId}/metadata": {
       "put": {
         "tags": [
           "Content"
         ],
-        "summary": "Reactivate - Content",
-        "description": "The reactivation of content is executed asynchronous. However, for the specified timeout completion of the reactivation process is awaited.\nIf the reactivation process is not completed by reaching the specified timeout, the reactivation process continues, but null is returned.",
-        "operationId": "Content_Reactivate",
+        "summary": "Update metadata - single",
+        "description": "Updates metadata layers of a specified content. For file-less contents, the content itself can be updated aswell. See [ShouldUpdateMetadata](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentTests.cs) tests.",
+        "operationId": "Content_UpdateMetadata",
         "parameters": [
           {
             "type": "string",
@@ -1144,6 +1024,16 @@
             "required": true,
             "x-nullable": false,
             "description": "The content id."
+          },
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentMetadataUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The metadata update request."
           },
           {
             "type": "boolean",
@@ -1167,7 +1057,7 @@
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
+            "description": "List of display pattern types. Resolves display values of referenced list items where the display pattern matches.",
             "items": {
               "$ref": "#/definitions/DisplayPatternType"
             }
@@ -1182,110 +1072,9 @@
             "x-nullable": false
           },
           "400": {
-            "description": "",
+            "description": "The specified wait timeout exceeded",
             "schema": {
               "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "content_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/contents/many/deactivate": {
-      "post": {
-        "tags": [
-          "Content"
-        ],
-        "summary": "Dactivate Many - Content",
-        "operationId": "Content_DeactivateMany",
-        "parameters": [
-          {
-            "name": "deactivationRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ContentDeactivationRequest"
-            },
-            "x-nullable": true,
-            "description": "The deactivation request"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcess",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "content_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/contents/many/reactivate": {
-      "post": {
-        "tags": [
-          "Content"
-        ],
-        "summary": "Reactivate Many - Content",
-        "description": "The reactivation multiple contents documents is executed asynchronous. To keep track of the update progress a business process is returned.",
-        "operationId": "Content_ReactivateMany",
-        "parameters": [
-          {
-            "name": "reactivationRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ContentReactivationRequest"
-            },
-            "x-nullable": true,
-            "description": "The content reactivation request."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcess",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
             },
             "x-nullable": false
           },
@@ -1317,8 +1106,8 @@
         "tags": [
           "Content"
         ],
-        "summary": "Update Many - Metadata",
-        "description": "The metadata update of multiple contents documents is executed asynchronous. To keep track of the update progress a business process is returned.",
+        "summary": "Update metadata - many",
+        "description": "Updates metadata layers of specified contents. For file-less contents, the content itself can be updated aswell. See [ShouldUpdateMetadataMany](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentTests.cs) tests.",
         "operationId": "Content_UpdateMetadataMany",
         "parameters": [
           {
@@ -1368,8 +1157,8 @@
         "tags": [
           "Content"
         ],
-        "summary": "Update by filter - Metadata",
-        "description": "Update metadata of multiple contents. A filter must be provided to limit the update to specific contents.",
+        "summary": "Update metadata - by filter",
+        "description": "Updates metadata layers of specified contents. For file-less contents, the content itself can be updated aswell. A filter must be provided to limit the update to specific contents.",
         "operationId": "Content_UpdateMetadataByFilter",
         "parameters": [
           {
@@ -1414,13 +1203,106 @@
         ]
       }
     },
+    "/v1/contents/{contentId}/permissions": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Update permissions - single",
+        "description": "Updates the content permission sets of a single content. To get a list of available content permission sets, see [Permissions](operation/Permission_SearchContentPermissions)",
+        "operationId": "Content_UpdatePermissions",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "contentId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The content id."
+          },
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentPermissionsUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The content permission update request."
+          },
+          {
+            "type": "boolean",
+            "name": "resolve",
+            "in": "query",
+            "required": true,
+            "x-nullable": false,
+            "description": "Resolves the data of referenced list items into the contents's content."
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
+          },
+          {
+            "type": "array",
+            "name": "patterns",
+            "in": "query",
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "List of display pattern types. Resolves display values of referenced list items where the display pattern matches.",
+            "items": {
+              "$ref": "#/definitions/DisplayPatternType"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "The specified wait timeout exceeded",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
+            },
+            "x-nullable": false
+          },
+          "200": {
+            "description": "ContentDetail",
+            "schema": {
+              "$ref": "#/definitions/ContentDetail"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/contents/many/permissions": {
       "put": {
         "tags": [
           "Content"
         ],
-        "summary": "Update Many - Permissions",
-        "description": "The permission update of multiple contents documents is executed asynchronous. To keep track of the update progress a business process is returned.",
+        "summary": "Update permissions - many",
+        "description": "Updates the content permission sets of specified contents. To get a list of available content permission sets, see [Permissions](#operation/Permission_SearchContentPermissions)",
         "operationId": "Content_UpdatePermissionsMany",
         "parameters": [
           {
@@ -1430,11 +1312,136 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/UpdateContentPermissionsRequest"
+                "$ref": "#/definitions/ContentPermissionsUpdateRequest"
               }
             },
             "x-nullable": true,
             "description": "The permissions update request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contents/{contentId}/ownership/transfer": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Transfer ownership - single",
+        "description": "Transfer ownership of a content to another user. The user must have the ManageContent UserRight.",
+        "operationId": "Content_TransferOwnership",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "contentId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The content id."
+          },
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentOwnershipTransferRequest"
+            },
+            "x-nullable": true,
+            "description": "The content ownership transfer request update request."
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ContentDetail",
+            "schema": {
+              "$ref": "#/definitions/ContentDetail"
+            },
+            "x-nullable": false
+          },
+          "400": {
+            "description": "The specified wait timeout exceeded",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contents/many/ownership/transfer": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Transfer ownership - many",
+        "description": "Transfer ownership of multiple contents to another user. The user must have the ManageContent UserRight.",
+        "operationId": "Content_TransferOwnershipMany",
+        "parameters": [
+          {
+            "name": "contentsOwnershipTransferRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentsOwnershipTransferRequest"
+            },
+            "x-nullable": true,
+            "description": "The content ownership transfer request."
           }
         ],
         "responses": {
@@ -1520,7 +1527,7 @@
         "x-code-samples": [
           {
             "lang": "C#",
-            "source": "// Get the last 20 business processes\r\nvar results = await _client.BusinessProcesses.SearchAsync(new BusinessProcessSearchRequest\r\n{\r\n\tStart = 0,\r\n\tLimit = 20,\r\n\tSort = new List<SortInfo>\r\n\t{\r\n\t\tnew SortInfo\r\n\t\t{\r\n\t\t\tField = \"audit.creationDate\",\r\n\t\t\tDirection = SortDirection.Desc\r\n\t\t}\r\n\t}\r\n});\r\nAssert.NotNull(results);\r\n\t\t"
+            "source": "// Get the last 20 business processes\r\nvar request = new BusinessProcessSearchRequest\r\n{\r\n\tStart = 0,\r\n\tLimit = 20,\r\n\tSort = new List<SortInfo>\r\n\t{\r\n\t\tnew SortInfo\r\n\t\t{\r\n\t\t\tField = \"audit.creationDate\",\r\n\t\t\tDirection = SortDirection.Desc\r\n\t\t}\r\n\t}\r\n};\r\nvar results = await _client.BusinessProcesses.SearchAsync(request);\r\nAssert.NotNull(results);\r\n\t\t"
           }
         ]
       }
@@ -4980,403 +4987,27 @@
     }
   },
   "definitions": {
-    "ContentOwnershipTransferRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentId": {
-          "type": "string"
-        },
-        "transferUserId": {
-          "type": "string",
-          "description": "The id of the user to whom the content document has to be transfered to."
-        }
-      }
-    },
-    "ContentDetail": {
-      "type": "object",
-      "description": "A content detail.",
-      "additionalProperties": false,
-      "required": [
-        "contentType",
-        "trashed"
-      ],
-      "properties": {
-        "audit": {
-          "description": "Audit data with information regarding document creation and modification.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/UserAudit"
-            }
-          ]
-        },
-        "content": {
-          "description": "The content data"
-        },
-        "contentPermissionSetIds": {
-          "type": "array",
-          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "contentSchemaId": {
-          "type": "string",
-          "description": "The id of the content schema"
-        },
-        "contentType": {
-          "description": "The type of content",
-          "allOf": [
-            {
-              "$ref": "#/definitions/ContentType"
-            }
-          ]
-        },
-        "displayValues": {
-          "description": "Contains language specific display values, rendered according to the content schema's\n             display pattern configuration.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/DisplayValueDictionary"
-            }
-          ]
-        },
-        "id": {
-          "type": "string",
-          "description": "The content id."
-        },
-        "layerSchemaIds": {
-          "type": "array",
-          "description": "An optional list of layer schemas ids",
-          "items": {
-            "type": "string"
-          }
-        },
-        "metadata": {
-          "description": "The metadata dictionary",
-          "allOf": [
-            {
-              "$ref": "#/definitions/DataDictionary"
-            }
-          ]
-        },
-        "outputs": {
-          "type": "array",
-          "description": "A list of rendering ouputs for underlying digital file.",
-          "items": {
-            "$ref": "#/definitions/Output"
-          }
-        },
-        "ownerTokenId": {
-          "type": "string",
-          "description": "The id of a owner token. Defines the content owner."
-        },
-        "trashed": {
-          "type": "boolean",
-          "description": "The trashed flag."
-        }
-      }
-    },
-    "UserAudit": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "creationDate",
-        "modificationDate"
-      ],
-      "properties": {
-        "creationDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "modificationDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "createdByUser": {
-          "type": "string"
-        },
-        "modifiedByUser": {
-          "type": "string"
-        }
-      }
-    },
-    "ContentType": {
+    "DisplayPatternType": {
       "type": "string",
       "description": "",
       "x-enumNames": [
-        "Unknown",
-        "Bitmap",
-        "VectorGraphic",
-        "RawImage",
-        "InterchangeDocument",
-        "WordProcessingDocument",
-        "TextDocument",
-        "DesktopPublishingDocument",
-        "Presentation",
-        "Spreadsheet",
-        "Archive",
-        "Audio",
-        "Video",
-        "Font",
-        "Multimedia",
-        "Application",
-        "SourceCode",
-        "Database",
-        "Cad",
-        "Model3d",
-        "ContentItem"
+        "Thumbnail",
+        "List",
+        "Detail",
+        "Name"
       ],
       "enum": [
-        "Unknown",
-        "Bitmap",
-        "VectorGraphic",
-        "RawImage",
-        "InterchangeDocument",
-        "WordProcessingDocument",
-        "TextDocument",
-        "DesktopPublishingDocument",
-        "Presentation",
-        "Spreadsheet",
-        "Archive",
-        "Audio",
-        "Video",
-        "Font",
-        "Multimedia",
-        "Application",
-        "SourceCode",
-        "Database",
-        "Cad",
-        "Model3d",
-        "ContentItem"
+        "Thumbnail",
+        "List",
+        "Detail",
+        "Name"
       ]
     },
-    "DisplayValueDictionary": {
+    "ContentNotFoundException": {
       "type": "object",
       "additionalProperties": false,
-      "allOf": [
-        {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        }
-      ]
-    },
-    "DataDictionary": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "type": "object",
-          "additionalProperties": {}
-        }
-      ]
-    },
-    "Output": {
-      "type": "object",
-      "discriminator": "kind",
-      "additionalProperties": false,
-      "required": [
-        "kind"
-      ],
       "properties": {
-        "id": {
-          "type": "string"
-        },
-        "outputFormatId": {
-          "type": "string"
-        },
         "contentId": {
-          "type": "string"
-        },
-        "detail": {
-          "$ref": "#/definitions/OutputDetailBase"
-        },
-        "kind": {
-          "type": "string"
-        }
-      }
-    },
-    "OutputDetailBase": {
-      "type": "object",
-      "discriminator": "kind",
-      "additionalProperties": false,
-      "required": [
-        "kind"
-      ],
-      "properties": {
-        "fileExtension": {
-          "type": "string"
-        },
-        "fileName": {
-          "type": "string"
-        },
-        "filePath": {
-          "type": "string"
-        },
-        "fileSizeInBytes": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "sha1Hash": {
-          "type": "string"
-        },
-        "kind": {
-          "type": "string"
-        }
-      }
-    },
-    "OutputDetailImage": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "width",
-        "height"
-      ],
-      "properties": {
-        "width": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "height": {
-          "type": "integer",
-          "format": "int32"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/OutputDetailBase"
-        }
-      ]
-    },
-    "OutputDetailAudio": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "durationInSeconds": {
-          "type": "number",
-          "format": "double"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/OutputDetailBase"
-        }
-      ]
-    },
-    "OutputDetailVideo": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "durationInSeconds",
-        "width",
-        "height"
-      ],
-      "properties": {
-        "durationInSeconds": {
-          "type": "number",
-          "format": "double"
-        },
-        "width": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "height": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "sprites": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Sprite"
-          }
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/OutputDetailBase"
-        }
-      ]
-    },
-    "Sprite": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "width",
-        "height",
-        "y",
-        "x",
-        "start",
-        "end"
-      ],
-      "properties": {
-        "width": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "height": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "y": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "x": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "start": {
-          "type": "string",
-          "format": "time-span"
-        },
-        "end": {
-          "type": "string",
-          "format": "time-span"
-        }
-      }
-    },
-    "OutputDetailDocument": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "pageCount"
-      ],
-      "properties": {
-        "pageCount": {
-          "type": "integer",
-          "format": "int32"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/OutputDetailBase"
-        }
-      ]
-    },
-    "OutputDetailDefault": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/OutputDetailBase"
-        }
-      ]
-    },
-    "OutputDetail": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/Output"
-        }
-      ]
-    },
-    "BusinessProcessWaitTimeoutException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "businessProcessId": {
           "type": "string"
         }
       },
@@ -5498,20 +5129,6 @@
         }
       ]
     },
-    "ContentNotFoundException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
     "BusinessProcessDefinitionCreateException": {
       "type": "object",
       "additionalProperties": false,
@@ -5544,6 +5161,20 @@
       ]
     },
     "BusinessProcessNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "businessProcessId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "BusinessProcessWaitTimeoutException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -6208,95 +5839,232 @@
         }
       ]
     },
-    "DisplayPatternType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Thumbnail",
-        "List",
-        "Detail",
-        "Name"
-      ],
-      "enum": [
-        "Thumbnail",
-        "List",
-        "Detail",
-        "Name"
-      ]
-    },
-    "ContentsOwnershipTransferRequest": {
+    "ContentDetail": {
       "type": "object",
+      "description": "A content detail.",
       "additionalProperties": false,
+      "required": [
+        "contentType",
+        "trashed"
+      ],
       "properties": {
-        "contentIds": {
+        "audit": {
+          "description": "Audit data with information regarding document creation and modification.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/UserAudit"
+            }
+          ]
+        },
+        "content": {
+          "description": "The content data"
+        },
+        "contentPermissionSetIds": {
           "type": "array",
-          "description": "The content ids.",
+          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
           "items": {
             "type": "string"
           }
         },
-        "transferUserId": {
+        "contentSchemaId": {
           "type": "string",
-          "description": "The id of user to whom the content documents have to be transfered to."
+          "description": "The id of the content schema"
+        },
+        "contentType": {
+          "description": "The type of content",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContentType"
+            }
+          ]
+        },
+        "displayValues": {
+          "description": "Contains language specific display values, rendered according to the content schema's\n             display pattern configuration.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DisplayValueDictionary"
+            }
+          ]
+        },
+        "id": {
+          "type": "string",
+          "description": "The content id."
+        },
+        "layerSchemaIds": {
+          "type": "array",
+          "description": "An optional list of layer schemas ids",
+          "items": {
+            "type": "string"
+          }
+        },
+        "metadata": {
+          "description": "The metadata dictionary",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataDictionary"
+            }
+          ]
+        },
+        "outputs": {
+          "type": "array",
+          "description": "A list of rendering ouputs for underlying digital file.",
+          "items": {
+            "$ref": "#/definitions/Output"
+          }
+        },
+        "ownerTokenId": {
+          "type": "string",
+          "description": "The id of a owner token. Defines the content owner."
+        },
+        "trashed": {
+          "type": "boolean",
+          "description": "The trashed flag."
         }
       }
     },
-    "BusinessProcess": {
+    "UserAudit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "creationDate",
+        "modificationDate"
+      ],
+      "properties": {
+        "creationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modificationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "createdByUser": {
+          "type": "string"
+        },
+        "modifiedByUser": {
+          "type": "string"
+        }
+      }
+    },
+    "ContentType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Unknown",
+        "Bitmap",
+        "VectorGraphic",
+        "RawImage",
+        "InterchangeDocument",
+        "WordProcessingDocument",
+        "TextDocument",
+        "DesktopPublishingDocument",
+        "Presentation",
+        "Spreadsheet",
+        "Archive",
+        "Audio",
+        "Video",
+        "Font",
+        "Multimedia",
+        "Application",
+        "SourceCode",
+        "Database",
+        "Cad",
+        "Model3d",
+        "ContentItem"
+      ],
+      "enum": [
+        "Unknown",
+        "Bitmap",
+        "VectorGraphic",
+        "RawImage",
+        "InterchangeDocument",
+        "WordProcessingDocument",
+        "TextDocument",
+        "DesktopPublishingDocument",
+        "Presentation",
+        "Spreadsheet",
+        "Archive",
+        "Audio",
+        "Video",
+        "Font",
+        "Multimedia",
+        "Application",
+        "SourceCode",
+        "Database",
+        "Cad",
+        "Model3d",
+        "ContentItem"
+      ]
+    },
+    "DisplayValueDictionary": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "DataDictionary": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": {}
+        }
+      ]
+    },
+    "Output": {
       "type": "object",
       "discriminator": "kind",
       "additionalProperties": false,
       "required": [
-        "supportsCancellation",
-        "businessProcessScope",
-        "lifeCycle",
-        "startDate",
-        "endDate",
-        "finished",
         "kind"
       ],
       "properties": {
         "id": {
           "type": "string"
         },
-        "processDefinitionId": {
+        "outputFormatId": {
           "type": "string"
         },
-        "referenceId": {
+        "contentId": {
           "type": "string"
         },
-        "referenceDocType": {
+        "detail": {
+          "$ref": "#/definitions/OutputDetailBase"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "OutputDetailBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "fileExtension": {
           "type": "string"
         },
-        "supportsCancellation": {
-          "type": "boolean"
-        },
-        "businessProcessScope": {
-          "$ref": "#/definitions/BusinessProcessScope"
-        },
-        "lifeCycle": {
-          "$ref": "#/definitions/BusinessProcessLifeCycle"
-        },
-        "startDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "endDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "finished": {
-          "type": "boolean"
-        },
-        "stateHistory": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/BusinessProcessStateItem"
-          }
-        },
-        "currentState": {
+        "fileName": {
           "type": "string"
         },
-        "processDefinitionName": {
+        "filePath": {
+          "type": "string"
+        },
+        "fileSizeInBytes": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "sha1Hash": {
           "type": "string"
         },
         "kind": {
@@ -6304,147 +6072,221 @@
         }
       }
     },
-    "BusinessProcessScope": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "System",
-        "User"
-      ],
-      "enum": [
-        "System",
-        "User"
-      ]
-    },
-    "BusinessProcessLifeCycle": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Draft",
-        "InProgress",
-        "Succeeded",
-        "Cancelled",
-        "CancellationInProgress",
-        "Failed"
-      ],
-      "enum": [
-        "Draft",
-        "InProgress",
-        "Succeeded",
-        "Cancelled",
-        "CancellationInProgress",
-        "Failed"
-      ]
-    },
-    "BusinessProcessStateItem": {
+    "OutputDetailImage": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "timestamp"
+        "width",
+        "height"
       ],
       "properties": {
-        "state": {
-          "type": "string"
+        "width": {
+          "type": "integer",
+          "format": "int32"
         },
-        "timestamp": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "error": {
-          "$ref": "#/definitions/ErrorResponse"
-        }
-      }
-    },
-    "ErrorResponse": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "exception": {
-          "type": "string"
-        },
-        "traceId": {
-          "type": "string"
-        },
-        "traceJobId": {
-          "type": "string"
-        }
-      }
-    },
-    "BusinessProcessBulkResponse": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "response": {
-          "$ref": "#/definitions/BulkResponse"
+        "height": {
+          "type": "integer",
+          "format": "int32"
         }
       },
       "allOf": [
         {
-          "$ref": "#/definitions/BusinessProcess"
+          "$ref": "#/definitions/OutputDetailBase"
         }
       ]
     },
-    "BulkResponse": {
+    "OutputDetailAudio": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "rows": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/BulkResponseRow"
-          }
+        "durationInSeconds": {
+          "type": "number",
+          "format": "double"
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDetailBase"
+        }
+      ]
     },
-    "BulkResponseRow": {
+    "OutputDetailVideo": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "version",
-        "succeeded",
-        "status"
+        "durationInSeconds",
+        "width",
+        "height"
       ],
       "properties": {
-        "id": {
-          "type": "string"
+        "durationInSeconds": {
+          "type": "number",
+          "format": "double"
         },
-        "version": {
+        "width": {
           "type": "integer",
-          "format": "int64"
+          "format": "int32"
         },
-        "error": {
-          "type": "string"
+        "height": {
+          "type": "integer",
+          "format": "int32"
         },
-        "reason": {
-          "type": "string"
+        "sprites": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Sprite"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDetailBase"
+        }
+      ]
+    },
+    "Sprite": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height",
+        "y",
+        "x",
+        "start",
+        "end"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "format": "int32"
         },
-        "succeeded": {
-          "type": "boolean"
+        "height": {
+          "type": "integer",
+          "format": "int32"
         },
-        "status": {
+        "y": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "x": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "start": {
+          "type": "string",
+          "format": "time-span"
+        },
+        "end": {
+          "type": "string",
+          "format": "time-span"
+        }
+      }
+    },
+    "OutputDetailDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pageCount"
+      ],
+      "properties": {
+        "pageCount": {
           "type": "integer",
           "format": "int32"
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDetailBase"
+        }
+      ]
     },
-    "ContentAggregationRequest": {
+    "OutputDetailDefault": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/OutputDetailBase"
+        }
+      ]
+    },
+    "OutputDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/Output"
+        }
+      ]
+    },
+    "ContentSearchRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "start",
+        "limit",
         "lifeCycleFilter",
-        "searchType"
+        "searchType",
+        "debugMode"
       ],
       "properties": {
+        "channelIds": {
+          "type": "array",
+          "description": "Limits the simple search fields to the fields available in the specified channel.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "displayLanguage": {
+          "type": "string",
+          "description": "Defines the return language of translation values. Defaults to x-default."
+        },
+        "displayPatternIds": {
+          "type": "array",
+          "description": "Limits the display values included in the search response. Defaults to all display values.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "searchLanguages": {
+          "type": "array",
+          "description": "Only searches the specified language values. Defaults to all metadata languages of the language configuration.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "collectionId": {
+          "type": "string",
+          "description": "The collection id."
+        },
         "searchString": {
           "type": "string",
-          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
+          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
         },
         "searchBehaviours": {
           "type": "array",
-          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+          "description": "An optional list of search behaviours. All the passed behaviours will be applied in the specified order.",
           "items": {
             "$ref": "#/definitions/SearchBehaviour"
           }
+        },
+        "sort": {
+          "type": "array",
+          "description": "Sorts the search results. Sorting on a not indexed field will throw an exception.",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        },
+        "start": {
+          "type": "integer",
+          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+          "format": "int32",
+          "default": 0
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Limits the document count of the result set. Defaults to 30.",
+          "format": "int32",
+          "default": 30
         },
         "filter": {
           "description": "An optional search filter. Limits the content document result set.",
@@ -6454,39 +6296,6 @@
             }
           ]
         },
-        "aggregationFilters": {
-          "type": "array",
-          "description": "Special filters used to filter down on a specific aggregated value.",
-          "items": {
-            "$ref": "#/definitions/AggregationFilter"
-          }
-        },
-        "aggregators": {
-          "type": "array",
-          "description": "Defines the aggregation resultset.",
-          "items": {
-            "$ref": "#/definitions/AggregatorBase"
-          }
-        },
-        "channelId": {
-          "type": "string",
-          "description": "Limits the simple search fields to the fields available in the specified channel."
-        },
-        "displayLanguage": {
-          "type": "string",
-          "description": "Defines the return language of translation values. Defaults to x-default."
-        },
-        "searchLanguages": {
-          "type": "array",
-          "description": "Only searches the specified language values. Defaults to all metadata languages in configured within the customer's language configuration.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "collectionId": {
-          "type": "string",
-          "description": "The collection id."
-        },
         "lifeCycleFilter": {
           "description": "Limits the content document result set to that life cycle state. Defaults to ActiveOnly.",
           "allOf": [
@@ -6495,6 +6304,13 @@
             }
           ]
         },
+        "rightsFilter": {
+          "type": "array",
+          "description": "Limits the content document result set to specific ContentRights the user has",
+          "items": {
+            "$ref": "#/definitions/ContentRight"
+          }
+        },
         "searchType": {
           "description": "Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.",
           "allOf": [
@@ -6502,6 +6318,10 @@
               "$ref": "#/definitions/ContentSearchType"
             }
           ]
+        },
+        "debugMode": {
+          "type": "boolean",
+          "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
         }
       }
     },
@@ -6515,6 +6335,33 @@
       "enum": [
         "DropInvalidCharactersOnFailure",
         "WildcardOnSingleTerm"
+      ]
+    },
+    "SortInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "direction"
+      ],
+      "properties": {
+        "field": {
+          "type": "string"
+        },
+        "direction": {
+          "$ref": "#/definitions/SortDirection"
+        }
+      }
+    },
+    "SortDirection": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Asc",
+        "Desc"
+      ],
+      "enum": [
+        "Asc",
+        "Desc"
       ]
     },
     "FilterBase": {
@@ -6956,6 +6803,296 @@
         }
       ]
     },
+    "LifeCycleFilter": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "ActiveOnly",
+        "All",
+        "InactiveOnly"
+      ],
+      "enum": [
+        "ActiveOnly",
+        "All",
+        "InactiveOnly"
+      ]
+    },
+    "ContentRight": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "View",
+        "AccessOriginal",
+        "Edit",
+        "Update",
+        "Manage",
+        "Trash"
+      ],
+      "enum": [
+        "View",
+        "AccessOriginal",
+        "Edit",
+        "Update",
+        "Manage",
+        "Trash"
+      ]
+    },
+    "ContentSearchType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Metadata",
+        "FullText",
+        "MetadataAndFullText"
+      ],
+      "enum": [
+        "Metadata",
+        "FullText",
+        "MetadataAndFullText"
+      ]
+    },
+    "ContentSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "elapsedMilliseconds"
+      ],
+      "properties": {
+        "aggregationResults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregationResult"
+          }
+        },
+        "elapsedMilliseconds": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/SearchBehaviourBaseResultOfContent"
+        }
+      ]
+    },
+    "AggregationResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "sumOtherDocCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "temporaryRequestId": {
+          "type": "string"
+        },
+        "aggregationResultItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregationResultItem"
+          }
+        }
+      }
+    },
+    "AggregationResultItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "count",
+        "active"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "filter": {
+          "$ref": "#/definitions/AggregationFilter"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "aggregationResults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregationResult"
+          }
+        }
+      }
+    },
+    "SearchBehaviourBaseResultOfContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isSearchStringRewritten"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "isSearchStringRewritten": {
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfContent"
+        }
+      ]
+    },
+    "BaseResultOfContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "totalResults"
+      ],
+      "properties": {
+        "totalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Content"
+          }
+        },
+        "pageToken": {
+          "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
+        }
+      }
+    },
+    "Content": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "audit": {
+          "$ref": "#/definitions/UserAudit"
+        },
+        "contentSchemaId": {
+          "type": "string",
+          "description": "The id of the schema with schema type content."
+        },
+        "layerSchemaIds": {
+          "type": "array",
+          "description": "An optional id list of schemas with schema type layer.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "displayValues": {
+          "type": "object",
+          "description": "Contains display values of the specified language, rendered according to the content schema's display pattern configuration.",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "QueryDebugInformation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "general": {
+          "type": "string"
+        },
+        "auditTrail": {
+          "type": "string"
+        },
+        "request": {},
+        "response": {}
+      }
+    },
+    "ContentAggregationRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lifeCycleFilter",
+        "searchType"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string",
+          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
+        },
+        "searchBehaviours": {
+          "type": "array",
+          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
+        },
+        "filter": {
+          "description": "An optional search filter. Limits the content document result set.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        },
+        "aggregationFilters": {
+          "type": "array",
+          "description": "Special filters used to filter down on a specific aggregated value.",
+          "items": {
+            "$ref": "#/definitions/AggregationFilter"
+          }
+        },
+        "aggregators": {
+          "type": "array",
+          "description": "Defines the aggregation resultset.",
+          "items": {
+            "$ref": "#/definitions/AggregatorBase"
+          }
+        },
+        "channelId": {
+          "type": "string",
+          "description": "Limits the simple search fields to the fields available in the specified channel."
+        },
+        "displayLanguage": {
+          "type": "string",
+          "description": "Defines the return language of translation values. Defaults to x-default."
+        },
+        "searchLanguages": {
+          "type": "array",
+          "description": "Only searches the specified language values. Defaults to all metadata languages in configured within the customer's language configuration.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "collectionId": {
+          "type": "string",
+          "description": "The collection id."
+        },
+        "lifeCycleFilter": {
+          "description": "Limits the content document result set to that life cycle state. Defaults to ActiveOnly.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/LifeCycleFilter"
+            }
+          ]
+        },
+        "searchType": {
+          "description": "Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContentSearchType"
+            }
+          ]
+        }
+      }
+    },
     "AggregatorBase": {
       "type": "object",
       "discriminator": "kind",
@@ -7218,34 +7355,6 @@
         }
       ]
     },
-    "LifeCycleFilter": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "ActiveOnly",
-        "All",
-        "InactiveOnly"
-      ],
-      "enum": [
-        "ActiveOnly",
-        "All",
-        "InactiveOnly"
-      ]
-    },
-    "ContentSearchType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Metadata",
-        "FullText",
-        "MetadataAndFullText"
-      ],
-      "enum": [
-        "Metadata",
-        "FullText",
-        "MetadataAndFullText"
-      ]
-    },
     "ObjectAggregationResult": {
       "type": "object",
       "additionalProperties": false,
@@ -7271,57 +7380,6 @@
         "isSearchStringRewritten": {
           "type": "boolean",
           "description": "Flag to notify if the SearchString was modified compared to the original requested one"
-        }
-      }
-    },
-    "AggregationResult": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "sumOtherDocCount": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "temporaryRequestId": {
-          "type": "string"
-        },
-        "aggregationResultItems": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationResultItem"
-          }
-        }
-      }
-    },
-    "AggregationResultItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "count",
-        "active"
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "count": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "filter": {
-          "$ref": "#/definitions/AggregationFilter"
-        },
-        "active": {
-          "type": "boolean"
-        },
-        "aggregationResults": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationResult"
-          }
         }
       }
     },
@@ -7361,6 +7419,20 @@
         }
       }
     },
+    "ThumbnailSize": {
+      "type": "string",
+      "description": "Values that represent thumbnail sizes.",
+      "x-enumNames": [
+        "Small",
+        "Medium",
+        "Large"
+      ],
+      "enum": [
+        "Small",
+        "Medium",
+        "Large"
+      ]
+    },
     "ContentCreateRequest": {
       "type": "object",
       "description": "A request structure for creating a content document.",
@@ -7397,302 +7469,214 @@
         }
       }
     },
-    "ThumbnailSize": {
-      "type": "string",
-      "description": "Values that represent thumbnail sizes.",
-      "x-enumNames": [
-        "Small",
-        "Medium",
-        "Large"
-      ],
-      "enum": [
-        "Small",
-        "Medium",
-        "Large"
-      ]
-    },
-    "UpdateContentPermissionsRequest": {
+    "ContentDeactivationRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "contentId": {
-          "type": "string",
-          "description": "The content id."
-        },
-        "contentPermissionSetIds": {
+        "contentIds": {
           "type": "array",
-          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
           "items": {
             "type": "string"
           }
         }
       }
     },
-    "ContentSearchRequest": {
+    "BusinessProcess": {
       "type": "object",
+      "discriminator": "kind",
       "additionalProperties": false,
       "required": [
-        "start",
-        "limit",
-        "lifeCycleFilter",
-        "searchType",
-        "debugMode"
+        "supportsCancellation",
+        "businessProcessScope",
+        "lifeCycle",
+        "startDate",
+        "endDate",
+        "finished",
+        "kind"
       ],
       "properties": {
-        "channelIds": {
-          "type": "array",
-          "description": "Limits the simple search fields to the fields available in the specified channel.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "displayLanguage": {
-          "type": "string",
-          "description": "Defines the return language of translation values. Defaults to x-default."
-        },
-        "displayPatternIds": {
-          "type": "array",
-          "description": "Limits the display values included in the search response. Defaults to all display values.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "searchLanguages": {
-          "type": "array",
-          "description": "Only searches the specified language values. Defaults to all metadata languages of the language configuration.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "collectionId": {
-          "type": "string",
-          "description": "The collection id."
-        },
-        "searchString": {
-          "type": "string",
-          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
-        },
-        "searchBehaviours": {
-          "type": "array",
-          "description": "An optional list of search behaviours. All the passed behaviours will be applied in the specified order.",
-          "items": {
-            "$ref": "#/definitions/SearchBehaviour"
-          }
-        },
-        "sort": {
-          "type": "array",
-          "description": "Sorts the search results. Sorting on a not indexed field will throw an exception.",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
-          }
-        },
-        "start": {
-          "type": "integer",
-          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-          "format": "int32",
-          "default": 0
-        },
-        "limit": {
-          "type": "integer",
-          "description": "Limits the document count of the result set. Defaults to 30.",
-          "format": "int32",
-          "default": 30
-        },
-        "filter": {
-          "description": "An optional search filter. Limits the content document result set.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/FilterBase"
-            }
-          ]
-        },
-        "lifeCycleFilter": {
-          "description": "Limits the content document result set to that life cycle state. Defaults to ActiveOnly.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/LifeCycleFilter"
-            }
-          ]
-        },
-        "rightsFilter": {
-          "type": "array",
-          "description": "Limits the content document result set to specific ContentRights the user has",
-          "items": {
-            "$ref": "#/definitions/ContentRight"
-          }
-        },
-        "searchType": {
-          "description": "Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/ContentSearchType"
-            }
-          ]
-        },
-        "debugMode": {
-          "type": "boolean",
-          "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
-        }
-      }
-    },
-    "SortInfo": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "direction"
-      ],
-      "properties": {
-        "field": {
-          "type": "string"
-        },
-        "direction": {
-          "$ref": "#/definitions/SortDirection"
-        }
-      }
-    },
-    "SortDirection": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Asc",
-        "Desc"
-      ],
-      "enum": [
-        "Asc",
-        "Desc"
-      ]
-    },
-    "ContentRight": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "View",
-        "AccessOriginal",
-        "Edit",
-        "Update",
-        "Manage",
-        "Trash"
-      ],
-      "enum": [
-        "View",
-        "AccessOriginal",
-        "Edit",
-        "Update",
-        "Manage",
-        "Trash"
-      ]
-    },
-    "ContentSearchResult": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "elapsedMilliseconds"
-      ],
-      "properties": {
-        "aggregationResults": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationResult"
-          }
-        },
-        "elapsedMilliseconds": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/SearchBehaviourBaseResultOfContent"
-        }
-      ]
-    },
-    "SearchBehaviourBaseResultOfContent": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "isSearchStringRewritten"
-      ],
-      "properties": {
-        "searchString": {
-          "type": "string"
-        },
-        "isSearchStringRewritten": {
-          "type": "boolean"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/BaseResultOfContent"
-        }
-      ]
-    },
-    "BaseResultOfContent": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "totalResults"
-      ],
-      "properties": {
-        "totalResults": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "results": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Content"
-          }
-        },
-        "pageToken": {
-          "type": "string"
-        },
-        "queryDebugInformation": {
-          "$ref": "#/definitions/QueryDebugInformation"
-        }
-      }
-    },
-    "Content": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "audit": {
-          "$ref": "#/definitions/UserAudit"
-        },
-        "contentSchemaId": {
-          "type": "string",
-          "description": "The id of the schema with schema type content."
-        },
-        "layerSchemaIds": {
-          "type": "array",
-          "description": "An optional id list of schemas with schema type layer.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "displayValues": {
-          "type": "object",
-          "description": "Contains display values of the specified language, rendered according to the content schema's display pattern configuration.",
-          "additionalProperties": {
-            "type": "string"
-          }
-        },
         "id": {
           "type": "string"
+        },
+        "processDefinitionId": {
+          "type": "string"
+        },
+        "referenceId": {
+          "type": "string"
+        },
+        "referenceDocType": {
+          "type": "string"
+        },
+        "supportsCancellation": {
+          "type": "boolean"
+        },
+        "businessProcessScope": {
+          "$ref": "#/definitions/BusinessProcessScope"
+        },
+        "lifeCycle": {
+          "$ref": "#/definitions/BusinessProcessLifeCycle"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "finished": {
+          "type": "boolean"
+        },
+        "stateHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BusinessProcessStateItem"
+          }
+        },
+        "currentState": {
+          "type": "string"
+        },
+        "processDefinitionName": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
         }
       }
     },
-    "QueryDebugInformation": {
+    "BusinessProcessScope": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "System",
+        "User"
+      ],
+      "enum": [
+        "System",
+        "User"
+      ]
+    },
+    "BusinessProcessLifeCycle": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "CancellationInProgress",
+        "Failed"
+      ],
+      "enum": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "CancellationInProgress",
+        "Failed"
+      ]
+    },
+    "BusinessProcessStateItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "timestamp"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "error": {
+          "$ref": "#/definitions/ErrorResponse"
+        }
+      }
+    },
+    "ErrorResponse": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "general": {
+        "exception": {
           "type": "string"
         },
-        "auditTrail": {
+        "traceId": {
           "type": "string"
         },
-        "request": {},
-        "response": {}
+        "traceJobId": {
+          "type": "string"
+        }
+      }
+    },
+    "BusinessProcessBulkResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "response": {
+          "$ref": "#/definitions/BulkResponse"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BusinessProcess"
+        }
+      ]
+    },
+    "BulkResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BulkResponseRow"
+          }
+        }
+      }
+    },
+    "BulkResponseRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "succeeded",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "error": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "succeeded": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "ContentReactivationRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
     "ContentFileUpdateRequest": {
@@ -7707,7 +7691,7 @@
         }
       }
     },
-    "UpdateContentMetadataRequest": {
+    "ContentMetadataUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -7729,30 +7713,6 @@
               "$ref": "#/definitions/DataDictionary"
             }
           ]
-        }
-      }
-    },
-    "ContentDeactivationRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "ContentReactivationRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
         }
       }
     },
@@ -8011,6 +7971,53 @@
           "items": {
             "$ref": "#/definitions/ContentRight"
           }
+        }
+      }
+    },
+    "ContentPermissionsUpdateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string",
+          "description": "The content id."
+        },
+        "contentPermissionSetIds": {
+          "type": "array",
+          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ContentOwnershipTransferRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string"
+        },
+        "transferUserId": {
+          "type": "string",
+          "description": "The id of the user to whom the content document has to be transfered to."
+        }
+      }
+    },
+    "ContentsOwnershipTransferRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentIds": {
+          "type": "array",
+          "description": "The content ids.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "transferUserId": {
+          "type": "string",
+          "description": "The id of user to whom the content documents have to be transfered to."
         }
       }
     },

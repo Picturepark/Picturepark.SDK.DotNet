@@ -401,8 +401,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             /// Arrange
             var contentId = _fixture.GetRandomContentId(".jpg", 20);
-            var request = new UpdateContentMetadataRequest
-            {
+            var request = new ContentMetadataUpdateRequest
+			{
                 Id = contentId,
                 SchemaIds = new List<string> { "Drive" },
                 Metadata = new DataDictionary
@@ -778,8 +778,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 "bbb" + new Random().Next(0, 999)
             };
 
-            var request = new UpdateContentPermissionsRequest
-            {
+            var request = new ContentPermissionsUpdateRequest
+			{
                 ContentId = contentDetail.Id,
                 ContentPermissionSetIds = contentPermissionSetIds
             };
@@ -809,14 +809,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 "bbb" + new Random().Next(0, 999)
             };
 
-            var request = new UpdateContentPermissionsRequest
-            {
+            var request = new ContentPermissionsUpdateRequest
+			{
                 ContentId = contentDetail.Id,
                 ContentPermissionSetIds = contentPermissionSetIds
             };
 
             /// Act
-            var businessProcess = await _client.Contents.UpdatePermissionsManyAsync(new List<UpdateContentPermissionsRequest> { request });
+            var businessProcess = await _client.Contents.UpdatePermissionsManyAsync(new List<ContentPermissionsUpdateRequest> { request });
             await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
             var currentContentDetail = await _client.Contents.GetAsync(contentId);
