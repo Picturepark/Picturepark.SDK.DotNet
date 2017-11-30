@@ -1909,22 +1909,26 @@
     },
     "LanguageConfigurationItem": {
       "type": "object",
+      "description": "The customer's language configuration.",
       "additionalProperties": false,
       "properties": {
         "systemLanguages": {
           "type": "array",
+          "description": "A list of languages serving as system languages.",
           "items": {
             "type": "string"
           }
         },
         "metadataLanguages": {
           "type": "array",
+          "description": "A list of languages serving as metadata languages.",
           "items": {
             "type": "string"
           }
         },
         "defaultLanguage": {
-          "type": "string"
+          "type": "string",
+          "description": "The default language. Not the be confused with the metadata fallback language x-default."
         }
       }
     },
@@ -3107,6 +3111,7 @@
     },
     "TranslatedStringDictionary": {
       "type": "object",
+      "description": "A custom dictionary type to distinguish language specific class properties.",
       "additionalProperties": false,
       "allOf": [
         {
@@ -4172,10 +4177,16 @@
       ],
       "properties": {
         "field": {
-          "type": "string"
+          "type": "string",
+          "description": "The elastic search index field to sort on."
         },
         "direction": {
-          "$ref": "#/definitions/SortDirection"
+          "description": "The sort direction (Asc/Desc).",
+          "allOf": [
+            {
+              "$ref": "#/definitions/SortDirection"
+            }
+          ]
         }
       }
     },

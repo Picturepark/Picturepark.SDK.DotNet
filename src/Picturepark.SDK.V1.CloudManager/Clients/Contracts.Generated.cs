@@ -647,15 +647,19 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         }
     }
     
+    /// <summary>The customer's language configuration.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class LanguageConfigurationItem 
     {
+        /// <summary>A list of languages serving as system languages.</summary>
         [Newtonsoft.Json.JsonProperty("systemLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<string> SystemLanguages { get; set; }
     
+        /// <summary>A list of languages serving as metadata languages.</summary>
         [Newtonsoft.Json.JsonProperty("metadataLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<string> MetadataLanguages { get; set; }
     
+        /// <summary>The default language. Not the be confused with the metadata fallback language x-default.</summary>
         [Newtonsoft.Json.JsonProperty("defaultLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DefaultLanguage { get; set; }
     
@@ -1840,6 +1844,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>A custom dictionary type to distinguish language specific class properties.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TranslatedStringDictionary : System.Collections.Generic.Dictionary<string, string>
     {
@@ -3121,9 +3126,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SortInfo 
     {
+        /// <summary>The elastic search index field to sort on.</summary>
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field { get; set; }
     
+        /// <summary>The sort direction (Asc/Desc).</summary>
         [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
