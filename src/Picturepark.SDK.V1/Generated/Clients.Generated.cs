@@ -7452,6 +7452,7 @@ namespace Picturepark.SDK.V1
         /// <param name="id">Share Id (not token, use PublicAccess to get share by token)</param>
         /// <returns>Polymorph share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ShareNotFoundException">Submited share could not be found</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public ShareDetail Get(string id)
         {
@@ -7462,6 +7463,7 @@ namespace Picturepark.SDK.V1
         /// <param name="id">Share Id (not token, use PublicAccess to get share by token)</param>
         /// <returns>Polymorph share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ShareNotFoundException">Submited share could not be found</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         public async System.Threading.Tasks.Task<ShareDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -7509,6 +7511,26 @@ namespace Picturepark.SDK.V1
                             {
                                 throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
                             }
+                        }
+                        else
+                        if (status_ == "404") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(ShareNotFoundException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ShareNotFoundException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception_) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
+                            }
+                            if (result_ == null)
+                                result_ = new ShareNotFoundException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
                         }
                         else
                         if (status_ == "500") 
@@ -7568,7 +7590,7 @@ namespace Picturepark.SDK.V1
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public BusinessProcess DeleteMany(System.Collections.Generic.IEnumerable<string> ids)
+        public BulkResponse DeleteMany(System.Collections.Generic.IEnumerable<string> ids)
         {
             return System.Threading.Tasks.Task.Run(async () => await DeleteManyAsync(ids, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
@@ -7579,7 +7601,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BulkResponse> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/shares/many?");
@@ -7612,10 +7634,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BusinessProcess); 
+                            var result_ = default(BulkResponse); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcess>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BulkResponse>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception_) 
@@ -7662,7 +7684,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
             
-                        return default(BusinessProcess);
+                        return default(BulkResponse);
                     }
                     finally
                     {

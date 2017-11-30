@@ -386,8 +386,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("storagePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string StoragePath { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("cacheRetentionTimeInMinutes", Required = Newtonsoft.Json.Required.Always)]
-        public int CacheRetentionTimeInMinutes { get; set; }
+        [Newtonsoft.Json.JsonProperty("cacheRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.TimeSpan CacheRetentionTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("customerHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<string> CustomerHosts { get; set; }
@@ -445,6 +446,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("businessProcessEngineConnectionString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BusinessProcessEngineConnectionString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.TimeSpan ContentRetentionTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("createTransferBusinessProcess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CreateTransferBusinessProcess { get; set; }
@@ -1796,11 +1801,16 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycle LifeCycle { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("contentRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.TimeSpan ContentRetentionTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("deactivationMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary DeactivationMessage { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("cacheRetentionTimeInMinutes", Required = Newtonsoft.Json.Required.Always)]
-        public int CacheRetentionTimeInMinutes { get; set; }
+        [Newtonsoft.Json.JsonProperty("cacheRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.TimeSpan CacheRetentionTime { get; set; }
     
         public string ToJson() 
         {
@@ -2898,8 +2908,13 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("customerHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<string> CustomerHosts { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("cacheRetentionTimeInMinutes", Required = Newtonsoft.Json.Required.Always)]
-        public int CacheRetentionTimeInMinutes { get; set; }
+        [Newtonsoft.Json.JsonProperty("cacheRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.TimeSpan CacheRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.TimeSpan ContentRetentionTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Always)]
         public bool UseSsl { get; set; }

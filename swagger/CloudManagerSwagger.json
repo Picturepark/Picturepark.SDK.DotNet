@@ -1633,7 +1633,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "cacheRetentionTimeInMinutes",
+        "cacheRetentionTime",
         "useSsl",
         "elasticSearchNumberOfShards",
         "elasticSearchNumberOfReplicas",
@@ -1641,7 +1641,8 @@
         "rootContentSearchIndexNumberOfReplicas",
         "rootListItemSearchIndexNumberOfShards",
         "rootListItemSearchIndexNumberOfReplicas",
-        "indexedFieldThreshold"
+        "indexedFieldThreshold",
+        "contentRetentionTime"
       ],
       "properties": {
         "alias": {
@@ -1659,9 +1660,9 @@
         "storagePath": {
           "type": "string"
         },
-        "cacheRetentionTimeInMinutes": {
-          "type": "integer",
-          "format": "int32"
+        "cacheRetentionTime": {
+          "type": "string",
+          "format": "time-span"
         },
         "customerHosts": {
           "type": "array",
@@ -1744,6 +1745,10 @@
         },
         "businessProcessEngineConnectionString": {
           "type": "string"
+        },
+        "contentRetentionTime": {
+          "type": "string",
+          "format": "time-span"
         },
         "createTransferBusinessProcess": {
           "type": "string"
@@ -2918,7 +2923,8 @@
         "indexedFieldThreshold",
         "redisDatabaseIndex",
         "lifeCycle",
-        "cacheRetentionTimeInMinutes"
+        "contentRetentionTime",
+        "cacheRetentionTime"
       ],
       "properties": {
         "id": {
@@ -3070,12 +3076,16 @@
         "lifeCycle": {
           "$ref": "#/definitions/LifeCycle"
         },
+        "contentRetentionTime": {
+          "type": "string",
+          "format": "time-span"
+        },
         "deactivationMessage": {
           "$ref": "#/definitions/TranslatedStringDictionary"
         },
-        "cacheRetentionTimeInMinutes": {
-          "type": "integer",
-          "format": "int32"
+        "cacheRetentionTime": {
+          "type": "string",
+          "format": "time-span"
         }
       }
     },
@@ -3949,7 +3959,8 @@
       "required": [
         "lifeCycle",
         "backupEnabled",
-        "cacheRetentionTimeInMinutes",
+        "cacheRetentionTime",
+        "contentRetentionTime",
         "useSsl"
       ],
       "properties": {
@@ -3974,9 +3985,13 @@
             "type": "string"
           }
         },
-        "cacheRetentionTimeInMinutes": {
-          "type": "integer",
-          "format": "int32"
+        "cacheRetentionTime": {
+          "type": "string",
+          "format": "time-span"
+        },
+        "contentRetentionTime": {
+          "type": "string",
+          "format": "time-span"
         },
         "useSsl": {
           "type": "boolean"

@@ -3549,6 +3549,13 @@
             },
             "x-nullable": false
           },
+          "404": {
+            "description": "Submited share could not be found",
+            "schema": {
+              "$ref": "#/definitions/ShareNotFoundException"
+            },
+            "x-nullable": true
+          },
           "500": {
             "description": "Internal server error",
             "schema": {
@@ -3598,7 +3605,7 @@
           "200": {
             "description": "BusinessProcess",
             "schema": {
-              "$ref": "#/definitions/BusinessProcess"
+              "$ref": "#/definitions/BulkResponse"
             },
             "x-nullable": false
           },
@@ -11148,6 +11155,20 @@
           "type": "string"
         }
       }
+    },
+    "ShareNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "shareId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
     },
     "ShareBaseCreateRequest": {
       "type": "object",

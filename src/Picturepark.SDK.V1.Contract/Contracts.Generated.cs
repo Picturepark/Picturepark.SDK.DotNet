@@ -951,6 +951,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="id">Share Id (not token, use PublicAccess to get share by token)</param>
         /// <returns>Polymorph share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ShareNotFoundException">Submited share could not be found</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         ShareDetail Get(string id);
     
@@ -958,6 +959,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="id">Share Id (not token, use PublicAccess to get share by token)</param>
         /// <returns>Polymorph share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ShareNotFoundException">Submited share could not be found</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ShareDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -967,7 +969,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        BusinessProcess DeleteMany(System.Collections.Generic.IEnumerable<string> ids);
+        BulkResponse DeleteMany(System.Collections.Generic.IEnumerable<string> ids);
     
         /// <summary>Delete many</summary>
         /// <param name="ids">A list of shareIds to delete.</param>
@@ -975,7 +977,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BulkResponse> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Aggregate</summary>
         /// <param name="request">Aggregation request</param>
@@ -1799,6 +1801,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("PictureparkBusinessException", typeof(PictureparkBusinessException))]
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
     [JsonInheritanceAttribute("ListItemNotFoundException", typeof(ListItemNotFoundException))]
+    [JsonInheritanceAttribute("ShareNotFoundException", typeof(ShareNotFoundException))]
     [JsonInheritanceAttribute("PermissionException", typeof(PermissionException))]
     [JsonInheritanceAttribute("OutputNotFoundException", typeof(OutputNotFoundException))]
     [JsonInheritanceAttribute("PictureparkApplicationException", typeof(PictureparkApplicationException))]
@@ -7879,6 +7882,23 @@ namespace Picturepark.SDK.V1.Contract
         public static ShareAggregationRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareAggregationRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ShareNotFoundException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("shareId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ShareId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareNotFoundException>(data);
         }
     }
     
