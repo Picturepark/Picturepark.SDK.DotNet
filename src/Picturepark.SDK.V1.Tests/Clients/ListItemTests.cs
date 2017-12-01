@@ -456,7 +456,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var player = playerItem.ConvertTo<SoccerPlayer>(nameof(SoccerPlayer));
 			player.Firstname = "xy jviorej ivorejvioe";
 
-			var businessProcess = await _client.ListItems.UpdateManyAsync(new ListItemUpdateRequest[]
+			var businessProcess = await _client.ListItems.UpdateManyAsync(new[]
 			{
 				new ListItemUpdateRequest { Id = playerItem.Id, Content = player }
 			});

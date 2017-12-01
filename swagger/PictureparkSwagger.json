@@ -770,7 +770,7 @@
           "Content"
         ],
         "summary": "Dactivate - many",
-        "description": "Deactivates multiple contents. The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the content and all files will be deleted.",
+        "description": "Deactivates multiple contents. The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the content and all files will be deleted.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "Content_DeactivateMany",
         "parameters": [
           {
@@ -904,7 +904,7 @@
           "Content"
         ],
         "summary": "Reactivate - many",
-        "description": "Reactivate previously deactivated contents.",
+        "description": "Reactivate previously deactivated contents.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "Content_ReactivateMany",
         "parameters": [
           {
@@ -955,7 +955,7 @@
           "Content"
         ],
         "summary": "Update file - single",
-        "description": "Update binary file of existing content. The file must already be uploaded before calling this endpoint. See [Transfer](#section/Transfer)",
+        "description": "Update binary file of existing content. The file must already be uploaded before calling this endpoint. See [Transfer](#section/Transfer)\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "Content_UpdateFile",
         "parameters": [
           {
@@ -1107,7 +1107,7 @@
           "Content"
         ],
         "summary": "Update metadata - many",
-        "description": "Updates metadata layers of specified contents. For file-less contents, the content itself can be updated aswell. See [ShouldUpdateMetadataMany](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentTests.cs) tests.",
+        "description": "Updates metadata layers of specified contents. For file-less contents, the content itself can be updated aswell. See [ShouldUpdateMetadataMany](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentTests.cs) tests.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "Content_UpdateMetadataMany",
         "parameters": [
           {
@@ -1158,7 +1158,7 @@
           "Content"
         ],
         "summary": "Update metadata - by filter",
-        "description": "Updates metadata layers of specified contents. For file-less contents, the content itself can be updated aswell. A filter must be provided to limit the update to specific contents.",
+        "description": "Updates metadata layers of specified contents. For file-less contents, the content itself can be updated aswell. A filter must be provided to limit the update to specific contents.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "Content_UpdateMetadataByFilter",
         "parameters": [
           {
@@ -1302,7 +1302,7 @@
           "Content"
         ],
         "summary": "Update permissions - many",
-        "description": "Updates the content permission sets of specified contents. To get a list of available content permission sets, see [Permissions](#operation/Permission_SearchContentPermissions)",
+        "description": "Updates the content permission sets of specified contents. To get a list of available content permission sets, see [Permissions](#operation/Permission_SearchContentPermissions)\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "Content_UpdatePermissionsMany",
         "parameters": [
           {
@@ -1430,7 +1430,7 @@
           "Content"
         ],
         "summary": "Transfer ownership - many",
-        "description": "Transfer ownership of multiple contents to another user. The user must have the ManageContent UserRight.",
+        "description": "Transfer ownership of multiple contents to another user. The user must have the ManageContent UserRight.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "Content_TransferOwnershipMany",
         "parameters": [
           {
@@ -1617,7 +1617,7 @@
           "BusinessProcess"
         ],
         "summary": "Wait for completion",
-        "description": "Wait for given process to complete with lifeCycle \"Succeeded\", \"Cancelled\" or \"Failed\"",
+        "description": "Wait for given process to complete with lifeCycle \"Succeeded\", \"Cancelled\" or \"Failed\".",
         "operationId": "BusinessProcess_WaitForCompletion",
         "parameters": [
           {
@@ -1722,7 +1722,8 @@
         "tags": [
           "DocumentHistory"
         ],
-        "summary": "Search for document history",
+        "summary": "Search",
+        "description": "Search the document history.",
         "operationId": "DocumentHistory_Search",
         "parameters": [
           {
@@ -1772,7 +1773,8 @@
         "tags": [
           "DocumentHistory"
         ],
-        "summary": "Gets a document history",
+        "summary": "Get latest",
+        "description": "Gets the latest version of a document.",
         "operationId": "DocumentHistory_Get",
         "parameters": [
           {
@@ -1781,7 +1783,7 @@
             "in": "path",
             "required": true,
             "x-nullable": false,
-            "description": "The id"
+            "description": "The id of the document (e.g. ContentId)"
           }
         ],
         "responses": {
@@ -1820,7 +1822,8 @@
         "tags": [
           "DocumentHistory"
         ],
-        "summary": "Get document history version",
+        "summary": "Get latest by version",
+        "description": "Gets the latest version of a document by specifiying a specific document version.",
         "operationId": "DocumentHistory_GetVersion",
         "parameters": [
           {
@@ -1829,7 +1832,7 @@
             "in": "path",
             "required": true,
             "x-nullable": false,
-            "description": "The id"
+            "description": "The id of the document (e.g. ContentId)"
           },
           {
             "type": "string",
@@ -1876,7 +1879,8 @@
         "tags": [
           "DocumentHistory"
         ],
-        "summary": "Get latest difference of document history",
+        "summary": "Get latest difference",
+        "description": "Gets the difference on a document by comparing the provided version against the latest versions",
         "operationId": "DocumentHistory_GetDifferenceLatest",
         "parameters": [
           {
@@ -1885,7 +1889,7 @@
             "in": "path",
             "required": true,
             "x-nullable": false,
-            "description": "The id"
+            "description": "The id of the document (e.g. ContentId)"
           },
           {
             "type": "integer",
@@ -1933,7 +1937,8 @@
         "tags": [
           "DocumentHistory"
         ],
-        "summary": "Get the difference between tho document history",
+        "summary": "Get difference",
+        "description": "Gets the difference on a document by comparing two document versions",
         "operationId": "DocumentHistory_GetDifference",
         "parameters": [
           {
@@ -1942,7 +1947,7 @@
             "in": "path",
             "required": true,
             "x-nullable": false,
-            "description": "The id"
+            "description": "The id of the document (e.g. ContentId)"
           },
           {
             "type": "integer",
@@ -2041,13 +2046,331 @@
         ]
       }
     },
+    "/v1/listItems/{listItemId}": {
+      "get": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Get - single",
+        "operationId": "ListItem_Get",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "listItemId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The list item id."
+          },
+          {
+            "type": "boolean",
+            "name": "resolve",
+            "in": "query",
+            "required": true,
+            "x-nullable": false,
+            "description": "Resolves the data of referenced list items into the list item's content."
+          },
+          {
+            "type": "array",
+            "name": "patterns",
+            "in": "query",
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
+            "items": {
+              "$ref": "#/definitions/DisplayPatternType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ListItemDetail"
+            },
+            "x-nullable": false
+          },
+          "404": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ListItemNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Update - single",
+        "description": "Updates a single list item",
+        "operationId": "ListItem_Update",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "listItemId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The list item id."
+          },
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListItemUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The list item update request."
+          },
+          {
+            "type": "boolean",
+            "name": "resolve",
+            "in": "query",
+            "required": true,
+            "x-nullable": false,
+            "description": "Resolves the data of referenced list items into the list item's content."
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
+          },
+          {
+            "type": "array",
+            "name": "patterns",
+            "in": "query",
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
+            "items": {
+              "$ref": "#/definitions/DisplayPatternType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ListItemDetail",
+            "schema": {
+              "$ref": "#/definitions/ListItemDetail"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Delete - single",
+        "description": "Delete a single list item",
+        "operationId": "ListItem_Delete",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "listItemId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The list item id."
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/listItems/search": {
+      "post": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Search",
+        "description": "Searches list items as specified in the search request.",
+        "operationId": "ListItem_Search",
+        "parameters": [
+          {
+            "name": "listItemSearchRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListItemSearchRequest"
+            },
+            "x-nullable": true,
+            "description": "The list item search request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List item result set.",
+            "schema": {
+              "$ref": "#/definitions/ListItemSearchResult"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/listItems/aggregate": {
+      "post": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Aggregate",
+        "description": "Aggregates list items as specified in the aggregation request.",
+        "operationId": "ListItem_Aggregate",
+        "parameters": [
+          {
+            "name": "listItemAggregationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListItemAggregationRequest"
+            },
+            "x-nullable": true,
+            "description": "The list item aggregation request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ObjectAggregationResult",
+            "schema": {
+              "$ref": "#/definitions/ObjectAggregationResult"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/listItems": {
       "post": {
         "tags": [
           "ListItem"
         ],
-        "summary": "Create Single",
-        "description": "The creation of a single list item is executed asynchronous. However, for the specified timeout completion of the creation process is awaited.\nIf the creation process is not completed by reaching the specified timeout, the creation process continues, but null is returned.",
+        "summary": "Create - single",
+        "description": "Create a single list item.",
         "operationId": "ListItem_Create",
         "parameters": [
           {
@@ -2131,8 +2454,8 @@
         "tags": [
           "ListItem"
         ],
-        "summary": "Create Many",
-        "description": "The creation of multiple list items is executed asynchronous. To keep track of the creation progress a business process is returned.",
+        "summary": "Create - many",
+        "description": "Create multiple list items.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "ListItem_CreateMany",
         "parameters": [
           {
@@ -2179,62 +2502,12 @@
           }
         ]
       },
-      "delete": {
-        "tags": [
-          "ListItem"
-        ],
-        "summary": "Delete Many",
-        "description": "The deletion of multiple list items is executed asynchronous. To keep track of the deletion progress a business process is returned.",
-        "operationId": "ListItem_DeleteMany",
-        "parameters": [
-          {
-            "type": "array",
-            "name": "ids",
-            "in": "query",
-            "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "The list item id list.",
-            "items": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcess",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "listitem_write"
-            ]
-          }
-        ]
-      },
       "put": {
         "tags": [
           "ListItem"
         ],
-        "summary": "Update Many",
-        "description": "The update of multiple list items is executed asynchronous. To keep track of the update progress a business process is returned.",
+        "summary": "Update - many",
+        "description": "Updates multiple list items.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "ListItem_UpdateMany",
         "parameters": [
           {
@@ -2280,343 +2553,25 @@
             ]
           }
         ]
-      }
-    },
-    "/v1/listItems/aggregate": {
-      "post": {
-        "tags": [
-          "ListItem"
-        ],
-        "summary": "Aggregate",
-        "description": "Aggregates list items as specified in the aggregation request.",
-        "operationId": "ListItem_Aggregate",
-        "parameters": [
-          {
-            "name": "listItemAggregationRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListItemAggregationRequest"
-            },
-            "x-nullable": true,
-            "description": "The list item aggregation request."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "ObjectAggregationResult",
-            "schema": {
-              "$ref": "#/definitions/ObjectAggregationResult"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "listitem_read"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/listItems/search": {
-      "post": {
-        "tags": [
-          "ListItem"
-        ],
-        "summary": "Search",
-        "description": "Searches list items as specified in the search request.",
-        "operationId": "ListItem_Search",
-        "parameters": [
-          {
-            "name": "listItemSearchRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListItemSearchRequest"
-            },
-            "x-nullable": true,
-            "description": "The list item search request."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List item result set.",
-            "schema": {
-              "$ref": "#/definitions/ListItemSearchResult"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "listitem_read"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/listItems/{listItemId}": {
+      },
       "delete": {
         "tags": [
           "ListItem"
         ],
-        "summary": "Delete Single",
-        "description": "The deletion of a single list item is executed asynchronous. However, for the specified timeout completion of the deletion process is awaited.\nIf the deletion process is not completed by reaching the specified timeout, the deletion process continues, but response is sent.",
-        "operationId": "ListItem_Delete",
+        "summary": "Delete - many",
+        "description": "Delete multiple list items.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "ListItem_DeleteMany",
         "parameters": [
-          {
-            "type": "string",
-            "name": "listItemId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The list item id."
-          },
-          {
-            "type": "string",
-            "name": "timeout",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Maximum time to wait for the business process completed state.",
-            "format": "time-span"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "400": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "listitem_write"
-            ]
-          }
-        ]
-      },
-      "get": {
-        "tags": [
-          "ListItem"
-        ],
-        "summary": "Get Single",
-        "operationId": "ListItem_Get",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "listItemId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The list item id."
-          },
-          {
-            "type": "boolean",
-            "name": "resolve",
-            "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Resolves the data of referenced list items into the list item's content."
-          },
           {
             "type": "array",
-            "name": "patterns",
+            "name": "ids",
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
+            "description": "The list item id list.",
             "items": {
-              "$ref": "#/definitions/DisplayPatternType"
+              "type": "string"
             }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ListItemDetail"
-            },
-            "x-nullable": false
-          },
-          "404": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ListItemNotFoundException"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "listitem_read"
-            ]
-          }
-        ]
-      },
-      "put": {
-        "tags": [
-          "ListItem"
-        ],
-        "summary": "Update Single",
-        "operationId": "ListItem_Update",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "listItemId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The list item id."
-          },
-          {
-            "name": "updateRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListItemUpdateRequest"
-            },
-            "x-nullable": true,
-            "description": "The list item update request."
-          },
-          {
-            "type": "boolean",
-            "name": "resolve",
-            "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Resolves the data of referenced list items into the list item's content."
-          },
-          {
-            "type": "string",
-            "name": "timeout",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Maximum time to wait for the business process completed state.",
-            "format": "time-span"
-          },
-          {
-            "type": "array",
-            "name": "patterns",
-            "in": "query",
-            "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
-            "items": {
-              "$ref": "#/definitions/DisplayPatternType"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "ListItemDetail",
-            "schema": {
-              "$ref": "#/definitions/ListItemDetail"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "listitem_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/listItems/many/fields/filter": {
-      "put": {
-        "tags": [
-          "ListItem"
-        ],
-        "summary": "Update by filter - Fields",
-        "description": "Update fields of multiple list items. A filter must be provided to limit the update to specific list items.",
-        "operationId": "ListItem_UpdateFieldsByFilter",
-        "parameters": [
-          {
-            "name": "updateRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListItemFieldsFilterUpdateRequest"
-            },
-            "x-nullable": true,
-            "description": "The metadata update request."
           }
         ],
         "responses": {
@@ -2655,8 +2610,8 @@
         "tags": [
           "ListItem"
         ],
-        "summary": "Update - Fields",
-        "description": "Update fields of multiple list items. A list of listItemIds must be provided to limit the update to specific list items.",
+        "summary": "Update fields",
+        "description": "Update fields of multiple list items. A list of listItemIds must be provided to limit the update to specific list items.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "ListItem_UpdateFields",
         "parameters": [
           {
@@ -2665,6 +2620,57 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/ListItemFieldsUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The metadata update request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/listItems/many/fields/filter": {
+      "put": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Update by filter - Fields",
+        "description": "Update fields of multiple list items. A filter must be provided to limit the update to specific list items.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "ListItem_UpdateFieldsByFilter",
+        "parameters": [
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListItemFieldsFilterUpdateRequest"
             },
             "x-nullable": true,
             "description": "The metadata update request."
@@ -4791,7 +4797,7 @@
           "Output"
         ],
         "summary": "Get outputs by contentIds",
-        "description": "Gets output documents related for given contentids",
+        "description": "Gets output documents related for given content ids",
         "operationId": "Output_GetByContentIds",
         "parameters": [
           {
@@ -4845,7 +4851,7 @@
         "tags": [
           "Output"
         ],
-        "summary": "Get Single",
+        "summary": "Get - single",
         "description": "Gets a output document by id.",
         "operationId": "Output_Get",
         "parameters": [
@@ -6866,12 +6872,6 @@
         "elapsedMilliseconds"
       ],
       "properties": {
-        "aggregationResults": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationResult"
-          }
-        },
         "elapsedMilliseconds": {
           "type": "integer",
           "format": "int64"
@@ -6882,57 +6882,6 @@
           "$ref": "#/definitions/SearchBehaviourBaseResultOfContent"
         }
       ]
-    },
-    "AggregationResult": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "sumOtherDocCount": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "temporaryRequestId": {
-          "type": "string"
-        },
-        "aggregationResultItems": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationResultItem"
-          }
-        }
-      }
-    },
-    "AggregationResultItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "count",
-        "active"
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "count": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "filter": {
-          "$ref": "#/definitions/AggregationFilter"
-        },
-        "active": {
-          "type": "boolean"
-        },
-        "aggregationResults": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationResult"
-          }
-        }
-      }
     },
     "SearchBehaviourBaseResultOfContent": {
       "type": "object",
@@ -7388,6 +7337,57 @@
         "isSearchStringRewritten": {
           "type": "boolean",
           "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+        }
+      }
+    },
+    "AggregationResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "sumOtherDocCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "temporaryRequestId": {
+          "type": "string"
+        },
+        "aggregationResultItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregationResultItem"
+          }
+        }
+      }
+    },
+    "AggregationResultItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "count",
+        "active"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "filter": {
+          "$ref": "#/definitions/AggregationFilter"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "aggregationResults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregationResult"
+          }
         }
       }
     },
@@ -8217,38 +8217,51 @@
       "properties": {
         "from": {
           "type": "string",
+          "description": "Limits the start date of the search request. Default to last 1 year.",
           "format": "date-time"
         },
         "to": {
           "type": "string",
+          "description": "Limits the end date of the search request. Default to now.",
           "format": "date-time"
         },
         "start": {
           "type": "integer",
-          "format": "int32"
+          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+          "format": "int32",
+          "default": 0
         },
         "limit": {
           "type": "integer",
-          "format": "int32"
+          "description": "Limits the document count of the result set. Defaults to 30.",
+          "format": "int32",
+          "default": 30
         },
         "pageToken": {
-          "type": "string"
-        },
-        "id": {
-          "type": "string"
+          "type": "string",
+          "description": "To get a large amount of data, page token returned from the response can be used to get all data."
         },
         "documentId": {
-          "type": "string"
+          "type": "string",
+          "description": "Limits the search to a specific document id. E.g. ContentId"
         },
         "documentVersion": {
           "type": "integer",
-          "format": "int64"
+          "description": "The document version to search. Default to -1 to not limit to a specific document version.",
+          "format": "int64",
+          "default": -1
         },
         "documentType": {
-          "type": "string"
+          "type": "string",
+          "description": "Limits the search to a specifc document type."
         },
         "sort": {
-          "$ref": "#/definitions/SortInfo"
+          "description": "Sorts the search results. Sorting on a not indexed field will throw an exception.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/SortInfo"
+            }
+          ]
         }
       }
     },
@@ -8385,24 +8398,6 @@
         "newValues": {}
       }
     },
-    "ListItemCreateRequest": {
-      "type": "object",
-      "description": "A request structure for creating a list item document.",
-      "additionalProperties": false,
-      "properties": {
-        "content": {
-          "description": "The content data of the list item."
-        },
-        "contentSchemaId": {
-          "type": "string",
-          "description": "The id of the schema with schema type list."
-        },
-        "listItemId": {
-          "type": "string",
-          "description": "The list item id. When not provided a Guid is generated."
-        }
-      }
-    },
     "ListItemDetail": {
       "type": "object",
       "description": "The detail view item for the list item.",
@@ -8429,69 +8424,19 @@
         }
       }
     },
-    "ListItemAggregationRequest": {
+    "ListItemNotFoundException": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "includeAllSchemaChildren"
-      ],
       "properties": {
-        "searchString": {
-          "type": "string",
-          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
-        },
-        "searchBehaviours": {
-          "type": "array",
-          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
-          "items": {
-            "$ref": "#/definitions/SearchBehaviour"
-          }
-        },
-        "filter": {
-          "description": "An optional search filter. Limits the list item result set.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/FilterBase"
-            }
-          ]
-        },
-        "aggregationFilters": {
-          "type": "array",
-          "description": "Special filters used to filter down on a specific aggregated value.",
-          "items": {
-            "$ref": "#/definitions/AggregationFilter"
-          }
-        },
-        "aggregators": {
-          "type": "array",
-          "description": "Defines the aggregation resultset.",
-          "items": {
-            "$ref": "#/definitions/AggregatorBase"
-          }
-        },
-        "includeAllSchemaChildren": {
-          "type": "boolean",
-          "description": "Broadens the aggregation and include all schema descendant list items."
-        },
-        "schemaIds": {
-          "type": "array",
-          "description": "Limits the aggregation to list items of the provided schemas.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "displayLanguage": {
-          "type": "string",
-          "description": "Defines the return language of translation values. Defaults to x-default."
-        },
-        "searchLanguages": {
-          "type": "array",
-          "description": "Only searches the specified language values. Defaults to all metadata languages of the language configuration.",
-          "items": {
-            "type": "string"
-          }
+        "listItemId": {
+          "type": "string"
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
     },
     "ListItemSearchRequest": {
       "type": "object",
@@ -8649,19 +8594,87 @@
         }
       }
     },
-    "ListItemNotFoundException": {
+    "ListItemAggregationRequest": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "includeAllSchemaChildren"
+      ],
       "properties": {
+        "searchString": {
+          "type": "string",
+          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
+        },
+        "searchBehaviours": {
+          "type": "array",
+          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
+        },
+        "filter": {
+          "description": "An optional search filter. Limits the list item result set.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        },
+        "aggregationFilters": {
+          "type": "array",
+          "description": "Special filters used to filter down on a specific aggregated value.",
+          "items": {
+            "$ref": "#/definitions/AggregationFilter"
+          }
+        },
+        "aggregators": {
+          "type": "array",
+          "description": "Defines the aggregation resultset.",
+          "items": {
+            "$ref": "#/definitions/AggregatorBase"
+          }
+        },
+        "includeAllSchemaChildren": {
+          "type": "boolean",
+          "description": "Broadens the aggregation and include all schema descendant list items."
+        },
+        "schemaIds": {
+          "type": "array",
+          "description": "Limits the aggregation to list items of the provided schemas.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "displayLanguage": {
+          "type": "string",
+          "description": "Defines the return language of translation values. Defaults to x-default."
+        },
+        "searchLanguages": {
+          "type": "array",
+          "description": "Only searches the specified language values. Defaults to all metadata languages of the language configuration.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ListItemCreateRequest": {
+      "type": "object",
+      "description": "A request structure for creating a list item document.",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "description": "The content data of the list item."
+        },
+        "contentSchemaId": {
+          "type": "string",
+          "description": "The id of the schema with schema type list."
+        },
         "listItemId": {
-          "type": "string"
+          "type": "string",
+          "description": "The list item id. When not provided a Guid is generated."
         }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
+      }
     },
     "ListItemUpdateRequest": {
       "type": "object",
@@ -8674,6 +8687,26 @@
         "id": {
           "type": "string",
           "description": "The list item id."
+        }
+      }
+    },
+    "ListItemFieldsUpdateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "listItemIds": {
+          "type": "array",
+          "description": "The ids of the list items whose fields need to be updated",
+          "items": {
+            "type": "string"
+          }
+        },
+        "changeCommands": {
+          "type": "array",
+          "description": "The change commads to be applied to the list items",
+          "items": {
+            "$ref": "#/definitions/MetadataValuesChangeCommandBase"
+          }
         }
       }
     },
@@ -8742,26 +8775,6 @@
         }
       }
     },
-    "ListItemFieldsUpdateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "listItemIds": {
-          "type": "array",
-          "description": "The ids of the list items whose fields need to be updated",
-          "items": {
-            "type": "string"
-          }
-        },
-        "changeCommands": {
-          "type": "array",
-          "description": "The change commads to be applied to the list items",
-          "items": {
-            "$ref": "#/definitions/MetadataValuesChangeCommandBase"
-          }
-        }
-      }
-    },
     "LiveStreamSearchRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -8774,22 +8787,29 @@
       "properties": {
         "from": {
           "type": "string",
+          "description": "Limits the start date of the search request.",
           "format": "date-time"
         },
         "to": {
           "type": "string",
+          "description": "Limits the end date of the search request.",
           "format": "date-time"
         },
         "start": {
           "type": "integer",
-          "format": "int32"
+          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+          "format": "int32",
+          "default": 0
         },
         "limit": {
           "type": "integer",
-          "format": "int32"
+          "description": "Limits the document count of the result set. Defaults to 30.",
+          "format": "int32",
+          "default": 30
         },
         "pageToken": {
-          "type": "string"
+          "type": "string",
+          "description": "To get a large amount of data, page token returned from the response can be used to get all data."
         }
       }
     },
@@ -10433,12 +10453,6 @@
         "elapsedMilliseconds"
       ],
       "properties": {
-        "aggregationResults": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationResult"
-          }
-        },
         "elapsedMilliseconds": {
           "type": "integer",
           "format": "int64"
@@ -17261,11 +17275,31 @@
   "tags": [
     {
       "name": "Content",
-      "description": "Endpoints to work with content.\r\n\r\nFor search / filtering: See [Search](#section/Search)\r\n"
+      "description": "Endpoints to work with content.\r\n\r\nFor search / filtering: See [Search](#section/Search)\r\n\r\n- [Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentTests.cs)\r\n- [Code examples analyzers](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/AnalyzerTests.cs)\r\n"
     },
     {
       "name": "BusinessProcess",
-      "description": "Endpoints to work with business processes.\r\n\r\nA business process is created when a long running server process is started and the API endpoint does not await the processing (e.g. batch updates of content).\r\n\r\nTo wait for the business process to complete, call the operation [WaitForStates](#operation/BusinessProcess_WaitForStates).\r\n"
+      "description": "Endpoints to work with business processes.\r\n\r\nA business process is created when a long running server process is started and the API endpoint does not await the processing (e.g. batch updates of content).\r\n\r\nTo wait for the business process to complete, call the operation [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion).\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/BusinessProcessTests.cs)\r\n"
+    },
+    {
+      "name": "DocumentHistory",
+      "description": "Endpoints to work with history of documents.\r\n\r\nMost entities provide a history of changes. E.g. update metadata of a content. You can see and search the history of documents.\r\n\r\nYou can use a diff [GetDifferenceLatest](#operation/DocumentHistory_GetDifferenceLatest) and [GetDifference](#operation/DocumentHistory_GetDifference) to get a json diff and see what exactly has changed.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/DocumentHistoryTests.cs)\r\n"
+    },
+    {
+      "name": "JsonSchema",
+      "description": "Endpoint to work with json schemas.\r\n\r\nYou are able to fetch a [Json Schema](http://json-schema.org/) from a schema in Picturepark.\r\nWith a Json schema you are able to validate your metadata before saving it.\r\n\r\nCurrently Draft 4 is supported. http://json-schema.org/specification-links.html#draft-4\r\n"
+    },
+    {
+      "name": "ListItem",
+      "description": "Endpoints to work with list items.\r\n\r\nList items have its own custom schema of type \"ListItem\". See [Schema](#tag/Schema)\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ListItemTests.cs)\r\n"
+    },
+    {
+      "name": "LiveStream",
+      "description": "Endpoints to work with live stream.\r\n\r\nENDPOINT CURRENTLY NOT EXPOSED. Use [ServiceProviders](https://www.nuget.org/packages/Picturepark.SDK.V1.ServiceProvider/) to get a live stream of messages.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/samples/Picturepark.ServiceProvider.Example)\r\n"
+    },
+    {
+      "name": "Output",
+      "description": "Endpoints to work with content outputs.\r\n\r\nOutputs for contents are created on the import process. There are predefined outputs for each file-based content.\r\n\r\n- Original: The original file uploaded (exists always)\r\n- Preview: A preview of the file (1600*1600px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (120*90px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (240*240px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (320*320px in JPEG Format for previewing, exists if preview of format is supported)\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/OutputTests.cs)\r\n"
     }
   ]
 }

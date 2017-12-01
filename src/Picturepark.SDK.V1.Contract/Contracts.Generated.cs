@@ -451,14 +451,14 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial interface IDocumentHistoryClient
     {
-        /// <summary>Search for document history</summary>
+        /// <summary>Search</summary>
         /// <param name="documentHistorySearchRequest">The document history search request</param>
         /// <returns>DocumentHistorySearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         DocumentHistorySearchResult Search(DocumentHistorySearchRequest documentHistorySearchRequest);
     
-        /// <summary>Search for document history</summary>
+        /// <summary>Search</summary>
         /// <param name="documentHistorySearchRequest">The document history search request</param>
         /// <returns>DocumentHistorySearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -466,31 +466,31 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<DocumentHistorySearchResult> SearchAsync(DocumentHistorySearchRequest documentHistorySearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Gets a document history</summary>
-        /// <param name="id">The id</param>
+        /// <summary>Get latest</summary>
+        /// <param name="id">The id of the document (e.g. ContentId)</param>
         /// <returns>DocumentHistory</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         DocumentHistory Get(string id);
     
-        /// <summary>Gets a document history</summary>
-        /// <param name="id">The id</param>
+        /// <summary>Get latest</summary>
+        /// <param name="id">The id of the document (e.g. ContentId)</param>
         /// <returns>DocumentHistory</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<DocumentHistory> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Get document history version</summary>
-        /// <param name="id">The id</param>
+        /// <summary>Get latest by version</summary>
+        /// <param name="id">The id of the document (e.g. ContentId)</param>
         /// <param name="version">The version</param>
         /// <returns>DocumentHistory</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         DocumentHistory GetVersion(string id, string version);
     
-        /// <summary>Get document history version</summary>
-        /// <param name="id">The id</param>
+        /// <summary>Get latest by version</summary>
+        /// <param name="id">The id of the document (e.g. ContentId)</param>
         /// <param name="version">The version</param>
         /// <returns>DocumentHistory</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -498,16 +498,16 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<DocumentHistory> GetVersionAsync(string id, string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Get latest difference of document history</summary>
-        /// <param name="id">The id</param>
+        /// <summary>Get latest difference</summary>
+        /// <param name="id">The id of the document (e.g. ContentId)</param>
         /// <param name="oldVersion">The old version</param>
         /// <returns>DocumentHistoryDifference</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         DocumentHistoryDifference GetDifferenceLatest(string id, long oldVersion);
     
-        /// <summary>Get latest difference of document history</summary>
-        /// <param name="id">The id</param>
+        /// <summary>Get latest difference</summary>
+        /// <param name="id">The id of the document (e.g. ContentId)</param>
         /// <param name="oldVersion">The old version</param>
         /// <returns>DocumentHistoryDifference</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -515,8 +515,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<DocumentHistoryDifference> GetDifferenceLatestAsync(string id, long oldVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Get the difference between tho document history</summary>
-        /// <param name="id">The id</param>
+        /// <summary>Get difference</summary>
+        /// <param name="id">The id of the document (e.g. ContentId)</param>
         /// <param name="oldVersion">The old version</param>
         /// <param name="newVersion">The new version</param>
         /// <returns>DocumentHistoryDifference</returns>
@@ -524,8 +524,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         DocumentHistoryDifference GetDifference(string id, long oldVersion, long newVersion);
     
-        /// <summary>Get the difference between tho document history</summary>
-        /// <param name="id">The id</param>
+        /// <summary>Get difference</summary>
+        /// <param name="id">The id of the document (e.g. ContentId)</param>
         /// <param name="oldVersion">The old version</param>
         /// <param name="newVersion">The new version</param>
         /// <returns>DocumentHistoryDifference</returns>
@@ -544,73 +544,41 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial interface IListItemClient
     {
-        /// <summary>Create Single</summary>
-        /// <param name="listItem">List item create request.</param>
+        /// <summary>Get - single</summary>
+        /// <param name="listItemId">The list item id.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
-        /// <returns>ListItemDetail</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ListItemNotFoundException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        ListItemDetail Get(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
+    
+        /// <summary>Get - single</summary>
+        /// <param name="listItemId">The list item id.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ListItemNotFoundException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<ListItemDetail> GetAsync(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Delete - single</summary>
+        /// <param name="listItemId">The list item id.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ListItemDetail Create(ListItemCreateRequest listItem, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
+        void Delete(string listItemId, System.TimeSpan? timeout = null);
     
-        /// <summary>Create Single</summary>
-        /// <param name="listItem">List item create request.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
+        /// <summary>Delete - single</summary>
+        /// <param name="listItemId">The list item id.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
-        /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItem, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Delete Many</summary>
-        /// <param name="ids">The list item id list.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        BusinessProcess DeleteMany(System.Collections.Generic.IEnumerable<string> ids = null);
-    
-        /// <summary>Delete Many</summary>
-        /// <param name="ids">The list item id list.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Update Many</summary>
-        /// <param name="objects">A list of ListItemUpdateRequests.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        BusinessProcess UpdateMany(System.Collections.Generic.IEnumerable<ListItemUpdateRequest> objects);
-    
-        /// <summary>Update Many</summary>
-        /// <param name="objects">A list of ListItemUpdateRequests.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(System.Collections.Generic.IEnumerable<ListItemUpdateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Aggregate</summary>
-        /// <param name="listItemAggregationRequest">The list item aggregation request.</param>
-        /// <returns>ObjectAggregationResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        ObjectAggregationResult Aggregate(ListItemAggregationRequest listItemAggregationRequest);
-    
-        /// <summary>Aggregate</summary>
-        /// <param name="listItemAggregationRequest">The list item aggregation request.</param>
-        /// <returns>ObjectAggregationResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ListItemAggregationRequest listItemAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteAsync(string listItemId, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Search</summary>
         /// <param name="listItemSearchRequest">The list item search request.</param>
@@ -627,41 +595,88 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ListItemSearchResult> SearchAsync(ListItemSearchRequest listItemSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Delete Single</summary>
-        /// <param name="listItemId">The list item id.</param>
+        /// <summary>Aggregate</summary>
+        /// <param name="listItemAggregationRequest">The list item aggregation request.</param>
+        /// <returns>ObjectAggregationResult</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        ObjectAggregationResult Aggregate(ListItemAggregationRequest listItemAggregationRequest);
+    
+        /// <summary>Aggregate</summary>
+        /// <param name="listItemAggregationRequest">The list item aggregation request.</param>
+        /// <returns>ObjectAggregationResult</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ListItemAggregationRequest listItemAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Create - single</summary>
+        /// <param name="listItem">List item create request.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
+        /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        void Delete(string listItemId, System.TimeSpan? timeout = null);
+        ListItemDetail Create(ListItemCreateRequest listItem, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
     
-        /// <summary>Delete Single</summary>
-        /// <param name="listItemId">The list item id.</param>
+        /// <summary>Create - single</summary>
+        /// <param name="listItem">List item create request.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
+        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
+        /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task DeleteAsync(string listItemId, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItem, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Get Single</summary>
-        /// <param name="listItemId">The list item id.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
-        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
+        /// <summary>Update - many</summary>
+        /// <param name="objects">A list of ListItemUpdateRequests.</param>
+        /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ListItemNotFoundException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ListItemDetail Get(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
+        BusinessProcess UpdateMany(System.Collections.Generic.IEnumerable<ListItemUpdateRequest> objects);
     
-        /// <summary>Get Single</summary>
-        /// <param name="listItemId">The list item id.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
-        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
+        /// <summary>Update - many</summary>
+        /// <param name="objects">A list of ListItemUpdateRequests.</param>
+        /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ListItemNotFoundException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ListItemDetail> GetAsync(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(System.Collections.Generic.IEnumerable<ListItemUpdateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Delete - many</summary>
+        /// <param name="ids">The list item id list.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcess DeleteMany(System.Collections.Generic.IEnumerable<string> ids = null);
+    
+        /// <summary>Delete - many</summary>
+        /// <param name="ids">The list item id list.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Update fields</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcess UpdateFields(ListItemFieldsUpdateRequest updateRequest);
+    
+        /// <summary>Update fields</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> UpdateFieldsAsync(ListItemFieldsUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update by filter - Fields</summary>
         /// <param name="updateRequest">The metadata update request.</param>
@@ -677,21 +692,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<BusinessProcess> UpdateFieldsByFilterAsync(ListItemFieldsFilterUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Update - Fields</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        BusinessProcess UpdateFields(ListItemFieldsUpdateRequest updateRequest);
-    
-        /// <summary>Update - Fields</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> UpdateFieldsAsync(ListItemFieldsUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -1328,7 +1328,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<System.Collections.Generic.List<OutputDetail>> GetByContentIdsAsync(ContentsByIdsRequest contentsByIdsRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Get Single</summary>
+        /// <summary>Get - single</summary>
         /// <param name="outputId">The output id.</param>
         /// <returns>OutputDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -1336,7 +1336,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         OutputDetail Get(string outputId);
     
-        /// <summary>Get Single</summary>
+        /// <summary>Get - single</summary>
         /// <param name="outputId">The output id.</param>
         /// <returns>OutputDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -3509,9 +3509,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentSearchResult : SearchBehaviourBaseResultOfContent
     {
-        [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
@@ -3523,61 +3520,6 @@ namespace Picturepark.SDK.V1.Contract
         public static ContentSearchResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSearchResult>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class AggregationResult 
-    {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("sumOtherDocCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? SumOtherDocCount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("temporaryRequestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TemporaryRequestId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("aggregationResultItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregationResultItem> AggregationResultItems { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AggregationResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResult>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class AggregationResultItem 
-    {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("count", Required = Newtonsoft.Json.Required.Always)]
-        public long Count { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AggregationFilter Filter { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Always)]
-        public bool Active { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AggregationResultItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResultItem>(data);
         }
     }
     
@@ -3989,6 +3931,61 @@ namespace Picturepark.SDK.V1.Contract
         public static ObjectAggregationResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectAggregationResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class AggregationResult 
+    {
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("sumOtherDocCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? SumOtherDocCount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("temporaryRequestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TemporaryRequestId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("aggregationResultItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregationResultItem> AggregationResultItems { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AggregationResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class AggregationResultItem 
+    {
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("count", Required = Newtonsoft.Json.Required.Always)]
+        public long Count { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public AggregationFilter Filter { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Always)]
+        public bool Active { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AggregationResultItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResultItem>(data);
         }
     }
     
@@ -4903,35 +4900,41 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DocumentHistorySearchRequest 
     {
+        /// <summary>Limits the start date of the search request. Default to last 1 year.</summary>
         [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime From { get; set; }
     
+        /// <summary>Limits the end date of the search request. Default to now.</summary>
         [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime To { get; set; }
     
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
+        public int Start { get; set; } = 0;
     
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
+        public int Limit { get; set; } = 30;
     
+        /// <summary>To get a large amount of data, page token returned from the response can be used to get all data.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
+        /// <summary>Limits the search to a specific document id. E.g. ContentId</summary>
         [Newtonsoft.Json.JsonProperty("documentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DocumentId { get; set; }
     
+        /// <summary>The document version to search. Default to -1 to not limit to a specific document version.</summary>
         [Newtonsoft.Json.JsonProperty("documentVersion", Required = Newtonsoft.Json.Required.Always)]
-        public long DocumentVersion { get; set; }
+        public long DocumentVersion { get; set; } = -1L;
     
+        /// <summary>Limits the search to a specifc document type.</summary>
         [Newtonsoft.Json.JsonProperty("documentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DocumentType { get; set; }
     
+        /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SortInfo Sort { get; set; }
     
@@ -5093,33 +5096,6 @@ namespace Picturepark.SDK.V1.Contract
         }
     }
     
-    /// <summary>A request structure for creating a list item document.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ListItemCreateRequest 
-    {
-        /// <summary>The content data of the list item.</summary>
-        [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object Content { get; set; }
-    
-        /// <summary>The id of the schema with schema type list.</summary>
-        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentSchemaId { get; set; }
-    
-        /// <summary>The list item id. When not provided a Guid is generated.</summary>
-        [Newtonsoft.Json.JsonProperty("listItemId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ListItemId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ListItemCreateRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemCreateRequest>(data);
-        }
-    }
-    
     /// <summary>The detail view item for the list item.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ListItemDetail 
@@ -5152,52 +5128,19 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ListItemAggregationRequest 
+    public partial class ListItemNotFoundException : PictureparkBusinessException
     {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
-        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.List<SearchBehaviour> SearchBehaviours { get; set; }
-    
-        /// <summary>An optional search filter. Limits the list item result set.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        /// <summary>Special filters used to filter down on a specific aggregated value.</summary>
-        [Newtonsoft.Json.JsonProperty("aggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregationFilter> AggregationFilters { get; set; }
-    
-        /// <summary>Defines the aggregation resultset.</summary>
-        [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregatorBase> Aggregators { get; set; }
-    
-        /// <summary>Broadens the aggregation and include all schema descendant list items.</summary>
-        [Newtonsoft.Json.JsonProperty("includeAllSchemaChildren", Required = Newtonsoft.Json.Required.Always)]
-        public bool IncludeAllSchemaChildren { get; set; }
-    
-        /// <summary>Limits the aggregation to list items of the provided schemas.</summary>
-        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> SchemaIds { get; set; }
-    
-        /// <summary>Defines the return language of translation values. Defaults to x-default.</summary>
-        [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DisplayLanguage { get; set; }
-    
-        /// <summary>Only searches the specified language values. Defaults to all metadata languages of the language configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> SearchLanguages { get; set; }
+        [Newtonsoft.Json.JsonProperty("listItemId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ListItemId { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ListItemAggregationRequest FromJson(string data)
+        public static ListItemNotFoundException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemAggregationRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemNotFoundException>(data);
         }
     }
     
@@ -5344,8 +5287,68 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ListItemNotFoundException : PictureparkBusinessException
+    public partial class ListItemAggregationRequest 
     {
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
+        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.List<SearchBehaviour> SearchBehaviours { get; set; }
+    
+        /// <summary>An optional search filter. Limits the list item result set.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        /// <summary>Special filters used to filter down on a specific aggregated value.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregationFilter> AggregationFilters { get; set; }
+    
+        /// <summary>Defines the aggregation resultset.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<AggregatorBase> Aggregators { get; set; }
+    
+        /// <summary>Broadens the aggregation and include all schema descendant list items.</summary>
+        [Newtonsoft.Json.JsonProperty("includeAllSchemaChildren", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeAllSchemaChildren { get; set; }
+    
+        /// <summary>Limits the aggregation to list items of the provided schemas.</summary>
+        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> SchemaIds { get; set; }
+    
+        /// <summary>Defines the return language of translation values. Defaults to x-default.</summary>
+        [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DisplayLanguage { get; set; }
+    
+        /// <summary>Only searches the specified language values. Defaults to all metadata languages of the language configuration.</summary>
+        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> SearchLanguages { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemAggregationRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemAggregationRequest>(data);
+        }
+    }
+    
+    /// <summary>A request structure for creating a list item document.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ListItemCreateRequest 
+    {
+        /// <summary>The content data of the list item.</summary>
+        [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Content { get; set; }
+    
+        /// <summary>The id of the schema with schema type list.</summary>
+        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentSchemaId { get; set; }
+    
+        /// <summary>The list item id. When not provided a Guid is generated.</summary>
         [Newtonsoft.Json.JsonProperty("listItemId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ListItemId { get; set; }
     
@@ -5354,9 +5357,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ListItemNotFoundException FromJson(string data)
+        public static ListItemCreateRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemNotFoundException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemCreateRequest>(data);
         }
     }
     
@@ -5380,6 +5383,28 @@ namespace Picturepark.SDK.V1.Contract
         public static ListItemUpdateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemUpdateRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ListItemFieldsUpdateRequest 
+    {
+        /// <summary>The ids of the list items whose fields need to be updated</summary>
+        [Newtonsoft.Json.JsonProperty("listItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> ListItemIds { get; set; }
+    
+        /// <summary>The change commads to be applied to the list items</summary>
+        [Newtonsoft.Json.JsonProperty("changeCommands", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<MetadataValuesChangeCommandBase> ChangeCommands { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemFieldsUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemFieldsUpdateRequest>(data);
         }
     }
     
@@ -5445,44 +5470,27 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ListItemFieldsUpdateRequest 
-    {
-        /// <summary>The ids of the list items whose fields need to be updated</summary>
-        [Newtonsoft.Json.JsonProperty("listItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<string> ListItemIds { get; set; }
-    
-        /// <summary>The change commads to be applied to the list items</summary>
-        [Newtonsoft.Json.JsonProperty("changeCommands", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<MetadataValuesChangeCommandBase> ChangeCommands { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ListItemFieldsUpdateRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemFieldsUpdateRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class LiveStreamSearchRequest 
     {
+        /// <summary>Limits the start date of the search request.</summary>
         [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime From { get; set; }
     
+        /// <summary>Limits the end date of the search request.</summary>
         [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime To { get; set; }
     
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
+        public int Start { get; set; } = 0;
     
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
+        public int Limit { get; set; } = 30;
     
+        /// <summary>To get a large amount of data, page token returned from the response can be used to get all data.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -7031,9 +7039,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PermissionSetSearchResult : SearchBehaviourBaseResultOfPermissionSet
     {
-        [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.List<AggregationResult> AggregationResults { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
