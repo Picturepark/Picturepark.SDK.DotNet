@@ -19,6 +19,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 		[Fact]
 		[Trait("Stack", "Permissions")]
+		public async Task ShouldGetUserRights()
+		{
+			/// Act
+			var result = await _client.Permissions.GetUserRightsAsync();
+
+			/// Assert
+			Assert.Contains(UserRight.ManageCollections, result);
+		}
+
+		[Fact]
+		[Trait("Stack", "Permissions")]
 		public async Task ShouldCheckHasUserRight()
 		{
 			/// Act

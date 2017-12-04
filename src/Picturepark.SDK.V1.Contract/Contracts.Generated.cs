@@ -897,6 +897,19 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<SchemaPermissionSetDetail> GetSchemaPermissionSetAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Get User rights</summary>
+        /// <returns>list of user permissions</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Collections.Generic.List<UserRight> GetUserRights();
+    
+        /// <summary>Get User rights</summary>
+        /// <returns>list of user permissions</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<System.Collections.Generic.List<UserRight>> GetUserRightsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
         /// <summary>Has UserRight</summary>
         /// <param name="userRight">The UserRight to validate</param>
         /// <returns>Boolean - user has permission</returns>

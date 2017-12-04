@@ -3419,6 +3419,49 @@
         "tags": [
           "Permission"
         ],
+        "summary": "Get User rights",
+        "description": "Get all UserRights the current user has",
+        "operationId": "Permission_GetUserRights",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "list of user permissions",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UserRight"
+              }
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/permission/userPermissions/{userRight}": {
+      "get": {
+        "tags": [
+          "Permission"
+        ],
         "summary": "Has UserRight",
         "description": "Validates if the User has a given UserRight",
         "operationId": "Permission_HasUserRight",
@@ -3426,7 +3469,7 @@
           {
             "type": "string",
             "name": "userRight",
-            "in": "query",
+            "in": "path",
             "required": true,
             "x-schema": {
               "$ref": "#/definitions/UserRight"
