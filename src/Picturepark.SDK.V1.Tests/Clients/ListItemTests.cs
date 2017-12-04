@@ -158,7 +158,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			/// Act
 			var updateRequest = new ListItemFieldsFilterUpdateRequest
 			{
-				ListItemFilterRequest = new ListItemFilterRequest // TODO: ListItemFieldsFilterUpdateRequest.ListItemFilterRequest: Rename to FilterRequest
+				ListItemFilterRequest = new ListItemFilterRequest // TODO: ListItemFieldsFilterUpdateRequest.ListItemFilterRequest: Rename property to FilterRequest?
 				{
 					Filter = new TermFilter { Field = "id", Term = listItemDetail.Id }
 				},

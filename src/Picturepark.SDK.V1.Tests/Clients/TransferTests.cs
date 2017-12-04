@@ -295,7 +295,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			};
 			var createTransferResult = await _client.Transfers.UploadFilesAsync(transferName, importFilePaths, uploadOptions);
 
-			var createRequest = new FileTransfer2ContentCreateRequest // TODO: Rename FileTransfer2ContentCreateRequest (better name?, use "to" instead of "2", e.g. "")
+			var importRequest = new FileTransfer2ContentCreateRequest // TODO: Rename FileTransfer2ContentCreateRequest (better name?, use "to" instead of "2", e.g. "ImportTransferRequest"?)
 			{
 				TransferId = createTransferResult.Transfer.Id,
 				ContentPermissionSetIds = new List<string>(),
@@ -303,7 +303,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 				LayerSchemaIds = new List<string>()
 			};
 
-			await _client.Transfers.ImportAndWaitForCompletionAsync(createTransferResult.Transfer, createRequest, timeout);
+			await _client.Transfers.ImportAndWaitForCompletionAsync(createTransferResult.Transfer, importRequest, timeout);
 
 			/// Assert
 			var result = await _client.Transfers.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id);

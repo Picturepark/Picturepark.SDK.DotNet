@@ -93,7 +93,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 				}
 			};
 
-			// TODO: Create ContentHelper to update and wait with one call
+			// TODO: Create ContentHelper to update and wait with one call => UpdateMetadataManyAndWaitForCompletionAsync?
 			var businessProcess = await _client.Contents.UpdateMetadataManyAsync(updateRequest);
 			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
