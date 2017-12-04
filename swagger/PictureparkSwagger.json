@@ -2755,12 +2755,227 @@
         ]
       }
     },
+    "/v1/schemas/{schemaId}": {
+      "get": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Get - single",
+        "description": "Gets the schema detail information by the schema id.",
+        "operationId": "Schema_Get",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "schemaId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The schema id."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SchemaDetail",
+            "schema": {
+              "$ref": "#/definitions/SchemaDetail"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Update - single",
+        "description": "Updates an existing schema.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Schema_Update",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "schemaId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The schema id."
+          },
+          {
+            "name": "schema",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SchemaUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The schema update request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "404": {
+            "description": "Schema with this id could not be found",
+            "schema": {
+              "$ref": "#/definitions/SchemaNotFoundException"
+            },
+            "x-nullable": false
+          },
+          "400": {
+            "description": "Argument must not be null\nor\nThe validation exception of schema creation\nor\nSchema cannot have cyclic dependencies",
+            "schema": {
+              "$ref": "#/definitions/PictureparkBusinessException"
+            },
+            "x-nullable": false,
+            "x-expectedSchemas": [
+              {
+                "description": "Argument must not be null",
+                "schema": {
+                  "$ref": "#/definitions/PictureparkArgumentNullException"
+                }
+              },
+              {
+                "description": "The validation exception of schema creation",
+                "schema": {
+                  "$ref": "#/definitions/SchemaValidationException"
+                }
+              },
+              {
+                "description": "Schema cannot have cyclic dependencies",
+                "schema": {
+                  "$ref": "#/definitions/SchemaCyclicDependencyException"
+                }
+              }
+            ]
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_write"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Delete - single",
+        "description": "Delete a single schemas. \nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Schema_Delete",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "schemaId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The schema id."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "404": {
+            "description": "Schema with this id could not be found",
+            "schema": {
+              "$ref": "#/definitions/SchemaNotFoundException"
+            },
+            "x-nullable": false
+          },
+          "400": {
+            "description": "Argument must not be null\nor\nSchema is used in other entites and cannot be deleted",
+            "schema": {
+              "$ref": "#/definitions/PictureparkBusinessException"
+            },
+            "x-nullable": false,
+            "x-expectedSchemas": [
+              {
+                "description": "Argument must not be null",
+                "schema": {
+                  "$ref": "#/definitions/PictureparkArgumentNullException"
+                }
+              },
+              {
+                "description": "Schema is used in other entites and cannot be deleted",
+                "schema": {
+                  "$ref": "#/definitions/SchemaInUseException"
+                }
+              }
+            ]
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/schemas": {
       "get": {
         "tags": [
           "Schema"
         ],
-        "summary": "Get Many",
+        "summary": "Get - many",
         "description": "Gets the schema detail informations by given schema ids.",
         "operationId": "Schema_GetMany",
         "parameters": [
@@ -2813,8 +3028,8 @@
         "tags": [
           "Schema"
         ],
-        "summary": "Create Single",
-        "description": "The creation of a single schema is executed asynchronous. To keep track of the creation progress a business process is returned.",
+        "summary": "Create - single",
+        "description": "Create a new schema.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "Schema_Create",
         "parameters": [
           {
@@ -2836,111 +3051,38 @@
             },
             "x-nullable": false
           },
-          "500": {
-            "description": "Internal server error",
+          "400": {
+            "description": "Schema with this name already exists\nor\nArgument must not be null\nor\nThe validation exception of schema creation\nor\nSchema cannot have cyclic dependencies",
             "schema": {
-              "$ref": "#/definitions/PictureparkException"
+              "$ref": "#/definitions/PictureparkBusinessException"
             },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "schema_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/schemas/{schemaId}": {
-      "get": {
-        "tags": [
-          "Schema"
-        ],
-        "summary": "Get Single",
-        "description": "Gets the schema detail information by the schema id.",
-        "operationId": "Schema_Get",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "schemaId",
-            "in": "path",
-            "required": true,
             "x-nullable": false,
-            "description": "The schema id."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "SchemaDetail",
-            "schema": {
-              "$ref": "#/definitions/SchemaDetail"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "schema_read"
+            "x-expectedSchemas": [
+              {
+                "description": "Schema with this name already exists",
+                "schema": {
+                  "$ref": "#/definitions/DuplicateSchemaException"
+                }
+              },
+              {
+                "description": "Argument must not be null",
+                "schema": {
+                  "$ref": "#/definitions/PictureparkArgumentNullException"
+                }
+              },
+              {
+                "description": "The validation exception of schema creation",
+                "schema": {
+                  "$ref": "#/definitions/SchemaValidationException"
+                }
+              },
+              {
+                "description": "Schema cannot have cyclic dependencies",
+                "schema": {
+                  "$ref": "#/definitions/SchemaCyclicDependencyException"
+                }
+              }
             ]
-          }
-        ]
-      },
-      "put": {
-        "tags": [
-          "Schema"
-        ],
-        "summary": "Update Single",
-        "description": "The update of a single schema is executed asynchronous. To keep track of the update progress a business process is returned.",
-        "operationId": "Schema_Update",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "schemaId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The schema id."
-          },
-          {
-            "name": "schema",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/SchemaUpdateRequest"
-            },
-            "x-nullable": true,
-            "description": "The schema update request."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcess",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -2960,109 +3102,6 @@
           {
             "Bearer": [
               "schema_write"
-            ]
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "Schema"
-        ],
-        "summary": "Delete Single",
-        "description": "The deletion of a single schema is executed asynchronous. To keep track of the deletion progress a business process is returned.",
-        "operationId": "Schema_Delete",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "schemaId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The schema id."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcess",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "schema_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/schemas/{schemaId}/exists": {
-      "get": {
-        "tags": [
-          "Schema"
-        ],
-        "summary": "Exists",
-        "description": "Checks if the schema or optionally the schema's field already exists.",
-        "operationId": "Schema_Exists",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "schemaId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The schema id."
-          },
-          {
-            "type": "string",
-            "name": "fieldId",
-            "in": "query",
-            "x-nullable": true,
-            "description": "The optional field id."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "ExistsResponse",
-            "schema": {
-              "$ref": "#/definitions/ExistsResponse"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "schema_read"
             ]
           }
         ]
@@ -3119,50 +3158,36 @@
         ]
       }
     },
-    "/v1/permission/userPermissions/{permission}": {
+    "/v1/schemas/{schemaId}/exists": {
       "get": {
         "tags": [
-          "Permission"
+          "Schema"
         ],
-        "summary": "Get UserRight validation result",
-        "description": "Validates if the User has a given UserRight",
-        "operationId": "Permission_GetUserPermissions",
+        "summary": "Exists",
+        "description": "Checks if the schema and optionally the schema's field already exists within this schema.",
+        "operationId": "Schema_Exists",
         "parameters": [
           {
             "type": "string",
-            "name": "permission",
+            "name": "schemaId",
             "in": "path",
             "required": true,
-            "x-schema": {
-              "$ref": "#/definitions/UserRight"
-            },
             "x-nullable": false,
-            "description": "The UserRight to validate",
-            "enum": [
-              "ManageContent",
-              "ManageSharings",
-              "ManageDrives",
-              "ManageTransfer",
-              "ManageChannels",
-              "ManageSchemas",
-              "ManageUsers",
-              "ManageUserRoles",
-              "ManagePermissions",
-              "ManageSearchIndexes",
-              "ManageRecipients",
-              "ManageCollections",
-              "ManageListItems",
-              "ManageServiceProviders",
-              "ManageEmbeds",
-              "ManageTemplates"
-            ]
+            "description": "The schema id."
+          },
+          {
+            "type": "string",
+            "name": "fieldId",
+            "in": "query",
+            "x-nullable": true,
+            "description": "The optional field id."
           }
         ],
         "responses": {
           "200": {
-            "description": "Boolean - user has permission",
+            "description": "ExistsResponse",
             "schema": {
-              "type": "boolean"
+              "$ref": "#/definitions/ExistsResponse"
             },
             "x-nullable": false
           },
@@ -3183,7 +3208,7 @@
         "security": [
           {
             "Bearer": [
-              "permission_read"
+              "schema_read"
             ]
           }
         ]
@@ -3196,7 +3221,7 @@
         ],
         "summary": "Search Content Permissions",
         "description": "Searches content permission sets as specified in the search request.",
-        "operationId": "Permission_SearchContentPermissions",
+        "operationId": "Permission_SearchContentPermissionSets",
         "parameters": [
           {
             "name": "request",
@@ -3245,9 +3270,9 @@
         "tags": [
           "Permission"
         ],
-        "summary": "Get Content Permission Single",
+        "summary": "Get Content Permission - single",
         "description": "Gets the content permission set detail information by the content permission set id.",
-        "operationId": "Permission_GetContentPermissions",
+        "operationId": "Permission_GetContentPermissionSet",
         "parameters": [
           {
             "type": "string",
@@ -3294,9 +3319,9 @@
         "tags": [
           "Permission"
         ],
-        "summary": "Search Schema Permissions",
+        "summary": "Search Schema PermissionSets",
         "description": "Searches schema permission sets as specified in the search request.",
-        "operationId": "Permission_SearchSchemaPermissions",
+        "operationId": "Permission_SearchSchemaPermissionSets",
         "parameters": [
           {
             "name": "request",
@@ -3345,9 +3370,9 @@
         "tags": [
           "Permission"
         ],
-        "summary": "Get Schema Permission Single",
+        "summary": "Get Schema PermissionSets - single",
         "description": "Gets the schema permission set detail information by the schema permission set id.",
-        "operationId": "Permission_GetSchemaPermissions",
+        "operationId": "Permission_GetSchemaPermissionSet",
         "parameters": [
           {
             "type": "string",
@@ -3363,6 +3388,76 @@
             "description": "SchemaPermissionSetDetail",
             "schema": {
               "$ref": "#/definitions/SchemaPermissionSetDetail"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/permission/userPermissions": {
+      "get": {
+        "tags": [
+          "Permission"
+        ],
+        "summary": "Has UserRight",
+        "description": "Validates if the User has a given UserRight",
+        "operationId": "Permission_HasUserRight",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "userRight",
+            "in": "query",
+            "required": true,
+            "x-schema": {
+              "$ref": "#/definitions/UserRight"
+            },
+            "x-nullable": false,
+            "description": "The UserRight to validate",
+            "enum": [
+              "ManageContent",
+              "ManageSharings",
+              "ManageDrives",
+              "ManageTransfer",
+              "ManageChannels",
+              "ManageSchemas",
+              "ManageUsers",
+              "ManageUserRoles",
+              "ManagePermissions",
+              "ManageSearchIndexes",
+              "ManageRecipients",
+              "ManageCollections",
+              "ManageListItems",
+              "ManageServiceProviders",
+              "ManageEmbeds",
+              "ManageTemplates"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Boolean - user has permission",
+            "schema": {
+              "type": "boolean"
             },
             "x-nullable": false
           },
@@ -3473,75 +3568,11 @@
       }
     },
     "/v1/shares/{id}": {
-      "put": {
-        "tags": [
-          "Share"
-        ],
-        "summary": "Update single",
-        "description": "The update of share is executed asynchronous. However, for the specified timeout completion of the update process is awaited.\nIf the update process is not completed by reaching the specified timeout, the update process continues, but null is returned.",
-        "operationId": "Share_Update",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The share id."
-          },
-          {
-            "name": "updateRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ShareBaseUpdateRequest"
-            },
-            "x-nullable": true,
-            "description": "The share update request."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Share",
-            "schema": {
-              "$ref": "#/definitions/ShareDetail"
-            },
-            "x-nullable": false
-          },
-          "400": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "share_write"
-            ]
-          }
-        ]
-      },
       "get": {
         "tags": [
           "Share"
         ],
-        "summary": "Get single",
+        "summary": "Get - single",
         "description": "Get share by id (basic or embed)",
         "operationId": "Share_Get",
         "parameters": [
@@ -3590,35 +3621,46 @@
             ]
           }
         ]
-      }
-    },
-    "/v1/shares/many": {
-      "delete": {
+      },
+      "put": {
         "tags": [
           "Share"
         ],
-        "summary": "Delete many",
-        "description": "Deletes multiple shares. Returnes a bulk reponse with information about successful and failed rows.",
-        "operationId": "Share_DeleteMany",
+        "summary": "Update - single",
+        "description": "Updates a single share.",
+        "operationId": "Share_Update",
         "parameters": [
           {
-            "type": "array",
-            "name": "ids",
-            "in": "query",
+            "type": "string",
+            "name": "id",
+            "in": "path",
             "required": true,
+            "x-nullable": false,
+            "description": "The share id."
+          },
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShareBaseUpdateRequest"
+            },
             "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "A list of shareIds to delete.",
-            "items": {
-              "type": "string"
-            }
+            "description": "The share update request."
           }
         ],
         "responses": {
           "200": {
-            "description": "BusinessProcess",
+            "description": "Share",
             "schema": {
-              "$ref": "#/definitions/BulkResponse"
+              "$ref": "#/definitions/ShareDetail"
+            },
+            "x-nullable": false
+          },
+          "400": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
             },
             "x-nullable": false
           },
@@ -3628,129 +3670,6 @@
               "$ref": "#/definitions/PictureparkException"
             },
             "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "share_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/shares/aggregate": {
-      "post": {
-        "tags": [
-          "Share"
-        ],
-        "summary": "Aggregate",
-        "description": "Aggregates own shares",
-        "operationId": "Share_Aggregate",
-        "parameters": [
-          {
-            "name": "request",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ShareAggregationRequest"
-            },
-            "x-nullable": true,
-            "description": "Aggregation request"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "AggregationResult",
-            "schema": {
-              "$ref": "#/definitions/ObjectAggregationResult"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "share_read"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/shares": {
-      "post": {
-        "tags": [
-          "Share"
-        ],
-        "summary": "Create single",
-        "description": "Create a new share (basic or embed).",
-        "operationId": "Share_Create",
-        "parameters": [
-          {
-            "name": "request",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ShareBaseCreateRequest"
-            },
-            "x-nullable": true,
-            "description": "Polymorph create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest"
-          }
-        ],
-        "responses": {
-          "404": {
-            "description": "Submited content could not be found",
-            "schema": {
-              "$ref": "#/definitions/ContentNotFoundException"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "No permission to share content\nor\nInternal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true,
-            "x-expectedSchemas": [
-              {
-                "description": "No permission to share content",
-                "schema": {
-                  "$ref": "#/definitions/PermissionException"
-                }
-              },
-              {
-                "description": "Internal server error",
-                "schema": {
-                  "$ref": "#/definitions/PictureparkException"
-                }
-              }
-            ]
-          },
-          "200": {
-            "description": "Create result",
-            "schema": {
-              "$ref": "#/definitions/CreateShareResult"
-            },
-            "x-nullable": false
           },
           "401": {
             "description": "Not authorized"
@@ -3819,33 +3738,33 @@
         ]
       }
     },
-    "/v1/serviceProviders/{serviceProviderId}/message": {
+    "/v1/shares/aggregate": {
       "post": {
         "tags": [
-          "ServiceProvider"
+          "Share"
         ],
-        "operationId": "ServiceProvider_SendMessage",
+        "summary": "Aggregate",
+        "description": "Aggregates own shares",
+        "operationId": "Share_Aggregate",
         "parameters": [
-          {
-            "type": "string",
-            "name": "serviceProviderId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false
-          },
           {
             "name": "request",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/SendMessageRequest"
+              "$ref": "#/definitions/ShareAggregationRequest"
             },
-            "x-nullable": true
+            "x-nullable": true,
+            "description": "Aggregation request"
           }
         ],
         "responses": {
-          "204": {
-            "description": ""
+          "200": {
+            "description": "AggregationResult",
+            "schema": {
+              "$ref": "#/definitions/ObjectAggregationResult"
+            },
+            "x-nullable": false
           },
           "500": {
             "description": "Internal server error",
@@ -3864,7 +3783,125 @@
         "security": [
           {
             "Bearer": [
-              "serviceprovider_write"
+              "share_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/shares": {
+      "post": {
+        "tags": [
+          "Share"
+        ],
+        "summary": "Create - single",
+        "description": "Create a new share (basic or embed).",
+        "operationId": "Share_Create",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShareBaseCreateRequest"
+            },
+            "x-nullable": true,
+            "description": "Polymorph create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Submited content could not be found",
+            "schema": {
+              "$ref": "#/definitions/ContentNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "403": {
+            "description": "No permission to share",
+            "schema": {
+              "$ref": "#/definitions/PermissionException"
+            },
+            "x-nullable": true
+          },
+          "200": {
+            "description": "Create result",
+            "schema": {
+              "$ref": "#/definitions/CreateShareResult"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "share_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/shares/many": {
+      "delete": {
+        "tags": [
+          "Share"
+        ],
+        "summary": "Delete - many",
+        "description": "Deletes multiple shares. Returnes a bulk reponse with information about successful and failed rows.",
+        "operationId": "Share_DeleteMany",
+        "parameters": [
+          {
+            "type": "array",
+            "name": "ids",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "A list of shareIds to delete.",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BulkResponse"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "share_write"
             ]
           }
         ]
@@ -3875,6 +3912,8 @@
         "tags": [
           "ServiceProvider"
         ],
+        "summary": "Get configuration",
+        "description": "Gets the customer configuration of a specific service provider instance.",
         "operationId": "ServiceProvider_GetConfiguration",
         "parameters": [
           {
@@ -3919,6 +3958,8 @@
         "tags": [
           "ServiceProvider"
         ],
+        "summary": "Update configuration",
+        "description": "Updates the customer configuration of a specific service provider instance.",
         "operationId": "ServiceProvider_UpdateConfiguration",
         "parameters": [
           {
@@ -3969,31 +4010,72 @@
         ]
       }
     },
-    "/v1/transfers/files/delete": {
-      "post": {
+    "/v1/transfers/{transferId}": {
+      "get": {
         "tags": [
           "Transfer"
         ],
-        "summary": "Delete Files",
-        "operationId": "Transfer_DeleteFiles",
+        "summary": "Get Transferdetail",
+        "operationId": "Transfer_Get",
         "parameters": [
           {
-            "name": "request",
-            "in": "body",
+            "type": "string",
+            "name": "transferId",
+            "in": "path",
             "required": true,
-            "schema": {
-              "$ref": "#/definitions/FileTransferDeleteRequest"
-            },
-            "x-nullable": true,
-            "description": "The filetransfer delete request"
+            "x-nullable": false,
+            "description": "The tranfer id"
           }
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "TransferDetail",
+            "schema": {
+              "$ref": "#/definitions/TransferDetail"
+            },
+            "x-nullable": false
           },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "transfer_read"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Transfer"
+        ],
+        "summary": "Delete Transfer",
+        "operationId": "Transfer_Delete",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "transferId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The tranfer id"
+          }
+        ],
+        "responses": {
           "204": {
-            "description": ""
+            "description": "Transfer"
           },
           "500": {
             "description": "Internal server error",
@@ -4018,19 +4100,30 @@
         ]
       }
     },
-    "/v1/transfers/files/blacklist": {
-      "get": {
+    "/v1/transfers/search": {
+      "post": {
         "tags": [
           "Transfer"
         ],
-        "summary": "Get Blacklist",
-        "operationId": "Transfer_GetBlacklist",
-        "parameters": [],
+        "summary": "Search ",
+        "operationId": "Transfer_Search",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TransferSearchRequest"
+            },
+            "x-nullable": true,
+            "description": "The transfer search request"
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Blacklist",
+            "description": "TransferSearchResult",
             "schema": {
-              "$ref": "#/definitions/Blacklist"
+              "$ref": "#/definitions/TransferSearchResult"
             },
             "x-nullable": false
           },
@@ -4062,7 +4155,7 @@
         "tags": [
           "Transfer"
         ],
-        "summary": "Cancels an active transfer. Valid states: TODO",
+        "summary": "Cancels a transfer.",
         "operationId": "Transfer_CancelTransfer",
         "parameters": [
           {
@@ -4150,96 +4243,6 @@
         ]
       }
     },
-    "/v1/transfers/{transferId}": {
-      "delete": {
-        "tags": [
-          "Transfer"
-        ],
-        "summary": "Delete Transfer",
-        "operationId": "Transfer_Delete",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "transferId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The tranfer id"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Transfer"
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "transfer_write"
-            ]
-          }
-        ]
-      },
-      "get": {
-        "tags": [
-          "Transfer"
-        ],
-        "summary": "Get Transferdetail",
-        "operationId": "Transfer_Get",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "transferId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The tranfer id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "TransferDetail",
-            "schema": {
-              "$ref": "#/definitions/TransferDetail"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "transfer_read"
-            ]
-          }
-        ]
-      }
-    },
     "/v1/transfers/files/{fileTransferId}": {
       "get": {
         "tags": [
@@ -4288,12 +4291,150 @@
         ]
       }
     },
+    "/v1/transfers/files/search": {
+      "post": {
+        "tags": [
+          "Transfer"
+        ],
+        "summary": "Search for files",
+        "operationId": "Transfer_SearchFiles",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FileTransferSearchRequest"
+            },
+            "x-nullable": true,
+            "description": "The file transfer search request"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "FileTransferSearchResult",
+            "schema": {
+              "$ref": "#/definitions/FileTransferSearchResult"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "transfer_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/transfers/files/blacklist": {
+      "get": {
+        "tags": [
+          "Transfer"
+        ],
+        "summary": "Get Blacklist",
+        "operationId": "Transfer_GetBlacklist",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Blacklist",
+            "schema": {
+              "$ref": "#/definitions/Blacklist"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "transfer_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/transfers/files/delete": {
+      "post": {
+        "tags": [
+          "Transfer"
+        ],
+        "summary": "Delete Files",
+        "operationId": "Transfer_DeleteFiles",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FileTransferDeleteRequest"
+            },
+            "x-nullable": true,
+            "description": "The filetransfer delete request"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "204": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "transfer_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/transfers/{transferId}/import": {
       "post": {
         "tags": [
           "Transfer"
         ],
-        "summary": "Delete Transfer",
+        "summary": "Import transfer",
         "operationId": "Transfer_ImportTransfer",
         "parameters": [
           {
@@ -4404,106 +4545,6 @@
         ]
       }
     },
-    "/v1/transfers/search": {
-      "post": {
-        "tags": [
-          "Transfer"
-        ],
-        "summary": "Search ",
-        "operationId": "Transfer_Search",
-        "parameters": [
-          {
-            "name": "request",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/TransferSearchRequest"
-            },
-            "x-nullable": true,
-            "description": "The transfer search request"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "TransferSearchResult",
-            "schema": {
-              "$ref": "#/definitions/TransferSearchResult"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "transfer_read"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/transfers/files/search": {
-      "post": {
-        "tags": [
-          "Transfer"
-        ],
-        "summary": "Search for files",
-        "operationId": "Transfer_SearchFiles",
-        "parameters": [
-          {
-            "name": "request",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/FileTransferSearchRequest"
-            },
-            "x-nullable": true,
-            "description": "The file transfer search request"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "FileTransferSearchResult",
-            "schema": {
-              "$ref": "#/definitions/FileTransferSearchResult"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "transfer_read"
-            ]
-          }
-        ]
-      }
-    },
     "/v1/transfers/{transferId}/files/{identifier}/upload": {
       "post": {
         "tags": [
@@ -4603,6 +4644,54 @@
         ]
       }
     },
+    "/v1/users/{userId}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get by id",
+        "operationId": "User_Get",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The user id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "UserDetail",
+            "schema": {
+              "$ref": "#/definitions/UserDetail"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/users/search": {
       "post": {
         "tags": [
@@ -4653,60 +4742,12 @@
         ]
       }
     },
-    "/v1/users/{userId}": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "summary": "Get Userdetail by id",
-        "operationId": "User_Get",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "userId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The user id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "UserDetail",
-            "schema": {
-              "$ref": "#/definitions/UserDetail"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "user_read"
-            ]
-          }
-        ]
-      }
-    },
     "/v1/users/owner/{tokenId}": {
       "get": {
         "tags": [
           "User"
         ],
-        "summary": "Get userdetail by owner token",
+        "summary": "Get by owner token",
         "operationId": "User_GetByOwnerToken",
         "parameters": [
           {
@@ -4754,7 +4795,7 @@
         "tags": [
           "User"
         ],
-        "summary": "Get List of Channels",
+        "summary": "Get list of channels",
         "operationId": "User_GetChannels",
         "parameters": [],
         "responses": {
@@ -9966,210 +10007,6 @@
         }
       }
     },
-    "ExistsResponse": {
-      "type": "object",
-      "description": "Response that tells if exists",
-      "additionalProperties": false,
-      "required": [
-        "exists"
-      ],
-      "properties": {
-        "exists": {
-          "type": "boolean",
-          "description": "Gets or sets a value indicating whether it exists"
-        }
-      }
-    },
-    "SchemaCreateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "sortOrder",
-        "public"
-      ],
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "The schema id. Can be a slug, but must be unique throughout the whole customer setup."
-        },
-        "parentSchemaId": {
-          "type": "string",
-          "description": "The parent schema id."
-        },
-        "types": {
-          "type": "array",
-          "description": "Types control schema usage.",
-          "items": {
-            "$ref": "#/definitions/SchemaType"
-          }
-        },
-        "names": {
-          "description": "Language specific schema names.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        },
-        "descriptions": {
-          "description": "Language specific schema descriptions.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        },
-        "displayPatterns": {
-          "type": "array",
-          "description": "Language specific DotLiquid templates. These templates will be resolved into display values in content documents and/or list items.",
-          "items": {
-            "$ref": "#/definitions/DisplayPattern"
-          }
-        },
-        "fields": {
-          "type": "array",
-          "description": "The schema fields. Can be empty.",
-          "items": {
-            "$ref": "#/definitions/FieldBase"
-          }
-        },
-        "aggregations": {
-          "type": "array",
-          "description": "An optional list of aggregations to group content documents and/or list items.",
-          "items": {
-            "$ref": "#/definitions/AggregatorBase"
-          }
-        },
-        "sortOrder": {
-          "type": "integer",
-          "description": "A simple ordering property for schemas.",
-          "format": "int32"
-        },
-        "sort": {
-          "type": "array",
-          "description": "Sorts content documents and/or list items.",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
-          }
-        },
-        "public": {
-          "type": "boolean",
-          "description": "Opens list item document accessibility. If true SchemaPermissionSetIds must be empty."
-        },
-        "schemaPermissionSetIds": {
-          "type": "array",
-          "description": "An optional id list of schema permission sets. Control list item document permissions. When not empty Public must be false.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "layerSchemaIds": {
-          "type": "array",
-          "description": "An optional id list of schemas with type layer.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "referencedInContentSchemaIds": {
-          "type": "array",
-          "description": "An optional id list of schemas with type content for a schema with type layer.",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "SchemaUpdateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "sortOrder",
-        "public"
-      ],
-      "properties": {
-        "names": {
-          "description": "Language specific schema names.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        },
-        "descriptions": {
-          "description": "Language specific schema descriptions.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        },
-        "displayPatterns": {
-          "type": "array",
-          "description": "Language specific DotLiquid templates. These templates will be resolved into display values in content documents and/or list items.",
-          "items": {
-            "$ref": "#/definitions/DisplayPattern"
-          }
-        },
-        "fields": {
-          "type": "array",
-          "description": "The schema fields.",
-          "items": {
-            "$ref": "#/definitions/FieldBase"
-          }
-        },
-        "aggregations": {
-          "type": "array",
-          "description": "An optional list of aggregations to group content documents and list items.",
-          "items": {
-            "$ref": "#/definitions/AggregatorBase"
-          }
-        },
-        "sortOrder": {
-          "type": "integer",
-          "description": "A simple ordering property for schemas.",
-          "format": "int32"
-        },
-        "sort": {
-          "type": "array",
-          "description": "Sorts content documents and/or list items.",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
-          }
-        },
-        "public": {
-          "type": "boolean",
-          "description": "Opens schema accessibility."
-        },
-        "schemaPermissionSetIds": {
-          "type": "array",
-          "description": "An optional id list of schema permission sets which control list item permissions. When not empty Public must be false.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "layerSchemaIds": {
-          "type": "array",
-          "description": "An optional id list of schemas with type layer.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "referencedInContentSchemaIds": {
-          "type": "array",
-          "description": "An optional id list of schemas with type content for a schema with type layer.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "types": {
-          "type": "array",
-          "description": "Types control schema usage. Schema types can only be added, but not removed.",
-          "items": {
-            "$ref": "#/definitions/SchemaType"
-          }
-        }
-      }
-    },
     "SchemaSearchRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -10346,44 +10183,293 @@
         }
       }
     },
-    "UserRight": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "ManageContent",
-        "ManageSharings",
-        "ManageDrives",
-        "ManageTransfer",
-        "ManageChannels",
-        "ManageSchemas",
-        "ManageUsers",
-        "ManageUserRoles",
-        "ManagePermissions",
-        "ManageSearchIndexes",
-        "ManageRecipients",
-        "ManageCollections",
-        "ManageListItems",
-        "ManageServiceProviders",
-        "ManageEmbeds",
-        "ManageTemplates"
+    "ExistsResponse": {
+      "type": "object",
+      "description": "Response that tells if exists",
+      "additionalProperties": false,
+      "required": [
+        "exists"
       ],
-      "enum": [
-        "ManageContent",
-        "ManageSharings",
-        "ManageDrives",
-        "ManageTransfer",
-        "ManageChannels",
-        "ManageSchemas",
-        "ManageUsers",
-        "ManageUserRoles",
-        "ManagePermissions",
-        "ManageSearchIndexes",
-        "ManageRecipients",
-        "ManageCollections",
-        "ManageListItems",
-        "ManageServiceProviders",
-        "ManageEmbeds",
-        "ManageTemplates"
+      "properties": {
+        "exists": {
+          "type": "boolean",
+          "description": "Gets or sets a value indicating whether it exists"
+        }
+      }
+    },
+    "SchemaCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sortOrder",
+        "public"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The schema id. Can be a slug, but must be unique throughout the whole customer setup."
+        },
+        "parentSchemaId": {
+          "type": "string",
+          "description": "The parent schema id."
+        },
+        "types": {
+          "type": "array",
+          "description": "Types control schema usage.",
+          "items": {
+            "$ref": "#/definitions/SchemaType"
+          }
+        },
+        "names": {
+          "description": "Language specific schema names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "descriptions": {
+          "description": "Language specific schema descriptions.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "displayPatterns": {
+          "type": "array",
+          "description": "Language specific DotLiquid templates. These templates will be resolved into display values in content documents and/or list items.",
+          "items": {
+            "$ref": "#/definitions/DisplayPattern"
+          }
+        },
+        "fields": {
+          "type": "array",
+          "description": "The schema fields. Can be empty.",
+          "items": {
+            "$ref": "#/definitions/FieldBase"
+          }
+        },
+        "aggregations": {
+          "type": "array",
+          "description": "An optional list of aggregations to group content documents and/or list items.",
+          "items": {
+            "$ref": "#/definitions/AggregatorBase"
+          }
+        },
+        "sortOrder": {
+          "type": "integer",
+          "description": "A simple ordering property for schemas.",
+          "format": "int32"
+        },
+        "sort": {
+          "type": "array",
+          "description": "Sorts content documents and/or list items.",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        },
+        "public": {
+          "type": "boolean",
+          "description": "Opens list item document accessibility. If true SchemaPermissionSetIds must be empty."
+        },
+        "schemaPermissionSetIds": {
+          "type": "array",
+          "description": "An optional id list of schema permission sets. Control list item document permissions. When not empty Public must be false.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "layerSchemaIds": {
+          "type": "array",
+          "description": "An optional id list of schemas with type layer.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "referencedInContentSchemaIds": {
+          "type": "array",
+          "description": "An optional id list of schemas with type content for a schema with type layer.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DuplicateSchemaException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "SchemaValidationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "exceptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PictureparkBusinessException"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "SchemaCyclicDependencyException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "SchemaUpdateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sortOrder",
+        "public"
+      ],
+      "properties": {
+        "names": {
+          "description": "Language specific schema names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "descriptions": {
+          "description": "Language specific schema descriptions.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "displayPatterns": {
+          "type": "array",
+          "description": "Language specific DotLiquid templates. These templates will be resolved into display values in content documents and/or list items.",
+          "items": {
+            "$ref": "#/definitions/DisplayPattern"
+          }
+        },
+        "fields": {
+          "type": "array",
+          "description": "The schema fields.",
+          "items": {
+            "$ref": "#/definitions/FieldBase"
+          }
+        },
+        "aggregations": {
+          "type": "array",
+          "description": "An optional list of aggregations to group content documents and list items.",
+          "items": {
+            "$ref": "#/definitions/AggregatorBase"
+          }
+        },
+        "sortOrder": {
+          "type": "integer",
+          "description": "A simple ordering property for schemas.",
+          "format": "int32"
+        },
+        "sort": {
+          "type": "array",
+          "description": "Sorts content documents and/or list items.",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        },
+        "public": {
+          "type": "boolean",
+          "description": "Opens schema accessibility."
+        },
+        "schemaPermissionSetIds": {
+          "type": "array",
+          "description": "An optional id list of schema permission sets which control list item permissions. When not empty Public must be false.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "layerSchemaIds": {
+          "type": "array",
+          "description": "An optional id list of schemas with type layer.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "referencedInContentSchemaIds": {
+          "type": "array",
+          "description": "An optional id list of schemas with type content for a schema with type layer.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "types": {
+          "type": "array",
+          "description": "Types control schema usage. Schema types can only be added, but not removed.",
+          "items": {
+            "$ref": "#/definitions/SchemaType"
+          }
+        }
+      }
+    },
+    "SchemaNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "SchemaInUseException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "exceptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PictureparkBusinessException"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
       ]
     },
     "PermissionSetSearchRequest": {
@@ -10685,6 +10771,46 @@
         "View",
         "Edit",
         "Manage"
+      ]
+    },
+    "UserRight": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "ManageContent",
+        "ManageSharings",
+        "ManageDrives",
+        "ManageTransfer",
+        "ManageChannels",
+        "ManageSchemas",
+        "ManageUsers",
+        "ManageUserRoles",
+        "ManagePermissions",
+        "ManageSearchIndexes",
+        "ManageRecipients",
+        "ManageCollections",
+        "ManageListItems",
+        "ManageServiceProviders",
+        "ManageEmbeds",
+        "ManageTemplates"
+      ],
+      "enum": [
+        "ManageContent",
+        "ManageSharings",
+        "ManageDrives",
+        "ManageTransfer",
+        "ManageChannels",
+        "ManageSchemas",
+        "ManageUsers",
+        "ManageUserRoles",
+        "ManagePermissions",
+        "ManageSearchIndexes",
+        "ManageRecipients",
+        "ManageCollections",
+        "ManageListItems",
+        "ManageServiceProviders",
+        "ManageEmbeds",
+        "ManageTemplates"
       ]
     },
     "VersionInfo": {
@@ -11217,129 +11343,6 @@
         "Embed"
       ]
     },
-    "ShareBaseUpdateRequest": {
-      "type": "object",
-      "discriminator": "kind",
-      "additionalProperties": false,
-      "required": [
-        "outputAccess",
-        "kind"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "expirationDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "description": {
-          "type": "string"
-        },
-        "shareContentItems": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ShareContent"
-          }
-        },
-        "layerSchemaIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "template": {
-          "$ref": "#/definitions/TemplateBase"
-        },
-        "outputAccess": {
-          "$ref": "#/definitions/OutputAccess"
-        },
-        "kind": {
-          "type": "string"
-        }
-      }
-    },
-    "ShareContent": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentId": {
-          "type": "string"
-        },
-        "outputFormatIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "ShareBasicUpdateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareBaseUpdateRequest"
-        }
-      ]
-    },
-    "ShareEmbedUpdateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareBaseUpdateRequest"
-        }
-      ]
-    },
-    "ShareAggregationRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "searchString": {
-          "type": "string"
-        },
-        "searchBehaviours": {
-          "type": "array",
-          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
-          "items": {
-            "$ref": "#/definitions/SearchBehaviour"
-          }
-        },
-        "sort": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
-          }
-        },
-        "filter": {
-          "description": "An optional search filter. Limits the content document result set.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/FilterBase"
-            }
-          ]
-        },
-        "aggregationFilters": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregationFilter"
-          }
-        },
-        "aggregators": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AggregatorBase"
-          }
-        },
-        "displayLanguage": {
-          "type": "string"
-        }
-      }
-    },
     "ShareNotFoundException": {
       "type": "object",
       "additionalProperties": false,
@@ -11353,132 +11356,6 @@
           "$ref": "#/definitions/PictureparkBusinessException"
         }
       ]
-    },
-    "ShareBaseCreateRequest": {
-      "type": "object",
-      "discriminator": "kind",
-      "additionalProperties": false,
-      "required": [
-        "outputAccess",
-        "kind"
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "expirationDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "contents": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ShareContent"
-          }
-        },
-        "layerSchemaIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "template": {
-          "$ref": "#/definitions/TemplateBase"
-        },
-        "outputAccess": {
-          "$ref": "#/definitions/OutputAccess"
-        },
-        "kind": {
-          "type": "string"
-        }
-      }
-    },
-    "ShareBasicCreateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "recipientsEmail": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/UserEmail"
-          }
-        },
-        "recipientsUser": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/UserItem"
-          }
-        },
-        "recipientsGroup": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/UserRole"
-          }
-        },
-        "languageCode": {
-          "type": "string"
-        },
-        "mailTemplateId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareBaseCreateRequest"
-        }
-      ]
-    },
-    "UserRole": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "trashed"
-      ],
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "The user role id."
-        },
-        "trashed": {
-          "type": "boolean"
-        },
-        "names": {
-          "description": "Language specific user role names.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        },
-        "userRights": {
-          "type": "array",
-          "description": "All user rights for this user role.",
-          "items": {
-            "$ref": "#/definitions/UserRight"
-          }
-        }
-      }
-    },
-    "ShareEmbedCreateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/ShareBaseCreateRequest"
-        }
-      ]
-    },
-    "CreateShareResult": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "shareId": {
-          "type": "string"
-        }
-      }
     },
     "ShareSearchRequest": {
       "type": "object",
@@ -11627,18 +11504,254 @@
         }
       }
     },
-    "SendMessageRequest": {
+    "ShareAggregationRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "messageName": {
+        "searchString": {
           "type": "string"
         },
-        "businessProcessId": {
-          "type": "string"
+        "searchBehaviours": {
+          "type": "array",
+          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
         },
-        "variables": {}
+        "sort": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        },
+        "filter": {
+          "description": "An optional search filter. Limits the content document result set.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        },
+        "aggregationFilters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregationFilter"
+          }
+        },
+        "aggregators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregatorBase"
+          }
+        },
+        "displayLanguage": {
+          "type": "string"
+        }
       }
+    },
+    "ShareBaseCreateRequest": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "outputAccess",
+        "kind"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "expirationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "contents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShareContent"
+          }
+        },
+        "layerSchemaIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "template": {
+          "$ref": "#/definitions/TemplateBase"
+        },
+        "outputAccess": {
+          "$ref": "#/definitions/OutputAccess"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "ShareContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string"
+        },
+        "outputFormatIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ShareBasicCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "recipientsEmail": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserEmail"
+          }
+        },
+        "recipientsUser": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserItem"
+          }
+        },
+        "recipientsGroup": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserRole"
+          }
+        },
+        "languageCode": {
+          "type": "string"
+        },
+        "mailTemplateId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareBaseCreateRequest"
+        }
+      ]
+    },
+    "UserRole": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trashed"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The user role id."
+        },
+        "trashed": {
+          "type": "boolean"
+        },
+        "names": {
+          "description": "Language specific user role names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "userRights": {
+          "type": "array",
+          "description": "All user rights for this user role.",
+          "items": {
+            "$ref": "#/definitions/UserRight"
+          }
+        }
+      }
+    },
+    "ShareEmbedCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareBaseCreateRequest"
+        }
+      ]
+    },
+    "CreateShareResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "shareId": {
+          "type": "string"
+        }
+      }
+    },
+    "ShareBaseUpdateRequest": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "outputAccess",
+        "kind"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "expirationDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "description": {
+          "type": "string"
+        },
+        "shareContentItems": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ShareContent"
+          }
+        },
+        "layerSchemaIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "template": {
+          "$ref": "#/definitions/TemplateBase"
+        },
+        "outputAccess": {
+          "$ref": "#/definitions/OutputAccess"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "ShareBasicUpdateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareBaseUpdateRequest"
+        }
+      ]
+    },
+    "ShareEmbedUpdateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/ShareBaseUpdateRequest"
+        }
+      ]
     },
     "CustomerServiceProviderConfiguration": {
       "type": "object",
@@ -11681,232 +11794,6 @@
           }
         }
       }
-    },
-    "FileTransferDeleteRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "transferId": {
-          "type": "string"
-        },
-        "fileTransferIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "Blacklist": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "items": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/BlacklistItem"
-          }
-        }
-      }
-    },
-    "BlacklistItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "match": {
-          "type": "string"
-        }
-      }
-    },
-    "CreateTransferRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "transferType",
-        "createCollection"
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "transferType": {
-          "$ref": "#/definitions/TransferType"
-        },
-        "files": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/TransferUploadFile"
-          }
-        },
-        "driveFiles": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/TransferDriveFile"
-          }
-        },
-        "webLinks": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/TransferWebLink"
-          }
-        },
-        "collectionName": {
-          "type": "string"
-        },
-        "createCollection": {
-          "type": "boolean"
-        }
-      }
-    },
-    "TransferType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "FileUpload",
-        "FileUploadAutoImport",
-        "DriveImport",
-        "DriveExport",
-        "WebDownload",
-        "SchemaImport"
-      ],
-      "enum": [
-        "FileUpload",
-        "FileUploadAutoImport",
-        "DriveImport",
-        "DriveExport",
-        "WebDownload",
-        "SchemaImport"
-      ]
-    },
-    "TransferUploadFile": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "fileName": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/TransferFile"
-        }
-      ]
-    },
-    "TransferFile": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "identifier": {
-          "type": "string"
-        }
-      }
-    },
-    "TransferDriveFile": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "driveId": {
-          "type": "string"
-        },
-        "fileId": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "externalOutputFolderId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/TransferFile"
-        }
-      ]
-    },
-    "TransferWebLink": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "url": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/TransferFile"
-        }
-      ]
-    },
-    "Transfer": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "state",
-        "transferType",
-        "fileTransferCount"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "state": {
-          "$ref": "#/definitions/TransferState"
-        },
-        "transferType": {
-          "$ref": "#/definitions/TransferType"
-        },
-        "businessProcessId": {
-          "type": "string"
-        },
-        "fileTransferCount": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "collectionId": {
-          "type": "string"
-        }
-      }
-    },
-    "TransferState": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Draft",
-        "UploadInProgress",
-        "UploadCompleted",
-        "ImportInProgress",
-        "ImportCompleted",
-        "UploadCancelled",
-        "ImportCancelled",
-        "ImportFailed",
-        "Created",
-        "Deleted",
-        "TransferReady",
-        "FileDeleteInProgress",
-        "TransferCleanup"
-      ],
-      "enum": [
-        "Draft",
-        "UploadInProgress",
-        "UploadCompleted",
-        "ImportInProgress",
-        "ImportCompleted",
-        "UploadCancelled",
-        "ImportCancelled",
-        "ImportFailed",
-        "Created",
-        "Deleted",
-        "TransferReady",
-        "FileDeleteInProgress",
-        "TransferCleanup"
-      ]
     },
     "TransferDetail": {
       "type": "object",
@@ -11971,6 +11858,297 @@
           "type": "string"
         }
       }
+    },
+    "TransferState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "UploadInProgress",
+        "UploadCompleted",
+        "ImportInProgress",
+        "ImportCompleted",
+        "UploadCancelled",
+        "ImportCancelled",
+        "ImportFailed",
+        "Created",
+        "Deleted",
+        "TransferReady",
+        "FileDeleteInProgress",
+        "TransferCleanup"
+      ],
+      "enum": [
+        "Draft",
+        "UploadInProgress",
+        "UploadCompleted",
+        "ImportInProgress",
+        "ImportCompleted",
+        "UploadCancelled",
+        "ImportCancelled",
+        "ImportFailed",
+        "Created",
+        "Deleted",
+        "TransferReady",
+        "FileDeleteInProgress",
+        "TransferCleanup"
+      ]
+    },
+    "TransferType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "FileUpload",
+        "FileUploadAutoImport",
+        "DriveImport",
+        "DriveExport",
+        "WebDownload",
+        "SchemaImport"
+      ],
+      "enum": [
+        "FileUpload",
+        "FileUploadAutoImport",
+        "DriveImport",
+        "DriveExport",
+        "WebDownload",
+        "SchemaImport"
+      ]
+    },
+    "TransferSearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "limit"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string",
+          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
+        },
+        "searchBehaviours": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
+        },
+        "sort": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        },
+        "start": {
+          "type": "integer",
+          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+          "format": "int32",
+          "default": 0
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Limits the document count of the result set. Defaults to 30.",
+          "format": "int32",
+          "default": 30
+        },
+        "filter": {
+          "$ref": "#/definitions/FilterBase"
+        }
+      }
+    },
+    "TransferSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "elapsedMilliseconds"
+      ],
+      "properties": {
+        "elapsedMilliseconds": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/SearchBehaviourBaseResultOfTransfer"
+        }
+      ]
+    },
+    "SearchBehaviourBaseResultOfTransfer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isSearchStringRewritten"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "isSearchStringRewritten": {
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfTransfer"
+        }
+      ]
+    },
+    "BaseResultOfTransfer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "totalResults"
+      ],
+      "properties": {
+        "totalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Transfer"
+          }
+        },
+        "pageToken": {
+          "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
+        }
+      }
+    },
+    "Transfer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "transferType",
+        "fileTransferCount"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/definitions/TransferState"
+        },
+        "transferType": {
+          "$ref": "#/definitions/TransferType"
+        },
+        "businessProcessId": {
+          "type": "string"
+        },
+        "fileTransferCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "collectionId": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateTransferRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "transferType",
+        "createCollection"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "transferType": {
+          "$ref": "#/definitions/TransferType"
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TransferUploadFile"
+          }
+        },
+        "driveFiles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TransferDriveFile"
+          }
+        },
+        "webLinks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TransferWebLink"
+          }
+        },
+        "collectionName": {
+          "type": "string"
+        },
+        "createCollection": {
+          "type": "boolean"
+        }
+      }
+    },
+    "TransferUploadFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fileName": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/TransferFile"
+        }
+      ]
+    },
+    "TransferFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "identifier": {
+          "type": "string"
+        }
+      }
+    },
+    "TransferDriveFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "driveId": {
+          "type": "string"
+        },
+        "fileId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "externalOutputFolderId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/TransferFile"
+        }
+      ]
+    },
+    "TransferWebLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/TransferFile"
+        }
+      ]
     },
     "FileTransferDetail": {
       "type": "object",
@@ -16557,177 +16735,6 @@
         "Embedded"
       ]
     },
-    "FileTransfer2ContentCreateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "transferId": {
-          "type": "string"
-        },
-        "layerSchemaIds": {
-          "type": "array",
-          "description": "An optional id list of schemas with type layer.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "metadata": {
-          "$ref": "#/definitions/DataDictionary"
-        },
-        "contentPermissionSetIds": {
-          "type": "array",
-          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "FileTransferPartial2ContentCreateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "transferId": {
-          "type": "string"
-        },
-        "items": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/FileTransferCreateItem"
-          }
-        }
-      }
-    },
-    "FileTransferCreateItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "fileId": {
-          "type": "string"
-        },
-        "layerSchemaIds": {
-          "type": "array",
-          "description": "An optional id list of schemas with type layer.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "metadata": {
-          "$ref": "#/definitions/DataDictionary"
-        },
-        "contentPermissionSetIds": {
-          "type": "array",
-          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "TransferSearchRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "start",
-        "limit"
-      ],
-      "properties": {
-        "searchString": {
-          "type": "string",
-          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
-        },
-        "searchBehaviours": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SearchBehaviour"
-          }
-        },
-        "sort": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
-          }
-        },
-        "start": {
-          "type": "integer",
-          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-          "format": "int32",
-          "default": 0
-        },
-        "limit": {
-          "type": "integer",
-          "description": "Limits the document count of the result set. Defaults to 30.",
-          "format": "int32",
-          "default": 30
-        },
-        "filter": {
-          "$ref": "#/definitions/FilterBase"
-        }
-      }
-    },
-    "TransferSearchResult": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "elapsedMilliseconds"
-      ],
-      "properties": {
-        "elapsedMilliseconds": {
-          "type": "integer",
-          "format": "int64"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/SearchBehaviourBaseResultOfTransfer"
-        }
-      ]
-    },
-    "SearchBehaviourBaseResultOfTransfer": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "isSearchStringRewritten"
-      ],
-      "properties": {
-        "searchString": {
-          "type": "string"
-        },
-        "isSearchStringRewritten": {
-          "type": "boolean"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/BaseResultOfTransfer"
-        }
-      ]
-    },
-    "BaseResultOfTransfer": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "totalResults"
-      ],
-      "properties": {
-        "totalResults": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "results": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Transfer"
-          }
-        },
-        "pageToken": {
-          "type": "string"
-        },
-        "queryDebugInformation": {
-          "$ref": "#/definitions/QueryDebugInformation"
-        }
-      }
-    },
     "FileTransferSearchRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -16857,6 +16864,228 @@
           "type": "string"
         }
       }
+    },
+    "Blacklist": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BlacklistItem"
+          }
+        }
+      }
+    },
+    "BlacklistItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "match": {
+          "type": "string"
+        }
+      }
+    },
+    "FileTransferDeleteRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "transferId": {
+          "type": "string"
+        },
+        "fileTransferIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "FileTransfer2ContentCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "transferId": {
+          "type": "string"
+        },
+        "layerSchemaIds": {
+          "type": "array",
+          "description": "An optional id list of schemas with type layer.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "metadata": {
+          "$ref": "#/definitions/DataDictionary"
+        },
+        "contentPermissionSetIds": {
+          "type": "array",
+          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "FileTransferPartial2ContentCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "transferId": {
+          "type": "string"
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FileTransferCreateItem"
+          }
+        }
+      }
+    },
+    "FileTransferCreateItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fileId": {
+          "type": "string"
+        },
+        "layerSchemaIds": {
+          "type": "array",
+          "description": "An optional id list of schemas with type layer.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "metadata": {
+          "$ref": "#/definitions/DataDictionary"
+        },
+        "contentPermissionSetIds": {
+          "type": "array",
+          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UserDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authorizationState"
+      ],
+      "properties": {
+        "userRoles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserRole"
+          }
+        },
+        "comment": {
+          "type": "string"
+        },
+        "languageCode": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/definitions/UserAddress"
+        },
+        "drives": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Drive"
+          }
+        },
+        "ownerTokens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OwnerToken"
+          }
+        },
+        "authorizationState": {
+          "$ref": "#/definitions/AuthorizationState"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/UserItem"
+        }
+      ]
+    },
+    "UserAddress": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "company": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "alternativeAddress": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        }
+      }
+    },
+    "Drive": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "OwnerToken": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ownertoken id."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The id of the user to whom this ownertoken currently belongs to."
+        }
+      }
+    },
+    "AuthorizationState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Active",
+        "Review",
+        "Locked",
+        "Invited"
+      ],
+      "enum": [
+        "Active",
+        "Review",
+        "Locked",
+        "Invited"
+      ]
     },
     "UserSearchRequest": {
       "type": "object",
@@ -17001,122 +17230,6 @@
           "type": "string"
         }
       }
-    },
-    "UserDetail": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "authorizationState"
-      ],
-      "properties": {
-        "userRoles": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/UserRole"
-          }
-        },
-        "comment": {
-          "type": "string"
-        },
-        "languageCode": {
-          "type": "string"
-        },
-        "address": {
-          "$ref": "#/definitions/UserAddress"
-        },
-        "drives": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Drive"
-          }
-        },
-        "ownerTokens": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OwnerToken"
-          }
-        },
-        "authorizationState": {
-          "$ref": "#/definitions/AuthorizationState"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/UserItem"
-        }
-      ]
-    },
-    "UserAddress": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "company": {
-          "type": "string"
-        },
-        "address": {
-          "type": "string"
-        },
-        "alternativeAddress": {
-          "type": "string"
-        },
-        "department": {
-          "type": "string"
-        },
-        "zip": {
-          "type": "string"
-        },
-        "city": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
-        },
-        "countryCode": {
-          "type": "string"
-        }
-      }
-    },
-    "Drive": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        }
-      }
-    },
-    "OwnerToken": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "The ownertoken id."
-        },
-        "userId": {
-          "type": "string",
-          "description": "The id of the user to whom this ownertoken currently belongs to."
-        }
-      }
-    },
-    "AuthorizationState": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Active",
-        "Review",
-        "Locked",
-        "Invited"
-      ],
-      "enum": [
-        "Active",
-        "Review",
-        "Locked",
-        "Invited"
-      ]
     },
     "Channel": {
       "type": "object",
@@ -17298,8 +17411,40 @@
       "description": "Endpoints to work with live stream.\r\n\r\nENDPOINT CURRENTLY NOT EXPOSED. Use [ServiceProviders](https://www.nuget.org/packages/Picturepark.SDK.V1.ServiceProvider/) to get a live stream of messages.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/samples/Picturepark.ServiceProvider.Example)\r\n"
     },
     {
+      "name": "Schema",
+      "description": "Endpoints to work with schemas.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/SchemaTests.cs)\r\n"
+    },
+    {
+      "name": "Permission",
+      "description": "Endpoints to work with permissions.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/PermissionTests.cs)\r\n"
+    },
+    {
+      "name": "PublicAccess",
+      "description": "Endpoints to work with public accessable ressources.\r\n\r\nNo need to pass an AccessToken in the header.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/PublicAccessTests.cs)\r\n"
+    },
+    {
+      "name": "Share",
+      "description": "Endpoints to work with shares.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ShareTests.cs)\r\n"
+    },
+    {
+      "name": "ServiceProvider",
+      "description": "Endpoints to work with service providers.\r\n\r\n[TODO: Create Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/)\r\n"
+    },
+    {
+      "name": "Transfer",
+      "description": "Endpoints to work with transfers.\r\n\r\nUsual process to import file as content:\r\n- Create transfer\r\n- Upload files to this transfer\r\n- ImportTransfer or PartialImportTransfer\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/TransferTests.cs)\r\n"
+    },
+    {
+      "name": "User",
+      "description": "Endpoints to work with users.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/UserTests.cs)\r\n"
+    },
+    {
       "name": "Output",
       "description": "Endpoints to work with content outputs.\r\n\r\nOutputs for contents are created on the import process. There are predefined outputs for each file-based content.\r\n\r\n- Original: The original file uploaded (exists always)\r\n- Preview: A preview of the file (1600*1600px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (120*90px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (240*240px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (320*320px in JPEG Format for previewing, exists if preview of format is supported)\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/OutputTests.cs)\r\n"
+    },
+    {
+      "name": "Profile",
+      "description": "Endpoints to work with currently logged in user profile.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ProfileTests.cs)\r\n"
     }
   ]
 }
