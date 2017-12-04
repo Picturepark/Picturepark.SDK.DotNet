@@ -91,7 +91,10 @@
               <div class="inheritedMembers">
                 <h5>Inherited Members</h5>
                 <div>
-                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_Alias">ClientBase.Alias</a>
+                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_BaseUrl">ClientBase.BaseUrl</a>
+                </div>
+                <div>
+                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CustomerAlias">ClientBase.CustomerAlias</a>
                 </div>
                 <div>
                   <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_CancellationToken_">ClientBase.CreateHttpRequestMessageAsync(CancellationToken)</a>
@@ -154,33 +157,6 @@
                   <tr>
                     <td><span class="xref">System.Net.Http.HttpClient</span></td>
                     <td><span class="parametername">httpClient</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h3 id="properties">Properties
-              </h3>
-              
-              
-              <a id="Picturepark_SDK_V1_BusinessProcessClient_BaseUrl_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.BaseUrl*"></a>
-              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_BaseUrl" data-uid="Picturepark.SDK.V1.BusinessProcessClient.BaseUrl">BaseUrl</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string BaseUrl { get; set; }</code></pre>
-              </div>
-              <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -473,192 +449,14 @@
               </table>
               
               
-              <a id="Picturepark_SDK_V1_BusinessProcessClient_Wait_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.Wait*"></a>
-              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_Wait_System_String_IEnumerable_System_String__IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_System_Int32__" data-uid="Picturepark.SDK.V1.BusinessProcessClient.Wait(System.String,IEnumerable{System.String},IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle},System.Nullable{System.Int32})">Wait(String, IEnumerable&lt;String&gt;, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;Int32&gt;)</h4>
-              <div class="markdown level1 summary"><p>Wait</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public BusinessProcessWaitResult Wait(string processId, IEnumerable&lt;string&gt; states = null, IEnumerable&lt;BusinessProcessLifeCycle&gt; lifeCycleIds = null, int ? timeout = null)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">processId</span></td>
-                    <td><p>The process id</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-                    <td><span class="parametername">states</span></td>
-                    <td><p>The states to wait for</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle.html">BusinessProcessLifeCycle</a>&gt;</td>
-                    <td><span class="parametername">lifeCycleIds</span></td>
-                    <td><p>Business process lifeCycle to wait for</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-                    <td><span class="parametername">timeout</span></td>
-                    <td><p>The timeout in ms to wait for completion.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitResult.html">BusinessProcessWaitResult</a></td>
-                    <td><p>BusinessProcessWaitResult</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_Wait_System_String_IEnumerable_System_String__IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_System_Int32__">IBusinessProcessClient.Wait(String, IEnumerable&lt;String&gt;, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;Int32&gt;)</a></div>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_BusinessProcessClient_WaitAsync_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitAsync_System_String_IEnumerable_System_String__IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_System_Int32__CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitAsync(System.String,IEnumerable{System.String},IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle},System.Nullable{System.Int32},CancellationToken)">WaitAsync(String, IEnumerable&lt;String&gt;, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;Int32&gt;, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Wait</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcessWaitResult&gt; WaitAsync(string processId, IEnumerable&lt;string&gt; states = null, IEnumerable&lt;BusinessProcessLifeCycle&gt; lifeCycleIds = null, int ? timeout = null, CancellationToken cancellationToken = null)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">processId</span></td>
-                    <td><p>The process id</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-                    <td><span class="parametername">states</span></td>
-                    <td><p>The states to wait for</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle.html">BusinessProcessLifeCycle</a>&gt;</td>
-                    <td><span class="parametername">lifeCycleIds</span></td>
-                    <td><p>Business process lifeCycle to wait for</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-                    <td><span class="parametername">timeout</span></td>
-                    <td><p>The timeout in ms to wait for completion.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitResult.html">BusinessProcessWaitResult</a>&gt;</td>
-                    <td><p>BusinessProcessWaitResult</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitAsync_System_String_IEnumerable_System_String__IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_System_Int32__CancellationToken_">IBusinessProcessClient.WaitAsync(String, IEnumerable&lt;String&gt;, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;Int32&gt;, CancellationToken)</a></div>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
               <a id="Picturepark_SDK_V1_BusinessProcessClient_WaitCore_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitCore*"></a>
-              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitCore_System_String_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_System_Int32__" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitCore(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle},System.Nullable{System.Int32})">WaitCore(String, IEnumerable&lt;String&gt;, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;Int32&gt;)</h4>
+              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitCore_System_String_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_System_TimeSpan__" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitCore(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle},System.Nullable{System.TimeSpan})">WaitCore(String, IEnumerable&lt;String&gt;, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;TimeSpan&gt;)</h4>
               <div class="markdown level1 summary"><p>Wait</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">protected BusinessProcessWaitResult WaitCore(string processId, IEnumerable&lt;string&gt; states = null, IEnumerable&lt;BusinessProcessLifeCycle&gt; lifeCycleIds = null, int ? timeout = null)</code></pre>
+                <pre><code class="lang-csharp hljs">protected BusinessProcessWaitResult WaitCore(string processId, IEnumerable&lt;string&gt; states = null, IEnumerable&lt;BusinessProcessLifeCycle&gt; lifeCycleIds = null, TimeSpan? timeout = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -689,9 +487,9 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
                     <td><span class="parametername">timeout</span></td>
-                    <td><p>The timeout in ms to wait for completion.</p>
+                    <td><p>The timeout to wait for completion.</p>
 </td>
                   </tr>
                 </tbody>
@@ -736,13 +534,13 @@
               
               
               <a id="Picturepark_SDK_V1_BusinessProcessClient_WaitCoreAsync_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitCoreAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitCoreAsync_System_String_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_System_Int32__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitCoreAsync(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle},System.Nullable{System.Int32},System.Threading.CancellationToken)">WaitCoreAsync(String, IEnumerable&lt;String&gt;, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;Int32&gt;, CancellationToken)</h4>
+              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitCoreAsync_System_String_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitCoreAsync(System.String,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle},System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">WaitCoreAsync(String, IEnumerable&lt;String&gt;, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;TimeSpan&gt;, CancellationToken)</h4>
               <div class="markdown level1 summary"><p>Wait</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcessWaitResult&gt; WaitCoreAsync(string processId, IEnumerable&lt;string&gt; states = null, IEnumerable&lt;BusinessProcessLifeCycle&gt; lifeCycleIds = null, int ? timeout = null, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcessWaitResult&gt; WaitCoreAsync(string processId, IEnumerable&lt;string&gt; states = null, IEnumerable&lt;BusinessProcessLifeCycle&gt; lifeCycleIds = null, TimeSpan? timeout = null, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -773,9 +571,9 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
                     <td><span class="parametername">timeout</span></td>
-                    <td><p>The timeout in ms to wait for completion.</p>
+                    <td><p>The timeout to wait for completion.</p>
 </td>
                   </tr>
                   <tr>
@@ -826,13 +624,13 @@
               
               
               <a id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletion_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletion*"></a>
-              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletion_System_String_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletion(System.String)">WaitForCompletion(String)</h4>
-              <div class="markdown level1 summary"><p>Wait</p>
+              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletion_System_String_System_Nullable_System_TimeSpan__CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletion(System.String,System.Nullable{System.TimeSpan},CancellationToken)">WaitForCompletion(String, Nullable&lt;TimeSpan&gt;, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Waits until the business process is completed.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public BusinessProcessWaitResult WaitForCompletion(string processId)</code></pre>
+                <pre><code class="lang-csharp hljs">public BusinessProcessWaitResult WaitForCompletion(string processId, TimeSpan? timeout = null, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -847,81 +645,19 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">processId</span></td>
-                    <td><p>The process id</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitResult.html">BusinessProcessWaitResult</a></td>
-                    <td><p>BusinessProcessWaitResult</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitForCompletion_System_String_">IBusinessProcessClient.WaitForCompletion(String)</a></div>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
+                    <td><p>The process ID.</p>
 </td>
                   </tr>
                   <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletion_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletion*"></a>
-              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletion_System_String_System_Int32_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletion(System.String,System.Int32)">WaitForCompletion(String, Int32)</h4>
-              <div class="markdown level1 summary"><p>Wait</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public BusinessProcessWaitResult WaitForCompletion(string processId, int timeout)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">processId</span></td>
-                    <td><p>The process id</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Int32</span></td>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
                     <td><span class="parametername">timeout</span></td>
-                    <td><p>The timeout in ms to wait for completion.</p>
+                    <td><p>The timeout wait for completion.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
 </td>
                   </tr>
                 </tbody>
@@ -937,13 +673,13 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitResult.html">BusinessProcessWaitResult</a></td>
-                    <td><p>BusinessProcessWaitResult</p>
+                    <td><p>The wait result.</p>
 </td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitForCompletion_System_String_System_Int32_">IBusinessProcessClient.WaitForCompletion(String, Int32)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitForCompletion_System_String_System_Nullable_System_TimeSpan__CancellationToken_">IBusinessProcessClient.WaitForCompletion(String, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -968,13 +704,13 @@
               
               
               <a id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletionAsync_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletionAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletionAsync_System_String_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletionAsync(System.String,CancellationToken)">WaitForCompletionAsync(String, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Wait</p>
+              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletionAsync_System_String_System_Nullable_System_TimeSpan__CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletionAsync(System.String,System.Nullable{System.TimeSpan},CancellationToken)">WaitForCompletionAsync(String, Nullable&lt;TimeSpan&gt;, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Waits until the business process is completed or the timeout is reached.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcessWaitResult&gt; WaitForCompletionAsync(string processId, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcessWaitResult&gt; WaitForCompletionAsync(string processId, TimeSpan? timeout = null, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -989,87 +725,13 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">processId</span></td>
-                    <td><p>The process id</p>
+                    <td><p>The process ID.</p>
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitResult.html">BusinessProcessWaitResult</a>&gt;</td>
-                    <td><p>BusinessProcessWaitResult</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitForCompletionAsync_System_String_CancellationToken_">IBusinessProcessClient.WaitForCompletionAsync(String, CancellationToken)</a></div>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletionAsync_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletionAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletionAsync_System_String_System_Int32_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletionAsync(System.String,System.Int32,CancellationToken)">WaitForCompletionAsync(String, Int32, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Wait</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcessWaitResult&gt; WaitForCompletionAsync(string processId, int timeout, CancellationToken cancellationToken = null)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">processId</span></td>
-                    <td><p>The process id</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Int32</span></td>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
                     <td><span class="parametername">timeout</span></td>
-                    <td><p>The timeout in ms to wait for completion.</p>
+                    <td><p>The timeout wait for completion.</p>
 </td>
                   </tr>
                   <tr>
@@ -1091,13 +753,13 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitResult.html">BusinessProcessWaitResult</a>&gt;</td>
-                    <td><p>BusinessProcessWaitResult</p>
+                    <td><p>The wait result.</p>
 </td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitForCompletionAsync_System_String_System_Int32_CancellationToken_">IBusinessProcessClient.WaitForCompletionAsync(String, Int32, CancellationToken)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitForCompletionAsync_System_String_System_Nullable_System_TimeSpan__CancellationToken_">IBusinessProcessClient.WaitForCompletionAsync(String, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
@@ -1122,13 +784,13 @@
               
               
               <a id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletionCore_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletionCore*"></a>
-              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletionCore_System_String_System_Nullable_System_Int32__" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletionCore(System.String,System.Nullable{System.Int32})">WaitForCompletionCore(String, Nullable&lt;Int32&gt;)</h4>
-              <div class="markdown level1 summary"><p>Wait</p>
+              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletionCore_System_String_System_Nullable_System_TimeSpan__" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletionCore(System.String,System.Nullable{System.TimeSpan})">WaitForCompletionCore(String, Nullable&lt;TimeSpan&gt;)</h4>
+              <div class="markdown level1 summary"><p>Wait for completion</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">protected BusinessProcessWaitResult WaitForCompletionCore(string processId, int ? timeout = null)</code></pre>
+                <pre><code class="lang-csharp hljs">protected BusinessProcessWaitResult WaitForCompletionCore(string processId, TimeSpan? timeout = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1147,9 +809,9 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
                     <td><span class="parametername">timeout</span></td>
-                    <td><p>The timeout in ms to wait for completion.</p>
+                    <td><p>The timeout to wait for completion.</p>
 </td>
                   </tr>
                 </tbody>
@@ -1194,13 +856,13 @@
               
               
               <a id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletionCoreAsync_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletionCoreAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletionCoreAsync_System_String_System_Nullable_System_Int32__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletionCoreAsync(System.String,System.Nullable{System.Int32},System.Threading.CancellationToken)">WaitForCompletionCoreAsync(String, Nullable&lt;Int32&gt;, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Wait</p>
+              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletionCoreAsync_System_String_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletionCoreAsync(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">WaitForCompletionCoreAsync(String, Nullable&lt;TimeSpan&gt;, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Wait for completion</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcessWaitResult&gt; WaitForCompletionCoreAsync(string processId, int ? timeout = null, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcessWaitResult&gt; WaitForCompletionCoreAsync(string processId, TimeSpan? timeout = null, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1219,9 +881,9 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
                     <td><span class="parametername">timeout</span></td>
-                    <td><p>The timeout in ms to wait for completion.</p>
+                    <td><p>The timeout to wait for completion.</p>
 </td>
                   </tr>
                   <tr>
@@ -1248,6 +910,338 @@
                   </tr>
                 </tbody>
               </table>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCycles_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForLifeCycles*"></a>
+              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCycles_System_String_IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_System_TimeSpan__" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForLifeCycles(System.String,IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle},System.Nullable{System.TimeSpan})">WaitForLifeCycles(String, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;TimeSpan&gt;)</h4>
+              <div class="markdown level1 summary"><p>Waits until the business process transitioned into one of the given lifecycles or the timeout is reached.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public BusinessProcessWaitResult WaitForLifeCycles(string processId, IEnumerable&lt;BusinessProcessLifeCycle&gt; lifeCycleIds, TimeSpan? timeout = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">processId</span></td>
+                    <td><p>The process ID.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle.html">BusinessProcessLifeCycle</a>&gt;</td>
+                    <td><span class="parametername">lifeCycleIds</span></td>
+                    <td><p>The business process lifecycle IDs to wait for.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
+                    <td><span class="parametername">timeout</span></td>
+                    <td><p>The timeout in ms to wait for completion.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitResult.html">BusinessProcessWaitResult</a></td>
+                    <td><p>The wait result.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitForLifeCycles_System_String_IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_System_TimeSpan__">IBusinessProcessClient.WaitForLifeCycles(String, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;TimeSpan&gt;)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesAsync_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForLifeCyclesAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesAsync_System_String_IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_System_TimeSpan__CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForLifeCyclesAsync(System.String,IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle},System.Nullable{System.TimeSpan},CancellationToken)">WaitForLifeCyclesAsync(String, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;TimeSpan&gt;, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Waits until the business process transitioned into one of the given lifecycles or the timeout is reached.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcessWaitResult&gt; WaitForLifeCyclesAsync(string processId, IEnumerable&lt;BusinessProcessLifeCycle&gt; lifeCycleIds, TimeSpan? timeout = null, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">processId</span></td>
+                    <td><p>The process ID.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle.html">BusinessProcessLifeCycle</a>&gt;</td>
+                    <td><span class="parametername">lifeCycleIds</span></td>
+                    <td><p>The business process lifecycle IDs to wait for.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
+                    <td><span class="parametername">timeout</span></td>
+                    <td><p>The timeout in ms to wait for completion.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitResult.html">BusinessProcessWaitResult</a>&gt;</td>
+                    <td><p>The wait result.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitForLifeCyclesAsync_System_String_IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_System_TimeSpan__CancellationToken_">IBusinessProcessClient.WaitForLifeCyclesAsync(String, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_BusinessProcessClient_WaitForStates_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForStates*"></a>
+              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForStates_System_String_IEnumerable_System_String__System_Nullable_System_TimeSpan__" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForStates(System.String,IEnumerable{System.String},System.Nullable{System.TimeSpan})">WaitForStates(String, IEnumerable&lt;String&gt;, Nullable&lt;TimeSpan&gt;)</h4>
+              <div class="markdown level1 summary"><p>Waits until the business process transitioned into one of the given states or the timeout is reached.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public BusinessProcessWaitResult WaitForStates(string processId, IEnumerable&lt;string&gt; states, TimeSpan? timeout = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">processId</span></td>
+                    <td><p>The process ID.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="parametername">states</span></td>
+                    <td><p>The states to wait for.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
+                    <td><span class="parametername">timeout</span></td>
+                    <td><p>The timeout in ms to wait for completion.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitResult.html">BusinessProcessWaitResult</a></td>
+                    <td><p>The wait result.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitForStates_System_String_IEnumerable_System_String__System_Nullable_System_TimeSpan__">IBusinessProcessClient.WaitForStates(String, IEnumerable&lt;String&gt;, Nullable&lt;TimeSpan&gt;)</a></div>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_BusinessProcessClient_WaitForStatesAsync_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForStatesAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForStatesAsync_System_String_IEnumerable_System_String__System_Nullable_System_TimeSpan__CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForStatesAsync(System.String,IEnumerable{System.String},System.Nullable{System.TimeSpan},CancellationToken)">WaitForStatesAsync(String, IEnumerable&lt;String&gt;, Nullable&lt;TimeSpan&gt;, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Waits until the business process transitioned into one of the given states or the timeout is reached.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcessWaitResult&gt; WaitForStatesAsync(string processId, IEnumerable&lt;string&gt; states, TimeSpan? timeout = null, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">processId</span></td>
+                    <td><p>The process ID.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="parametername">states</span></td>
+                    <td><p>The states to wait for.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
+                    <td><span class="parametername">timeout</span></td>
+                    <td><p>The timeout in ms to wait for completion.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitResult.html">BusinessProcessWaitResult</a>&gt;</td>
+                    <td><p>The wait result.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitForStatesAsync_System_String_IEnumerable_System_String__System_Nullable_System_TimeSpan__CancellationToken_">IBusinessProcessClient.WaitForStatesAsync(String, IEnumerable&lt;String&gt;, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></div>
               <h5 class="exceptions">Exceptions</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>

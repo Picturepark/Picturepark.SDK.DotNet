@@ -91,7 +91,10 @@
               <div class="inheritedMembers">
                 <h5>Inherited Members</h5>
                 <div>
-                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_Alias">ClientBase.Alias</a>
+                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_BaseUrl">ClientBase.BaseUrl</a>
+                </div>
+                <div>
+                  <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CustomerAlias">ClientBase.CustomerAlias</a>
                 </div>
                 <div>
                   <a class="xref" href="Picturepark.SDK.V1.ClientBase.html#Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_CancellationToken_">ClientBase.CreateHttpRequestMessageAsync(CancellationToken)</a>
@@ -191,33 +194,6 @@
                   <tr>
                     <td><span class="xref">System.Net.Http.HttpClient</span></td>
                     <td><span class="parametername">httpClient</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h3 id="properties">Properties
-              </h3>
-              
-              
-              <a id="Picturepark_SDK_V1_TransferClient_BaseUrl_" data-uid="Picturepark.SDK.V1.TransferClient.BaseUrl*"></a>
-              <h4 id="Picturepark_SDK_V1_TransferClient_BaseUrl" data-uid="Picturepark.SDK.V1.TransferClient.BaseUrl">BaseUrl</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string BaseUrl { get; set; }</code></pre>
-              </div>
-              <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -417,6 +393,118 @@
               </table>
               
               
+              <a id="Picturepark_SDK_V1_TransferClient_CreateAndWaitForCompletionAsync_" data-uid="Picturepark.SDK.V1.TransferClient.CreateAndWaitForCompletionAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_TransferClient_CreateAndWaitForCompletionAsync_Picturepark_SDK_V1_Contract_CreateTransferRequest_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.CreateAndWaitForCompletionAsync(Picturepark.SDK.V1.Contract.CreateTransferRequest,CancellationToken)">CreateAndWaitForCompletionAsync(CreateTransferRequest, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Creates a transfer and waits for its completion.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task&lt;Transfer&gt; CreateAndWaitForCompletionAsync(CreateTransferRequest request, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.CreateTransferRequest.html">CreateTransferRequest</a></td>
+                    <td><span class="parametername">request</span></td>
+                    <td><p>The create request.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>The cancellation token.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.Transfer.html">Transfer</a>&gt;</td>
+                    <td><p>The transfer.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_CreateAndWaitForCompletionAsync_Picturepark_SDK_V1_Contract_CreateTransferRequest_CancellationToken_">ITransferClient.CreateAndWaitForCompletionAsync(CreateTransferRequest, CancellationToken)</a></div>
+              
+              
+              <a id="Picturepark_SDK_V1_TransferClient_CreateAndWaitForCompletionAsync_" data-uid="Picturepark.SDK.V1.TransferClient.CreateAndWaitForCompletionAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_TransferClient_CreateAndWaitForCompletionAsync_System_String_IEnumerable_System_String__CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.CreateAndWaitForCompletionAsync(System.String,IEnumerable{System.String},CancellationToken)">CreateAndWaitForCompletionAsync(String, IEnumerable&lt;String&gt;, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Creates a transfer and waits for its completion.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task&lt;Transfer&gt; CreateAndWaitForCompletionAsync(string transferName, IEnumerable&lt;string&gt; fileNames, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">transferName</span></td>
+                    <td><p>The name of the transfer.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="parametername">fileNames</span></td>
+                    <td><p>The file names of the transfer.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>The cancellation token.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.Transfer.html">Transfer</a>&gt;</td>
+                    <td><p>The transfer.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_CreateAndWaitForCompletionAsync_System_String_IEnumerable_System_String__CancellationToken_">ITransferClient.CreateAndWaitForCompletionAsync(String, IEnumerable&lt;String&gt;, CancellationToken)</a></div>
+              
+              
               <a id="Picturepark_SDK_V1_TransferClient_CreateAsync_" data-uid="Picturepark.SDK.V1.TransferClient.CreateAsync*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_CreateAsync_Picturepark_SDK_V1_Contract_CreateTransferRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.CreateAsync(Picturepark.SDK.V1.Contract.CreateTransferRequest,System.Threading.CancellationToken)">CreateAsync(CreateTransferRequest, CancellationToken)</h4>
               <div class="markdown level1 summary"><p>Create Transfer</p>
@@ -489,99 +577,6 @@
                   </tr>
                 </tbody>
               </table>
-              
-              
-              <a id="Picturepark_SDK_V1_TransferClient_CreateTransferAsync_" data-uid="Picturepark.SDK.V1.TransferClient.CreateTransferAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_TransferClient_CreateTransferAsync_List_System_String__System_String_" data-uid="Picturepark.SDK.V1.TransferClient.CreateTransferAsync(List{System.String},System.String)">CreateTransferAsync(List&lt;String&gt;, String)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;Transfer&gt; CreateTransferAsync(List&lt;string&gt; fileNames, string transferName)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">List</span>&lt;<span class="xref">System.String</span>&gt;</td>
-                    <td><span class="parametername">fileNames</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">transferName</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.Transfer.html">Transfer</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_CreateTransferAsync_List_System_String__System_String_">ITransferClient.CreateTransferAsync(List&lt;String&gt;, String)</a></div>
-              
-              
-              <a id="Picturepark_SDK_V1_TransferClient_CreateTransferAsync_" data-uid="Picturepark.SDK.V1.TransferClient.CreateTransferAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_TransferClient_CreateTransferAsync_Picturepark_SDK_V1_Contract_CreateTransferRequest_" data-uid="Picturepark.SDK.V1.TransferClient.CreateTransferAsync(Picturepark.SDK.V1.Contract.CreateTransferRequest)">CreateTransferAsync(CreateTransferRequest)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;Transfer&gt; CreateTransferAsync(CreateTransferRequest request)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.CreateTransferRequest.html">CreateTransferRequest</a></td>
-                    <td><span class="parametername">request</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.Transfer.html">Transfer</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_CreateTransferAsync_Picturepark_SDK_V1_Contract_CreateTransferRequest_">ITransferClient.CreateTransferAsync(CreateTransferRequest)</a></div>
               
               
               <a id="Picturepark_SDK_V1_TransferClient_Delete_" data-uid="Picturepark.SDK.V1.TransferClient.Delete*"></a>
@@ -1237,6 +1232,71 @@
               </table>
               
               
+              <a id="Picturepark_SDK_V1_TransferClient_ImportAndWaitForCompletionAsync_" data-uid="Picturepark.SDK.V1.TransferClient.ImportAndWaitForCompletionAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_TransferClient_ImportAndWaitForCompletionAsync_Picturepark_SDK_V1_Contract_Transfer_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_System_Nullable_System_TimeSpan__CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.ImportAndWaitForCompletionAsync(Picturepark.SDK.V1.Contract.Transfer,Picturepark.SDK.V1.Contract.FileTransfer2ContentCreateRequest,System.Nullable{System.TimeSpan},CancellationToken)">ImportAndWaitForCompletionAsync(Transfer, FileTransfer2ContentCreateRequest, Nullable&lt;TimeSpan&gt;, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Transfers the uploaded files and waits for its completions.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.Transfer.html">Transfer</a></td>
+                    <td><span class="parametername">transfer</span></td>
+                    <td><p>The transfer.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.FileTransfer2ContentCreateRequest.html">FileTransfer2ContentCreateRequest</a></td>
+                    <td><span class="parametername">createRequest</span></td>
+                    <td><p>The create request.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
+                    <td><span class="parametername">timeout</span></td>
+                    <td><p>The timeout in ms to wait for completion.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>The cancellcation token.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td><p>The task.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_ImportAndWaitForCompletionAsync_Picturepark_SDK_V1_Contract_Transfer_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_System_Nullable_System_TimeSpan__CancellationToken_">ITransferClient.ImportAndWaitForCompletionAsync(Transfer, FileTransfer2ContentCreateRequest, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></div>
+              
+              
               <a id="Picturepark_SDK_V1_TransferClient_ImportTransfer_" data-uid="Picturepark.SDK.V1.TransferClient.ImportTransfer*"></a>
               <h4 id="Picturepark_SDK_V1_TransferClient_ImportTransfer_System_String_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_" data-uid="Picturepark.SDK.V1.TransferClient.ImportTransfer(System.String,Picturepark.SDK.V1.Contract.FileTransfer2ContentCreateRequest)">ImportTransfer(String, FileTransfer2ContentCreateRequest)</h4>
               <div class="markdown level1 summary"><p>Delete Transfer</p>
@@ -1309,55 +1369,6 @@
                   </tr>
                 </tbody>
               </table>
-              
-              
-              <a id="Picturepark_SDK_V1_TransferClient_ImportTransferAsync_" data-uid="Picturepark.SDK.V1.TransferClient.ImportTransferAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_TransferClient_ImportTransferAsync_Picturepark_SDK_V1_Contract_Transfer_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_" data-uid="Picturepark.SDK.V1.TransferClient.ImportTransferAsync(Picturepark.SDK.V1.Contract.Transfer,Picturepark.SDK.V1.Contract.FileTransfer2ContentCreateRequest)">ImportTransferAsync(Transfer, FileTransfer2ContentCreateRequest)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task ImportTransferAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.Transfer.html">Transfer</a></td>
-                    <td><span class="parametername">transfer</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.FileTransfer2ContentCreateRequest.html">FileTransfer2ContentCreateRequest</a></td>
-                    <td><span class="parametername">createRequest</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Task</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_ImportTransferAsync_Picturepark_SDK_V1_Contract_Transfer_Picturepark_SDK_V1_Contract_FileTransfer2ContentCreateRequest_">ITransferClient.ImportTransferAsync(Transfer, FileTransfer2ContentCreateRequest)</a></div>
               
               
               <a id="Picturepark_SDK_V1_TransferClient_ImportTransferAsync_" data-uid="Picturepark.SDK.V1.TransferClient.ImportTransferAsync*"></a>
@@ -2082,12 +2093,13 @@
               
               
               <a id="Picturepark_SDK_V1_TransferClient_UploadFilesAsync_" data-uid="Picturepark.SDK.V1.TransferClient.UploadFilesAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_TransferClient_UploadFilesAsync_Picturepark_SDK_V1_Contract_Transfer_IEnumerable_System_String__Picturepark_SDK_V1_Contract_UploadOptions_" data-uid="Picturepark.SDK.V1.TransferClient.UploadFilesAsync(Picturepark.SDK.V1.Contract.Transfer,IEnumerable{System.String},Picturepark.SDK.V1.Contract.UploadOptions)">UploadFilesAsync(Transfer, IEnumerable&lt;String&gt;, UploadOptions)</h4>
-              <div class="markdown level1 summary"></div>
+              <h4 id="Picturepark_SDK_V1_TransferClient_UploadFilesAsync_Picturepark_SDK_V1_Contract_Transfer_IEnumerable_System_String__Picturepark_SDK_V1_Contract_UploadOptions_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.UploadFilesAsync(Picturepark.SDK.V1.Contract.Transfer,IEnumerable{System.String},Picturepark.SDK.V1.Contract.UploadOptions,CancellationToken)">UploadFilesAsync(Transfer, IEnumerable&lt;String&gt;, UploadOptions, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Uploads multiple files from the filesystem.</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task UploadFilesAsync(Transfer transfer, IEnumerable&lt;string&gt; files, UploadOptions uploadOptions)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task UploadFilesAsync(Transfer transfer, IEnumerable&lt;string&gt; filePaths, UploadOptions uploadOptions, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -2102,17 +2114,26 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.Transfer.html">Transfer</a></td>
                     <td><span class="parametername">transfer</span></td>
-                    <td></td>
+                    <td><p>The existing transfer object.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-                    <td><span class="parametername">files</span></td>
-                    <td></td>
+                    <td><span class="parametername">filePaths</span></td>
+                    <td><p>The file paths on the filesystem.</p>
+</td>
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.UploadOptions.html">UploadOptions</a></td>
                     <td><span class="parametername">uploadOptions</span></td>
-                    <td></td>
+                    <td><p>The file upload options.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>The cancellation token.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -2127,21 +2148,23 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Task</span></td>
-                    <td></td>
+                    <td><p>The created transfer object.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_UploadFilesAsync_Picturepark_SDK_V1_Contract_Transfer_IEnumerable_System_String__Picturepark_SDK_V1_Contract_UploadOptions_">ITransferClient.UploadFilesAsync(Transfer, IEnumerable&lt;String&gt;, UploadOptions)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_UploadFilesAsync_Picturepark_SDK_V1_Contract_Transfer_IEnumerable_System_String__Picturepark_SDK_V1_Contract_UploadOptions_CancellationToken_">ITransferClient.UploadFilesAsync(Transfer, IEnumerable&lt;String&gt;, UploadOptions, CancellationToken)</a></div>
               
               
               <a id="Picturepark_SDK_V1_TransferClient_UploadFilesAsync_" data-uid="Picturepark.SDK.V1.TransferClient.UploadFilesAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_TransferClient_UploadFilesAsync_System_String_IEnumerable_System_String__Picturepark_SDK_V1_Contract_UploadOptions_" data-uid="Picturepark.SDK.V1.TransferClient.UploadFilesAsync(System.String,IEnumerable{System.String},Picturepark.SDK.V1.Contract.UploadOptions)">UploadFilesAsync(String, IEnumerable&lt;String&gt;, UploadOptions)</h4>
-              <div class="markdown level1 summary"></div>
+              <h4 id="Picturepark_SDK_V1_TransferClient_UploadFilesAsync_System_String_IEnumerable_System_String__Picturepark_SDK_V1_Contract_UploadOptions_CancellationToken_" data-uid="Picturepark.SDK.V1.TransferClient.UploadFilesAsync(System.String,IEnumerable{System.String},Picturepark.SDK.V1.Contract.UploadOptions,CancellationToken)">UploadFilesAsync(String, IEnumerable&lt;String&gt;, UploadOptions, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Uploads multiple files from the filesystem.</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public Task&lt;Transfer&gt; UploadFilesAsync(string transferName, IEnumerable&lt;string&gt; files, UploadOptions uploadOptions)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;Transfer&gt; UploadFilesAsync(string transferName, IEnumerable&lt;string&gt; filePaths, UploadOptions uploadOptions, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -2156,17 +2179,26 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">transferName</span></td>
-                    <td></td>
+                    <td><p>The name of the created transfer.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-                    <td><span class="parametername">files</span></td>
-                    <td></td>
+                    <td><span class="parametername">filePaths</span></td>
+                    <td><p>The file paths on the filesystem.</p>
+</td>
                   </tr>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.UploadOptions.html">UploadOptions</a></td>
                     <td><span class="parametername">uploadOptions</span></td>
-                    <td></td>
+                    <td><p>The file upload options.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>The cancellation token.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -2181,12 +2213,13 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.Transfer.html">Transfer</a>&gt;</td>
-                    <td></td>
+                    <td><p>The created transfer object.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
               <h5 class="implements">Implements</h5>
-                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_UploadFilesAsync_System_String_IEnumerable_System_String__Picturepark_SDK_V1_Contract_UploadOptions_">ITransferClient.UploadFilesAsync(String, IEnumerable&lt;String&gt;, UploadOptions)</a></div>
+                  <div><a class="xref" href="Picturepark.SDK.V1.Contract.ITransferClient.html#Picturepark_SDK_V1_Contract_ITransferClient_UploadFilesAsync_System_String_IEnumerable_System_String__Picturepark_SDK_V1_Contract_UploadOptions_CancellationToken_">ITransferClient.UploadFilesAsync(String, IEnumerable&lt;String&gt;, UploadOptions, CancellationToken)</a></div>
                         </article>
           </div>
           

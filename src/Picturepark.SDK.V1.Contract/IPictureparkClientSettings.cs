@@ -9,12 +9,13 @@ namespace Picturepark.SDK.V1.Contract
 		/// <summary>Gets the server URL of the Picturepark authentication server.</summary>
 		string BaseUrl { get; }
 
-		/// <summary></summary>
+		/// <summary>Gets the HTTP timeout.</summary>
 		TimeSpan HttpTimeout { get; }
 
-		/// <summary></summary>
+		/// <summary>Gets the <see cref="IAuthClient"/>.</summary>
 		IAuthClient AuthClient { get; }
 
+		/// <summary>Gets the customer alias.</summary>
 		string CustomerAlias { get; }
 	}
 }

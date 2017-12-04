@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Contracts;
@@ -89,7 +90,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			};
 
 			var businessProcess = await _client.ListItems.UpdateFieldsAsync(updateRequest);
-			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, 10 * 1000);
+			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, TimeSpan.FromSeconds(10));
 
 			/// Act
 			var details = await _client.BusinessProcesses.GetDetailsAsync(businessProcess.Id);

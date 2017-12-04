@@ -19,10 +19,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 		[Fact]
 		[Trait("Stack", "Permissions")]
-		public async Task ShouldGetUserPermissions()
+		public async Task ShouldGetUserRights()
 		{
 			/// Act
-			var result = await _client.Permissions.GetUserPermissionsAsync(UserRight.ManageCollections);
+			var result = await _client.Permissions.GetUserRightsAsync();
+
+			/// Assert
+			Assert.Contains(UserRight.ManageCollections, result);
+		}
+
+		[Fact]
+		[Trait("Stack", "Permissions")]
+		public async Task ShouldCheckHasUserRight()
+		{
+			/// Act
+			var result = await _client.Permissions.HasUserRightAsync(UserRight.ManageCollections);
 
 			/// Assert
 			Assert.True(result);
@@ -30,14 +41,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 		[Fact]
 		[Trait("Stack", "Permissions")]
-		public async Task ShouldGetContentPermissions()
+		public async Task ShouldGetContentPermissionSet()
 		{
 			/// Arrange
-			string permissionSetId = _fixture.GetRandomContentPermissionSetId(20);
+			string permissionSetId = await _fixture.GetRandomContentPermissionSetId(20);
 			Assert.False(string.IsNullOrEmpty(permissionSetId));
 
 			/// Act
-			ContentPermissionSetDetail result = await _client.Permissions.GetContentPermissionsAsync(permissionSetId);
+			ContentPermissionSetDetail result = await _client.Permissions.GetContentPermissionSetAsync(permissionSetId);
 
 			/// Assert
 			Assert.False(string.IsNullOrEmpty(result.Id));
@@ -45,14 +56,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 		[Fact]
 		[Trait("Stack", "Permissions")]
-		public async Task ShouldGetSchemaPermissions()
+		public async Task ShouldGetSchemaPermissionSet()
 		{
 			/// Arrange
-			string permissionSetId = _fixture.GetRandomMetadataPermissionSetId(20);
+			string permissionSetId = await _fixture.GetRandomMetadataPermissionSetId(20);
 			Assert.False(string.IsNullOrEmpty(permissionSetId));
 
 			/// Act
-			SchemaPermissionSetDetail result = await _client.Permissions.GetSchemaPermissionsAsync(permissionSetId);
+			SchemaPermissionSetDetail result = await _client.Permissions.GetSchemaPermissionSetAsync(permissionSetId);
 
 			/// Assert
 			Assert.False(string.IsNullOrEmpty(result.Id));
@@ -60,30 +71,30 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 		[Fact]
 		[Trait("Stack", "Permissions")]
-		public async Task ShouldSearchContentPermissions()
+		public async Task ShouldSearchContentPermissionSets()
 		{
 			/// Arrange
-			var request = new PermissionSetSearchRequest() { Limit = 20 };
+			var request = new PermissionSetSearchRequest { Limit = 20 };
 
 			/// Act
-			PermissionSetSearchResult result = await _client.Permissions.SearchContentPermissionsAsync(request);
+			PermissionSetSearchResult result = await _client.Permissions.SearchContentPermissionSetsAsync(request);
 
 			/// Assert
-			Assert.True(result.Results.Count() > 0);
+			Assert.True(result.Results.Count > 0);
 		}
 
 		[Fact]
 		[Trait("Stack", "Permissions")]
-		public async Task ShouldSearchMetadataPermissions()
+		public async Task ShouldSearchSchemaPermissionSets()
 		{
 			/// Arrange
-			var request = new PermissionSetSearchRequest() { Limit = 20 };
+			var request = new PermissionSetSearchRequest { Limit = 20 };
 
 			/// Act
-			PermissionSetSearchResult result = await _client.Permissions.SearchSchemaPermissionsAsync(request);
+			PermissionSetSearchResult result = await _client.Permissions.SearchSchemaPermissionSetsAsync(request);
 
 			/// Assert
-			Assert.True(result.Results.Count() > 0);
+			Assert.True(result.Results.Count > 0);
 		}
 	}
 }

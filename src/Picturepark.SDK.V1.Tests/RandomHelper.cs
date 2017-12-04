@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Tests
 {
@@ -32,11 +33,11 @@ namespace Picturepark.SDK.V1.Tests
 			return contentId;
 		}
 
-		public static string GetRandomContentPermissionSetId(PictureparkClient client, int limit)
+		public static async Task<string> GetRandomContentPermissionSetId(PictureparkClient client, int limit)
 		{
 			string permissionSetId = string.Empty;
 			PermissionSetSearchRequest request = new PermissionSetSearchRequest { Limit = limit };
-			PermissionSetSearchResult result = client.Permissions.SearchContentPermissionsAsync(request).Result;
+			PermissionSetSearchResult result = await client.Permissions.SearchContentPermissionSetsAsync(request);
 
 			if (result.Results.Count > 0)
 			{
@@ -93,11 +94,11 @@ namespace Picturepark.SDK.V1.Tests
 			return fileTransferId;
 		}
 
-		public static string GetRandomMetadataPermissionSetId(PictureparkClient client, int limit)
+		public static async Task<string> GetRandomMetadataPermissionSetId(PictureparkClient client, int limit)
 		{
 			string permissionSetId = string.Empty;
 			var request = new PermissionSetSearchRequest() { Limit = limit };
-			PermissionSetSearchResult result = client.Permissions.SearchSchemaPermissions(request);
+			PermissionSetSearchResult result = await client.Permissions.SearchSchemaPermissionSetsAsync(request);
 
 			if (result.Results.Count > 0)
 			{

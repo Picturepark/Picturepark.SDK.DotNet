@@ -94,7 +94,6 @@
                   <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.ExistsFilter.html">ExistsFilter</a></div>
                   <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.GeoBoundingBoxFilter.html">GeoBoundingBoxFilter</a></div>
                   <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.GeoDistanceFilter.html">GeoDistanceFilter</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.GeoDistanceRangeFilter.html">GeoDistanceRangeFilter</a></div>
                   <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.NestedFilter.html">NestedFilter</a></div>
                   <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.NotFilter.html">NotFilter</a></div>
                   <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.NumericRangeFilter.html">NumericRangeFilter</a></div>
@@ -136,6 +135,140 @@
               </div>
               <h3 id="methods">Methods
               </h3>
+              
+              
+              <a id="Picturepark_SDK_V1_Contract_FilterBase_FromExpression_" data-uid="Picturepark.SDK.V1.Contract.FilterBase.FromExpression*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_System_Object___System_String_" data-uid="Picturepark.SDK.V1.Contract.FilterBase.FromExpression``1(Expression{System.Func{``0,System.Object}},System.String)">FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, Object&gt;&gt;, String)</h4>
+              <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Picturepark.SDK.V1.Contract.TermFilter.html">TermFilter</a> whose property name is retrieved from an expression.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static TermFilter FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, object&gt;&gt; propertyExpression, string term)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Expression</span>&lt;<span class="xref">System.Func</span>&lt;TObject, <span class="xref">System.Object</span>&gt;&gt;</td>
+                    <td><span class="parametername">propertyExpression</span></td>
+                    <td><p>The property expression.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">term</span></td>
+                    <td><p>The search term.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.TermFilter.html">TermFilter</a></td>
+                    <td><p>The term filter.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="typeParameters">Type Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="parametername">TObject</span></td>
+                    <td><p>The object type.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_Contract_FilterBase_FromExpression_" data-uid="Picturepark.SDK.V1.Contract.FilterBase.FromExpression*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_System_Object___System_String___" data-uid="Picturepark.SDK.V1.Contract.FilterBase.FromExpression``1(Expression{System.Func{``0,System.Object}},System.String[])">FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, Object&gt;&gt;, String[])</h4>
+              <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Picturepark.SDK.V1.Contract.TermsFilter.html">TermsFilter</a> whose property name is retrieved from an expression.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public static TermsFilter FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, object&gt;&gt; propertyExpression, params string[] terms)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Expression</span>&lt;<span class="xref">System.Func</span>&lt;TObject, <span class="xref">System.Object</span>&gt;&gt;</td>
+                    <td><span class="parametername">propertyExpression</span></td>
+                    <td><p>The property expression.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.String</span>[]</td>
+                    <td><span class="parametername">terms</span></td>
+                    <td><p>The search terms.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.TermsFilter.html">TermsFilter</a></td>
+                    <td><p>The terms filter.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="typeParameters">Type Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="parametername">TObject</span></td>
+                    <td><p>The object type.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
               
               
               <a id="Picturepark_SDK_V1_Contract_FilterBase_FromJson_" data-uid="Picturepark.SDK.V1.Contract.FilterBase.FromJson*"></a>

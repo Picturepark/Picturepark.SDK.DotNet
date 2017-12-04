@@ -9,7 +9,7 @@ namespace Picturepark.SDK.V1
         {
             using (var fileStream = File.Create(filePath))
             {
-                await stream.CopyToAsync(fileStream);
+                await stream.CopyToAsync(fileStream).ConfigureAwait(false);
             }
         }
     }

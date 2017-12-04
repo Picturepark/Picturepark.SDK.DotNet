@@ -31,8 +31,8 @@ namespace Picturepark.SDK.V1
 		public async Task<Transfer> UploadFilesAsync(string transferName, IEnumerable<string> filePaths, UploadOptions uploadOptions, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var filteredFileNames = FilterFilesByBlacklist(filePaths.ToList());
-			Transfer transfer = await CreateAndWaitForCompletionAsync(transferName, filteredFileNames.Select(Path.GetFileName), cancellationToken);
-			await UploadFilesAsync(transfer, filteredFileNames, uploadOptions, cancellationToken);
+			Transfer transfer = await CreateAndWaitForCompletionAsync(transferName, filteredFileNames.Select(Path.GetFileName), cancellationToken).ConfigureAwait(false);
+			await UploadFilesAsync(transfer, filteredFileNames, uploadOptions, cancellationToken).ConfigureAwait(false);
 			return transfer;
 		}
 
@@ -58,7 +58,7 @@ namespace Picturepark.SDK.V1
 				{
 					try
 					{
-						await UploadFileAsync(throttler, transfer.Id, file, uploadOptions.ChunkSize, cancellationToken);
+						await UploadFileAsync(throttler, transfer.Id, file, uploadOptions.ChunkSize, cancellationToken).ConfigureAwait(false);
 						uploadOptions.SuccessDelegate?.Invoke(file);
 					}
 					catch (Exception ex)
@@ -77,7 +77,7 @@ namespace Picturepark.SDK.V1
 
 			if (uploadOptions.WaitForTransferCompletion)
 			{
-				await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, cancellationToken);
+				await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, cancellationToken: cancellationToken).ConfigureAwait(false);
 			}
 		}
 
@@ -87,10 +87,10 @@ namespace Picturepark.SDK.V1
 		/// <param name="timeout">The timeout in ms to wait for completion.</param>
 		/// <param name="cancellationToken">The cancellcation token.</param>
 		/// <returns>The task.</returns>
-		public async Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, int timeout = 60 * 1000, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var importedTransfer = await ImportTransferAsync(transfer.Id, createRequest, cancellationToken);
-			await _businessProcessClient.WaitForCompletionAsync(importedTransfer.BusinessProcessId, timeout, cancellationToken);
+			var importedTransfer = await ImportTransferAsync(transfer.Id, createRequest, cancellationToken).ConfigureAwait(false);
+			await _businessProcessClient.WaitForCompletionAsync(importedTransfer.BusinessProcessId, timeout, cancellationToken).ConfigureAwait(false);
 		}
 
 		/// <summary>Creates a transfer and waits for its completion.</summary>
@@ -99,8 +99,8 @@ namespace Picturepark.SDK.V1
 		/// <returns>The transfer.</returns>
 		public async Task<Transfer> CreateAndWaitForCompletionAsync(CreateTransferRequest request, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var transfer = await CreateAsync(request, cancellationToken);
-			await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, cancellationToken);
+			var transfer = await CreateAsync(request, cancellationToken).ConfigureAwait(false);
+			await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, cancellationToken: cancellationToken).ConfigureAwait(false);
 			return transfer;
 		}
 
@@ -120,8 +120,8 @@ namespace Picturepark.SDK.V1
 				Files = filteredFileNames.Select(i => new TransferUploadFile { FileName = i, Identifier = Guid.NewGuid().ToString() }).ToList()
 			};
 
-			var transfer = await CreateAsync(request, cancellationToken);
-			await _businessProcessClient.WaitForStatesAsync(transfer.BusinessProcessId, new[] { TransferState.Created.ToString() }, null, cancellationToken);
+			var transfer = await CreateAsync(request, cancellationToken).ConfigureAwait(false);
+			await _businessProcessClient.WaitForStatesAsync(transfer.BusinessProcessId, new[] { TransferState.Created.ToString() }, null, cancellationToken).ConfigureAwait(false);
 			return transfer;
 		}
 
@@ -138,7 +138,7 @@ namespace Picturepark.SDK.V1
 
 			for (var chunkNumber = 1; chunkNumber <= totalChunks; chunkNumber++)
 			{
-				await throttler.WaitAsync(cancellationToken);
+				await throttler.WaitAsync(cancellationToken).ConfigureAwait(false);
 
 				var number = chunkNumber;
 				uploadTasks.Add(Task.Run(async () =>
@@ -159,7 +159,7 @@ namespace Picturepark.SDK.V1
 							var buffer = new byte[currentChunkSize];
 							fileStream.Position = position;
 
-							await fileStream.ReadAsync(buffer, 0, currentChunkSize, cancellationToken);
+							await fileStream.ReadAsync(buffer, 0, currentChunkSize, cancellationToken).ConfigureAwait(false);
 
 							using (var memoryStream = new MemoryStream(buffer))
 							{
@@ -172,7 +172,7 @@ namespace Picturepark.SDK.V1
 									currentChunkSize,
 									fileSize,
 									totalChunks,
-									cancellationToken);
+									cancellationToken).ConfigureAwait(false);
 							}
 						}
 					}

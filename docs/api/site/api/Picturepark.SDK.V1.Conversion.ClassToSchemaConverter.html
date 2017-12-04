@@ -80,7 +80,8 @@
               
               <h1 id="Picturepark_SDK_V1_Conversion_ClassToSchemaConverter" data-uid="Picturepark.SDK.V1.Conversion.ClassToSchemaConverter">Class ClassToSchemaConverter
               </h1>
-              <div class="markdown level0 summary"></div>
+              <div class="markdown level0 summary"><p>Converts .NET types to Picturepark schemas.</p>
+</div>
               <div class="markdown level0 conceptual"></div>
               <div class="inheritance">
                 <h5>Inheritance</h5>
@@ -121,14 +122,14 @@
               </h3>
               
               
-              <a id="Picturepark_SDK_V1_Conversion_ClassToSchemaConverter_Generate_" data-uid="Picturepark.SDK.V1.Conversion.ClassToSchemaConverter.Generate*"></a>
-              <h4 id="Picturepark_SDK_V1_Conversion_ClassToSchemaConverter_Generate_System_Type_List_Picturepark_SDK_V1_Contract_SchemaDetail__System_Boolean_" data-uid="Picturepark.SDK.V1.Conversion.ClassToSchemaConverter.Generate(System.Type,List{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean)">Generate(Type, List&lt;SchemaDetail&gt;, Boolean)</h4>
-              <div class="markdown level1 summary"><p>Convert a C# POCO to a picturepark schema definition</p>
+              <a id="Picturepark_SDK_V1_Conversion_ClassToSchemaConverter_GenerateAsync_" data-uid="Picturepark.SDK.V1.Conversion.ClassToSchemaConverter.GenerateAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_Conversion_ClassToSchemaConverter_GenerateAsync_System_Type_IEnumerable_Picturepark_SDK_V1_Contract_SchemaDetail__System_Boolean_" data-uid="Picturepark.SDK.V1.Conversion.ClassToSchemaConverter.GenerateAsync(System.Type,IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean)">GenerateAsync(Type, IEnumerable&lt;SchemaDetail&gt;, Boolean)</h4>
+              <div class="markdown level1 summary"><p>Converts a .NET type and its dependencies to a list of Picturepark schema definitions.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public List&lt;SchemaDetail&gt; Generate(Type type, List&lt;SchemaDetail&gt; schemaList, bool generateRelatedSchemas = true)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;ICollection&lt;SchemaDetail&gt;&gt; GenerateAsync(Type type, IEnumerable&lt;SchemaDetail&gt; schemaDetails, bool generateRelatedSchemas = true)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -143,12 +144,12 @@
                   <tr>
                     <td><span class="xref">System.Type</span></td>
                     <td><span class="parametername">type</span></td>
-                    <td><p>Type of poco to convert</p>
+                    <td><p>The type to generate definitions for.</p>
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>&gt;</td>
-                    <td><span class="parametername">schemaList</span></td>
+                    <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>&gt;</td>
+                    <td><span class="parametername">schemaDetails</span></td>
                     <td><p>Existing list of schemas. Pass if you need to convert several pocos and they reference the same dependant schemas (used to exclude existing schemas).</p>
 </td>
                   </tr>
@@ -170,7 +171,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>&gt;</td>
+                    <td><span class="xref">Task</span>&lt;<span class="xref">ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>&gt;&gt;</td>
                     <td><p>List of schemas</p>
 </td>
                   </tr>
@@ -178,14 +179,14 @@
               </table>
               
               
-              <a id="Picturepark_SDK_V1_Conversion_ClassToSchemaConverter_Generate_" data-uid="Picturepark.SDK.V1.Conversion.ClassToSchemaConverter.Generate*"></a>
-              <h4 id="Picturepark_SDK_V1_Conversion_ClassToSchemaConverter_Generate_System_Type_System_Boolean_" data-uid="Picturepark.SDK.V1.Conversion.ClassToSchemaConverter.Generate(System.Type,System.Boolean)">Generate(Type, Boolean)</h4>
-              <div class="markdown level1 summary"><p>Convert a C# POCO to a picturepark schema definition</p>
+              <a id="Picturepark_SDK_V1_Conversion_ClassToSchemaConverter_GenerateAsync_" data-uid="Picturepark.SDK.V1.Conversion.ClassToSchemaConverter.GenerateAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_Conversion_ClassToSchemaConverter_GenerateAsync_System_Type_System_Boolean_" data-uid="Picturepark.SDK.V1.Conversion.ClassToSchemaConverter.GenerateAsync(System.Type,System.Boolean)">GenerateAsync(Type, Boolean)</h4>
+              <div class="markdown level1 summary"><p>Converts a .NET type and its dependencies to a list of Picturepark schema definitions.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public List&lt;SchemaDetail&gt; Generate(Type type, bool generateRelatedSchemas = true)</code></pre>
+                <pre><code class="lang-csharp hljs">public Task&lt;ICollection&lt;SchemaDetail&gt;&gt; GenerateAsync(Type type, bool generateRelatedSchemas = true)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -200,7 +201,7 @@
                   <tr>
                     <td><span class="xref">System.Type</span></td>
                     <td><span class="parametername">type</span></td>
-                    <td><p>Type of poco to convert</p>
+                    <td><p>The type to generate definitions for.</p>
 </td>
                   </tr>
                   <tr>
@@ -221,7 +222,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>&gt;</td>
+                    <td><span class="xref">Task</span>&lt;<span class="xref">ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>&gt;&gt;</td>
                     <td><p>List of schemas</p>
 </td>
                   </tr>

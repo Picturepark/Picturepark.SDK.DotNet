@@ -125,15 +125,7 @@ namespace Picturepark.ContentUploader.ViewModels
                     var authClient = new AccessTokenAuthClient(Server, accessToken, CustomerAlias);
                     using (var client = new PictureparkClient(new PictureparkClientSettings(authClient)))
                     {
-                        var transfer = await client.Transfers.CreateAsync(new CreateTransferRequest
-                        {
-                            Name = fileName,
-                            TransferType = TransferType.FileUpload,
-                            Files = new List<TransferUploadFile> { new TransferUploadFile { FileName = fileName, Identifier = fileName } }
-                        });
-
-                        using (var stream = File.OpenRead(FilePath))
-                            await client.Transfers.UploadFileAsync(transfer.Id, fileName, new FileParameter(stream, fileName), fileName, 1, stream.Length, stream.Length, 1);
+                        await client.Transfers.UploadFilesAsync(fileName, new[] { FilePath }, new UploadOptions { ChunkSize = 1024 * 1024 });
                     }
                 });
             }

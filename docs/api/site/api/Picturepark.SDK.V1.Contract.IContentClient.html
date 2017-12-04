@@ -381,13 +381,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_CreateContent_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.CreateContent*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_CreateContent_Picturepark_SDK_V1_Contract_CreateContentRequest_System_Boolean_System_Nullable_System_Int32__System_Collections_Generic_IEnumerable_System_String__" data-uid="Picturepark.SDK.V1.Contract.IContentClient.CreateContent(Picturepark.SDK.V1.Contract.CreateContentRequest,System.Boolean,System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String})">CreateContent(CreateContentRequest, Boolean, Nullable&lt;Int32&gt;, IEnumerable&lt;String&gt;)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_CreateContent_Picturepark_SDK_V1_Contract_ContentCreateRequest_System_Boolean_System_Nullable_System_TimeSpan__System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_DisplayPatternType__" data-uid="Picturepark.SDK.V1.Contract.IContentClient.CreateContent(Picturepark.SDK.V1.Contract.ContentCreateRequest,System.Boolean,System.Nullable{System.TimeSpan},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.DisplayPatternType})">CreateContent(ContentCreateRequest, Boolean, Nullable&lt;TimeSpan&gt;, IEnumerable&lt;DisplayPatternType&gt;)</h4>
               <div class="markdown level1 summary"><p>Create Single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ContentDetail CreateContent(CreateContentRequest createRequest, bool resolve, int ? timeout = null, IEnumerable&lt;string&gt; patterns = null)</code></pre>
+                <pre><code class="lang-csharp hljs">ContentDetail CreateContent(ContentCreateRequest contentCreateRequest, bool resolve, TimeSpan? timeout = null, IEnumerable&lt;DisplayPatternType&gt; patterns = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -400,8 +400,8 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.CreateContentRequest.html">CreateContentRequest</a></td>
-                    <td><span class="parametername">createRequest</span></td>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentCreateRequest.html">ContentCreateRequest</a></td>
+                    <td><span class="parametername">contentCreateRequest</span></td>
                     <td><p>The content create request.</p>
 </td>
                   </tr>
@@ -412,13 +412,13 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
                     <td><span class="parametername">timeout</span></td>
                     <td><p>Maximum time in milliseconds to wait for the business process completed state.</p>
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DisplayPatternType.html">DisplayPatternType</a>&gt;</td>
                     <td><span class="parametername">patterns</span></td>
                     <td><p>Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</p>
 </td>
@@ -455,6 +455,11 @@
 </td>
                   </tr>
                   <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitTimeoutException.html">BusinessProcessWaitTimeoutException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
                     <td><p>Internal server error</p>
 </td>
@@ -464,13 +469,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_CreateContentAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.CreateContentAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_CreateContentAsync_Picturepark_SDK_V1_Contract_CreateContentRequest_System_Boolean_System_Nullable_System_Int32__System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.CreateContentAsync(Picturepark.SDK.V1.Contract.CreateContentRequest,System.Boolean,System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">CreateContentAsync(CreateContentRequest, Boolean, Nullable&lt;Int32&gt;, IEnumerable&lt;String&gt;, CancellationToken)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_CreateContentAsync_Picturepark_SDK_V1_Contract_ContentCreateRequest_System_Boolean_System_Nullable_System_TimeSpan__System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_DisplayPatternType__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.CreateContentAsync(Picturepark.SDK.V1.Contract.ContentCreateRequest,System.Boolean,System.Nullable{System.TimeSpan},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.DisplayPatternType},System.Threading.CancellationToken)">CreateContentAsync(ContentCreateRequest, Boolean, Nullable&lt;TimeSpan&gt;, IEnumerable&lt;DisplayPatternType&gt;, CancellationToken)</h4>
               <div class="markdown level1 summary"><p>Create Single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;ContentDetail&gt; CreateContentAsync(CreateContentRequest createRequest, bool resolve, int ? timeout = null, IEnumerable&lt;string&gt; patterns = null, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;ContentDetail&gt; CreateContentAsync(ContentCreateRequest contentCreateRequest, bool resolve, TimeSpan? timeout = null, IEnumerable&lt;DisplayPatternType&gt; patterns = null, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -483,8 +488,8 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.CreateContentRequest.html">CreateContentRequest</a></td>
-                    <td><span class="parametername">createRequest</span></td>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentCreateRequest.html">ContentCreateRequest</a></td>
+                    <td><span class="parametername">contentCreateRequest</span></td>
                     <td><p>The content create request.</p>
 </td>
                   </tr>
@@ -495,13 +500,13 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
                     <td><span class="parametername">timeout</span></td>
                     <td><p>Maximum time in milliseconds to wait for the business process completed state.</p>
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DisplayPatternType.html">DisplayPatternType</a>&gt;</td>
                     <td><span class="parametername">patterns</span></td>
                     <td><p>Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</p>
 </td>
@@ -540,6 +545,11 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitTimeoutException.html">BusinessProcessWaitTimeoutException</a></td>
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>
@@ -691,13 +701,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_Deactivate_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.Deactivate*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_Deactivate_System_String_System_Int32_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.Deactivate(System.String,System.Int32)">Deactivate(String, Int32)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_Deactivate_System_String_System_Nullable_System_TimeSpan__" data-uid="Picturepark.SDK.V1.Contract.IContentClient.Deactivate(System.String,System.Nullable{System.TimeSpan})">Deactivate(String, Nullable&lt;TimeSpan&gt;)</h4>
               <div class="markdown level1 summary"><p>Deactivates a content</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">void Deactivate(string contentId, int timeout)</code></pre>
+                <pre><code class="lang-csharp hljs">void Deactivate(string contentId, TimeSpan? timeout)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -716,7 +726,7 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Int32</span></td>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
                     <td><span class="parametername">timeout</span></td>
                     <td><p>Maximum time in milliseconds to wait for the business process completed state.</p>
 </td>
@@ -738,6 +748,11 @@
 </td>
                   </tr>
                   <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitTimeoutException.html">BusinessProcessWaitTimeoutException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
                     <td><p>Internal server error</p>
 </td>
@@ -748,7 +763,8 @@
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_DeactivateAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.DeactivateAsync*"></a>
               <h4 id="Picturepark_SDK_V1_Contract_IContentClient_DeactivateAsync_System_String_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.DeactivateAsync(System.String,CancellationToken)">DeactivateAsync(String, CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Deactivates a content item by ID (i.e. marks the content item as deleted).</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -767,12 +783,14 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">contentId</span></td>
-                    <td></td>
+                    <td><p>The content ID.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">CancellationToken</span></td>
                     <td><span class="parametername">cancellationToken</span></td>
-                    <td></td>
+                    <td><p>The cancellation token.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -787,20 +805,37 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Task</span></td>
-                    <td></td>
+                    <td><p>The task.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
               
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_DeactivateAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.DeactivateAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_DeactivateAsync_System_String_System_Int32_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.DeactivateAsync(System.String,System.Int32,System.Threading.CancellationToken)">DeactivateAsync(String, Int32, CancellationToken)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_DeactivateAsync_System_String_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.DeactivateAsync(System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">DeactivateAsync(String, Nullable&lt;TimeSpan&gt;, CancellationToken)</h4>
               <div class="markdown level1 summary"><p>Deactivates a content</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task DeactivateAsync(string contentId, int timeout, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task DeactivateAsync(string contentId, TimeSpan? timeout, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -819,7 +854,7 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Int32</span></td>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
                     <td><span class="parametername">timeout</span></td>
                     <td><p>Maximum time in milliseconds to wait for the business process completed state.</p>
 </td>
@@ -858,6 +893,11 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitTimeoutException.html">BusinessProcessWaitTimeoutException</a></td>
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>
@@ -1054,7 +1094,7 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">range</span></td>
-                    <td><p>the range</p>
+                    <td><p>The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</p>
 </td>
                   </tr>
                 </tbody>
@@ -1144,7 +1184,7 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">range</span></td>
-                    <td><p>the range</p>
+                    <td><p>The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</p>
 </td>
                   </tr>
                   <tr>
@@ -1196,7 +1236,8 @@
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_DownloadFilesAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.DownloadFilesAsync*"></a>
               <h4 id="Picturepark_SDK_V1_Contract_IContentClient_DownloadFilesAsync_Picturepark_SDK_V1_Contract_ContentSearchResult_System_String_System_Boolean_System_Int32_System_String_System_String_System_Action_Picturepark_SDK_V1_Contract_ContentDetail__System_Action_System_Exception__CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.DownloadFilesAsync(Picturepark.SDK.V1.Contract.ContentSearchResult,System.String,System.Boolean,System.Int32,System.String,System.String,System.Action{Picturepark.SDK.V1.Contract.ContentDetail},System.Action{System.Exception},CancellationToken)">DownloadFilesAsync(ContentSearchResult, String, Boolean, Int32, String, String, Action&lt;ContentDetail&gt;, Action&lt;Exception&gt;, CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Downloads multiple files.</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -1215,47 +1256,56 @@
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentSearchResult.html">ContentSearchResult</a></td>
                     <td><span class="parametername">contents</span></td>
-                    <td></td>
+                    <td><p>The files to download.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">exportDirectory</span></td>
-                    <td></td>
+                    <td><p>The directory to store the downloaded files.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Boolean</span></td>
                     <td><span class="parametername">overwriteIfExists</span></td>
-                    <td></td>
+                    <td><p>Specifies whether to overwrite files.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Int32</span></td>
                     <td><span class="parametername">concurrentDownloads</span></td>
-                    <td></td>
+                    <td><p>Specifies the number of concurrent downloads.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">outputFormat</span></td>
-                    <td></td>
+                    <td><p>The output format name (e.g. &#39;Original&#39;).</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">outputExtension</span></td>
-                    <td></td>
+                    <td><p>The expected output file extension.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Action</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentDetail.html">ContentDetail</a>&gt;</td>
                     <td><span class="parametername">successDelegate</span></td>
-                    <td></td>
+                    <td><p>The success delegate/callback.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">System.Action</span>&lt;<span class="xref">System.Exception</span>&gt;</td>
                     <td><span class="parametername">errorDelegate</span></td>
-                    <td></td>
+                    <td><p>The error delegate/callback.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">CancellationToken</span></td>
                     <td><span class="parametername">cancellationToken</span></td>
-                    <td></td>
+                    <td><p>The cancellation token.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1270,7 +1320,8 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Task</span></td>
-                    <td></td>
+                    <td><p>The task.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1451,13 +1502,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_Get_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.Get*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_Get_System_String_System_Boolean_System_Collections_Generic_IEnumerable_System_String__" data-uid="Picturepark.SDK.V1.Contract.IContentClient.Get(System.String,System.Boolean,System.Collections.Generic.IEnumerable{System.String})">Get(String, Boolean, IEnumerable&lt;String&gt;)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_Get_System_String_System_Boolean_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_DisplayPatternType__" data-uid="Picturepark.SDK.V1.Contract.IContentClient.Get(System.String,System.Boolean,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.DisplayPatternType})">Get(String, Boolean, IEnumerable&lt;DisplayPatternType&gt;)</h4>
               <div class="markdown level1 summary"><p>Get Single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ContentDetail Get(string contentId, bool resolve, IEnumerable&lt;string&gt; patterns = null)</code></pre>
+                <pre><code class="lang-csharp hljs">ContentDetail Get(string contentId, bool resolve, IEnumerable&lt;DisplayPatternType&gt; patterns = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1482,7 +1533,7 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DisplayPatternType.html">DisplayPatternType</a>&gt;</td>
                     <td><span class="parametername">patterns</span></td>
                     <td><p>Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</p>
 </td>
@@ -1535,7 +1586,8 @@
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_GetAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.GetAsync*"></a>
               <h4 id="Picturepark_SDK_V1_Contract_IContentClient_GetAsync_System_String_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.GetAsync(System.String,CancellationToken)">GetAsync(String, CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Picturepark.SDK.V1.Contract.ContentDetail.html">ContentDetail</a> by ID.</p>
+</div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
@@ -1554,12 +1606,14 @@
                   <tr>
                     <td><span class="xref">System.String</span></td>
                     <td><span class="parametername">contentId</span></td>
-                    <td></td>
+                    <td><p>The content ID.</p>
+</td>
                   </tr>
                   <tr>
                     <td><span class="xref">CancellationToken</span></td>
                     <td><span class="parametername">cancellationToken</span></td>
-                    <td></td>
+                    <td><p>The cancellation token.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
@@ -1574,20 +1628,37 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentDetail.html">ContentDetail</a>&gt;</td>
-                    <td></td>
+                    <td><p>The content detail.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
                   </tr>
                 </tbody>
               </table>
               
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_GetAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.GetAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_GetAsync_System_String_System_Boolean_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.GetAsync(System.String,System.Boolean,System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">GetAsync(String, Boolean, IEnumerable&lt;String&gt;, CancellationToken)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_GetAsync_System_String_System_Boolean_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_DisplayPatternType__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.GetAsync(System.String,System.Boolean,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.DisplayPatternType},System.Threading.CancellationToken)">GetAsync(String, Boolean, IEnumerable&lt;DisplayPatternType&gt;, CancellationToken)</h4>
               <div class="markdown level1 summary"><p>Get Single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;ContentDetail&gt; GetAsync(string contentId, bool resolve, IEnumerable&lt;string&gt; patterns = null, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;ContentDetail&gt; GetAsync(string contentId, bool resolve, IEnumerable&lt;DisplayPatternType&gt; patterns = null, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1612,7 +1683,7 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DisplayPatternType.html">DisplayPatternType</a>&gt;</td>
                     <td><span class="parametername">patterns</span></td>
                     <td><p>Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</p>
 </td>
@@ -1670,13 +1741,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_GetMany_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.GetMany*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_GetMany_System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Collections_Generic_IEnumerable_System_String__" data-uid="Picturepark.SDK.V1.Contract.IContentClient.GetMany(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Collections.Generic.IEnumerable{System.String})">GetMany(IEnumerable&lt;String&gt;, Boolean, IEnumerable&lt;String&gt;)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_GetMany_System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_DisplayPatternType__" data-uid="Picturepark.SDK.V1.Contract.IContentClient.GetMany(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.DisplayPatternType})">GetMany(IEnumerable&lt;String&gt;, Boolean, IEnumerable&lt;DisplayPatternType&gt;)</h4>
               <div class="markdown level1 summary"><p>Get Many</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">List&lt;ContentDetail&gt; GetMany(IEnumerable&lt;string&gt; ids, bool resolve, IEnumerable&lt;string&gt; patterns = null)</code></pre>
+                <pre><code class="lang-csharp hljs">List&lt;ContentDetail&gt; GetMany(IEnumerable&lt;string&gt; ids, bool resolve, IEnumerable&lt;DisplayPatternType&gt; patterns = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1701,7 +1772,7 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DisplayPatternType.html">DisplayPatternType</a>&gt;</td>
                     <td><span class="parametername">patterns</span></td>
                     <td><p>Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</p>
 </td>
@@ -1748,13 +1819,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_GetManyAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.GetManyAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">GetManyAsync(IEnumerable&lt;String&gt;, Boolean, IEnumerable&lt;String&gt;, CancellationToken)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_DisplayPatternType__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.DisplayPatternType},System.Threading.CancellationToken)">GetManyAsync(IEnumerable&lt;String&gt;, Boolean, IEnumerable&lt;DisplayPatternType&gt;, CancellationToken)</h4>
               <div class="markdown level1 summary"><p>Get Many</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;List&lt;ContentDetail&gt;&gt; GetManyAsync(IEnumerable&lt;string&gt; ids, bool resolve, IEnumerable&lt;string&gt; patterns = null, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;List&lt;ContentDetail&gt;&gt; GetManyAsync(IEnumerable&lt;string&gt; ids, bool resolve, IEnumerable&lt;DisplayPatternType&gt; patterns = null, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1779,7 +1850,7 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DisplayPatternType.html">DisplayPatternType</a>&gt;</td>
                     <td><span class="parametername">patterns</span></td>
                     <td><p>Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</p>
 </td>
@@ -1832,65 +1903,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_Reactivate_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.Reactivate*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_Reactivate_System_String_System_Boolean_System_Int32_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.Reactivate(System.String,System.Boolean,System.Int32)">Reactivate(String, Boolean, Int32)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ContentDetail Reactivate(string contentId, bool resolve = true, int timeout = 60000)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">contentId</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Boolean</span></td>
-                    <td><span class="parametername">resolve</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Int32</span></td>
-                    <td><span class="parametername">timeout</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentDetail.html">ContentDetail</a></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IContentClient_Reactivate_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.Reactivate*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_Reactivate_System_String_System_Boolean_System_Nullable_System_Int32__System_Collections_Generic_IEnumerable_System_String__" data-uid="Picturepark.SDK.V1.Contract.IContentClient.Reactivate(System.String,System.Boolean,System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String})">Reactivate(String, Boolean, Nullable&lt;Int32&gt;, IEnumerable&lt;String&gt;)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_Reactivate_System_String_System_Boolean_System_Nullable_System_TimeSpan__System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_DisplayPatternType__" data-uid="Picturepark.SDK.V1.Contract.IContentClient.Reactivate(System.String,System.Boolean,System.Nullable{System.TimeSpan},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.DisplayPatternType})">Reactivate(String, Boolean, Nullable&lt;TimeSpan&gt;, IEnumerable&lt;DisplayPatternType&gt;)</h4>
               <div class="markdown level1 summary"><p>Reactivate - Content</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ContentDetail Reactivate(string contentId, bool resolve, int ? timeout = null, IEnumerable&lt;string&gt; patterns = null)</code></pre>
+                <pre><code class="lang-csharp hljs">ContentDetail Reactivate(string contentId, bool resolve, TimeSpan? timeout = null, IEnumerable&lt;DisplayPatternType&gt; patterns = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -1915,13 +1934,13 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
                     <td><span class="parametername">timeout</span></td>
-                    <td><p>Maximum time in milliseconds to wait for the business process completed state.</p>
+                    <td><p>Maximum time to wait for the business process completed state.</p>
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DisplayPatternType.html">DisplayPatternType</a>&gt;</td>
                     <td><span class="parametername">patterns</span></td>
                     <td><p>Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</p>
 </td>
@@ -1959,6 +1978,11 @@
 </td>
                   </tr>
                   <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitTimeoutException.html">BusinessProcessWaitTimeoutException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
                     <td><p>Internal server error</p>
 </td>
@@ -1968,70 +1992,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_ReactivateAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.ReactivateAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_ReactivateAsync_System_String_System_Boolean_System_Int32_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.ReactivateAsync(System.String,System.Boolean,System.Int32,CancellationToken)">ReactivateAsync(String, Boolean, Int32, CancellationToken)</h4>
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;ContentDetail&gt; ReactivateAsync(string contentId, bool resolve = true, int timeout = 60000, CancellationToken cancellationToken = null)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">contentId</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Boolean</span></td>
-                    <td><span class="parametername">resolve</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Int32</span></td>
-                    <td><span class="parametername">timeout</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentDetail.html">ContentDetail</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IContentClient_ReactivateAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.ReactivateAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_ReactivateAsync_System_String_System_Boolean_System_Nullable_System_Int32__System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.ReactivateAsync(System.String,System.Boolean,System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">ReactivateAsync(String, Boolean, Nullable&lt;Int32&gt;, IEnumerable&lt;String&gt;, CancellationToken)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_ReactivateAsync_System_String_System_Boolean_System_Nullable_System_TimeSpan__System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_DisplayPatternType__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.ReactivateAsync(System.String,System.Boolean,System.Nullable{System.TimeSpan},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.DisplayPatternType},System.Threading.CancellationToken)">ReactivateAsync(String, Boolean, Nullable&lt;TimeSpan&gt;, IEnumerable&lt;DisplayPatternType&gt;, CancellationToken)</h4>
               <div class="markdown level1 summary"><p>Reactivate - Content</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;ContentDetail&gt; ReactivateAsync(string contentId, bool resolve, int ? timeout = null, IEnumerable&lt;string&gt; patterns = null, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;ContentDetail&gt; ReactivateAsync(string contentId, bool resolve, TimeSpan? timeout = null, IEnumerable&lt;DisplayPatternType&gt; patterns = null, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -2056,13 +2023,13 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
                     <td><span class="parametername">timeout</span></td>
-                    <td><p>Maximum time in milliseconds to wait for the business process completed state.</p>
+                    <td><p>Maximum time to wait for the business process completed state.</p>
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DisplayPatternType.html">DisplayPatternType</a>&gt;</td>
                     <td><span class="parametername">patterns</span></td>
                     <td><p>Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</p>
 </td>
@@ -2102,6 +2069,11 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitTimeoutException.html">BusinessProcessWaitTimeoutException</a></td>
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>
@@ -2540,6 +2512,178 @@
               </table>
               
               
+              <a id="Picturepark_SDK_V1_Contract_IContentClient_TransferOwnership_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.TransferOwnership*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_TransferOwnership_System_String_Picturepark_SDK_V1_Contract_ContentOwnershipTransferRequest_System_Nullable_System_TimeSpan__" data-uid="Picturepark.SDK.V1.Contract.IContentClient.TransferOwnership(System.String,Picturepark.SDK.V1.Contract.ContentOwnershipTransferRequest,System.Nullable{System.TimeSpan})">TransferOwnership(String, ContentOwnershipTransferRequest, Nullable&lt;TimeSpan&gt;)</h4>
+              <div class="markdown level1 summary"><p>Update Single - OwnershipTransfer</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">ContentDetail TransferOwnership(string contentId, ContentOwnershipTransferRequest updateRequest, TimeSpan? timeout = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">contentId</span></td>
+                    <td><p>The content id.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentOwnershipTransferRequest.html">ContentOwnershipTransferRequest</a></td>
+                    <td><span class="parametername">updateRequest</span></td>
+                    <td><p>The content ownership transfer request update request.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
+                    <td><span class="parametername">timeout</span></td>
+                    <td><p>Maximum time to wait for the business process completed state.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentDetail.html">ContentDetail</a></td>
+                    <td><p>ContentDetail</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitTimeoutException.html">BusinessProcessWaitTimeoutException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Picturepark_SDK_V1_Contract_IContentClient_TransferOwnershipAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.TransferOwnershipAsync*"></a>
+              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_TransferOwnershipAsync_System_String_Picturepark_SDK_V1_Contract_ContentOwnershipTransferRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.TransferOwnershipAsync(System.String,Picturepark.SDK.V1.Contract.ContentOwnershipTransferRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">TransferOwnershipAsync(String, ContentOwnershipTransferRequest, Nullable&lt;TimeSpan&gt;, CancellationToken)</h4>
+              <div class="markdown level1 summary"><p>Update Single - OwnershipTransfer</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task&lt;ContentDetail&gt; TransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">contentId</span></td>
+                    <td><p>The content id.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentOwnershipTransferRequest.html">ContentOwnershipTransferRequest</a></td>
+                    <td><span class="parametername">updateRequest</span></td>
+                    <td><p>The content ownership transfer request update request.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
+                    <td><span class="parametername">timeout</span></td>
+                    <td><p>Maximum time to wait for the business process completed state.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">System.Threading.CancellationToken</span></td>
+                    <td><span class="parametername">cancellationToken</span></td>
+                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentDetail.html">ContentDetail</a>&gt;</td>
+                    <td><p>ContentDetail</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="exceptions">Exceptions</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitTimeoutException.html">BusinessProcessWaitTimeoutException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
+                    <td><p>Internal server error</p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
               <a id="Picturepark_SDK_V1_Contract_IContentClient_TransferOwnershipMany_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.TransferOwnershipMany*"></a>
               <h4 id="Picturepark_SDK_V1_Contract_IContentClient_TransferOwnershipMany_Picturepark_SDK_V1_Contract_ContentsOwnershipTransferRequest_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.TransferOwnershipMany(Picturepark.SDK.V1.Contract.ContentsOwnershipTransferRequest)">TransferOwnershipMany(ContentsOwnershipTransferRequest)</h4>
               <div class="markdown level1 summary"><p>Process many ownership trasnfer request</p>
@@ -2827,13 +2971,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_UpdateMetadata_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.UpdateMetadata*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_UpdateMetadata_System_String_Picturepark_SDK_V1_Contract_UpdateContentMetadataRequest_System_Boolean_System_Nullable_System_Int32__System_Collections_Generic_IEnumerable_System_String__" data-uid="Picturepark.SDK.V1.Contract.IContentClient.UpdateMetadata(System.String,Picturepark.SDK.V1.Contract.UpdateContentMetadataRequest,System.Boolean,System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String})">UpdateMetadata(String, UpdateContentMetadataRequest, Boolean, Nullable&lt;Int32&gt;, IEnumerable&lt;String&gt;)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_UpdateMetadata_System_String_Picturepark_SDK_V1_Contract_UpdateContentMetadataRequest_System_Boolean_System_Nullable_System_TimeSpan__System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_DisplayPatternType__" data-uid="Picturepark.SDK.V1.Contract.IContentClient.UpdateMetadata(System.String,Picturepark.SDK.V1.Contract.UpdateContentMetadataRequest,System.Boolean,System.Nullable{System.TimeSpan},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.DisplayPatternType})">UpdateMetadata(String, UpdateContentMetadataRequest, Boolean, Nullable&lt;TimeSpan&gt;, IEnumerable&lt;DisplayPatternType&gt;)</h4>
               <div class="markdown level1 summary"><p>Update Single - Metadata</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ContentDetail UpdateMetadata(string contentId, UpdateContentMetadataRequest updateRequest, bool resolve, int ? timeout = null, IEnumerable&lt;string&gt; patterns = null)</code></pre>
+                <pre><code class="lang-csharp hljs">ContentDetail UpdateMetadata(string contentId, UpdateContentMetadataRequest updateRequest, bool resolve, TimeSpan? timeout = null, IEnumerable&lt;DisplayPatternType&gt; patterns = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -2864,13 +3008,13 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
                     <td><span class="parametername">timeout</span></td>
-                    <td><p>Maximum time in milliseconds to wait for the business process completed state.</p>
+                    <td><p>Maximum time to wait for the business process completed state.</p>
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DisplayPatternType.html">DisplayPatternType</a>&gt;</td>
                     <td><span class="parametername">patterns</span></td>
                     <td><p>Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</p>
 </td>
@@ -2908,6 +3052,11 @@
 </td>
                   </tr>
                   <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitTimeoutException.html">BusinessProcessWaitTimeoutException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
                     <td><p>Internal server error</p>
 </td>
@@ -2917,13 +3066,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_UpdateMetadataAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.UpdateMetadataAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_UpdateMetadataAsync_System_String_Picturepark_SDK_V1_Contract_UpdateContentMetadataRequest_System_Boolean_System_Nullable_System_Int32__System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.UpdateMetadataAsync(System.String,Picturepark.SDK.V1.Contract.UpdateContentMetadataRequest,System.Boolean,System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">UpdateMetadataAsync(String, UpdateContentMetadataRequest, Boolean, Nullable&lt;Int32&gt;, IEnumerable&lt;String&gt;, CancellationToken)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_UpdateMetadataAsync_System_String_Picturepark_SDK_V1_Contract_UpdateContentMetadataRequest_System_Boolean_System_Nullable_System_TimeSpan__System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_DisplayPatternType__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.UpdateMetadataAsync(System.String,Picturepark.SDK.V1.Contract.UpdateContentMetadataRequest,System.Boolean,System.Nullable{System.TimeSpan},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.DisplayPatternType},System.Threading.CancellationToken)">UpdateMetadataAsync(String, UpdateContentMetadataRequest, Boolean, Nullable&lt;TimeSpan&gt;, IEnumerable&lt;DisplayPatternType&gt;, CancellationToken)</h4>
               <div class="markdown level1 summary"><p>Update Single - Metadata</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;ContentDetail&gt; UpdateMetadataAsync(string contentId, UpdateContentMetadataRequest updateRequest, bool resolve, int ? timeout = null, IEnumerable&lt;string&gt; patterns = null, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;ContentDetail&gt; UpdateMetadataAsync(string contentId, UpdateContentMetadataRequest updateRequest, bool resolve, TimeSpan? timeout = null, IEnumerable&lt;DisplayPatternType&gt; patterns = null, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -2954,13 +3103,13 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
                     <td><span class="parametername">timeout</span></td>
-                    <td><p>Maximum time in milliseconds to wait for the business process completed state.</p>
+                    <td><p>Maximum time to wait for the business process completed state.</p>
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DisplayPatternType.html">DisplayPatternType</a>&gt;</td>
                     <td><span class="parametername">patterns</span></td>
                     <td><p>Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</p>
 </td>
@@ -3000,6 +3149,11 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitTimeoutException.html">BusinessProcessWaitTimeoutException</a></td>
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>
@@ -3289,13 +3443,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_UpdatePermissions_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.UpdatePermissions*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_UpdatePermissions_System_String_Picturepark_SDK_V1_Contract_UpdateContentPermissionsRequest_System_Boolean_System_Nullable_System_Int32__System_Collections_Generic_IEnumerable_System_String__" data-uid="Picturepark.SDK.V1.Contract.IContentClient.UpdatePermissions(System.String,Picturepark.SDK.V1.Contract.UpdateContentPermissionsRequest,System.Boolean,System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String})">UpdatePermissions(String, UpdateContentPermissionsRequest, Boolean, Nullable&lt;Int32&gt;, IEnumerable&lt;String&gt;)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_UpdatePermissions_System_String_Picturepark_SDK_V1_Contract_UpdateContentPermissionsRequest_System_Boolean_System_Nullable_System_TimeSpan__System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_DisplayPatternType__" data-uid="Picturepark.SDK.V1.Contract.IContentClient.UpdatePermissions(System.String,Picturepark.SDK.V1.Contract.UpdateContentPermissionsRequest,System.Boolean,System.Nullable{System.TimeSpan},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.DisplayPatternType})">UpdatePermissions(String, UpdateContentPermissionsRequest, Boolean, Nullable&lt;TimeSpan&gt;, IEnumerable&lt;DisplayPatternType&gt;)</h4>
               <div class="markdown level1 summary"><p>Update Single - Permissions</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ContentDetail UpdatePermissions(string contentId, UpdateContentPermissionsRequest updateRequest, bool resolve, int ? timeout = null, IEnumerable&lt;string&gt; patterns = null)</code></pre>
+                <pre><code class="lang-csharp hljs">ContentDetail UpdatePermissions(string contentId, UpdateContentPermissionsRequest updateRequest, bool resolve, TimeSpan? timeout = null, IEnumerable&lt;DisplayPatternType&gt; patterns = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -3326,13 +3480,13 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
                     <td><span class="parametername">timeout</span></td>
-                    <td><p>Maximum time in milliseconds to wait for the business process completed state.</p>
+                    <td><p>Maximum time to wait for the business process completed state.</p>
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DisplayPatternType.html">DisplayPatternType</a>&gt;</td>
                     <td><span class="parametername">patterns</span></td>
                     <td><p>Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</p>
 </td>
@@ -3370,6 +3524,11 @@
 </td>
                   </tr>
                   <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitTimeoutException.html">BusinessProcessWaitTimeoutException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
                     <td><p>Internal server error</p>
 </td>
@@ -3379,13 +3538,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IContentClient_UpdatePermissionsAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.UpdatePermissionsAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_UpdatePermissionsAsync_System_String_Picturepark_SDK_V1_Contract_UpdateContentPermissionsRequest_System_Boolean_System_Nullable_System_Int32__System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.UpdatePermissionsAsync(System.String,Picturepark.SDK.V1.Contract.UpdateContentPermissionsRequest,System.Boolean,System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">UpdatePermissionsAsync(String, UpdateContentPermissionsRequest, Boolean, Nullable&lt;Int32&gt;, IEnumerable&lt;String&gt;, CancellationToken)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_UpdatePermissionsAsync_System_String_Picturepark_SDK_V1_Contract_UpdateContentPermissionsRequest_System_Boolean_System_Nullable_System_TimeSpan__System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_DisplayPatternType__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.UpdatePermissionsAsync(System.String,Picturepark.SDK.V1.Contract.UpdateContentPermissionsRequest,System.Boolean,System.Nullable{System.TimeSpan},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.DisplayPatternType},System.Threading.CancellationToken)">UpdatePermissionsAsync(String, UpdateContentPermissionsRequest, Boolean, Nullable&lt;TimeSpan&gt;, IEnumerable&lt;DisplayPatternType&gt;, CancellationToken)</h4>
               <div class="markdown level1 summary"><p>Update Single - Permissions</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;ContentDetail&gt; UpdatePermissionsAsync(string contentId, UpdateContentPermissionsRequest updateRequest, bool resolve, int ? timeout = null, IEnumerable&lt;string&gt; patterns = null, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;ContentDetail&gt; UpdatePermissionsAsync(string contentId, UpdateContentPermissionsRequest updateRequest, bool resolve, TimeSpan? timeout = null, IEnumerable&lt;DisplayPatternType&gt; patterns = null, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -3416,13 +3575,13 @@
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</td>
                     <td><span class="parametername">timeout</span></td>
-                    <td><p>Maximum time in milliseconds to wait for the business process completed state.</p>
+                    <td><p>Maximum time to wait for the business process completed state.</p>
 </td>
                   </tr>
                   <tr>
-                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+                    <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DisplayPatternType.html">DisplayPatternType</a>&gt;</td>
                     <td><span class="parametername">patterns</span></td>
                     <td><p>Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</p>
 </td>
@@ -3462,6 +3621,11 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitTimeoutException.html">BusinessProcessWaitTimeoutException</a></td>
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>
@@ -3585,168 +3749,6 @@
                   <tr>
                     <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;</td>
                     <td><p>BusinessProcess</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IContentClient_UpdateTransferOwnership_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.UpdateTransferOwnership*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_UpdateTransferOwnership_System_String_Picturepark_SDK_V1_Contract_ContentOwnershipTransferRequest_System_Nullable_System_Int32__" data-uid="Picturepark.SDK.V1.Contract.IContentClient.UpdateTransferOwnership(System.String,Picturepark.SDK.V1.Contract.ContentOwnershipTransferRequest,System.Nullable{System.Int32})">UpdateTransferOwnership(String, ContentOwnershipTransferRequest, Nullable&lt;Int32&gt;)</h4>
-              <div class="markdown level1 summary"><p>Update Single - OwnershipTransfer</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ContentDetail UpdateTransferOwnership(string contentId, ContentOwnershipTransferRequest updateRequest, int ? timeout = null)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">contentId</span></td>
-                    <td><p>The content id.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentOwnershipTransferRequest.html">ContentOwnershipTransferRequest</a></td>
-                    <td><span class="parametername">updateRequest</span></td>
-                    <td><p>The content ownership transfer request update request.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-                    <td><span class="parametername">timeout</span></td>
-                    <td><p>Maximum time in milliseconds to wait for the business process completed state.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentDetail.html">ContentDetail</a></td>
-                    <td><p>ContentDetail</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IContentClient_UpdateTransferOwnershipAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.UpdateTransferOwnershipAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IContentClient_UpdateTransferOwnershipAsync_System_String_Picturepark_SDK_V1_Contract_ContentOwnershipTransferRequest_System_Nullable_System_Int32__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.UpdateTransferOwnershipAsync(System.String,Picturepark.SDK.V1.Contract.ContentOwnershipTransferRequest,System.Nullable{System.Int32},System.Threading.CancellationToken)">UpdateTransferOwnershipAsync(String, ContentOwnershipTransferRequest, Nullable&lt;Int32&gt;, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Update Single - OwnershipTransfer</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;ContentDetail&gt; UpdateTransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, int ? timeout = null, CancellationToken cancellationToken = null)</code></pre>
-              </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">contentId</span></td>
-                    <td><p>The content id.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentOwnershipTransferRequest.html">ContentOwnershipTransferRequest</a></td>
-                    <td><span class="parametername">updateRequest</span></td>
-                    <td><p>The content ownership transfer request update request.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-                    <td><span class="parametername">timeout</span></td>
-                    <td><p>Maximum time in milliseconds to wait for the business process completed state.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
-              <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentDetail.html">ContentDetail</a>&gt;</td>
-                    <td><p>ContentDetail</p>
 </td>
                   </tr>
                 </tbody>

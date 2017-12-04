@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Conversion
 {
+	/// <summary>Converts .NET types to Picturepark schemas.</summary>
 	public class ClassToSchemaConverter
 	{
 		private readonly List<string> _ignoredProperties = new List<string> { "refId", "_relId", "_relationType", "_targetContext", "_targetId" };
@@ -102,11 +103,12 @@ namespace Picturepark.SDK.V1.Conversion
 				var displayPattern = new DisplayPattern
 				{
 					DisplayPatternType = displayPatternAttribute.Type,
-					Id = displayPatternAttribute.Type.ToString(),
 					TemplateEngine = displayPatternAttribute.TemplateEngine,
 					Templates = new TranslatedStringDictionary { { "x-default", displayPatternAttribute.DisplayPattern } }
 				};
 				schemaItem.DisplayPatterns.Add(displayPattern);
+
+				//// TODO: Implement fallback for not provided patterns?
 			}
 
 			// Assign name translations

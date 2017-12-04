@@ -215,7 +215,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			/// Assert
 			Assert.NotNull(result);
-			Assert.Equal(20, result.Results.Count);
+			Assert.True(result.Results.Count >= 1);
 		}
 
 		[Fact]
@@ -224,7 +224,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		{
 			/// Arrange
 			const int desiredUploadFiles = 10;
-			const int timeout = 2 * 60 * 1000;
+			TimeSpan timeout = TimeSpan.FromMinutes(2);
 
 			var transferName = nameof(ShouldUploadAndImportFiles) + "-" + new Random().Next(1000, 9999);
 

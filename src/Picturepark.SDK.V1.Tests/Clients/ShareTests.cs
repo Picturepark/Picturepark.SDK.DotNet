@@ -95,14 +95,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
 				Description = "Foo"
 			};
 
-			var result = await _client.Shares.UpdateAsync(createResult.ShareId, request, true);
+			var result = await _client.Shares.UpdateAsync(createResult.ShareId, request);
 
 			/// Assert
 			var share = await _client.Shares.GetAsync(createResult.ShareId);
 			Assert.Equal("Foo", share.Description);
 		}
 
-		[Fact(Skip = "ShareClient.DeleteManyAsync: Result is boolean and not BusinessProcess")]
+		[Fact]
 		[Trait("Stack", "Shares")]
 		public async Task ShouldDeleteMany()
 		{
@@ -129,11 +129,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			/// Act
 			var shareIds = new List<string> { createResult.ShareId };
-			var businessProcess = await _client.Shares.DeleteManyAsync(shareIds); // TODO: ShareClient.DeleteManyAsync: Result is boolean and not BusinessProcess
-			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+			var bulkResponse = await _client.Shares.DeleteManyAsync(shareIds);
 
 			/// Assert
-			await Assert.ThrowsAsync<ApiException>(async () => await _client.Shares.GetAsync(createResult.ShareId));
+			Assert.All(bulkResponse.Rows, i => Assert.True(i.Succeeded));
+			await Assert.ThrowsAsync<ShareNotFoundException>(async () => await _client.Shares.GetAsync(createResult.ShareId));
 		}
 
 		[Fact]

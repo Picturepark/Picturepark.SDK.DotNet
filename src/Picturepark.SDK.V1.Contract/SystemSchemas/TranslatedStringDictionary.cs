@@ -19,17 +19,19 @@ namespace Picturepark.SDK.V1.Contract
 		public TranslatedStringDictionary(IDictionary<string, string> dictionary)
 		{
 			if (dictionary == null)
+			{
 				return;
+			}
 
 			foreach (var item in dictionary)
+			{
 				Add(item.Key, item.Value);
+			}
 		}
 
-		/// <summary>
-		/// Get translation. Fallback to x-default if specified language does not exist
-		/// </summary>
-		/// <param name="twoLetterIsoLanguageName">Language to retrieve. Fallback to CultureInfo.CurrentCulture.TwoLetterISOLanguageName if not specified</param>
-		/// <returns></returns>
+		/// <summary>Get a translation; fallback to x-default if specified language does not exist.</summary>
+		/// <param name="twoLetterIsoLanguageName">The language to retrieve; fallback to CultureInfo.CurrentCulture.TwoLetterISOLanguageName if not specified.</param>
+		/// <returns>The translated string.</returns>
 		public string GetTranslation(string twoLetterIsoLanguageName = null)
 		{
 			var languageName = twoLetterIsoLanguageName ?? CultureInfo.CurrentCulture.TwoLetterISOLanguageName;

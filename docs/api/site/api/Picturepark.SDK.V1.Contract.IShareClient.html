@@ -395,7 +395,7 @@
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">BusinessProcess DeleteMany(IEnumerable&lt;string&gt; shareIds)</code></pre>
+                <pre><code class="lang-csharp hljs">BusinessProcess DeleteMany(IEnumerable&lt;string&gt; ids)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -409,8 +409,8 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-                    <td><span class="parametername">shareIds</span></td>
-                    <td><p>A list of ListItemCreateRequests.</p>
+                    <td><span class="parametername">ids</span></td>
+                    <td><p>A list of shareIds to delete.</p>
 </td>
                   </tr>
                 </tbody>
@@ -461,7 +461,7 @@
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; DeleteManyAsync(IEnumerable&lt;string&gt; shareIds, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; DeleteManyAsync(IEnumerable&lt;string&gt; ids, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -475,8 +475,8 @@
                 <tbody>
                   <tr>
                     <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</td>
-                    <td><span class="parametername">shareIds</span></td>
-                    <td><p>A list of ListItemCreateRequests.</p>
+                    <td><span class="parametername">ids</span></td>
+                    <td><p>A list of shareIds to delete.</p>
 </td>
                   </tr>
                   <tr>
@@ -803,13 +803,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IShareClient_Update_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Update*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_Update_System_String_Picturepark_SDK_V1_Contract_ShareBaseUpdateRequest_System_Boolean_System_Nullable_System_Int32__" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Update(System.String,Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest,System.Boolean,System.Nullable{System.Int32})">Update(String, ShareBaseUpdateRequest, Boolean, Nullable&lt;Int32&gt;)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_Update_System_String_Picturepark_SDK_V1_Contract_ShareBaseUpdateRequest_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Update(System.String,Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest)">Update(String, ShareBaseUpdateRequest)</h4>
               <div class="markdown level1 summary"><p>Update single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ShareDetail Update(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int ? timeout = null)</code></pre>
+                <pre><code class="lang-csharp hljs">ShareDetail Update(string id, ShareBaseUpdateRequest updateRequest)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -831,18 +831,6 @@
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest.html">ShareBaseUpdateRequest</a></td>
                     <td><span class="parametername">updateRequest</span></td>
                     <td><p>The share update request.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Boolean</span></td>
-                    <td><span class="parametername">resolve</span></td>
-                    <td><p>Resolves the data of referenced list items into the shares content.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-                    <td><span class="parametername">timeout</span></td>
-                    <td><p>Maximum time in milliseconds to wait for the business process completed state.</p>
 </td>
                   </tr>
                 </tbody>
@@ -878,6 +866,11 @@
 </td>
                   </tr>
                   <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitTimeoutException.html">BusinessProcessWaitTimeoutException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
                     <td><p>Internal server error</p>
 </td>
@@ -887,13 +880,13 @@
               
               
               <a id="Picturepark_SDK_V1_Contract_IShareClient_UpdateAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ShareBaseUpdateRequest_System_Boolean_System_Nullable_System_Int32__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest,System.Boolean,System.Nullable{System.Int32},System.Threading.CancellationToken)">UpdateAsync(String, ShareBaseUpdateRequest, Boolean, Nullable&lt;Int32&gt;, CancellationToken)</h4>
+              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ShareBaseUpdateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest,System.Threading.CancellationToken)">UpdateAsync(String, ShareBaseUpdateRequest, CancellationToken)</h4>
               <div class="markdown level1 summary"><p>Update single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;ShareDetail&gt; UpdateAsync(string id, ShareBaseUpdateRequest updateRequest, bool resolve, int ? timeout = null, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;ShareDetail&gt; UpdateAsync(string id, ShareBaseUpdateRequest updateRequest, CancellationToken cancellationToken = null)</code></pre>
               </div>
               <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -915,18 +908,6 @@
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest.html">ShareBaseUpdateRequest</a></td>
                     <td><span class="parametername">updateRequest</span></td>
                     <td><p>The share update request.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Boolean</span></td>
-                    <td><span class="parametername">resolve</span></td>
-                    <td><p>Resolves the data of referenced list items into the shares content.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-                    <td><span class="parametername">timeout</span></td>
-                    <td><p>Maximum time in milliseconds to wait for the business process completed state.</p>
 </td>
                   </tr>
                   <tr>
@@ -964,6 +945,11 @@
                 <tbody>
                   <tr>
                     <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
+                    <td><p>A server side error occurred.</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitTimeoutException.html">BusinessProcessWaitTimeoutException</a></td>
                     <td><p>A server side error occurred.</p>
 </td>
                   </tr>

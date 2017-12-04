@@ -35,55 +35,71 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 		[Fact]
 		[Trait("Stack", "Schema")]
-		public async Task ShouldCreateFromClass()
+		public async Task ShouldGenerateSchemas()
 		{
-			var person = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
+			/// Act
+			var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
 
-			// Expect child schemas and referenced schemas to exist
-			Assert.Equal(person.Count, 8);
+			/// Assert
+			Assert.Equal(schemas.Count, 8);
+		}
 
-			foreach (var schema in person)
-			{
-				await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
-			}
-
-			var generatedPersonSchema = await _client.Schemas.GetAsync("Person");
-			Assert.Contains(generatedPersonSchema.Types, i => i == SchemaType.List || i == SchemaType.Struct);
-
-			var personShot = await _client.Schemas.GenerateSchemasAsync(typeof(PersonShot));
-
-			// Expect child schemas and referenced schemas to exist
-			Assert.Equal(personShot.Count, 9);
-
-			foreach (var schema in personShot)
+		[Fact]
+		[Trait("Stack", "Schema")]
+		public async Task ShouldGenerateAndCreateSchemas()
+		{
+			/// Act
+			var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(PersonShot));
+			foreach (var schema in schemas)
 			{
 				if (await _client.Schemas.ExistsAsync(schema.Id) == false)
 				{
 					await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true);
 				}
 			}
+
+			/// Assert
+			Assert.True(await _client.Schemas.ExistsAsync(schemas.First().Id));
+			Assert.Equal(schemas.Count, 9);
+		}
+
+		[Fact]
+		[Trait("Stack", "Schema")]
+		public async Task ShouldGenerateAndCreateOrUpdateSchemas()
+		{
+			/// Act
+			var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
+			foreach (var schema in schemas)
+			{
+				await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
+			}
+
+			var newSchemas = await _client.Schemas.GetAsync(nameof(Person));
+
+			/// Assert
+			Assert.Contains(newSchemas.Types, i => i == SchemaType.List || i == SchemaType.Struct);
 		}
 
 		[Fact]
 		[Trait("Stack", "Schema")]
 		public async Task ShouldDelete()
 		{
-			var tags = await _client.Schemas.GenerateSchemasAsync(typeof(Tag));
+			/// Arrange
+			var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Tag));
+			Assert.Equal(schemas.Count, 1);
 
-			Assert.Equal(tags.Count, 1);
+			// modify schema ID before submit
+			var tagSchema = schemas.First();
+			tagSchema.Id = "SchemaToDelete" + new Random().Next(0, 999999);
 
-			// Modify schema id before submit
-			var tag = tags.First();
-			tag.Id = "SchemaToDelete" + new Random().Next(0, 999999);
+			await _client.Schemas.CreateAndWaitForCompletionAsync(tagSchema, false);
+			var schemaDetail = await _client.Schemas.GetAsync(tagSchema.Id);
 
-			await _client.Schemas.CreateAndWaitForCompletionAsync(tag, false);
-
-			string schemaId = tag.Id;
-
-			SchemaDetail schemaDetail = await _client.Schemas.GetAsync(schemaId);
+			/// Act
 			await _client.Schemas.DeleteAndWaitForCompletionAsync(schemaDetail.Id);
 
-			await Assert.ThrowsAsync<ApiException>(async () => await _client.Schemas.GetAsync(schemaId));
+			/// Assert
+			await Assert.ThrowsAsync<ApiException>(async () => await _client.Schemas.GetAsync(tagSchema.Id));
 		}
 
 		[Fact]
@@ -92,10 +108,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		{
 			string schemaId = _fixture.GetRandomSchemaId(20);
 
+			/// Act
 			bool schemaExists = await _client.Schemas.ExistsAsync(schemaId);
-			Assert.True(schemaExists);
 
-			schemaExists = await _client.Schemas.ExistsAsync("abcabcabcabc");
+			/// Assert
+			Assert.True(schemaExists);
+		}
+
+		[Fact]
+		[Trait("Stack", "Schema")]
+		public async Task ShouldNotExist()
+		{
+			/// Act
+			var schemaExists = await _client.Schemas.ExistsAsync("abcabcabcabc");
+
+			/// Assert
 			Assert.False(schemaExists);
 		}
 
@@ -103,14 +130,20 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		[Trait("Stack", "Schema")]
 		public async Task ShouldGet()
 		{
-			var request = new SchemaSearchRequest() { Start = 0, Limit = 100 };
-			var result = await _client.Schemas.SearchAsync(request);
-			Assert.True(result.Results.Any());
+			/// Arrange
+			var searchRequest = new SchemaSearchRequest { Start = 0, Limit = 100 };
+			var searchResult = await _client.Schemas.SearchAsync(searchRequest);
 
-			List<string> schemaIds = result.Results.Select(i => i.Id).OrderBy(i => i).ToList();
+			Assert.True(searchResult.Results.Any());
+
+			List<string> schemaIds = searchResult.Results
+				.Select(i => i.Id)
+				.OrderBy(i => i)
+				.ToList();
+
+			/// Act
 			var schemaIdsOk = new List<string>();
 			var schemaIdsNotOk = new List<string>();
-
 			foreach (var schemaId in schemaIds)
 			{
 				try
@@ -124,6 +157,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 				}
 			}
 
+			/// Assert
 			Assert.False(schemaIdsNotOk.Count > 0);
 			Assert.True(schemaIdsOk.Count > 0);
 		}
@@ -132,59 +166,62 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		[Trait("Stack", "Schema")]
 		public async Task ShouldGetJsonValidationSchema()
 		{
+			/// Arrange
 			var schemaId = _fixture.GetRandomSchemaId(20);
-			Assert.False(string.IsNullOrEmpty(schemaId));
 
+			/// Act
 			var result = await _client.JsonSchemas.GetAsync(schemaId);
-			var stringResult = result.ToString(Formatting.Indented);
-			Assert.NotNull(stringResult);
+
+			/// Assert
+			Assert.NotNull(result.Property("definitions"));
+			Assert.NotNull(result.ToString(Formatting.Indented));
 		}
 
 		[Fact]
 		[Trait("Stack", "Schema")]
 		public async Task ShouldCreateSchemaAndValidateFilter()
 		{
-			await ShouldCreateFromClassGeneric<SoccerPlayer>();
+			/// Arrange
+			var expectedFilterString = "{\"kind\":\"TermFilter\",\"field\":\"contentType\",\"term\":\"FC Aarau\"}";
+			await CreateFromClassGenericAsync<SoccerPlayer>();
 
+			/// Act
 			var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("SoccerPlayer");
-
-			string filterString = "{\"kind\":\"TermFilter\",\"field\":\"contentType\",\"term\":\"FC Aarau\"}";
-
 			var jsonConvertedField = generatedSoccerPlayerSchema.Fields[0].ToJson();
 
-			bool containsString = jsonConvertedField.Contains(filterString);
-
-			Assert.Equal(true, containsString);
+			/// Assert
+			Assert.True(jsonConvertedField.Contains(expectedFilterString));
 		}
 
 		[Fact]
 		[Trait("Stack", "Schema")]
 		public async Task ShouldCreateSchemaAndValidateMultiline()
 		{
-			await ShouldCreateFromClassGeneric<Person>();
+			/// Arrange
+			string expectedMultilineString = "\"multiLine\":true";
+			await CreateFromClassGenericAsync<Person>();
 
-			string multilineString = "\"multiLine\":true";
-
+			/// Act
 			var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("Person");
-
 			var jsonConvertedField = generatedSoccerPlayerSchema.Fields[0].ToJson();
 
-			bool containsString = jsonConvertedField.Contains(multilineString);
-
-			Assert.Equal(true, containsString);
+			/// Assert
+			Assert.True(jsonConvertedField.Contains(expectedMultilineString));
 		}
 
 		[Fact]
 		[Trait("Stack", "Schema")]
 		public async Task ShouldCreateSchemaAndValidateMaxRecursion()
 		{
-			await ShouldCreateFromClassGeneric<Person>();
+			/// Act
+			await CreateFromClassGenericAsync<Person>();
 		}
 
 		[Fact]
 		[Trait("Stack", "Schema")]
 		public async Task ShouldSearch()
 		{
+			/// Act
 			var searchRequest = new SchemaSearchRequest
 			{
 				Limit = 12,
@@ -192,6 +229,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			};
 
 			var result = await _client.Schemas.SearchAsync(searchRequest);
+
+			/// Assert
 			Assert.True(result.Results.Any());
 		}
 
@@ -199,6 +238,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		[Trait("Stack", "Schema")]
 		public async Task ShouldUpdate()
 		{
+			/// Arrange
 			string schemaId = _fixture.GetRandomSchemaId(20);
 			SchemaDetail schemaDetail = await _client.Schemas.GetAsync(schemaId);
 
@@ -207,15 +247,18 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			schemaDetail.Names.Remove(language);
 			schemaDetail.Names.Add(language, schemaId);
 
+			/// Act
 			await _client.Schemas.UpdateAndWaitForCompletionAsync(schemaDetail, false);
 
+			/// Assert
 			SchemaDetail updatedSchema = await _client.Schemas.GetAsync(schemaId);
-
 			updatedSchema.Names.TryGetValue(language, out string outString);
-			Assert.True(outString == schemaId);
+
+			Assert.Equal(schemaId, outString);
 		}
 
-		public async Task ShouldCreateFromClassGeneric<T>() where T : class
+		private async Task CreateFromClassGenericAsync<T>()
+			where T : class
 		{
 			var childSchemas = await _client.Schemas.GenerateSchemasAsync(typeof(T));
 
@@ -229,6 +272,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			var schemaId = typeof(T).Name;
 			var generatedPersonSchema = await _client.Schemas.GetAsync(schemaId);
+
 			Assert.Contains(generatedPersonSchema.Types, i => i == SchemaType.List || i == SchemaType.Struct);
 		}
 	}
