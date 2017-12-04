@@ -735,7 +735,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
             var directoryPath = Path.GetDirectoryName(filePaths.First());
             string transferName = nameof(ShouldUpdateFile) + "-" + new Random().Next(1000, 9999);
-            Transfer transfer = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, filePaths.Select(Path.GetFileName).ToList());
+            var createTransferResult = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, filePaths.Select(Path.GetFileName).ToList());
 
             // Upload file
             var uploadOptions = new UploadOptions
@@ -744,10 +744,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ErrorDelegate = Console.WriteLine
             };
 
-            await _client.Transfers.UploadFilesAsync(transfer, filePaths, uploadOptions);
+            await _client.Transfers.UploadFilesAsync(createTransferResult.Transfer, filePaths, uploadOptions);
 
             // Search filetransfers to get id
-            var request = new FileTransferSearchRequest() { Limit = 20, SearchString = "*", Filter = new TermFilter { Field = "transferId", Term = transfer.Id } };
+            var request = new FileTransferSearchRequest() { Limit = 20, SearchString = "*", Filter = new TermFilter { Field = "transferId", Term = createTransferResult.Transfer.Id } };
             FileTransferSearchResult result = await _client.Transfers.SearchFilesAsync(request);
 
             Assert.Equal(result.TotalResults, 1);

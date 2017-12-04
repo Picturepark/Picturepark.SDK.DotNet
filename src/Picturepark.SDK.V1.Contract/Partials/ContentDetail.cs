@@ -2,6 +2,7 @@
 
 namespace Picturepark.SDK.V1.Contract
 {
+	/// <summary>The content detail.</summary>
 	public partial class ContentDetail
 	{
 		/// <summary>Gets the content detail's file metadata.</summary>

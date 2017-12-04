@@ -22,18 +22,38 @@ namespace Picturepark.SDK.V1
 			_businessProcessClient = businessProcessClient;
 		}
 
+		/// <summary>Searches files of a given transfer ID.</summary>
+		/// <param name="transferId">The transfer ID.</param>
+		/// <param name="limit">The maximum number of search results.</param>
+		/// <returns>The result.</returns>
+		public async Task<FileTransferSearchResult> SearchFilesByTransferIdAsync(string transferId, int limit = 20)
+		{
+			var request = new FileTransferSearchRequest()
+			{
+				Limit = limit,
+				SearchString = "*",
+				Filter = new TermFilter
+				{
+					Field = "transferId",
+					Term = transferId
+				}
+			};
+
+			return await SearchFilesAsync(request);
+		}
+
 		/// <summary>Uploads multiple files from the filesystem.</summary>
 		/// <param name="transferName">The name of the created transfer.</param>
 		/// <param name="filePaths">The file paths on the filesystem.</param>
 		/// <param name="uploadOptions">The file upload options.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <returns>The created transfer object.</returns>
-		public async Task<Transfer> UploadFilesAsync(string transferName, IEnumerable<string> filePaths, UploadOptions uploadOptions, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task<CreateTransferResult> UploadFilesAsync(string transferName, IEnumerable<string> filePaths, UploadOptions uploadOptions, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var filteredFileNames = FilterFilesByBlacklist(filePaths.ToList());
-			Transfer transfer = await CreateAndWaitForCompletionAsync(transferName, filteredFileNames.Select(Path.GetFileName), cancellationToken).ConfigureAwait(false);
-			await UploadFilesAsync(transfer, filteredFileNames, uploadOptions, cancellationToken).ConfigureAwait(false);
-			return transfer;
+			var result = await CreateAndWaitForCompletionAsync(transferName, filteredFileNames.Select(Path.GetFileName), cancellationToken).ConfigureAwait(false);
+			await UploadFilesAsync(result.Transfer, filteredFileNames, uploadOptions, cancellationToken).ConfigureAwait(false);
+			return result;
 		}
 
 		/// <summary>Uploads multiple files from the filesystem.</summary>
@@ -97,11 +117,12 @@ namespace Picturepark.SDK.V1
 		/// <param name="request">The create request.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <returns>The transfer.</returns>
-		public async Task<Transfer> CreateAndWaitForCompletionAsync(CreateTransferRequest request, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task<CreateTransferResult> CreateAndWaitForCompletionAsync(CreateTransferRequest request, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var transfer = await CreateAsync(request, cancellationToken).ConfigureAwait(false);
 			await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, cancellationToken: cancellationToken).ConfigureAwait(false);
-			return transfer;
+
+			return new CreateTransferResult(transfer, request.Files);
 		}
 
 		/// <summary>Creates a transfer and waits for its completion.</summary>
@@ -109,7 +130,7 @@ namespace Picturepark.SDK.V1
 		/// <param name="fileNames">The file names of the transfer.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <returns>The transfer.</returns>
-		public async Task<Transfer> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<string> fileNames, CancellationToken cancellationToken = default(CancellationToken))
+		public async Task<CreateTransferResult> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<string> fileNames, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var filteredFileNames = FilterFilesByBlacklist(fileNames);
 
@@ -117,12 +138,17 @@ namespace Picturepark.SDK.V1
 			{
 				Name = string.IsNullOrEmpty(transferName) ? new Random().Next(1000, 9999).ToString() : transferName,
 				TransferType = TransferType.FileUpload,
-				Files = filteredFileNames.Select(i => new TransferUploadFile { FileName = i, Identifier = Guid.NewGuid().ToString() }).ToList()
+				Files = filteredFileNames.Select(i => new TransferUploadFile
+				{
+					Identifier = Guid.NewGuid().ToString(),
+					FileName = i
+				}).ToList()
 			};
 
 			var transfer = await CreateAsync(request, cancellationToken).ConfigureAwait(false);
 			await _businessProcessClient.WaitForStatesAsync(transfer.BusinessProcessId, new[] { TransferState.Created.ToString() }, null, cancellationToken).ConfigureAwait(false);
-			return transfer;
+
+			return new CreateTransferResult(transfer, request.Files);
 		}
 
 		private async Task UploadFileAsync(SemaphoreSlim throttler, string transferId, string absoluteFilePath, int chunkSize, CancellationToken cancellationToken = default(CancellationToken))
