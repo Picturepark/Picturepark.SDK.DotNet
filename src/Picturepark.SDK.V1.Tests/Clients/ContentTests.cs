@@ -580,13 +580,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = _fixture.GetRandomContentId(".jpg", 20);
 
             /// Act
-            var result = await _client.Contents.GetAsync(contentId, true);
+            var contentDetail = await _client.Contents.GetAsync(contentId, true);
 
-            /// Assert
-            Assert.NotNull(result); // TODO: Add better asserts
-        }
+			/// Assert
+			Assert.Equal(contentId, contentDetail.Id);
+			Assert.NotNull(contentDetail); // TODO: Add better asserts
+		}
 
-        [Fact]
+		[Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldGetWithoutResolvedObjects()
         {
@@ -594,10 +595,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = _fixture.GetRandomContentId(".jpg", 20);
 
             /// Act
-            var result = await _client.Contents.GetAsync(contentId, false);
+            var contentDetail = await _client.Contents.GetAsync(contentId, false);
 
-            /// Assert
-            Assert.NotNull(result); // TODO: Add better asserts
+			/// Assert
+			Assert.Equal(contentId, contentDetail.Id);
+			Assert.NotNull(contentDetail); // TODO: Add better asserts
         }
 
         [Fact]
