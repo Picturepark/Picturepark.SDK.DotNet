@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 using Picturepark.SDK.V1.Authentication;
 using Picturepark.SDK.V1.Contract;
 
@@ -50,9 +51,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 			return RandomHelper.GetRandomContentId(_client, searchString, limit);
 		}
 
-		public string GetRandomContentPermissionSetId(int limit)
+		public async Task<string> GetRandomContentPermissionSetId(int limit)
 		{
-			return RandomHelper.GetRandomContentPermissionSetId(_client, limit);
+			return await RandomHelper.GetRandomContentPermissionSetId(_client, limit);
 		}
 
 		public string GetRandomTransferId(TransferState? transferState, int limit)
@@ -65,9 +66,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 			return RandomHelper.GetRandomFileTransferId(_client, limit);
 		}
 
-		public string GetRandomMetadataPermissionSetId(int limit)
+		public async Task<string> GetRandomMetadataPermissionSetId(int limit)
 		{
-			return RandomHelper.GetRandomMetadataPermissionSetId(_client, limit);
+			return await RandomHelper.GetRandomMetadataPermissionSetId(_client, limit);
 		}
 
 		public string GetRandomSchemaId(int limit)
