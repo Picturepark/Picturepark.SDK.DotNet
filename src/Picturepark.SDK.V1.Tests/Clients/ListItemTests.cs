@@ -143,7 +143,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		}
 
 		[Fact]
-		[Trait("Stack", "BusinessProcesses")]
+		[Trait("Stack", "ListItem")]
 		public async Task ShouldUpdateFieldsByFilter()
 		{
 			/// Arrange
@@ -466,6 +466,117 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			/// Assert
 			Assert.Equal(player.Firstname, updatedPlayer.Firstname);
+		}
+
+		[Fact]
+		[Trait("Stack", "ListItem")]
+		public async Task ShouldTrashAndUntrashRandomListItem()
+		{
+			/// Arrange
+			var request = new SchemaSearchRequest
+			{
+				Limit = 100,
+				Filter = new TermFilter
+				{
+					Field = "types",
+					Term = SchemaType.List.ToString()
+				}
+			};
+
+			var result = _client.Schemas.Search(request);
+
+			Assert.True(result.Results.Any());
+
+			string listItemId = null;
+
+			// Loop over all metadataSchemaIds until a list item is found
+			foreach (var item in result.Results)
+			{
+				listItemId = _fixture.GetRandomObjectId(item.Id, 20);
+
+				if (!string.IsNullOrEmpty(listItemId))
+					break;
+			}
+
+			Assert.False(string.IsNullOrEmpty(listItemId));
+			var listItemDetail = await _client.ListItems.GetAsync(listItemId, true);
+
+			/// Act
+			// Deactivate
+			await _client.ListItems.DeactivateAsync(listItemId, new TimeSpan(0, 2, 0));
+			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItemId, false));
+
+			// Reactivate
+			var reactivatedListItem = await _client.ListItems.ReactivateAsync(listItemId, new TimeSpan(0, 2, 0));
+
+			/// Assert
+			Assert.True(reactivatedListItem != null);
+			Assert.NotNull(await _client.ListItems.GetAsync(listItemId, true));
+		}
+
+		[Fact]
+		[Trait("Stack", "ListItem")]
+		public async Task ShouldTrashAndUntrashRandomListItemMany()
+		{
+			/// Arrange
+			var request = new SchemaSearchRequest
+			{
+				Limit = 100,
+				Filter = new TermFilter
+				{
+					Field = "types",
+					Term = SchemaType.List.ToString()
+				}
+			};
+
+			var result = _client.Schemas.Search(request);
+
+			Assert.True(result.Results.Any());
+
+			List<string> listItemIds = new List<string>();
+
+			// Loop over all metadataSchemaIds until an object is found
+			// For Debugging: foreach (var item in result.Results.Where(i => i.Id == "Esselabore1"))
+			foreach (var item in result.Results)
+			{
+				var listItemId = _fixture.GetRandomObjectId(item.Id, 20);
+
+				if (!string.IsNullOrEmpty(listItemId))
+					listItemIds.Add(listItemId);
+
+				if (listItemIds.Count() >= 2)
+					break;
+			}
+
+			var listItemDetail1 = await _client.ListItems.GetAsync(listItemIds[0], true);
+
+			var listItemDetail2 = await _client.ListItems.GetAsync(listItemIds[1], true);
+
+			/// Act
+			// Deactivate
+			var deactivateRequest = new ListItemDeactivateRequest
+			{
+				ListItemIds = listItemIds
+			};
+
+			var businessProcess = await _client.ListItems.DeactivateManyAsync(deactivateRequest);
+			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+
+			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItemIds[0], false));
+			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItemIds[1], false));
+
+			// Reactivate
+			var reactivateRequest = new ListItemReactivateRequest
+			{
+				ListItemIds = listItemIds
+			};
+
+			businessProcess = await _client.ListItems.ReactivateManyAsync(reactivateRequest);
+			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+
+			/// Assert
+			Assert.NotNull(await _client.ListItems.GetAsync(listItemIds[0], true));
+			Assert.NotNull(await _client.ListItems.GetAsync(listItemIds[1], true));
 		}
 	}
 }

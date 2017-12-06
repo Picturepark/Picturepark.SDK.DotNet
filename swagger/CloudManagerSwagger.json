@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))",
+  "x-generator": "NSwag v11.12.10.0 (NJsonSchema v9.10.10.0 (Newtonsoft.Json v9.0.0.0))",
   "swagger": "2.0",
   "info": {
     "title": "Picturepark CloudManager API V1",
@@ -1994,6 +1994,7 @@
     "FormatBase": {
       "type": "object",
       "discriminator": "kind",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "kind"
@@ -2006,6 +2007,7 @@
     },
     "ImageFormatBase": {
       "type": "object",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "colorTransformationIntent",
@@ -2191,6 +2193,7 @@
     "ImageActionBase": {
       "type": "object",
       "discriminator": "kind",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "kind"
@@ -2479,6 +2482,7 @@
     },
     "VideoFormatBase": {
       "type": "object",
+      "x-abstract": true,
       "additionalProperties": false,
       "allOf": [
         {
@@ -2558,6 +2562,7 @@
     },
     "AudioFormatBase": {
       "type": "object",
+      "x-abstract": true,
       "additionalProperties": false,
       "allOf": [
         {
@@ -2818,6 +2823,7 @@
     },
     "DocumentFormatBase": {
       "type": "object",
+      "x-abstract": true,
       "additionalProperties": false,
       "allOf": [
         {
@@ -2911,6 +2917,7 @@
     },
     "IVideoAction": {
       "type": "object",
+      "x-abstract": true,
       "additionalProperties": false
     },
     "CustomerConfigurationItem": {
@@ -4819,6 +4826,7 @@
     },
     "SnapshotRepositoryBaseCreateRequest": {
       "type": "object",
+      "x-abstract": true,
       "additionalProperties": false,
       "properties": {
         "repositoryName": {
@@ -4875,6 +4883,7 @@
     },
     "SnapshotBaseCreateRequest": {
       "type": "object",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "reason",
@@ -5046,6 +5055,7 @@
     },
     "SnapshotBaseRestoreRequest": {
       "type": "object",
+      "x-abstract": true,
       "additionalProperties": false,
       "properties": {
         "snapshotName": {
