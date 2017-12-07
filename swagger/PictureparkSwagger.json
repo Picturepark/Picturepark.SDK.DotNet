@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.12.9.0 (NJsonSchema v9.10.9.0 (Newtonsoft.Json v9.0.0.0))",
+  "x-generator": "NSwag v11.12.10.0 (NJsonSchema v9.10.10.0 (Newtonsoft.Json v9.0.0.0))",
   "swagger": "2.0",
   "info": {
     "title": "Picturepark API V1",
@@ -769,7 +769,7 @@
         "tags": [
           "Content"
         ],
-        "summary": "Dactivate - many",
+        "summary": "Deactivate - many",
         "description": "Deactivates multiple contents. The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the content and all files will be deleted.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "Content_DeactivateMany",
         "parameters": [
@@ -2674,6 +2674,244 @@
             },
             "x-nullable": true,
             "description": "The metadata update request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/listItems/{listItemId}/deactivate": {
+      "put": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Deactivate - single",
+        "description": "Deactivates a single listitem. The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the list item and all files will be deleted.",
+        "operationId": "ListItem_Deactivate",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "listItemId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "the id of the list item to deactivate"
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "400": {
+            "description": "The specified wait timeout exceeded",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/listItems/many/deactivate": {
+      "put": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Deactivate - many",
+        "description": "Deactivates multiple list items. The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the list item and all files will be deleted.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "ListItem_DeactivateMany",
+        "parameters": [
+          {
+            "name": "deactivateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListItemDeactivateRequest"
+            },
+            "x-nullable": true,
+            "description": "The list items deactivate request"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/listItems/{listItemId}/reactivate": {
+      "put": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Reactivate - single",
+        "description": "Reactivate a previously deactivated list item.",
+        "operationId": "ListItem_Reactivate",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "listItemId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The list item id."
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
+          },
+          {
+            "type": "array",
+            "name": "patterns",
+            "in": "query",
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "List of display pattern types. Resolves display values of referenced list items where the display pattern matches.",
+            "items": {
+              "$ref": "#/definitions/DisplayPatternType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ListItemDetail",
+            "schema": {
+              "$ref": "#/definitions/ListItemDetail"
+            },
+            "x-nullable": false
+          },
+          "400": {
+            "description": "The specified wait timeout exceeded",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/listItems/many/reactivate": {
+      "put": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Reactivate - many",
+        "description": "Reactivate previously deactivated list items.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "ListItem_ReactivateMany",
+        "parameters": [
+          {
+            "name": "reactivateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListItemReactivateRequest"
+            },
+            "x-nullable": true,
+            "description": "The list items reactivate request."
           }
         ],
         "responses": {
@@ -6137,6 +6375,7 @@
     "OutputDetailBase": {
       "type": "object",
       "discriminator": "kind",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "kind"
@@ -7138,6 +7377,7 @@
       "type": "object",
       "discriminator": "kind",
       "description": "The AggregatorBase is the base class for all aggregators.",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "kind"
@@ -7829,6 +8069,7 @@
     "MetadataValuesChangeRequestBase": {
       "type": "object",
       "discriminator": "kind",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "kind"
@@ -7850,6 +8091,7 @@
       "type": "object",
       "discriminator": "kind",
       "description": "The base class for metadata value change commands.",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "kind"
@@ -8264,6 +8506,7 @@
     "BusinessProcessDetailsDataBase": {
       "type": "object",
       "discriminator": "kind",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "kind"
@@ -8859,6 +9102,30 @@
         }
       }
     },
+    "ListItemDeactivateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "listItemIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ListItemReactivateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "listItemIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "LiveStreamSearchRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -9148,6 +9415,7 @@
       "type": "object",
       "discriminator": "kind",
       "description": "The field base class.",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "required",
@@ -9716,6 +9984,7 @@
       "type": "object",
       "discriminator": "kind",
       "description": "The analyzer base class.",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "simpleSearch",
@@ -10673,6 +10942,7 @@
     },
     "PermissionSetDetailOfContentRight": {
       "type": "object",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "trashed",
@@ -10752,6 +11022,7 @@
     },
     "PermissionSetDetailOfMetadataRight": {
       "type": "object",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "trashed",
@@ -10999,6 +11270,7 @@
     "ShareOutputBase": {
       "type": "object",
       "discriminator": "kind",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "kind"
@@ -11025,6 +11297,7 @@
     "OutputDataBase": {
       "type": "object",
       "discriminator": "kind",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "kind"
@@ -11176,6 +11449,7 @@
     "ShareDataBase": {
       "type": "object",
       "discriminator": "kind",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "kind"
@@ -11295,6 +11569,7 @@
     "TemplateBase": {
       "type": "object",
       "discriminator": "kind",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "kind"
@@ -11595,6 +11870,7 @@
     "ShareBaseCreateRequest": {
       "type": "object",
       "discriminator": "kind",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "outputAccess",
@@ -11736,6 +12012,7 @@
     "ShareBaseUpdateRequest": {
       "type": "object",
       "discriminator": "kind",
+      "x-abstract": true,
       "additionalProperties": false,
       "required": [
         "outputAccess",
@@ -12149,6 +12426,7 @@
     },
     "TransferFile": {
       "type": "object",
+      "x-abstract": true,
       "additionalProperties": false,
       "properties": {
         "identifier": {
