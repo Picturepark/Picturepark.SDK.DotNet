@@ -1301,9 +1301,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public void Deactivate(string contentId, System.TimeSpan? timeout)
+        public ContentDetail Deactivate(string contentId, System.TimeSpan? timeout)
         {
-            System.Threading.Tasks.Task.Run(async () => await DeactivateAsync(contentId, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await DeactivateAsync(contentId, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Deactivate - single</summary>
@@ -1313,7 +1313,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task DeactivateAsync(string contentId, System.TimeSpan? timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentDetail> DeactivateAsync(string contentId, System.TimeSpan? timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
                 throw new System.ArgumentNullException("contentId");
@@ -1332,6 +1332,7 @@ namespace Picturepark.SDK.V1
                     var content_ = new System.Net.Http.StringContent(string.Empty);
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("PUT");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
     
                     PrepareRequest(client_, request_, urlBuilder_);
                     var url_ = urlBuilder_.ToString();
@@ -1350,7 +1351,17 @@ namespace Picturepark.SDK.V1
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            return;
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(ContentDetail); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetail>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception_) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
+                            }
                         }
                         else
                         if (status_ == "400") 
@@ -1410,6 +1421,8 @@ namespace Picturepark.SDK.V1
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
+            
+                        return default(ContentDetail);
                     }
                     finally
                     {
@@ -1424,22 +1437,22 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Deactivate - many</summary>
-        /// <param name="deactivationRequest">The deactivation request</param>
+        /// <param name="deactivateRequest">The deactivate request</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public BusinessProcess DeactivateMany(ContentDeactivationRequest deactivationRequest)
+        public BusinessProcess DeactivateMany(ContentDeactivateRequest deactivateRequest)
         {
-            return System.Threading.Tasks.Task.Run(async () => await DeactivateManyAsync(deactivationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await DeactivateManyAsync(deactivateRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Deactivate - many</summary>
-        /// <param name="deactivationRequest">The deactivation request</param>
+        /// <param name="deactivateRequest">The deactivate request</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<BusinessProcess> DeactivateManyAsync(ContentDeactivationRequest deactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BusinessProcess> DeactivateManyAsync(ContentDeactivateRequest deactivateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/many/deactivate");
@@ -1449,7 +1462,7 @@ namespace Picturepark.SDK.V1
             {
                 using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(deactivationRequest, _settings.Value));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(deactivateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("PUT");
@@ -1690,22 +1703,22 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Reactivate - many</summary>
-        /// <param name="reactivationRequest">The content reactivation request.</param>
+        /// <param name="reactivateRequest">The content reactivate request.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public BusinessProcess ReactivateMany(ContentReactivationRequest reactivationRequest)
+        public BusinessProcess ReactivateMany(ContentReactivateRequest reactivateRequest)
         {
-            return System.Threading.Tasks.Task.Run(async () => await ReactivateManyAsync(reactivationRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await ReactivateManyAsync(reactivateRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Reactivate - many</summary>
-        /// <param name="reactivationRequest">The content reactivation request.</param>
+        /// <param name="reactivateRequest">The content reactivate request.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<BusinessProcess> ReactivateManyAsync(ContentReactivationRequest reactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BusinessProcess> ReactivateManyAsync(ContentReactivateRequest reactivateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/many/reactivate");
@@ -1715,7 +1728,7 @@ namespace Picturepark.SDK.V1
             {
                 using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(reactivationRequest, _settings.Value));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(reactivateRequest, _settings.Value));
                     content_.Headers.ContentType.MediaType = "application/json";
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("PUT");
@@ -5471,9 +5484,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public void Deactivate(string listItemId, System.TimeSpan? timeout)
+        public ListItemDetail Deactivate(string listItemId, System.TimeSpan? timeout)
         {
-            System.Threading.Tasks.Task.Run(async () => await DeactivateAsync(listItemId, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await DeactivateAsync(listItemId, timeout, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Deactivate - single</summary>
@@ -5483,7 +5496,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task DeactivateAsync(string listItemId, System.TimeSpan? timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListItemDetail> DeactivateAsync(string listItemId, System.TimeSpan? timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (listItemId == null)
                 throw new System.ArgumentNullException("listItemId");
@@ -5502,6 +5515,7 @@ namespace Picturepark.SDK.V1
                     var content_ = new System.Net.Http.StringContent(string.Empty);
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("PUT");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
     
                     PrepareRequest(client_, request_, urlBuilder_);
                     var url_ = urlBuilder_.ToString();
@@ -5520,7 +5534,17 @@ namespace Picturepark.SDK.V1
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            return;
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(ListItemDetail); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemDetail>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception_) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
+                            }
                         }
                         else
                         if (status_ == "400") 
@@ -5580,6 +5604,8 @@ namespace Picturepark.SDK.V1
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
                         }
+            
+                        return default(ListItemDetail);
                     }
                     finally
                     {

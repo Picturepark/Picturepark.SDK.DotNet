@@ -699,7 +699,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Act
 
             // Deactivate
-            var deactivationRequest = new ContentDeactivationRequest
+            var deactivationRequest = new ContentDeactivateRequest
             {
                 ContentIds = contentIds
             };
@@ -711,7 +711,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Contents.GetAsync(contentIds[1]));
 
             // Reactivate
-            var reactivateRequest = new ContentReactivationRequest
+            var reactivateRequest = new ContentReactivateRequest
             {
                 ContentIds = contentIds
             };

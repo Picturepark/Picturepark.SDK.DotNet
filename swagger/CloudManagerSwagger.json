@@ -2983,6 +2983,9 @@
         "contentCatalog": {
           "type": "string"
         },
+        "displayValueCatalog": {
+          "type": "string"
+        },
         "tokenCatalog": {
           "type": "string"
         },

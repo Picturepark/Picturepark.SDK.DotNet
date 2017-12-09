@@ -732,7 +732,11 @@
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ContentDetail"
+            },
+            "x-nullable": false
           },
           "400": {
             "description": "The specified wait timeout exceeded",
@@ -774,14 +778,14 @@
         "operationId": "Content_DeactivateMany",
         "parameters": [
           {
-            "name": "deactivationRequest",
+            "name": "deactivateRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ContentDeactivationRequest"
+              "$ref": "#/definitions/ContentDeactivateRequest"
             },
             "x-nullable": true,
-            "description": "The deactivation request"
+            "description": "The deactivate request"
           }
         ],
         "responses": {
@@ -908,14 +912,14 @@
         "operationId": "Content_ReactivateMany",
         "parameters": [
           {
-            "name": "reactivationRequest",
+            "name": "reactivateRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ContentReactivationRequest"
+              "$ref": "#/definitions/ContentReactivateRequest"
             },
             "x-nullable": true,
-            "description": "The content reactivation request."
+            "description": "The content reactivate request."
           }
         ],
         "responses": {
@@ -2736,7 +2740,11 @@
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ListItemDetail"
+            },
+            "x-nullable": false
           },
           "400": {
             "description": "The specified wait timeout exceeded",
@@ -7278,6 +7286,27 @@
         },
         "id": {
           "type": "string"
+        },
+        "brokenReferenceIds": {
+          "type": "array",
+          "description": "All the ids of the broken references (tagboxes)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "brokenIndirectReferenceIds": {
+          "type": "array",
+          "description": "All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "brokenRelationIds": {
+          "type": "array",
+          "description": "All the ids of the broken relations",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -7801,15 +7830,31 @@
         }
       }
     },
-    "ContentDeactivationRequest": {
+    "ContentDeactivateRequest": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "resolve",
+        "forceReferenceRemoval"
+      ],
       "properties": {
         "contentIds": {
           "type": "array",
           "items": {
             "type": "string"
           }
+        },
+        "resolve": {
+          "type": "boolean"
+        },
+        "displayPatternIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forceReferenceRemoval": {
+          "type": "boolean"
         }
       }
     },
@@ -7999,11 +8044,23 @@
         }
       }
     },
-    "ContentReactivationRequest": {
+    "ContentReactivateRequest": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "resolve"
+      ],
       "properties": {
         "contentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "resolve": {
+          "type": "boolean"
+        },
+        "displayPatternIds": {
           "type": "array",
           "items": {
             "type": "string"

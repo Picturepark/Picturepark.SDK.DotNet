@@ -201,7 +201,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        void Deactivate(string contentId, System.TimeSpan? timeout);
+        ContentDetail Deactivate(string contentId, System.TimeSpan? timeout);
     
         /// <summary>Deactivate - single</summary>
         /// <param name="contentId">the id of the content to deactivate</param>
@@ -210,22 +210,22 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task DeactivateAsync(string contentId, System.TimeSpan? timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> DeactivateAsync(string contentId, System.TimeSpan? timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Deactivate - many</summary>
-        /// <param name="deactivationRequest">The deactivation request</param>
+        /// <param name="deactivateRequest">The deactivate request</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        BusinessProcess DeactivateMany(ContentDeactivationRequest deactivationRequest);
+        BusinessProcess DeactivateMany(ContentDeactivateRequest deactivateRequest);
     
         /// <summary>Deactivate - many</summary>
-        /// <param name="deactivationRequest">The deactivation request</param>
+        /// <param name="deactivateRequest">The deactivate request</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> DeactivateManyAsync(ContentDeactivationRequest deactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcess> DeactivateManyAsync(ContentDeactivateRequest deactivateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Reactivate - single</summary>
         /// <param name="contentId">The content id.</param>
@@ -251,19 +251,19 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<ContentDetail> ReactivateAsync(string contentId, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Reactivate - many</summary>
-        /// <param name="reactivationRequest">The content reactivation request.</param>
+        /// <param name="reactivateRequest">The content reactivate request.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        BusinessProcess ReactivateMany(ContentReactivationRequest reactivationRequest);
+        BusinessProcess ReactivateMany(ContentReactivateRequest reactivateRequest);
     
         /// <summary>Reactivate - many</summary>
-        /// <param name="reactivationRequest">The content reactivation request.</param>
+        /// <param name="reactivateRequest">The content reactivate request.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> ReactivateManyAsync(ContentReactivationRequest reactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcess> ReactivateManyAsync(ContentReactivateRequest reactivateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update file - single</summary>
         /// <param name="contentId">The id of the content to replace</param>
@@ -699,7 +699,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        void Deactivate(string listItemId, System.TimeSpan? timeout);
+        ListItemDetail Deactivate(string listItemId, System.TimeSpan? timeout);
     
         /// <summary>Deactivate - single</summary>
         /// <param name="listItemId">the id of the list item to deactivate</param>
@@ -708,7 +708,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task DeactivateAsync(string listItemId, System.TimeSpan? timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListItemDetail> DeactivateAsync(string listItemId, System.TimeSpan? timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Deactivate - many</summary>
         /// <param name="deactivateRequest">The list items deactivate request</param>
@@ -3647,6 +3647,18 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
+        /// <summary>All the ids of the broken references (tagboxes)</summary>
+        [Newtonsoft.Json.JsonProperty("brokenReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> BrokenReferenceIds { get; set; }
+    
+        /// <summary>All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)</summary>
+        [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> BrokenIndirectReferenceIds { get; set; }
+    
+        /// <summary>All the ids of the broken relations</summary>
+        [Newtonsoft.Json.JsonProperty("brokenRelationIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> BrokenRelationIds { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -4200,19 +4212,28 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentDeactivationRequest 
+    public partial class ContentDeactivateRequest 
     {
         [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<string> ContentIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("resolve", Required = Newtonsoft.Json.Required.Always)]
+        public bool Resolve { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("displayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> DisplayPatternIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("forceReferenceRemoval", Required = Newtonsoft.Json.Required.Always)]
+        public bool ForceReferenceRemoval { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ContentDeactivationRequest FromJson(string data)
+        public static ContentDeactivateRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDeactivationRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDeactivateRequest>(data);
         }
     }
     
@@ -4426,19 +4447,25 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.9.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentReactivationRequest 
+    public partial class ContentReactivateRequest 
     {
         [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<string> ContentIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("resolve", Required = Newtonsoft.Json.Required.Always)]
+        public bool Resolve { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("displayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.List<string> DisplayPatternIds { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ContentReactivationRequest FromJson(string data)
+        public static ContentReactivateRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentReactivationRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentReactivateRequest>(data);
         }
     }
     
