@@ -2206,64 +2206,6 @@
             ]
           }
         ]
-      },
-      "delete": {
-        "tags": [
-          "ListItem"
-        ],
-        "summary": "Delete - single",
-        "description": "Delete a single list item",
-        "operationId": "ListItem_Delete",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "listItemId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The list item id."
-          },
-          {
-            "type": "string",
-            "name": "timeout",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Maximum time to wait for the business process completed state.",
-            "format": "time-span"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "400": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "listitem_write"
-            ]
-          }
-        ]
       }
     },
     "/v1/listItems/search": {
@@ -2526,56 +2468,6 @@
             },
             "x-nullable": true,
             "description": "A list of ListItemUpdateRequests."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcess",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "listitem_write"
-            ]
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "ListItem"
-        ],
-        "summary": "Delete - many",
-        "description": "Delete multiple list items.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
-        "operationId": "ListItem_DeleteMany",
-        "parameters": [
-          {
-            "type": "array",
-            "name": "ids",
-            "in": "query",
-            "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "The list item id list.",
-            "items": {
-              "type": "string"
-            }
           }
         ],
         "responses": {

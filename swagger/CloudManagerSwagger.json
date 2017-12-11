@@ -2935,8 +2935,7 @@
         "redisDatabaseIndex",
         "lifeCycle",
         "contentRetentionTime",
-        "listItemRetentionTime",
-        "cacheRetentionTime"
+        "listItemRetentionTime"
       ],
       "properties": {
         "id": {
@@ -3101,10 +3100,6 @@
         },
         "deactivationMessage": {
           "$ref": "#/definitions/TranslatedStringDictionary"
-        },
-        "cacheRetentionTime": {
-          "type": "string",
-          "format": "time-span"
         }
       }
     },
