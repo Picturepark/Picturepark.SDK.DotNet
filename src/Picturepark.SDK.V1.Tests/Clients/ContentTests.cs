@@ -243,7 +243,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 response.EnsureSuccessStatusCode();
 
-                var fileName = response.Content.Headers.ContentDisposition.FileName;
+                var fileName = response.Content.Headers.ContentDisposition.FileName.Replace("\"", string.Empty);
                 Assert.EndsWith(".jpg", fileName);
 
                 var filePath = Path.Combine(_fixture.TempDirectory, fileName);

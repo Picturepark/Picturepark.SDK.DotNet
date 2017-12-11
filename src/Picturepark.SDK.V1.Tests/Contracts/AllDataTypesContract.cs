@@ -81,6 +81,8 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 		public string NameField { get; set; }
 	}
 
+	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.simpleObject.name}}")]
+	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.simpleObject.name}}")]
 	[PictureparkSchemaType(SchemaType.Struct)]
 	public class SimpleObject
 	{
