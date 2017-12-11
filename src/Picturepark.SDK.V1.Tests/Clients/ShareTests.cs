@@ -90,8 +90,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var createResult = await _client.Shares.CreateAsync(createRequest);
 
 			/// Act
-			var request = new ShareBaseUpdateRequest
+			var request = new ShareEmbedUpdateRequest
 			{
+				Id = createResult.ShareId,
 				Description = "Foo"
 			};
 
