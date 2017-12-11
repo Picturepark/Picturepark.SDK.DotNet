@@ -10,7 +10,7 @@ namespace Picturepark.SDK.V1.Contract
 		/// <returns>The deserialized object.d</returns>
 		public T Get<T>(string schemaId)
 		{
-			return ((JObject)this[schemaId]).ToObject<T>();
+			return this[schemaId] is T ? (T)this[schemaId] : ((JObject)this[schemaId]).ToObject<T>();
 		}
 	}
 }

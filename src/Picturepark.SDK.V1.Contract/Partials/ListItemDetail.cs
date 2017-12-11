@@ -17,7 +17,7 @@ namespace Picturepark.SDK.V1.Contract
 				throw new InvalidOperationException("The schema IDs do not match.");
 			}
 
-			return ((JObject)Content).ToObject<T>();
+			return Content is T ? (T)Content : ((JObject)Content).ToObject<T>();
 		}
 	}
 }

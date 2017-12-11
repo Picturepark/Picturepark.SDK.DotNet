@@ -9,7 +9,7 @@ namespace Picturepark.SDK.V1.Contract
 		/// <returns>The file metadata.</returns>
 		public FileMetadata GetFileMetadata()
 		{
-			return ((JObject)Content).ToObject<FileMetadata>();
+			return Content is FileMetadata ? (FileMetadata)Content : ((JObject)Content).ToObject<FileMetadata>();
 		}
 
 		/// <summary>Creates a typed content item wrapped in a ContentItem container.</summary>
@@ -17,7 +17,7 @@ namespace Picturepark.SDK.V1.Contract
 		/// <returns>The content item.</returns>
 		public ContentItem<T> AsContentItem<T>()
 		{
-			var item = ((JObject)Content).ToObject<T>();
+			var item = Content is T ? (T)Content : ((JObject)Content).ToObject<T>();
 			return new ContentItem<T>
 			{
 				Id = Id,
