@@ -66,9 +66,5 @@ namespace Picturepark.SDK.V1.Contract
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <returns>The updated <see cref="ListItemDetail"/>.</returns>
 		Task<ListItemDetail> UpdateAsync(ListItemUpdateRequest updateRequest, bool resolve = false, TimeSpan? timeout = null, IEnumerable<DisplayPatternType> patterns = null, CancellationToken cancellationToken = default(CancellationToken));
-
-		/// <summary>Deletes a list item by ID.</summary>
-		/// <param name="listItemId">The list item ID.</param>
-		void Delete(string listItemId);
 	}
 }

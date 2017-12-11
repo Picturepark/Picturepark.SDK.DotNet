@@ -48,52 +48,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 		[Fact]
 		[Trait("Stack", "ListItem")]
-		public async Task ShouldDelete()
-		{
-			/// Arrange
-			var objectName = "ThisObjectA" + new Random().Next(0, 999999);
-			var createRequest = new ListItemCreateRequest
-			{
-				ContentSchemaId = nameof(Tag),
-				Content = new Tag { Name = objectName }
-			};
-
-			ListItemDetail listItem = await _client.ListItems.CreateAsync(createRequest);
-			Assert.False(string.IsNullOrEmpty(listItem.Id));
-
-			/// Act
-			await _client.ListItems.DeleteAsync(listItem.Id);
-
-			/// Assert
-			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItem.Id, true));
-		}
-
-		[Fact]
-		[Trait("Stack", "ListItem")]
-		public async Task ShouldDeleteMany()
-		{
-			/// Arrange
-			var objectName = "ThisObjectA" + new Random().Next(0, 999999);
-			var createRequest = new ListItemCreateRequest
-			{
-				ContentSchemaId = nameof(Tag),
-				Content = new Tag { Name = objectName }
-			};
-
-			ListItemDetail listItem1 = await _client.ListItems.CreateAsync(createRequest);
-			ListItemDetail listItem2 = await _client.ListItems.CreateAsync(createRequest);
-
-			/// Act
-			var businessProcess = await _client.ListItems.DeleteManyAsync(new List<string> { listItem1.Id, listItem2.Id });
-			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
-
-			/// Assert
-			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItem1.Id, true));
-			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItem2.Id, true));
-		}
-
-		[Fact]
-		[Trait("Stack", "ListItem")]
 		public async Task ShouldCreateAndUpdateObject()
 		{
 			/// Arrange

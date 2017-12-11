@@ -1633,7 +1633,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "cacheRetentionTime",
         "useSsl",
         "elasticSearchNumberOfShards",
         "elasticSearchNumberOfReplicas",
@@ -1642,7 +1641,8 @@
         "rootListItemSearchIndexNumberOfShards",
         "rootListItemSearchIndexNumberOfReplicas",
         "indexedFieldThreshold",
-        "contentRetentionTime"
+        "contentRetentionTime",
+        "listItemRetentionTime"
       ],
       "properties": {
         "alias": {
@@ -1659,10 +1659,6 @@
         },
         "storagePath": {
           "type": "string"
-        },
-        "cacheRetentionTime": {
-          "type": "string",
-          "format": "time-span"
         },
         "customerHosts": {
           "type": "array",
@@ -1747,6 +1743,10 @@
           "type": "string"
         },
         "contentRetentionTime": {
+          "type": "string",
+          "format": "time-span"
+        },
+        "listItemRetentionTime": {
           "type": "string",
           "format": "time-span"
         },
@@ -2935,7 +2935,7 @@
         "redisDatabaseIndex",
         "lifeCycle",
         "contentRetentionTime",
-        "cacheRetentionTime"
+        "listItemRetentionTime"
       ],
       "properties": {
         "id": {
@@ -3094,12 +3094,12 @@
           "type": "string",
           "format": "time-span"
         },
-        "deactivationMessage": {
-          "$ref": "#/definitions/TranslatedStringDictionary"
-        },
-        "cacheRetentionTime": {
+        "listItemRetentionTime": {
           "type": "string",
           "format": "time-span"
+        },
+        "deactivationMessage": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
         }
       }
     },
@@ -3974,8 +3974,8 @@
       "required": [
         "lifeCycle",
         "backupEnabled",
-        "cacheRetentionTime",
         "contentRetentionTime",
+        "listItemRetentionTime",
         "useSsl"
       ],
       "properties": {
@@ -4000,11 +4000,11 @@
             "type": "string"
           }
         },
-        "cacheRetentionTime": {
+        "contentRetentionTime": {
           "type": "string",
           "format": "time-span"
         },
-        "contentRetentionTime": {
+        "listItemRetentionTime": {
           "type": "string",
           "format": "time-span"
         },
