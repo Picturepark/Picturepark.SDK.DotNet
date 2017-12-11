@@ -8830,7 +8830,8 @@
         "limit",
         "includeAllSchemaChildren",
         "includeMetadata",
-        "debugMode"
+        "debugMode",
+        "lifeCycleFilter"
       ],
       "properties": {
         "searchString": {
@@ -8914,6 +8915,14 @@
         "debugMode": {
           "type": "boolean",
           "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
+        },
+        "lifeCycleFilter": {
+          "description": "Limits the list item document result set to that life cycle state. Defaults to ActiveOnly.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/LifeCycleFilter"
+            }
+          ]
         }
       }
     },
@@ -8982,7 +8991,8 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "includeAllSchemaChildren"
+        "includeAllSchemaChildren",
+        "lifeCycleFilter"
       ],
       "properties": {
         "searchString": {
@@ -9039,6 +9049,14 @@
           "items": {
             "type": "string"
           }
+        },
+        "lifeCycleFilter": {
+          "description": "Limits the list item document result set to that life cycle state. Defaults to ActiveOnly.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/LifeCycleFilter"
+            }
+          ]
         }
       }
     },

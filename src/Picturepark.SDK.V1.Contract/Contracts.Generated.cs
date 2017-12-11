@@ -5333,6 +5333,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
     
+        /// <summary>Limits the list item document result set to that life cycle state. Defaults to ActiveOnly.</summary>
+        [Newtonsoft.Json.JsonProperty("lifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public LifeCycleFilter LifeCycleFilter { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -5454,6 +5460,12 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Only searches the specified language values. Defaults to all metadata languages of the language configuration.</summary>
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.List<string> SearchLanguages { get; set; }
+    
+        /// <summary>Limits the list item document result set to that life cycle state. Defaults to ActiveOnly.</summary>
+        [Newtonsoft.Json.JsonProperty("lifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public LifeCycleFilter LifeCycleFilter { get; set; }
     
         public string ToJson() 
         {
