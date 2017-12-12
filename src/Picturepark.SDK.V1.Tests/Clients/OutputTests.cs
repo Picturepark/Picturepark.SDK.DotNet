@@ -55,7 +55,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var result = await _client.Outputs.GetByContentIdsAsync(request);
 
 			/// Assert
-			Assert.True(result[0].ContentId == contentId);
+			Assert.True(result.ToList()[0].ContentId == contentId);
 		}
 	}
 }
