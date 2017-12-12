@@ -76,18 +76,19 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content">
-              
-              
               <h1 id="Picturepark_SDK_V1_Contract_PictureparkBusinessException" data-uid="Picturepark.SDK.V1.Contract.PictureparkBusinessException">Class PictureparkBusinessException
               </h1>
               <div class="markdown level0 summary"></div>
               <div class="markdown level0 conceptual"></div>
+
               <div class="inheritance">
                 <h5>Inheritance</h5>
-                  <div class="level0"><span class="xref">System.Object</span></div>
-                  <div class="level1"><span class="xref">System.Exception</span></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></div>
-                  <div class="level3"><span class="xref">PictureparkBusinessException</span></div>
+                <div class="level0"><span class="xref">System.Object</span></div>
+                <div class="level1"><span class="xref">System.Exception</span></div>
+                <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></div>
+                <div class="level3"><span class="xref">PictureparkBusinessException</span></div>
+              </div>
+              
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessDefinitionCreateException.html">BusinessProcessDefinitionCreateException</a></div>
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessDefinitionNotFoundException.html">BusinessProcessDefinitionNotFoundException</a></div>
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessNotFoundException.html">BusinessProcessNotFoundException</a></div>
@@ -99,6 +100,7 @@
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.DuplicateAggregatorException.html">DuplicateAggregatorException</a></div>
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.DuplicateDocumentException.html">DuplicateDocumentException</a></div>
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.DuplicateRightException.html">DuplicateRightException</a></div>
+                  <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.DuplicateSchemaException.html">DuplicateSchemaException</a></div>
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.FailedToLockException.html">FailedToLockException</a></div>
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.IndexException.html">IndexException</a></div>
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.InvalidArgumentException.html">InvalidArgumentException</a></div>
@@ -118,13 +120,18 @@
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.QueryException.html">QueryException</a></div>
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.RenderingException.html">RenderingException</a></div>
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.RenderingJobItemNotSetException.html">RenderingJobItemNotSetException</a></div>
+                  <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaCyclicDependencyException.html">SchemaCyclicDependencyException</a></div>
+                  <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaInUseException.html">SchemaInUseException</a></div>
+                  <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaNotFoundException.html">SchemaNotFoundException</a></div>
+                  <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaValidationException.html">SchemaValidationException</a></div>
+                  <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.ShareNotFoundException.html">ShareNotFoundException</a></div>
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.TokenValidationException.html">TokenValidationException</a></div>
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.UnknownException.html">UnknownException</a></div>
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.UserNotFoundException.html">UserNotFoundException</a></div>
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.UserPermanentlyRemovedException.html">UserPermanentlyRemovedException</a></div>
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleAssignedException.html">UserRoleAssignedException</a></div>
                   <div class="level4"><a class="xref" href="Picturepark.SDK.V1.Contract.UserRolesRightsAssignedException.html">UserRolesRightsAssignedException</a></div>
-              </div>
+              
               <div class="inheritedMembers">
                 <h5>Inherited Members</h5>
                 <div>
@@ -194,169 +201,223 @@
                   <span class="xref">System.Object.MemberwiseClone()</span>
                 </div>
               </div>
-              <h6><strong>Namespace</strong>:Picturepark.SDK.V1.Contract</h6>
-              <h6><strong>Assembly</strong>:cs.temp.dll.dll</h6>
+              
+              <h6><strong>Namespace</strong>: Picturepark.SDK.V1.Contract</h6>
+              <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+              
               <h5 id="Picturepark_SDK_V1_Contract_PictureparkBusinessException_syntax">Syntax</h5>
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public class PictureparkBusinessException : PictureparkException, ISerializable, _Exception</code></pre>
               </div>
+
+              
+              
+              
+              
               <h3 id="properties">Properties
               </h3>
               
               
               <a id="Picturepark_SDK_V1_Contract_PictureparkBusinessException_CustomerAlias_" data-uid="Picturepark.SDK.V1.Contract.PictureparkBusinessException.CustomerAlias*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_PictureparkBusinessException_CustomerAlias" data-uid="Picturepark.SDK.V1.Contract.PictureparkBusinessException.CustomerAlias">CustomerAlias</h4>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_PictureparkBusinessException_CustomerAlias" data-uid="Picturepark.SDK.V1.Contract.PictureparkBusinessException.CustomerAlias"><a href="#collapsible-Picturepark_SDK_V1_Contract_PictureparkBusinessException_CustomerAlias" class="expander" data-toggle="collapse">CustomerAlias</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_PictureparkBusinessException_CustomerAlias" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public string CustomerAlias { get; set; }</code></pre>
               </div>
+
+              
+              
+              
+              
               <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.String</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_Contract_PictureparkBusinessException_CustomerId_" data-uid="Picturepark.SDK.V1.Contract.PictureparkBusinessException.CustomerId*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_PictureparkBusinessException_CustomerId" data-uid="Picturepark.SDK.V1.Contract.PictureparkBusinessException.CustomerId">CustomerId</h4>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_PictureparkBusinessException_CustomerId" data-uid="Picturepark.SDK.V1.Contract.PictureparkBusinessException.CustomerId"><a href="#collapsible-Picturepark_SDK_V1_Contract_PictureparkBusinessException_CustomerId" class="expander" data-toggle="collapse">CustomerId</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_PictureparkBusinessException_CustomerId" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public string CustomerId { get; set; }</code></pre>
               </div>
+
+              
+              
+              
+              
               <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.String</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_Contract_PictureparkBusinessException_UserId_" data-uid="Picturepark.SDK.V1.Contract.PictureparkBusinessException.UserId*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_PictureparkBusinessException_UserId" data-uid="Picturepark.SDK.V1.Contract.PictureparkBusinessException.UserId">UserId</h4>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_PictureparkBusinessException_UserId" data-uid="Picturepark.SDK.V1.Contract.PictureparkBusinessException.UserId"><a href="#collapsible-Picturepark_SDK_V1_Contract_PictureparkBusinessException_UserId" class="expander" data-toggle="collapse">UserId</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_PictureparkBusinessException_UserId" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public string UserId { get; set; }</code></pre>
               </div>
+
+              
+              
+              
+              
               <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.String</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              </div>
               <h3 id="methods">Methods
               </h3>
               
               
               <a id="Picturepark_SDK_V1_Contract_PictureparkBusinessException_FromJson_" data-uid="Picturepark.SDK.V1.Contract.PictureparkBusinessException.FromJson*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_PictureparkBusinessException_FromJson_System_String_" data-uid="Picturepark.SDK.V1.Contract.PictureparkBusinessException.FromJson(System.String)">FromJson(String)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_PictureparkBusinessException_FromJson_System_String_" data-uid="Picturepark.SDK.V1.Contract.PictureparkBusinessException.FromJson(System.String)"><a href="#collapsible-Picturepark_SDK_V1_Contract_PictureparkBusinessException_FromJson_System_String_" class="expander" data-toggle="collapse">FromJson(String)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_PictureparkBusinessException_FromJson_System_String_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public static PictureparkBusinessException FromJson(string data)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">data</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.String</span></span>
+                    <span class="parametername">data</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkBusinessException.html">PictureparkBusinessException</a></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkBusinessException.html">PictureparkBusinessException</a>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_Contract_PictureparkBusinessException_ToJson_" data-uid="Picturepark.SDK.V1.Contract.PictureparkBusinessException.ToJson*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_PictureparkBusinessException_ToJson" data-uid="Picturepark.SDK.V1.Contract.PictureparkBusinessException.ToJson">ToJson()</h4>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_PictureparkBusinessException_ToJson" data-uid="Picturepark.SDK.V1.Contract.PictureparkBusinessException.ToJson"><a href="#collapsible-Picturepark_SDK_V1_Contract_PictureparkBusinessException_ToJson" class="expander" data-toggle="collapse">ToJson()</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_PictureparkBusinessException_ToJson" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public string ToJson()</code></pre>
               </div>
+
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.String</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </div>
+              
+              
                         </article>
+          </div>
+          <div class="contribution-panel mobile-hide">
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

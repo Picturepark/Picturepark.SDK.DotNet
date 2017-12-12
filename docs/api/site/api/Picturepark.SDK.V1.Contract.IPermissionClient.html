@@ -76,721 +76,859 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content">
-              
-              
               <h1 id="Picturepark_SDK_V1_Contract_IPermissionClient" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient">Interface IPermissionClient
               </h1>
               <div class="markdown level0 summary"></div>
               <div class="markdown level0 conceptual"></div>
-              <h6><strong>Namespace</strong>:Picturepark.SDK.V1.Contract</h6>
-              <h6><strong>Assembly</strong>:cs.temp.dll.dll</h6>
+
+              
+              
+              
+              <h6><strong>Namespace</strong>: Picturepark.SDK.V1.Contract</h6>
+              <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+              
               <h5 id="Picturepark_SDK_V1_Contract_IPermissionClient_syntax">Syntax</h5>
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public interface IPermissionClient</code></pre>
               </div>
+
+              
+              
+              
+              
               <h3 id="methods">Methods
               </h3>
               
               
-              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_GetContentPermissions_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetContentPermissions*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_GetContentPermissions_System_String_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetContentPermissions(System.String)">GetContentPermissions(String)</h4>
-              <div class="markdown level1 summary"><p>Get Content Permission Single</p>
+              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_GetContentPermissionSet_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetContentPermissionSet*"></a>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_GetContentPermissionSet_System_String_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetContentPermissionSet(System.String)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_GetContentPermissionSet_System_String_" class="expander" data-toggle="collapse">GetContentPermissionSet(String)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_GetContentPermissionSet_System_String_" class="collapse in">
+              <div class="markdown level1 summary"><p>Get Content Permission - single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ContentPermissionSetDetail GetContentPermissions(string permissionSetId)</code></pre>
+                <pre><code class="lang-csharp hljs">ContentPermissionSetDetail GetContentPermissionSet(string permissionSetId)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">permissionSetId</span></td>
-                    <td><p>The content permission set id.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.String</span></span>
+                    <span class="parametername">permissionSetId</span>
+                    <p><p>The content permission set id.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionSetDetail.html">ContentPermissionSetDetail</a></td>
-                    <td><p>ContentPermissionSetDetail</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionSetDetail.html">ContentPermissionSetDetail</a>
+                    <p><p>ContentPermissionSetDetail</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
               
+              </div>
               
-              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_GetContentPermissionsAsync_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetContentPermissionsAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_GetContentPermissionsAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetContentPermissionsAsync(System.String,System.Threading.CancellationToken)">GetContentPermissionsAsync(String, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Get Content Permission Single</p>
+              
+              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_GetContentPermissionSetAsync_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetContentPermissionSetAsync*"></a>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_GetContentPermissionSetAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetContentPermissionSetAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_GetContentPermissionSetAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetContentPermissionSetAsync(String, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_GetContentPermissionSetAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
+              <div class="markdown level1 summary"><p>Get Content Permission - single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;ContentPermissionSetDetail&gt; GetContentPermissionsAsync(string permissionSetId, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;ContentPermissionSetDetail&gt; GetContentPermissionSetAsync(string permissionSetId, CancellationToken cancellationToken = null)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">permissionSetId</span></td>
-                    <td><p>The content permission set id.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.String</span></span>
+                    <span class="parametername">permissionSetId</span>
+                    <p><p>The content permission set id.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionSetDetail.html">ContentPermissionSetDetail</a>&gt;</td>
-                    <td><p>ContentPermissionSetDetail</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionSetDetail.html">ContentPermissionSetDetail</a>&gt;
+                    <p><p>ContentPermissionSetDetail</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
               
+              </div>
               
-              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_GetSchemaPermissions_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetSchemaPermissions*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_GetSchemaPermissions_System_String_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetSchemaPermissions(System.String)">GetSchemaPermissions(String)</h4>
-              <div class="markdown level1 summary"><p>Get Schema Permission Single</p>
+              
+              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_GetSchemaPermissionSet_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetSchemaPermissionSet*"></a>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_GetSchemaPermissionSet_System_String_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetSchemaPermissionSet(System.String)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_GetSchemaPermissionSet_System_String_" class="expander" data-toggle="collapse">GetSchemaPermissionSet(String)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_GetSchemaPermissionSet_System_String_" class="collapse in">
+              <div class="markdown level1 summary"><p>Get Schema PermissionSets - single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">SchemaPermissionSetDetail GetSchemaPermissions(string permissionSetId)</code></pre>
+                <pre><code class="lang-csharp hljs">SchemaPermissionSetDetail GetSchemaPermissionSet(string permissionSetId)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">permissionSetId</span></td>
-                    <td><p>The schema permission set id.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.String</span></span>
+                    <span class="parametername">permissionSetId</span>
+                    <p><p>The schema permission set id.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaPermissionSetDetail.html">SchemaPermissionSetDetail</a></td>
-                    <td><p>SchemaPermissionSetDetail</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaPermissionSetDetail.html">SchemaPermissionSetDetail</a>
+                    <p><p>SchemaPermissionSetDetail</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
               
+              </div>
               
-              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_GetSchemaPermissionsAsync_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetSchemaPermissionsAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_GetSchemaPermissionsAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetSchemaPermissionsAsync(System.String,System.Threading.CancellationToken)">GetSchemaPermissionsAsync(String, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Get Schema Permission Single</p>
+              
+              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_GetSchemaPermissionSetAsync_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetSchemaPermissionSetAsync*"></a>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_GetSchemaPermissionSetAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetSchemaPermissionSetAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_GetSchemaPermissionSetAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetSchemaPermissionSetAsync(String, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_GetSchemaPermissionSetAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
+              <div class="markdown level1 summary"><p>Get Schema PermissionSets - single</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;SchemaPermissionSetDetail&gt; GetSchemaPermissionsAsync(string permissionSetId, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;SchemaPermissionSetDetail&gt; GetSchemaPermissionSetAsync(string permissionSetId, CancellationToken cancellationToken = null)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">permissionSetId</span></td>
-                    <td><p>The schema permission set id.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.String</span></span>
+                    <span class="parametername">permissionSetId</span>
+                    <p><p>The schema permission set id.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaPermissionSetDetail.html">SchemaPermissionSetDetail</a>&gt;</td>
-                    <td><p>SchemaPermissionSetDetail</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaPermissionSetDetail.html">SchemaPermissionSetDetail</a>&gt;
+                    <p><p>SchemaPermissionSetDetail</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
               
+              </div>
               
-              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_GetUserPermissions_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetUserPermissions*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_GetUserPermissions_Picturepark_SDK_V1_Contract_UserRight_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetUserPermissions(Picturepark.SDK.V1.Contract.UserRight)">GetUserPermissions(UserRight)</h4>
-              <div class="markdown level1 summary"><p>Get UserRight validation result</p>
+              
+              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_GetUserRights_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetUserRights*"></a>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_GetUserRights" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetUserRights"><a href="#collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_GetUserRights" class="expander" data-toggle="collapse">GetUserRights()</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_GetUserRights" class="collapse in">
+              <div class="markdown level1 summary"><p>Get User rights</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">bool GetUserPermissions(UserRight permission)</code></pre>
+                <pre><code class="lang-csharp hljs">List&lt;UserRight&gt; GetUserRights()</code></pre>
               </div>
-              <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.UserRight.html">UserRight</a></td>
-                    <td><span class="parametername">permission</span></td>
-                    <td><p>The UserRight to validate</p>
-</td>
-                  </tr>
-                </tbody>
-              </table>
+
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Boolean</span></td>
-                    <td><p>Boolean - user has permission</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.UserRight.html">UserRight</a>&gt;
+                    <p><p>list of user permissions</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
               
+              </div>
               
-              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_GetUserPermissionsAsync_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetUserPermissionsAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_GetUserPermissionsAsync_Picturepark_SDK_V1_Contract_UserRight_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetUserPermissionsAsync(Picturepark.SDK.V1.Contract.UserRight,System.Threading.CancellationToken)">GetUserPermissionsAsync(UserRight, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Get UserRight validation result</p>
+              
+              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_GetUserRightsAsync_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetUserRightsAsync*"></a>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_GetUserRightsAsync_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.GetUserRightsAsync(System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_GetUserRightsAsync_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetUserRightsAsync(CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_GetUserRightsAsync_System_Threading_CancellationToken_" class="collapse in">
+              <div class="markdown level1 summary"><p>Get User rights</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;bool&gt; GetUserPermissionsAsync(UserRight permission, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;List&lt;UserRight&gt;&gt; GetUserRightsAsync(CancellationToken cancellationToken = null)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.UserRight.html">UserRight</a></td>
-                    <td><span class="parametername">permission</span></td>
-                    <td><p>The UserRight to validate</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
-                    <td><p>Boolean - user has permission</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.UserRight.html">UserRight</a>&gt;&gt;
+                    <p><p>list of user permissions</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
+              </table>
+              
+              </div>
+              
+              
+              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_HasUserRight_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.HasUserRight*"></a>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_HasUserRight_Picturepark_SDK_V1_Contract_UserRight_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.HasUserRight(Picturepark.SDK.V1.Contract.UserRight)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_HasUserRight_Picturepark_SDK_V1_Contract_UserRight_" class="expander" data-toggle="collapse">HasUserRight(UserRight)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_HasUserRight_Picturepark_SDK_V1_Contract_UserRight_" class="collapse in">
+              <div class="markdown level1 summary"><p>Has UserRight</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">bool HasUserRight(UserRight userRight)</code></pre>
+              </div>
+
+              <h5 class="parameters">Parameters</h5>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.UserRight.html">UserRight</a></span>
+                    <span class="parametername">userRight</span>
+                    <p><p>The UserRight to validate</p>
+</p>
+                  </td>
+                </tr>
+              </table>
+              
+              <h5 class="returns">Returns</h5>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Boolean</span>
+                    <p><p>Boolean - user has permission</p>
+</p>
+                  </td>
+                </tr>
               </table>
               
               
-              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_SearchContentPermissions_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.SearchContentPermissions*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_SearchContentPermissions_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.SearchContentPermissions(Picturepark.SDK.V1.Contract.PermissionSetSearchRequest)">SearchContentPermissions(PermissionSetSearchRequest)</h4>
+              
+              
+              
+              
+              
+              
+              
+              <h5 class="exceptions">Exceptions</h5>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
+              </table>
+              
+              </div>
+              
+              
+              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_HasUserRightAsync_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.HasUserRightAsync*"></a>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_HasUserRightAsync_Picturepark_SDK_V1_Contract_UserRight_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.HasUserRightAsync(Picturepark.SDK.V1.Contract.UserRight,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_HasUserRightAsync_Picturepark_SDK_V1_Contract_UserRight_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">HasUserRightAsync(UserRight, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_HasUserRightAsync_Picturepark_SDK_V1_Contract_UserRight_System_Threading_CancellationToken_" class="collapse in">
+              <div class="markdown level1 summary"><p>Has UserRight</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task&lt;bool&gt; HasUserRightAsync(UserRight userRight, CancellationToken cancellationToken = null)</code></pre>
+              </div>
+
+              <h5 class="parameters">Parameters</h5>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.UserRight.html">UserRight</a></span>
+                    <span class="parametername">userRight</span>
+                    <p><p>The UserRight to validate</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
+              </table>
+              
+              <h5 class="returns">Returns</h5>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Boolean</span>&gt;
+                    <p><p>Boolean - user has permission</p>
+</p>
+                  </td>
+                </tr>
+              </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <h5 class="exceptions">Exceptions</h5>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
+              </table>
+              
+              </div>
+              
+              
+              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_SearchContentPermissionSets_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.SearchContentPermissionSets*"></a>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_SearchContentPermissionSets_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.SearchContentPermissionSets(Picturepark.SDK.V1.Contract.PermissionSetSearchRequest)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_SearchContentPermissionSets_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_" class="expander" data-toggle="collapse">SearchContentPermissionSets(PermissionSetSearchRequest)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_SearchContentPermissionSets_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_" class="collapse in">
               <div class="markdown level1 summary"><p>Search Content Permissions</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">PermissionSetSearchResult SearchContentPermissions(PermissionSetSearchRequest request)</code></pre>
+                <pre><code class="lang-csharp hljs">PermissionSetSearchResult SearchContentPermissionSets(PermissionSetSearchRequest request)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchRequest.html">PermissionSetSearchRequest</a></td>
-                    <td><span class="parametername">request</span></td>
-                    <td><p>The permission search request.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchRequest.html">PermissionSetSearchRequest</a></span>
+                    <span class="parametername">request</span>
+                    <p><p>The permission search request.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchResult.html">PermissionSetSearchResult</a></td>
-                    <td><p>PermissionSetSearchResult</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchResult.html">PermissionSetSearchResult</a>
+                    <p><p>PermissionSetSearchResult</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
               
+              </div>
               
-              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_SearchContentPermissionsAsync_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.SearchContentPermissionsAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_SearchContentPermissionsAsync_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.SearchContentPermissionsAsync(Picturepark.SDK.V1.Contract.PermissionSetSearchRequest,System.Threading.CancellationToken)">SearchContentPermissionsAsync(PermissionSetSearchRequest, CancellationToken)</h4>
+              
+              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_SearchContentPermissionSetsAsync_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.SearchContentPermissionSetsAsync*"></a>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_SearchContentPermissionSetsAsync_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.SearchContentPermissionSetsAsync(Picturepark.SDK.V1.Contract.PermissionSetSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_SearchContentPermissionSetsAsync_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchContentPermissionSetsAsync(PermissionSetSearchRequest, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_SearchContentPermissionSetsAsync_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_System_Threading_CancellationToken_" class="collapse in">
               <div class="markdown level1 summary"><p>Search Content Permissions</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;PermissionSetSearchResult&gt; SearchContentPermissionsAsync(PermissionSetSearchRequest request, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;PermissionSetSearchResult&gt; SearchContentPermissionSetsAsync(PermissionSetSearchRequest request, CancellationToken cancellationToken = null)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchRequest.html">PermissionSetSearchRequest</a></td>
-                    <td><span class="parametername">request</span></td>
-                    <td><p>The permission search request.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchRequest.html">PermissionSetSearchRequest</a></span>
+                    <span class="parametername">request</span>
+                    <p><p>The permission search request.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchResult.html">PermissionSetSearchResult</a>&gt;</td>
-                    <td><p>PermissionSetSearchResult</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchResult.html">PermissionSetSearchResult</a>&gt;
+                    <p><p>PermissionSetSearchResult</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
               
+              </div>
               
-              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_SearchSchemaPermissions_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.SearchSchemaPermissions*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_SearchSchemaPermissions_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.SearchSchemaPermissions(Picturepark.SDK.V1.Contract.PermissionSetSearchRequest)">SearchSchemaPermissions(PermissionSetSearchRequest)</h4>
-              <div class="markdown level1 summary"><p>Search Schema Permissions</p>
+              
+              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_SearchSchemaPermissionSets_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.SearchSchemaPermissionSets*"></a>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_SearchSchemaPermissionSets_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.SearchSchemaPermissionSets(Picturepark.SDK.V1.Contract.PermissionSetSearchRequest)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_SearchSchemaPermissionSets_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_" class="expander" data-toggle="collapse">SearchSchemaPermissionSets(PermissionSetSearchRequest)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_SearchSchemaPermissionSets_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_" class="collapse in">
+              <div class="markdown level1 summary"><p>Search Schema PermissionSets</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">PermissionSetSearchResult SearchSchemaPermissions(PermissionSetSearchRequest request)</code></pre>
+                <pre><code class="lang-csharp hljs">PermissionSetSearchResult SearchSchemaPermissionSets(PermissionSetSearchRequest request)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchRequest.html">PermissionSetSearchRequest</a></td>
-                    <td><span class="parametername">request</span></td>
-                    <td><p>The permission search request.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchRequest.html">PermissionSetSearchRequest</a></span>
+                    <span class="parametername">request</span>
+                    <p><p>The permission search request.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchResult.html">PermissionSetSearchResult</a></td>
-                    <td><p>PermissionSetSearchResult</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchResult.html">PermissionSetSearchResult</a>
+                    <p><p>PermissionSetSearchResult</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
               
+              </div>
               
-              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_SearchSchemaPermissionsAsync_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.SearchSchemaPermissionsAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_SearchSchemaPermissionsAsync_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.SearchSchemaPermissionsAsync(Picturepark.SDK.V1.Contract.PermissionSetSearchRequest,System.Threading.CancellationToken)">SearchSchemaPermissionsAsync(PermissionSetSearchRequest, CancellationToken)</h4>
-              <div class="markdown level1 summary"><p>Search Schema Permissions</p>
+              
+              <a id="Picturepark_SDK_V1_Contract_IPermissionClient_SearchSchemaPermissionSetsAsync_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.SearchSchemaPermissionSetsAsync*"></a>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_IPermissionClient_SearchSchemaPermissionSetsAsync_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IPermissionClient.SearchSchemaPermissionSetsAsync(Picturepark.SDK.V1.Contract.PermissionSetSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_SearchSchemaPermissionSetsAsync_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchSchemaPermissionSetsAsync(PermissionSetSearchRequest, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_IPermissionClient_SearchSchemaPermissionSetsAsync_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+              <div class="markdown level1 summary"><p>Search Schema PermissionSets</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;PermissionSetSearchResult&gt; SearchSchemaPermissionsAsync(PermissionSetSearchRequest request, CancellationToken cancellationToken = null)</code></pre>
+                <pre><code class="lang-csharp hljs">Task&lt;PermissionSetSearchResult&gt; SearchSchemaPermissionSetsAsync(PermissionSetSearchRequest request, CancellationToken cancellationToken = null)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchRequest.html">PermissionSetSearchRequest</a></td>
-                    <td><span class="parametername">request</span></td>
-                    <td><p>The permission search request.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchRequest.html">PermissionSetSearchRequest</a></span>
+                    <span class="parametername">request</span>
+                    <p><p>The permission search request.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchResult.html">PermissionSetSearchResult</a>&gt;</td>
-                    <td><p>PermissionSetSearchResult</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchResult.html">PermissionSetSearchResult</a>&gt;
+                    <p><p>PermissionSetSearchResult</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a></td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
+              
+              
                         </article>
+          </div>
+          <div class="contribution-panel mobile-hide">
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

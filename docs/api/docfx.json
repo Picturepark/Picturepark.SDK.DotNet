@@ -21,6 +21,10 @@
     }
   ],
   "build": {
+    "template": [
+      "default",
+      "docfx-tmpl"
+    ],
     "content": [
       {
         "files": [

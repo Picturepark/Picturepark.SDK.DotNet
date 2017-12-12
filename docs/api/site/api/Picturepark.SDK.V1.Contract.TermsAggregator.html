@@ -76,21 +76,22 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content">
-              
-              
               <h1 id="Picturepark_SDK_V1_Contract_TermsAggregator" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator">Class TermsAggregator
               </h1>
               <div class="markdown level0 summary"><p>The TermsAggregator is a multi-bucket value aggregation where buckets are dynamically built - one per unique value.</p>
 </div>
               <div class="markdown level0 conceptual"></div>
+
               <div class="inheritance">
                 <h5>Inheritance</h5>
-                  <div class="level0"><span class="xref">System.Object</span></div>
-                  <div class="level1"><a class="xref" href="Picturepark.SDK.V1.Contract.AggregatorBase.html">AggregatorBase</a></div>
-                  <div class="level2"><span class="xref">TermsAggregator</span></div>
+                <div class="level0"><span class="xref">System.Object</span></div>
+                <div class="level1"><a class="xref" href="Picturepark.SDK.V1.Contract.AggregatorBase.html">AggregatorBase</a></div>
+                <div class="level2"><span class="xref">TermsAggregator</span></div>
+              </div>
+              
                   <div class="level3"><a class="xref" href="Picturepark.SDK.V1.Contract.TermsEnumAggregator.html">TermsEnumAggregator</a></div>
                   <div class="level3"><a class="xref" href="Picturepark.SDK.V1.Contract.TermsRelationAggregator.html">TermsRelationAggregator</a></div>
-              </div>
+              
               <div class="inheritedMembers">
                 <h5>Inherited Members</h5>
                 <div>
@@ -124,198 +125,263 @@
                   <span class="xref">System.Object.MemberwiseClone()</span>
                 </div>
               </div>
-              <h6><strong>Namespace</strong>:Picturepark.SDK.V1.Contract</h6>
-              <h6><strong>Assembly</strong>:cs.temp.dll.dll</h6>
+              
+              <h6><strong>Namespace</strong>: Picturepark.SDK.V1.Contract</h6>
+              <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+              
               <h5 id="Picturepark_SDK_V1_Contract_TermsAggregator_syntax">Syntax</h5>
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public class TermsAggregator : AggregatorBase</code></pre>
               </div>
+
+              
+              
+              
+              
               <h3 id="properties">Properties
               </h3>
               
               
               <a id="Picturepark_SDK_V1_Contract_TermsAggregator_Excludes_" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.Excludes*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_TermsAggregator_Excludes" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.Excludes">Excludes</h4>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_TermsAggregator_Excludes" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.Excludes"><a href="#collapsible-Picturepark_SDK_V1_Contract_TermsAggregator_Excludes" class="expander" data-toggle="collapse">Excludes</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_TermsAggregator_Excludes" class="collapse in">
               <div class="markdown level1 summary"><p>Excludes values for which buckets will be created. Supports regular expression strings or arrays of exact values.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public List&lt;string&gt; Excludes { get; set; }</code></pre>
               </div>
+
+              
+              
+              
+              
               <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
               
               
+              
+              
+              
+              
+              
+              </div>
+              
+              
               <a id="Picturepark_SDK_V1_Contract_TermsAggregator_Field_" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.Field*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_TermsAggregator_Field" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.Field">Field</h4>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_TermsAggregator_Field" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.Field"><a href="#collapsible-Picturepark_SDK_V1_Contract_TermsAggregator_Field" class="expander" data-toggle="collapse">Field</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_TermsAggregator_Field" class="collapse in">
               <div class="markdown level1 summary"><p>The elastic search index field (not analyzed) to execute the aggregation on.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public string Field { get; set; }</code></pre>
               </div>
+
+              
+              
+              
+              
               <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.String</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
               
               
+              
+              
+              
+              
+              
+              </div>
+              
+              
               <a id="Picturepark_SDK_V1_Contract_TermsAggregator_Includes_" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.Includes*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_TermsAggregator_Includes" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.Includes">Includes</h4>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_TermsAggregator_Includes" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.Includes"><a href="#collapsible-Picturepark_SDK_V1_Contract_TermsAggregator_Includes" class="expander" data-toggle="collapse">Includes</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_TermsAggregator_Includes" class="collapse in">
               <div class="markdown level1 summary"><p>Includes values for which buckets will be created. Supports regular expression strings or arrays of exact values.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public List&lt;string&gt; Includes { get; set; }</code></pre>
               </div>
+
+              
+              
+              
+              
               <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
               
               
+              
+              
+              
+              
+              
+              </div>
+              
+              
               <a id="Picturepark_SDK_V1_Contract_TermsAggregator_Size_" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.Size*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_TermsAggregator_Size" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.Size">Size</h4>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_TermsAggregator_Size" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.Size"><a href="#collapsible-Picturepark_SDK_V1_Contract_TermsAggregator_Size" class="expander" data-toggle="collapse">Size</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_TermsAggregator_Size" class="collapse in">
               <div class="markdown level1 summary"><p>The size parameter can be set to define how many term buckets should be returned out of the overall terms list.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public int ? Size { get; set; }</code></pre>
               </div>
+
+              
+              
+              
+              
               <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              </div>
               <h3 id="methods">Methods
               </h3>
               
               
               <a id="Picturepark_SDK_V1_Contract_TermsAggregator_FromJson_" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.FromJson*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_TermsAggregator_FromJson_System_String_" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.FromJson(System.String)">FromJson(String)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_TermsAggregator_FromJson_System_String_" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.FromJson(System.String)"><a href="#collapsible-Picturepark_SDK_V1_Contract_TermsAggregator_FromJson_System_String_" class="expander" data-toggle="collapse">FromJson(String)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_TermsAggregator_FromJson_System_String_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public static TermsAggregator FromJson(string data)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">data</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.String</span></span>
+                    <span class="parametername">data</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.TermsAggregator.html">TermsAggregator</a></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.TermsAggregator.html">TermsAggregator</a>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_Contract_TermsAggregator_ToJson_" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.ToJson*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_TermsAggregator_ToJson" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.ToJson">ToJson()</h4>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_TermsAggregator_ToJson" data-uid="Picturepark.SDK.V1.Contract.TermsAggregator.ToJson"><a href="#collapsible-Picturepark_SDK_V1_Contract_TermsAggregator_ToJson" class="expander" data-toggle="collapse">ToJson()</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_TermsAggregator_ToJson" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public string ToJson()</code></pre>
               </div>
+
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.String</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </div>
+              
+              
                         </article>
+          </div>
+          <div class="contribution-panel mobile-hide">
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>
