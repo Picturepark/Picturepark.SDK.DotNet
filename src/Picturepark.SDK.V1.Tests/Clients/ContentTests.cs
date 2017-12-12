@@ -9,6 +9,7 @@ using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Picturepark.SDK.V1.Tests.Contracts;
 #pragma warning disable 1587
 
@@ -456,7 +457,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		    var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true, patterns: new List<DisplayPatternType> { DisplayPatternType.Name });
 
 		    /// Assert
-		    Assert.Equal("test description", response.Metadata.Get("personShot").Get("displayValue")["name"].ToString());
+		    Assert.Equal("test description", ((JObject)response.Metadata["personShot"])["displayValue"]["name"].ToString());
 	    }
 
 		[Fact]
