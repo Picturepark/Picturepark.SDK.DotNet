@@ -164,13 +164,6 @@ namespace Picturepark.SDK.V1
 			return await UpdateCoreAsync(updateRequest.Id, updateRequest, resolve, timeout, patterns, cancellationToken).ConfigureAwait(false);
 		}
 
-		/// <summary>Deletes a list item by ID.</summary>
-		/// <param name="listItemId">The list item ID.</param>
-		public void Delete(string listItemId)
-		{
-			Task.Run(async () => await DeleteAsync(listItemId).ConfigureAwait(false)).GetAwaiter().GetResult();
-		}
-
 		private bool IsSimpleType(Type type)
 		{
 			return
