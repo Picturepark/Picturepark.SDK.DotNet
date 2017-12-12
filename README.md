@@ -13,21 +13,24 @@ Links:
 
 ## NuGet Packages
 
-All packages support the following target frameworks: 
-
-- .NET 4.5+
-- .NET Standard 1.3+
-
 **Public APIs**:
 
-- [Picturepark.SDK.V1](https://www.nuget.org/packages/Picturepark.SDK.V1): Client implementations to access the Picturepark server
-- [Picturepark.SDK.V1.Contract](https://www.nuget.org/packages/Picturepark.SDK.V1.Contract): DTO classes and client interfaces 
-- [Picturepark.SDK.V1.Localization](https://www.nuget.org/packages/Picturepark.SDK.V1.Localization): Utilities to translate server messages
+- **[Picturepark.SDK.V1](https://www.nuget.org/packages/Picturepark.SDK.V1) (.NET Standard 1.3+ & .NET 4.5+):** 
+    - Client implementations to access the Picturepark server
+	- [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/api/Picturepark.SDK.V1.html)
+- **[Picturepark.SDK.V1.Contract](https://www.nuget.org/packages/Picturepark.SDK.V1.Contract) (.NET Standard 1.3+ & .NET 4.5+):** 
+    - DTO classes and client interfaces 
+	- [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/api/Picturepark.SDK.V1.Contract.html)
+- **[Picturepark.SDK.V1.Localization](https://www.nuget.org/packages/Picturepark.SDK.V1.Localization) (.NET Standard 1.3+ & .NET 4.5+):** 
+    - Utilities to translate server messages
+    - [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/api/Picturepark.SDK.V1.Localization.html)
 
 **Management APIs**:
 
-- [Picturepark.SDK.V1.CloudManager](https://www.nuget.org/packages/Picturepark.SDK.V1.CloudManager)
-- [Picturepark.SDK.V1.ServiceProvider](https://www.nuget.org/packages/Picturepark.SDK.V1.ServiceProvider)
+- **[Picturepark.SDK.V1.CloudManager](https://www.nuget.org/packages/Picturepark.SDK.V1.CloudManager) (.NET Standard 1.3+ & .NET 4.5+)**
+    - [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/api/Picturepark.SDK.V1.CloudManager.html)
+- **[Picturepark.SDK.V1.ServiceProvider](https://www.nuget.org/packages/Picturepark.SDK.V1.ServiceProvider) (.NET Standard 1.6+ & .NET 4.6+)**
+    - [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/api/Picturepark.SDK.V1.ServiceProvider.html)
 
 ## SDK Development
 

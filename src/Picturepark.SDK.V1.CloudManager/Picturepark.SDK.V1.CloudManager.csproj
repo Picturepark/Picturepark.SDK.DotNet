@@ -2,8 +2,8 @@
 	<PropertyGroup>
 		<Description>Picturepark .NET SDK CloudManager: Manage Picturepark backend instances.</Description>
 		<AssemblyTitle>Picturepark.SDK.V1.CloudManager</AssemblyTitle>
-		<TargetFramework>netstandard1.3</TargetFramework>
-		<NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>
+    <TargetFrameworks>netstandard1.3;net45</TargetFrameworks>
+    <NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<AssemblyName>Picturepark.SDK.V1.CloudManager</AssemblyName>
 		<PackageId>Picturepark.SDK.V1.CloudManager</PackageId>
@@ -40,4 +40,8 @@
 	</ImportGroup>
 	<Target Name="FixUpVersion" BeforeTargets="_GenerateRestoreProjectSpec" DependsOnTargets="GetBuildVersion" Condition=" '$(NerdbankGitVersioningTasksPath)' != '' " />
 
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
 </Project>

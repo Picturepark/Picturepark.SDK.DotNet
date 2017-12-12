@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<Description>Picturepark .NET SDK Localization: Provides translations for exception codes and texts.</Description>
 		<AssemblyTitle>Picturepark.SDK.V1.Localization</AssemblyTitle>
-		<TargetFrameworks>netstandard1.3;net451</TargetFrameworks>
+		<TargetFrameworks>netstandard1.3;net45</TargetFrameworks>
 		<NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<AssemblyName>Picturepark.SDK.V1.Localization</AssemblyName>
