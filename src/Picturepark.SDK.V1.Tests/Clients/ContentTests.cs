@@ -424,7 +424,42 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.True(true);
         }
 
-        [Fact]
+	    [Fact]
+	    [Trait("Stack", "Contents")]
+	    public async Task ShouldSetLayerAndResolveDisplayValues()
+	    {
+			/// Arrange
+			var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(PersonShot));
+		    foreach (var schema in schemas)
+		    {
+				await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
+		    }
+
+			var contentId = _fixture.GetRandomContentId(".jpg", 20);
+		    var request = new ContentMetadataUpdateRequest
+		    {
+			    Id = contentId,
+			    SchemaIds = new List<string> { "PersonShot" },
+			    Metadata = new DataDictionary
+			    {
+				    {
+						"PersonShot",
+					    new Dictionary<string, object>
+					    {
+						    { "Description", "test description" }
+					    }
+				    }
+			    }
+		    };
+
+		    /// Act
+		    var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true, patterns: new List<DisplayPatternType> { DisplayPatternType.Name });
+
+		    /// Assert
+		    Assert.Equal("test description", response.Metadata.Get("personShot").Get("displayValue")["name"].ToString());
+	    }
+
+		[Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldUpdateMetadataByFilter()
         {
