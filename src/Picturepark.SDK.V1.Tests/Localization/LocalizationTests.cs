@@ -11,13 +11,15 @@ namespace Picturepark.SDK.V1.Tests.Localization
 		public void ShouldLocalizeException()
 		{
 			/// Arrange
-			var exception = new CustomerNotFoundException();
+			var exception = new CustomerNotFoundException { CustomerId = "TestCustomerId" };
 
 			/// Assert
-			var text = exception.GetLocalizedErrorCode("en");
+			var textEn = exception.GetLocalizedErrorCode("en");
+			var textDe = exception.GetLocalizedErrorCode("de");
 
 			/// Act
-			Assert.False(string.IsNullOrEmpty(text));
+			Assert.False(string.IsNullOrEmpty(textEn));
+			Assert.False(string.IsNullOrEmpty(textDe));
 		}
 
 		[Fact]
