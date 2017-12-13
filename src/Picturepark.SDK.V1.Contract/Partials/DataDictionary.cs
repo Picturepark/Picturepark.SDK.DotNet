@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace Picturepark.SDK.V1.Contract
 {
@@ -11,6 +12,26 @@ namespace Picturepark.SDK.V1.Contract
 		public T Get<T>(string schemaId)
 		{
 			return this[schemaId] is T ? (T)this[schemaId] : ((JObject)this[schemaId]).ToObject<T>();
+		}
+
+		/// <summary>
+		/// Gets an item in the dictionary as DataDictionary
+		/// </summary>
+		/// <param name="key"></param>
+		/// <returns></returns>
+		public DataDictionary Get(string key)
+		{
+			return (DataDictionary)this[key];
+		}
+
+		/// <summary>
+		/// Gets an item in the dictionary as List&lt;DataDictionary&gt;
+		/// </summary>
+		/// <param name="key"></param>
+		/// <returns></returns>
+		public List<DataDictionary> GetList(string key)
+		{
+			return (List<DataDictionary>)this[key];
 		}
 	}
 }

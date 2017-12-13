@@ -79,7 +79,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var request = new FileTransferDeleteRequest
 			{
 				TransferId = createTransferResult.Transfer.Id,
-				FileTransferIds = new List<string> { searchResult.Results[0].Id }
+				FileTransferIds = new List<string> { searchResult.Results.ToList()[0].Id }
 			};
 
 			await _client.Transfers.DeleteFilesAsync(request);

@@ -187,7 +187,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			/// Act
 			var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("SoccerPlayer");
-			var jsonConvertedField = generatedSoccerPlayerSchema.Fields[0].ToJson();
+			var jsonConvertedField = generatedSoccerPlayerSchema.Fields.ToList()[0].ToJson();
 
 			/// Assert
 			Assert.True(jsonConvertedField.Contains(expectedFilterString));
@@ -203,7 +203,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			/// Act
 			var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("Person");
-			var jsonConvertedField = generatedSoccerPlayerSchema.Fields[0].ToJson();
+			var jsonConvertedField = generatedSoccerPlayerSchema.Fields.ToList()[0].ToJson();
 
 			/// Assert
 			Assert.True(jsonConvertedField.Contains(expectedMultilineString));

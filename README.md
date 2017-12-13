@@ -17,10 +17,11 @@ Links:
 
 - **[Picturepark.SDK.V1](https://www.nuget.org/packages/Picturepark.SDK.V1) (.NET Standard 1.3+ & .NET 4.5+):** 
     - Client implementations to access the Picturepark server
-	- [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/api/Picturepark.SDK.V1.html)
+    - [SDK Documentation](docs/README.md)
+    - [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/api/Picturepark.SDK.V1.html)
 - **[Picturepark.SDK.V1.Contract](https://www.nuget.org/packages/Picturepark.SDK.V1.Contract) (.NET Standard 1.3+ & .NET 4.5+):** 
     - DTO classes and client interfaces 
-	- [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/api/Picturepark.SDK.V1.Contract.html)
+    - [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/api/Picturepark.SDK.V1.Contract.html)
 - **[Picturepark.SDK.V1.Localization](https://www.nuget.org/packages/Picturepark.SDK.V1.Localization) (.NET Standard 1.3+ & .NET 4.5+):** 
     - Utilities to translate server messages
     - [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/api/Picturepark.SDK.V1.Localization.html)

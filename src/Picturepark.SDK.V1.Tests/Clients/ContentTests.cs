@@ -9,6 +9,7 @@ using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Picturepark.SDK.V1.Tests.Contracts;
 #pragma warning disable 1587
 
@@ -71,8 +72,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             /// Assert
             Assert.Equal(2, contents.Count);
-            Assert.Equal(contentIds[0], contents[0].Id);
-            Assert.Equal(contentIds[1], contents[1].Id);
+            Assert.Equal(contentIds[0], contents.ToList()[0].Id);
+            Assert.Equal(contentIds[1], contents.ToList()[1].Id);
         }
 
         [Fact]
@@ -88,7 +89,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             /// Act
             var previousContents = await _client.Contents.GetManyAsync(contentIds, true);
-            var previousOwner = await _client.Users.GetByOwnerTokenAsync(previousContents[0].OwnerTokenId);
+            var previousOwner = await _client.Users.GetByOwnerTokenAsync(previousContents.ToList()[0].OwnerTokenId);
 
             // Search user with ManageContent UserRight
             var searchResult = await _client.Users.SearchAsync(new UserSearchRequest
@@ -107,12 +108,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
             var newContents = await _client.Contents.GetManyAsync(contentIds, true);
-            var newOwner1 = await _client.Users.GetByOwnerTokenAsync(newContents[0].OwnerTokenId);
-            var newOwner2 = await _client.Users.GetByOwnerTokenAsync(newContents[1].OwnerTokenId);
+            var newOwner1 = await _client.Users.GetByOwnerTokenAsync(newContents.ToList()[0].OwnerTokenId);
+            var newOwner2 = await _client.Users.GetByOwnerTokenAsync(newContents.ToList()[1].OwnerTokenId);
 
             /// Assert
-            Assert.Equal(previousContents[0].Id, newContents[0].Id);
-            Assert.Equal(previousContents[1].Id, newContents[1].Id);
+            Assert.Equal(previousContents.ToList()[0].Id, newContents.ToList()[0].Id);
+            Assert.Equal(previousContents.ToList()[1].Id, newContents.ToList()[1].Id);
 
             Assert.Equal(newOwner1.Id, newOwner2.Id);
             Assert.Equal(newUser.Id, newOwner1.Id);
@@ -424,7 +425,42 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.True(true);
         }
 
-        [Fact]
+	    [Fact]
+	    [Trait("Stack", "Contents")]
+	    public async Task ShouldSetLayerAndResolveDisplayValues()
+	    {
+			/// Arrange
+			var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(PersonShot));
+		    foreach (var schema in schemas)
+		    {
+				await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
+		    }
+
+			var contentId = _fixture.GetRandomContentId(".jpg", 20);
+		    var request = new ContentMetadataUpdateRequest
+		    {
+			    Id = contentId,
+			    SchemaIds = new List<string> { "PersonShot" },
+			    Metadata = new DataDictionary
+			    {
+				    {
+						"PersonShot",
+					    new Dictionary<string, object>
+					    {
+						    { "Description", "test description" }
+					    }
+				    }
+			    }
+		    };
+
+		    /// Act
+		    var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true, patterns: new List<DisplayPatternType> { DisplayPatternType.Name });
+
+		    /// Assert
+		    Assert.Equal("test description", ((JObject)response.Metadata["personShot"])["displayValue"]["name"].ToString());
+	    }
+
+		[Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldUpdateMetadataByFilter()
         {

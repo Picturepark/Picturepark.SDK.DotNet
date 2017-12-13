@@ -51,7 +51,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
 		public SimpleObject SingleFieldsetField { get; set; }
 
-		public List<SimpleObject> ObjectsField { get; set; }
+		public List<SimpleObject> MultiFieldsetField { get; set; }
 
 		public string StringField { get; set; }
 
@@ -85,6 +85,16 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.simpleObject.name}}")]
 	[PictureparkSchemaType(SchemaType.Struct)]
 	public class SimpleObject
+	{
+		public string Name { get; set; }
+
+		public NestedSimpleObject Nested { get; set; }
+	}
+
+	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.nestedSimpleObject.name}}")]
+	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.nestedSimpleObject.name}}")]
+	[PictureparkSchemaType(SchemaType.Struct)]
+	public class NestedSimpleObject
 	{
 		public string Name { get; set; }
 	}

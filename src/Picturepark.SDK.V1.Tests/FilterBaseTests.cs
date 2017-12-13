@@ -1,4 +1,5 @@
 ﻿using Picturepark.SDK.V1.Contract;
+using System.Linq;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests
@@ -27,8 +28,8 @@ namespace Picturepark.SDK.V1.Tests
 			/// Assert
 			Assert.Equal("firstName", termFilter.Field);
 			Assert.Equal(2, termFilter.Terms.Count);
-			Assert.Equal("Foo", termFilter.Terms[0]);
-			Assert.Equal("Bar", termFilter.Terms[1]);
+			Assert.Equal("Foo", termFilter.Terms.ToList()[0]);
+			Assert.Equal("Bar", termFilter.Terms.ToList()[1]);
 		}
 
 		[Fact]
