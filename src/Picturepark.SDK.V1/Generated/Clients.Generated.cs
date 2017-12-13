@@ -301,6 +301,118 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>Create - many</summary>
+        /// <param name="contentCreateRequests">The content create requests.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public BusinessProcess CreateMany(System.Collections.Generic.IEnumerable<ContentCreateRequest> contentCreateRequests)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await CreateManyAsync(contentCreateRequests, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Create - many</summary>
+        /// <param name="contentCreateRequests">The content create requests.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        public async System.Threading.Tasks.Task<BusinessProcess> CreateManyAsync(System.Collections.Generic.IEnumerable<ContentCreateRequest> contentCreateRequests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/many");
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentCreateRequests, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(BusinessProcess); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcess>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception_) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception_) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(BusinessProcess);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
         /// <summary>Search</summary>
         /// <param name="contentSearchRequest">The content search request.</param>
         /// <returns>ContentSearchResult</returns>
@@ -1156,9 +1268,9 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public ContentDetail CreateContent(ContentCreateRequest contentCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null)
+        public ContentDetail Create(ContentCreateRequest contentCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await CreateContentAsync(contentCreateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await CreateAsync(contentCreateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Create - single</summary>
@@ -1170,7 +1282,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<ContentDetail> CreateContentAsync(ContentCreateRequest contentCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentDetail> CreateAsync(ContentCreateRequest contentCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
@@ -4633,7 +4745,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Create - single</summary>
-        /// <param name="listItem">List item create request.</param>
+        /// <param name="listItemCreateRequest">List item create request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
@@ -4641,13 +4753,13 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public ListItemDetail Create(ListItemCreateRequest listItem, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null)
+        public ListItemDetail Create(ListItemCreateRequest listItemCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await CreateAsync(listItem, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await CreateAsync(listItemCreateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Create - single</summary>
-        /// <param name="listItem">List item create request.</param>
+        /// <param name="listItemCreateRequest">List item create request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
@@ -4656,7 +4768,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItem, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItemCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
@@ -4673,7 +4785,7 @@ namespace Picturepark.SDK.V1
             {
                 using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(listItem, _settings.Value));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(listItemCreateRequest, _settings.Value));
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -4782,22 +4894,22 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Create - many</summary>
-        /// <param name="objects">A list of ListItemCreateRequests.</param>
+        /// <param name="listItemCreateRequests">A list of ListItemCreateRequests.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        protected BusinessProcess CreateManyCore(System.Collections.Generic.IEnumerable<ListItemCreateRequest> objects)
+        protected BusinessProcess CreateManyCore(System.Collections.Generic.IEnumerable<ListItemCreateRequest> listItemCreateRequests)
         {
-            return System.Threading.Tasks.Task.Run(async () => await CreateManyCoreAsync(objects, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await CreateManyCoreAsync(listItemCreateRequests, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Create - many</summary>
-        /// <param name="objects">A list of ListItemCreateRequests.</param>
+        /// <param name="listItemCreateRequests">A list of ListItemCreateRequests.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        protected async System.Threading.Tasks.Task<BusinessProcess> CreateManyCoreAsync(System.Collections.Generic.IEnumerable<ListItemCreateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        protected async System.Threading.Tasks.Task<BusinessProcess> CreateManyCoreAsync(System.Collections.Generic.IEnumerable<ListItemCreateRequest> listItemCreateRequests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/many");
@@ -4807,7 +4919,7 @@ namespace Picturepark.SDK.V1
             {
                 using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(objects, _settings.Value));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(listItemCreateRequests, _settings.Value));
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
