@@ -116,28 +116,30 @@ namespace Picturepark.SDK.V1
 		/// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
 		public async Task<BusinessProcessWaitResult> WaitForCompletionAsync(string processId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			var waitResult = await WaitForCompletionCoreAsync(processId, timeout, cancellationToken).ConfigureAwait(false);
-
-			if (waitResult.HasLifeCycleHit)
-				return waitResult;
-
-			var errors = waitResult.BusinessProcess.StateHistory?
-				.Where(i => i.Error != null)
-				.Select(i => i.Error)
-				.ToList();
-
-			if (errors != null && errors.Any())
+			return await _httpClient.Poll(timeout, cancellationToken, async () =>
 			{
-				if (errors.Count == 1)
+				var waitResult = await WaitForCompletionCoreAsync(processId, timeout, cancellationToken).ConfigureAwait(false);
+				if (waitResult.HasLifeCycleHit)
+					return waitResult;
+
+				var errors = waitResult.BusinessProcess.StateHistory?
+					.Where(i => i.Error != null)
+					.Select(i => i.Error)
+					.ToList();
+
+				if (errors != null && errors.Any())
 				{
-					throw PictureparkException.FromJson(errors.First().Exception);
+					if (errors.Count == 1)
+					{
+						throw PictureparkException.FromJson(errors.First().Exception);
+					}
+
+					var exceptions = errors.Select(error => PictureparkException.FromJson(error.Exception));
+					throw new AggregateException(exceptions);
 				}
 
-				var exceptions = errors.Select(error => PictureparkException.FromJson(error.Exception));
-				throw new AggregateException(exceptions);
-			}
-
-			throw new TimeoutException($"Wait for business process on completion timed out after {timeout?.TotalSeconds} seconds");
+				throw new TimeoutException($"Wait for business process on completion timed out after {timeout?.TotalSeconds} seconds");
+			});
 		}
 	}
 }
