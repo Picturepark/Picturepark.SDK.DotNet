@@ -1286,6 +1286,13 @@
             },
             "x-nullable": false
           },
+          "404": {
+            "description": "Not all provided contents could be found",
+            "schema": {
+              "$ref": "#/definitions/ContentsNotFoundException"
+            },
+            "x-nullable": false
+          },
           "500": {
             "description": "Internal server error",
             "schema": {
@@ -5460,6 +5467,23 @@
       "properties": {
         "argumentName": {
           "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "ContentsNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "allOf": [

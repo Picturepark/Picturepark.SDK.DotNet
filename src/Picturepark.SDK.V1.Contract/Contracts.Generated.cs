@@ -349,6 +349,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="updateRequest">The metadata update requests.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ContentsNotFoundException">Not all provided contents could be found</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         BusinessProcess UpdateMetadataMany(ContentMetadataUpdateManyRequest updateRequest);
     
@@ -356,6 +357,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="updateRequest">The metadata update requests.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ContentsNotFoundException">Not all provided contents could be found</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<BusinessProcess> UpdateMetadataManyAsync(ContentMetadataUpdateManyRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -1497,6 +1499,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
     [JsonInheritanceAttribute("PictureparkBusinessException", typeof(PictureparkBusinessException))]
     [JsonInheritanceAttribute("BusinessProcessWaitTimeoutException", typeof(BusinessProcessWaitTimeoutException))]
+    [JsonInheritanceAttribute("ContentsNotFoundException", typeof(ContentsNotFoundException))]
     [JsonInheritanceAttribute("ListItemNotFoundException", typeof(ListItemNotFoundException))]
     [JsonInheritanceAttribute("SchemaNotFoundException", typeof(SchemaNotFoundException))]
     [JsonInheritanceAttribute("PictureparkArgumentNullException", typeof(PictureparkArgumentNullException))]
@@ -1662,6 +1665,23 @@ namespace Picturepark.SDK.V1.Contract
         public static PictureparkArgumentNullException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkArgumentNullException>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.13.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentsNotFoundException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentsNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentsNotFoundException>(data);
         }
     }
     
