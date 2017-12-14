@@ -430,7 +430,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var listItem = await _client.ListItems.CreateAsync(new ListItemCreateRequest
 			{
 				ContentSchemaId = nameof(Tag),
-				Content = new Tag { Name = "ShouldTrashAndUntrashRandomListItem" }
+				Content = new Tag { Name = "ShouldTrashAndUntrashListItem" }
 			});
 			var listItemId = listItem.Id;
 
@@ -458,13 +458,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var listItem1 = await _client.ListItems.CreateAsync(new ListItemCreateRequest
 			{
 				ContentSchemaId = nameof(Tag),
-				Content = new Tag { Name = "ShouldTrashAndUntrashRandomListItemMany1" }
+				Content = new Tag { Name = "ShouldTrashAndUntrashListItemMany1" }
 			});
 
 			var listItem2 = await _client.ListItems.CreateAsync(new ListItemCreateRequest
 			{
 				ContentSchemaId = nameof(Tag),
-				Content = new Tag { Name = "ShouldTrashAndUntrashRandomListItemMany2" }
+				Content = new Tag { Name = "ShouldTrashAndUntrashListItemMany2" }
 			});
 
 			var listItemDetail1 = await _client.ListItems.GetAsync(listItem1.Id, true);

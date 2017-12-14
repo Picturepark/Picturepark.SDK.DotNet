@@ -2048,21 +2048,23 @@ namespace Picturepark.SDK.V1
         /// <param name="contentId">The content id.</param>
         /// <param name="updateRequest">The metadata update request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="allowMissingDependencies">Allow storing references to missing list items</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public ContentDetail UpdateMetadata(string contentId, ContentMetadataUpdateRequest updateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null)
+        public ContentDetail UpdateMetadata(string contentId, ContentMetadataUpdateRequest updateRequest, bool resolve, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await UpdateMetadataAsync(contentId, updateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await UpdateMetadataAsync(contentId, updateRequest, resolve, allowMissingDependencies, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Update metadata - single</summary>
         /// <param name="contentId">The content id.</param>
         /// <param name="updateRequest">The metadata update request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="allowMissingDependencies">Allow storing references to missing list items</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
         /// <returns>ContentDetail</returns>
@@ -2070,7 +2072,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, ContentMetadataUpdateRequest updateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, ContentMetadataUpdateRequest updateRequest, bool resolve, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
                 throw new System.ArgumentNullException("contentId");
@@ -2082,6 +2084,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/{contentId}/metadata?");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(System.Convert.ToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            if (allowMissingDependencies != null) urlBuilder_.Append("allowMissingDependencies=").Append(System.Uri.EscapeDataString(System.Convert.ToString(allowMissingDependencies, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
@@ -2341,6 +2344,120 @@ namespace Picturepark.SDK.V1
                         }
             
                         return default(ContentDetail);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
+        /// <summary>Update metadata - many</summary>
+        /// <param name="updateRequest">The metadata update requests.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public BusinessProcess UpdateMetadataMany(ContentMetadataUpdateManyRequest updateRequest)
+        {
+            return System.Threading.Tasks.Task.Run(async () => await UpdateMetadataManyAsync(updateRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+        }
+    
+        /// <summary>Update metadata - many</summary>
+        /// <param name="updateRequest">The metadata update requests.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        public async System.Threading.Tasks.Task<BusinessProcess> UpdateMetadataManyAsync(ContentMetadataUpdateManyRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/many/metadata");
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(updateRequest, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("PUT");
+                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        foreach (var item_ in response_.Content.Headers)
+                            headers_[item_.Key] = item_.Value;
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(BusinessProcess); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcess>(responseData_, _settings.Value);
+                                return result_; 
+                            } 
+                            catch (System.Exception exception_) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
+                            }
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception_) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Not authorized", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("Too many requests", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", status_, responseData_, headers_, null);
+                        }
+            
+                        return default(BusinessProcess);
                     }
                     finally
                     {

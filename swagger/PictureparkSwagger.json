@@ -1100,6 +1100,14 @@
             "description": "Resolves the data of referenced list items into the contents's content."
           },
           {
+            "type": "boolean",
+            "name": "allowMissingDependencies",
+            "in": "query",
+            "x-nullable": false,
+            "description": "Allow storing references to missing list items",
+            "default": false
+          },
+          {
             "type": "string",
             "name": "timeout",
             "in": "query",
@@ -1224,6 +1232,57 @@
             "description": "ContentDetail",
             "schema": {
               "$ref": "#/definitions/ContentDetail"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contents/many/metadata": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Update metadata - many",
+        "description": "Updates metadata layers of a specified content. For file-less contents, the content itself can be updated aswell. See [ShouldUpdateMetadata](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentTests.cs) tests.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Content_UpdateMetadataMany",
+        "parameters": [
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentMetadataUpdateManyRequest"
+            },
+            "x-nullable": true,
+            "description": "The metadata update requests."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
             },
             "x-nullable": false
           },
@@ -6507,6 +6566,7 @@
         "start",
         "limit",
         "lifeCycleFilter",
+        "brokenDependenciesFilter",
         "searchType",
         "debugMode"
       ],
@@ -6583,6 +6643,14 @@
           "allOf": [
             {
               "$ref": "#/definitions/LifeCycleFilter"
+            }
+          ]
+        },
+        "brokenDependenciesFilter": {
+          "description": "Filter the returned contents that have or not have broken references",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BrokenDependenciesFilter"
             }
           ]
         },
@@ -7108,6 +7176,20 @@
         "ActiveInactiveOnly"
       ]
     },
+    "BrokenDependenciesFilter": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "All",
+        "NotBrokenOnly",
+        "BrokenOnly"
+      ],
+      "enum": [
+        "All",
+        "NotBrokenOnly",
+        "BrokenOnly"
+      ]
+    },
     "ContentRight": {
       "type": "string",
       "description": "",
@@ -7275,6 +7357,7 @@
       "additionalProperties": false,
       "required": [
         "lifeCycleFilter",
+        "brokenDependenciesFilter",
         "searchType"
       ],
       "properties": {
@@ -7335,6 +7418,14 @@
           "allOf": [
             {
               "$ref": "#/definitions/LifeCycleFilter"
+            }
+          ]
+        },
+        "brokenDependenciesFilter": {
+          "description": "Filter the content document result set to those that have or not have broken references",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BrokenDependenciesFilter"
             }
           ]
         },
@@ -8068,6 +8159,27 @@
         }
       }
     },
+    "ContentMetadataUpdateManyRequest": {
+      "type": "object",
+      "description": "Update many contents metadata",
+      "additionalProperties": false,
+      "required": [
+        "allowMissingDependencies"
+      ],
+      "properties": {
+        "allowMissingDependencies": {
+          "type": "boolean",
+          "description": "Allow storing references to missing list items"
+        },
+        "requests": {
+          "type": "array",
+          "description": "Update requests",
+          "items": {
+            "$ref": "#/definitions/ContentMetadataUpdateRequest"
+          }
+        }
+      }
+    },
     "ContentOwnershipTransferRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -8775,6 +8887,7 @@
         "start",
         "limit",
         "includeAllSchemaChildren",
+        "brokenDependenciesFilter",
         "includeMetadata",
         "debugMode",
         "lifeCycleFilter"
@@ -8839,6 +8952,14 @@
           "items": {
             "type": "string"
           }
+        },
+        "brokenDependenciesFilter": {
+          "description": "Filter the returned list items that have or not have broken references",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BrokenDependenciesFilter"
+            }
+          ]
         },
         "referencedFieldsDisplayPatternIds": {
           "type": "array",
@@ -8938,6 +9059,7 @@
       "additionalProperties": false,
       "required": [
         "includeAllSchemaChildren",
+        "brokenDependenciesFilter",
         "lifeCycleFilter"
       ],
       "properties": {
@@ -8977,6 +9099,14 @@
         "includeAllSchemaChildren": {
           "type": "boolean",
           "description": "Broadens the aggregation and include all schema descendant list items."
+        },
+        "brokenDependenciesFilter": {
+          "description": "Filter the list items document result set to those that have or not have broken references",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BrokenDependenciesFilter"
+            }
+          ]
         },
         "schemaIds": {
           "type": "array",

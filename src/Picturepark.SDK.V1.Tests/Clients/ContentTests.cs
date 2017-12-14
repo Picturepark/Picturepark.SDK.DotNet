@@ -461,6 +461,57 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 	    [Fact]
 	    [Trait("Stack", "Contents")]
+	    public async Task ShouldUpdateMetadataMany()
+	    {
+			/// Arrange
+		    var contentId1 = _fixture.GetRandomContentId(".jpg", 20);
+		    var contentId2 = _fixture.GetRandomContentId(".jpg", 20);
+		    var request1 = new ContentMetadataUpdateRequest
+		    {
+			    Id = contentId1,
+			    SchemaIds = new List<string> { "Drive" },
+			    Metadata = new DataDictionary
+			    {
+				    {
+					    "Drive",
+					    new Dictionary<string, object>
+					    {
+						    { "location", "Content1" }
+					    }
+				    }
+			    }
+		    };
+
+		    var request2 = new ContentMetadataUpdateRequest
+		    {
+			    Id = contentId2,
+			    SchemaIds = new List<string> { "Drive" },
+			    Metadata = new DataDictionary
+			    {
+				    {
+					    "Drive",
+					    new Dictionary<string, object>
+					    {
+						    { "location", "Content2" }
+					    }
+				    }
+			    }
+		    };
+
+			/// Act
+			var waitResult = await _client.Contents.UpdateMetadataManyAsync(new ContentMetadataUpdateManyRequest
+			{
+				AllowMissingDependencies = false,
+				Requests = new List<ContentMetadataUpdateRequest> { request1, request2 }
+			});
+		    var result = await _client.BusinessProcesses.WaitForCompletionAsync(waitResult.Id);
+
+		    /// Assert
+		    Assert.Equal(BusinessProcessLifeCycle.Succeeded, result.BusinessProcess.LifeCycle);
+	    }
+
+		[Fact]
+	    [Trait("Stack", "Contents")]
 	    public async Task ShouldSetLayerAndResolveDisplayValues()
 	    {
 			/// Arrange

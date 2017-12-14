@@ -297,18 +297,20 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="contentId">The content id.</param>
         /// <param name="updateRequest">The metadata update request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="allowMissingDependencies">Allow storing references to missing list items</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ContentDetail UpdateMetadata(string contentId, ContentMetadataUpdateRequest updateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
+        ContentDetail UpdateMetadata(string contentId, ContentMetadataUpdateRequest updateRequest, bool resolve, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
     
         /// <summary>Update metadata - single</summary>
         /// <param name="contentId">The content id.</param>
         /// <param name="updateRequest">The metadata update request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="allowMissingDependencies">Allow storing references to missing list items</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
         /// <returns>ContentDetail</returns>
@@ -316,7 +318,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, ContentMetadataUpdateRequest updateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, ContentMetadataUpdateRequest updateRequest, bool resolve, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update permissions - single</summary>
         /// <param name="contentId">The content id.</param>
@@ -342,6 +344,21 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string contentId, ContentPermissionsUpdateRequest updateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Update metadata - many</summary>
+        /// <param name="updateRequest">The metadata update requests.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcess UpdateMetadataMany(ContentMetadataUpdateManyRequest updateRequest);
+    
+        /// <summary>Update metadata - many</summary>
+        /// <param name="updateRequest">The metadata update requests.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> UpdateMetadataManyAsync(ContentMetadataUpdateManyRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update permissions - many</summary>
         /// <param name="updateRequest">The permissions update request.</param>
@@ -2963,6 +2980,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleFilter LifeCycleFilter { get; set; }
     
+        /// <summary>Filter the returned contents that have or not have broken references</summary>
+        [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }
+    
         /// <summary>Limits the content document result set to specific ContentRights the user has</summary>
         [Newtonsoft.Json.JsonProperty("rightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<ContentRight> RightsFilter { get; set; }
@@ -3511,6 +3534,20 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.13.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum BrokenDependenciesFilter
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "All")]
+        All = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "NotBrokenOnly")]
+        NotBrokenOnly = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "BrokenOnly")]
+        BrokenOnly = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.13.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum ContentRight
     {
         [System.Runtime.Serialization.EnumMember(Value = "View")]
@@ -3724,6 +3761,12 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleFilter LifeCycleFilter { get; set; }
+    
+        /// <summary>Filter the content document result set to those that have or not have broken references</summary>
+        [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }
     
         /// <summary>Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.</summary>
         [Newtonsoft.Json.JsonProperty("searchType", Required = Newtonsoft.Json.Required.Always)]
@@ -4521,6 +4564,29 @@ namespace Picturepark.SDK.V1.Contract
         }
     }
     
+    /// <summary>Update many contents metadata</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.13.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentMetadataUpdateManyRequest 
+    {
+        /// <summary>Allow storing references to missing list items</summary>
+        [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowMissingDependencies { get; set; }
+    
+        /// <summary>Update requests</summary>
+        [Newtonsoft.Json.JsonProperty("requests", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ContentMetadataUpdateRequest> Requests { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentMetadataUpdateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentMetadataUpdateManyRequest>(data);
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.13.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentOwnershipTransferRequest 
     {
@@ -5301,6 +5367,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("displayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> DisplayPatternIds { get; set; }
     
+        /// <summary>Filter the returned list items that have or not have broken references</summary>
+        [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }
+    
         /// <summary>Define the display values included in the search response for the referenced fields. Defaults to no display value.</summary>
         [Newtonsoft.Json.JsonProperty("referencedFieldsDisplayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ReferencedFieldsDisplayPatternIds { get; set; }
@@ -5432,6 +5504,12 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Broadens the aggregation and include all schema descendant list items.</summary>
         [Newtonsoft.Json.JsonProperty("includeAllSchemaChildren", Required = Newtonsoft.Json.Required.Always)]
         public bool IncludeAllSchemaChildren { get; set; }
+    
+        /// <summary>Filter the list items document result set to those that have or not have broken references</summary>
+        [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }
     
         /// <summary>Limits the aggregation to list items of the provided schemas.</summary>
         [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
