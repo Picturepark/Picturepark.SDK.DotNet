@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.12.10.0 (NJsonSchema v9.10.10.0 (Newtonsoft.Json v9.0.0.0))",
+  "x-generator": "NSwag v11.12.12.0 (NJsonSchema v9.10.13.0 (Newtonsoft.Json v9.0.0.0))",
   "swagger": "2.0",
   "info": {
     "title": "Picturepark API V1",
@@ -168,6 +168,58 @@
           {
             "Bearer": [
               "content_read"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Create - many",
+        "description": "Create multiple file-less content items. To import files, see [Transfer](#section/Transfer)\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Content_CreateMany",
+        "parameters": [
+          {
+            "name": "contentCreateRequests",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ContentCreateRequest"
+              }
+            },
+            "x-nullable": true,
+            "description": "The content create requests."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
             ]
           }
         ]
@@ -625,7 +677,7 @@
         ],
         "summary": "Create - single",
         "description": "Create a single file-less content item. To import files, see [Transfer](#section/Transfer)",
-        "operationId": "Content_CreateContent",
+        "operationId": "Content_Create",
         "parameters": [
           {
             "name": "contentCreateRequest",
@@ -2320,7 +2372,7 @@
         "operationId": "ListItem_Create",
         "parameters": [
           {
-            "name": "listItem",
+            "name": "listItemCreateRequest",
             "in": "body",
             "required": true,
             "schema": {
@@ -2405,7 +2457,7 @@
         "operationId": "ListItem_CreateMany",
         "parameters": [
           {
-            "name": "objects",
+            "name": "listItemCreateRequests",
             "in": "body",
             "required": true,
             "schema": {
@@ -7046,12 +7098,14 @@
       "x-enumNames": [
         "ActiveOnly",
         "All",
-        "InactiveOnly"
+        "InactiveOnly",
+        "ActiveInactiveOnly"
       ],
       "enum": [
         "ActiveOnly",
         "All",
-        "InactiveOnly"
+        "InactiveOnly",
+        "ActiveInactiveOnly"
       ]
     },
     "ContentRight": {
@@ -7722,34 +7776,6 @@
         }
       }
     },
-    "ContentDeactivateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "resolve",
-        "forceReferenceRemoval"
-      ],
-      "properties": {
-        "contentIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "resolve": {
-          "type": "boolean"
-        },
-        "displayPatternIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "forceReferenceRemoval": {
-          "type": "boolean"
-        }
-      }
-    },
     "BusinessProcess": {
       "type": "object",
       "discriminator": "kind",
@@ -7933,6 +7959,34 @@
         "status": {
           "type": "integer",
           "format": "int32"
+        }
+      }
+    },
+    "ContentDeactivateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "resolve",
+        "forceReferenceRemoval"
+      ],
+      "properties": {
+        "contentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "resolve": {
+          "type": "boolean"
+        },
+        "displayPatternIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forceReferenceRemoval": {
+          "type": "boolean"
         }
       }
     },
@@ -9072,12 +9126,18 @@
     "ListItemDeactivateRequest": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "forceReferenceRemoval"
+      ],
       "properties": {
         "listItemIds": {
           "type": "array",
           "items": {
             "type": "string"
           }
+        },
+        "forceReferenceRemoval": {
+          "type": "boolean"
         }
       }
     },

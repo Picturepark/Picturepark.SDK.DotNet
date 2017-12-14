@@ -51,6 +51,19 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, bool resolve, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Create - many</summary>
+        /// <param name="contentCreateRequests">The content create requests.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcess CreateMany(System.Collections.Generic.IEnumerable<ContentCreateRequest> contentCreateRequests);
+    
+        /// <summary>Create - many</summary>
+        /// <param name="contentCreateRequests">The content create requests.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> CreateManyAsync(System.Collections.Generic.IEnumerable<ContentCreateRequest> contentCreateRequests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
         /// <summary>Search</summary>
         /// <param name="contentSearchRequest">The content search request.</param>
         /// <returns>ContentSearchResult</returns>
@@ -182,7 +195,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ContentDetail CreateContent(ContentCreateRequest contentCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
+        ContentDetail Create(ContentCreateRequest contentCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
     
         /// <summary>Create - single</summary>
         /// <param name="contentCreateRequest">The content create request.</param>
@@ -193,7 +206,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> CreateContentAsync(ContentCreateRequest contentCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> CreateAsync(ContentCreateRequest contentCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Deactivate - single</summary>
         /// <param name="contentId">the id of the content to deactivate</param>
@@ -594,7 +607,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ListItemAggregationRequest listItemAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Create - single</summary>
-        /// <param name="listItem">List item create request.</param>
+        /// <param name="listItemCreateRequest">List item create request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
@@ -602,10 +615,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ListItemDetail Create(ListItemCreateRequest listItem, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
+        ListItemDetail Create(ListItemCreateRequest listItemCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
     
         /// <summary>Create - single</summary>
-        /// <param name="listItem">List item create request.</param>
+        /// <param name="listItemCreateRequest">List item create request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
@@ -614,7 +627,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItem, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItemCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update - many</summary>
         /// <param name="objects">A list of ListItemUpdateRequests.</param>
@@ -3492,6 +3505,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "InactiveOnly")]
         InactiveOnly = 2,
     
+        [System.Runtime.Serialization.EnumMember(Value = "ActiveInactiveOnly")]
+        ActiveInactiveOnly = 3,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.13.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -4179,32 +4195,6 @@ namespace Picturepark.SDK.V1.Contract
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.13.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentDeactivateRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("resolve", Required = Newtonsoft.Json.Required.Always)]
-        public bool Resolve { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("displayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> DisplayPatternIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("forceReferenceRemoval", Required = Newtonsoft.Json.Required.Always)]
-        public bool ForceReferenceRemoval { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ContentDeactivateRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDeactivateRequest>(data);
-        }
-    }
-    
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("BusinessProcessDetails", typeof(BusinessProcessDetails))]
     [JsonInheritanceAttribute("BusinessProcessBulkResponse", typeof(BusinessProcessBulkResponse))]
@@ -4411,6 +4401,32 @@ namespace Picturepark.SDK.V1.Contract
         public static BulkResponseRow FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BulkResponseRow>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.13.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentDeactivateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("resolve", Required = Newtonsoft.Json.Required.Always)]
+        public bool Resolve { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("displayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> DisplayPatternIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("forceReferenceRemoval", Required = Newtonsoft.Json.Required.Always)]
+        public bool ForceReferenceRemoval { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentDeactivateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDeactivateRequest>(data);
         }
     }
     
@@ -5584,6 +5600,9 @@ namespace Picturepark.SDK.V1.Contract
     {
         [Newtonsoft.Json.JsonProperty("listItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ListItemIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("forceReferenceRemoval", Required = Newtonsoft.Json.Required.Always)]
+        public bool ForceReferenceRemoval { get; set; }
     
         public string ToJson() 
         {

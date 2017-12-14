@@ -304,7 +304,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
-        public async Task ShouldCreateContents()
+        public async Task ShouldCreateContent()
         {
             /// Arrange
             var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(ContentItem));
@@ -321,14 +321,48 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var result = await _client.Contents.CreateContentAsync(request, true);
+            var result = await _client.Contents.CreateAsync(request, true);
 
             /// Assert
             string contentId = _fixture.GetRandomContentId(".jpg", 20);
             Assert.False(string.IsNullOrEmpty(contentId));
         }
 
-        [Fact]
+	    [Fact]
+	    [Trait("Stack", "Contents")]
+	    public async Task ShouldCreateContents()
+	    {
+		    /// Arrange
+		    var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(ContentItem));
+		    foreach (var schema in schemas)
+		    {
+			    await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, false);
+		    }
+
+		    var request1 = new ContentCreateRequest
+		    {
+			    Content = JsonConvert.DeserializeObject(@"{ ""name"": ""foo"" }"),
+			    ContentSchemaId = "ContentItem",
+			    Metadata = new DataDictionary()
+		    };
+
+		    var request2 = new ContentCreateRequest
+		    {
+			    Content = JsonConvert.DeserializeObject(@"{ ""name"": ""bar"" }"),
+			    ContentSchemaId = "ContentItem",
+			    Metadata = new DataDictionary()
+		    };
+
+			/// Act
+			var result = await _client.Contents.CreateManyAsync(new List<ContentCreateRequest> { request1, request2 });
+		    await _client.BusinessProcesses.WaitForCompletionAsync(result.Id);
+
+		    /// Assert
+		    string contentId = _fixture.GetRandomContentId(".jpg", 20);
+		    Assert.False(string.IsNullOrEmpty(contentId));
+	    }
+
+		[Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldDownloadMultiple()
         {
