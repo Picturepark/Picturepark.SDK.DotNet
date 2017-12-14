@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.12.12.0 (NJsonSchema v9.10.13.0 (Newtonsoft.Json v9.0.0.0))",
+  "x-generator": "NSwag v11.12.13.0 (NJsonSchema v9.10.14.0 (Newtonsoft.Json v9.0.0.0))",
   "swagger": "2.0",
   "info": {
     "title": "Picturepark CloudManager API V1",
@@ -403,6 +403,52 @@
         "responses": {
           "200": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/searchIndex/reindex": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_Reindex",
+        "parameters": [
+          {
+            "name": "reindexRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SearchIndexReindexRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Index"
+            },
+            "x-nullable": true
           },
           "500": {
             "description": "Internal server error",
@@ -4637,6 +4683,131 @@
         {
           "$ref": "#/definitions/FilterBase"
         }
+      ]
+    },
+    "SearchIndexReindexRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "numberOfShards",
+        "numberOfReplicas"
+      ],
+      "properties": {
+        "searchIndexId": {
+          "type": "string"
+        },
+        "numberOfShards": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfReplicas": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Index": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "numberOfShards",
+        "numberOfReplicas",
+        "indexType",
+        "state"
+      ],
+      "properties": {
+        "customerId": {
+          "type": "string"
+        },
+        "indexName": {
+          "type": "string"
+        },
+        "indexAlias": {
+          "type": "string"
+        },
+        "numberOfShards": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "indexType": {
+          "$ref": "#/definitions/IndexType"
+        },
+        "state": {
+          "$ref": "#/definitions/IndexState"
+        },
+        "businessProcessId": {
+          "type": "string"
+        }
+      }
+    },
+    "IndexType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Configuration",
+        "Main",
+        "Cache",
+        "ContentSearch",
+        "ListItemSearch",
+        "DocumentHistory",
+        "LiveStream",
+        "User",
+        "Mail",
+        "Transfer",
+        "Share",
+        "Output",
+        "Notification",
+        "BusinessProcess",
+        "ListItem",
+        "Content",
+        "Token",
+        "DisplayValue"
+      ],
+      "enum": [
+        "Configuration",
+        "Main",
+        "Cache",
+        "ContentSearch",
+        "ListItemSearch",
+        "DocumentHistory",
+        "LiveStream",
+        "User",
+        "Mail",
+        "Transfer",
+        "Share",
+        "Output",
+        "Notification",
+        "BusinessProcess",
+        "ListItem",
+        "Content",
+        "Token",
+        "DisplayValue"
+      ]
+    },
+    "IndexState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "Create",
+        "Inactive",
+        "Active",
+        "Closed",
+        "ReindexInProgress",
+        "Cancelled"
+      ],
+      "enum": [
+        "Draft",
+        "Create",
+        "Inactive",
+        "Active",
+        "Closed",
+        "ReindexInProgress",
+        "Cancelled"
       ]
     },
     "NodeInfo": {
