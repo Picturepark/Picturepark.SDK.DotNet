@@ -1008,18 +1008,22 @@ namespace Picturepark.SDK.V1.CloudManager
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<Index> ReindexAsync(SearchIndexReindexRequest reindexRequest)
+        public System.Threading.Tasks.Task<Index> ReindexAsync(string customerAlias, SearchIndexReindexRequest reindexRequest)
         {
-            return ReindexAsync(reindexRequest, System.Threading.CancellationToken.None);
+            return ReindexAsync(customerAlias, reindexRequest, System.Threading.CancellationToken.None);
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<Index> ReindexAsync(SearchIndexReindexRequest reindexRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Index> ReindexAsync(string customerAlias, SearchIndexReindexRequest reindexRequest, System.Threading.CancellationToken cancellationToken)
         {
+            if (customerAlias == null)
+                throw new System.ArgumentNullException("customerAlias");
+    
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer/searchIndex/reindex");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer/{customerAlias}/searchIndex/reindex");
+            urlBuilder_.Replace("{customerAlias}", System.Uri.EscapeDataString(System.Convert.ToString(customerAlias, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
             try

@@ -94,12 +94,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<Index> ReindexAsync(SearchIndexReindexRequest reindexRequest);
+        System.Threading.Tasks.Task<Index> ReindexAsync(string customerAlias, SearchIndexReindexRequest reindexRequest);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<Index> ReindexAsync(SearchIndexReindexRequest reindexRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Index> ReindexAsync(string customerAlias, SearchIndexReindexRequest reindexRequest, System.Threading.CancellationToken cancellationToken);
     
     }
     

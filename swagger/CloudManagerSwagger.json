@@ -425,13 +425,20 @@
         ]
       }
     },
-    "/customer/searchIndex/reindex": {
+    "/customer/{customerAlias}/searchIndex/reindex": {
       "post": {
         "tags": [
           "Customer"
         ],
         "operationId": "Customer_Reindex",
         "parameters": [
+          {
+            "type": "string",
+            "name": "customerAlias",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
           {
             "name": "reindexRequest",
             "in": "body",
