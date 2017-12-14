@@ -496,11 +496,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 		[Fact]
         [Trait("Stack", "Contents")]
-        public async Task ShouldUpdateMetadataByFilter()
+        public async Task ShouldBatchUpdateFieldsByFilter()
         {
             /// Arrange
             var contentId = _fixture.GetRandomContentId(".jpg", 20);
-            var request = new FilterContentsMetadataUpdateRequest
+            var request = new ContentFieldsFilterUpdateRequest
             {
                 ContentFilterRequest = new ContentFilterRequest
                 {
@@ -520,7 +520,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var businessProcess = await _client.Contents.UpdateMetadataByFilterAsync(request);
+            var businessProcess = await _client.Contents.BatchUpdateFieldsByFilterAsync(request);
             var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
             /// Assert
@@ -529,13 +529,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
-        public async Task ShouldUpdateMetadataMany()
+        public async Task ShouldBatchUpdateFieldsByIds()
         {
             /// Arrange
             var contentId = _fixture.GetRandomContentId(".jpg", 20);
 
             var content = await _client.Contents.GetAsync(contentId);
-            var updateRequest = new ContentsMetadataUpdateRequest
+            var updateRequest = new ContentFieldsUpdateRequest
             {
                 ContentIds = new List<string> { content.Id },
                 ChangeCommands = new List<MetadataValuesChangeCommandBase>
@@ -552,7 +552,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var businessProcess = await _client.Contents.UpdateMetadataManyAsync(updateRequest);
+            var businessProcess = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest);
             var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
             /// Assert

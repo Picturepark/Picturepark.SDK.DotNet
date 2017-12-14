@@ -89,7 +89,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 				}
 			};
 
-			var businessProcess = await _client.ListItems.UpdateFieldsAsync(updateRequest);
+			var businessProcess = await _client.ListItems.BatchUpdateFieldsByIdsAsync(updateRequest);
 			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, TimeSpan.FromSeconds(10));
 
 			/// Act

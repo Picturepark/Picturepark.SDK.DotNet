@@ -1157,108 +1157,6 @@
         ]
       }
     },
-    "/v1/contents/many/metadata": {
-      "put": {
-        "tags": [
-          "Content"
-        ],
-        "summary": "Update metadata - many",
-        "description": "Updates metadata layers of specified contents. For file-less contents, the content itself can be updated aswell. See [ShouldUpdateMetadataMany](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentTests.cs) tests.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
-        "operationId": "Content_UpdateMetadataMany",
-        "parameters": [
-          {
-            "name": "updateRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ContentsMetadataUpdateRequest"
-            },
-            "x-nullable": true,
-            "description": "The metadata update request."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcess",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "content_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/contents/many/metadata/filter": {
-      "put": {
-        "tags": [
-          "Content"
-        ],
-        "summary": "Update metadata - by filter",
-        "description": "Updates metadata layers of specified contents. For file-less contents, the content itself can be updated aswell. A filter must be provided to limit the update to specific contents.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
-        "operationId": "Content_UpdateMetadataByFilter",
-        "parameters": [
-          {
-            "name": "updateRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/FilterContentsMetadataUpdateRequest"
-            },
-            "x-nullable": true,
-            "description": "The metadata update request."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcess",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "content_write"
-            ]
-          }
-        ]
-      }
-    },
     "/v1/contents/{contentId}/permissions": {
       "put": {
         "tags": [
@@ -1498,6 +1396,108 @@
             },
             "x-nullable": true,
             "description": "The content ownership transfer request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contents/batches/fields/ids": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Batch update fields - by ids",
+        "description": "Updates metadata layers of specified contents. For file-less contents, the content itself can be updated aswell. See [ShouldUpdateMetadataMany](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentTests.cs) tests.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Content_BatchUpdateFieldsByIds",
+        "parameters": [
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentFieldsUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The metadata update request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contents/batches/fields/filter": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Batch update fields - by filter",
+        "description": "Updates metadata layers of specified contents. For file-less contents, the content itself can be updated aswell. A filter must be provided to limit the update to specific contents.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Content_BatchUpdateFieldsByFilter",
+        "parameters": [
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentFieldsFilterUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The metadata update request."
           }
         ],
         "responses": {
@@ -2553,108 +2553,6 @@
         ]
       }
     },
-    "/v1/listItems/many/fields": {
-      "put": {
-        "tags": [
-          "ListItem"
-        ],
-        "summary": "Update fields",
-        "description": "Update fields of multiple list items. A list of listItemIds must be provided to limit the update to specific list items.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
-        "operationId": "ListItem_UpdateFields",
-        "parameters": [
-          {
-            "name": "updateRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListItemFieldsUpdateRequest"
-            },
-            "x-nullable": true,
-            "description": "The metadata update request."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcess",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "listitem_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/listItems/many/fields/filter": {
-      "put": {
-        "tags": [
-          "ListItem"
-        ],
-        "summary": "Update by filter - Fields",
-        "description": "Update fields of multiple list items. A filter must be provided to limit the update to specific list items.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
-        "operationId": "ListItem_UpdateFieldsByFilter",
-        "parameters": [
-          {
-            "name": "updateRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListItemFieldsFilterUpdateRequest"
-            },
-            "x-nullable": true,
-            "description": "The metadata update request."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcess",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "listitem_write"
-            ]
-          }
-        ]
-      }
-    },
     "/v1/listItems/{listItemId}/deactivate": {
       "put": {
         "tags": [
@@ -2864,6 +2762,108 @@
             },
             "x-nullable": true,
             "description": "The list items reactivate request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/listItems/batches/fields/ids": {
+      "put": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Batch update fields - by ids",
+        "description": "Update fields of multiple list items. A list of listItemIds must be provided to limit the update to specific list items.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "ListItem_BatchUpdateFieldsByIds",
+        "parameters": [
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListItemFieldsUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The metadata update request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/listItems/batches/fields/filter": {
+      "put": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Batch update fields - by filter",
+        "description": "Update fields of multiple list items. A filter must be provided to limit the update to specific list items.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "ListItem_BatchUpdateFieldsByFilter",
+        "parameters": [
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListItemFieldsFilterUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The metadata update request."
           }
         ],
         "responses": {
@@ -8051,7 +8051,55 @@
         }
       }
     },
-    "ContentsMetadataUpdateRequest": {
+    "ContentPermissionsUpdateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string",
+          "description": "The content id."
+        },
+        "contentPermissionSetIds": {
+          "type": "array",
+          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ContentOwnershipTransferRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string",
+          "description": "The content id."
+        },
+        "transferUserId": {
+          "type": "string",
+          "description": "The id of the user to whom the content document has to be transfered to."
+        }
+      }
+    },
+    "ContentsOwnershipTransferRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentIds": {
+          "type": "array",
+          "description": "The content ids.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "transferUserId": {
+          "type": "string",
+          "description": "The id of user to whom the content documents have to be transfered to."
+        }
+      }
+    },
+    "ContentFieldsUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -8223,7 +8271,7 @@
         }
       ]
     },
-    "FilterContentsMetadataUpdateRequest": {
+    "ContentFieldsFilterUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -8308,54 +8356,6 @@
           "items": {
             "$ref": "#/definitions/ContentRight"
           }
-        }
-      }
-    },
-    "ContentPermissionsUpdateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentId": {
-          "type": "string",
-          "description": "The content id."
-        },
-        "contentPermissionSetIds": {
-          "type": "array",
-          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "ContentOwnershipTransferRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentId": {
-          "type": "string",
-          "description": "The content id."
-        },
-        "transferUserId": {
-          "type": "string",
-          "description": "The id of the user to whom the content document has to be transfered to."
-        }
-      }
-    },
-    "ContentsOwnershipTransferRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentIds": {
-          "type": "array",
-          "description": "The content ids.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "transferUserId": {
-          "type": "string",
-          "description": "The id of user to whom the content documents have to be transfered to."
         }
       }
     },
@@ -9038,6 +9038,36 @@
         }
       }
     },
+    "ListItemDeactivateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "forceReferenceRemoval"
+      ],
+      "properties": {
+        "listItemIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forceReferenceRemoval": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ListItemReactivateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "listItemIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "ListItemFieldsUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -9117,36 +9147,6 @@
         "searchLanguages": {
           "type": "array",
           "description": "Only searches the specified language values. Defaults to all metadata languages of the language configuration.",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "ListItemDeactivateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "forceReferenceRemoval"
-      ],
-      "properties": {
-        "listItemIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "forceReferenceRemoval": {
-          "type": "boolean"
-        }
-      }
-    },
-    "ListItemReactivateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "listItemIds": {
-          "type": "array",
           "items": {
             "type": "string"
           }
