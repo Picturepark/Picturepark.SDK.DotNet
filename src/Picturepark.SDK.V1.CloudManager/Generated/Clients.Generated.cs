@@ -13,11 +13,10 @@ namespace Picturepark.SDK.V1.CloudManager
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.13.0 (NJsonSchema v9.10.14.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class CustomerClient : ClientBase, ICustomerClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public CustomerClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public CustomerClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -28,28 +27,15 @@ namespace Picturepark.SDK.V1.CloudManager
             });
     	}
     
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
-    
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<CustomerConfigurationItem> CreateAsync(CustomerCreateRequest createRequest)
-        {
-            return CreateAsync(createRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<CustomerConfigurationItem> CreateAsync(CustomerCreateRequest createRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<CustomerConfigurationItem> CreateAsync(CustomerCreateRequest createRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer");
@@ -112,7 +98,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -148,16 +134,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<CustomerConfigurationItem> UpdateAsync(CustomerUpdateRequest updateRequest)
-        {
-            return UpdateAsync(updateRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<CustomerConfigurationItem> UpdateAsync(CustomerUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<CustomerConfigurationItem> UpdateAsync(CustomerUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer");
@@ -220,7 +199,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -256,16 +235,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<CustomerConfigurationItem> GetAsync(string customerId)
-        {
-            return GetAsync(customerId, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<CustomerConfigurationItem> GetAsync(string customerId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<CustomerConfigurationItem> GetAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (customerId == null)
                 throw new System.ArgumentNullException("customerId");
@@ -329,7 +301,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -365,16 +337,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<bool> DeleteAsync(string customerId)
-        {
-            return DeleteAsync(customerId, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<bool> DeleteAsync(string customerId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<bool> DeleteAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (customerId == null)
                 throw new System.ArgumentNullException("customerId");
@@ -438,7 +403,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -474,16 +439,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<CustomerSearchResult> ListAsync(string customerId)
-        {
-            return ListAsync(customerId, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<CustomerSearchResult> ListAsync(string customerId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<CustomerSearchResult> ListAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer/search?");
@@ -545,7 +503,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -581,16 +539,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<CustomerSearchResult> SearchAsync(CustomerSearchRequest searchRequest)
-        {
-            return SearchAsync(searchRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<CustomerSearchResult> SearchAsync(CustomerSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<CustomerSearchResult> SearchAsync(CustomerSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer/search");
@@ -653,7 +604,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -689,16 +640,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<User>> GetAllUsersAsync(string customerId)
-        {
-            return GetAllUsersAsync(customerId, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<User>> GetAllUsersAsync(string customerId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<User>> GetAllUsersAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (customerId == null)
                 throw new System.ArgumentNullException("customerId");
@@ -762,7 +706,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -798,16 +742,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<CustomerConfigurationItem> AddExternalProvidersAsync(string customerId, System.Collections.Generic.IEnumerable<ExternalProviderItem> addRequest)
-        {
-            return AddExternalProvidersAsync(customerId, addRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<CustomerConfigurationItem> AddExternalProvidersAsync(string customerId, System.Collections.Generic.IEnumerable<ExternalProviderItem> addRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<CustomerConfigurationItem> AddExternalProvidersAsync(string customerId, System.Collections.Generic.IEnumerable<ExternalProviderItem> addRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (customerId == null)
                 throw new System.ArgumentNullException("customerId");
@@ -874,7 +811,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -910,16 +847,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task RestoreAsync(string customerAlias)
-        {
-            return RestoreAsync(customerAlias, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task RestoreAsync(string customerAlias, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task RestoreAsync(string customerAlias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (customerAlias == null)
                 throw new System.ArgumentNullException("customerAlias");
@@ -973,7 +903,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -1007,16 +937,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<Index> ReindexAsync(string customerAlias, SearchIndexReindexRequest reindexRequest)
-        {
-            return ReindexAsync(customerAlias, reindexRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<Index> ReindexAsync(string customerAlias, SearchIndexReindexRequest reindexRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Index> ReindexAsync(string customerAlias, SearchIndexReindexRequest reindexRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (customerAlias == null)
                 throw new System.ArgumentNullException("customerAlias");
@@ -1083,7 +1006,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -1123,11 +1046,10 @@ namespace Picturepark.SDK.V1.CloudManager
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.13.0 (NJsonSchema v9.10.14.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class ServiceClient : ClientBase, IServiceClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public ServiceClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public ServiceClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -1138,28 +1060,15 @@ namespace Picturepark.SDK.V1.CloudManager
             });
     	}
     
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
-    
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task ShutdownAllAsync()
-        {
-            return ShutdownAllAsync(System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task ShutdownAllAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task ShutdownAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/services/shutdownAll");
@@ -1208,7 +1117,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -1242,16 +1151,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task RestartAllAsync()
-        {
-            return RestartAllAsync(System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task RestartAllAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task RestartAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/services/restartAll");
@@ -1300,7 +1202,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -1334,16 +1236,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task RestartServiceAsync(string serviceName)
-        {
-            return RestartServiceAsync(serviceName, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task RestartServiceAsync(string serviceName, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task RestartServiceAsync(string serviceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (serviceName == null)
                 throw new System.ArgumentNullException("serviceName");
@@ -1396,7 +1291,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -1430,16 +1325,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task ShutdownServiceAsync(string serviceName)
-        {
-            return ShutdownServiceAsync(serviceName, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task ShutdownServiceAsync(string serviceName, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task ShutdownServiceAsync(string serviceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (serviceName == null)
                 throw new System.ArgumentNullException("serviceName");
@@ -1492,7 +1380,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -1526,16 +1414,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task PingAllActiveNodesAsync()
-        {
-            return PingAllActiveNodesAsync(System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task PingAllActiveNodesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task PingAllActiveNodesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/services/pingAllActiveNodes");
@@ -1584,7 +1465,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -1618,16 +1499,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<NodeInfo>> GetAllActiveNodesAsync()
-        {
-            return GetAllActiveNodesAsync(System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<NodeInfo>> GetAllActiveNodesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<NodeInfo>> GetAllActiveNodesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/services/getAllActiveNodes");
@@ -1687,7 +1561,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -1727,11 +1601,10 @@ namespace Picturepark.SDK.V1.CloudManager
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.13.0 (NJsonSchema v9.10.14.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class UpdateClient : ClientBase, IUpdateClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public UpdateClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public UpdateClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -1742,28 +1615,15 @@ namespace Picturepark.SDK.V1.CloudManager
             });
     	}
     
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
-    
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UpdateInfo>> GetAvailableEnvironmentUpdatesAsync()
-        {
-            return GetAvailableEnvironmentUpdatesAsync(System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UpdateInfo>> GetAvailableEnvironmentUpdatesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UpdateInfo>> GetAvailableEnvironmentUpdatesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/environment");
@@ -1823,7 +1683,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -1859,16 +1719,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<VersionInfo> GetEnvironmentVersionAsync()
-        {
-            return GetEnvironmentVersionAsync(System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<VersionInfo> GetEnvironmentVersionAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<VersionInfo> GetEnvironmentVersionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/environment/version");
@@ -1928,7 +1781,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -1964,16 +1817,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task ReactivateEnvironmentAsync(ReactivationEnvironmentRequest reactivationRequest)
-        {
-            return ReactivateEnvironmentAsync(reactivationRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task ReactivateEnvironmentAsync(ReactivationEnvironmentRequest reactivationRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task ReactivateEnvironmentAsync(ReactivationEnvironmentRequest reactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/environment/reactivate");
@@ -2025,7 +1871,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -2059,16 +1905,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task DeactivateEnvironmentAsync(DeactivationEnvironmentRequest deactivationRequest)
-        {
-            return DeactivateEnvironmentAsync(deactivationRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task DeactivateEnvironmentAsync(DeactivationEnvironmentRequest deactivationRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task DeactivateEnvironmentAsync(DeactivationEnvironmentRequest deactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/environment/deactivate");
@@ -2120,7 +1959,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -2154,16 +1993,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task UpdateEnvironmentAsync(UpdateEnvironmentRequest updateRequest)
-        {
-            return UpdateEnvironmentAsync(updateRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task UpdateEnvironmentAsync(UpdateEnvironmentRequest updateRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task UpdateEnvironmentAsync(UpdateEnvironmentRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/environment/update");
@@ -2215,7 +2047,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -2249,16 +2081,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UpdateInfo>> GetAvailableCustomerUpdatesAsync(string customerId)
-        {
-            return GetAvailableCustomerUpdatesAsync(customerId, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UpdateInfo>> GetAvailableCustomerUpdatesAsync(string customerId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UpdateInfo>> GetAvailableCustomerUpdatesAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (customerId == null)
                 throw new System.ArgumentNullException("customerId");
@@ -2322,7 +2147,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -2358,16 +2183,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<CustomerVersionInfo>> GetCustomerVersionsAsync()
-        {
-            return GetCustomerVersionsAsync(System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<CustomerVersionInfo>> GetCustomerVersionsAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<CustomerVersionInfo>> GetCustomerVersionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/customers/version");
@@ -2427,7 +2245,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -2463,16 +2281,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<CustomerVersionInfo> GetCustomerVersionAsync(string customerId)
-        {
-            return GetCustomerVersionAsync(customerId, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<CustomerVersionInfo> GetCustomerVersionAsync(string customerId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<CustomerVersionInfo> GetCustomerVersionAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (customerId == null)
                 throw new System.ArgumentNullException("customerId");
@@ -2536,7 +2347,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -2572,16 +2383,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task ReactivateCustomersAsync(System.Collections.Generic.IEnumerable<ReactivationCustomerRequest> reactivationRequests)
-        {
-            return ReactivateCustomersAsync(reactivationRequests, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task ReactivateCustomersAsync(System.Collections.Generic.IEnumerable<ReactivationCustomerRequest> reactivationRequests, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task ReactivateCustomersAsync(System.Collections.Generic.IEnumerable<ReactivationCustomerRequest> reactivationRequests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/customers/reactivate");
@@ -2633,7 +2437,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -2667,16 +2471,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task DeactivateCustomersAsync(System.Collections.Generic.IEnumerable<DeactivationCustomerRequest> deactivationRequests)
-        {
-            return DeactivateCustomersAsync(deactivationRequests, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task DeactivateCustomersAsync(System.Collections.Generic.IEnumerable<DeactivationCustomerRequest> deactivationRequests, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task DeactivateCustomersAsync(System.Collections.Generic.IEnumerable<DeactivationCustomerRequest> deactivationRequests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/customers/deactivate");
@@ -2728,7 +2525,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -2762,16 +2559,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task UpdateCustomersAsync(System.Collections.Generic.IEnumerable<UpdateCustomerRequest> updateRequests)
-        {
-            return UpdateCustomersAsync(updateRequests, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task UpdateCustomersAsync(System.Collections.Generic.IEnumerable<UpdateCustomerRequest> updateRequests, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task UpdateCustomersAsync(System.Collections.Generic.IEnumerable<UpdateCustomerRequest> updateRequests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/updates/customers/update");
@@ -2823,7 +2613,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -2861,11 +2651,10 @@ namespace Picturepark.SDK.V1.CloudManager
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.13.0 (NJsonSchema v9.10.14.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class CloudBackupClient : ClientBase, ICloudBackupClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public CloudBackupClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public CloudBackupClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -2876,28 +2665,15 @@ namespace Picturepark.SDK.V1.CloudManager
             });
     	}
     
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
-    
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<SnapshotRepository> CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest snapshotRepositoryCustomerCreateRequest)
-        {
-            return CreateRepositoryAsync(snapshotRepositoryCustomerCreateRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<SnapshotRepository> CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest snapshotRepositoryCustomerCreateRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<SnapshotRepository> CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest snapshotRepositoryCustomerCreateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/customer/repository");
@@ -2960,7 +2736,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -2996,16 +2772,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<Snapshot> CreateSnapshotAsync(SnapshotCustomerCreateRequest snapshotCustomerCreateRequest)
-        {
-            return CreateSnapshotAsync(snapshotCustomerCreateRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<Snapshot> CreateSnapshotAsync(SnapshotCustomerCreateRequest snapshotCustomerCreateRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Snapshot> CreateSnapshotAsync(SnapshotCustomerCreateRequest snapshotCustomerCreateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/customer/snapshot");
@@ -3068,7 +2837,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -3104,16 +2873,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshotAsync(SnapshotCustomerRestoreRequest snapshotCustomerRestoreRequest)
-        {
-            return RestoreSnapshotAsync(snapshotCustomerRestoreRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshotAsync(SnapshotCustomerRestoreRequest snapshotCustomerRestoreRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshotAsync(SnapshotCustomerRestoreRequest snapshotCustomerRestoreRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/customer/restore");
@@ -3176,7 +2938,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -3212,16 +2974,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<SnapshotRepository> CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest snapshotRepositoryEnvironmentCreateRequest)
-        {
-            return CreateRepository2Async(snapshotRepositoryEnvironmentCreateRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<SnapshotRepository> CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest snapshotRepositoryEnvironmentCreateRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<SnapshotRepository> CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest snapshotRepositoryEnvironmentCreateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/environment/repository");
@@ -3284,7 +3039,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -3320,16 +3075,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<Snapshot> CreateSnapshot2Async(SnapshotEnvironmentCreateRequest snapshotEnvironmentCreateRequest)
-        {
-            return CreateSnapshot2Async(snapshotEnvironmentCreateRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<Snapshot> CreateSnapshot2Async(SnapshotEnvironmentCreateRequest snapshotEnvironmentCreateRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Snapshot> CreateSnapshot2Async(SnapshotEnvironmentCreateRequest snapshotEnvironmentCreateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/environment/snapshot");
@@ -3392,7 +3140,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -3428,16 +3176,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest snapshotEnvironmentRestoreRequest)
-        {
-            return RestoreSnapshot2Async(snapshotEnvironmentRestoreRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest snapshotEnvironmentRestoreRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest snapshotEnvironmentRestoreRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/environment/restore");
@@ -3500,7 +3241,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -3536,16 +3277,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<SnapshotCustomerSearchResult> SearchAsync(SnapshotCustomerSearchRequest snapshotCustomerSearchRequest)
-        {
-            return SearchAsync(snapshotCustomerSearchRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<SnapshotCustomerSearchResult> SearchAsync(SnapshotCustomerSearchRequest snapshotCustomerSearchRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<SnapshotCustomerSearchResult> SearchAsync(SnapshotCustomerSearchRequest snapshotCustomerSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/customer/snapshot/search");
@@ -3608,7 +3342,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -3644,16 +3378,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>> SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest searchRequest)
-        {
-            return SearchRepositoriesAsync(searchRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>> SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>> SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/customer/snapshot/searchRepositories");
@@ -3716,7 +3443,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -3752,16 +3479,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<Customer> CloneCustomerAsync(SnapshotCustomerCloneRequest cloneRequest)
-        {
-            return CloneCustomerAsync(cloneRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<Customer> CloneCustomerAsync(SnapshotCustomerCloneRequest cloneRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Customer> CloneCustomerAsync(SnapshotCustomerCloneRequest cloneRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/customer/clone");
@@ -3824,7 +3544,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -3864,11 +3584,10 @@ namespace Picturepark.SDK.V1.CloudManager
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.13.0 (NJsonSchema v9.10.14.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial class UserClient : ClientBase, IUserClient
     {
-        private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public UserClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public UserClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
     		_settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -3879,28 +3598,15 @@ namespace Picturepark.SDK.V1.CloudManager
             });
     	}
     
-        public string BaseUrl 
-        {
-            get { return _baseUrl; }
-            set { _baseUrl = value; }
-        }
-    
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<bool> GetUserDeveloperFlagAsync(string customerAlias, string userId)
-        {
-            return GetUserDeveloperFlagAsync(customerAlias, userId, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<bool> GetUserDeveloperFlagAsync(string customerAlias, string userId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<bool> GetUserDeveloperFlagAsync(string customerAlias, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (customerAlias == null)
                 throw new System.ArgumentNullException("customerAlias");
@@ -3968,7 +3674,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 
@@ -4004,16 +3710,9 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        public System.Threading.Tasks.Task<UserDeveloperFlagUpdateRequest> UpdateUserDeveloperFlagAsync(string customerAlias, UserDeveloperFlagUpdateRequest userDeveloperFlagUpdateRequest)
-        {
-            return UpdateUserDeveloperFlagAsync(customerAlias, userDeveloperFlagUpdateRequest, System.Threading.CancellationToken.None);
-        }
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<UserDeveloperFlagUpdateRequest> UpdateUserDeveloperFlagAsync(string customerAlias, UserDeveloperFlagUpdateRequest userDeveloperFlagUpdateRequest, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<UserDeveloperFlagUpdateRequest> UpdateUserDeveloperFlagAsync(string customerAlias, UserDeveloperFlagUpdateRequest userDeveloperFlagUpdateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (customerAlias == null)
                 throw new System.ArgumentNullException("customerAlias");
@@ -4080,7 +3779,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             result_.Data.Add("HttpStatus", status_);
                             result_.Data.Add("HttpHeaders", headers_);
                             result_.Data.Add("HttpResponse", responseData_);
-                            throw new ApiException<PictureparkException>("Internal server error", status_, responseData_, headers_, result_, result_);
+                            throw result_;
                         }
                         else
                         if (status_ == "401") 

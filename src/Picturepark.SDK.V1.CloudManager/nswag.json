@@ -9,26 +9,27 @@
   "codeGenerators": {
     "swaggerToCSharpClient": {
       "clientBaseClass": "ClientBase",
-      "configurationClass": "Picturepark.SDK.V1.Contract.IPictureparkClientSettings",
+      "configurationClass": "Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings",
       "generateClientClasses": true,
       "generateClientInterfaces": true,
       "generateDtoTypes": true,
       "injectHttpClient": true,
       "disposeHttpClient": true,
+      "protectedMethods": [],
       "generateExceptionClasses": true,
       "exceptionClass": "ApiException",
-      "wrapDtoExceptions": true,
+      "wrapDtoExceptions": false,
       "useHttpClientCreationMethod": false,
       "httpClientType": "System.Net.Http.HttpClient",
       "useHttpRequestMessageCreationMethod": true,
       "useBaseUrl": true,
-      "generateBaseUrlProperty": true,
+      "generateBaseUrlProperty": false,
       "generateSyncMethods": false,
       "clientClassAccessModifier": "public",
       "typeAccessModifier": "public",
       "generateContractsOutput": true,
       "contractsNamespace": "Picturepark.SDK.V1.CloudManager.Contract",
-      "contractsOutputFilePath": "Clients/Contracts.Generated.cs",
+      "contractsOutputFilePath": "Generated/Contracts.Generated.cs",
       "parameterDateTimeFormat": "s",
       "generateUpdateJsonSerializerSettingsMethod": true,
       "serializeTypeInformation": false,
@@ -36,7 +37,7 @@
       "className": "{controller}Client",
       "operationGenerationMode": "MultipleClientsFromOperationId",
       "additionalNamespaceUsages": [],
-      "generateOptionalParameters": false,
+      "generateOptionalParameters": true,
       "parameterArrayType": "System.Collections.Generic.IEnumerable",
       "parameterDictionaryType": "System.Collections.Generic.IDictionary",
       "responseArrayType": "System.Collections.Generic.ICollection",
@@ -61,7 +62,7 @@
       "handleReferences": false,
       "generateImmutableArrayProperties": false,
       "generateImmutableDictionaryProperties": false,
-      "output": "Clients/Clients.Generated.cs"
+      "output": "Generated/Clients.Generated.cs"
     }
   }
 }

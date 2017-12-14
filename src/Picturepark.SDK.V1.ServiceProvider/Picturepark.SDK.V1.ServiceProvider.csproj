@@ -17,11 +17,6 @@
 		<PackageProjectUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet</PackageProjectUrl>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\Picturepark.SDK.V1.Contract\Picturepark.SDK.V1.Contract.csproj" />
-		<ProjectReference Include="..\Picturepark.SDK.V1\Picturepark.SDK.V1.csproj" />
-	</ItemGroup>
-
 	<PropertyGroup>
 		<NerdbankGitVersioningVersion>1.6.35</NerdbankGitVersioningVersion>
 	</PropertyGroup>
@@ -51,5 +46,9 @@
 		<Reference Include="System" />
 		<Reference Include="Microsoft.CSharp" />
 		<Reference Include="System.ComponentModel.DataAnnotations" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Picturepark.SDK.V1.Contract\Picturepark.SDK.V1.Contract.csproj" />
 	</ItemGroup>
 </Project>

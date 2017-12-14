@@ -12,94 +12,54 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     public partial interface ICustomerClient
     {
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<CustomerConfigurationItem> CreateAsync(CustomerCreateRequest createRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<CustomerConfigurationItem> CreateAsync(CustomerCreateRequest createRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<CustomerConfigurationItem> CreateAsync(CustomerCreateRequest createRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<CustomerConfigurationItem> UpdateAsync(CustomerUpdateRequest updateRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<CustomerConfigurationItem> UpdateAsync(CustomerUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<CustomerConfigurationItem> UpdateAsync(CustomerUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<CustomerConfigurationItem> GetAsync(string customerId);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<CustomerConfigurationItem> GetAsync(string customerId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<CustomerConfigurationItem> GetAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<bool> DeleteAsync(string customerId);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<bool> DeleteAsync(string customerId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<bool> DeleteAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<CustomerSearchResult> ListAsync(string customerId);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<CustomerSearchResult> ListAsync(string customerId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<CustomerSearchResult> ListAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<CustomerSearchResult> SearchAsync(CustomerSearchRequest searchRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<CustomerSearchResult> SearchAsync(CustomerSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<CustomerSearchResult> SearchAsync(CustomerSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<User>> GetAllUsersAsync(string customerId);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<User>> GetAllUsersAsync(string customerId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<User>> GetAllUsersAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<CustomerConfigurationItem> AddExternalProvidersAsync(string customerId, System.Collections.Generic.IEnumerable<ExternalProviderItem> addRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<CustomerConfigurationItem> AddExternalProvidersAsync(string customerId, System.Collections.Generic.IEnumerable<ExternalProviderItem> addRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<CustomerConfigurationItem> AddExternalProvidersAsync(string customerId, System.Collections.Generic.IEnumerable<ExternalProviderItem> addRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task RestoreAsync(string customerAlias);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task RestoreAsync(string customerAlias, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task RestoreAsync(string customerAlias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<Index> ReindexAsync(string customerAlias, SearchIndexReindexRequest reindexRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<Index> ReindexAsync(string customerAlias, SearchIndexReindexRequest reindexRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Index> ReindexAsync(string customerAlias, SearchIndexReindexRequest reindexRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -107,58 +67,34 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     public partial interface IServiceClient
     {
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task ShutdownAllAsync();
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task ShutdownAllAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task ShutdownAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task RestartAllAsync();
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task RestartAllAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task RestartAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task RestartServiceAsync(string serviceName);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task RestartServiceAsync(string serviceName, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task RestartServiceAsync(string serviceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task ShutdownServiceAsync(string serviceName);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task ShutdownServiceAsync(string serviceName, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task ShutdownServiceAsync(string serviceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task PingAllActiveNodesAsync();
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task PingAllActiveNodesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task PingAllActiveNodesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<NodeInfo>> GetAllActiveNodesAsync();
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<NodeInfo>> GetAllActiveNodesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<NodeInfo>> GetAllActiveNodesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -166,103 +102,59 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     public partial interface IUpdateClient
     {
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UpdateInfo>> GetAvailableEnvironmentUpdatesAsync();
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UpdateInfo>> GetAvailableEnvironmentUpdatesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UpdateInfo>> GetAvailableEnvironmentUpdatesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<VersionInfo> GetEnvironmentVersionAsync();
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<VersionInfo> GetEnvironmentVersionAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<VersionInfo> GetEnvironmentVersionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task ReactivateEnvironmentAsync(ReactivationEnvironmentRequest reactivationRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task ReactivateEnvironmentAsync(ReactivationEnvironmentRequest reactivationRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task ReactivateEnvironmentAsync(ReactivationEnvironmentRequest reactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task DeactivateEnvironmentAsync(DeactivationEnvironmentRequest deactivationRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task DeactivateEnvironmentAsync(DeactivationEnvironmentRequest deactivationRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task DeactivateEnvironmentAsync(DeactivationEnvironmentRequest deactivationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task UpdateEnvironmentAsync(UpdateEnvironmentRequest updateRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task UpdateEnvironmentAsync(UpdateEnvironmentRequest updateRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task UpdateEnvironmentAsync(UpdateEnvironmentRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UpdateInfo>> GetAvailableCustomerUpdatesAsync(string customerId);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UpdateInfo>> GetAvailableCustomerUpdatesAsync(string customerId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UpdateInfo>> GetAvailableCustomerUpdatesAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<CustomerVersionInfo>> GetCustomerVersionsAsync();
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<CustomerVersionInfo>> GetCustomerVersionsAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<CustomerVersionInfo>> GetCustomerVersionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<CustomerVersionInfo> GetCustomerVersionAsync(string customerId);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<CustomerVersionInfo> GetCustomerVersionAsync(string customerId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<CustomerVersionInfo> GetCustomerVersionAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task ReactivateCustomersAsync(System.Collections.Generic.IEnumerable<ReactivationCustomerRequest> reactivationRequests);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task ReactivateCustomersAsync(System.Collections.Generic.IEnumerable<ReactivationCustomerRequest> reactivationRequests, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task ReactivateCustomersAsync(System.Collections.Generic.IEnumerable<ReactivationCustomerRequest> reactivationRequests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task DeactivateCustomersAsync(System.Collections.Generic.IEnumerable<DeactivationCustomerRequest> deactivationRequests);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task DeactivateCustomersAsync(System.Collections.Generic.IEnumerable<DeactivationCustomerRequest> deactivationRequests, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task DeactivateCustomersAsync(System.Collections.Generic.IEnumerable<DeactivationCustomerRequest> deactivationRequests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task UpdateCustomersAsync(System.Collections.Generic.IEnumerable<UpdateCustomerRequest> updateRequests);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task UpdateCustomersAsync(System.Collections.Generic.IEnumerable<UpdateCustomerRequest> updateRequests, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task UpdateCustomersAsync(System.Collections.Generic.IEnumerable<UpdateCustomerRequest> updateRequests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -270,85 +162,49 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     public partial interface ICloudBackupClient
     {
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<SnapshotRepository> CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest snapshotRepositoryCustomerCreateRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<SnapshotRepository> CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest snapshotRepositoryCustomerCreateRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<SnapshotRepository> CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest snapshotRepositoryCustomerCreateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<Snapshot> CreateSnapshotAsync(SnapshotCustomerCreateRequest snapshotCustomerCreateRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<Snapshot> CreateSnapshotAsync(SnapshotCustomerCreateRequest snapshotCustomerCreateRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Snapshot> CreateSnapshotAsync(SnapshotCustomerCreateRequest snapshotCustomerCreateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshotAsync(SnapshotCustomerRestoreRequest snapshotCustomerRestoreRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshotAsync(SnapshotCustomerRestoreRequest snapshotCustomerRestoreRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshotAsync(SnapshotCustomerRestoreRequest snapshotCustomerRestoreRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<SnapshotRepository> CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest snapshotRepositoryEnvironmentCreateRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<SnapshotRepository> CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest snapshotRepositoryEnvironmentCreateRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<SnapshotRepository> CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest snapshotRepositoryEnvironmentCreateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<Snapshot> CreateSnapshot2Async(SnapshotEnvironmentCreateRequest snapshotEnvironmentCreateRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<Snapshot> CreateSnapshot2Async(SnapshotEnvironmentCreateRequest snapshotEnvironmentCreateRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Snapshot> CreateSnapshot2Async(SnapshotEnvironmentCreateRequest snapshotEnvironmentCreateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest snapshotEnvironmentRestoreRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest snapshotEnvironmentRestoreRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<SnapshotRestore> RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest snapshotEnvironmentRestoreRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<SnapshotCustomerSearchResult> SearchAsync(SnapshotCustomerSearchRequest snapshotCustomerSearchRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<SnapshotCustomerSearchResult> SearchAsync(SnapshotCustomerSearchRequest snapshotCustomerSearchRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<SnapshotCustomerSearchResult> SearchAsync(SnapshotCustomerSearchRequest snapshotCustomerSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>> SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest searchRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>> SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>> SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<Customer> CloneCustomerAsync(SnapshotCustomerCloneRequest cloneRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<Customer> CloneCustomerAsync(SnapshotCustomerCloneRequest cloneRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<Customer> CloneCustomerAsync(SnapshotCustomerCloneRequest cloneRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -356,22 +212,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     public partial interface IUserClient
     {
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<bool> GetUserDeveloperFlagAsync(string customerAlias, string userId);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<bool> GetUserDeveloperFlagAsync(string customerAlias, string userId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<bool> GetUserDeveloperFlagAsync(string customerAlias, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
-        System.Threading.Tasks.Task<UserDeveloperFlagUpdateRequest> UpdateUserDeveloperFlagAsync(string customerAlias, UserDeveloperFlagUpdateRequest userDeveloperFlagUpdateRequest);
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ApiException{PictureparkException}">Internal server error</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<UserDeveloperFlagUpdateRequest> UpdateUserDeveloperFlagAsync(string customerAlias, UserDeveloperFlagUpdateRequest userDeveloperFlagUpdateRequest, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<UserDeveloperFlagUpdateRequest> UpdateUserDeveloperFlagAsync(string customerAlias, UserDeveloperFlagUpdateRequest userDeveloperFlagUpdateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
