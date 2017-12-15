@@ -44,7 +44,7 @@ namespace Picturepark.Microsite.Example.Controllers
 
 		public async Task<IActionResult> JobDetail(string id)
 		{
-			var objectDetail = await _client.ListItems.GetObjectAsync<JobPosition>(id, nameof(JobPosition));
+			var objectDetail = await _client.ListItems.GetAndConvertToAsync<JobPosition>(id, nameof(JobPosition));
 
 			return View(objectDetail);
 		}

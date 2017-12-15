@@ -40,6 +40,13 @@ Links:
 - [Build scripts](SCRIPTS.md)
 - [Sources](src/)
 
+### Client generation
+
+Run the following commands to regenerate the clients based on the Swagger specifications in `/swagger`: 
+
+    npm install
+	npm run nswag
+
 ### CI Builds
 
 Branch: master

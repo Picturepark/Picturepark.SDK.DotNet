@@ -9,6 +9,6 @@ namespace Picturepark.Microsite.Example.Helpers
 {
 	public interface IServiceHelper
 	{
-		void EnsureSchemaExists<T>(Action<SchemaDetail> beforeCreateOrUpdateAction, bool update);
+		Task EnsureSchemaExists<T>(Action<SchemaDetail> beforeCreateOrUpdateAction, bool update);
 	}
 }
