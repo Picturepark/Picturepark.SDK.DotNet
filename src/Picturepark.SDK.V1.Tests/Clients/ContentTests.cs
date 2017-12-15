@@ -328,41 +328,41 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.False(string.IsNullOrEmpty(contentId));
         }
 
-	    [Fact]
-	    [Trait("Stack", "Contents")]
-	    public async Task ShouldCreateContents()
-	    {
-		    /// Arrange
-		    var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(ContentItem));
-		    foreach (var schema in schemas)
-		    {
-			    await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, false);
-		    }
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldCreateContents()
+        {
+            /// Arrange
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(ContentItem));
+            foreach (var schema in schemas)
+            {
+                await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, false);
+            }
 
-		    var request1 = new ContentCreateRequest
-		    {
-			    Content = JsonConvert.DeserializeObject(@"{ ""name"": ""foo"" }"),
-			    ContentSchemaId = "ContentItem",
-			    Metadata = new DataDictionary()
-		    };
+            var request1 = new ContentCreateRequest
+            {
+                Content = JsonConvert.DeserializeObject(@"{ ""name"": ""foo"" }"),
+                ContentSchemaId = "ContentItem",
+                Metadata = new DataDictionary()
+            };
 
-		    var request2 = new ContentCreateRequest
-		    {
-			    Content = JsonConvert.DeserializeObject(@"{ ""name"": ""bar"" }"),
-			    ContentSchemaId = "ContentItem",
-			    Metadata = new DataDictionary()
-		    };
+            var request2 = new ContentCreateRequest
+            {
+                Content = JsonConvert.DeserializeObject(@"{ ""name"": ""bar"" }"),
+                ContentSchemaId = "ContentItem",
+                Metadata = new DataDictionary()
+            };
 
-			/// Act
-			var result = await _client.Contents.CreateManyAsync(new List<ContentCreateRequest> { request1, request2 });
-		    await _client.BusinessProcesses.WaitForCompletionAsync(result.Id);
+            /// Act
+            var result = await _client.Contents.CreateManyAsync(new List<ContentCreateRequest> { request1, request2 });
+            await _client.BusinessProcesses.WaitForCompletionAsync(result.Id);
 
-		    /// Assert
-		    string contentId = _fixture.GetRandomContentId(".jpg", 20);
-		    Assert.False(string.IsNullOrEmpty(contentId));
-	    }
+            /// Assert
+            string contentId = _fixture.GetRandomContentId(".jpg", 20);
+            Assert.False(string.IsNullOrEmpty(contentId));
+        }
 
-		[Fact]
+        [Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldDownloadMultiple()
         {
@@ -437,7 +437,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Arrange
             var contentId = _fixture.GetRandomContentId(".jpg", 20);
             var request = new ContentMetadataUpdateRequest
-			{
+            {
                 Id = contentId,
                 SchemaIds = new List<string> { "Drive" },
                 Metadata = new DataDictionary
@@ -459,93 +459,93 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.True(true);
         }
 
-	    [Fact]
-	    [Trait("Stack", "Contents")]
-	    public async Task ShouldUpdateMetadataMany()
-	    {
-			/// Arrange
-		    var contentId1 = _fixture.GetRandomContentId(".jpg", 20);
-		    var contentId2 = _fixture.GetRandomContentId(".jpg", 20);
-		    var request1 = new ContentMetadataUpdateRequest
-		    {
-			    Id = contentId1,
-			    SchemaIds = new List<string> { "Drive" },
-			    Metadata = new DataDictionary
-			    {
-				    {
-					    "Drive",
-					    new Dictionary<string, object>
-					    {
-						    { "location", "Content1" }
-					    }
-				    }
-			    }
-		    };
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldUpdateMetadataMany()
+        {
+            /// Arrange
+            var contentId1 = _fixture.GetRandomContentId(".jpg", 20);
+            var contentId2 = _fixture.GetRandomContentId(".jpg", 20);
+            var request1 = new ContentMetadataUpdateRequest
+            {
+                Id = contentId1,
+                SchemaIds = new List<string> { "Drive" },
+                Metadata = new DataDictionary
+                {
+                    {
+                        "Drive",
+                        new Dictionary<string, object>
+                        {
+                            { "location", "Content1" }
+                        }
+                    }
+                }
+            };
 
-		    var request2 = new ContentMetadataUpdateRequest
-		    {
-			    Id = contentId2,
-			    SchemaIds = new List<string> { "Drive" },
-			    Metadata = new DataDictionary
-			    {
-				    {
-					    "Drive",
-					    new Dictionary<string, object>
-					    {
-						    { "location", "Content2" }
-					    }
-				    }
-			    }
-		    };
+            var request2 = new ContentMetadataUpdateRequest
+            {
+                Id = contentId2,
+                SchemaIds = new List<string> { "Drive" },
+                Metadata = new DataDictionary
+                {
+                    {
+                        "Drive",
+                        new Dictionary<string, object>
+                        {
+                            { "location", "Content2" }
+                        }
+                    }
+                }
+            };
 
-			/// Act
-			var waitResult = await _client.Contents.UpdateMetadataManyAsync(new ContentMetadataUpdateManyRequest
-			{
-				AllowMissingDependencies = false,
-				Requests = new List<ContentMetadataUpdateRequest> { request1, request2 }
-			});
-		    var result = await _client.BusinessProcesses.WaitForCompletionAsync(waitResult.Id);
+            /// Act
+            var waitResult = await _client.Contents.UpdateMetadataManyAsync(new ContentMetadataUpdateManyRequest
+            {
+                AllowMissingDependencies = false,
+                Requests = new List<ContentMetadataUpdateRequest> { request1, request2 }
+            });
+            var result = await _client.BusinessProcesses.WaitForCompletionAsync(waitResult.Id);
 
-		    /// Assert
-		    Assert.Equal(BusinessProcessLifeCycle.Succeeded, result.BusinessProcess.LifeCycle);
-	    }
+            /// Assert
+            Assert.Equal(BusinessProcessLifeCycle.Succeeded, result.BusinessProcess.LifeCycle);
+        }
 
-		[Fact]
-	    [Trait("Stack", "Contents")]
-	    public async Task ShouldSetLayerAndResolveDisplayValues()
-	    {
-			/// Arrange
-			var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(PersonShot));
-		    foreach (var schema in schemas)
-		    {
-				await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
-		    }
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldSetLayerAndResolveDisplayValues()
+        {
+            /// Arrange
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(PersonShot));
+            foreach (var schema in schemas)
+            {
+                await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
+            }
 
-			var contentId = _fixture.GetRandomContentId(".jpg", 20);
-		    var request = new ContentMetadataUpdateRequest
-		    {
-			    Id = contentId,
-			    SchemaIds = new List<string> { "PersonShot" },
-			    Metadata = new DataDictionary
-			    {
-				    {
-						"PersonShot",
-					    new Dictionary<string, object>
-					    {
-						    { "Description", "test description" }
-					    }
-				    }
-			    }
-		    };
+            var contentId = _fixture.GetRandomContentId(".jpg", 20);
+            var request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                SchemaIds = new List<string> { "PersonShot" },
+                Metadata = new DataDictionary
+                {
+                    {
+                        "PersonShot",
+                        new Dictionary<string, object>
+                        {
+                            { "Description", "test description" }
+                        }
+                    }
+                }
+            };
 
-		    /// Act
-		    var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true, patterns: new List<DisplayPatternType> { DisplayPatternType.Name });
+            /// Act
+            var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true, patterns: new List<DisplayPatternType> { DisplayPatternType.Name });
 
-		    /// Assert
-		    Assert.Equal("test description", ((JObject)response.Metadata["personShot"])["displayValue"]["name"].ToString());
-	    }
+            /// Assert
+            Assert.Equal("test description", ((JObject)response.Metadata["personShot"])["displayValue"]["name"].ToString());
+        }
 
-		[Fact]
+        [Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldBatchUpdateFieldsByFilter()
         {
@@ -553,8 +553,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = _fixture.GetRandomContentId(".jpg", 20);
             var request = new ContentFieldsFilterUpdateRequest
             {
+                TotalItemsCount = 1,
                 ContentFilterRequest = new ContentFilterRequest
                 {
+                    ChannelIds = new List<string> { "rootChannel" },
                     Filter = new TermFilter { Field = "id", Term = contentId }
                 },
                 ChangeCommands = new List<MetadataValuesChangeCommandBase>
@@ -703,12 +705,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Act
             var contentDetail = await _client.Contents.GetAsync(contentId, true);
 
-			/// Assert
-			Assert.Equal(contentId, contentDetail.Id);
-			Assert.NotNull(contentDetail); // TODO: Add better asserts
-		}
+            /// Assert
+            Assert.Equal(contentId, contentDetail.Id);
+            Assert.NotNull(contentDetail); // TODO: Add better asserts
+        }
 
-		[Fact]
+        [Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldGetWithoutResolvedObjects()
         {
@@ -718,9 +720,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Act
             var contentDetail = await _client.Contents.GetAsync(contentId, false);
 
-			/// Assert
-			Assert.Equal(contentId, contentDetail.Id);
-			Assert.NotNull(contentDetail); // TODO: Add better asserts
+            /// Assert
+            Assert.Equal(contentId, contentDetail.Id);
+            Assert.NotNull(contentDetail); // TODO: Add better asserts
         }
 
         [Fact]
@@ -902,7 +904,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             var request = new ContentPermissionsUpdateRequest
-			{
+            {
                 ContentId = contentDetail.Id,
                 ContentPermissionSetIds = contentPermissionSetIds
             };
@@ -933,7 +935,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             var request = new ContentPermissionsUpdateRequest
-			{
+            {
                 ContentId = contentDetail.Id,
                 ContentPermissionSetIds = contentPermissionSetIds
             };
