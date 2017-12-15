@@ -2,12 +2,16 @@
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using Microsoft.Net.Http.Headers;
 using Picturepark.Microsite.Example.Configuration;
-using Picturepark.SDK.V1.Contract;
-using System;
-using System.Threading.Tasks;
 using Picturepark.Microsite.Example.Repository;
 using Picturepark.Microsite.Example.Services;
+using Picturepark.SDK.V1.Contract;
+using System;
+using System.Linq;
+using System.Net;
+using System.Net.Mime;
+using System.Threading.Tasks;
 
 namespace Picturepark.Microsite.Example.Controllers
 {
@@ -60,16 +64,16 @@ namespace Picturepark.Microsite.Example.Controllers
 		public async Task<FileResult> Download(string id)
 		{
 			var download = await _client.Contents.DownloadAsync(id, "Original");
-			var content = await _client.Contents.GetAsync(id);
-			return File(download.Stream, "application/octet-stream", content.DisplayValues["name"]);
+			var fileName = GetFileName(download);
+			return File(download.Stream, "application/octet-stream", fileName);
 		}
 
 		[ResponseCache(VaryByHeader = "User-Agent", Duration = 30)]
 		public async Task<FileResult> Embed(string id)
 		{
 			var download = await _client.Contents.DownloadAsync(id, "Original");
-			var content = await _client.Contents.GetAsync(id);
-			return File(download.Stream, "application/octet-stream", content.DisplayValues["name"]);
+			var fileName = GetFileName(download);
+			return File(download.Stream, "application/octet-stream", fileName);
 		}
 
 		public IActionResult Error()
@@ -88,6 +92,14 @@ namespace Picturepark.Microsite.Example.Controllers
 			);
 
 			return LocalRedirect(returnUrl);
+		}
+
+		private string GetFileName(FileResponse response)
+		{
+			var disposition = response.Headers["Content-Disposition"].First();
+			var composition = ContentDispositionHeaderValue.Parse(disposition);
+			var fileName = WebUtility.UrlDecode(HeaderUtilities.RemoveQuotes(composition.FileName.Value).ToString());
+			return fileName;
 		}
 	}
 }
