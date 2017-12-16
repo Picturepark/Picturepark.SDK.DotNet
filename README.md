@@ -42,7 +42,7 @@ Links:
 
 ### Client generation
 
-To regenerate the clients based on the Swagger specifications in `/swagger` run the following commands: 
+Run the following commands to regenerate the clients based on the Swagger specifications in `/swagger`: 
 
     npm install
 	npm run nswag

@@ -297,18 +297,20 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="contentId">The content id.</param>
         /// <param name="updateRequest">The metadata update request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="allowMissingDependencies">Allow storing references to missing list items</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        ContentDetail UpdateMetadata(string contentId, ContentMetadataUpdateRequest updateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
+        ContentDetail UpdateMetadata(string contentId, ContentMetadataUpdateRequest updateRequest, bool resolve, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null);
     
         /// <summary>Update metadata - single</summary>
         /// <param name="contentId">The content id.</param>
         /// <param name="updateRequest">The metadata update request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="allowMissingDependencies">Allow storing references to missing list items</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
         /// <returns>ContentDetail</returns>
@@ -316,37 +318,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, ContentMetadataUpdateRequest updateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Update metadata - many</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        BusinessProcess UpdateMetadataMany(ContentsMetadataUpdateRequest updateRequest);
-    
-        /// <summary>Update metadata - many</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> UpdateMetadataManyAsync(ContentsMetadataUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Update metadata - by filter</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        BusinessProcess UpdateMetadataByFilter(FilterContentsMetadataUpdateRequest updateRequest);
-    
-        /// <summary>Update metadata - by filter</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> UpdateMetadataByFilterAsync(FilterContentsMetadataUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, ContentMetadataUpdateRequest updateRequest, bool resolve, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update permissions - single</summary>
         /// <param name="contentId">The content id.</param>
@@ -372,6 +344,23 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string contentId, ContentPermissionsUpdateRequest updateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Update metadata - many</summary>
+        /// <param name="updateRequest">The metadata update requests.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ContentsNotFoundException">Not all provided contents could be found</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcess UpdateMetadataMany(ContentMetadataUpdateManyRequest updateRequest);
+    
+        /// <summary>Update metadata - many</summary>
+        /// <param name="updateRequest">The metadata update requests.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ContentsNotFoundException">Not all provided contents could be found</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> UpdateMetadataManyAsync(ContentMetadataUpdateManyRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update permissions - many</summary>
         /// <param name="updateRequest">The permissions update request.</param>
@@ -423,6 +412,36 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<BusinessProcess> TransferOwnershipManyAsync(ContentsOwnershipTransferRequest contentsOwnershipTransferRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Batch update fields - by ids</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcess BatchUpdateFieldsByIds(ContentFieldsUpdateRequest updateRequest);
+    
+        /// <summary>Batch update fields - by ids</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> BatchUpdateFieldsByIdsAsync(ContentFieldsUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Batch update fields - by filter</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcess BatchUpdateFieldsByFilter(ContentFieldsFilterUpdateRequest updateRequest);
+    
+        /// <summary>Batch update fields - by filter</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> BatchUpdateFieldsByFilterAsync(ContentFieldsFilterUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -644,36 +663,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(System.Collections.Generic.IEnumerable<ListItemUpdateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Update fields</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        BusinessProcess UpdateFields(ListItemFieldsUpdateRequest updateRequest);
-    
-        /// <summary>Update fields</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> UpdateFieldsAsync(ListItemFieldsUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Update by filter - Fields</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        BusinessProcess UpdateFieldsByFilter(ListItemFieldsFilterUpdateRequest updateRequest);
-    
-        /// <summary>Update by filter - Fields</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> UpdateFieldsByFilterAsync(ListItemFieldsFilterUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
         /// <summary>Deactivate - single</summary>
         /// <param name="listItemId">the id of the list item to deactivate</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
@@ -741,6 +730,36 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<BusinessProcess> ReactivateManyAsync(ListItemReactivateRequest reactivateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Batch update fields - by ids</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcess BatchUpdateFieldsByIds(ListItemFieldsUpdateRequest updateRequest);
+    
+        /// <summary>Batch update fields - by ids</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> BatchUpdateFieldsByIdsAsync(ListItemFieldsUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Batch update fields - by filter</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        BusinessProcess BatchUpdateFieldsByFilter(ListItemFieldsFilterUpdateRequest updateRequest);
+    
+        /// <summary>Batch update fields - by filter</summary>
+        /// <param name="updateRequest">The metadata update request.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> BatchUpdateFieldsByFilterAsync(ListItemFieldsFilterUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -1480,6 +1499,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
     [JsonInheritanceAttribute("PictureparkBusinessException", typeof(PictureparkBusinessException))]
     [JsonInheritanceAttribute("BusinessProcessWaitTimeoutException", typeof(BusinessProcessWaitTimeoutException))]
+    [JsonInheritanceAttribute("ContentsNotFoundException", typeof(ContentsNotFoundException))]
     [JsonInheritanceAttribute("ListItemNotFoundException", typeof(ListItemNotFoundException))]
     [JsonInheritanceAttribute("SchemaNotFoundException", typeof(SchemaNotFoundException))]
     [JsonInheritanceAttribute("PictureparkArgumentNullException", typeof(PictureparkArgumentNullException))]
@@ -1645,6 +1665,23 @@ namespace Picturepark.SDK.V1.Contract
         public static PictureparkArgumentNullException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkArgumentNullException>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentsNotFoundException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentsNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentsNotFoundException>(data);
         }
     }
     
@@ -2963,6 +3000,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleFilter LifeCycleFilter { get; set; }
     
+        /// <summary>Filter the returned contents that have or not have broken references</summary>
+        [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }
+    
         /// <summary>Limits the content document result set to specific ContentRights the user has</summary>
         [Newtonsoft.Json.JsonProperty("rightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<ContentRight> RightsFilter { get; set; }
@@ -3511,6 +3554,20 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum BrokenDependenciesFilter
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "All")]
+        All = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "NotBrokenOnly")]
+        NotBrokenOnly = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "BrokenOnly")]
+        BrokenOnly = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum ContentRight
     {
         [System.Runtime.Serialization.EnumMember(Value = "View")]
@@ -3724,6 +3781,12 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleFilter LifeCycleFilter { get; set; }
+    
+        /// <summary>Filter the content document result set to those that have or not have broken references</summary>
+        [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }
     
         /// <summary>Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.</summary>
         [Newtonsoft.Json.JsonProperty("searchType", Required = Newtonsoft.Json.Required.Always)]
@@ -4499,9 +4562,98 @@ namespace Picturepark.SDK.V1.Contract
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentPermissionsUpdateRequest 
+    {
+        /// <summary>The content id.</summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        /// <summary>An optional id list of content permission sets. Controls content accessibility outside of content ownership.</summary>
+        [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentPermissionsUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionsUpdateRequest>(data);
+        }
+    }
+    
+    /// <summary>Update many contents metadata</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentMetadataUpdateManyRequest 
+    {
+        /// <summary>Allow storing references to missing list items</summary>
+        [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowMissingDependencies { get; set; }
+    
+        /// <summary>Update requests</summary>
+        [Newtonsoft.Json.JsonProperty("requests", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ContentMetadataUpdateRequest> Requests { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentMetadataUpdateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentMetadataUpdateManyRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentOwnershipTransferRequest 
+    {
+        /// <summary>The content id.</summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        /// <summary>The id of the user to whom the content document has to be transfered to.</summary>
+        [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentOwnershipTransferRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentOwnershipTransferRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentsOwnershipTransferRequest 
+    {
+        /// <summary>The content ids.</summary>
+        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
+    
+        /// <summary>The id of user to whom the content documents have to be transfered to.</summary>
+        [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentsOwnershipTransferRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentsOwnershipTransferRequest>(data);
+        }
+    }
+    
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
-    [JsonInheritanceAttribute("ContentsMetadataUpdateRequest", typeof(ContentsMetadataUpdateRequest))]
-    [JsonInheritanceAttribute("FilterContentsMetadataUpdateRequest", typeof(FilterContentsMetadataUpdateRequest))]
+    [JsonInheritanceAttribute("ContentFieldsUpdateRequest", typeof(ContentFieldsUpdateRequest))]
+    [JsonInheritanceAttribute("ContentFieldsFilterUpdateRequest", typeof(ContentFieldsFilterUpdateRequest))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class MetadataValuesChangeRequestBase 
     {
@@ -4521,7 +4673,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentsMetadataUpdateRequest : MetadataValuesChangeRequestBase
+    public partial class ContentFieldsUpdateRequest : MetadataValuesChangeRequestBase
     {
         /// <summary>The ids of the content documents.</summary>
         [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -4532,9 +4684,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ContentsMetadataUpdateRequest FromJson(string data)
+        public static ContentFieldsUpdateRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentsMetadataUpdateRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFieldsUpdateRequest>(data);
         }
     }
     
@@ -4691,7 +4843,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class FilterContentsMetadataUpdateRequest : MetadataValuesChangeRequestBase
+    public partial class ContentFieldsFilterUpdateRequest : MetadataValuesChangeRequestBase
     {
         [Newtonsoft.Json.JsonProperty("contentFilterRequest", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ContentFilterRequest ContentFilterRequest { get; set; }
@@ -4704,9 +4856,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static FilterContentsMetadataUpdateRequest FromJson(string data)
+        public static ContentFieldsFilterUpdateRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FilterContentsMetadataUpdateRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFieldsFilterUpdateRequest>(data);
         }
     }
     
@@ -4761,72 +4913,6 @@ namespace Picturepark.SDK.V1.Contract
         public static ContentFilterRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFilterRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentPermissionsUpdateRequest 
-    {
-        /// <summary>The content id.</summary>
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
-    
-        /// <summary>An optional id list of content permission sets. Controls content accessibility outside of content ownership.</summary>
-        [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ContentPermissionsUpdateRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionsUpdateRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentOwnershipTransferRequest 
-    {
-        /// <summary>The content id.</summary>
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
-    
-        /// <summary>The id of the user to whom the content document has to be transfered to.</summary>
-        [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TransferUserId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ContentOwnershipTransferRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentOwnershipTransferRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentsOwnershipTransferRequest 
-    {
-        /// <summary>The content ids.</summary>
-        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
-    
-        /// <summary>The id of user to whom the content documents have to be transfered to.</summary>
-        [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TransferUserId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ContentsOwnershipTransferRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentsOwnershipTransferRequest>(data);
         }
     }
     
@@ -5301,6 +5387,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("displayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> DisplayPatternIds { get; set; }
     
+        /// <summary>Filter the returned list items that have or not have broken references</summary>
+        [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }
+    
         /// <summary>Define the display values included in the search response for the referenced fields. Defaults to no display value.</summary>
         [Newtonsoft.Json.JsonProperty("referencedFieldsDisplayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ReferencedFieldsDisplayPatternIds { get; set; }
@@ -5433,6 +5525,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("includeAllSchemaChildren", Required = Newtonsoft.Json.Required.Always)]
         public bool IncludeAllSchemaChildren { get; set; }
     
+        /// <summary>Filter the list items document result set to those that have or not have broken references</summary>
+        [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }
+    
         /// <summary>Limits the aggregation to list items of the provided schemas.</summary>
         [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
@@ -5509,6 +5607,43 @@ namespace Picturepark.SDK.V1.Contract
         public static ListItemUpdateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemUpdateRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ListItemDeactivateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("listItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ListItemIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("forceReferenceRemoval", Required = Newtonsoft.Json.Required.Always)]
+        public bool ForceReferenceRemoval { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemDeactivateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemDeactivateRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ListItemReactivateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("listItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ListItemIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemReactivateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemReactivateRequest>(data);
         }
     }
     
@@ -5592,43 +5727,6 @@ namespace Picturepark.SDK.V1.Contract
         public static ListItemFilterRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemFilterRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ListItemDeactivateRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("listItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ListItemIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("forceReferenceRemoval", Required = Newtonsoft.Json.Required.Always)]
-        public bool ForceReferenceRemoval { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ListItemDeactivateRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemDeactivateRequest>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ListItemReactivateRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("listItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ListItemIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ListItemReactivateRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemReactivateRequest>(data);
         }
     }
     

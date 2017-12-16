@@ -3311,6 +3311,23 @@
         }
       ]
     },
+    "ContentsNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "BusinessProcessDefinitionCreateException": {
       "type": "object",
       "additionalProperties": false,

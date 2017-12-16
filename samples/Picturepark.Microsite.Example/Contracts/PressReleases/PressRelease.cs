@@ -34,20 +34,14 @@ namespace Picturepark.Microsite.Example.Contracts
 		[PictureparkNameTranslation("x-default", "Description")]
 		public TranslatedStringDictionary Text { get; set; }
 
-		[PictureparkContentRelation(
-			"KeyVisual",
-			"{ 'kind': 'TermFilter', 'field': 'contentType', 'term': 'Bitmap' }"
-		)]
+		[PictureparkContentRelation("KeyVisual", "")]
 		[PictureparkNameTranslation("x-default", "Hero image")]
 		[PictureparkNameTranslation("en", "Hero image")]
 		[PictureparkNameTranslation("de", "Hero image")]
 		[PictureparkNameTranslation("fr", "Clé visuel")]
 		public KeyVisual KeyVisual { get; set; }
 
-		[PictureparkContentRelation(
-			"KeyVisual",
-			"{ 'kind': 'TermFilter', 'field': 'contentType', 'term': 'Bitmap' }"
-		)]
+		[PictureparkContentRelation("KeyVisual", "")]
 		[PictureparkNameTranslation("x-default", "Downloads")]
 		public List<KeyVisual> Downloads { get; set; } = new List<KeyVisual>();
 
