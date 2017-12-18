@@ -223,6 +223,16 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.13.0 (NJsonSchema v9.10.14.0 (Newtonsoft.Json v9.0.0.0))")]
+    public partial interface ISampleDataClient
+    {
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task CreateAsync(string customerAlias, DataGenerationCreateRequest dataGenerationCreateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -4385,6 +4395,339 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static UserDeveloperFlagUpdateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserDeveloperFlagUpdateRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DataGenerationCreateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("sampleRootPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SampleRootPath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("usersAndRoles", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public DataGenerationUsersAndUserRoles UsersAndRoles { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contents", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public DataGenerationContents Contents { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("basicShares", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public DataGenerationBasicShares BasicShares { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("schemas", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public DataGenerationSchemas Schemas { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentSchemas", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public DataGenerationContentSchemas ContentSchemas { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentPermissionSets", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public DataGenerationContentPermissionSets ContentPermissionSets { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("schemaPermissionSets", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public DataGenerationSchemaPermissionSets SchemaPermissionSets { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("tags", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public DataGenerationTags Tags { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("referencedFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public DataGenerationReferencedFields ReferencedFields { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("importSchemas", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ImportSchemasRequest> ImportSchemas { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DataGenerationCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DataGenerationCreateRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DataGenerationUsersAndUserRoles 
+    {
+        [Newtonsoft.Json.JsonProperty("numberOfUsers", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfUsers { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfUserRoles", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfUserRoles { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("userRoleGrantedMax", Required = Newtonsoft.Json.Required.Always)]
+        public int UserRoleGrantedMax { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("adminUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserItem AdminUser { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("adminUserPassword", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AdminUserPassword { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("userRightGrantedAverage", Required = Newtonsoft.Json.Required.Always)]
+        public double UserRightGrantedAverage { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DataGenerationUsersAndUserRoles FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DataGenerationUsersAndUserRoles>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class UserItem 
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FirstName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LastName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string EmailAddress { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserItem>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DataGenerationContents 
+    {
+        [Newtonsoft.Json.JsonProperty("numberOfContents", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfContents { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("transferSize", Required = Newtonsoft.Json.Required.Always)]
+        public int TransferSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfUsersWithContents", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfUsersWithContents { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("copySampleFiles", Required = Newtonsoft.Json.Required.Always)]
+        public bool CopySampleFiles { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("renderOutputs", Required = Newtonsoft.Json.Required.Always)]
+        public bool RenderOutputs { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxConcurrentTransfers", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxConcurrentTransfers { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfContentPermissionSets", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfContentPermissionSets { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("includeTroubleMakerFiles", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeTroubleMakerFiles { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfSchemasPerContent", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfSchemasPerContent { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DataGenerationContents FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DataGenerationContents>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DataGenerationBasicShares 
+    {
+        [Newtonsoft.Json.JsonProperty("shareBatchSizePerCreator", Required = Newtonsoft.Json.Required.Always)]
+        public int ShareBatchSizePerCreator { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfShareCreators", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfShareCreators { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfInternalRecipientsPerShare", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfInternalRecipientsPerShare { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfContentsPerShare", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfContentsPerShare { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DataGenerationBasicShares FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DataGenerationBasicShares>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DataGenerationSchemas 
+    {
+        [Newtonsoft.Json.JsonProperty("numberOfSchemas", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfSchemas { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfFieldsPerSchema", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfFieldsPerSchema { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfSchemaPermissionSets", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfSchemaPermissionSets { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DataGenerationSchemas FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DataGenerationSchemas>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DataGenerationContentSchemas 
+    {
+        [Newtonsoft.Json.JsonProperty("numberOfContentSchemas", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfContentSchemas { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfFieldsPerContentSchemas", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfFieldsPerContentSchemas { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfSchemaPermissionSets", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfSchemaPermissionSets { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DataGenerationContentSchemas FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DataGenerationContentSchemas>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DataGenerationContentPermissionSets 
+    {
+        [Newtonsoft.Json.JsonProperty("numberOfSets", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfSets { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfRolesPerSet", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfRolesPerSet { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("roleRightGrantedAverage", Required = Newtonsoft.Json.Required.Always)]
+        public double RoleRightGrantedAverage { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DataGenerationContentPermissionSets FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DataGenerationContentPermissionSets>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DataGenerationSchemaPermissionSets 
+    {
+        [Newtonsoft.Json.JsonProperty("numberOfSets", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfSets { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfRolesPerSet", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfRolesPerSet { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("roleRightGrantedAverage", Required = Newtonsoft.Json.Required.Always)]
+        public double RoleRightGrantedAverage { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DataGenerationSchemaPermissionSets FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DataGenerationSchemaPermissionSets>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DataGenerationTags 
+    {
+        [Newtonsoft.Json.JsonProperty("numberOfSchemas", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfSchemas { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfFieldsPerSchema", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfFieldsPerSchema { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfListItems", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfListItems { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfPermissionSets", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfPermissionSets { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DataGenerationTags FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DataGenerationTags>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DataGenerationReferencedFields 
+    {
+        [Newtonsoft.Json.JsonProperty("searchLevel", Required = Newtonsoft.Json.Required.Always)]
+        public int SearchLevel { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfSingleTagboxesPerSchema", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfSingleTagboxesPerSchema { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("generateData", Required = Newtonsoft.Json.Required.Always)]
+        public bool GenerateData { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DataGenerationReferencedFields FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DataGenerationReferencedFields>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.14.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ImportSchemasRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("importListItems", Required = Newtonsoft.Json.Required.Always)]
+        public bool ImportListItems { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ImportSchemasRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ImportSchemasRequest>(data);
         }
     }
     
