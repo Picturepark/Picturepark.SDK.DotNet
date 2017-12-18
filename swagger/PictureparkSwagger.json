@@ -181,17 +181,14 @@
         "operationId": "Content_CreateMany",
         "parameters": [
           {
-            "name": "contentCreateRequests",
+            "name": "contentCreateManyRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ContentCreateRequest"
-              }
+              "$ref": "#/definitions/ContentCreateManyRequest"
             },
             "x-nullable": true,
-            "description": "The content create requests."
+            "description": "The content create many request."
           }
         ],
         "responses": {
@@ -696,6 +693,14 @@
             "required": true,
             "x-nullable": false,
             "description": "Resolves the data of referenced list items into the contents's content."
+          },
+          {
+            "type": "boolean",
+            "name": "allowMissingDependencies",
+            "in": "query",
+            "x-nullable": false,
+            "description": "Allow creating list items that refer to list items or contents that don't exist in the system.",
+            "default": false
           },
           {
             "type": "string",
@@ -2276,6 +2281,14 @@
             "description": "Resolves the data of referenced list items into the list item's content."
           },
           {
+            "type": "boolean",
+            "name": "allowMissingDependencies",
+            "in": "query",
+            "x-nullable": false,
+            "description": "Allow creating list items that refer to list items or contents that don't exist in the system.",
+            "default": false
+          },
+          {
             "type": "string",
             "name": "timeout",
             "in": "query",
@@ -2456,6 +2469,14 @@
             "description": "Resolves the data of referenced list items into the list item's content."
           },
           {
+            "type": "boolean",
+            "name": "allowMissingDependencies",
+            "in": "query",
+            "x-nullable": false,
+            "description": "Allow creating list items that refer to list items or contents that don't exist in the system.",
+            "default": false
+          },
+          {
             "type": "string",
             "name": "timeout",
             "in": "query",
@@ -2523,17 +2544,14 @@
         "operationId": "ListItem_CreateMany",
         "parameters": [
           {
-            "name": "listItemCreateRequests",
+            "name": "listItemCreateManyRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ListItemCreateRequest"
-              }
+              "$ref": "#/definitions/ListItemCreateManyRequest"
             },
             "x-nullable": true,
-            "description": "A list of ListItemCreateRequests."
+            "description": "List item create many request."
           }
         ],
         "responses": {
@@ -2575,17 +2593,14 @@
         "operationId": "ListItem_UpdateMany",
         "parameters": [
           {
-            "name": "objects",
+            "name": "listItemUpdateManyRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ListItemUpdateRequest"
-              }
+              "$ref": "#/definitions/ListItemUpdateManyRequest"
             },
             "x-nullable": true,
-            "description": "A list of ListItemUpdateRequests."
+            "description": "List item update many request."
           }
         ],
         "responses": {
@@ -7891,6 +7906,27 @@
         }
       }
     },
+    "ContentCreateManyRequest": {
+      "type": "object",
+      "description": "A request structure for creating multiple content documents.",
+      "additionalProperties": false,
+      "required": [
+        "allowMissingDependencies"
+      ],
+      "properties": {
+        "allowMissingDependencies": {
+          "type": "boolean",
+          "description": "Allow storing references to missing list items / contents"
+        },
+        "requests": {
+          "type": "array",
+          "description": "Create requests",
+          "items": {
+            "$ref": "#/definitions/ContentCreateRequest"
+          }
+        }
+      }
+    },
     "BusinessProcess": {
       "type": "object",
       "discriminator": "kind",
@@ -8259,6 +8295,7 @@
       "x-abstract": true,
       "additionalProperties": false,
       "required": [
+        "allowMissingDependencies",
         "kind"
       ],
       "properties": {
@@ -8268,6 +8305,10 @@
           "items": {
             "$ref": "#/definitions/MetadataValuesChangeCommandBase"
           }
+        },
+        "allowMissingDependencies": {
+          "type": "boolean",
+          "description": "Allow storing references to missing list items / contents"
         },
         "kind": {
           "type": "string"
@@ -9178,6 +9219,27 @@
         }
       }
     },
+    "ListItemCreateManyRequest": {
+      "type": "object",
+      "description": "A request structure for creating multiple list items.",
+      "additionalProperties": false,
+      "required": [
+        "allowMissingDependencies"
+      ],
+      "properties": {
+        "allowMissingDependencies": {
+          "type": "boolean",
+          "description": "Allow storing references to missing list items / contents"
+        },
+        "requests": {
+          "type": "array",
+          "description": "Create requests",
+          "items": {
+            "$ref": "#/definitions/ListItemCreateRequest"
+          }
+        }
+      }
+    },
     "ListItemUpdateRequest": {
       "type": "object",
       "description": "A request structure for updating a list item.",
@@ -9189,6 +9251,27 @@
         "id": {
           "type": "string",
           "description": "The list item id."
+        }
+      }
+    },
+    "ListItemUpdateManyRequest": {
+      "type": "object",
+      "description": "A request structure for updating multiple list items.",
+      "additionalProperties": false,
+      "required": [
+        "allowMissingDependencies"
+      ],
+      "properties": {
+        "allowMissingDependencies": {
+          "type": "boolean",
+          "description": "Allow storing references to missing list items / contents"
+        },
+        "requests": {
+          "type": "array",
+          "description": "Update requests",
+          "items": {
+            "$ref": "#/definitions/ListItemUpdateRequest"
+          }
         }
       }
     },
@@ -9225,6 +9308,9 @@
     "ListItemFieldsUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "allowMissingDependencies"
+      ],
       "properties": {
         "listItemIds": {
           "type": "array",
@@ -9239,6 +9325,10 @@
           "items": {
             "$ref": "#/definitions/MetadataValuesChangeCommandBase"
           }
+        },
+        "allowMissingDependencies": {
+          "type": "boolean",
+          "description": "Allow storing references to missing list items / contents"
         }
       }
     },
@@ -9246,6 +9336,9 @@
       "type": "object",
       "description": "ListItemFieldsFilterUpdateRequest class",
       "additionalProperties": false,
+      "required": [
+        "allowMissingDependencies"
+      ],
       "properties": {
         "listItemFilterRequest": {
           "description": "The search request used to filter the list items on which the change commands must be applied",
@@ -9261,6 +9354,10 @@
           "items": {
             "$ref": "#/definitions/MetadataValuesChangeCommandBase"
           }
+        },
+        "allowMissingDependencies": {
+          "type": "boolean",
+          "description": "Allow storing references to missing list items / contents"
         }
       }
     },
