@@ -32,6 +32,8 @@ namespace Picturepark.SDK.V1.CloudManager
 
 		public UpdateClient Updates { get; private set; }
 
+		public SampleDataClient SampleData { get; private set; }
+
 		public void Dispose()
 		{
 			if (_httpClient != null)
@@ -46,6 +48,7 @@ namespace Picturepark.SDK.V1.CloudManager
 			Customers = new CustomerClient(settings, httpClient);
 			Services = new ServiceClient(settings, httpClient);
 			Updates = new UpdateClient(settings, httpClient);
+			SampleData = new SampleDataClient(settings, httpClient);
 		}
 	}
 }
