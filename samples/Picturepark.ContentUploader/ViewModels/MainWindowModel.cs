@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -26,7 +25,7 @@ namespace Picturepark.ContentUploader.ViewModels
         public MainWindowModel()
         {
             UploadCommand = new AsyncRelayCommand(UploadAsync, () =>
-                !string.IsNullOrEmpty(Server) &&
+                !string.IsNullOrEmpty(ApiServer) &&
                 !string.IsNullOrEmpty(CustomerAlias) &&
                 !string.IsNullOrEmpty(FilePath));
 
@@ -42,14 +41,14 @@ namespace Picturepark.ContentUploader.ViewModels
 
         public AsyncRelayCommand UnregisterContextMenuCommand { get; }
 
-        public string Server
+        public string ApiServer
         {
 #if DEBUG
-            get { return ApplicationSettings.GetSetting("Server", "https://devnext.preview-picturepark.com"); }
+            get { return ApplicationSettings.GetSetting("ApiServer", "https://devnext-api.preview-picturepark.com"); }
 #else
-            get { return ApplicationSettings.GetSetting("Server", ""); }
+            get { return ApplicationSettings.GetSetting("ApiServer", ""); }
 #endif
-            set { ApplicationSettings.SetSetting("Server", value); }
+            set { ApplicationSettings.SetSetting("ApiServer", value); }
         }
 
         public string IdentityServer
@@ -122,7 +121,7 @@ namespace Picturepark.ContentUploader.ViewModels
                 await RunTaskAsync(async () =>
                 {
                     var accessToken = await GetAccessTokenAsync();
-                    var authClient = new AccessTokenAuthClient(Server, accessToken, CustomerAlias);
+                    var authClient = new AccessTokenAuthClient(ApiServer, accessToken, CustomerAlias);
                     using (var client = new PictureparkClient(new PictureparkClientSettings(authClient)))
                     {
                         await client.Transfers.UploadFilesAsync(fileName, new[] { FilePath }, new UploadOptions { ChunkSize = 1024 * 1024 });

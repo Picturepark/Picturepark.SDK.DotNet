@@ -84,10 +84,10 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Picturepark.SDK.V1, Version=0.50.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Picturepark.SDK.V1.0.50.100\lib\net45\Picturepark.SDK.V1.dll</HintPath>
+      <HintPath>..\packages\Picturepark.SDK.V1.0.50.126\lib\net45\Picturepark.SDK.V1.dll</HintPath>
     </Reference>
     <Reference Include="Picturepark.SDK.V1.Contract, Version=0.50.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Picturepark.SDK.V1.Contract.0.50.100\lib\net45\Picturepark.SDK.V1.Contract.dll</HintPath>
+      <HintPath>..\packages\Picturepark.SDK.V1.Contract.0.50.126\lib\net45\Picturepark.SDK.V1.Contract.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
