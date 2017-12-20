@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Contracts;
@@ -52,16 +53,20 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		{
 			/// Arrange
 			var objectName = "ThisObjectD" + new Random().Next(0, 999999);
-			var objects = new List<ListItemCreateRequest>
-			{
-				new ListItemCreateRequest
-				{
-					ContentSchemaId = nameof(Tag),
-					Content = new Tag { Name = objectName }
-				}
-			};
+		    var createManyRequest = new ListItemCreateManyRequest()
+		    {
+		        AllowMissingDependencies = false,
+		        Requests = new List<ListItemCreateRequest>
+		        {
+		            new ListItemCreateRequest
+		            {
+		                ContentSchemaId = nameof(Tag),
+		                Content = new Tag { Name = objectName }
+		            }
+		        }
+		    };
 
-			var results = await _client.ListItems.CreateManyAsync(objects);
+			var results = await _client.ListItems.CreateManyAsync(createManyRequest);
 			var result = results.First();
 
 			/// Act
@@ -98,7 +103,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 		[Fact]
 		[Trait("Stack", "ListItem")]
-		public async Task ShouldUpdateFieldsByFilter()
+		public async Task ShouldBatchUpdateFieldsByFilter()
 		{
 			/// Arrange
 			var objectName = "ThisObjectB" + new Random().Next(0, 999999);
@@ -130,7 +135,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			};
 
 			/// Act
-			var businessProcess = await _client.ListItems.UpdateFieldsByFilterAsync(updateRequest);
+			var businessProcess = await _client.ListItems.BatchUpdateFieldsByFilterAsync(updateRequest);
 			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, TimeSpan.FromSeconds(10));
 
 			ListItemDetail result = await _client.ListItems.GetAsync(listItemDetail.Id, true);
@@ -410,10 +415,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var player = playerItem.ConvertTo<SoccerPlayer>(nameof(SoccerPlayer));
 			player.Firstname = "xy jviorej ivorejvioe";
 
-			var businessProcess = await _client.ListItems.UpdateManyAsync(new[]
-			{
-				new ListItemUpdateRequest { Id = playerItem.Id, Content = player }
-			});
+		    var businessProcess = await _client.ListItems.UpdateManyAsync(new ListItemUpdateManyRequest
+		    {
+		        AllowMissingDependencies = false,
+		        Requests = new[]
+		        {
+		            new ListItemUpdateRequest { Id = playerItem.Id, Content = player }
+		        }
+		    });
 
 			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 			var updatedPlayer = await _client.ListItems.GetAndConvertToAsync<SoccerPlayer>(playerItem.Id, nameof(SoccerPlayer));
@@ -424,33 +433,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 		[Fact]
 		[Trait("Stack", "ListItem")]
-		public async Task ShouldTrashAndUntrashRandomListItem()
+		public async Task ShouldTrashAndUntrashListItem()
 		{
 			/// Arrange
-			var request = new SchemaSearchRequest
+			var listItem = await _client.ListItems.CreateAsync(new ListItemCreateRequest
 			{
-				Limit = 100,
-				Filter = new TermFilter
-				{
-					Field = "types",
-					Term = SchemaType.List.ToString()
-				}
-			};
-
-			var result = _client.Schemas.Search(request);
-
-			Assert.True(result.Results.Any());
-
-			string listItemId = null;
-
-			// Loop over all metadataSchemaIds until a list item is found
-			foreach (var item in result.Results)
-			{
-				listItemId = _fixture.GetRandomObjectId(item.Id, 20);
-
-				if (!string.IsNullOrEmpty(listItemId))
-					break;
-			}
+				ContentSchemaId = nameof(Tag),
+				Content = new Tag { Name = "ShouldTrashAndUntrashListItem" }
+			});
+			var listItemId = listItem.Id;
 
 			Assert.False(string.IsNullOrEmpty(listItemId));
 			var listItemDetail = await _client.ListItems.GetAsync(listItemId, true);
@@ -470,67 +461,50 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 		[Fact]
 		[Trait("Stack", "ListItem")]
-		public async Task ShouldTrashAndUntrashRandomListItemMany()
+		public async Task ShouldTrashAndUntrashListItemMany()
 		{
 			/// Arrange
-			var request = new SchemaSearchRequest
+			var listItem1 = await _client.ListItems.CreateAsync(new ListItemCreateRequest
 			{
-				Limit = 100,
-				Filter = new TermFilter
-				{
-					Field = "types",
-					Term = SchemaType.List.ToString()
-				}
-			};
+				ContentSchemaId = nameof(Tag),
+				Content = new Tag { Name = "ShouldTrashAndUntrashListItemMany1" }
+			});
 
-			var result = _client.Schemas.Search(request);
-
-			Assert.True(result.Results.Any());
-
-			List<string> listItemIds = new List<string>();
-
-			// Loop over all metadataSchemaIds until an object is found
-			// For Debugging: foreach (var item in result.Results.Where(i => i.Id == "Esselabore1"))
-			foreach (var item in result.Results)
+			var listItem2 = await _client.ListItems.CreateAsync(new ListItemCreateRequest
 			{
-				var listItemId = _fixture.GetRandomObjectId(item.Id, 20);
+				ContentSchemaId = nameof(Tag),
+				Content = new Tag { Name = "ShouldTrashAndUntrashListItemMany2" }
+			});
 
-				if (!string.IsNullOrEmpty(listItemId))
-					listItemIds.Add(listItemId);
+			var listItemDetail1 = await _client.ListItems.GetAsync(listItem1.Id, true);
 
-				if (listItemIds.Count() >= 2)
-					break;
-			}
-
-			var listItemDetail1 = await _client.ListItems.GetAsync(listItemIds[0], true);
-
-			var listItemDetail2 = await _client.ListItems.GetAsync(listItemIds[1], true);
+			var listItemDetail2 = await _client.ListItems.GetAsync(listItem2.Id, true);
 
 			/// Act
 			// Deactivate
 			var deactivateRequest = new ListItemDeactivateRequest
 			{
-				ListItemIds = listItemIds
+				ListItemIds = new List<string> { listItem1.Id, listItem2.Id }
 			};
 
 			var businessProcess = await _client.ListItems.DeactivateManyAsync(deactivateRequest);
 			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
-			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItemIds[0], false));
-			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItemIds[1], false));
+			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItem1.Id, false));
+			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItem2.Id, false));
 
 			// Reactivate
 			var reactivateRequest = new ListItemReactivateRequest
 			{
-				ListItemIds = listItemIds
+				ListItemIds = new List<string> { listItem1.Id, listItem2.Id }
 			};
 
 			businessProcess = await _client.ListItems.ReactivateManyAsync(reactivateRequest);
 			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
 			/// Assert
-			Assert.NotNull(await _client.ListItems.GetAsync(listItemIds[0], true));
-			Assert.NotNull(await _client.ListItems.GetAsync(listItemIds[1], true));
+			Assert.NotNull(await _client.ListItems.GetAsync(listItem1.Id, true));
+			Assert.NotNull(await _client.ListItems.GetAsync(listItem2.Id, true));
 		}
 	}
 }

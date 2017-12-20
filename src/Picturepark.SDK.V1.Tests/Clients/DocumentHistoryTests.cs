@@ -77,7 +77,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var content = await _client.Contents.GetAsync(contentId);
 			var history = await _client.DocumentHistory.GetAsync(contentId);
 
-			var updateRequest = new ContentsMetadataUpdateRequest
+			var updateRequest = new ContentFieldsUpdateRequest
 			{
 				ContentIds = new List<string> { content.Id },
 				ChangeCommands = new List<MetadataValuesChangeCommandBase>
@@ -94,7 +94,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			};
 
 			// TODO: Create ContentHelper to update and wait with one call => UpdateMetadataManyAndWaitForCompletionAsync?
-			var businessProcess = await _client.Contents.UpdateMetadataManyAsync(updateRequest);
+			var businessProcess = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest);
 			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
 			// Refetch content and compare versions

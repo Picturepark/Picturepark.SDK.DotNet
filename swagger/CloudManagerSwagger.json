@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.12.10.0 (NJsonSchema v9.10.10.0 (Newtonsoft.Json v9.0.0.0))",
+  "x-generator": "NSwag v11.12.13.0 (NJsonSchema v9.10.14.0 (Newtonsoft.Json v9.0.0.0))",
   "swagger": "2.0",
   "info": {
     "title": "Picturepark CloudManager API V1",
@@ -403,6 +403,59 @@
         "responses": {
           "200": {
             "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/{customerAlias}/searchIndex/reindex": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_Reindex",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "customerAlias",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "name": "reindexRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SearchIndexReindexRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Index"
+            },
+            "x-nullable": true
           },
           "500": {
             "description": "Internal server error",
@@ -1605,6 +1658,55 @@
               "$ref": "#/definitions/UserDeveloperFlagUpdateRequest"
             },
             "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/{customerAlias}/sampleData": {
+      "put": {
+        "tags": [
+          "SampleData"
+        ],
+        "operationId": "SampleData_create",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "customerAlias",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "name": "dataGenerationCreateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DataGenerationCreateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
           },
           "500": {
             "description": "Internal server error",
@@ -3258,6 +3360,23 @@
         }
       ]
     },
+    "ContentsNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "BusinessProcessDefinitionCreateException": {
       "type": "object",
       "additionalProperties": false,
@@ -4639,6 +4758,131 @@
         }
       ]
     },
+    "SearchIndexReindexRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "numberOfShards",
+        "numberOfReplicas"
+      ],
+      "properties": {
+        "searchIndexId": {
+          "type": "string"
+        },
+        "numberOfShards": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfReplicas": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Index": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "numberOfShards",
+        "numberOfReplicas",
+        "indexType",
+        "state"
+      ],
+      "properties": {
+        "customerId": {
+          "type": "string"
+        },
+        "indexName": {
+          "type": "string"
+        },
+        "indexAlias": {
+          "type": "string"
+        },
+        "numberOfShards": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "indexType": {
+          "$ref": "#/definitions/IndexType"
+        },
+        "state": {
+          "$ref": "#/definitions/IndexState"
+        },
+        "businessProcessId": {
+          "type": "string"
+        }
+      }
+    },
+    "IndexType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Configuration",
+        "Main",
+        "Cache",
+        "ContentSearch",
+        "ListItemSearch",
+        "DocumentHistory",
+        "LiveStream",
+        "User",
+        "Mail",
+        "Transfer",
+        "Share",
+        "Output",
+        "Notification",
+        "BusinessProcess",
+        "ListItem",
+        "Content",
+        "Token",
+        "DisplayValue"
+      ],
+      "enum": [
+        "Configuration",
+        "Main",
+        "Cache",
+        "ContentSearch",
+        "ListItemSearch",
+        "DocumentHistory",
+        "LiveStream",
+        "User",
+        "Mail",
+        "Transfer",
+        "Share",
+        "Output",
+        "Notification",
+        "BusinessProcess",
+        "ListItem",
+        "Content",
+        "Token",
+        "DisplayValue"
+      ]
+    },
+    "IndexState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "Create",
+        "Inactive",
+        "Active",
+        "Closed",
+        "ReindexInProgress",
+        "Cancelled"
+      ],
+      "enum": [
+        "Draft",
+        "Create",
+        "Inactive",
+        "Active",
+        "Closed",
+        "ReindexInProgress",
+        "Cancelled"
+      ]
+    },
     "NodeInfo": {
       "type": "object",
       "additionalProperties": false,
@@ -5274,6 +5518,335 @@
           "type": "string"
         },
         "isDeveloper": {
+          "type": "boolean"
+        }
+      }
+    },
+    "DataGenerationCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sampleRootPath": {
+          "type": "string"
+        },
+        "usersAndRoles": {
+          "$ref": "#/definitions/DataGenerationUsersAndUserRoles"
+        },
+        "contents": {
+          "$ref": "#/definitions/DataGenerationContents"
+        },
+        "basicShares": {
+          "$ref": "#/definitions/DataGenerationBasicShares"
+        },
+        "schemas": {
+          "$ref": "#/definitions/DataGenerationSchemas"
+        },
+        "contentSchemas": {
+          "$ref": "#/definitions/DataGenerationContentSchemas"
+        },
+        "contentPermissionSets": {
+          "$ref": "#/definitions/DataGenerationContentPermissionSets"
+        },
+        "schemaPermissionSets": {
+          "$ref": "#/definitions/DataGenerationSchemaPermissionSets"
+        },
+        "tags": {
+          "$ref": "#/definitions/DataGenerationTags"
+        },
+        "referencedFields": {
+          "$ref": "#/definitions/DataGenerationReferencedFields"
+        },
+        "importSchemas": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ImportSchemasRequest"
+          }
+        }
+      }
+    },
+    "DataGenerationUsersAndUserRoles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "numberOfUsers",
+        "numberOfUserRoles",
+        "userRoleGrantedMax",
+        "userRightGrantedAverage"
+      ],
+      "properties": {
+        "numberOfUsers": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfUserRoles": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "userRoleGrantedMax": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "adminUser": {
+          "$ref": "#/definitions/UserItem"
+        },
+        "adminUserPassword": {
+          "type": "string"
+        },
+        "userRightGrantedAverage": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "UserItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "DataGenerationContents": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "numberOfContents",
+        "transferSize",
+        "numberOfUsersWithContents",
+        "copySampleFiles",
+        "renderOutputs",
+        "maxConcurrentTransfers",
+        "numberOfContentPermissionSets",
+        "includeTroubleMakerFiles",
+        "numberOfSchemasPerContent"
+      ],
+      "properties": {
+        "numberOfContents": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "transferSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfUsersWithContents": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "copySampleFiles": {
+          "type": "boolean"
+        },
+        "renderOutputs": {
+          "type": "boolean"
+        },
+        "maxConcurrentTransfers": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfContentPermissionSets": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "includeTroubleMakerFiles": {
+          "type": "boolean"
+        },
+        "numberOfSchemasPerContent": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "DataGenerationBasicShares": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shareBatchSizePerCreator",
+        "numberOfShareCreators",
+        "numberOfInternalRecipientsPerShare",
+        "numberOfContentsPerShare"
+      ],
+      "properties": {
+        "shareBatchSizePerCreator": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfShareCreators": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfInternalRecipientsPerShare": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfContentsPerShare": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "DataGenerationSchemas": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "numberOfSchemas",
+        "numberOfFieldsPerSchema",
+        "numberOfSchemaPermissionSets"
+      ],
+      "properties": {
+        "numberOfSchemas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfFieldsPerSchema": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfSchemaPermissionSets": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "DataGenerationContentSchemas": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "numberOfContentSchemas",
+        "numberOfFieldsPerContentSchemas",
+        "numberOfSchemaPermissionSets"
+      ],
+      "properties": {
+        "numberOfContentSchemas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfFieldsPerContentSchemas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfSchemaPermissionSets": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "DataGenerationContentPermissionSets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "numberOfSets",
+        "numberOfRolesPerSet",
+        "roleRightGrantedAverage"
+      ],
+      "properties": {
+        "numberOfSets": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfRolesPerSet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "roleRightGrantedAverage": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "DataGenerationSchemaPermissionSets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "numberOfSets",
+        "numberOfRolesPerSet",
+        "roleRightGrantedAverage"
+      ],
+      "properties": {
+        "numberOfSets": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfRolesPerSet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "roleRightGrantedAverage": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "DataGenerationTags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "numberOfSchemas",
+        "numberOfFieldsPerSchema",
+        "numberOfListItems",
+        "numberOfPermissionSets"
+      ],
+      "properties": {
+        "numberOfSchemas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfFieldsPerSchema": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfListItems": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfPermissionSets": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "DataGenerationReferencedFields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "searchLevel",
+        "numberOfSingleTagboxesPerSchema",
+        "generateData"
+      ],
+      "properties": {
+        "searchLevel": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfSingleTagboxesPerSchema": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "generateData": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ImportSchemasRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "importListItems"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "importListItems": {
           "type": "boolean"
         }
       }

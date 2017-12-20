@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Text;
-using Picturepark.SDK.V1.Authentication;
-using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.ServiceProvider.Contract;
 
 namespace Picturepark.SDK.V1.ServiceProvider

@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.12.10.0 (NJsonSchema v9.10.10.0 (Newtonsoft.Json v9.0.0.0))",
+  "x-generator": "NSwag v11.12.13.0 (NJsonSchema v9.10.14.0 (Newtonsoft.Json v9.0.0.0))",
   "swagger": "2.0",
   "info": {
     "title": "Picturepark API V1",
@@ -168,6 +168,55 @@
           {
             "Bearer": [
               "content_read"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Create - many",
+        "description": "Create multiple file-less content items. To import files, see [Transfer](#section/Transfer)\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Content_CreateMany",
+        "parameters": [
+          {
+            "name": "contentCreateManyRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentCreateManyRequest"
+            },
+            "x-nullable": true,
+            "description": "The content create many request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
             ]
           }
         ]
@@ -625,7 +674,7 @@
         ],
         "summary": "Create - single",
         "description": "Create a single file-less content item. To import files, see [Transfer](#section/Transfer)",
-        "operationId": "Content_CreateContent",
+        "operationId": "Content_Create",
         "parameters": [
           {
             "name": "contentCreateRequest",
@@ -644,6 +693,14 @@
             "required": true,
             "x-nullable": false,
             "description": "Resolves the data of referenced list items into the contents's content."
+          },
+          {
+            "type": "boolean",
+            "name": "allowMissingDependencies",
+            "in": "query",
+            "x-nullable": false,
+            "description": "Allow creating list items that refer to list items or contents that don't exist in the system.",
+            "default": false
           },
           {
             "type": "string",
@@ -1048,6 +1105,14 @@
             "description": "Resolves the data of referenced list items into the contents's content."
           },
           {
+            "type": "boolean",
+            "name": "allowMissingDependencies",
+            "in": "query",
+            "x-nullable": false,
+            "description": "Allow storing references to missing list items",
+            "default": false
+          },
+          {
             "type": "string",
             "name": "timeout",
             "in": "query",
@@ -1079,108 +1144,6 @@
             "description": "The specified wait timeout exceeded",
             "schema": {
               "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "content_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/contents/many/metadata": {
-      "put": {
-        "tags": [
-          "Content"
-        ],
-        "summary": "Update metadata - many",
-        "description": "Updates metadata layers of specified contents. For file-less contents, the content itself can be updated aswell. See [ShouldUpdateMetadataMany](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentTests.cs) tests.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
-        "operationId": "Content_UpdateMetadataMany",
-        "parameters": [
-          {
-            "name": "updateRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ContentsMetadataUpdateRequest"
-            },
-            "x-nullable": true,
-            "description": "The metadata update request."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcess",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "content_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/contents/many/metadata/filter": {
-      "put": {
-        "tags": [
-          "Content"
-        ],
-        "summary": "Update metadata - by filter",
-        "description": "Updates metadata layers of specified contents. For file-less contents, the content itself can be updated aswell. A filter must be provided to limit the update to specific contents.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
-        "operationId": "Content_UpdateMetadataByFilter",
-        "parameters": [
-          {
-            "name": "updateRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/FilterContentsMetadataUpdateRequest"
-            },
-            "x-nullable": true,
-            "description": "The metadata update request."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcess",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
             },
             "x-nullable": false
           },
@@ -1274,6 +1237,64 @@
             "description": "ContentDetail",
             "schema": {
               "$ref": "#/definitions/ContentDetail"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contents/many/metadata": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Update metadata - many",
+        "description": "Updates metadata layers of a specified content. For file-less contents, the content itself can be updated aswell. See [ShouldUpdateMetadata](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentTests.cs) tests.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Content_UpdateMetadataMany",
+        "parameters": [
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentMetadataUpdateManyRequest"
+            },
+            "x-nullable": true,
+            "description": "The metadata update requests."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "404": {
+            "description": "Not all provided contents could be found",
+            "schema": {
+              "$ref": "#/definitions/ContentsNotFoundException"
             },
             "x-nullable": false
           },
@@ -1446,6 +1467,108 @@
             },
             "x-nullable": true,
             "description": "The content ownership transfer request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contents/batches/fields/ids": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Batch update fields - by ids",
+        "description": "Updates metadata layers of specified contents. For file-less contents, the content itself can be updated aswell. See [ShouldUpdateMetadataMany](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentTests.cs) tests.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Content_BatchUpdateFieldsByIds",
+        "parameters": [
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentFieldsUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The metadata update request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contents/batches/fields/filter": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Batch update fields - by filter",
+        "description": "Updates metadata layers of specified contents. For file-less contents, the content itself can be updated aswell. A filter must be provided to limit the update to specific contents.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Content_BatchUpdateFieldsByFilter",
+        "parameters": [
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentFieldsFilterUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The metadata update request."
           }
         ],
         "responses": {
@@ -2158,6 +2281,14 @@
             "description": "Resolves the data of referenced list items into the list item's content."
           },
           {
+            "type": "boolean",
+            "name": "allowMissingDependencies",
+            "in": "query",
+            "x-nullable": false,
+            "description": "Allow creating list items that refer to list items or contents that don't exist in the system.",
+            "default": false
+          },
+          {
             "type": "string",
             "name": "timeout",
             "in": "query",
@@ -2320,7 +2451,7 @@
         "operationId": "ListItem_Create",
         "parameters": [
           {
-            "name": "listItem",
+            "name": "listItemCreateRequest",
             "in": "body",
             "required": true,
             "schema": {
@@ -2336,6 +2467,14 @@
             "required": true,
             "x-nullable": false,
             "description": "Resolves the data of referenced list items into the list item's content."
+          },
+          {
+            "type": "boolean",
+            "name": "allowMissingDependencies",
+            "in": "query",
+            "x-nullable": false,
+            "description": "Allow creating list items that refer to list items or contents that don't exist in the system.",
+            "default": false
           },
           {
             "type": "string",
@@ -2405,17 +2544,14 @@
         "operationId": "ListItem_CreateMany",
         "parameters": [
           {
-            "name": "objects",
+            "name": "listItemCreateManyRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ListItemCreateRequest"
-              }
+              "$ref": "#/definitions/ListItemCreateManyRequest"
             },
             "x-nullable": true,
-            "description": "A list of ListItemCreateRequests."
+            "description": "List item create many request."
           }
         ],
         "responses": {
@@ -2457,119 +2593,14 @@
         "operationId": "ListItem_UpdateMany",
         "parameters": [
           {
-            "name": "objects",
+            "name": "listItemUpdateManyRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ListItemUpdateRequest"
-              }
+              "$ref": "#/definitions/ListItemUpdateManyRequest"
             },
             "x-nullable": true,
-            "description": "A list of ListItemUpdateRequests."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcess",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "listitem_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/listItems/many/fields": {
-      "put": {
-        "tags": [
-          "ListItem"
-        ],
-        "summary": "Update fields",
-        "description": "Update fields of multiple list items. A list of listItemIds must be provided to limit the update to specific list items.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
-        "operationId": "ListItem_UpdateFields",
-        "parameters": [
-          {
-            "name": "updateRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListItemFieldsUpdateRequest"
-            },
-            "x-nullable": true,
-            "description": "The metadata update request."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "BusinessProcess",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "listitem_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/listItems/many/fields/filter": {
-      "put": {
-        "tags": [
-          "ListItem"
-        ],
-        "summary": "Update by filter - Fields",
-        "description": "Update fields of multiple list items. A filter must be provided to limit the update to specific list items.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
-        "operationId": "ListItem_UpdateFieldsByFilter",
-        "parameters": [
-          {
-            "name": "updateRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ListItemFieldsFilterUpdateRequest"
-            },
-            "x-nullable": true,
-            "description": "The metadata update request."
+            "description": "List item update many request."
           }
         ],
         "responses": {
@@ -2812,6 +2843,108 @@
             },
             "x-nullable": true,
             "description": "The list items reactivate request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/listItems/batches/fields/ids": {
+      "put": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Batch update fields - by ids",
+        "description": "Update fields of multiple list items. A list of listItemIds must be provided to limit the update to specific list items.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "ListItem_BatchUpdateFieldsByIds",
+        "parameters": [
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListItemFieldsUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The metadata update request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/listItems/batches/fields/filter": {
+      "put": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Batch update fields - by filter",
+        "description": "Update fields of multiple list items. A filter must be provided to limit the update to specific list items.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "ListItem_BatchUpdateFieldsByFilter",
+        "parameters": [
+          {
+            "name": "updateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ListItemFieldsFilterUpdateRequest"
+            },
+            "x-nullable": true,
+            "description": "The metadata update request."
           }
         ],
         "responses": {
@@ -5357,6 +5490,23 @@
         }
       ]
     },
+    "ContentsNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "BusinessProcessDefinitionCreateException": {
       "type": "object",
       "additionalProperties": false,
@@ -6455,6 +6605,7 @@
         "start",
         "limit",
         "lifeCycleFilter",
+        "brokenDependenciesFilter",
         "searchType",
         "debugMode"
       ],
@@ -6531,6 +6682,14 @@
           "allOf": [
             {
               "$ref": "#/definitions/LifeCycleFilter"
+            }
+          ]
+        },
+        "brokenDependenciesFilter": {
+          "description": "Filter the returned contents that have or not have broken references",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BrokenDependenciesFilter"
             }
           ]
         },
@@ -7046,12 +7205,28 @@
       "x-enumNames": [
         "ActiveOnly",
         "All",
-        "InactiveOnly"
+        "InactiveOnly",
+        "ActiveInactiveOnly"
       ],
       "enum": [
         "ActiveOnly",
         "All",
-        "InactiveOnly"
+        "InactiveOnly",
+        "ActiveInactiveOnly"
+      ]
+    },
+    "BrokenDependenciesFilter": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "All",
+        "NotBrokenOnly",
+        "BrokenOnly"
+      ],
+      "enum": [
+        "All",
+        "NotBrokenOnly",
+        "BrokenOnly"
       ]
     },
     "ContentRight": {
@@ -7221,6 +7396,7 @@
       "additionalProperties": false,
       "required": [
         "lifeCycleFilter",
+        "brokenDependenciesFilter",
         "searchType"
       ],
       "properties": {
@@ -7281,6 +7457,14 @@
           "allOf": [
             {
               "$ref": "#/definitions/LifeCycleFilter"
+            }
+          ]
+        },
+        "brokenDependenciesFilter": {
+          "description": "Filter the content document result set to those that have or not have broken references",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BrokenDependenciesFilter"
             }
           ]
         },
@@ -7722,31 +7906,24 @@
         }
       }
     },
-    "ContentDeactivateRequest": {
+    "ContentCreateManyRequest": {
       "type": "object",
+      "description": "A request structure for creating multiple content documents.",
       "additionalProperties": false,
       "required": [
-        "resolve",
-        "forceReferenceRemoval"
+        "allowMissingDependencies"
       ],
       "properties": {
-        "contentIds": {
+        "allowMissingDependencies": {
+          "type": "boolean",
+          "description": "Allow storing references to missing list items / contents"
+        },
+        "requests": {
           "type": "array",
+          "description": "Create requests",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/ContentCreateRequest"
           }
-        },
-        "resolve": {
-          "type": "boolean"
-        },
-        "displayPatternIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "forceReferenceRemoval": {
-          "type": "boolean"
         }
       }
     },
@@ -7936,6 +8113,34 @@
         }
       }
     },
+    "ContentDeactivateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "resolve",
+        "forceReferenceRemoval"
+      ],
+      "properties": {
+        "contentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "resolve": {
+          "type": "boolean"
+        },
+        "displayPatternIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forceReferenceRemoval": {
+          "type": "boolean"
+        }
+      }
+    },
     "ContentReactivateRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -7997,7 +8202,76 @@
         }
       }
     },
-    "ContentsMetadataUpdateRequest": {
+    "ContentPermissionsUpdateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string",
+          "description": "The content id."
+        },
+        "contentPermissionSetIds": {
+          "type": "array",
+          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ContentMetadataUpdateManyRequest": {
+      "type": "object",
+      "description": "Update many contents metadata",
+      "additionalProperties": false,
+      "required": [
+        "allowMissingDependencies"
+      ],
+      "properties": {
+        "allowMissingDependencies": {
+          "type": "boolean",
+          "description": "Allow storing references to missing list items"
+        },
+        "requests": {
+          "type": "array",
+          "description": "Update requests",
+          "items": {
+            "$ref": "#/definitions/ContentMetadataUpdateRequest"
+          }
+        }
+      }
+    },
+    "ContentOwnershipTransferRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string",
+          "description": "The content id."
+        },
+        "transferUserId": {
+          "type": "string",
+          "description": "The id of the user to whom the content document has to be transfered to."
+        }
+      }
+    },
+    "ContentsOwnershipTransferRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentIds": {
+          "type": "array",
+          "description": "The content ids.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "transferUserId": {
+          "type": "string",
+          "description": "The id of user to whom the content documents have to be transfered to."
+        }
+      }
+    },
+    "ContentFieldsUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -8021,6 +8295,7 @@
       "x-abstract": true,
       "additionalProperties": false,
       "required": [
+        "allowMissingDependencies",
         "kind"
       ],
       "properties": {
@@ -8030,6 +8305,10 @@
           "items": {
             "$ref": "#/definitions/MetadataValuesChangeCommandBase"
           }
+        },
+        "allowMissingDependencies": {
+          "type": "boolean",
+          "description": "Allow storing references to missing list items / contents"
         },
         "kind": {
           "type": "string"
@@ -8169,7 +8448,7 @@
         }
       ]
     },
-    "FilterContentsMetadataUpdateRequest": {
+    "ContentFieldsFilterUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -8254,54 +8533,6 @@
           "items": {
             "$ref": "#/definitions/ContentRight"
           }
-        }
-      }
-    },
-    "ContentPermissionsUpdateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentId": {
-          "type": "string",
-          "description": "The content id."
-        },
-        "contentPermissionSetIds": {
-          "type": "array",
-          "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "ContentOwnershipTransferRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentId": {
-          "type": "string",
-          "description": "The content id."
-        },
-        "transferUserId": {
-          "type": "string",
-          "description": "The id of the user to whom the content document has to be transfered to."
-        }
-      }
-    },
-    "ContentsOwnershipTransferRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentIds": {
-          "type": "array",
-          "description": "The content ids.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "transferUserId": {
-          "type": "string",
-          "description": "The id of user to whom the content documents have to be transfered to."
         }
       }
     },
@@ -8721,6 +8952,7 @@
         "start",
         "limit",
         "includeAllSchemaChildren",
+        "brokenDependenciesFilter",
         "includeMetadata",
         "debugMode",
         "lifeCycleFilter"
@@ -8785,6 +9017,14 @@
           "items": {
             "type": "string"
           }
+        },
+        "brokenDependenciesFilter": {
+          "description": "Filter the returned list items that have or not have broken references",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BrokenDependenciesFilter"
+            }
+          ]
         },
         "referencedFieldsDisplayPatternIds": {
           "type": "array",
@@ -8884,6 +9124,7 @@
       "additionalProperties": false,
       "required": [
         "includeAllSchemaChildren",
+        "brokenDependenciesFilter",
         "lifeCycleFilter"
       ],
       "properties": {
@@ -8923,6 +9164,14 @@
         "includeAllSchemaChildren": {
           "type": "boolean",
           "description": "Broadens the aggregation and include all schema descendant list items."
+        },
+        "brokenDependenciesFilter": {
+          "description": "Filter the list items document result set to those that have or not have broken references",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BrokenDependenciesFilter"
+            }
+          ]
         },
         "schemaIds": {
           "type": "array",
@@ -8970,6 +9219,27 @@
         }
       }
     },
+    "ListItemCreateManyRequest": {
+      "type": "object",
+      "description": "A request structure for creating multiple list items.",
+      "additionalProperties": false,
+      "required": [
+        "allowMissingDependencies"
+      ],
+      "properties": {
+        "allowMissingDependencies": {
+          "type": "boolean",
+          "description": "Allow storing references to missing list items / contents"
+        },
+        "requests": {
+          "type": "array",
+          "description": "Create requests",
+          "items": {
+            "$ref": "#/definitions/ListItemCreateRequest"
+          }
+        }
+      }
+    },
     "ListItemUpdateRequest": {
       "type": "object",
       "description": "A request structure for updating a list item.",
@@ -8984,9 +9254,63 @@
         }
       }
     },
+    "ListItemUpdateManyRequest": {
+      "type": "object",
+      "description": "A request structure for updating multiple list items.",
+      "additionalProperties": false,
+      "required": [
+        "allowMissingDependencies"
+      ],
+      "properties": {
+        "allowMissingDependencies": {
+          "type": "boolean",
+          "description": "Allow storing references to missing list items / contents"
+        },
+        "requests": {
+          "type": "array",
+          "description": "Update requests",
+          "items": {
+            "$ref": "#/definitions/ListItemUpdateRequest"
+          }
+        }
+      }
+    },
+    "ListItemDeactivateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "forceReferenceRemoval"
+      ],
+      "properties": {
+        "listItemIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "forceReferenceRemoval": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ListItemReactivateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "listItemIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "ListItemFieldsUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "allowMissingDependencies"
+      ],
       "properties": {
         "listItemIds": {
           "type": "array",
@@ -9001,6 +9325,10 @@
           "items": {
             "$ref": "#/definitions/MetadataValuesChangeCommandBase"
           }
+        },
+        "allowMissingDependencies": {
+          "type": "boolean",
+          "description": "Allow storing references to missing list items / contents"
         }
       }
     },
@@ -9008,6 +9336,9 @@
       "type": "object",
       "description": "ListItemFieldsFilterUpdateRequest class",
       "additionalProperties": false,
+      "required": [
+        "allowMissingDependencies"
+      ],
       "properties": {
         "listItemFilterRequest": {
           "description": "The search request used to filter the list items on which the change commands must be applied",
@@ -9023,6 +9354,10 @@
           "items": {
             "$ref": "#/definitions/MetadataValuesChangeCommandBase"
           }
+        },
+        "allowMissingDependencies": {
+          "type": "boolean",
+          "description": "Allow storing references to missing list items / contents"
         }
       }
     },
@@ -9063,30 +9398,6 @@
         "searchLanguages": {
           "type": "array",
           "description": "Only searches the specified language values. Defaults to all metadata languages of the language configuration.",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "ListItemDeactivateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "listItemIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "ListItemReactivateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "listItemIds": {
-          "type": "array",
           "items": {
             "type": "string"
           }
