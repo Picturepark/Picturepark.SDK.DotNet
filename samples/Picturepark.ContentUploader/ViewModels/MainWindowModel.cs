@@ -35,11 +35,17 @@ namespace Picturepark.ContentUploader.ViewModels
             UnregisterContextMenuCommand = new AsyncRelayCommand(UnregisterContextMenuAsync);
         }
 
+        #region Commands
+
         public AsyncRelayCommand UploadCommand { get; }
 
         public AsyncRelayCommand RegisterContextMenuCommand { get; }
 
         public AsyncRelayCommand UnregisterContextMenuCommand { get; }
+
+        #endregion
+
+        #region Configuration
 
         public string ApiServer
         {
@@ -97,6 +103,8 @@ namespace Picturepark.ContentUploader.ViewModels
             set { ApplicationSettings.SetSetting("RefreshToken", value); }
         }
 
+        #endregion
+
         public string AccessToken { get; set; }
 
         public DateTime AccessTokenExpiration { get; set; }
@@ -107,27 +115,27 @@ namespace Picturepark.ContentUploader.ViewModels
             set { Set(ref _filePath, value); }
         }
 
-        public override void HandleException(Exception exception)
+        public async Task UploadAsync()
         {
-            ExceptionBox.Show("An error occurred", exception, Application.Current.MainWindow);
-        }
-
-        private async Task UploadAsync()
-        {
-            if (File.Exists(FilePath))
+            await RunTaskAsync(async () =>
             {
-                var fileName = Path.GetFileName(FilePath);
-
-                await RunTaskAsync(async () =>
+                if (File.Exists(FilePath))
                 {
+                    var fileName = Path.GetFileName(FilePath);
+
                     var accessToken = await GetAccessTokenAsync();
                     var authClient = new AccessTokenAuthClient(ApiServer, accessToken, CustomerAlias);
                     using (var client = new PictureparkClient(new PictureparkClientSettings(authClient)))
                     {
                         await client.Transfers.UploadFilesAsync(fileName, new[] { FilePath }, new UploadOptions { ChunkSize = 1024 * 1024 });
                     }
-                });
-            }
+                }
+            });
+        }
+
+        public override void HandleException(Exception exception)
+        {
+            ExceptionBox.Show("An error occurred", exception, Application.Current.MainWindow);
         }
 
         private async Task<string> GetAccessTokenAsync()
