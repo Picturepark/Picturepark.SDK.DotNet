@@ -354,7 +354,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var result = await _client.Contents.CreateManyAsync(new List<ContentCreateRequest> { request1, request2 });
+            var result = await _client.Contents.CreateManyAsync(new ContentCreateManyRequest
+            {
+                AllowMissingDependencies = false,
+                Requests = new List<ContentCreateRequest> { request1, request2 }
+            });
             await _client.BusinessProcesses.WaitForCompletionAsync(result.Id);
 
             /// Assert

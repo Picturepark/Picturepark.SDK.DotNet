@@ -21,13 +21,13 @@
 
         <GroupBox Header="Connection" Margin="0,0,0,8">
             <StackPanel Margin="4,4,4,0">
-                <TextBlock Text="Server" Margin="0,0,0,4" FontWeight="Bold" />
-                <TextBox Text="{Binding Server}" Margin="0,0,0,8" />
+                <TextBlock Text="API Server URL" Margin="0,0,0,4" FontWeight="Bold" />
+                <TextBox Text="{Binding ApiServer}" Margin="0,0,0,8" />
 
-                <TextBlock Text="Identity Server" Margin="0,0,0,4" FontWeight="Bold" />
+                <TextBlock Text="Identity Server URL" Margin="0,0,0,4" FontWeight="Bold" />
                 <TextBox Text="{Binding IdentityServer}" Margin="0,0,0,8" />
-                
-                <TextBlock Text="Client ID" Margin="0,0,0,4" FontWeight="Bold" />
+
+                <TextBlock Text="Client ID (AuthorizationFlow: Hybrid)" Margin="0,0,0,4" FontWeight="Bold" />
                 <TextBox Text="{Binding ClientId}" Margin="0,0,0,8" />
 
                 <TextBlock Text="Client Secret" Margin="0,0,0,4" FontWeight="Bold" />

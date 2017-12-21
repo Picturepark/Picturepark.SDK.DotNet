@@ -302,20 +302,20 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Create - many</summary>
-        /// <param name="contentCreateRequests">The content create requests.</param>
+        /// <param name="contentCreateManyRequest">The content create many request.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public BusinessProcess CreateMany(System.Collections.Generic.IEnumerable<ContentCreateRequest> contentCreateRequests)
+        public BusinessProcess CreateMany(ContentCreateManyRequest contentCreateManyRequest)
         {
-            return System.Threading.Tasks.Task.Run(async () => await CreateManyAsync(contentCreateRequests, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await CreateManyAsync(contentCreateManyRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Create - many</summary>
-        /// <param name="contentCreateRequests">The content create requests.</param>
+        /// <param name="contentCreateManyRequest">The content create many request.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<BusinessProcess> CreateManyAsync(System.Collections.Generic.IEnumerable<ContentCreateRequest> contentCreateRequests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BusinessProcess> CreateManyAsync(ContentCreateManyRequest contentCreateManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/many");
@@ -325,7 +325,7 @@ namespace Picturepark.SDK.V1
             {
                 using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentCreateRequests, _settings.Value));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(contentCreateManyRequest, _settings.Value));
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -1263,26 +1263,28 @@ namespace Picturepark.SDK.V1
         /// <summary>Create - single</summary>
         /// <param name="contentCreateRequest">The content create request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public ContentDetail Create(ContentCreateRequest contentCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null)
+        public ContentDetail Create(ContentCreateRequest contentCreateRequest, bool resolve, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await CreateAsync(contentCreateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await CreateAsync(contentCreateRequest, resolve, allowMissingDependencies, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Create - single</summary>
         /// <param name="contentCreateRequest">The content create request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<ContentDetail> CreateAsync(ContentCreateRequest contentCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentDetail> CreateAsync(ContentCreateRequest contentCreateRequest, bool resolve, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
@@ -1290,6 +1292,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents?");
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            if (allowMissingDependencies != null) urlBuilder_.Append("allowMissingDependencies=").Append(System.Uri.EscapeDataString(System.Convert.ToString(allowMissingDependencies, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
@@ -4526,27 +4529,29 @@ namespace Picturepark.SDK.V1
         /// <param name="listItemId">The list item id.</param>
         /// <param name="updateRequest">The list item update request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
+        /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        protected ListItemDetail UpdateCore(string listItemId, ListItemUpdateRequest updateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null)
+        protected ListItemDetail UpdateCore(string listItemId, ListItemUpdateRequest updateRequest, bool resolve, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await UpdateCoreAsync(listItemId, updateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await UpdateCoreAsync(listItemId, updateRequest, resolve, allowMissingDependencies, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Update - single</summary>
         /// <param name="listItemId">The list item id.</param>
         /// <param name="updateRequest">The list item update request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
+        /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        protected async System.Threading.Tasks.Task<ListItemDetail> UpdateCoreAsync(string listItemId, ListItemUpdateRequest updateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        protected async System.Threading.Tasks.Task<ListItemDetail> UpdateCoreAsync(string listItemId, ListItemUpdateRequest updateRequest, bool resolve, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (listItemId == null)
                 throw new System.ArgumentNullException("listItemId");
@@ -4558,6 +4563,7 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/{listItemId}?");
             urlBuilder_.Replace("{listItemId}", System.Uri.EscapeDataString(System.Convert.ToString(listItemId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            if (allowMissingDependencies != null) urlBuilder_.Append("allowMissingDependencies=").Append(System.Uri.EscapeDataString(System.Convert.ToString(allowMissingDependencies, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
@@ -4886,20 +4892,22 @@ namespace Picturepark.SDK.V1
         /// <summary>Create - single</summary>
         /// <param name="listItemCreateRequest">List item create request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
+        /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public ListItemDetail Create(ListItemCreateRequest listItemCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null)
+        public ListItemDetail Create(ListItemCreateRequest listItemCreateRequest, bool resolve, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null)
         {
-            return System.Threading.Tasks.Task.Run(async () => await CreateAsync(listItemCreateRequest, resolve, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await CreateAsync(listItemCreateRequest, resolve, allowMissingDependencies, timeout, patterns, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Create - single</summary>
         /// <param name="listItemCreateRequest">List item create request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
+        /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ListItemDetail</returns>
@@ -4907,7 +4915,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItemCreateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItemCreateRequest, bool resolve, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (resolve == null)
                 throw new System.ArgumentNullException("resolve");
@@ -4915,6 +4923,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems?");
             urlBuilder_.Append("resolve=").Append(System.Uri.EscapeDataString(System.Convert.ToString(resolve, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            if (allowMissingDependencies != null) urlBuilder_.Append("allowMissingDependencies=").Append(System.Uri.EscapeDataString(System.Convert.ToString(allowMissingDependencies, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(System.Convert.ToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (patterns != null) foreach (var item_ in patterns) { urlBuilder_.Append("patterns=").Append(System.Uri.EscapeDataString(System.Convert.ToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
@@ -5033,22 +5042,22 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Create - many</summary>
-        /// <param name="listItemCreateRequests">A list of ListItemCreateRequests.</param>
+        /// <param name="listItemCreateManyRequest">List item create many request.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        protected BusinessProcess CreateManyCore(System.Collections.Generic.IEnumerable<ListItemCreateRequest> listItemCreateRequests)
+        protected BusinessProcess CreateManyCore(ListItemCreateManyRequest listItemCreateManyRequest)
         {
-            return System.Threading.Tasks.Task.Run(async () => await CreateManyCoreAsync(listItemCreateRequests, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await CreateManyCoreAsync(listItemCreateManyRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Create - many</summary>
-        /// <param name="listItemCreateRequests">A list of ListItemCreateRequests.</param>
+        /// <param name="listItemCreateManyRequest">List item create many request.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        protected async System.Threading.Tasks.Task<BusinessProcess> CreateManyCoreAsync(System.Collections.Generic.IEnumerable<ListItemCreateRequest> listItemCreateRequests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        protected async System.Threading.Tasks.Task<BusinessProcess> CreateManyCoreAsync(ListItemCreateManyRequest listItemCreateManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/many");
@@ -5058,7 +5067,7 @@ namespace Picturepark.SDK.V1
             {
                 using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(listItemCreateRequests, _settings.Value));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(listItemCreateManyRequest, _settings.Value));
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -5147,22 +5156,22 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Update - many</summary>
-        /// <param name="objects">A list of ListItemUpdateRequests.</param>
+        /// <param name="listItemUpdateManyRequest">List item update many request.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public BusinessProcess UpdateMany(System.Collections.Generic.IEnumerable<ListItemUpdateRequest> objects)
+        public BusinessProcess UpdateMany(ListItemUpdateManyRequest listItemUpdateManyRequest)
         {
-            return System.Threading.Tasks.Task.Run(async () => await UpdateManyAsync(objects, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
+            return System.Threading.Tasks.Task.Run(async () => await UpdateManyAsync(listItemUpdateManyRequest, System.Threading.CancellationToken.None)).GetAwaiter().GetResult();
         }
     
         /// <summary>Update - many</summary>
-        /// <param name="objects">A list of ListItemUpdateRequests.</param>
+        /// <param name="listItemUpdateManyRequest">List item update many request.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(System.Collections.Generic.IEnumerable<ListItemUpdateRequest> objects, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(ListItemUpdateManyRequest listItemUpdateManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/many");
@@ -5172,7 +5181,7 @@ namespace Picturepark.SDK.V1
             {
                 using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(objects, _settings.Value));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(listItemUpdateManyRequest, _settings.Value));
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("PUT");

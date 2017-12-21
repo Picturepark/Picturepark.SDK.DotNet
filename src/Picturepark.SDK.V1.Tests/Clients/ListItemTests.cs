@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Contracts;
@@ -52,16 +53,20 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		{
 			/// Arrange
 			var objectName = "ThisObjectD" + new Random().Next(0, 999999);
-			var objects = new List<ListItemCreateRequest>
-			{
-				new ListItemCreateRequest
-				{
-					ContentSchemaId = nameof(Tag),
-					Content = new Tag { Name = objectName }
-				}
-			};
+		    var createManyRequest = new ListItemCreateManyRequest()
+		    {
+		        AllowMissingDependencies = false,
+		        Requests = new List<ListItemCreateRequest>
+		        {
+		            new ListItemCreateRequest
+		            {
+		                ContentSchemaId = nameof(Tag),
+		                Content = new Tag { Name = objectName }
+		            }
+		        }
+		    };
 
-			var results = await _client.ListItems.CreateManyAsync(objects);
+			var results = await _client.ListItems.CreateManyAsync(createManyRequest);
 			var result = results.First();
 
 			/// Act
@@ -410,10 +415,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var player = playerItem.ConvertTo<SoccerPlayer>(nameof(SoccerPlayer));
 			player.Firstname = "xy jviorej ivorejvioe";
 
-			var businessProcess = await _client.ListItems.UpdateManyAsync(new[]
-			{
-				new ListItemUpdateRequest { Id = playerItem.Id, Content = player }
-			});
+		    var businessProcess = await _client.ListItems.UpdateManyAsync(new ListItemUpdateManyRequest
+		    {
+		        AllowMissingDependencies = false,
+		        Requests = new[]
+		        {
+		            new ListItemUpdateRequest { Id = playerItem.Id, Content = player }
+		        }
+		    });
 
 			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 			var updatedPlayer = await _client.ListItems.GetAndConvertToAsync<SoccerPlayer>(playerItem.Id, nameof(SoccerPlayer));
