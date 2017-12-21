@@ -557,7 +557,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = _fixture.GetRandomContentId(".jpg", 20);
             var request = new ContentFieldsFilterUpdateRequest
             {
-                TotalItemsCount = 1,
                 ContentFilterRequest = new ContentFilterRequest
                 {
                     ChannelIds = new List<string> { "rootChannel" },

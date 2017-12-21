@@ -4879,9 +4879,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentFilterRequest", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ContentFilterRequest ContentFilterRequest { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("totalItemsCount", Required = Newtonsoft.Json.Required.Always)]
-        public int TotalItemsCount { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
