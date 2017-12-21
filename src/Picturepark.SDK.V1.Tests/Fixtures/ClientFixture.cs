@@ -53,7 +53,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
 		public async Task<string> GetRandomContentPermissionSetIdAsync(int limit)
 		{
-			return await RandomHelper.GetRandomContentPermissionSetId(_client, limit);
+			return await RandomHelper.GetRandomContentPermissionSetIdAsync(_client, limit);
 		}
 
 		public async Task<string> GetRandomTransferIdAsync(TransferState? transferState, int limit)

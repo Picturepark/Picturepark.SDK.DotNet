@@ -33,7 +33,7 @@ namespace Picturepark.SDK.V1.Tests
 			return contentId;
 		}
 
-		public static async Task<string> GetRandomContentPermissionSetId(PictureparkClient client, int limit)
+		public static async Task<string> GetRandomContentPermissionSetIdAsync(PictureparkClient client, int limit)
 		{
 			string permissionSetId = string.Empty;
 			PermissionSetSearchRequest request = new PermissionSetSearchRequest { Limit = limit };
