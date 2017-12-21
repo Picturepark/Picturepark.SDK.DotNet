@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp1.0</TargetFramework>
     <ApplicationIcon />
     <StartupObject />
+    <CodeAnalysisRuleSet>../Picturepark.SDK.DotNet.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>
