@@ -28,13 +28,6 @@ namespace Picturepark.SDK.V1.Contract
 
         /// <summary>Creates multiple <see cref="ListItem"/>s.</summary>
         /// <param name="createManyRequest">The create many request.</param>
-        /// <returns>The created <see cref="ListItem"/>s.</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">The business process has not been completed.</exception>
-        IEnumerable<ListItem> CreateMany(ListItemCreateManyRequest createManyRequest);
-
-        /// <summary>Creates multiple <see cref="ListItem"/>s.</summary>
-        /// <param name="createManyRequest">The create many request.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The created <see cref="ListItem"/>s.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>

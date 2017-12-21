@@ -148,7 +148,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldDelete()
 		{
 			/// Arrange
-			var transferId = _fixture.GetRandomTransferId(TransferState.TransferReady, 10);
+			var transferId = await _fixture.GetRandomTransferIdAsync(TransferState.TransferReady, 10);
 			var transfer = await _client.Transfers.GetAsync(transferId);
 
 			/// Act
@@ -163,7 +163,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldGet()
 		{
 			/// Arrange
-			var transferId = _fixture.GetRandomTransferId(null, 20);
+			var transferId = await _fixture.GetRandomTransferIdAsync(null, 20);
 
 			/// Act
 			TransferDetail result = await _client.Transfers.GetAsync(transferId);
@@ -178,7 +178,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldGetFile()
 		{
 			/// Arrange
-			var fileTransferId = _fixture.GetRandomFileTransferId(20);
+			var fileTransferId = await _fixture.GetRandomFileTransferIdAsync(20);
 
 			/// Act
 			FileTransferDetail result = await _client.Transfers.GetFileAsync(fileTransferId);

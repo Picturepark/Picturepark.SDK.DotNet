@@ -8,13 +8,13 @@ namespace Picturepark.SDK.V1.Tests
 {
 	public class RandomHelper
 	{
-		public static ContentSearchResult GetRandomContents(PictureparkClient client, string searchString, int limit)
+		public static async Task<ContentSearchResult> GetRandomContentsAsync(PictureparkClient client, string searchString, int limit)
 		{
 			var request = new ContentSearchRequest() { SearchString = searchString, Limit = limit };
-			return client.Contents.Search(request);
+			return await client.Contents.SearchAsync(request);
 		}
 
-		public static string GetRandomContentId(PictureparkClient client, string searchString, int limit)
+		public static async Task<string> GetRandomContentIdAsync(PictureparkClient client, string searchString, int limit)
 		{
 			string contentId = string.Empty;
 			ContentSearchRequest request = new ContentSearchRequest() { Limit = limit };
@@ -22,7 +22,7 @@ namespace Picturepark.SDK.V1.Tests
 			if (!string.IsNullOrEmpty(searchString))
 				request.SearchString = searchString;
 
-			ContentSearchResult result = client.Contents.Search(request);
+			ContentSearchResult result = await client.Contents.SearchAsync(request);
 
 			if (result.Results.Count > 0)
 			{
@@ -48,7 +48,7 @@ namespace Picturepark.SDK.V1.Tests
 			return permissionSetId;
 		}
 
-		public static string GetRandomTransferId(PictureparkClient client, TransferState? transferState, int limit)
+		public static async Task<string> GetRandomTransferIdAsync(PictureparkClient client, TransferState? transferState, int limit)
 		{
 			var transferId = string.Empty;
 
@@ -66,7 +66,7 @@ namespace Picturepark.SDK.V1.Tests
 				};
 			}
 
-			var result = client.Transfers.Search(request);
+			var result = await client.Transfers.SearchAsync(request);
 
 			var transfers = result.Results;
 
@@ -79,11 +79,11 @@ namespace Picturepark.SDK.V1.Tests
 			return transferId;
 		}
 
-		public static string GetRandomFileTransferId(PictureparkClient client, int limit)
+		public static async Task<string> GetRandomFileTransferIdAsync(PictureparkClient client, int limit)
 		{
 			string fileTransferId = string.Empty;
 			FileTransferSearchRequest request = new FileTransferSearchRequest() { Limit = limit };
-			FileTransferSearchResult result = client.Transfers.SearchFiles(request);
+			FileTransferSearchResult result = await client.Transfers.SearchFilesAsync(request);
 
 			if (result.Results.Count > 0)
 			{
@@ -94,7 +94,7 @@ namespace Picturepark.SDK.V1.Tests
 			return fileTransferId;
 		}
 
-		public static async Task<string> GetRandomMetadataPermissionSetId(PictureparkClient client, int limit)
+		public static async Task<string> GetRandomMetadataPermissionSetIdAsync(PictureparkClient client, int limit)
 		{
 			string permissionSetId = string.Empty;
 			var request = new PermissionSetSearchRequest() { Limit = limit };
@@ -109,11 +109,11 @@ namespace Picturepark.SDK.V1.Tests
 			return permissionSetId;
 		}
 
-		public static string GetRandomSchemaId(PictureparkClient client, int limit)
+		public static async Task<string> GetRandomSchemaIdAsync(PictureparkClient client, int limit)
 		{
 			string schemaId = string.Empty;
 			var request = new SchemaSearchRequest { Limit = limit };
-			SchemaSearchResult result = client.Schemas.Search(request);
+			SchemaSearchResult result = await client.Schemas.SearchAsync(request);
 
 			if (result.Results.Count > 0)
 			{
@@ -124,7 +124,7 @@ namespace Picturepark.SDK.V1.Tests
 			return schemaId;
 		}
 
-		public static string GetRandomObjectId(PictureparkClient client, string schemaId, int limit)
+		public static async Task<string> GetRandomObjectIdAsync(PictureparkClient client, string schemaId, int limit)
 		{
 			string objectId = string.Empty;
 
@@ -134,7 +134,7 @@ namespace Picturepark.SDK.V1.Tests
 				SchemaIds = new List<string> { schemaId }
 			};
 
-			var result = client.ListItems.SearchAsync(request).Result;
+			var result = await client.ListItems.SearchAsync(request);
 
 			if (result.Results.Count > 0)
 			{
@@ -145,7 +145,7 @@ namespace Picturepark.SDK.V1.Tests
 			return objectId;
 		}
 
-		public static string GetRandomShareId(PictureparkClient client, ShareType shareType, int limit)
+		public static async Task<string> GetRandomShareIdAsync(PictureparkClient client, ShareType shareType, int limit)
 		{
 			var shareId = string.Empty;
 
@@ -155,7 +155,7 @@ namespace Picturepark.SDK.V1.Tests
 				Filter = new TermFilter { Field = "shareType", Term = shareType.ToString() }
 			};
 
-			var result = client.Shares.Search(request);
+			var result = await client.Shares.SearchAsync(request);
 
 			var shares = result.Results;
 			if (shares.Count > 0)

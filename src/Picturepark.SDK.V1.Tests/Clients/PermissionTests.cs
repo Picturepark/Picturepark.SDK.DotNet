@@ -44,7 +44,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldGetContentPermissionSet()
 		{
 			/// Arrange
-			string permissionSetId = await _fixture.GetRandomContentPermissionSetId(20);
+			string permissionSetId = await _fixture.GetRandomContentPermissionSetIdAsync(20);
 			Assert.False(string.IsNullOrEmpty(permissionSetId));
 
 			/// Act
@@ -59,7 +59,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldGetSchemaPermissionSet()
 		{
 			/// Arrange
-			string permissionSetId = await _fixture.GetRandomMetadataPermissionSetId(20);
+			string permissionSetId = await _fixture.GetRandomContentPermissionSetIdAsync(20);
 			Assert.False(string.IsNullOrEmpty(permissionSetId));
 
 			/// Act

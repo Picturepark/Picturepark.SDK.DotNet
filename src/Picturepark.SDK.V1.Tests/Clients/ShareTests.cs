@@ -29,8 +29,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			var shareContentItems = new List<ShareContent>
 			{
-				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds },
-				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds }
+				new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds },
+				new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds }
 			};
 
 			var createRequest = new ShareEmbedCreateRequest
@@ -75,8 +75,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			var shareContentItems = new List<ShareContent>
 			{
-				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds },
-				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds }
+				new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds },
+				new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds }
 			};
 
 			var createRequest = new ShareEmbedCreateRequest
@@ -112,8 +112,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			var shareContentItems = new List<ShareContent>
 			{
-				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds },
-				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds }
+				new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds },
+				new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds }
 			};
 
 			var createRequest = new ShareEmbedCreateRequest
@@ -146,8 +146,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			var shareContentItems = new List<ShareContent>()
 			{
-				new ShareContent() { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds },
-				new ShareContent() { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds }
+				new ShareContent() { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds },
+				new ShareContent() { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds }
 			};
 
 			var request = new ShareBasicCreateRequest()
@@ -210,8 +210,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			var shareContentItems = new List<ShareContent>
 			{
-				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds },
-				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds }
+				new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds },
+				new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds }
 			};
 
 			var request = new ShareEmbedCreateRequest
@@ -235,7 +235,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldGetBasicShare()
 		{
 			/// Arrange
-			var shareId = _fixture.GetRandomShareId(ShareType.Basic, 20);
+			var shareId = await _fixture.GetRandomShareIdAsync(ShareType.Basic, 20);
 
 			/// Act
 			var result = await _client.Shares.GetAsync(shareId);
@@ -249,7 +249,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldGetEmbedShare()
 		{
 			/// Arrange
-			var shareId = _fixture.GetRandomShareId(ShareType.Embed, 200);
+			var shareId = await _fixture.GetRandomShareIdAsync(ShareType.Embed, 200);
 
 			/// Act
 			var result = await _client.Shares.GetAsync(shareId);

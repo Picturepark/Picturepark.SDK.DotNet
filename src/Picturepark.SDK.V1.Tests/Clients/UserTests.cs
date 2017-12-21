@@ -33,7 +33,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldGetUser()
 		{
 			/// Arrange
-			var contentId = _fixture.GetRandomContentId(".jpg", 50);
+			var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 50);
 			var content = await _client.Contents.GetAsync(contentId);
 			var owner = await _client.Users.GetByOwnerTokenAsync(content.OwnerTokenId);
 
@@ -49,7 +49,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldGetByOwnerToken()
 		{
 			/// Arrange
-			var contentId = _fixture.GetRandomContentId(".jpg", 50);
+			var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 50);
 			var content = await _client.Contents.GetAsync(contentId);
 
 			/// Act
