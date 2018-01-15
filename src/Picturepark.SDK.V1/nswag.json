@@ -31,7 +31,7 @@
       "useHttpRequestMessageCreationMethod": true,
       "useBaseUrl": true,
       "generateBaseUrlProperty": false,
-      "generateSyncMethods": true,
+      "generateSyncMethods": false,
       "clientClassAccessModifier": "public",
       "typeAccessModifier": "public",
       "generateContractsOutput": true,

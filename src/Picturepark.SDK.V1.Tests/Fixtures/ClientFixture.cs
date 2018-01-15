@@ -41,49 +41,49 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
 		public PictureparkClient Client => _client;
 
-		public Contract.ContentSearchResult GetRandomContents(string searchString, int limit)
+		public async Task<ContentSearchResult> GetRandomContentsAsync(string searchString, int limit)
 		{
-			return RandomHelper.GetRandomContents(_client, searchString, limit);
+			return await RandomHelper.GetRandomContentsAsync(_client, searchString, limit);
 		}
 
-		public string GetRandomContentId(string searchString, int limit)
+		public async Task<string> GetRandomContentIdAsync(string searchString, int limit)
 		{
-			return RandomHelper.GetRandomContentId(_client, searchString, limit);
+			return await RandomHelper.GetRandomContentIdAsync(_client, searchString, limit);
 		}
 
-		public async Task<string> GetRandomContentPermissionSetId(int limit)
+		public async Task<string> GetRandomContentPermissionSetIdAsync(int limit)
 		{
-			return await RandomHelper.GetRandomContentPermissionSetId(_client, limit);
+			return await RandomHelper.GetRandomContentPermissionSetIdAsync(_client, limit);
 		}
 
-		public string GetRandomTransferId(TransferState? transferState, int limit)
+		public async Task<string> GetRandomTransferIdAsync(TransferState? transferState, int limit)
 		{
-			return RandomHelper.GetRandomTransferId(_client, transferState, limit);
+			return await RandomHelper.GetRandomTransferIdAsync(_client, transferState, limit);
 		}
 
-		public string GetRandomFileTransferId(int limit)
+		public async Task<string> GetRandomFileTransferIdAsync(int limit)
 		{
-			return RandomHelper.GetRandomFileTransferId(_client, limit);
+			return await RandomHelper.GetRandomFileTransferIdAsync(_client, limit);
 		}
 
-		public async Task<string> GetRandomMetadataPermissionSetId(int limit)
+		public async Task<string> GetRandomMetadataPermissionSetIdAsync(int limit)
 		{
-			return await RandomHelper.GetRandomMetadataPermissionSetId(_client, limit);
+			return await RandomHelper.GetRandomMetadataPermissionSetIdAsync(_client, limit);
 		}
 
-		public string GetRandomSchemaId(int limit)
+		public async Task<string> GetRandomSchemaIdAsync(int limit)
 		{
-			return RandomHelper.GetRandomSchemaId(_client, limit);
+			return await RandomHelper.GetRandomSchemaIdAsync(_client, limit);
 		}
 
-		public string GetRandomObjectId(string metadataSchemaId, int limit)
+		public async Task<string> GetRandomObjectIdAsync(string metadataSchemaId, int limit)
 		{
-			return RandomHelper.GetRandomObjectId(_client, metadataSchemaId, limit);
+			return await RandomHelper.GetRandomObjectIdAsync(_client, metadataSchemaId, limit);
 		}
 
-		public string GetRandomShareId(ShareType shareType, int limit)
+		public async Task<string> GetRandomShareIdAsync(ShareType shareType, int limit)
 		{
-			return RandomHelper.GetRandomShareId(_client, shareType, limit);
+			return await RandomHelper.GetRandomShareIdAsync(_client, shareType, limit);
 		}
 
 		public void Dispose()

@@ -296,7 +296,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			// For debugging: .Where(i => i.Id == "Esselabore1"))
 			var tuple = result.Results
-				.Select(i => new { schemaId = i.Id, objectId = _fixture.GetRandomObjectId(i.Id, 20) })
+				.Select(i => new { schemaId = i.Id, objectId = _fixture.GetRandomObjectIdAsync(i.Id, 20).Result })
 				.First(i => !string.IsNullOrEmpty(i.objectId));
 
 			/// Act

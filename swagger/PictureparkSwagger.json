@@ -8451,16 +8451,9 @@
     "ContentFieldsFilterUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "totalItemsCount"
-      ],
       "properties": {
         "contentFilterRequest": {
           "$ref": "#/definitions/ContentFilterRequest"
-        },
-        "totalItemsCount": {
-          "type": "integer",
-          "format": "int32"
         }
       },
       "allOf": [

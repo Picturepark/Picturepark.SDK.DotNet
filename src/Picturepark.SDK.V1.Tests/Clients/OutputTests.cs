@@ -23,7 +23,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldGet()
 		{
 			/// Arrange
-			string contentId = _fixture.GetRandomContentId(".jpg", 20);
+			string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
 			Assert.False(string.IsNullOrEmpty(contentId));
 
 			ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);
@@ -45,7 +45,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldGetByContentIds()
 		{
 			/// Arrange
-			string contentId = _fixture.GetRandomContentId(".jpg", 20);
+			string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
 			var request = new ContentsByIdsRequest
 			{
 				ContentIds = new List<string> { contentId }

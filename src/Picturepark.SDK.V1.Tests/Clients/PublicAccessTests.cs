@@ -41,8 +41,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var outputFormatIds = new List<string> { "Original", "Preview" };
 			var shareContentItems = new List<ShareContent>
 			{
-				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds },
-				new ShareContent { ContentId = _fixture.GetRandomContentId(string.Empty, 30), OutputFormatIds = outputFormatIds }
+				new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds },
+				new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds }
 			};
 
 			var request = new ShareEmbedCreateRequest
