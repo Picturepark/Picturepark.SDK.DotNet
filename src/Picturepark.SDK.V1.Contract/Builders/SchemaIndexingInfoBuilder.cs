@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Newtonsoft.Json.Serialization;
+using Picturepark.SDK.V1.Contract.Attributes;
 
 namespace Picturepark.SDK.V1.Contract.Builders
 {
@@ -52,30 +53,53 @@ namespace Picturepark.SDK.V1.Contract.Builders
             throw new InvalidOperationException();
         }
 
-        public SchemaIndexingInfoPropertiesBuilder<T> AddProperties()
-        {
-            var contract = ContractResolver.ResolveContract(typeof(T)) as JsonObjectContract;
-            if (contract != null)
-            {
-                var newFields = contract.Properties
-                    .Where(p => _fields.All(f => f.Id != p.PropertyName))
-                    .Select(p => new FieldIndexingInfo
-                    {
-                        Id = p.PropertyName
-                    });
-
-                return new SchemaIndexingInfoPropertiesBuilder<T>(newFields, Clone(CompleteFields), ContractResolver);
-            }
-
-            throw new InvalidOperationException();
-        }
-
         public SchemaIndexingInfo Build()
         {
             return new SchemaIndexingInfo
             {
                 Fields = CompleteFields.ToList()
             };
+        }
+
+        public SchemaIndexingInfoPropertiesBuilder<T> AddProperties(int maxLevels)
+        {
+            return AddProperties(maxLevels, p => true);
+        }
+
+        public SchemaIndexingInfoPropertiesBuilder<T> AddPropertiesAndTagboxes(int maxLevels)
+        {
+            return AddProperties(maxLevels, p => p.AttributeProvider
+                .GetAttributes(true)
+                .OfType<PictureparkTagboxAttribute>()
+                .Any());
+        }
+
+        public SchemaIndexingInfoPropertiesBuilder<T> AddProperties(int maxLevels, Predicate<JsonProperty> predicate)
+        {
+            var newFields = GetFieldIndexingInfos(typeof(T), maxLevels, predicate);
+            return new SchemaIndexingInfoPropertiesBuilder<T>(newFields, Clone(CompleteFields), ContractResolver);
+        }
+
+        private List<FieldIndexingInfo> GetFieldIndexingInfos(Type type, int maxLevels, Predicate<JsonProperty> predicate)
+        {
+            var contract = ContractResolver.ResolveContract(type) as JsonObjectContract;
+            if (contract != null)
+            {
+                return contract.Properties
+                    .Where(p => predicate(p) && _fields.All(f => f.Id != p.PropertyName))
+                    .Select(p => new FieldIndexingInfo
+                    {
+                        Id = p.PropertyName,
+                        RelatedSchemaIndexing = maxLevels > 0 ?
+                            new SchemaIndexingInfo
+                            {
+                                Fields = GetFieldIndexingInfos(p.PropertyType, maxLevels - 1, predicate)
+                            }
+                            : null
+                    }).ToList();
+            }
+
+            return new List<FieldIndexingInfo>();
         }
     }
 }

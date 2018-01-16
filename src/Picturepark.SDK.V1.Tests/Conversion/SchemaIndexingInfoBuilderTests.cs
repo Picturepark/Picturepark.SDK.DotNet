@@ -27,7 +27,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         {
             /// Act
             var schemaIndexingInfo = new SchemaIndexingInfoBuilder<Parent>()
-                .AddProperties()
+                .AddProperties(0)
                 .AddProperty(p => p.Child)
                     .WithBoost(11)
                     .WithIndex()
@@ -35,7 +35,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
                 .Build();
 
             /// Assert
-            Assert.Equal(3, schemaIndexingInfo.Fields.Count);
+            Assert.Equal(4, schemaIndexingInfo.Fields.Count);
             Assert.Equal("child", schemaIndexingInfo.Fields.First().Id);
             Assert.Equal(11, schemaIndexingInfo.Fields.First().Boost);
         }
@@ -46,7 +46,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         {
             /// Act
             var schemaIndexingInfo = new SchemaIndexingInfoBuilder<Parent>()
-                .AddProperties()
+                .AddProperties(0)
                     .WithIndex()
                 .Build();
 
@@ -54,9 +54,44 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             Assert.True(schemaIndexingInfo.Fields.All(f => f.Index));
         }
 
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public void ShouldLoadChildProperties()
+        {
+            /// Act
+            var schemaIndexingInfo = new SchemaIndexingInfoBuilder<Parent>()
+                .AddProperties(1)
+                .Build();
+
+            /// Assert
+            Assert.True(schemaIndexingInfo.Fields
+                .First(f => f.Id == "child")
+                .RelatedSchemaIndexing
+                .Fields
+                .Any(f => f.Id == "firstName"));
+            Assert.True(schemaIndexingInfo.Fields.Any(f => f.Id == "child2"));
+        }
+
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public void ShouldLoadOnlyTagboxChildren()
+        {
+            /// Act
+            var schemaIndexingInfo = new SchemaIndexingInfoBuilder<Parent>()
+                .AddPropertiesAndTagboxes(1)
+                .Build();
+
+            /// Assert
+            Assert.True(schemaIndexingInfo.Fields.Any(f => f.Id == "child"));
+            Assert.False(schemaIndexingInfo.Fields.Any(f => f.Id == "child2"));
+        }
+
         public class Parent
         {
+            [PictureparkTagbox("{ 'kind': 'TermFilter', 'field': 'contentType', Term: 'FC Aarau' }")]
             public Child Child { get; set; }
+
+            public Child Child2 { get; set; }
 
             public string Foo { get; set; }
 
@@ -66,9 +101,9 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [PictureparkSchemaType(SchemaType.Struct)]
         public class Child : Relation
         {
-            public string Foo { get; set; }
+            public string FirstName { get; set; }
 
-            public string Bar { get; set; }
+            public string LastName { get; set; }
         }
     }
 }
