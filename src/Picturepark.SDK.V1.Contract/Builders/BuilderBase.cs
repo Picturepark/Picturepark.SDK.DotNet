@@ -1,8 +1,8 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
-namespace Picturepark.SDK.V1.Contract.Attributes.Providers
+namespace Picturepark.SDK.V1.Contract.Builders
 {
     public class BuilderBase
     {

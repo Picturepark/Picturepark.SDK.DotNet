@@ -3,12 +3,12 @@
 using Newtonsoft.Json;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
-using Picturepark.SDK.V1.Contract.Attributes.Providers;
 using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Picturepark.SDK.V1.Contract.Providers;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Conversion

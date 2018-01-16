@@ -1,4 +1,4 @@
-﻿namespace Picturepark.SDK.V1.Contract.Attributes.Providers
+﻿namespace Picturepark.SDK.V1.Contract.Providers
 {
     public interface ISchemaIndexingInfoProvider
     {

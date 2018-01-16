@@ -2,10 +2,10 @@
 
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
-using Picturepark.SDK.V1.Contract.Attributes.Providers;
 using Picturepark.SDK.V1.Contract.SystemTypes;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using System.Linq;
+using Picturepark.SDK.V1.Contract.Builders;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Conversion
@@ -23,12 +23,12 @@ namespace Picturepark.SDK.V1.Tests.Conversion
 
         [Fact]
         [Trait("Stack", "Schema")]
-        public void Bcd()
+        public void ShouldIncludeAllPropertiesAndChangeSpecifiedProperties()
         {
             /// Act
-            var schemaIndexingInfo = new SchemaIndexingInfoBuilder<Test>()
+            var schemaIndexingInfo = new SchemaIndexingInfoBuilder<Parent>()
                 .AddProperties()
-                .AddProperty(p => p.Aaa)
+                .AddProperty(p => p.Child)
                     .WithBoost(11)
                     .WithIndex()
                 .AddProperty(p => p.Bar)
@@ -36,16 +36,16 @@ namespace Picturepark.SDK.V1.Tests.Conversion
 
             /// Assert
             Assert.Equal(3, schemaIndexingInfo.Fields.Count);
-            Assert.Equal("aaa", schemaIndexingInfo.Fields.First().Id);
+            Assert.Equal("child", schemaIndexingInfo.Fields.First().Id);
             Assert.Equal(11, schemaIndexingInfo.Fields.First().Boost);
         }
 
         [Fact]
         [Trait("Stack", "Schema")]
-        public void Abc()
+        public void ShouldChangeAllProperties()
         {
             /// Act
-            var schemaIndexingInfo = new SchemaIndexingInfoBuilder<Test>()
+            var schemaIndexingInfo = new SchemaIndexingInfoBuilder<Parent>()
                 .AddProperties()
                     .WithIndex()
                 .Build();
@@ -54,9 +54,9 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             Assert.True(schemaIndexingInfo.Fields.All(f => f.Index));
         }
 
-        public class Test
+        public class Parent
         {
-            public Aaa Aaa { get; set; }
+            public Child Child { get; set; }
 
             public string Foo { get; set; }
 
@@ -64,7 +64,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         }
 
         [PictureparkSchemaType(SchemaType.Struct)]
-        public class Aaa : Relation
+        public class Child : Relation
         {
             public string Foo { get; set; }
 

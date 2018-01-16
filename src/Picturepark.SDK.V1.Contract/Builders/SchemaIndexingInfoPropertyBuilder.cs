@@ -1,16 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json.Serialization;
 
-namespace Picturepark.SDK.V1.Contract.Attributes.Providers
+namespace Picturepark.SDK.V1.Contract.Builders
 {
     public class SchemaIndexingInfoPropertyBuilder<T>
         : SchemaIndexingInfoBuilder<T>
     {
-        private FieldIndexingInfo _field;
+        private readonly FieldIndexingInfo _field;
 
         public SchemaIndexingInfoPropertyBuilder(
-            FieldIndexingInfo field, IEnumerable<FieldIndexingInfo> fields)
-            : base(fields)
+            FieldIndexingInfo field,
+            IEnumerable<FieldIndexingInfo> fields,
+            IContractResolver contractResolver)
+            : base(fields, contractResolver)
         {
             _field = field;
         }
@@ -28,7 +31,7 @@ namespace Picturepark.SDK.V1.Contract.Attributes.Providers
                 }
                 else
                 {
-                    return Clone(fields).Concat(new FieldIndexingInfo[] { _field }).ToList();
+                    return Clone(fields).Concat(new[] { _field }).ToList();
                 }
             }
         }
@@ -38,7 +41,7 @@ namespace Picturepark.SDK.V1.Contract.Attributes.Providers
             var field = Clone(_field);
             field.Boost = boost;
 
-            return new SchemaIndexingInfoPropertyBuilder<T>(field, Clone(Fields));
+            return new SchemaIndexingInfoPropertyBuilder<T>(field, Clone(Fields), ContractResolver);
         }
 
         public SchemaIndexingInfoPropertyBuilder<T> WithIndex()
@@ -46,7 +49,7 @@ namespace Picturepark.SDK.V1.Contract.Attributes.Providers
             var field = Clone(_field);
             field.Index = true;
 
-            return new SchemaIndexingInfoPropertyBuilder<T>(field, Clone(Fields));
+            return new SchemaIndexingInfoPropertyBuilder<T>(field, Clone(Fields), ContractResolver);
         }
     }
 }
