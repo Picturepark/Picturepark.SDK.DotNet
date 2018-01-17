@@ -138,12 +138,13 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
+        /// <param name="allowMissingDependencies">Allow reactivating contents that refer to list items or contents that don't exist in the system.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> ReactivateAsync(string contentId, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> ReactivateAsync(string contentId, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, bool? allowMissingDependencies = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Reactivate - many</summary>
         /// <param name="reactivateRequest">The content reactivate request.</param>
@@ -388,12 +389,13 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="listItemId">The list item id.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
+        /// <param name="allowMissingDependencies">Allow reactivating list items that refer to list items or contents that don't exist in the system.</param>
         /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ListItemDetail> ReactivateAsync(string listItemId, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListItemDetail> ReactivateAsync(string listItemId, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, bool? allowMissingDependencies = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Reactivate - many</summary>
         /// <param name="reactivateRequest">The list items reactivate request.</param>

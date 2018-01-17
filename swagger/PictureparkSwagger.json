@@ -919,6 +919,14 @@
             "items": {
               "$ref": "#/definitions/DisplayPatternType"
             }
+          },
+          {
+            "type": "boolean",
+            "name": "allowMissingDependencies",
+            "in": "query",
+            "x-nullable": false,
+            "description": "Allow reactivating contents that refer to list items or contents that don't exist in the system.",
+            "default": false
           }
         ],
         "responses": {
@@ -2785,6 +2793,14 @@
             "items": {
               "$ref": "#/definitions/DisplayPatternType"
             }
+          },
+          {
+            "type": "boolean",
+            "name": "allowMissingDependencies",
+            "in": "query",
+            "x-nullable": false,
+            "description": "Allow reactivating list items that refer to list items or contents that don't exist in the system.",
+            "default": false
           }
         ],
         "responses": {

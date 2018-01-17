@@ -30,16 +30,17 @@ namespace Picturepark.SDK.V1
 			await DeactivateAsync(contentId, null, cancellationToken).ConfigureAwait(false);
 		}
 
-		/// <summary>Reactivates a content item by ID (i.e. marks the content item as not deleted).</summary>
-		/// <param name="contentId">The content ID.</param>
-		/// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-		/// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
-		/// <param name="cancellationToken">The cancellation token.</param>
-		/// <returns>The task.</returns>
-		/// <exception cref="ApiException">A server side error occurred.</exception>
-		public async Task<ContentDetail> ReactivateAsync(string contentId, bool resolve = true, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        /// <summary>Reactivates a content item by ID (i.e. marks the content item as not deleted).</summary>
+        /// <param name="contentId">The content ID.</param>
+        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
+        /// <param name="allowMissingDependencies">Allow reactivating contents that refer to list items or contents that don't exist in the system.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The task.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public async Task<ContentDetail> ReactivateAsync(string contentId, bool resolve = true, TimeSpan? timeout = null, bool allowMissingDependencies = false, CancellationToken cancellationToken = default(CancellationToken))
 		{
-			return await ReactivateAsync(contentId, resolve, timeout, null, cancellationToken).ConfigureAwait(false);
+			return await ReactivateAsync(contentId, resolve, timeout, null, allowMissingDependencies, cancellationToken).ConfigureAwait(false);
 		}
 
 		/// <summary>Downloads multiple files.</summary>
