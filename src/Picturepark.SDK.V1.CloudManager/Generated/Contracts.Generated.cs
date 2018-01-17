@@ -206,6 +206,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<Customer> CloneCustomerAsync(SnapshotCustomerCloneRequest cloneRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<SnapshotsCleanupResult> CleanupAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.12.15.0 (NJsonSchema v9.10.18.0 (Newtonsoft.Json v9.0.0.0))")]
@@ -317,6 +322,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("listItemRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.TimeSpan ListItemRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("snapshotRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.TimeSpan SnapshotRetentionTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("createTransferBusinessProcess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CreateTransferBusinessProcess { get; set; }
@@ -1601,6 +1610,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("cacheCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CacheCatalog { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("schemaCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaCatalog { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("watermarkPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string WatermarkPath { get; set; }
     
@@ -1682,6 +1694,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("listItemRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.TimeSpan ListItemRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("snapshotRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.TimeSpan SnapshotRetentionTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("deactivationMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary DeactivationMessage { get; set; }
@@ -2809,6 +2825,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.TimeSpan ListItemRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("snapshotRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.TimeSpan SnapshotRetentionTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Always)]
         public bool UseSsl { get; set; }
     
@@ -3612,6 +3632,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = "DisplayValue")]
         DisplayValue = 17,
     
+        [System.Runtime.Serialization.EnumMember(Value = "Schema")]
+        Schema = 18,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -4375,6 +4398,53 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SnapshotCustomerCloneRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotCustomerCloneRequest>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SnapshotsCleanupResult 
+    {
+        [Newtonsoft.Json.JsonProperty("cleanupSucceededSnapshots", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SnapshotsCleanupSnapshotInfo> CleanupSucceededSnapshots { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cleanupFailedSnapshots", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SnapshotsCleanupSnapshotInfo> CleanupFailedSnapshots { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("emptyRepositories", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> EmptyRepositories { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cleanupTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.DateTime CleanupTime { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SnapshotsCleanupResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotsCleanupResult>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SnapshotsCleanupSnapshotInfo 
+    {
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("repositoryName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RepositoryName { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SnapshotsCleanupSnapshotInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotsCleanupSnapshotInfo>(data);
         }
     }
     

@@ -1572,6 +1572,42 @@
         ]
       }
     },
+    "/backup/snapshot/cleanup": {
+      "post": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_Cleanup",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SnapshotsCleanupResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
     "/{customerAlias}/{userId}/getUserDeveloperFlag": {
       "get": {
         "tags": [
@@ -1740,7 +1776,8 @@
         "rootListItemSearchIndexNumberOfReplicas",
         "indexedFieldThreshold",
         "contentRetentionTime",
-        "listItemRetentionTime"
+        "listItemRetentionTime",
+        "snapshotRetentionTime"
       ],
       "properties": {
         "alias": {
@@ -1845,6 +1882,10 @@
           "format": "time-span"
         },
         "listItemRetentionTime": {
+          "type": "string",
+          "format": "time-span"
+        },
+        "snapshotRetentionTime": {
           "type": "string",
           "format": "time-span"
         },
@@ -3033,7 +3074,8 @@
         "redisDatabaseIndex",
         "lifeCycle",
         "contentRetentionTime",
-        "listItemRetentionTime"
+        "listItemRetentionTime",
+        "snapshotRetentionTime"
       ],
       "properties": {
         "id": {
@@ -3094,6 +3136,9 @@
           "type": "string"
         },
         "cacheCatalog": {
+          "type": "string"
+        },
+        "schemaCatalog": {
           "type": "string"
         },
         "watermarkPath": {
@@ -3193,6 +3238,10 @@
           "format": "time-span"
         },
         "listItemRetentionTime": {
+          "type": "string",
+          "format": "time-span"
+        },
+        "snapshotRetentionTime": {
           "type": "string",
           "format": "time-span"
         },
@@ -4091,6 +4140,7 @@
         "backupEnabled",
         "contentRetentionTime",
         "listItemRetentionTime",
+        "snapshotRetentionTime",
         "useSsl"
       ],
       "properties": {
@@ -4120,6 +4170,10 @@
           "format": "time-span"
         },
         "listItemRetentionTime": {
+          "type": "string",
+          "format": "time-span"
+        },
+        "snapshotRetentionTime": {
           "type": "string",
           "format": "time-span"
         },
@@ -4834,7 +4888,8 @@
         "ListItem",
         "Content",
         "Token",
-        "DisplayValue"
+        "DisplayValue",
+        "Schema"
       ],
       "enum": [
         "Configuration",
@@ -4854,7 +4909,8 @@
         "ListItem",
         "Content",
         "Token",
-        "DisplayValue"
+        "DisplayValue",
+        "Schema"
       ]
     },
     "IndexState": {
@@ -5499,6 +5555,49 @@
           "type": "string"
         },
         "redirectUri": {
+          "type": "string"
+        }
+      }
+    },
+    "SnapshotsCleanupResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cleanupTime"
+      ],
+      "properties": {
+        "cleanupSucceededSnapshots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SnapshotsCleanupSnapshotInfo"
+          }
+        },
+        "cleanupFailedSnapshots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SnapshotsCleanupSnapshotInfo"
+          }
+        },
+        "emptyRepositories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cleanupTime": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "SnapshotsCleanupSnapshotInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "repositoryName": {
           "type": "string"
         }
       }
