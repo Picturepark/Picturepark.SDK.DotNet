@@ -919,6 +919,14 @@
             "items": {
               "$ref": "#/definitions/DisplayPatternType"
             }
+          },
+          {
+            "type": "boolean",
+            "name": "allowMissingDependencies",
+            "in": "query",
+            "x-nullable": false,
+            "description": "Allow reactivating contents that refer to list items or contents that don't exist in the system.",
+            "default": false
           }
         ],
         "responses": {
@@ -2785,6 +2793,14 @@
             "items": {
               "$ref": "#/definitions/DisplayPatternType"
             }
+          },
+          {
+            "type": "boolean",
+            "name": "allowMissingDependencies",
+            "in": "query",
+            "x-nullable": false,
+            "description": "Allow reactivating list items that refer to list items or contents that don't exist in the system.",
+            "default": false
           }
         ],
         "responses": {
@@ -8145,7 +8161,8 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "resolve"
+        "resolve",
+        "allowMissingDependencies"
       ],
       "properties": {
         "contentIds": {
@@ -8162,6 +8179,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "allowMissingDependencies": {
+          "type": "boolean"
         }
       }
     },
@@ -9289,12 +9309,18 @@
     "ListItemReactivateRequest": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "allowMissingDependencies"
+      ],
       "properties": {
         "listItemIds": {
           "type": "array",
           "items": {
             "type": "string"
           }
+        },
+        "allowMissingDependencies": {
+          "type": "boolean"
         }
       }
     },
@@ -9555,6 +9581,13 @@
           "description": "The schema fields.",
           "items": {
             "$ref": "#/definitions/FieldBase"
+          }
+        },
+        "fieldsOverwrite": {
+          "type": "array",
+          "description": "The schema fields overwrite information.",
+          "items": {
+            "$ref": "#/definitions/FieldOverwriteBase"
           }
         },
         "sort": {
@@ -10563,6 +10596,78 @@
         }
       ]
     },
+    "FieldOverwriteBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "description": "Base class for overwritten information on a field.",
+      "x-abstract": true,
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "kind"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The field id. Can be a slug and must be unique within the schema."
+        },
+        "required": {
+          "type": "boolean",
+          "description": "Defines if a field value is mandatory or not."
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "FieldOverwriteSingleTagbox": {
+      "type": "object",
+      "description": "Overwritten information for Single Tagbox field.",
+      "additionalProperties": false,
+      "properties": {
+        "filter": {
+          "description": "An optional search filter. Limits the list item result set.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        },
+        "listItemCreateTemplate": {
+          "type": "string",
+          "description": "Json serialized template used for creating new list item"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FieldOverwriteBase"
+        }
+      ]
+    },
+    "FieldOverwriteMultiTagbox": {
+      "type": "object",
+      "description": "Overwritten information for Multi Tagbox field.",
+      "additionalProperties": false,
+      "properties": {
+        "filter": {
+          "description": "An optional search filter. Limits the list item result set.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        },
+        "listItemCreateTemplate": {
+          "type": "string",
+          "description": "Json serialized template used for creating new list item"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FieldOverwriteBase"
+        }
+      ]
+    },
     "SearchFieldCount": {
       "type": "object",
       "description": "Count info of fields for search operations",
@@ -10833,6 +10938,13 @@
             "$ref": "#/definitions/FieldBase"
           }
         },
+        "fieldsOverwrite": {
+          "type": "array",
+          "description": "The schema fields overwrite information.",
+          "items": {
+            "$ref": "#/definitions/FieldOverwriteBase"
+          }
+        },
         "aggregations": {
           "type": "array",
           "description": "An optional list of aggregations to group content documents and/or list items.",
@@ -10966,6 +11078,13 @@
           "description": "The schema fields.",
           "items": {
             "$ref": "#/definitions/FieldBase"
+          }
+        },
+        "fieldsOverwrite": {
+          "type": "array",
+          "description": "The schema fields overwrite information.",
+          "items": {
+            "$ref": "#/definitions/FieldOverwriteBase"
           }
         },
         "aggregations": {
