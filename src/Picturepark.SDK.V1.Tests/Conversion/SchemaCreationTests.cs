@@ -8,6 +8,7 @@ using Picturepark.SDK.V1.Tests.Fixtures;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Picturepark.SDK.V1.Contract.Builders;
 using Picturepark.SDK.V1.Contract.Providers;
 using Xunit;
 
@@ -67,7 +68,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             var field = (FieldSingleRelation)type.Fields.Single(f => f.Id == "relationField");
             var indexingInfo = field.SchemaIndexingInfo;
 
-            Assert.Equal("relationInfo", indexingInfo.Fields.First().Id);
+            Assert.Equal("relationField", indexingInfo.Fields.First().Id);
             Assert.Equal(11, indexingInfo.Fields.First().Boost);
         }
 
@@ -78,21 +79,12 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             [PictureparkSchemaIndexing(typeof(RelationFieldSchemaIndexingInfoProvider))]
             public SimpleRelation RelationField { get; set; }
 
-            public class RelationFieldSchemaIndexingInfoProvider : ISchemaIndexingInfoProvider
+            public class RelationFieldSchemaIndexingInfoProvider : SchemaIndexingInfoProvider<ClassWithSimpleRelationAndSchemaIndexingInfoProvider>
             {
-                public SchemaIndexingInfo GetSchemaIndexingInfo()
+                protected override SchemaIndexingInfoBuilder<ClassWithSimpleRelationAndSchemaIndexingInfoProvider> Setup(
+                    SchemaIndexingInfoBuilder<ClassWithSimpleRelationAndSchemaIndexingInfoProvider> builder)
                 {
-                    return new SchemaIndexingInfo
-                    {
-                        Fields = new List<FieldIndexingInfo>
-                        {
-                            new FieldIndexingInfo
-                            {
-                                Id = "relationInfo",
-                                Boost = 11
-                            }
-                        }
-                    };
+                    return builder.AddIndexWithSimpleSearch(p => p.RelationField, 11);
                 }
             }
         }

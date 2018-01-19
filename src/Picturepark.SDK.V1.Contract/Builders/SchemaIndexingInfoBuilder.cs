@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Linq.Expressions;
 using Newtonsoft.Json.Serialization;
@@ -9,97 +10,194 @@ namespace Picturepark.SDK.V1.Contract.Builders
 {
     public class SchemaIndexingInfoBuilder<T> : BuilderBase
     {
-        private readonly IEnumerable<FieldIndexingInfo> _fields;
-
-        public SchemaIndexingInfoBuilder(IEnumerable<FieldIndexingInfo> fields, IContractResolver contractResolver)
-        {
-            _fields = fields;
-            ContractResolver = contractResolver;
-        }
+        private readonly SchemaIndexingInfo _schemaIndexingInfo;
+        private readonly IContractResolver _contractResolver;
 
         public SchemaIndexingInfoBuilder()
-            : this(new FieldIndexingInfo[0], new CamelCasePropertyNamesContractResolver())
+            : this(new CamelCasePropertyNamesContractResolver(), new SchemaIndexingInfo())
         {
         }
 
-        protected IContractResolver ContractResolver { get; }
-
-        protected IEnumerable<FieldIndexingInfo> Fields => _fields;
-
-        protected virtual IEnumerable<FieldIndexingInfo> CompleteFields => _fields;
-
-        public virtual SchemaIndexingInfoPropertyBuilder<T> AddProperty(Expression<Func<T, object>> propertyExpression)
+        public SchemaIndexingInfoBuilder(IContractResolver contractResolver)
+            : this(contractResolver, new SchemaIndexingInfo())
         {
-            var contract = ContractResolver.ResolveContract(typeof(T)) as JsonObjectContract;
-            if (contract != null)
-            {
-                var fields = CompleteFields.ToList();
+        }
 
-                var propertyName = PropertyHelper.GetPropertyName(propertyExpression);
-                var property = contract.Properties.Single(p => p.UnderlyingName == propertyName);
-
-                var field = fields.SingleOrDefault(f => f.Id == property.PropertyName);
-                if (field != null)
-                {
-                    return new SchemaIndexingInfoPropertyBuilder<T>(Clone(field), Clone(fields), ContractResolver);
-                }
-                else
-                {
-                    field = new FieldIndexingInfo { Id = property.PropertyName };
-                    return new SchemaIndexingInfoPropertyBuilder<T>(field, Clone(fields), ContractResolver);
-                }
-            }
-
-            throw new InvalidOperationException();
+        public SchemaIndexingInfoBuilder(IContractResolver contractResolver, SchemaIndexingInfo schemaIndexingInfo)
+        {
+            _schemaIndexingInfo = schemaIndexingInfo;
+            _contractResolver = contractResolver;
         }
 
         public SchemaIndexingInfo Build()
         {
-            return new SchemaIndexingInfo
+            return _schemaIndexingInfo;
+        }
+
+        public SchemaIndexingInfoBuilder<T> AddIndex(Expression<Func<T, object>> expression)
+        {
+            var info = CreateFromExpression(expression, f => f.Index = true);
+            return new SchemaIndexingInfoBuilder<T>(_contractResolver, info.Item1);
+        }
+
+        public SchemaIndexingInfoBuilder<T> AddIndexWithSimpleSearch(Expression<Func<T, object>> expression, double boost = 1)
+        {
+            var info = CreateFromExpression(expression, f =>
             {
-                Fields = CompleteFields.ToList()
-            };
+                f.Index = true;
+                f.SimpleSearch = true;
+                f.Boost = boost;
+            });
+
+            return new SchemaIndexingInfoBuilder<T>(_contractResolver, info.Item1);
         }
 
-        public SchemaIndexingInfoPropertiesBuilder<T> AddProperties(int maxLevels)
+        public SchemaIndexingInfoBuilder<T> AddIndexes(Expression<Func<T, object>> expression, int levels, Func<Type, JsonProperty, bool> propertySelector = null)
         {
-            return AddProperties(maxLevels, p => true);
+            // TODO: Should this method be public (dangerous, may create many indexes!)
+            var info = CreateFromExpression(expression, f => f.Index = true);
+            var path = GetExpressionPath(expression);
+            var type = path.Last().Item2;
+
+            info.Item2.Fields = GenerateFieldIndexingInfos(type, levels, propertySelector);
+
+            return new SchemaIndexingInfoBuilder<T>(_contractResolver, info.Item1);
         }
 
-        public SchemaIndexingInfoPropertiesBuilder<T> AddPropertiesAndTagboxes(int maxLevels)
+        public SchemaIndexingInfoBuilder<T> AddDefaultIndexes(
+            Expression<Func<T, object>> expression, int levels, Func<Type, JsonProperty, bool> propertySelector = null)
         {
-            return AddProperties(maxLevels, p => p.AttributeProvider
-                .GetAttributes(true)
-                .OfType<PictureparkTagboxAttribute>()
-                .Any());
-        }
-
-        public SchemaIndexingInfoPropertiesBuilder<T> AddProperties(int maxLevels, Predicate<JsonProperty> predicate)
-        {
-            var newFields = GetFieldIndexingInfos(typeof(T), maxLevels, predicate);
-            return new SchemaIndexingInfoPropertiesBuilder<T>(newFields, Clone(CompleteFields), ContractResolver);
-        }
-
-        private List<FieldIndexingInfo> GetFieldIndexingInfos(Type type, int maxLevels, Predicate<JsonProperty> predicate)
-        {
-            var contract = ContractResolver.ResolveContract(type) as JsonObjectContract;
-            if (contract != null)
+            return AddIndexes(expression, levels, (type, property) =>
             {
-                return contract.Properties
-                    .Where(p => predicate(p) && _fields.All(f => f.Id != p.PropertyName))
-                    .Select(p => new FieldIndexingInfo
+                // TODO: Add check for default indexed property (create new attribute?)
+                return propertySelector?.Invoke(type, property) != false;
+            });
+        }
+
+        private ICollection<FieldIndexingInfo> GenerateFieldIndexingInfos(Type type, int levels, Func<Type, JsonProperty, bool> propertySelector)
+        {
+            var fields = new Collection<FieldIndexingInfo>();
+            if (_contractResolver.ResolveContract(type) is JsonObjectContract contract)
+            {
+                foreach (var property in contract.Properties)
+                {
+                    if (propertySelector?.Invoke(type, property) != false)
                     {
-                        Id = p.PropertyName,
-                        RelatedSchemaIndexing = maxLevels > 0 ?
-                            new SchemaIndexingInfo
+                        var field = new FieldIndexingInfo
+                        {
+                            Id = property.PropertyName,
+                            Index = true
+                        };
+                        fields.Add(field);
+
+                        ApplyPictureparkSchemaIndexingAttribute(property, field);
+
+                        if (levels > 0)
+                        {
+                            var propertyType = property.PropertyType.GenericTypeArguments.Any()
+                                ? property.PropertyType.GenericTypeArguments.First()
+                                : property.PropertyType;
+
+                            field.RelatedSchemaIndexing = new SchemaIndexingInfo
                             {
-                                Fields = GetFieldIndexingInfos(p.PropertyType, maxLevels - 1, predicate)
-                            }
-                            : null
-                    }).ToList();
+                                Fields = GenerateFieldIndexingInfos(propertyType, levels - 1, propertySelector)
+                            };
+                        }
+                    }
+                }
             }
 
-            return new List<FieldIndexingInfo>();
+            return fields;
+        }
+
+        private void ApplyPictureparkSchemaIndexingAttribute(JsonProperty property, FieldIndexingInfo field)
+        {
+            // TODO: Is ApplyPictureparkSchemaIndexingAttribute needed?
+            var attribute = (PictureparkSchemaIndexingAttribute)property.AttributeProvider
+                .GetAttributes(typeof(PictureparkSchemaIndexingAttribute), true)
+                .SingleOrDefault();
+
+            if (attribute != null)
+            {
+                field.RelatedSchemaIndexing = Clone(attribute.SchemaIndexingInfo);
+            }
+        }
+
+        private Tuple<SchemaIndexingInfo, SchemaIndexingInfo> CreateFromExpression(Expression<Func<T, object>> expression, Action<FieldIndexingInfo> fieldTransformator)
+        {
+            var info = Clone(_schemaIndexingInfo);
+            var path = GetExpressionPath(expression);
+
+            var currentInfo = info;
+            foreach (var p in path)
+            {
+                if (currentInfo.Fields == null)
+                {
+                    currentInfo.Fields = new Collection<FieldIndexingInfo>();
+                }
+
+                var field = currentInfo.Fields.SingleOrDefault(f => f.Id == p.Item1) ?? new FieldIndexingInfo
+                {
+                    Id = p.Item1,
+                    RelatedSchemaIndexing = new SchemaIndexingInfo()
+                };
+
+                if (!currentInfo.Fields.Contains(field))
+                {
+                    currentInfo.Fields.Add(field);
+                }
+
+                fieldTransformator(field);
+                currentInfo = field.RelatedSchemaIndexing;
+            }
+
+            return new Tuple<SchemaIndexingInfo, SchemaIndexingInfo>(info, currentInfo);
+        }
+
+        private Tuple<string, Type>[] GetExpressionPath(Expression expression)
+        {
+            if (expression is LambdaExpression lambdaExpression)
+            {
+                return GetExpressionPath(lambdaExpression.Body);
+            }
+            else if (expression is MemberExpression memberExpression)
+            {
+                if (memberExpression.Expression != null)
+                {
+                    return GetExpressionPath(memberExpression.Expression)
+                        .Concat(new[]
+                        {
+                            new Tuple<string, Type>(
+                                GetJsonPropertyName(memberExpression.Member.DeclaringType, memberExpression.Member.Name),
+                                memberExpression.Type)
+                        })
+                        .ToArray();
+                }
+            }
+            else if (expression is MethodCallExpression methodCallExpression)
+            {
+                if (methodCallExpression.Method.Name == "Select")
+                {
+                    var pathExpression = methodCallExpression.Arguments.First();
+                    var selectExpression = methodCallExpression.Arguments.Last();
+
+                    return GetExpressionPath(pathExpression)
+                        .Concat(GetExpressionPath(selectExpression))
+                        .ToArray();
+                }
+            }
+
+            return new Tuple<string, Type>[0];
+        }
+
+        private string GetJsonPropertyName(Type type, string property)
+        {
+            if (_contractResolver.ResolveContract(type) is JsonObjectContract contract)
+            {
+                return contract.Properties.Single(p => p.UnderlyingName == property).PropertyName;
+            }
+
+            throw new InvalidOperationException("The type '" + type.FullName + "' has no JsonObjectContract.");
         }
     }
 }

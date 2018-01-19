@@ -5,6 +5,7 @@ using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Contract.SystemTypes;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using System.Linq;
+using Newtonsoft.Json;
 using Picturepark.SDK.V1.Contract.Builders;
 using Xunit;
 
@@ -23,67 +24,81 @@ namespace Picturepark.SDK.V1.Tests.Conversion
 
         [Fact]
         [Trait("Stack", "Schema")]
-        public void ShouldIncludeAllPropertiesAndChangeSpecifiedProperties()
+        public void ShouldAddIndexOnPropertyPath()
         {
-            /// Act
-            var schemaIndexingInfo = new SchemaIndexingInfoBuilder<Parent>()
-                .AddProperties(0)
-                .AddProperty(p => p.Child)
-                    .WithBoost(11)
-                    .WithIndex()
-                .AddProperty(p => p.Bar)
+            //// Arrange
+            var builder = new SchemaIndexingInfoBuilder<Parent>();
+
+            //// Act
+            var info = builder
+                .AddIndex(p => p.Child.FirstName)
                 .Build();
 
-            /// Assert
-            Assert.Equal(4, schemaIndexingInfo.Fields.Count);
-            Assert.Equal("child", schemaIndexingInfo.Fields.First().Id);
-            Assert.Equal(11, schemaIndexingInfo.Fields.First().Boost);
+            var json = JsonConvert.SerializeObject(info, Formatting.Indented);
+
+            //// Assert
+            Assert.True(info.Fields.Single(f => f.Id == "child")
+                .RelatedSchemaIndexing.Fields.Any(f => f.Id == "firstName"));
         }
 
         [Fact]
         [Trait("Stack", "Schema")]
-        public void ShouldChangeAllProperties()
+        public void ShouldAddIndexOnCollectionPath()
         {
-            /// Act
-            var schemaIndexingInfo = new SchemaIndexingInfoBuilder<Parent>()
-                .AddProperties(0)
-                    .WithIndex()
+            //// Arrange
+            var builder = new SchemaIndexingInfoBuilder<Parent>();
+
+            //// Act
+            var info = builder
+                .AddIndex(p => p.Children.Select(c => c.FirstName))
                 .Build();
 
-            /// Assert
-            Assert.True(schemaIndexingInfo.Fields.All(f => f.Index));
+            var json = JsonConvert.SerializeObject(info, Formatting.Indented);
+
+            //// Assert
+            Assert.True(info.Fields.Single(f => f.Id == "children")
+                .RelatedSchemaIndexing.Fields.Any(f => f.Id == "firstName"));
         }
 
         [Fact]
         [Trait("Stack", "Schema")]
-        public void ShouldLoadChildProperties()
+        public void ShouldAddMultipleIndexes()
         {
-            /// Act
-            var schemaIndexingInfo = new SchemaIndexingInfoBuilder<Parent>()
-                .AddProperties(1)
+            //// Arrange
+            var builder = new SchemaIndexingInfoBuilder<Parent>();
+
+            //// Act
+            var info = builder
+                .AddIndex(p => p.Foo)
+                .AddIndex(p => p.Bar)
                 .Build();
 
-            /// Assert
-            Assert.True(schemaIndexingInfo.Fields
-                .First(f => f.Id == "child")
-                .RelatedSchemaIndexing
-                .Fields
-                .Any(f => f.Id == "firstName"));
-            Assert.True(schemaIndexingInfo.Fields.Any(f => f.Id == "child2"));
+            var json = JsonConvert.SerializeObject(info, Formatting.Indented);
+
+            //// Assert
+            Assert.True(info.Fields.Any(f => f.Id == "foo"));
+            Assert.True(info.Fields.Any(f => f.Id == "bar"));
         }
 
         [Fact]
         [Trait("Stack", "Schema")]
-        public void ShouldLoadOnlyTagboxChildren()
+        public void ShouldAddDefaultIndexes()
         {
-            /// Act
-            var schemaIndexingInfo = new SchemaIndexingInfoBuilder<Parent>()
-                .AddPropertiesAndTagboxes(1)
+            //// Arrange
+            var builder = new SchemaIndexingInfoBuilder<Parent>();
+
+            //// Act
+            var info = builder
+                .AddDefaultIndexes(p => p.Child, 1)
                 .Build();
 
-            /// Assert
-            Assert.True(schemaIndexingInfo.Fields.Any(f => f.Id == "child"));
-            Assert.False(schemaIndexingInfo.Fields.Any(f => f.Id == "child2"));
+            var json = JsonConvert.SerializeObject(info, Formatting.Indented);
+
+            //// Assert
+            Assert.True(info.Fields.Single(f => f.Id == "child")
+                .RelatedSchemaIndexing.Fields.Any(f => f.Id == "firstName"));
+            Assert.True(info.Fields.Single(f => f.Id == "child")
+                .RelatedSchemaIndexing.Fields.Any(f => f.Id == "lastName"));
         }
 
         public class Parent
@@ -91,7 +106,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             [PictureparkTagbox("{ 'kind': 'TermFilter', 'field': 'contentType', Term: 'FC Aarau' }")]
             public Child Child { get; set; }
 
-            public Child Child2 { get; set; }
+            public Child[] Children { get; set; }
 
             public string Foo { get; set; }
 
