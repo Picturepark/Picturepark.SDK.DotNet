@@ -69,8 +69,17 @@ namespace Picturepark.SDK.V1.Contract.Builders
         {
             return AddIndexes(expression, levels, (type, property) =>
             {
-                // TODO: Add check for default indexed property (create new attribute?)
-                return propertySelector?.Invoke(type, property) != false;
+                var searchAttribute = property.AttributeProvider
+                    .GetAttributes(true)
+                    .OfType<PictureparkSearchAttribute>()
+                    .SingleOrDefault();
+
+                if (searchAttribute != null && searchAttribute.Index)
+                {
+                    return propertySelector?.Invoke(type, property) != false;
+                }
+
+                return false;
             });
         }
 
@@ -83,10 +92,17 @@ namespace Picturepark.SDK.V1.Contract.Builders
                 {
                     if (propertySelector?.Invoke(type, property) != false)
                     {
+                        var searchAttribute = property.AttributeProvider
+                            .GetAttributes(true)
+                            .OfType<PictureparkSearchAttribute>()
+                            .SingleOrDefault();
+
                         var field = new FieldIndexingInfo
                         {
                             Id = property.PropertyName,
-                            Index = true
+                            SimpleSearch = searchAttribute?.SimpleSearch ?? false,
+                            Index = searchAttribute?.Index ?? false,
+                            Boost = searchAttribute?.Boost ?? 0.0,
                         };
                         fields.Add(field);
 

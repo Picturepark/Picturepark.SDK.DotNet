@@ -1,5 +1,6 @@
 ﻿#pragma warning disable SA1201 // Elements must appear in the correct order
 
+using System;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Contract.SystemTypes;
@@ -99,6 +100,8 @@ namespace Picturepark.SDK.V1.Tests.Conversion
                 .RelatedSchemaIndexing.Fields.Any(f => f.Id == "firstName"));
             Assert.True(info.Fields.Single(f => f.Id == "child")
                 .RelatedSchemaIndexing.Fields.Any(f => f.Id == "lastName"));
+            Assert.False(info.Fields.Single(f => f.Id == "child")
+                .RelatedSchemaIndexing.Fields.Any(f => f.Id == "dateOfBirth"));
         }
 
         public class Parent
@@ -116,9 +119,13 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [PictureparkSchemaType(SchemaType.Struct)]
         public class Child : Relation
         {
+            [PictureparkSearch(Index = true, Boost = 1.2, SimpleSearch = true)]
             public string FirstName { get; set; }
 
+            [PictureparkSearch(Index = true, Boost = 1.3, SimpleSearch = true)]
             public string LastName { get; set; }
+
+            public DateTime DateOfBirth { get; set; }
         }
     }
 }
