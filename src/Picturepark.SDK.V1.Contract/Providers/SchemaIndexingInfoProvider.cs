@@ -7,8 +7,13 @@ namespace Picturepark.SDK.V1.Contract.Providers
     {
         public SchemaIndexingInfo GetSchemaIndexingInfo()
         {
-            var builder = (SchemaIndexingInfoBuilder<T>)Activator.CreateInstance(GetType());
+            var builder = CreateBuilder();
             return Setup(builder).Build();
+        }
+
+        protected virtual SchemaIndexingInfoBuilder<T> CreateBuilder()
+        {
+            return new SchemaIndexingInfoBuilder<T>();
         }
 
         protected abstract SchemaIndexingInfoBuilder<T> Setup(SchemaIndexingInfoBuilder<T> builder);
