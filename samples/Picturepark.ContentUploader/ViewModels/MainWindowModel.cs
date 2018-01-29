@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using System.Security;
 using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Win32;
@@ -8,13 +9,12 @@ using MyToolkit.Command;
 using MyToolkit.Dialogs;
 using MyToolkit.Mvvm;
 using MyToolkit.Storage;
+using Newtonsoft.Json;
+using Picturepark.ContentUploader.Views;
+using Picturepark.ContentUploader.Views.OidcClient;
 using Picturepark.SDK.V1;
 using Picturepark.SDK.V1.Authentication;
 using Picturepark.SDK.V1.Contract;
-using Picturepark.ContentUploader.Views.OidcClient;
-using Picturepark.ContentUploader.Views;
-using Newtonsoft.Json;
-using System.Security;
 
 namespace Picturepark.ContentUploader.ViewModels
 {
@@ -81,7 +81,7 @@ namespace Picturepark.ContentUploader.ViewModels
 
         public string RedirectUri
         {
-            get { return ApplicationSettings.GetSetting("RedirectUri", ""); }
+            get { return ApplicationSettings.GetSetting("RedirectUri", "http://localhost/wpf"); }
             set { ApplicationSettings.SetSetting("RedirectUri", value); }
         }
 
@@ -128,6 +128,7 @@ namespace Picturepark.ContentUploader.ViewModels
                     using (var client = new PictureparkClient(new PictureparkClientSettings(authClient)))
                     {
                         await client.Transfers.UploadFilesAsync(fileName, new[] { FilePath }, new UploadOptions { ChunkSize = 1024 * 1024 });
+                        MessageBox.Show("The image has been successfully uploaded.", "Image uploaded");
                     }
                 }
             });

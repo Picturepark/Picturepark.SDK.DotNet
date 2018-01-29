@@ -1,20 +1,20 @@
-﻿using IdentityModel;
-using IdentityModel.Client;
-using mshtml;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens;
 using System.Linq;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using IdentityModel;
+using IdentityModel.Client;
 using IdentityModel.Jwt;
+using mshtml;
 using Microsoft.IdentityModel.Protocols;
-using System.Security.Claims;
-using System.Security.Cryptography.X509Certificates;
-using System.Security.Cryptography;
-using System.Text;
-using System.IdentityModel.Tokens;
-using System.Collections.Generic;
 using Picturepark.ContentUploader.Views.OidcClient;
 
 namespace Picturepark.ContentUploader.Views
@@ -36,7 +36,7 @@ namespace Picturepark.ContentUploader.Views
             _redirectUri = redirectUri;
         }
 
-        public static async Task<LoginResult> RefreshTokenAsync(OidcSettings settings, string refreshToken)
+        public async static Task<LoginResult> RefreshTokenAsync(OidcSettings settings, string refreshToken)
         {
             var config = await LoadOpenIdConnectConfigurationAsync(settings);
             var tokenClient = new TokenClient(
@@ -69,7 +69,7 @@ namespace Picturepark.ContentUploader.Views
             }
         }
 
-        public static async Task<LoginResult> AuthenticateAsync(OidcSettings settings)
+        public async static Task<LoginResult> AuthenticateAsync(OidcSettings settings)
         {
             var taskCompletion = new TaskCompletionSource<LoginResult>();
 
@@ -166,7 +166,7 @@ namespace Picturepark.ContentUploader.Views
                 codeChallengeMethod: settings.UsePkce ? OidcConstants.CodeChallengeMethods.Sha256 : null);
         }
 
-        private static async Task<OpenIdConnectConfiguration> LoadOpenIdConnectConfigurationAsync(OidcSettings settings)
+        private async static Task<OpenIdConnectConfiguration> LoadOpenIdConnectConfigurationAsync(OidcSettings settings)
         {
             var discoAddress = settings.Authority + "/.well-known/openid-configuration";
 
@@ -174,7 +174,7 @@ namespace Picturepark.ContentUploader.Views
             return await manager.GetConfigurationAsync();
         }
 
-        private static async Task<LoginResult> ValidateResponseAsync(AuthorizeResponse response, OidcSettings settings, OpenIdConnectConfiguration config, string expectedNonce, string verifier)
+        private async static Task<LoginResult> ValidateResponseAsync(AuthorizeResponse response, OidcSettings settings, OpenIdConnectConfiguration config, string expectedNonce, string verifier)
         {
             var tokenClaims = ValidateIdentityToken(response.IdentityToken, settings, config);
             if (tokenClaims == null)

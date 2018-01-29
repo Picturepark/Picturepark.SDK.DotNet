@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Net;
 using System.Windows;
 using Picturepark.ContentUploader.ViewModels;
-using System.Net;
 
 namespace Picturepark.ContentUploader.Views
 {

@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:viewModels="clr-namespace:Picturepark.ContentUploader.ViewModels"
         xmlns:dialogs="clr-namespace:MyToolkit.Dialogs;assembly=MyToolkit.Extended"
+        xmlns:viewModels="clr-namespace:Picturepark.ContentUploader.ViewModels"
         mc:Ignorable="d" 
         ResizeMode="CanMinimize"
         WindowStartupLocation="CenterScreen"
@@ -18,6 +18,10 @@
     <StackPanel Margin="8" DataContext="{StaticResource ViewModel}">
         <TextBlock Text="File" Margin="0,0,0,4" FontWeight="Bold" />
         <dialogs:FileOpenPicker Margin="0,0,0,8" FilePath="{Binding FilePath, Mode=TwoWay}" />
+
+        <Button Content="Upload" 
+                Padding="8" 
+                Command="{Binding UploadCommand}" Margin="0,0,0,8" />
 
         <GroupBox Header="Connection" Margin="0,0,0,8">
             <StackPanel Margin="4,4,4,0">
@@ -43,10 +47,6 @@
                 <TextBox Text="{Binding CustomerAlias}" Margin="0,0,0,8" />
             </StackPanel>
         </GroupBox>
-
-        <Button Content="Upload" 
-                Padding="8" 
-                Command="{Binding UploadCommand}" Margin="0,0,0,8" />
 
         <Grid>
             <Grid.ColumnDefinitions>
