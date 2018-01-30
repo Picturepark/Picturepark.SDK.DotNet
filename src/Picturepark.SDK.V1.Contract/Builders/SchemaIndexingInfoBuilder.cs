@@ -52,6 +52,32 @@ namespace Picturepark.SDK.V1.Contract.Builders
             return new SchemaIndexingInfoBuilder<T>(_contractResolver, info.Item1);
         }
 
+        public SchemaIndexingInfoBuilder<T> AddIndexes(int levels, Func<Type, JsonProperty, bool> propertySelector = null)
+        {
+            return new SchemaIndexingInfoBuilder<T>(_contractResolver, new SchemaIndexingInfo
+            {
+                Fields = GenerateFieldIndexingInfos(typeof(T), levels, propertySelector)
+            });
+        }
+
+        public SchemaIndexingInfoBuilder<T> AddDefaultIndexes(int levels, Func<Type, JsonProperty, bool> propertySelector = null)
+        {
+            return AddIndexes(levels, (type, property) =>
+            {
+                var searchAttribute = property.AttributeProvider
+                    .GetAttributes(true)
+                    .OfType<PictureparkSearchAttribute>()
+                    .SingleOrDefault();
+
+                if (searchAttribute != null && searchAttribute.Index)
+                {
+                    return propertySelector?.Invoke(type, property) != false;
+                }
+
+                return false;
+            });
+        }
+
         public SchemaIndexingInfoBuilder<T> AddIndexes(Expression<Func<T, object>> expression, int levels, Func<Type, JsonProperty, bool> propertySelector = null)
         {
             // TODO: Should this method be public (dangerous, may create many indexes!)

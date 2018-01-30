@@ -104,6 +104,26 @@ namespace Picturepark.SDK.V1.Tests.Conversion
                 .RelatedSchemaIndexing.Fields.Any(f => f.Id == "dateOfBirth"));
         }
 
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public void ShouldAddDefaultIndexesOfRootType()
+        {
+            //// Arrange
+            var builder = new SchemaIndexingInfoBuilder<Child>();
+
+            //// Act
+            var info = builder
+                .AddDefaultIndexes(1)
+                .Build();
+
+            var json = JsonConvert.SerializeObject(info, Formatting.Indented);
+
+            //// Assert
+            Assert.True(info.Fields.Any(f => f.Id == "firstName"));
+            Assert.True(info.Fields.Any(f => f.Id == "lastName"));
+            Assert.False(info.Fields.Any(f => f.Id == "dateOfBirth"));
+        }
+
         public class Parent
         {
             [PictureparkTagbox("{ 'kind': 'TermFilter', 'field': 'contentType', Term: 'FC Aarau' }")]
