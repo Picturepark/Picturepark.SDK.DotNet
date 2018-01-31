@@ -7,7 +7,7 @@ using Picturepark.SDK.V1.Contract.SystemTypes;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using System.Linq;
 using Newtonsoft.Json;
-using Picturepark.SDK.V1.Contract.Builders;
+using Picturepark.SDK.V1.Builders;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Conversion
