@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.12.13.0 (NJsonSchema v9.10.14.0 (Newtonsoft.Json v9.0.0.0))",
+  "x-generator": "NSwag v11.13.1.0 (NJsonSchema v9.10.19.0 (Newtonsoft.Json v9.0.0.0))",
   "swagger": "2.0",
   "info": {
     "title": "Picturepark CloudManager API V1",
@@ -53,6 +53,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -96,6 +99,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -141,6 +147,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -178,6 +187,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -223,6 +235,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -266,6 +281,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -313,6 +331,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -370,6 +391,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -409,6 +433,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -463,6 +490,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -495,6 +525,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -526,6 +559,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -567,6 +603,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -607,6 +646,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -638,6 +680,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -678,6 +723,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -717,6 +765,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -752,6 +803,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -795,6 +849,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -837,6 +894,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -878,6 +938,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -926,6 +989,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -964,6 +1030,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -1008,6 +1077,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -1054,6 +1126,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1099,6 +1174,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1143,6 +1221,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -1190,6 +1271,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1235,6 +1319,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -1282,6 +1369,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1327,6 +1417,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -1374,6 +1467,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1420,6 +1516,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1465,6 +1564,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -1515,6 +1617,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1561,6 +1666,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1596,6 +1704,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -1647,6 +1758,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -1701,6 +1815,9 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1749,6 +1866,9 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
           },
           "429": {
             "description": "Too many requests"
@@ -3111,6 +3231,12 @@
         "outputCatalog": {
           "type": "string"
         },
+        "outputFormatCatalog": {
+          "type": "string"
+        },
+        "channelCatalog": {
+          "type": "string"
+        },
         "notificationCatalog": {
           "type": "string"
         },
@@ -3139,6 +3265,9 @@
           "type": "string"
         },
         "schemaCatalog": {
+          "type": "string"
+        },
+        "referenceCatalog": {
           "type": "string"
         },
         "watermarkPath": {
@@ -4889,7 +5018,10 @@
         "Content",
         "Token",
         "DisplayValue",
-        "Schema"
+        "Schema",
+        "OutputFormat",
+        "Channel",
+        "Reference"
       ],
       "enum": [
         "Configuration",
@@ -4910,7 +5042,10 @@
         "Content",
         "Token",
         "DisplayValue",
-        "Schema"
+        "Schema",
+        "OutputFormat",
+        "Channel",
+        "Reference"
       ]
     },
     "IndexState": {
@@ -5243,7 +5378,8 @@
         "startTime",
         "startTimeInMilliseconds",
         "entityType",
-        "restoreDate"
+        "restoreDate",
+        "isArchived"
       ],
       "properties": {
         "durationInMilliseconds": {
@@ -5306,6 +5442,9 @@
         "restoreDate": {
           "type": "string",
           "format": "date-time"
+        },
+        "isArchived": {
+          "type": "boolean"
         }
       }
     },

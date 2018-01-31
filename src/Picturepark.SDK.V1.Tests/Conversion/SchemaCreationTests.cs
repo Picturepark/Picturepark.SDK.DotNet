@@ -105,7 +105,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             Assert.True(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationInfo).ToLowerCamelCase()));
             Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationId).ToLowerCamelCase()));
             Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationType).ToLowerCamelCase()));
-            Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.TargetContext).ToLowerCamelCase()));
+            Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.TargetDocType).ToLowerCamelCase()));
             Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.TargetId).ToLowerCamelCase()));
         }
 

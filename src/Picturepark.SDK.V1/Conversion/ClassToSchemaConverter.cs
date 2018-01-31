@@ -520,7 +520,7 @@ namespace Picturepark.SDK.V1.Conversion
 					{
 						Id = i.Name,
 						Filter = i.Filter,
-						TargetContext = i.TargetContext,
+						TargetDocType = i.TargetDocType,
 						Names = new TranslatedStringDictionary { { "x-default", i.Name } }
 					}).ToList();
 				}
