@@ -97,6 +97,7 @@ namespace Picturepark.SDK.V1.Conversion
             {
                 Id = schemaId,
                 Fields = new List<FieldBase>(),
+                FieldsOverwrite = new List<FieldOverwriteBase>(),
                 ParentSchemaId = parentSchemaId,
                 Names = new TranslatedStringDictionary { { "x-default", schemaId } },
                 Descriptions = new TranslatedStringDictionary(),
@@ -144,28 +145,68 @@ namespace Picturepark.SDK.V1.Conversion
 
             foreach (var property in properties)
             {
-                var fieldName = property.Name;
-
-                var fieldData = GetFieldData(property);
-                fieldData.Id = fieldName.ToLowerCamelCase();
-
-                if (fieldData.Names == null)
+                if (property.IsOverwritten)
                 {
-                    fieldData.Names = new TranslatedStringDictionary
+                    var schemaItemInfos = property.PictureparkAttributes.OfType<PictureparkTagboxAttribute>().SingleOrDefault();
+
+                    if (property.IsArray)
                     {
-                        ["x-default"] = fieldName
-                    };
+                        if (property.IsReference)
+                        {
+                            schemaItem.FieldsOverwrite.Add(new FieldOverwriteMultiTagbox
+                            {
+                                Id = property.Name,
+                                Filter = schemaItemInfos?.Filter,
+                                Required = property.PictureparkAttributes.OfType<PictureparkRequiredAttribute>().Any()
+                            });
+                        }
+                        else
+                        {
+                            throw new InvalidOperationException("Only Tagbox properties can be overriden.");
+                        }
+                    }
+                    else
+                    {
+                        if (property.IsReference)
+                        {
+                            schemaItem.FieldsOverwrite.Add(new FieldOverwriteSingleTagbox
+                            {
+                                Id = property.Name,
+                                Filter = schemaItemInfos?.Filter,
+                                Required = property.PictureparkAttributes.OfType<PictureparkRequiredAttribute>().Any()
+                            });
+                        }
+                        else
+                        {
+                            throw new InvalidOperationException("Only Tagbox properties can be overriden.");
+                        }
+                    }
                 }
+                else
+                {
+                    var fieldName = property.Name;
 
-                var fieldAnalyzers = property.PictureparkAttributes
-                    .OfType<PictureparkAnalyzerAttribute>()
-                    .Select(a => a.CreateAnalyzer())
-                    .ToList();
+                    var fieldData = GetFieldData(property);
+                    fieldData.Id = fieldName.ToLowerCamelCase();
 
-                if (fieldAnalyzers.Any())
-                    fieldData.GetType().GetRuntimeProperty("Analyzers").SetValue(fieldData, fieldAnalyzers);
+                    if (fieldData.Names == null)
+                    {
+                        fieldData.Names = new TranslatedStringDictionary
+                        {
+                            ["x-default"] = fieldName
+                        };
+                    }
 
-                schemaItem.Fields.Add(fieldData);
+                    var fieldAnalyzers = property.PictureparkAttributes
+                        .OfType<PictureparkAnalyzerAttribute>()
+                        .Select(a => a.CreateAnalyzer())
+                        .ToList();
+
+                    if (fieldAnalyzers.Any())
+                        fieldData.GetType().GetRuntimeProperty("Analyzers").SetValue(fieldData, fieldAnalyzers);
+
+                    schemaItem.Fields.Add(fieldData);
+                }
             }
 
             if (generateDependencySchema || levelOfCall == 0)
@@ -240,7 +281,7 @@ namespace Picturepark.SDK.V1.Conversion
             var objectContract = _contractResolver.ResolveContract(objType) as JsonObjectContract;
             if (objectContract != null)
             {
-                foreach (var property in objectContract.Properties)
+                foreach (var property in objectContract.Properties.Where(p => p.DeclaringType == objType))
                 {
                     var typeInfo = property.PropertyType.GetTypeInfo();
                     var name = property.PropertyName;
@@ -257,7 +298,8 @@ namespace Picturepark.SDK.V1.Conversion
 
                     var propertyInfo = new ContractPropertyInfo()
                     {
-                        Name = name
+                        Name = name,
+                        IsOverwritten = objType.GetTypeInfo().BaseType?.GetRuntimeProperty(property.UnderlyingName) != null
                     };
 
                     if (IsSimpleType(property.PropertyType))
