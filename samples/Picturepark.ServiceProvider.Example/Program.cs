@@ -15,7 +15,7 @@ namespace Picturepark.ServiceProvider.Example
 			var configuration = new Configuration()
 			{
 				Host = "localhost",
-				Port = "5672",
+				Port = "5671",
 				ServiceProviderId = "acme",
 				NodeId = Environment.MachineName,
 				User = "acme",
