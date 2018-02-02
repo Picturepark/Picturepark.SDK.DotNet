@@ -15,11 +15,12 @@ namespace Picturepark.ServiceProvider.Example
 			var configuration = new Configuration()
 			{
 				Host = "localhost",
-				Port = "5671",
+				Port = "5672", // 5671 for SSL
 				ServiceProviderId = "acme",
 				NodeId = Environment.MachineName,
 				User = "acme",
-				Password = "123456"
+				Password = "123456",
+				UseSsl = false
 			};
 
 			using (IDisposable d1 = new MinimalLiveStreamDemo().Run(configuration))
