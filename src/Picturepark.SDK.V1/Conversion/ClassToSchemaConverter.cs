@@ -147,68 +147,12 @@ namespace Picturepark.SDK.V1.Conversion
             {
                 if (property.IsOverwritten)
                 {
-                    var schemaItemInfos = property.PictureparkAttributes.OfType<PictureparkTagboxAttribute>().SingleOrDefault();
-                    var listItemCreateTemplateAttribute = property.PictureparkAttributes.OfType<PictureparkListItemCreateTemplateAttribute>().SingleOrDefault();
-
-                    if (property.IsArray)
-                    {
-                        if (property.IsReference)
-                        {
-                            schemaItem.FieldsOverwrite.Add(new FieldOverwriteMultiTagbox
-                            {
-                                Id = property.Name,
-                                Filter = schemaItemInfos?.Filter,
-                                Required = property.PictureparkAttributes.OfType<PictureparkRequiredAttribute>().Any(),
-                                ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate,
-                                OverwriteListItemCreateTemplate = !string.IsNullOrEmpty(listItemCreateTemplateAttribute?.ListItemCreateTemplate)
-                            });
-                        }
-                        else
-                        {
-                            throw new InvalidOperationException("Only Tagbox properties can be overriden.");
-                        }
-                    }
-                    else
-                    {
-                        if (property.IsReference)
-                        {
-                            schemaItem.FieldsOverwrite.Add(new FieldOverwriteSingleTagbox
-                            {
-                                Id = property.Name,
-                                Filter = schemaItemInfos?.Filter,
-                                Required = property.PictureparkAttributes.OfType<PictureparkRequiredAttribute>().Any(),
-                                ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate,
-                                OverwriteListItemCreateTemplate = !string.IsNullOrEmpty(listItemCreateTemplateAttribute?.ListItemCreateTemplate)
-                            });
-                        }
-                        else
-                        {
-                            throw new InvalidOperationException("Only Tagbox properties can be overriden.");
-                        }
-                    }
+                    var fieldOverwrite = GetFieldOverwrite(property);
+                    schemaItem.FieldsOverwrite.Add(fieldOverwrite);
                 }
                 else
                 {
-                    var fieldName = property.Name;
-
-                    var fieldData = GetFieldData(property);
-                    fieldData.Id = fieldName.ToLowerCamelCase();
-
-                    if (fieldData.Names == null)
-                    {
-                        fieldData.Names = new TranslatedStringDictionary
-                        {
-                            ["x-default"] = fieldName
-                        };
-                    }
-
-                    var fieldAnalyzers = property.PictureparkAttributes
-                        .OfType<PictureparkAnalyzerAttribute>()
-                        .Select(a => a.CreateAnalyzer())
-                        .ToList();
-
-                    if (fieldAnalyzers.Any())
-                        fieldData.GetType().GetRuntimeProperty("Analyzers").SetValue(fieldData, fieldAnalyzers);
+                    var fieldData = GetField(property);
 
                     schemaItem.Fields.Add(fieldData);
                 }
@@ -229,6 +173,55 @@ namespace Picturepark.SDK.V1.Conversion
             }
 
             return schemaItem;
+        }
+
+        private FieldOverwriteBase GetFieldOverwrite(ContractPropertyInfo property)
+        {
+            var tagboxAttribute = property.PictureparkAttributes
+                .OfType<PictureparkTagboxAttribute>()
+                .SingleOrDefault();
+
+            var listItemCreateTemplateAttribute = property.PictureparkAttributes
+                .OfType<PictureparkListItemCreateTemplateAttribute>()
+                .SingleOrDefault();
+
+            if (property.IsArray)
+            {
+                if (property.IsReference)
+                {
+                    return new FieldOverwriteMultiTagbox
+                    {
+                        Id = property.Name,
+                        Filter = tagboxAttribute?.Filter,
+                        Required = property.PictureparkAttributes.OfType<PictureparkRequiredAttribute>().Any(),
+                        ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate,
+                        OverwriteListItemCreateTemplate = !string.IsNullOrEmpty(listItemCreateTemplateAttribute?.ListItemCreateTemplate)
+                    };
+                }
+                else
+                {
+                    throw new InvalidOperationException("Only Tagbox properties can be overriden.");
+                }
+            }
+            else
+            {
+                if (property.IsReference)
+                {
+                    return new FieldOverwriteSingleTagbox
+                    {
+                        Id = property.Name,
+                        Filter = tagboxAttribute?.Filter,
+                        Required = property.PictureparkAttributes.OfType<PictureparkRequiredAttribute>().Any(),
+                        ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate,
+                        OverwriteListItemCreateTemplate =
+                            !string.IsNullOrEmpty(listItemCreateTemplateAttribute?.ListItemCreateTemplate)
+                    };
+                }
+                else
+                {
+                    throw new InvalidOperationException("Only Tagbox properties can be overriden.");
+                }
+            }
         }
 
         private void ApplyDescriptionTranslationAttributes(SchemaDetail schemaDetail, Type type)
@@ -279,14 +272,14 @@ namespace Picturepark.SDK.V1.Conversion
             }
         }
 
-        private List<ContractPropertyInfo> GetProperties(Type objType)
+        private List<ContractPropertyInfo> GetProperties(Type type)
         {
             var contactPropertiesInfo = new List<ContractPropertyInfo>();
 
-            var objectContract = _contractResolver.ResolveContract(objType) as JsonObjectContract;
+            var objectContract = _contractResolver.ResolveContract(type) as JsonObjectContract;
             if (objectContract != null)
             {
-                foreach (var property in objectContract.Properties.Where(p => p.DeclaringType == objType))
+                foreach (var property in objectContract.Properties.Where(p => p.DeclaringType == type))
                 {
                     var typeInfo = property.PropertyType.GetTypeInfo();
                     var name = property.PropertyName;
@@ -304,7 +297,7 @@ namespace Picturepark.SDK.V1.Conversion
                     var propertyInfo = new ContractPropertyInfo()
                     {
                         Name = name,
-                        IsOverwritten = objType.GetTypeInfo().BaseType?.GetRuntimeProperty(property.UnderlyingName) != null
+                        IsOverwritten = type.GetTypeInfo().BaseType?.GetRuntimeProperty(property.UnderlyingName) != null
                     };
 
                     if (IsSimpleType(property.PropertyType))
@@ -339,7 +332,7 @@ namespace Picturepark.SDK.V1.Conversion
                                     propertyInfo.AssemblyFullName = propertyGenericArg.GetTypeInfo().Assembly.FullName;
 
                                     // Check for prevention of an infinite loop
-                                    if (propertyGenericArg.FullName != objType.FullName)
+                                    if (propertyGenericArg.FullName != type.FullName)
                                     {
                                         propertyInfo.TypeProperties.AddRange(
                                             GetProperties(propertyGenericArg));
@@ -368,7 +361,7 @@ namespace Picturepark.SDK.V1.Conversion
                             }
 
                             // Check for prevention of an infinite loop
-                            if (property.PropertyType.FullName != objType.FullName)
+                            if (property.PropertyType.FullName != type.FullName)
                             {
                                 propertyInfo.TypeProperties.AddRange(
                                     GetProperties(property.PropertyType));
@@ -394,7 +387,6 @@ namespace Picturepark.SDK.V1.Conversion
         private void HandleSimpleTypes(JsonProperty property, ContractPropertyInfo propertyInfo)
         {
             var typeInfo = property.PropertyType.GetTypeInfo();
-
             propertyInfo.IsSimpleType = true;
 
             // it's a case of: nullable / enum type property
@@ -447,13 +439,13 @@ namespace Picturepark.SDK.V1.Conversion
             }
         }
 
-        private FieldBase GetFieldData(ContractPropertyInfo contractPropertyInfo)
+        private FieldBase GetField(ContractPropertyInfo property)
         {
             FieldBase fieldData = null;
 
-            if (contractPropertyInfo.IsDictionary)
+            if (property.IsDictionary)
             {
-                if (contractPropertyInfo.TypeName == "TranslatedStringDictionary")
+                if (property.TypeName == "TranslatedStringDictionary")
                 {
                     fieldData = new FieldTranslatedString
                     {
@@ -472,7 +464,7 @@ namespace Picturepark.SDK.V1.Conversion
                         }
                     };
                 }
-                else if (contractPropertyInfo.IsArray)
+                else if (property.IsArray)
                 {
                     fieldData = new FieldDictionaryArray();
                 }
@@ -481,20 +473,20 @@ namespace Picturepark.SDK.V1.Conversion
                     fieldData = new FieldDictionary();
                 }
             }
-            else if (contractPropertyInfo.IsEnum)
+            else if (property.IsEnum)
             {
-                Type enumType = Type.GetType($"{contractPropertyInfo.FullName}, {contractPropertyInfo.AssemblyFullName}");
+                Type enumType = Type.GetType($"{property.FullName}, {property.AssemblyFullName}");
 
                 // TODO: Handle enums
             }
-            else if (contractPropertyInfo.IsSimpleType)
+            else if (property.IsSimpleType)
             {
-                if (!Enum.TryParse(contractPropertyInfo.TypeName, out TypeCode typeCode))
+                if (!Enum.TryParse(property.TypeName, out TypeCode typeCode))
                 {
-                    throw new Exception($"Parsing to TypeCode enumarated object failed for string value: {contractPropertyInfo.TypeName}.");
+                    throw new Exception($"Parsing to TypeCode enumarated object failed for string value: {property.TypeName}.");
                 }
 
-                if (contractPropertyInfo.IsArray)
+                if (property.IsArray)
                 {
                     switch (typeCode)
                     {
@@ -527,7 +519,7 @@ namespace Picturepark.SDK.V1.Conversion
                 }
                 else
                 {
-                    var stringInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkStringAttribute>().SingleOrDefault();
+                    var stringInfos = property.PictureparkAttributes.OfType<PictureparkStringAttribute>().SingleOrDefault();
 
                     switch (typeCode)
                     {
@@ -582,11 +574,11 @@ namespace Picturepark.SDK.V1.Conversion
             }
             else
             {
-                var schemaIndexing = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkSchemaIndexingAttribute>().SingleOrDefault();
-                var schemaItemInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkTagboxAttribute>().SingleOrDefault();
-                var listItemCreateTemplateAttribute = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkListItemCreateTemplateAttribute>().SingleOrDefault();
-                var relationInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkContentRelationAttribute>().ToList();
-                var maxRecursionInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkMaximumRecursionAttribute>().SingleOrDefault();
+                var schemaIndexing = property.PictureparkAttributes.OfType<PictureparkSchemaIndexingAttribute>().SingleOrDefault();
+                var schemaItemInfos = property.PictureparkAttributes.OfType<PictureparkTagboxAttribute>().SingleOrDefault();
+                var listItemCreateTemplateAttribute = property.PictureparkAttributes.OfType<PictureparkListItemCreateTemplateAttribute>().SingleOrDefault();
+                var relationInfos = property.PictureparkAttributes.OfType<PictureparkContentRelationAttribute>().ToList();
+                var maxRecursionInfos = property.PictureparkAttributes.OfType<PictureparkMaximumRecursionAttribute>().SingleOrDefault();
 
                 var relationTypes = new List<RelationType>();
                 if (relationInfos.Any())
@@ -600,7 +592,7 @@ namespace Picturepark.SDK.V1.Conversion
                     }).ToList();
                 }
 
-                if (contractPropertyInfo.IsArray)
+                if (property.IsArray)
                 {
                     if (relationInfos.Any())
                     {
@@ -608,17 +600,17 @@ namespace Picturepark.SDK.V1.Conversion
                         {
                             Index = true,
                             RelationTypes = relationTypes,
-                            SchemaId = contractPropertyInfo.TypeName,
+                            SchemaId = property.TypeName,
                             SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
                         };
                     }
-                    else if (contractPropertyInfo.IsReference)
+                    else if (property.IsReference)
                     {
                         fieldData = new FieldMultiTagbox
                         {
                             Index = true,
                             SimpleSearch = true,
-                            SchemaId = contractPropertyInfo.TypeName,
+                            SchemaId = property.TypeName,
                             Filter = schemaItemInfos?.Filter,
                             SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo,
                             ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate
@@ -630,7 +622,7 @@ namespace Picturepark.SDK.V1.Conversion
                         {
                             Index = true,
                             SimpleSearch = true,
-                            SchemaId = contractPropertyInfo.TypeName,
+                            SchemaId = property.TypeName,
                             SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
                         };
                     }
@@ -644,24 +636,24 @@ namespace Picturepark.SDK.V1.Conversion
                             Index = true,
                             SimpleSearch = true,
                             RelationTypes = relationTypes,
-                            SchemaId = contractPropertyInfo.TypeName,
+                            SchemaId = property.TypeName,
                             SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
                         };
                     }
-                    else if (contractPropertyInfo.TypeName == "GeoPoint")
+                    else if (property.TypeName == "GeoPoint")
                     {
                         fieldData = new FieldGeoPoint
                         {
                             Index = true
                         };
                     }
-                    else if (contractPropertyInfo.IsReference)
+                    else if (property.IsReference)
                     {
                         fieldData = new FieldSingleTagbox
                         {
                             Index = true,
                             SimpleSearch = true,
-                            SchemaId = contractPropertyInfo.TypeName,
+                            SchemaId = property.TypeName,
                             Filter = schemaItemInfos?.Filter,
                             SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo,
                             ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate
@@ -673,7 +665,7 @@ namespace Picturepark.SDK.V1.Conversion
                         {
                             Index = true,
                             SimpleSearch = true,
-                            SchemaId = contractPropertyInfo.TypeName,
+                            SchemaId = property.TypeName,
                             SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
                         };
                     }
@@ -681,9 +673,9 @@ namespace Picturepark.SDK.V1.Conversion
             }
 
             if (fieldData == null)
-                throw new Exception($"Could not find type for {contractPropertyInfo.Name}");
+                throw new Exception($"Could not find type for {property.Name}");
 
-            foreach (var attribute in contractPropertyInfo.PictureparkAttributes)
+            foreach (var attribute in property.PictureparkAttributes)
             {
                 if (attribute is PictureparkSearchAttribute searchAttribute)
                 {
@@ -719,6 +711,25 @@ namespace Picturepark.SDK.V1.Conversion
                     fieldData.Names[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
                 }
             }
+
+            var fieldName = property.Name;
+            fieldData.Id = fieldName.ToLowerCamelCase();
+
+            if (fieldData.Names == null)
+            {
+                fieldData.Names = new TranslatedStringDictionary
+                {
+                    ["x-default"] = fieldName
+                };
+            }
+
+            var fieldAnalyzers = property.PictureparkAttributes
+                .OfType<PictureparkAnalyzerAttribute>()
+                .Select(a => a.CreateAnalyzer())
+                .ToList();
+
+            if (fieldAnalyzers.Any())
+                fieldData.GetType().GetRuntimeProperty("Analyzers").SetValue(fieldData, fieldAnalyzers);
 
             return fieldData;
         }
