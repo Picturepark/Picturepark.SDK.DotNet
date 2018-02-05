@@ -83,7 +83,7 @@ namespace Picturepark.SDK.V1.Conversion
 
             var typeAttributes = contractType.GetTypeInfo()
                 .GetCustomAttributes(typeof(PictureparkSchemaTypeAttribute), true)
-                .Select(i => i as PictureparkSchemaTypeAttribute)
+                .OfType<PictureparkSchemaTypeAttribute>()
                 .ToList();
 
             if (!typeAttributes.Any())
@@ -115,7 +115,6 @@ namespace Picturepark.SDK.V1.Conversion
                 foreach (var customType in customTypes)
                 {
                     var referencedSchemaId = customType.TypeName;
-
                     if (schemaList.Any(d => d.Id == referencedSchemaId))
                         continue;
 
@@ -123,13 +122,12 @@ namespace Picturepark.SDK.V1.Conversion
                     if (customType.FullName == contractType.FullName)
                         continue;
 
-                    var subLevelOfcall = levelOfCall + 1;
-
-                    Type type = Type.GetType($"{customType.FullName}, {customType.AssemblyFullName}");
+                    var type = Type.GetType($"{customType.FullName}, {customType.AssemblyFullName}");
 
                     var isSystemSchema = type.GetTypeInfo().GetCustomAttributes(typeof(PictureparkSystemSchemaAttribute), true).Any();
                     if (isSystemSchema == false)
                     {
+                        var subLevelOfcall = levelOfCall + 1;
                         var dependencySchema = CreateSchemas(type, customType.TypeProperties, string.Empty, schemaList, subLevelOfcall, generateDependencySchema);
 
                         // the schema can be alredy added as dependency
@@ -152,9 +150,8 @@ namespace Picturepark.SDK.V1.Conversion
                 }
                 else
                 {
-                    var fieldData = GetField(property);
-
-                    schemaItem.Fields.Add(fieldData);
+                    var field = GetField(property);
+                    schemaItem.Fields.Add(field);
                 }
             }
 
@@ -213,8 +210,7 @@ namespace Picturepark.SDK.V1.Conversion
                         Filter = tagboxAttribute?.Filter,
                         Required = property.PictureparkAttributes.OfType<PictureparkRequiredAttribute>().Any(),
                         ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate,
-                        OverwriteListItemCreateTemplate =
-                            !string.IsNullOrEmpty(listItemCreateTemplateAttribute?.ListItemCreateTemplate)
+                        OverwriteListItemCreateTemplate = !string.IsNullOrEmpty(listItemCreateTemplateAttribute?.ListItemCreateTemplate)
                     };
                 }
                 else
@@ -441,13 +437,13 @@ namespace Picturepark.SDK.V1.Conversion
 
         private FieldBase GetField(ContractPropertyInfo property)
         {
-            FieldBase fieldData = null;
+            FieldBase field = null;
 
             if (property.IsDictionary)
             {
                 if (property.TypeName == "TranslatedStringDictionary")
                 {
-                    fieldData = new FieldTranslatedString
+                    field = new FieldTranslatedString
                     {
                         Required = false,
                         Fixed = false,
@@ -466,11 +462,11 @@ namespace Picturepark.SDK.V1.Conversion
                 }
                 else if (property.IsArray)
                 {
-                    fieldData = new FieldDictionaryArray();
+                    field = new FieldDictionaryArray();
                 }
                 else
                 {
-                    fieldData = new FieldDictionary();
+                    field = new FieldDictionary();
                 }
             }
             else if (property.IsEnum)
@@ -491,14 +487,14 @@ namespace Picturepark.SDK.V1.Conversion
                     switch (typeCode)
                     {
                         case TypeCode.String:
-                            fieldData = new FieldStringArray
+                            field = new FieldStringArray
                             {
                                 Index = true
                             };
                             break;
 
                         case TypeCode.DateTime:
-                            fieldData = new FieldDateTimeArray
+                            field = new FieldDateTimeArray
                             {
                                 Index = true
                             };
@@ -507,7 +503,7 @@ namespace Picturepark.SDK.V1.Conversion
                         case TypeCode.Int16:
                         case TypeCode.Int32:
                         case TypeCode.Int64:
-                            fieldData = new FieldLongArray
+                            field = new FieldLongArray
                             {
                                 Index = true
                             };
@@ -524,7 +520,7 @@ namespace Picturepark.SDK.V1.Conversion
                     switch (typeCode)
                     {
                         case TypeCode.String:
-                            fieldData = new FieldString
+                            field = new FieldString
                             {
                                 Index = true,
                                 SimpleSearch = true,
@@ -540,13 +536,13 @@ namespace Picturepark.SDK.V1.Conversion
                             };
                             break;
                         case TypeCode.DateTime:
-                            fieldData = new FieldDateTime
+                            field = new FieldDateTime
                             {
                                 Index = true
                             };
                             break;
                         case TypeCode.Boolean:
-                            fieldData = new FieldBoolean
+                            field = new FieldBoolean
                             {
                                 Index = true
                             };
@@ -554,7 +550,7 @@ namespace Picturepark.SDK.V1.Conversion
                         case TypeCode.Int16:
                         case TypeCode.Int32:
                         case TypeCode.Int64:
-                            fieldData = new FieldLong
+                            field = new FieldLong
                             {
                                 Index = true
                             };
@@ -562,7 +558,7 @@ namespace Picturepark.SDK.V1.Conversion
                         case TypeCode.Decimal:
                         case TypeCode.Double:
                         case TypeCode.Single:
-                            fieldData = new FieldDecimal
+                            field = new FieldDecimal
                             {
                                 Index = true
                             };
@@ -574,16 +570,16 @@ namespace Picturepark.SDK.V1.Conversion
             }
             else
             {
-                var schemaIndexing = property.PictureparkAttributes.OfType<PictureparkSchemaIndexingAttribute>().SingleOrDefault();
-                var schemaItemInfos = property.PictureparkAttributes.OfType<PictureparkTagboxAttribute>().SingleOrDefault();
+                var schemaIndexingAttribute = property.PictureparkAttributes.OfType<PictureparkSchemaIndexingAttribute>().SingleOrDefault();
                 var listItemCreateTemplateAttribute = property.PictureparkAttributes.OfType<PictureparkListItemCreateTemplateAttribute>().SingleOrDefault();
-                var relationInfos = property.PictureparkAttributes.OfType<PictureparkContentRelationAttribute>().ToList();
-                var maxRecursionInfos = property.PictureparkAttributes.OfType<PictureparkMaximumRecursionAttribute>().SingleOrDefault();
+                var maximumRecursionAttribute = property.PictureparkAttributes.OfType<PictureparkMaximumRecursionAttribute>().SingleOrDefault();
+                var tagboxAttributes = property.PictureparkAttributes.OfType<PictureparkTagboxAttribute>().SingleOrDefault();
+                var contentRelationAttributes = property.PictureparkAttributes.OfType<PictureparkContentRelationAttribute>().ToList();
 
                 var relationTypes = new List<RelationType>();
-                if (relationInfos.Any())
+                if (contentRelationAttributes.Any())
                 {
-                    relationTypes = relationInfos.Select(i => new RelationType
+                    relationTypes = contentRelationAttributes.Select(i => new RelationType
                     {
                         Id = i.Name,
                         Filter = i.Filter,
@@ -594,130 +590,130 @@ namespace Picturepark.SDK.V1.Conversion
 
                 if (property.IsArray)
                 {
-                    if (relationInfos.Any())
+                    if (contentRelationAttributes.Any())
                     {
-                        fieldData = new FieldMultiRelation
+                        field = new FieldMultiRelation
                         {
                             Index = true,
                             RelationTypes = relationTypes,
                             SchemaId = property.TypeName,
-                            SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
+                            SchemaIndexingInfo = schemaIndexingAttribute?.SchemaIndexingInfo
                         };
                     }
                     else if (property.IsReference)
                     {
-                        fieldData = new FieldMultiTagbox
+                        field = new FieldMultiTagbox
                         {
                             Index = true,
                             SimpleSearch = true,
                             SchemaId = property.TypeName,
-                            Filter = schemaItemInfos?.Filter,
-                            SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo,
+                            Filter = tagboxAttributes?.Filter,
+                            SchemaIndexingInfo = schemaIndexingAttribute?.SchemaIndexingInfo,
                             ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate
                         };
                     }
                     else
                     {
-                        fieldData = new FieldMultiFieldset
+                        field = new FieldMultiFieldset
                         {
                             Index = true,
                             SimpleSearch = true,
                             SchemaId = property.TypeName,
-                            SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
+                            SchemaIndexingInfo = schemaIndexingAttribute?.SchemaIndexingInfo
                         };
                     }
                 }
                 else
                 {
-                    if (relationInfos.Any())
+                    if (contentRelationAttributes.Any())
                     {
-                        fieldData = new FieldSingleRelation
+                        field = new FieldSingleRelation
                         {
                             Index = true,
                             SimpleSearch = true,
                             RelationTypes = relationTypes,
                             SchemaId = property.TypeName,
-                            SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
+                            SchemaIndexingInfo = schemaIndexingAttribute?.SchemaIndexingInfo
                         };
                     }
                     else if (property.TypeName == "GeoPoint")
                     {
-                        fieldData = new FieldGeoPoint
+                        field = new FieldGeoPoint
                         {
                             Index = true
                         };
                     }
                     else if (property.IsReference)
                     {
-                        fieldData = new FieldSingleTagbox
+                        field = new FieldSingleTagbox
                         {
                             Index = true,
                             SimpleSearch = true,
                             SchemaId = property.TypeName,
-                            Filter = schemaItemInfos?.Filter,
-                            SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo,
+                            Filter = tagboxAttributes?.Filter,
+                            SchemaIndexingInfo = schemaIndexingAttribute?.SchemaIndexingInfo,
                             ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate
                         };
                     }
                     else
                     {
-                        fieldData = new FieldSingleFieldset
+                        field = new FieldSingleFieldset
                         {
                             Index = true,
                             SimpleSearch = true,
                             SchemaId = property.TypeName,
-                            SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
+                            SchemaIndexingInfo = schemaIndexingAttribute?.SchemaIndexingInfo
                         };
                     }
                 }
             }
 
-            if (fieldData == null)
+            if (field == null)
                 throw new Exception($"Could not find type for {property.Name}");
 
             foreach (var attribute in property.PictureparkAttributes)
             {
                 if (attribute is PictureparkSearchAttribute searchAttribute)
                 {
-                    fieldData.Index = searchAttribute.Index;
-                    fieldData.SimpleSearch = searchAttribute.SimpleSearch;
-                    if (fieldData.GetType().GetRuntimeProperty("Boost") != null)
+                    field.Index = searchAttribute.Index;
+                    field.SimpleSearch = searchAttribute.SimpleSearch;
+
+                    if (field.GetType().GetRuntimeProperty("Boost") != null)
                     {
-                        fieldData.GetType().GetRuntimeProperty("Boost").SetValue(fieldData, searchAttribute.Boost);
+                        field.GetType().GetRuntimeProperty("Boost").SetValue(field, searchAttribute.Boost);
                     }
                 }
 
                 if (attribute is PictureparkRequiredAttribute)
                 {
-                    fieldData.Required = true;
+                    field.Required = true;
                 }
 
                 if (attribute is PictureparkMaximumLengthAttribute maxLengthAttribute)
                 {
-                    fieldData.GetType().GetRuntimeProperty("MaximumLength").SetValue(fieldData, maxLengthAttribute.Length);
+                    field.GetType().GetRuntimeProperty("MaximumLength").SetValue(field, maxLengthAttribute.Length);
                 }
 
                 if (attribute is PictureparkPatternAttribute patternAttribute)
                 {
-                    fieldData.GetType().GetRuntimeProperty("Pattern").SetValue(fieldData, patternAttribute.Pattern);
+                    field.GetType().GetRuntimeProperty("Pattern").SetValue(field, patternAttribute.Pattern);
                 }
 
-                if (attribute is PictureparkNameTranslationAttribute)
+                if (attribute is PictureparkNameTranslationAttribute nameTranslationAttribute)
                 {
-                    var translationAttribute = attribute as PictureparkNameTranslationAttribute;
-                    if (fieldData.Names == null)
-                        fieldData.Names = new TranslatedStringDictionary();
+                    if (field.Names == null)
+                        field.Names = new TranslatedStringDictionary();
 
-                    fieldData.Names[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
+                    field.Names[nameTranslationAttribute.LanguageAbbreviation] = nameTranslationAttribute.Translation;
                 }
             }
 
             var fieldName = property.Name;
-            fieldData.Id = fieldName.ToLowerCamelCase();
+            field.Id = fieldName.ToLowerCamelCase();
 
-            if (fieldData.Names == null)
+            if (field.Names == null)
             {
-                fieldData.Names = new TranslatedStringDictionary
+                field.Names = new TranslatedStringDictionary
                 {
                     ["x-default"] = fieldName
                 };
@@ -729,9 +725,9 @@ namespace Picturepark.SDK.V1.Conversion
                 .ToList();
 
             if (fieldAnalyzers.Any())
-                fieldData.GetType().GetRuntimeProperty("Analyzers").SetValue(fieldData, fieldAnalyzers);
+                field.GetType().GetRuntimeProperty("Analyzers").SetValue(field, fieldAnalyzers);
 
-            return fieldData;
+            return field;
         }
 
         private bool IsSimpleType(Type type)
