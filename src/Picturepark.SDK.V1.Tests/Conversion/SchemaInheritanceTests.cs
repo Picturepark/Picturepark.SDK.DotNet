@@ -30,17 +30,24 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             /// Assert
             Assert.Equal(2, schemas.Count);
 
+            // check person
             var person = schemas.First();
             Assert.Equal(3, person.Fields.Count);
             Assert.Equal(0, person.FieldsOverwrite.Count);
 
             Assert.False(person.Fields.First(f => f.Id == "parent").Required);
 
+            // check teacher
             var teacher = schemas.Last();
             Assert.Equal(0, teacher.Fields.Count);
             Assert.Equal(1, teacher.FieldsOverwrite.Count);
 
             Assert.True(teacher.FieldsOverwrite.First(f => f.Id == "parent").Required);
+
+            // check PictureparkListItemCreateTemplateAttribute
+            var field = (FieldOverwriteSingleTagbox)teacher.FieldsOverwrite.First(f => f.Id == "parent");
+            Assert.Equal("foo", field.ListItemCreateTemplate);
+            Assert.True(field.OverwriteListItemCreateTemplate);
         }
 
         [PictureparkReference]
@@ -60,6 +67,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         public class Teacher : Person
         {
             [PictureparkRequired]
+            [PictureparkListItemCreateTemplate("foo")]
             public override Person Parent { get; set; }
         }
     }

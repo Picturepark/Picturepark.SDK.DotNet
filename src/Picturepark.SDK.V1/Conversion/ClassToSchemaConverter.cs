@@ -148,6 +148,7 @@ namespace Picturepark.SDK.V1.Conversion
                 if (property.IsOverwritten)
                 {
                     var schemaItemInfos = property.PictureparkAttributes.OfType<PictureparkTagboxAttribute>().SingleOrDefault();
+                    var listItemCreateTemplateAttribute = property.PictureparkAttributes.OfType<PictureparkListItemCreateTemplateAttribute>().SingleOrDefault();
 
                     if (property.IsArray)
                     {
@@ -157,7 +158,9 @@ namespace Picturepark.SDK.V1.Conversion
                             {
                                 Id = property.Name,
                                 Filter = schemaItemInfos?.Filter,
-                                Required = property.PictureparkAttributes.OfType<PictureparkRequiredAttribute>().Any()
+                                Required = property.PictureparkAttributes.OfType<PictureparkRequiredAttribute>().Any(),
+                                ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate,
+                                OverwriteListItemCreateTemplate = !string.IsNullOrEmpty(listItemCreateTemplateAttribute?.ListItemCreateTemplate)
                             });
                         }
                         else
@@ -173,7 +176,9 @@ namespace Picturepark.SDK.V1.Conversion
                             {
                                 Id = property.Name,
                                 Filter = schemaItemInfos?.Filter,
-                                Required = property.PictureparkAttributes.OfType<PictureparkRequiredAttribute>().Any()
+                                Required = property.PictureparkAttributes.OfType<PictureparkRequiredAttribute>().Any(),
+                                ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate,
+                                OverwriteListItemCreateTemplate = !string.IsNullOrEmpty(listItemCreateTemplateAttribute?.ListItemCreateTemplate)
                             });
                         }
                         else
@@ -579,6 +584,7 @@ namespace Picturepark.SDK.V1.Conversion
             {
                 var schemaIndexing = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkSchemaIndexingAttribute>().SingleOrDefault();
                 var schemaItemInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkTagboxAttribute>().SingleOrDefault();
+                var listItemCreateTemplateAttribute = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkListItemCreateTemplateAttribute>().SingleOrDefault();
                 var relationInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkContentRelationAttribute>().ToList();
                 var maxRecursionInfos = contractPropertyInfo.PictureparkAttributes.OfType<PictureparkMaximumRecursionAttribute>().SingleOrDefault();
 
@@ -614,7 +620,8 @@ namespace Picturepark.SDK.V1.Conversion
                             SimpleSearch = true,
                             SchemaId = contractPropertyInfo.TypeName,
                             Filter = schemaItemInfos?.Filter,
-                            SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
+                            SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo,
+                            ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate
                         };
                     }
                     else
@@ -656,7 +663,8 @@ namespace Picturepark.SDK.V1.Conversion
                             SimpleSearch = true,
                             SchemaId = contractPropertyInfo.TypeName,
                             Filter = schemaItemInfos?.Filter,
-                            SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo
+                            SchemaIndexingInfo = schemaIndexing?.SchemaIndexingInfo,
+                            ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate
                         };
                     }
                     else
