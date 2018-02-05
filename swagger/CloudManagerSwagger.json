@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.12.13.0 (NJsonSchema v9.10.14.0 (Newtonsoft.Json v9.0.0.0))",
+  "x-generator": "NSwag v11.13.2.0 (NJsonSchema v9.10.21.0 (Newtonsoft.Json v9.0.0.0))",
   "swagger": "2.0",
   "info": {
     "title": "Picturepark CloudManager API V1",
@@ -53,6 +53,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -96,6 +120,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -141,6 +189,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -178,6 +250,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -223,6 +319,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -266,6 +386,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -313,6 +457,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -370,6 +538,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -409,6 +601,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -463,6 +679,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -495,6 +735,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -526,6 +790,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -567,6 +855,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -607,6 +919,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -638,6 +974,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -678,6 +1038,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -717,6 +1101,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -752,6 +1160,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -795,6 +1227,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -837,6 +1293,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -878,6 +1358,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -926,6 +1430,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -964,6 +1492,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -1008,6 +1560,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -1054,6 +1630,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1099,6 +1699,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1143,6 +1767,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -1190,6 +1838,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1235,6 +1907,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -1282,6 +1978,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1327,6 +2047,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -1374,6 +2118,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1420,6 +2188,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1465,6 +2257,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -1515,6 +2331,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1561,6 +2401,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1596,6 +2460,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -1647,6 +2535,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -1701,6 +2613,30 @@
           "401": {
             "description": "Not authorized"
           },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
           "429": {
             "description": "Too many requests"
           }
@@ -1749,6 +2685,30 @@
           },
           "401": {
             "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
           },
           "429": {
             "description": "Too many requests"
@@ -2709,6 +3669,35 @@
         }
       ]
     },
+    "Preset": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "ultrafast",
+        "superfast",
+        "veryfast",
+        "faster",
+        "fast",
+        "medium",
+        "slow",
+        "slower"
+      ],
+      "enum": [
+        "ultrafast",
+        "superfast",
+        "veryfast",
+        "faster",
+        "fast",
+        "medium",
+        "slow",
+        "slower"
+      ]
+    },
+    "IVideoAction": {
+      "type": "object",
+      "x-abstract": true,
+      "additionalProperties": false
+    },
     "VideoPresetFormat": {
       "type": "object",
       "additionalProperties": false,
@@ -3030,35 +4019,6 @@
         }
       ]
     },
-    "Preset": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "ultrafast",
-        "superfast",
-        "veryfast",
-        "faster",
-        "fast",
-        "medium",
-        "slow",
-        "slower"
-      ],
-      "enum": [
-        "ultrafast",
-        "superfast",
-        "veryfast",
-        "faster",
-        "fast",
-        "medium",
-        "slow",
-        "slower"
-      ]
-    },
-    "IVideoAction": {
-      "type": "object",
-      "x-abstract": true,
-      "additionalProperties": false
-    },
     "CustomerConfigurationItem": {
       "type": "object",
       "additionalProperties": false,
@@ -3111,6 +4071,12 @@
         "outputCatalog": {
           "type": "string"
         },
+        "outputFormatCatalog": {
+          "type": "string"
+        },
+        "channelCatalog": {
+          "type": "string"
+        },
         "notificationCatalog": {
           "type": "string"
         },
@@ -3139,6 +4105,9 @@
           "type": "string"
         },
         "schemaCatalog": {
+          "type": "string"
+        },
+        "referenceCatalog": {
           "type": "string"
         },
         "watermarkPath": {
@@ -3348,15 +4317,6 @@
         }
       }
     },
-    "PictureparkApplicationException": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
     "PictureparkBusinessException": {
       "type": "object",
       "additionalProperties": false,
@@ -3377,6 +4337,451 @@
         }
       ]
     },
+    "PictureparkValidationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "PictureparkConflictException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reference": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "UserEmailAlreadyExistsException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "UserRoleAssignedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userRoleId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "UserNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "missingUserId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "RenderingException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "ServiceProviderDeleteException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "serviceProviderId": {
+          "type": "string"
+        },
+        "detailedErrorMessage": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "ServiceProviderCreateException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "virtualHost": {
+          "type": "string"
+        },
+        "detailErrorMessage": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "ServiceProviderNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "missingServiceProviderId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "DocumentVersionNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "documentId": {
+          "type": "string"
+        },
+        "documentVersion": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "PictureparkNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reference": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "DefaultChannelDeleteException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "ElasticVersionUpdateException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "expectedVersion": {
+          "type": "string"
+        },
+        "actualVersion": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "InvalidVersionException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "component": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "EnvironmentNotDeactivatedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "EnvironmentNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "EnvironmentDeactivationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "deactivationMessage": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "ShareNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "shareId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "ShareByTokenNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "TokenGenerationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "retries"
+      ],
+      "properties": {
+        "retries": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "OutputIdNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "outputId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "OutputNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string"
+        },
+        "outputFormatId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "DriveCacheExpiredException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "DriveFileNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fileId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "DriveRequestException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "TokenValidationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "LeaseNotAcquiredException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "resourceId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "OperationInProgressException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "leaseResourceType"
+      ],
+      "properties": {
+        "leaseResourceType": {
+          "$ref": "#/definitions/LeaseResourceType"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "LeaseResourceType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "SchemaEditing"
+      ],
+      "enum": [
+        "SchemaEditing"
+      ]
+    },
+    "RetryException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "retries"
+      ],
+      "properties": {
+        "retries": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "innerExceptionDetail": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "OwnerTokenNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ownerTokenUserId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "InvalidStateException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "resourceId": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "PictureparkArgumentNullException": {
       "type": "object",
       "additionalProperties": false,
@@ -3387,15 +4792,15 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/PictureparkBusinessException"
+          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },
-    "ContentNotFoundException": {
+    "ObjectTypeMismatchException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "contentId": {
+        "type": {
           "type": "string"
         }
       },
@@ -3405,45 +4810,25 @@
         }
       ]
     },
-    "ContentsNotFoundException": {
+    "InvalidStateTransitionException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "contentIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "transition": {
+          "type": "string"
         }
       },
       "allOf": [
         {
-          "$ref": "#/definitions/PictureparkBusinessException"
+          "$ref": "#/definitions/InvalidStateException"
         }
       ]
     },
-    "BusinessProcessDefinitionCreateException": {
+    "FailedToLockException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "processDefinitionIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "BusinessProcessDefinitionNotFoundException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "processDefinitionId": {
+        "resourceId": {
           "type": "string"
         }
       },
@@ -3453,11 +4838,46 @@
         }
       ]
     },
-    "BusinessProcessNotFoundException": {
+    "PictureparkOperationCanceledException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "PictureparkApplicationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "InvalidArgumentException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "businessProcessId": {
+        "argumentName": {
+          "type": "string"
+        },
+        "argumentValue": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "UnknownException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exceptionDetail": {
           "type": "string"
         }
       },
@@ -3467,17 +4887,96 @@
         }
       ]
     },
-    "BusinessProcessWaitTimeoutException": {
+    "OwnerTokenInUseException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "businessProcessId": {
+        "ownerTokenUserId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "CustomerViolationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "expectedCustomerId": {
+          "type": "string"
+        },
+        "currentCustomerId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "CustomerAliasNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerAlias": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "CustomerAliasInUseException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "existingCustomerId": {
+          "type": "string"
+        },
+        "alias": {
           "type": "string"
         }
       },
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "CustomerNotDeactivatedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "CustomerDeactivationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        },
+        "deactivationMessage": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
         }
       ]
     },
@@ -3509,11 +5008,25 @@
         }
       ]
     },
-    "DocumentNotFoundException": {
+    "ConfigurationIndexNotFoundException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "documentId": {
+        "configurationIndex": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "DuplicateSearchIndexDocException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "searchIndexDocId": {
           "type": "string"
         }
       },
@@ -3523,14 +5036,11 @@
         }
       ]
     },
-    "DocumentVersionNotFoundException": {
+    "SearchIndexDocNotFoundException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "documentId": {
-          "type": "string"
-        },
-        "documentVersion": {
+        "searchIndexDocId": {
           "type": "string"
         }
       },
@@ -3540,20 +5050,11 @@
         }
       ]
     },
-    "DriveRequestException": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "DuplicateRightException": {
+    "IndexDocumentNotFoundException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "permissionSetId": {
+        "indexId": {
           "type": "string"
         }
       },
@@ -3563,14 +5064,25 @@
         }
       ]
     },
-    "DuplicateDocumentException": {
+    "DuplicateAliasException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "documentId": {
+        "indexAlias": {
           "type": "string"
-        },
-        "documentType": {
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "SearchIndexNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "searchIndexId": {
           "type": "string"
         }
       },
@@ -3580,25 +5092,20 @@
         }
       ]
     },
-    "DuplicateAggregatorException": {
+    "DefaultSearchIndexDeleteException": {
       "type": "object",
       "additionalProperties": false,
-      "properties": {
-        "aggregatorName": {
-          "type": "string"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
         }
       ]
     },
-    "FailedToLockException": {
+    "SearchIndexInUseException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "resourceId": {
+        "searchIndex": {
           "type": "string"
         }
       },
@@ -3625,130 +5132,7 @@
         }
       ]
     },
-    "InvalidArgumentException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "argumentName": {
-          "type": "string"
-        },
-        "argumentValue": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "InvalidCustomerException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "customerId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkException"
-        }
-      ]
-    },
-    "PictureparkInvalidMetadataException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "metadataErrors": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/MetadataError"
-          }
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "MetadataError": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "lineNumber",
-        "linePosition"
-      ],
-      "properties": {
-        "errorType": {
-          "type": "string"
-        },
-        "lineNumber": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "linePosition": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "path": {
-          "type": "string"
-        },
-        "message": {
-          "type": "string"
-        },
-        "schemaId": {
-          "type": "string"
-        }
-      }
-    },
-    "InvalidStateTransitionException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "transition": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/InvalidStateException"
-        }
-      ]
-    },
-    "InvalidStateException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "resourceId": {
-          "type": "string"
-        },
-        "state": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "InvalidUserOrPasswordException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "customerId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkException"
-        }
-      ]
-    },
-    "PictureparkMappingException": {
+    "IndexMappingException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -3765,15 +5149,112 @@
         }
       ]
     },
-    "MessagePerformerTaskCanceledException": {
+    "DuplicatedSearchBehaviourException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "messageId": {
+        "duplicatedSearchBehaviours": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SearchStringLeadingWildcardException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "DuplicateAggregatorException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aggregatorName": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "InvalidDateTimeFormatException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
           "type": "string"
         },
+        "expectedFormat": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "DocumentVersionConflictException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "documentVersion"
+      ],
+      "properties": {
+        "documentId": {
+          "type": "string"
+        },
+        "documentType": {
+          "type": "string"
+        },
+        "documentVersion": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkConflictException"
+        }
+      ]
+    },
+    "RedisDatabaseExceededException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "customerCount",
+        "maxCount",
+        "startIndex",
+        "redisDatabaseCount"
+      ],
+      "properties": {
         "customerId": {
           "type": "string"
+        },
+        "customerCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "maxCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startIndex": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "redisDatabaseCount": {
+          "type": "integer",
+          "format": "int32"
         }
       },
       "allOf": [
@@ -3782,34 +5263,20 @@
         }
       ]
     },
-    "NotFoundException": {
+    "DuplicateDocumentException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "reference": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "ObjectStoreException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "rowErrorMessages": {
+        "documentId": {
           "type": "string"
         },
-        "errorMessage": {
+        "documentType": {
           "type": "string"
         }
       },
       "allOf": [
         {
-          "$ref": "#/definitions/PictureparkBusinessException"
+          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },
@@ -3830,49 +5297,14 @@
         }
       ]
     },
-    "PictureparkOperationCanceledException": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "OperationTimeoutException": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "OutputNotFoundException": {
+    "ObjectStoreException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "contentId": {
+        "rowErrorMessages": {
           "type": "string"
         },
-        "outputFormatId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "PermissionException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "permission": {
-          "type": "string"
-        },
-        "operation": {
+        "errorMessage": {
           "type": "string"
         }
       },
@@ -3981,92 +5413,392 @@
         }
       }
     },
-    "RenderingException": {
+    "PermissionOwnershipTransferException": {
       "type": "object",
       "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "RenderingJobItemNotSetException": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "ServiceProviderCreateException": {
-      "type": "object",
-      "additionalProperties": false,
+      "required": [
+        "missingUserRight"
+      ],
       "properties": {
-        "userId": {
+        "transferUserId": {
           "type": "string"
         },
-        "externalId": {
+        "missingUserRight": {
+          "$ref": "#/definitions/UserRight"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "UserRight": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "ManageContent",
+        "ManageSharings",
+        "ManageDrives",
+        "ManageTransfer",
+        "ManageChannels",
+        "ManageSchemas",
+        "ManageUsers",
+        "ManageUserRoles",
+        "ManagePermissions",
+        "ManageSearchIndexes",
+        "ManageRecipients",
+        "ManageCollections",
+        "ManageListItems",
+        "ManageServiceProviders",
+        "ManageEmbeds",
+        "ManageTemplates"
+      ],
+      "enum": [
+        "ManageContent",
+        "ManageSharings",
+        "ManageDrives",
+        "ManageTransfer",
+        "ManageChannels",
+        "ManageSchemas",
+        "ManageUsers",
+        "ManageUserRoles",
+        "ManagePermissions",
+        "ManageSearchIndexes",
+        "ManageRecipients",
+        "ManageCollections",
+        "ManageListItems",
+        "ManageServiceProviders",
+        "ManageEmbeds",
+        "ManageTemplates"
+      ]
+    },
+    "PermissionSetNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "permissionSetId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "DuplicateRightException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "permissionSetId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "PermissionValidationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "permission": {
           "type": "string"
         },
-        "virtualHost": {
+        "operation": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "UnsupportedListItemChangeCommandException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "commandType": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "ListItemLayerException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "listItemId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "ListItemNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "listItemId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "ListItemCyclicDependencyException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "listItemIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "TransferInfoNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "transferInfoId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "FileTransferNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fileTransferId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "InvalidTransferTypeException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "transferType"
+      ],
+      "properties": {
+        "transferType": {
+          "$ref": "#/definitions/TransferType"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "TransferType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "FileUpload",
+        "FileUploadAutoImport",
+        "DriveImport",
+        "DriveExport",
+        "WebDownload",
+        "SchemaImport"
+      ],
+      "enum": [
+        "FileUpload",
+        "FileUploadAutoImport",
+        "DriveImport",
+        "DriveExport",
+        "WebDownload",
+        "SchemaImport"
+      ]
+    },
+    "TransferNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "transferId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "MissingDependenciesException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "itemIds": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "RelationSelfReferencingException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "itemId": {
           "type": "string"
         },
-        "detailErrorMessage": {
+        "itemType": {
           "type": "string"
         }
       },
       "allOf": [
         {
-          "$ref": "#/definitions/PictureparkException"
+          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },
-    "ServiceProviderDeleteException": {
+    "InvalidChangeCommandFieldTypeInvalidException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "serviceProviderId": {
+        "commandType": {
           "type": "string"
         },
-        "detailedErrorMessage": {
+        "fieldId": {
+          "type": "string"
+        },
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldActualType": {
+          "type": "string"
+        },
+        "fieldExpectedType": {
           "type": "string"
         }
       },
       "allOf": [
         {
-          "$ref": "#/definitions/PictureparkException"
+          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },
-    "ServiceProviderNotFoundException": {
+    "InvalidChangeCommandFieldNotFoundException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "missingServiceProviderId": {
+        "commandTypeName": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        },
+        "schemaId": {
           "type": "string"
         }
       },
       "allOf": [
         {
-          "$ref": "#/definitions/PictureparkException"
+          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },
-    "TokenValidationException": {
+    "InvalidMetadataException": {
       "type": "object",
       "additionalProperties": false,
+      "properties": {
+        "metadataErrors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MetadataError"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "MetadataError": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lineNumber",
+        "linePosition"
+      ],
+      "properties": {
+        "errorType": {
+          "type": "string"
+        },
+        "lineNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "linePosition": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "path": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "schemaId": {
+          "type": "string"
+        }
+      }
+    },
+    "RelationNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "relationId": {
+          "type": "string"
+        }
+      },
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
         }
       ]
     },
-    "UnknownException": {
+    "RelationTypeNotFoundException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "exceptionDetail": {
+        "relationType": {
           "type": "string"
         }
       },
@@ -4076,11 +5808,17 @@
         }
       ]
     },
-    "UserNotFoundException": {
+    "RelationTypeTargetDocTypeMismatchException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "missingUserId": {
+        "relationType": {
+          "type": "string"
+        },
+        "targetDocType": {
+          "type": "string"
+        },
+        "expectedTargetDocType": {
           "type": "string"
         }
       },
@@ -4090,11 +5828,205 @@
         }
       ]
     },
-    "UserPermanentlyRemovedException": {
+    "SchemaFieldOverwriteTypeMismatchException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "removedUserId": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        },
+        "fieldOverwriteType": {
+          "type": "string"
+        },
+        "fieldType": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaFieldOverwriteIdException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaFieldIdDuplicatedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaFieldSchemaIndexInfoSimpleSearchNestingException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        },
+        "relatedFieldId": {
+          "type": "string"
+        },
+        "relatedOuterFieldId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaFieldSchemaIndexInfoNestingException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        },
+        "relatedFieldId": {
+          "type": "string"
+        },
+        "relatedOuterFieldId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaFieldSchemaIndexInfoException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        },
+        "relatedFieldId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaFieldIdUppercaseException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaIdLowercaseException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaInfoNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "IndexedFieldThresholdExceededException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "indexedFieldCount",
+        "indexedFieldThreshold"
+      ],
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "indexedFieldCount": {
+          "type": "number",
+          "format": "double"
+        },
+        "indexedFieldThreshold": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "DuplicateSchemaInfoException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
           "type": "string"
         }
       },
@@ -4104,11 +6036,589 @@
         }
       ]
     },
-    "UserRoleAssignedException": {
+    "SchemaFieldNumberRangeException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "minValue",
+        "maxValue"
+      ],
+      "properties": {
+        "fieldId": {
+          "type": "string"
+        },
+        "propertyName": {
+          "type": "string"
+        },
+        "minValue": {
+          "type": "number",
+          "format": "decimal"
+        },
+        "maxValue": {
+          "type": "number",
+          "format": "decimal"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaInUseContentSchemaException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "userRoleId": {
+        "schemaId": {
+          "type": "string"
+        },
+        "contentSchemaIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaInUseListItemException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "listItemCount"
+      ],
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "listItemCount": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaInUseContentException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contentCount"
+      ],
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "contentCount": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaInUseFieldException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldNamespaces": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaNotFoundInSearchIndexException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "searchIndexId": {
+          "type": "string"
+        },
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "DuplicateMetadataDisplayPatternException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "displayPatternId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "DuplicateSchemaException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaImportEmptyException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaImportVersionMismatchException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "providedVersion": {
+          "type": "string"
+        },
+        "expectedVersion": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaCyclicDependencyException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaInheritanceFieldIndexDeviationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaInheritanceTypeDeviationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaValidationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "exceptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PictureparkBusinessException"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaSortFieldException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaFieldIdException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaFieldTypeChangeException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        },
+        "oldType": {
+          "type": "string"
+        },
+        "newType": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaFixedFieldChangeException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaFixedFieldDeleteException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaFieldIndexException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaNoContentException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaParentChangeException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "oldSchemaParentId": {
+          "type": "string"
+        },
+        "newSchemaParentId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaMissingTypeException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "expectedSchemaTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SchemaType"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Content",
+        "Layer",
+        "List",
+        "Struct"
+      ],
+      "enum": [
+        "Content",
+        "Layer",
+        "List",
+        "Struct"
+      ]
+    },
+    "SchemaPermissionException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaNoLayerException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaIdException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaInUseException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "exceptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PictureparkBusinessException"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "ContentsNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "DeleteContentsWithRelationsException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "relationList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "relations": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "ContentMetadataUpdateManyException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "failedItemsCount",
+        "totalItemsCount"
+      ],
+      "properties": {
+        "failedItemsCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalItemsCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "ContentNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "BusinessProcessWaitTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "businessProcessId": {
           "type": "string"
         }
       },
@@ -4118,17 +6628,131 @@
         }
       ]
     },
-    "UserRolesRightsAssignedException": {
+    "BusinessProcessEngineRequestException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "contentPermissionSetId": {
+        "businessProcessId": {
+          "type": "string"
+        },
+        "engineError": {
           "type": "string"
         }
       },
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "BusinessProcessNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "businessProcessId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "BusinessProcessDefinitionNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "processDefinitionId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "BusinessProcessDefinitionCreateException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "processDefinitionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "SchemaFieldImportMismatchException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "importingFieldIds": {
+          "type": "string"
+        },
+        "existingFieldIds": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaFieldImportRelatedSchemaMismatchException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        },
+        "importingRelatedSchemaId": {
+          "type": "string"
+        },
+        "existingRelatedSchemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaFieldImportTypeMismatchException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        },
+        "importingFieldType": {
+          "type": "string"
+        },
+        "existingFieldType": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },
@@ -4889,7 +7513,10 @@
         "Content",
         "Token",
         "DisplayValue",
-        "Schema"
+        "Schema",
+        "OutputFormat",
+        "Channel",
+        "Reference"
       ],
       "enum": [
         "Configuration",
@@ -4910,7 +7537,10 @@
         "Content",
         "Token",
         "DisplayValue",
-        "Schema"
+        "Schema",
+        "OutputFormat",
+        "Channel",
+        "Reference"
       ]
     },
     "IndexState": {
@@ -5243,7 +7873,8 @@
         "startTime",
         "startTimeInMilliseconds",
         "entityType",
-        "restoreDate"
+        "restoreDate",
+        "isArchived"
       ],
       "properties": {
         "durationInMilliseconds": {
@@ -5306,6 +7937,9 @@
         "restoreDate": {
           "type": "string",
           "format": "date-time"
+        },
+        "isArchived": {
+          "type": "boolean"
         }
       }
     },

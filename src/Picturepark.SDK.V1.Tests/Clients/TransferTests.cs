@@ -155,7 +155,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			await _client.Transfers.DeleteAsync(transferId);
 
 			/// Assert
-			await Assert.ThrowsAsync<ApiException>(async () => await _client.Transfers.GetAsync(transferId)); // TODO: TransferClient.GetAsync: Should correctly throw NotFoundException
+			await Assert.ThrowsAsync<TransferNotFoundException>(async () => await _client.Transfers.GetAsync(transferId));
 		}
 
 		[Fact]
