@@ -86,7 +86,14 @@ namespace Picturepark.SDK.V1.Builders
             var path = GetExpressionPath(expression);
             var type = path.Last().Item2;
 
-            info.Item2.Fields = GenerateFieldIndexingInfos(type, levels, propertySelector);
+            var fields = GenerateFieldIndexingInfos(type, levels, propertySelector);
+            if (fields != null && fields.Any())
+            {
+                info.Item2.RelatedSchemaIndexing = new SchemaIndexingInfo
+                {
+                    Fields = GenerateFieldIndexingInfos(type, levels, propertySelector)
+                };
+            }
 
             return new SchemaIndexingInfoBuilder<T>(_contractResolver, info.Item1);
         }
@@ -141,10 +148,14 @@ namespace Picturepark.SDK.V1.Builders
                                 ? property.PropertyType.GenericTypeArguments.First()
                                 : property.PropertyType;
 
-                            field.RelatedSchemaIndexing = new SchemaIndexingInfo
+                            var subFields = GenerateFieldIndexingInfos(propertyType, levels - 1, propertySelector);
+                            if (subFields != null && subFields.Any())
                             {
-                                Fields = GenerateFieldIndexingInfos(propertyType, levels - 1, propertySelector)
-                            };
+                                field.RelatedSchemaIndexing = new SchemaIndexingInfo
+                                {
+                                    Fields = subFields
+                                };
+                            }
                         }
                     }
                 }
@@ -162,39 +173,42 @@ namespace Picturepark.SDK.V1.Builders
 
             if (attribute != null)
             {
-                field.RelatedSchemaIndexing = Clone(attribute.SchemaIndexingInfo);
+                var relatedSchemaIndexing = Clone(attribute.SchemaIndexingInfo);
+                if (relatedSchemaIndexing.Fields != null && relatedSchemaIndexing.Fields.Any())
+                {
+                    field.RelatedSchemaIndexing = relatedSchemaIndexing;
+                }
             }
         }
 
-        private Tuple<SchemaIndexingInfo, SchemaIndexingInfo> CreateFromExpression(Expression<Func<T, object>> expression, Action<FieldIndexingInfo> fieldTransformator)
+        private Tuple<SchemaIndexingInfo, FieldIndexingInfo> CreateFromExpression(Expression<Func<T, object>> expression, Action<FieldIndexingInfo> fieldTransformator)
         {
-            var info = Clone(_schemaIndexingInfo);
+            var rootInfo = Clone(_schemaIndexingInfo);
             var path = GetExpressionPath(expression);
 
-            var currentInfo = info;
-            foreach (var p in path)
+            FieldIndexingInfo field = null;
+            foreach (var segment in path)
             {
-                if (currentInfo.Fields == null)
+                var info = field == null ? rootInfo : field.RelatedSchemaIndexing = new SchemaIndexingInfo();
+                if (info.Fields == null)
                 {
-                    currentInfo.Fields = new Collection<FieldIndexingInfo>();
+                    info.Fields = new Collection<FieldIndexingInfo>();
                 }
 
-                var field = currentInfo.Fields.SingleOrDefault(f => f.Id == p.Item1) ?? new FieldIndexingInfo
+                field = info.Fields.SingleOrDefault(f => f.Id == segment.Item1) ?? new FieldIndexingInfo
                 {
-                    Id = p.Item1,
-                    RelatedSchemaIndexing = new SchemaIndexingInfo()
+                    Id = segment.Item1
                 };
 
-                if (!currentInfo.Fields.Contains(field))
+                if (!info.Fields.Contains(field))
                 {
-                    currentInfo.Fields.Add(field);
+                    info.Fields.Add(field);
                 }
 
                 fieldTransformator(field);
-                currentInfo = field.RelatedSchemaIndexing;
             }
 
-            return new Tuple<SchemaIndexingInfo, SchemaIndexingInfo>(info, currentInfo);
+            return new Tuple<SchemaIndexingInfo, FieldIndexingInfo>(rootInfo, field);
         }
 
         private Tuple<string, Type>[] GetExpressionPath(Expression expression)

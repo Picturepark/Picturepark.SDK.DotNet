@@ -59,6 +59,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             //// Assert
             Assert.True(info.Fields.Single(f => f.Id == "children")
                 .RelatedSchemaIndexing.Fields.Any(f => f.Id == "firstName"));
+
+            Assert.Null(info.Fields.Single(f => f.Id == "children")
+                .RelatedSchemaIndexing.Fields.Single(f => f.Id == "firstName")
+                .RelatedSchemaIndexing);
         }
 
         [Fact]
@@ -79,6 +83,9 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             //// Assert
             Assert.True(info.Fields.Any(f => f.Id == "foo"));
             Assert.True(info.Fields.Any(f => f.Id == "bar"));
+
+            Assert.Null(info.Fields.Single(f => f.Id == "foo").RelatedSchemaIndexing);
+            Assert.Null(info.Fields.Single(f => f.Id == "bar").RelatedSchemaIndexing);
         }
 
         [Fact]
@@ -98,10 +105,16 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             //// Assert
             Assert.True(info.Fields.Single(f => f.Id == "child")
                 .RelatedSchemaIndexing.Fields.Any(f => f.Id == "firstName"));
+
             Assert.True(info.Fields.Single(f => f.Id == "child")
                 .RelatedSchemaIndexing.Fields.Any(f => f.Id == "lastName"));
             Assert.False(info.Fields.Single(f => f.Id == "child")
                 .RelatedSchemaIndexing.Fields.Any(f => f.Id == "dateOfBirth"));
+
+            Assert.Null(info.Fields.Single(f => f.Id == "child")
+                .RelatedSchemaIndexing.Fields.Single(f => f.Id == "lastName").RelatedSchemaIndexing);
+            Assert.Null(info.Fields.Single(f => f.Id == "child")
+                .RelatedSchemaIndexing.Fields.Single(f => f.Id == "firstName").RelatedSchemaIndexing);
         }
 
         [Fact]
@@ -122,6 +135,9 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             Assert.True(info.Fields.Any(f => f.Id == "firstName"));
             Assert.True(info.Fields.Any(f => f.Id == "lastName"));
             Assert.False(info.Fields.Any(f => f.Id == "dateOfBirth"));
+
+            Assert.Null(info.Fields.Single(f => f.Id == "firstName").RelatedSchemaIndexing);
+            Assert.Null(info.Fields.Single(f => f.Id == "lastName").RelatedSchemaIndexing);
         }
 
         public class Parent
