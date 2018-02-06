@@ -99,7 +99,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			await _client.Schemas.DeleteAndWaitForCompletionAsync(schemaDetail.Id);
 
 			/// Assert
-			await Assert.ThrowsAsync<PictureparkNotFoundException>(async () => await _client.Schemas.GetAsync(tagSchema.Id)); // TODO: Should throw SchemaNotFoundException
+			await Assert.ThrowsAsync<SchemaNotFoundException>(async () => await _client.Schemas.GetAsync(tagSchema.Id));
 		}
 
 		[Fact]

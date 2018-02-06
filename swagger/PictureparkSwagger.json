@@ -756,25 +756,6 @@
             },
             "x-nullable": true
           },
-          "404": {
-            "description": "\nor\nEntity not found",
-            "schema": {},
-            "x-nullable": true,
-            "x-expectedSchemas": [
-              {
-                "description": "",
-                "schema": {
-                  "$ref": "#/definitions/Void"
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "$ref": "#/definitions/PictureparkNotFoundException"
-                }
-              }
-            ]
-          },
           "500": {
             "description": "Internal server error",
             "schema": {
@@ -787,6 +768,13 @@
           },
           "405": {
             "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
           },
           "409": {
             "description": "Version conflic",
@@ -873,25 +861,6 @@
             },
             "x-nullable": false
           },
-          "404": {
-            "description": "\nor\nEntity not found",
-            "schema": {},
-            "x-nullable": true,
-            "x-expectedSchemas": [
-              {
-                "description": "",
-                "schema": {
-                  "$ref": "#/definitions/Void"
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "$ref": "#/definitions/PictureparkNotFoundException"
-                }
-              }
-            ]
-          },
           "500": {
             "description": "Internal server error",
             "schema": {
@@ -904,6 +873,13 @@
           },
           "405": {
             "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
           },
           "409": {
             "description": "Version conflic",
@@ -4322,6 +4298,27 @@
             },
             "x-nullable": false
           },
+          "404": {
+            "description": "Requested schema could not be found\nor\nEntity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true,
+            "x-expectedSchemas": [
+              {
+                "description": "Requested schema could not be found",
+                "schema": {
+                  "$ref": "#/definitions/SchemaNotFoundException"
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "$ref": "#/definitions/PictureparkNotFoundException"
+                }
+              }
+            ]
+          },
           "500": {
             "description": "Internal server error",
             "schema": {
@@ -4334,13 +4331,6 @@
           },
           "405": {
             "description": "Method not allowed"
-          },
-          "404": {
-            "description": "Entity not found",
-            "schema": {
-              "$ref": "#/definitions/PictureparkNotFoundException"
-            },
-            "x-nullable": true
           },
           "409": {
             "description": "Version conflic",
@@ -11851,20 +11841,6 @@
           "type": "string"
         }
       }
-    },
-    "Void": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/ValueType"
-        }
-      ]
-    },
-    "ValueType": {
-      "type": "object",
-      "x-abstract": true,
-      "additionalProperties": false
     },
     "ThumbnailSize": {
       "type": "string",

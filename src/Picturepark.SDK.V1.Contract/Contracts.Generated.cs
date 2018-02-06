@@ -113,8 +113,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflic</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -127,8 +127,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="height">Optional height in pixels to resize image</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflic</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -572,8 +572,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="schemaId">The schema id.</param>
         /// <returns>SchemaDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="SchemaNotFoundException">Requested schema could not be found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflic</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -5782,34 +5783,6 @@ namespace Picturepark.SDK.V1.Contract
         public static DownloadLink FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<DownloadLink>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public abstract partial class ValueType 
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ValueType FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ValueType>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.21.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class Void : ValueType
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static Void FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Void>(data);
         }
     }
     

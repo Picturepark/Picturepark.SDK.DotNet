@@ -1449,8 +1449,8 @@ namespace Picturepark.SDK.V1
         /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflic</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1511,21 +1511,6 @@ namespace Picturepark.SDK.V1
                             return fileResponse_;
                         }
                         else
-                        if (status_ == "404") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(object); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<object>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception_) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
-                            }
-                            throw new ApiException<object>("\nor\nEntity not found", status_, responseData_, headers_, result_, null);
-                        }
-                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1556,6 +1541,26 @@ namespace Picturepark.SDK.V1
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
                             throw new ApiException("Method not allowed", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "404") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkNotFoundException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkNotFoundException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception_) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkNotFoundException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
                         }
                         else
                         if (status_ == "409") 
@@ -1631,8 +1636,8 @@ namespace Picturepark.SDK.V1
         /// <param name="height">Optional height in pixels to resize image</param>
         /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflic</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1683,21 +1688,6 @@ namespace Picturepark.SDK.V1
                             return fileResponse_;
                         }
                         else
-                        if (status_ == "404") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(object); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<object>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception_) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
-                            }
-                            throw new ApiException<object>("\nor\nEntity not found", status_, responseData_, headers_, result_, null);
-                        }
-                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -1728,6 +1718,26 @@ namespace Picturepark.SDK.V1
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
                             throw new ApiException("Method not allowed", status_, responseData_, headers_, null);
+                        }
+                        else
+                        if (status_ == "404") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkNotFoundException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkNotFoundException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception_) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkNotFoundException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
                         }
                         else
                         if (status_ == "409") 
@@ -8852,8 +8862,9 @@ namespace Picturepark.SDK.V1
         /// <param name="schemaId">The schema id.</param>
         /// <returns>SchemaDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="SchemaNotFoundException">Requested schema could not be found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflic</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -8904,6 +8915,26 @@ namespace Picturepark.SDK.V1
                             }
                         }
                         else
+                        if (status_ == "404") 
+                        {
+                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            var result_ = default(PictureparkNotFoundException); 
+                            try
+                            {
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkNotFoundException>(responseData_, _settings.Value);
+                            } 
+                            catch (System.Exception exception_) 
+                            {
+                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
+                            }
+                            if (result_ == null)
+                                result_ = new PictureparkNotFoundException();
+                            result_.Data.Add("HttpStatus", status_);
+                            result_.Data.Add("HttpHeaders", headers_);
+                            result_.Data.Add("HttpResponse", responseData_);
+                            throw result_;
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
@@ -8934,26 +8965,6 @@ namespace Picturepark.SDK.V1
                         {
                             var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
                             throw new ApiException("Method not allowed", status_, responseData_, headers_, null);
-                        }
-                        else
-                        if (status_ == "404") 
-                        {
-                            var responseData_ = await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(PictureparkNotFoundException); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkNotFoundException>(responseData_, _settings.Value);
-                            } 
-                            catch (System.Exception exception_) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", status_, responseData_, headers_, exception_);
-                            }
-                            if (result_ == null)
-                                result_ = new PictureparkNotFoundException();
-                            result_.Data.Add("HttpStatus", status_);
-                            result_.Data.Add("HttpHeaders", headers_);
-                            result_.Data.Add("HttpResponse", responseData_);
-                            throw result_;
                         }
                         else
                         if (status_ == "409") 
