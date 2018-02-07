@@ -218,15 +218,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			Assert.True(result.Results.Count >= 1);
 		}
 
-		[Fact(Skip = "Dispatching Get() from NEST into to Elasticsearch.NET failed")]
+		[Fact]
 		[Trait("Stack", "Transfers")]
 		public async Task ShouldPartialImport()
 		{
+            /// Arrange
 			const int desiredUploadFiles = 10;
-			TimeSpan timeout = TimeSpan.FromMinutes(2);
 
 			var transferName = nameof(ShouldUploadAndImportFiles) + "-" + new Random().Next(1000, 9999);
-
 			var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, "*").ToList();
 
 			var numberOfFilesInDirectory = filesInDirectory.Count;
@@ -260,9 +259,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			/// Assert
 			var result = await _client.Transfers.SearchFilesByTransferIdAsync(transfer.Id);
-			var contentIds = result.Results.Select(r => r.ContentId);
-
-			Assert.Equal(1, contentIds.Count());
+			Assert.Equal(importFilePaths.Count(), result.Results.Count());
 		}
 
 		[Fact]
