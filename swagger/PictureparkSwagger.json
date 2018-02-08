@@ -9117,6 +9117,29 @@
         }
       ]
     },
+    "WrongChunkSizeException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "actual",
+        "expected"
+      ],
+      "properties": {
+        "actual": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "expected": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "MissingDependenciesException": {
       "type": "object",
       "additionalProperties": false,
