@@ -5577,6 +5577,26 @@
         }
       ]
     },
+    "DeleteListItemsWithReferencesException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "referencesList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "references": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "TransferInfoNotFoundException": {
       "type": "object",
       "additionalProperties": false,
