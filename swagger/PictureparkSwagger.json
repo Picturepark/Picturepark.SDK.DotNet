@@ -13716,7 +13716,7 @@
         "references": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Reference"
+            "$ref": "#/definitions/MetadataReference"
           }
         },
         "isReferencedByRestrictedItem": {
@@ -13724,7 +13724,7 @@
         }
       }
     },
-    "Reference": {
+    "MetadataReference": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -19929,7 +19929,7 @@
         "ingredients": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Reference2"
+            "$ref": "#/definitions/Reference"
           }
         },
         "instanceID": {
@@ -19970,70 +19970,7 @@
         }
       }
     },
-    "Event": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "action": {
-          "$ref": "#/definitions/EventAction"
-        },
-        "changed": {
-          "type": "string"
-        },
-        "instanceID": {
-          "type": "string"
-        },
-        "parameters": {
-          "type": "string"
-        },
-        "softwareAgent": {
-          "type": "string"
-        },
-        "when": {
-          "type": "string",
-          "format": "date-time"
-        }
-      }
-    },
-    "EventAction": {
-      "type": "string",
-      "description": "Corresponds to stEvt.ActionChoice",
-      "x-enumNames": [
-        "Converted",
-        "Copied",
-        "Created",
-        "Cropped",
-        "Edited",
-        "Filtered",
-        "Formatted",
-        "VersionUpdated",
-        "Printed",
-        "Published",
-        "Managed",
-        "Produced",
-        "Resized",
-        "Saved",
-        "Derived"
-      ],
-      "enum": [
-        "Converted",
-        "Copied",
-        "Created",
-        "Cropped",
-        "Edited",
-        "Filtered",
-        "Formatted",
-        "VersionUpdated",
-        "Printed",
-        "Published",
-        "Managed",
-        "Produced",
-        "Resized",
-        "Saved",
-        "Derived"
-      ]
-    },
-    "Reference2": {
+    "Reference": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -20104,6 +20041,69 @@
       "enum": [
         "All",
         "None"
+      ]
+    },
+    "Event": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/EventAction"
+        },
+        "changed": {
+          "type": "string"
+        },
+        "instanceID": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "string"
+        },
+        "softwareAgent": {
+          "type": "string"
+        },
+        "when": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "EventAction": {
+      "type": "string",
+      "description": "Corresponds to stEvt.ActionChoice",
+      "x-enumNames": [
+        "Converted",
+        "Copied",
+        "Created",
+        "Cropped",
+        "Edited",
+        "Filtered",
+        "Formatted",
+        "VersionUpdated",
+        "Printed",
+        "Published",
+        "Managed",
+        "Produced",
+        "Resized",
+        "Saved",
+        "Derived"
+      ],
+      "enum": [
+        "Converted",
+        "Copied",
+        "Created",
+        "Cropped",
+        "Edited",
+        "Filtered",
+        "Formatted",
+        "VersionUpdated",
+        "Printed",
+        "Published",
+        "Managed",
+        "Produced",
+        "Resized",
+        "Saved",
+        "Derived"
       ]
     },
     "VersionInfo2": {
