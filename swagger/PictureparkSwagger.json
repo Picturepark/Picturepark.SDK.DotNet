@@ -3715,6 +3715,14 @@
             "x-nullable": true,
             "description": "Maximum time to wait for the business process completed state.",
             "format": "time-span"
+          },
+          {
+            "type": "boolean",
+            "name": "forceReferenceRemoval",
+            "in": "query",
+            "x-nullable": true,
+            "description": "A value indicating whether references to the listitem should be removed.",
+            "default": false
           }
         ],
         "responses": {
@@ -4195,6 +4203,157 @@
           {
             "Bearer": [
               "listitem_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/listItems/{listItemId}/references": {
+      "get": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Gets the references to a list item.",
+        "operationId": "ListItem_GetReferencesToListItem",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "listItemId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The ID of the list item."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "MetadataReferences",
+            "schema": {
+              "$ref": "#/definitions/ListItemReferences"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/listItems/many/references": {
+      "get": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Gets the references to the specified list items.",
+        "operationId": "ListItem_GetReferencesToListItems",
+        "parameters": [
+          {
+            "type": "array",
+            "name": "ids",
+            "in": "query",
+            "required": true,
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "The IDs of the list items.",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A MetadataReferences per list item id.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ListItemReferences"
+              }
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_read"
             ]
           }
         ]
@@ -9038,6 +9197,26 @@
         }
       ]
     },
+    "DeleteListItemsWithReferencesException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "referencesList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "references": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "TransferInfoNotFoundException": {
       "type": "object",
       "additionalProperties": false,
@@ -13511,6 +13690,52 @@
           "items": {
             "type": "string"
           }
+        }
+      }
+    },
+    "ListItemReferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/ReferencesBase"
+        }
+      ]
+    },
+    "ReferencesBase": {
+      "type": "object",
+      "x-abstract": true,
+      "additionalProperties": false,
+      "required": [
+        "isReferencedByRestrictedItem"
+      ],
+      "properties": {
+        "targetMetadataItemId": {
+          "type": "string"
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Reference"
+          }
+        },
+        "isReferencedByRestrictedItem": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "targetDocType": {
+          "type": "string"
+        },
+        "sourceId": {
+          "type": "string"
+        },
+        "sourceDocType": {
+          "type": "string"
         }
       }
     },
@@ -19704,7 +19929,7 @@
         "ingredients": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Reference"
+            "$ref": "#/definitions/Reference2"
           }
         },
         "instanceID": {
@@ -19745,7 +19970,70 @@
         }
       }
     },
-    "Reference": {
+    "Event": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/EventAction"
+        },
+        "changed": {
+          "type": "string"
+        },
+        "instanceID": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "string"
+        },
+        "softwareAgent": {
+          "type": "string"
+        },
+        "when": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "EventAction": {
+      "type": "string",
+      "description": "Corresponds to stEvt.ActionChoice",
+      "x-enumNames": [
+        "Converted",
+        "Copied",
+        "Created",
+        "Cropped",
+        "Edited",
+        "Filtered",
+        "Formatted",
+        "VersionUpdated",
+        "Printed",
+        "Published",
+        "Managed",
+        "Produced",
+        "Resized",
+        "Saved",
+        "Derived"
+      ],
+      "enum": [
+        "Converted",
+        "Copied",
+        "Created",
+        "Cropped",
+        "Edited",
+        "Filtered",
+        "Formatted",
+        "VersionUpdated",
+        "Printed",
+        "Published",
+        "Managed",
+        "Produced",
+        "Resized",
+        "Saved",
+        "Derived"
+      ]
+    },
+    "Reference2": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -19816,69 +20104,6 @@
       "enum": [
         "All",
         "None"
-      ]
-    },
-    "Event": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "action": {
-          "$ref": "#/definitions/EventAction"
-        },
-        "changed": {
-          "type": "string"
-        },
-        "instanceID": {
-          "type": "string"
-        },
-        "parameters": {
-          "type": "string"
-        },
-        "softwareAgent": {
-          "type": "string"
-        },
-        "when": {
-          "type": "string",
-          "format": "date-time"
-        }
-      }
-    },
-    "EventAction": {
-      "type": "string",
-      "description": "Corresponds to stEvt.ActionChoice",
-      "x-enumNames": [
-        "Converted",
-        "Copied",
-        "Created",
-        "Cropped",
-        "Edited",
-        "Filtered",
-        "Formatted",
-        "VersionUpdated",
-        "Printed",
-        "Published",
-        "Managed",
-        "Produced",
-        "Resized",
-        "Saved",
-        "Derived"
-      ],
-      "enum": [
-        "Converted",
-        "Copied",
-        "Created",
-        "Cropped",
-        "Edited",
-        "Filtered",
-        "Formatted",
-        "VersionUpdated",
-        "Printed",
-        "Published",
-        "Managed",
-        "Produced",
-        "Resized",
-        "Saved",
-        "Derived"
       ]
     },
     "VersionInfo2": {
