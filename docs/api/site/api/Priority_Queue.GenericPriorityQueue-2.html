@@ -76,18 +76,19 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content">
-              
-              
               <h1 id="Priority_Queue_GenericPriorityQueue_2" data-uid="Priority_Queue.GenericPriorityQueue`2">Class GenericPriorityQueue&lt;TItem, TPriority&gt;
               </h1>
               <div class="markdown level0 summary"><p>A copy of StablePriorityQueue which also has generic priority-type</p>
 </div>
               <div class="markdown level0 conceptual"></div>
+
               <div class="inheritance">
                 <h5>Inheritance</h5>
-                  <div class="level0"><span class="xref">System.Object</span></div>
-                  <div class="level1"><span class="xref">GenericPriorityQueue&lt;TItem, TPriority&gt;</span></div>
+                <div class="level0"><span class="xref">System.Object</span></div>
+                <div class="level1"><span class="xref">GenericPriorityQueue&lt;TItem, TPriority&gt;</span></div>
               </div>
+              
+              
               <div class="inheritedMembers">
                 <h5>Inherited Members</h5>
                 <div>
@@ -112,247 +113,327 @@
                   <span class="xref">System.Object.MemberwiseClone()</span>
                 </div>
               </div>
-              <h6><strong>Namespace</strong>:Priority_Queue</h6>
-              <h6><strong>Assembly</strong>:cs.temp.dll.dll</h6>
+              
+              <h6><strong>Namespace</strong>: Priority_Queue</h6>
+              
               <h5 id="Priority_Queue_GenericPriorityQueue_2_syntax">Syntax</h5>
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public sealed class GenericPriorityQueue&lt;TItem, TPriority&gt; : IFixedSizePriorityQueue&lt;TItem, TPriority&gt;, IPriorityQueue&lt;TItem, TPriority&gt;, IEnumerable&lt;TItem&gt; where TItem : GenericPriorityQueueNode&lt;TPriority&gt; where TPriority : IComparable&lt;TPriority&gt;</code></pre>
               </div>
+
+              
+              
               <h5 class="typeParameters">Type Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="parametername">TItem</span></td>
-                    <td><p>The values in the queue.  Must extend the GenericPriorityQueue class</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="parametername">TPriority</span></td>
-                    <td><p>The priority-type.  Must extend IComparable&lt;TPriority&gt;</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="parametername">TItem</span>
+                    <p><p>The values in the queue.  Must extend the GenericPriorityQueue class</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="parametername">TPriority</span>
+                    <p><p>The priority-type.  Must extend IComparable&lt;TPriority&gt;</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              
               <h3 id="constructors">Constructors
               </h3>
               
               
               <a id="Priority_Queue_GenericPriorityQueue_2__ctor_" data-uid="Priority_Queue.GenericPriorityQueue`2.#ctor*"></a>
-              <h4 id="Priority_Queue_GenericPriorityQueue_2__ctor_System_Int32_" data-uid="Priority_Queue.GenericPriorityQueue`2.#ctor(System.Int32)">GenericPriorityQueue(Int32)</h4>
+              
+              <h4 id="Priority_Queue_GenericPriorityQueue_2__ctor_System_Int32_" data-uid="Priority_Queue.GenericPriorityQueue`2.#ctor(System.Int32)"><a href="#collapsible-Priority_Queue_GenericPriorityQueue_2__ctor_System_Int32_" class="expander" data-toggle="collapse">GenericPriorityQueue(Int32)</a></h4>
+              
+              <div id="collapsible-Priority_Queue_GenericPriorityQueue_2__ctor_System_Int32_" class="collapse in">
               <div class="markdown level1 summary"><p>Instantiate a new Priority Queue</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public GenericPriorityQueue(int maxNodes)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Int32</span></td>
-                    <td><span class="parametername">maxNodes</span></td>
-                    <td><p>The max nodes ever allowed to be enqueued (going over this will cause undefined behavior)</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Int32</span></span>
+                    <span class="parametername">maxNodes</span>
+                    <p><p>The max nodes ever allowed to be enqueued (going over this will cause undefined behavior)</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </div>
               <h3 id="properties">Properties
               </h3>
               
               
               <a id="Priority_Queue_GenericPriorityQueue_2_Count_" data-uid="Priority_Queue.GenericPriorityQueue`2.Count*"></a>
-              <h4 id="Priority_Queue_GenericPriorityQueue_2_Count" data-uid="Priority_Queue.GenericPriorityQueue`2.Count">Count</h4>
+              
+              <h4 id="Priority_Queue_GenericPriorityQueue_2_Count" data-uid="Priority_Queue.GenericPriorityQueue`2.Count"><a href="#collapsible-Priority_Queue_GenericPriorityQueue_2_Count" class="expander" data-toggle="collapse">Count</a></h4>
+              
+              <div id="collapsible-Priority_Queue_GenericPriorityQueue_2_Count" class="collapse in">
               <div class="markdown level1 summary"><p>Returns the number of nodes in the queue.
 O(1)</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public int Count { get; }</code></pre>
               </div>
+
+              
+              
+              
+              
               <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Int32</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Int32</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="Priority_Queue.IPriorityQueue-2.html#Priority_Queue_IPriorityQueue_2_Count">IPriorityQueue&lt;TItem, TPriority&gt;.Count</a></div>
               
               
+              
+              
+              </div>
+              
+              
               <a id="Priority_Queue_GenericPriorityQueue_2_First_" data-uid="Priority_Queue.GenericPriorityQueue`2.First*"></a>
-              <h4 id="Priority_Queue_GenericPriorityQueue_2_First" data-uid="Priority_Queue.GenericPriorityQueue`2.First">First</h4>
+              
+              <h4 id="Priority_Queue_GenericPriorityQueue_2_First" data-uid="Priority_Queue.GenericPriorityQueue`2.First"><a href="#collapsible-Priority_Queue_GenericPriorityQueue_2_First" class="expander" data-toggle="collapse">First</a></h4>
+              
+              <div id="collapsible-Priority_Queue_GenericPriorityQueue_2_First" class="collapse in">
               <div class="markdown level1 summary"><p>Returns the head of the queue, without removing it (use Dequeue() for that).
 If the queue is empty, behavior is undefined.
 O(1)</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public TItem First { get; }</code></pre>
               </div>
+
+              
+              
+              
+              
               <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">TItem</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">TItem</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="Priority_Queue.IPriorityQueue-2.html#Priority_Queue_IPriorityQueue_2_First">IPriorityQueue&lt;TItem, TPriority&gt;.First</a></div>
               
               
+              
+              
+              </div>
+              
+              
               <a id="Priority_Queue_GenericPriorityQueue_2_MaxSize_" data-uid="Priority_Queue.GenericPriorityQueue`2.MaxSize*"></a>
-              <h4 id="Priority_Queue_GenericPriorityQueue_2_MaxSize" data-uid="Priority_Queue.GenericPriorityQueue`2.MaxSize">MaxSize</h4>
+              
+              <h4 id="Priority_Queue_GenericPriorityQueue_2_MaxSize" data-uid="Priority_Queue.GenericPriorityQueue`2.MaxSize"><a href="#collapsible-Priority_Queue_GenericPriorityQueue_2_MaxSize" class="expander" data-toggle="collapse">MaxSize</a></h4>
+              
+              <div id="collapsible-Priority_Queue_GenericPriorityQueue_2_MaxSize" class="collapse in">
               <div class="markdown level1 summary"><p>Returns the maximum number of items that can be enqueued at once in this queue.  Once you hit this number (ie. once Count == MaxSize),
 attempting to enqueue another item will cause undefined behavior.  O(1)</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public int MaxSize { get; }</code></pre>
               </div>
+
+              
+              
+              
+              
               <h5 class="propertyValue">Property Value</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Int32</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Int32</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              </div>
               <h3 id="methods">Methods
               </h3>
               
               
               <a id="Priority_Queue_GenericPriorityQueue_2_Clear_" data-uid="Priority_Queue.GenericPriorityQueue`2.Clear*"></a>
-              <h4 id="Priority_Queue_GenericPriorityQueue_2_Clear" data-uid="Priority_Queue.GenericPriorityQueue`2.Clear">Clear()</h4>
+              
+              <h4 id="Priority_Queue_GenericPriorityQueue_2_Clear" data-uid="Priority_Queue.GenericPriorityQueue`2.Clear"><a href="#collapsible-Priority_Queue_GenericPriorityQueue_2_Clear" class="expander" data-toggle="collapse">Clear()</a></h4>
+              
+              <div id="collapsible-Priority_Queue_GenericPriorityQueue_2_Clear" class="collapse in">
               <div class="markdown level1 summary"><p>Removes every node from the queue.
 O(n) (So, don&#39;t do this often!)</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public void Clear()</code></pre>
               </div>
+
+              
+              
+              
+              
+              
+              
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="Priority_Queue.IPriorityQueue-2.html#Priority_Queue_IPriorityQueue_2_Clear">IPriorityQueue&lt;TItem, TPriority&gt;.Clear()</a></div>
               
               
+              
+              
+              </div>
+              
+              
               <a id="Priority_Queue_GenericPriorityQueue_2_Contains_" data-uid="Priority_Queue.GenericPriorityQueue`2.Contains*"></a>
-              <h4 id="Priority_Queue_GenericPriorityQueue_2_Contains__0_" data-uid="Priority_Queue.GenericPriorityQueue`2.Contains(`0)">Contains(TItem)</h4>
+              
+              <h4 id="Priority_Queue_GenericPriorityQueue_2_Contains__0_" data-uid="Priority_Queue.GenericPriorityQueue`2.Contains(`0)"><a href="#collapsible-Priority_Queue_GenericPriorityQueue_2_Contains__0_" class="expander" data-toggle="collapse">Contains(TItem)</a></h4>
+              
+              <div id="collapsible-Priority_Queue_GenericPriorityQueue_2_Contains__0_" class="collapse in">
               <div class="markdown level1 summary"><p>Returns (in O(1)!) whether the given node is in the queue.  O(1)</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public bool Contains(TItem node)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">TItem</span></td>
-                    <td><span class="parametername">node</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">TItem</span></span>
+                    <span class="parametername">node</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Boolean</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Boolean</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="Priority_Queue.IPriorityQueue-2.html#Priority_Queue_IPriorityQueue_2_Contains__0_">IPriorityQueue&lt;TItem, TPriority&gt;.Contains(TItem)</a></div>
               
               
+              
+              
+              </div>
+              
+              
               <a id="Priority_Queue_GenericPriorityQueue_2_Dequeue_" data-uid="Priority_Queue.GenericPriorityQueue`2.Dequeue*"></a>
-              <h4 id="Priority_Queue_GenericPriorityQueue_2_Dequeue" data-uid="Priority_Queue.GenericPriorityQueue`2.Dequeue">Dequeue()</h4>
+              
+              <h4 id="Priority_Queue_GenericPriorityQueue_2_Dequeue" data-uid="Priority_Queue.GenericPriorityQueue`2.Dequeue"><a href="#collapsible-Priority_Queue_GenericPriorityQueue_2_Dequeue" class="expander" data-toggle="collapse">Dequeue()</a></h4>
+              
+              <div id="collapsible-Priority_Queue_GenericPriorityQueue_2_Dequeue" class="collapse in">
               <div class="markdown level1 summary"><p>Removes the head of the queue (node with minimum priority; ties are broken by order of insertion), and returns it.
 If queue is empty, result is undefined
 O(log n)</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public TItem Dequeue()</code></pre>
               </div>
+
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">TItem</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">TItem</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="Priority_Queue.IPriorityQueue-2.html#Priority_Queue_IPriorityQueue_2_Dequeue">IPriorityQueue&lt;TItem, TPriority&gt;.Dequeue()</a></div>
               
               
+              
+              
+              </div>
+              
+              
               <a id="Priority_Queue_GenericPriorityQueue_2_Enqueue_" data-uid="Priority_Queue.GenericPriorityQueue`2.Enqueue*"></a>
-              <h4 id="Priority_Queue_GenericPriorityQueue_2_Enqueue__0__1_" data-uid="Priority_Queue.GenericPriorityQueue`2.Enqueue(`0,`1)">Enqueue(TItem, TPriority)</h4>
+              
+              <h4 id="Priority_Queue_GenericPriorityQueue_2_Enqueue__0__1_" data-uid="Priority_Queue.GenericPriorityQueue`2.Enqueue(`0,`1)"><a href="#collapsible-Priority_Queue_GenericPriorityQueue_2_Enqueue__0__1_" class="expander" data-toggle="collapse">Enqueue(TItem, TPriority)</a></h4>
+              
+              <div id="collapsible-Priority_Queue_GenericPriorityQueue_2_Enqueue__0__1_" class="collapse in">
               <div class="markdown level1 summary"><p>Enqueue a node to the priority queue.  Lower values are placed in front. Ties are broken by first-in-first-out.
 If the queue is full, the result is undefined.
 If the node is already enqueued, the result is undefined.
@@ -360,194 +441,256 @@ O(log n)</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public void Enqueue(TItem node, TPriority priority)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">TItem</span></td>
-                    <td><span class="parametername">node</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">TPriority</span></td>
-                    <td><span class="parametername">priority</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">TItem</span></span>
+                    <span class="parametername">node</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">TPriority</span></span>
+                    <span class="parametername">priority</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="Priority_Queue.IPriorityQueue-2.html#Priority_Queue_IPriorityQueue_2_Enqueue__0__1_">IPriorityQueue&lt;TItem, TPriority&gt;.Enqueue(TItem, TPriority)</a></div>
               
               
+              
+              
+              </div>
+              
+              
               <a id="Priority_Queue_GenericPriorityQueue_2_GetEnumerator_" data-uid="Priority_Queue.GenericPriorityQueue`2.GetEnumerator*"></a>
-              <h4 id="Priority_Queue_GenericPriorityQueue_2_GetEnumerator" data-uid="Priority_Queue.GenericPriorityQueue`2.GetEnumerator">GetEnumerator()</h4>
+              
+              <h4 id="Priority_Queue_GenericPriorityQueue_2_GetEnumerator" data-uid="Priority_Queue.GenericPriorityQueue`2.GetEnumerator"><a href="#collapsible-Priority_Queue_GenericPriorityQueue_2_GetEnumerator" class="expander" data-toggle="collapse">GetEnumerator()</a></h4>
+              
+              <div id="collapsible-Priority_Queue_GenericPriorityQueue_2_GetEnumerator" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public IEnumerator&lt;TItem&gt; GetEnumerator()</code></pre>
               </div>
+
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">IEnumerator</span>&lt;TItem&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">IEnumerator</span>&lt;TItem&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
               
               
+              
+              
+              
+              
+              
+              
+              
+              
+              </div>
+              
+              
               <a id="Priority_Queue_GenericPriorityQueue_2_IsValidQueue_" data-uid="Priority_Queue.GenericPriorityQueue`2.IsValidQueue*"></a>
-              <h4 id="Priority_Queue_GenericPriorityQueue_2_IsValidQueue" data-uid="Priority_Queue.GenericPriorityQueue`2.IsValidQueue">IsValidQueue()</h4>
+              
+              <h4 id="Priority_Queue_GenericPriorityQueue_2_IsValidQueue" data-uid="Priority_Queue.GenericPriorityQueue`2.IsValidQueue"><a href="#collapsible-Priority_Queue_GenericPriorityQueue_2_IsValidQueue" class="expander" data-toggle="collapse">IsValidQueue()</a></h4>
+              
+              <div id="collapsible-Priority_Queue_GenericPriorityQueue_2_IsValidQueue" class="collapse in">
               <div class="markdown level1 summary"><p><strong>Should not be called in production code.</strong>
 Checks to make sure the queue is still in a valid state.  Used for testing/debugging the queue.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public bool IsValidQueue()</code></pre>
               </div>
+
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Boolean</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Boolean</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
               
               
+              
+              
+              
+              
+              
+              
+              
+              
+              </div>
+              
+              
               <a id="Priority_Queue_GenericPriorityQueue_2_Remove_" data-uid="Priority_Queue.GenericPriorityQueue`2.Remove*"></a>
-              <h4 id="Priority_Queue_GenericPriorityQueue_2_Remove__0_" data-uid="Priority_Queue.GenericPriorityQueue`2.Remove(`0)">Remove(TItem)</h4>
+              
+              <h4 id="Priority_Queue_GenericPriorityQueue_2_Remove__0_" data-uid="Priority_Queue.GenericPriorityQueue`2.Remove(`0)"><a href="#collapsible-Priority_Queue_GenericPriorityQueue_2_Remove__0_" class="expander" data-toggle="collapse">Remove(TItem)</a></h4>
+              
+              <div id="collapsible-Priority_Queue_GenericPriorityQueue_2_Remove__0_" class="collapse in">
               <div class="markdown level1 summary"><p>Removes a node from the queue.  The node does not need to be the head of the queue.<br>If the node is not in the queue, the result is undefined.  If unsure, check Contains() first
 O(log n)</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public void Remove(TItem node)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">TItem</span></td>
-                    <td><span class="parametername">node</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">TItem</span></span>
+                    <span class="parametername">node</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="Priority_Queue.IPriorityQueue-2.html#Priority_Queue_IPriorityQueue_2_Remove__0_">IPriorityQueue&lt;TItem, TPriority&gt;.Remove(TItem)</a></div>
               
               
+              
+              
+              </div>
+              
+              
               <a id="Priority_Queue_GenericPriorityQueue_2_Resize_" data-uid="Priority_Queue.GenericPriorityQueue`2.Resize*"></a>
-              <h4 id="Priority_Queue_GenericPriorityQueue_2_Resize_System_Int32_" data-uid="Priority_Queue.GenericPriorityQueue`2.Resize(System.Int32)">Resize(Int32)</h4>
+              
+              <h4 id="Priority_Queue_GenericPriorityQueue_2_Resize_System_Int32_" data-uid="Priority_Queue.GenericPriorityQueue`2.Resize(System.Int32)"><a href="#collapsible-Priority_Queue_GenericPriorityQueue_2_Resize_System_Int32_" class="expander" data-toggle="collapse">Resize(Int32)</a></h4>
+              
+              <div id="collapsible-Priority_Queue_GenericPriorityQueue_2_Resize_System_Int32_" class="collapse in">
               <div class="markdown level1 summary"><p>Resize the queue so it can accept more nodes.  All currently enqueued nodes are remain.
 Attempting to decrease the queue size to a size too small to hold the existing nodes results in undefined behavior
 O(n)</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public void Resize(int maxNodes)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Int32</span></td>
-                    <td><span class="parametername">maxNodes</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Int32</span></span>
+                    <span class="parametername">maxNodes</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
               
               
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </div>
+              
+              
               <a id="Priority_Queue_GenericPriorityQueue_2_UpdatePriority_" data-uid="Priority_Queue.GenericPriorityQueue`2.UpdatePriority*"></a>
-              <h4 id="Priority_Queue_GenericPriorityQueue_2_UpdatePriority__0__1_" data-uid="Priority_Queue.GenericPriorityQueue`2.UpdatePriority(`0,`1)">UpdatePriority(TItem, TPriority)</h4>
+              
+              <h4 id="Priority_Queue_GenericPriorityQueue_2_UpdatePriority__0__1_" data-uid="Priority_Queue.GenericPriorityQueue`2.UpdatePriority(`0,`1)"><a href="#collapsible-Priority_Queue_GenericPriorityQueue_2_UpdatePriority__0__1_" class="expander" data-toggle="collapse">UpdatePriority(TItem, TPriority)</a></h4>
+              
+              <div id="collapsible-Priority_Queue_GenericPriorityQueue_2_UpdatePriority__0__1_" class="collapse in">
               <div class="markdown level1 summary"><p>This method must be called on a node every time its priority changes while it is in the queue.<br><strong>Forgetting to call this method will result in a corrupted queue!</strong>
 Calling this method on a node not in the queue results in undefined behavior
 O(log n)</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public void UpdatePriority(TItem node, TPriority priority)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">TItem</span></td>
-                    <td><span class="parametername">node</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">TPriority</span></td>
-                    <td><span class="parametername">priority</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">TItem</span></span>
+                    <span class="parametername">node</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">TPriority</span></span>
+                    <span class="parametername">priority</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
               <h5 class="implements">Implements</h5>
                   <div><a class="xref" href="Priority_Queue.IPriorityQueue-2.html#Priority_Queue_IPriorityQueue_2_UpdatePriority__0__1_">IPriorityQueue&lt;TItem, TPriority&gt;.UpdatePriority(TItem, TPriority)</a></div>
+              
+              
+              
+              
+              </div>
+              
+              
                         </article>
+          </div>
+          <div class="contribution-panel mobile-hide">
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

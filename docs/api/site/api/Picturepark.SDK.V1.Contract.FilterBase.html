@@ -76,17 +76,18 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content">
-              
-              
               <h1 id="Picturepark_SDK_V1_Contract_FilterBase" data-uid="Picturepark.SDK.V1.Contract.FilterBase">Class FilterBase
               </h1>
               <div class="markdown level0 summary"><p>The FilterBase is the base class for all filters.</p>
 </div>
               <div class="markdown level0 conceptual"></div>
+
               <div class="inheritance">
                 <h5>Inheritance</h5>
-                  <div class="level0"><span class="xref">System.Object</span></div>
-                  <div class="level1"><span class="xref">FilterBase</span></div>
+                <div class="level0"><span class="xref">System.Object</span></div>
+                <div class="level1"><span class="xref">FilterBase</span></div>
+              </div>
+              
                   <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.AggregationFilter.html">AggregationFilter</a></div>
                   <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.AndFilter.html">AndFilter</a></div>
                   <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.ChildFilter.html">ChildFilter</a></div>
@@ -102,7 +103,7 @@
                   <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.PrefixFilter.html">PrefixFilter</a></div>
                   <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.TermFilter.html">TermFilter</a></div>
                   <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.TermsFilter.html">TermsFilter</a></div>
-              </div>
+              
               <div class="inheritedMembers">
                 <h5>Inherited Members</h5>
                 <div>
@@ -127,226 +128,246 @@
                   <span class="xref">System.Object.MemberwiseClone()</span>
                 </div>
               </div>
-              <h6><strong>Namespace</strong>:Picturepark.SDK.V1.Contract</h6>
-              <h6><strong>Assembly</strong>:cs.temp.dll.dll</h6>
+              
+              <h6><strong>Namespace</strong>: Picturepark.SDK.V1.Contract</h6>
+              
               <h5 id="Picturepark_SDK_V1_Contract_FilterBase_syntax">Syntax</h5>
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public class FilterBase</code></pre>
               </div>
+
+              
+              
+              
+              
               <h3 id="methods">Methods
               </h3>
               
               
               <a id="Picturepark_SDK_V1_Contract_FilterBase_FromExpression_" data-uid="Picturepark.SDK.V1.Contract.FilterBase.FromExpression*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_System_Object___System_String_" data-uid="Picturepark.SDK.V1.Contract.FilterBase.FromExpression``1(Expression{System.Func{``0,System.Object}},System.String)">FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, Object&gt;&gt;, String)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_System_Object___System_String_" data-uid="Picturepark.SDK.V1.Contract.FilterBase.FromExpression``1(Expression{System.Func{``0,System.Object}},System.String)"><a href="#collapsible-Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_System_Object___System_String_" class="expander" data-toggle="collapse">FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, Object&gt;&gt;, String)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_System_Object___System_String_" class="collapse in">
               <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Picturepark.SDK.V1.Contract.TermFilter.html">TermFilter</a> whose property name is retrieved from an expression.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public static TermFilter FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, object&gt;&gt; propertyExpression, string term)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Expression</span>&lt;<span class="xref">System.Func</span>&lt;TObject, <span class="xref">System.Object</span>&gt;&gt;</td>
-                    <td><span class="parametername">propertyExpression</span></td>
-                    <td><p>The property expression.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">term</span></td>
-                    <td><p>The search term.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">Expression</span>&lt;<span class="xref">System.Func</span>&lt;TObject, <span class="xref">System.Object</span>&gt;&gt;</span>
+                    <span class="parametername">propertyExpression</span>
+                    <p><p>The property expression.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.String</span></span>
+                    <span class="parametername">term</span>
+                    <p><p>The search term.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.TermFilter.html">TermFilter</a></td>
-                    <td><p>The term filter.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.TermFilter.html">TermFilter</a>
+                    <p><p>The term filter.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="typeParameters">Type Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="parametername">TObject</span></td>
-                    <td><p>The object type.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="parametername">TObject</span>
+                    <p><p>The object type.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_Contract_FilterBase_FromExpression_" data-uid="Picturepark.SDK.V1.Contract.FilterBase.FromExpression*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_System_Object___System_String___" data-uid="Picturepark.SDK.V1.Contract.FilterBase.FromExpression``1(Expression{System.Func{``0,System.Object}},System.String[])">FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, Object&gt;&gt;, String[])</h4>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_System_Object___System_String___" data-uid="Picturepark.SDK.V1.Contract.FilterBase.FromExpression``1(Expression{System.Func{``0,System.Object}},System.String[])"><a href="#collapsible-Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_System_Object___System_String___" class="expander" data-toggle="collapse">FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, Object&gt;&gt;, String[])</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_System_Object___System_String___" class="collapse in">
               <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Picturepark.SDK.V1.Contract.TermsFilter.html">TermsFilter</a> whose property name is retrieved from an expression.</p>
 </div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public static TermsFilter FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, object&gt;&gt; propertyExpression, params string[] terms)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">Expression</span>&lt;<span class="xref">System.Func</span>&lt;TObject, <span class="xref">System.Object</span>&gt;&gt;</td>
-                    <td><span class="parametername">propertyExpression</span></td>
-                    <td><p>The property expression.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.String</span>[]</td>
-                    <td><span class="parametername">terms</span></td>
-                    <td><p>The search terms.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">Expression</span>&lt;<span class="xref">System.Func</span>&lt;TObject, <span class="xref">System.Object</span>&gt;&gt;</span>
+                    <span class="parametername">propertyExpression</span>
+                    <p><p>The property expression.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.String</span>[]</span>
+                    <span class="parametername">terms</span>
+                    <p><p>The search terms.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.TermsFilter.html">TermsFilter</a></td>
-                    <td><p>The terms filter.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.TermsFilter.html">TermsFilter</a>
+                    <p><p>The terms filter.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="typeParameters">Type Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="parametername">TObject</span></td>
-                    <td><p>The object type.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="parametername">TObject</span>
+                    <p><p>The object type.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_Contract_FilterBase_FromJson_" data-uid="Picturepark.SDK.V1.Contract.FilterBase.FromJson*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_FilterBase_FromJson_System_String_" data-uid="Picturepark.SDK.V1.Contract.FilterBase.FromJson(System.String)">FromJson(String)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_FilterBase_FromJson_System_String_" data-uid="Picturepark.SDK.V1.Contract.FilterBase.FromJson(System.String)"><a href="#collapsible-Picturepark_SDK_V1_Contract_FilterBase_FromJson_System_String_" class="expander" data-toggle="collapse">FromJson(String)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_FilterBase_FromJson_System_String_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public static FilterBase FromJson(string data)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">data</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.String</span></span>
+                    <span class="parametername">data</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.Contract.FilterBase.html">FilterBase</a></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.Contract.FilterBase.html">FilterBase</a>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_Contract_FilterBase_ToJson_" data-uid="Picturepark.SDK.V1.Contract.FilterBase.ToJson*"></a>
-              <h4 id="Picturepark_SDK_V1_Contract_FilterBase_ToJson" data-uid="Picturepark.SDK.V1.Contract.FilterBase.ToJson">ToJson()</h4>
+              
+              <h4 id="Picturepark_SDK_V1_Contract_FilterBase_ToJson" data-uid="Picturepark.SDK.V1.Contract.FilterBase.ToJson"><a href="#collapsible-Picturepark_SDK_V1_Contract_FilterBase_ToJson" class="expander" data-toggle="collapse">ToJson()</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_Contract_FilterBase_ToJson" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public string ToJson()</code></pre>
               </div>
+
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.String</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              </div>
+              
+              
                         </article>
+          </div>
+          <div class="contribution-panel mobile-hide">
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

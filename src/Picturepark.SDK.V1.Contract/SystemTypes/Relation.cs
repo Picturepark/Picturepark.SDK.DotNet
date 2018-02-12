@@ -11,9 +11,8 @@ namespace Picturepark.SDK.V1.Contract.SystemTypes
 		[JsonProperty("_relationType")]
 		public string RelationType { get; set; }
 
-		[JsonProperty("_targetContext")]
-		[JsonConverter(typeof(StringEnumConverter))]
-		public TargetContext TargetContext { get; set; }
+		[JsonProperty("_targetDocType")]
+		public string TargetDocType { get; set; }
 
 		[JsonProperty("_targetId")]
 		public string TargetId { get; set; }

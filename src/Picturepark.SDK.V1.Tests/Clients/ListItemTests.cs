@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Contracts;
@@ -48,66 +49,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 		[Fact]
 		[Trait("Stack", "ListItem")]
-		public async Task ShouldDelete()
-		{
-			/// Arrange
-			var objectName = "ThisObjectA" + new Random().Next(0, 999999);
-			var createRequest = new ListItemCreateRequest
-			{
-				ContentSchemaId = nameof(Tag),
-				Content = new Tag { Name = objectName }
-			};
-
-			ListItemDetail listItem = await _client.ListItems.CreateAsync(createRequest);
-			Assert.False(string.IsNullOrEmpty(listItem.Id));
-
-			/// Act
-			await _client.ListItems.DeleteAsync(listItem.Id);
-
-			/// Assert
-			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItem.Id, true));
-		}
-
-		[Fact]
-		[Trait("Stack", "ListItem")]
-		public async Task ShouldDeleteMany()
-		{
-			/// Arrange
-			var objectName = "ThisObjectA" + new Random().Next(0, 999999);
-			var createRequest = new ListItemCreateRequest
-			{
-				ContentSchemaId = nameof(Tag),
-				Content = new Tag { Name = objectName }
-			};
-
-			ListItemDetail listItem1 = await _client.ListItems.CreateAsync(createRequest);
-			ListItemDetail listItem2 = await _client.ListItems.CreateAsync(createRequest);
-
-			/// Act
-			var businessProcess = await _client.ListItems.DeleteManyAsync(new List<string> { listItem1.Id, listItem2.Id });
-			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
-
-			/// Assert
-			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItem1.Id, true));
-			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItem2.Id, true));
-		}
-
-		[Fact]
-		[Trait("Stack", "ListItem")]
 		public async Task ShouldCreateAndUpdateObject()
 		{
 			/// Arrange
 			var objectName = "ThisObjectD" + new Random().Next(0, 999999);
-			var objects = new List<ListItemCreateRequest>
-			{
-				new ListItemCreateRequest
-				{
-					ContentSchemaId = nameof(Tag),
-					Content = new Tag { Name = objectName }
-				}
-			};
+		    var createManyRequest = new ListItemCreateManyRequest()
+		    {
+		        AllowMissingDependencies = false,
+		        Requests = new List<ListItemCreateRequest>
+		        {
+		            new ListItemCreateRequest
+		            {
+		                ContentSchemaId = nameof(Tag),
+		                Content = new Tag { Name = objectName }
+		            }
+		        }
+		    };
 
-			var results = await _client.ListItems.CreateManyAsync(objects);
+			var results = await _client.ListItems.CreateManyAsync(createManyRequest);
 			var result = results.First();
 
 			/// Act
@@ -143,8 +102,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		}
 
 		[Fact]
-		[Trait("Stack", "BusinessProcesses")]
-		public async Task ShouldUpdateFieldsByFilter()
+		[Trait("Stack", "ListItem")]
+		public async Task ShouldBatchUpdateFieldsByFilter()
 		{
 			/// Arrange
 			var objectName = "ThisObjectB" + new Random().Next(0, 999999);
@@ -158,7 +117,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			/// Act
 			var updateRequest = new ListItemFieldsFilterUpdateRequest
 			{
-				ListItemFilterRequest = new ListItemFilterRequest // TODO: ListItemFieldsFilterUpdateRequest.ListItemFilterRequest: Rename to FilterRequest
+				ListItemFilterRequest = new ListItemFilterRequest // TODO: ListItemFieldsFilterUpdateRequest.ListItemFilterRequest: Rename property to FilterRequest?
 				{
 					Filter = new TermFilter { Field = "id", Term = listItemDetail.Id }
 				},
@@ -176,7 +135,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			};
 
 			/// Act
-			var businessProcess = await _client.ListItems.UpdateFieldsByFilterAsync(updateRequest);
+			var businessProcess = await _client.ListItems.BatchUpdateFieldsByFilterAsync(updateRequest);
 			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, TimeSpan.FromSeconds(10));
 
 			ListItemDetail result = await _client.ListItems.GetAsync(listItemDetail.Id, true);
@@ -337,7 +296,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			// For debugging: .Where(i => i.Id == "Esselabore1"))
 			var tuple = result.Results
-				.Select(i => new { schemaId = i.Id, objectId = _fixture.GetRandomObjectId(i.Id, 20) })
+				.Select(i => new { schemaId = i.Id, objectId = _fixture.GetRandomObjectIdAsync(i.Id, 20).Result })
 				.First(i => !string.IsNullOrEmpty(i.objectId));
 
 			/// Act
@@ -456,16 +415,96 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var player = playerItem.ConvertTo<SoccerPlayer>(nameof(SoccerPlayer));
 			player.Firstname = "xy jviorej ivorejvioe";
 
-			var businessProcess = await _client.ListItems.UpdateManyAsync(new[]
-			{
-				new ListItemUpdateRequest { Id = playerItem.Id, Content = player }
-			});
+		    var businessProcess = await _client.ListItems.UpdateManyAsync(new ListItemUpdateManyRequest
+		    {
+		        AllowMissingDependencies = false,
+		        Requests = new[]
+		        {
+		            new ListItemUpdateRequest { Id = playerItem.Id, Content = player }
+		        }
+		    });
 
 			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 			var updatedPlayer = await _client.ListItems.GetAndConvertToAsync<SoccerPlayer>(playerItem.Id, nameof(SoccerPlayer));
 
 			/// Assert
 			Assert.Equal(player.Firstname, updatedPlayer.Firstname);
+		}
+
+		[Fact]
+		[Trait("Stack", "ListItem")]
+		public async Task ShouldTrashAndUntrashListItem()
+		{
+			/// Arrange
+			var listItem = await _client.ListItems.CreateAsync(new ListItemCreateRequest
+			{
+				ContentSchemaId = nameof(Tag),
+				Content = new Tag { Name = "ShouldTrashAndUntrashListItem" }
+			});
+			var listItemId = listItem.Id;
+
+			Assert.False(string.IsNullOrEmpty(listItemId));
+			var listItemDetail = await _client.ListItems.GetAsync(listItemId, true);
+
+			/// Act
+			// Deactivate
+			await _client.ListItems.DeactivateAsync(listItemId, new TimeSpan(0, 2, 0));
+			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItemId, false));
+
+			// Reactivate
+			var reactivatedListItem = await _client.ListItems.ReactivateAsync(listItemId, new TimeSpan(0, 2, 0));
+
+			/// Assert
+			Assert.True(reactivatedListItem != null);
+			Assert.NotNull(await _client.ListItems.GetAsync(listItemId, true));
+		}
+
+		[Fact]
+		[Trait("Stack", "ListItem")]
+		public async Task ShouldTrashAndUntrashListItemMany()
+		{
+			/// Arrange
+			var listItem1 = await _client.ListItems.CreateAsync(new ListItemCreateRequest
+			{
+				ContentSchemaId = nameof(Tag),
+				Content = new Tag { Name = "ShouldTrashAndUntrashListItemMany1" }
+			});
+
+			var listItem2 = await _client.ListItems.CreateAsync(new ListItemCreateRequest
+			{
+				ContentSchemaId = nameof(Tag),
+				Content = new Tag { Name = "ShouldTrashAndUntrashListItemMany2" }
+			});
+
+			var listItemDetail1 = await _client.ListItems.GetAsync(listItem1.Id, true);
+
+			var listItemDetail2 = await _client.ListItems.GetAsync(listItem2.Id, true);
+
+			/// Act
+			// Deactivate
+			var deactivateRequest = new ListItemDeactivateRequest
+			{
+				ListItemIds = new List<string> { listItem1.Id, listItem2.Id }
+			};
+
+			var businessProcess = await _client.ListItems.DeactivateManyAsync(deactivateRequest);
+			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+
+			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItem1.Id, false));
+			await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItem2.Id, false));
+
+			// Reactivate
+			var reactivateRequest = new ListItemReactivateRequest
+			{
+				ListItemIds = new List<string> { listItem1.Id, listItem2.Id }
+			};
+
+			businessProcess = await _client.ListItems.ReactivateManyAsync(reactivateRequest);
+			await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+
+			/// Assert
+			Assert.NotNull(await _client.ListItems.GetAsync(listItem1.Id, true));
+			Assert.NotNull(await _client.ListItems.GetAsync(listItem2.Id, true));
 		}
 	}
 }

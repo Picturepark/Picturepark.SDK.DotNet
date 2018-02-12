@@ -43,7 +43,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldGet()
 		{
 			/// Arrange
-			var documentId = _fixture.GetRandomContentId(".jpg", 20);
+			var documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
 
 			/// Act
 			var result = await _client.DocumentHistory.GetAsync(documentId);
@@ -57,7 +57,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldGetVersion()
 		{
 			/// Arrange
-			string documentId = _fixture.GetRandomContentId(".jpg", 20);
+			string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
 			string versionId = "1";
 
 			/// Act
@@ -73,11 +73,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		{
 			/// Arrange
 			string location = "testlocation" + new Random().Next(0, 999999);
-			string contentId = _fixture.GetRandomContentId(".jpg", 20);
+			string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
 			var content = await _client.Contents.GetAsync(contentId);
 			var history = await _client.DocumentHistory.GetAsync(contentId);
 
-			var updateRequest = new ContentsMetadataUpdateRequest
+			var updateRequest = new ContentFieldsUpdateRequest
 			{
 				ContentIds = new List<string> { content.Id },
 				ChangeCommands = new List<MetadataValuesChangeCommandBase>
@@ -93,8 +93,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 				}
 			};
 
-			// TODO: Create ContentHelper to update and wait with one call
-			var businessProcess = await _client.Contents.UpdateMetadataManyAsync(updateRequest);
+			// TODO: Create ContentHelper to update and wait with one call => UpdateMetadataManyAndWaitForCompletionAsync?
+			var businessProcess = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest);
 			var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
 			// Refetch content and compare versions
@@ -114,7 +114,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldGetDifferenceWithLatestVersion()
 		{
 			/// Arrange
-			string documentId = _fixture.GetRandomContentId(".jpg", 20);
+			string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
 			long oldVersionId = 1;
 
 			/// Act

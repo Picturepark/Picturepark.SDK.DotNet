@@ -76,447 +76,467 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content">
-              
-              
               <h1 id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient">Interface IServiceProviderRestClient
               </h1>
               <div class="markdown level0 summary"></div>
               <div class="markdown level0 conceptual"></div>
-              <h6><strong>Namespace</strong>:Picturepark.SDK.V1.ServiceProvider.Contract</h6>
-              <h6><strong>Assembly</strong>:cs.temp.dll.dll</h6>
+
+              
+              
+              
+              <h6><strong>Namespace</strong>: Picturepark.SDK.V1.ServiceProvider.Contract</h6>
+              
               <h5 id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_syntax">Syntax</h5>
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public interface IServiceProviderRestClient</code></pre>
               </div>
+
+              
+              
+              
+              
               <h3 id="methods">Methods
               </h3>
               
               
               <a id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_GetConfigurationAsync_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.GetConfigurationAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_GetConfigurationAsync_System_String_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.GetConfigurationAsync(System.String)">GetConfigurationAsync(String)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_GetConfigurationAsync_System_String_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.GetConfigurationAsync(System.String)"><a href="#collapsible-Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_GetConfigurationAsync_System_String_" class="expander" data-toggle="collapse">GetConfigurationAsync(String)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_GetConfigurationAsync_System_String_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;CustomerServiceProviderConfigurationViewItem&gt; GetConfigurationAsync(string serviceProviderId)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">serviceProviderId</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.String</span></span>
+                    <span class="parametername">serviceProviderId</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.CustomerServiceProviderConfigurationViewItem.html">CustomerServiceProviderConfigurationViewItem</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.CustomerServiceProviderConfigurationViewItem.html">CustomerServiceProviderConfigurationViewItem</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_GetConfigurationAsync_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.GetConfigurationAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_GetConfigurationAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.GetConfigurationAsync(System.String,System.Threading.CancellationToken)">GetConfigurationAsync(String, CancellationToken)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_GetConfigurationAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.GetConfigurationAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_GetConfigurationAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetConfigurationAsync(String, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_GetConfigurationAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;CustomerServiceProviderConfigurationViewItem&gt; GetConfigurationAsync(string serviceProviderId, CancellationToken cancellationToken)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">serviceProviderId</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.String</span></span>
+                    <span class="parametername">serviceProviderId</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.CustomerServiceProviderConfigurationViewItem.html">CustomerServiceProviderConfigurationViewItem</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.CustomerServiceProviderConfigurationViewItem.html">CustomerServiceProviderConfigurationViewItem</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_SendMessageAsync_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.SendMessageAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_SendMessageAsync_System_String_Picturepark_SDK_V1_ServiceProvider_Contract_SendMessageRequest_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.SendMessageAsync(System.String,Picturepark.SDK.V1.ServiceProvider.Contract.SendMessageRequest)">SendMessageAsync(String, SendMessageRequest)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_SendMessageAsync_System_String_Picturepark_SDK_V1_ServiceProvider_Contract_SendMessageRequest_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.SendMessageAsync(System.String,Picturepark.SDK.V1.ServiceProvider.Contract.SendMessageRequest)"><a href="#collapsible-Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_SendMessageAsync_System_String_Picturepark_SDK_V1_ServiceProvider_Contract_SendMessageRequest_" class="expander" data-toggle="collapse">SendMessageAsync(String, SendMessageRequest)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_SendMessageAsync_System_String_Picturepark_SDK_V1_ServiceProvider_Contract_SendMessageRequest_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task SendMessageAsync(string serviceProviderId, SendMessageRequest request)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">serviceProviderId</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.SendMessageRequest.html">SendMessageRequest</a></td>
-                    <td><span class="parametername">request</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.String</span></span>
+                    <span class="parametername">serviceProviderId</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.SendMessageRequest.html">SendMessageRequest</a></span>
+                    <span class="parametername">request</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_SendMessageAsync_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.SendMessageAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_SendMessageAsync_System_String_Picturepark_SDK_V1_ServiceProvider_Contract_SendMessageRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.SendMessageAsync(System.String,Picturepark.SDK.V1.ServiceProvider.Contract.SendMessageRequest,System.Threading.CancellationToken)">SendMessageAsync(String, SendMessageRequest, CancellationToken)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_SendMessageAsync_System_String_Picturepark_SDK_V1_ServiceProvider_Contract_SendMessageRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.SendMessageAsync(System.String,Picturepark.SDK.V1.ServiceProvider.Contract.SendMessageRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_SendMessageAsync_System_String_Picturepark_SDK_V1_ServiceProvider_Contract_SendMessageRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SendMessageAsync(String, SendMessageRequest, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_SendMessageAsync_System_String_Picturepark_SDK_V1_ServiceProvider_Contract_SendMessageRequest_System_Threading_CancellationToken_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task SendMessageAsync(string serviceProviderId, SendMessageRequest request, CancellationToken cancellationToken)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">serviceProviderId</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.SendMessageRequest.html">SendMessageRequest</a></td>
-                    <td><span class="parametername">request</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.String</span></span>
+                    <span class="parametername">serviceProviderId</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.SendMessageRequest.html">SendMessageRequest</a></span>
+                    <span class="parametername">request</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_UpdateConfigurationAsync_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.UpdateConfigurationAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_UpdateConfigurationAsync_System_String_Picturepark_SDK_V1_ServiceProvider_Contract_ServiceProviderConfigurationUpdateRequest_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.UpdateConfigurationAsync(System.String,Picturepark.SDK.V1.ServiceProvider.Contract.ServiceProviderConfigurationUpdateRequest)">UpdateConfigurationAsync(String, ServiceProviderConfigurationUpdateRequest)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_UpdateConfigurationAsync_System_String_Picturepark_SDK_V1_ServiceProvider_Contract_ServiceProviderConfigurationUpdateRequest_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.UpdateConfigurationAsync(System.String,Picturepark.SDK.V1.ServiceProvider.Contract.ServiceProviderConfigurationUpdateRequest)"><a href="#collapsible-Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_UpdateConfigurationAsync_System_String_Picturepark_SDK_V1_ServiceProvider_Contract_ServiceProviderConfigurationUpdateRequest_" class="expander" data-toggle="collapse">UpdateConfigurationAsync(String, ServiceProviderConfigurationUpdateRequest)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_UpdateConfigurationAsync_System_String_Picturepark_SDK_V1_ServiceProvider_Contract_ServiceProviderConfigurationUpdateRequest_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;CustomerServiceProviderConfigurationViewItem&gt; UpdateConfigurationAsync(string serviceProviderId, ServiceProviderConfigurationUpdateRequest configuration)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">serviceProviderId</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ServiceProviderConfigurationUpdateRequest.html">ServiceProviderConfigurationUpdateRequest</a></td>
-                    <td><span class="parametername">configuration</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.String</span></span>
+                    <span class="parametername">serviceProviderId</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ServiceProviderConfigurationUpdateRequest.html">ServiceProviderConfigurationUpdateRequest</a></span>
+                    <span class="parametername">configuration</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.CustomerServiceProviderConfigurationViewItem.html">CustomerServiceProviderConfigurationViewItem</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.CustomerServiceProviderConfigurationViewItem.html">CustomerServiceProviderConfigurationViewItem</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_UpdateConfigurationAsync_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.UpdateConfigurationAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_UpdateConfigurationAsync_System_String_Picturepark_SDK_V1_ServiceProvider_Contract_ServiceProviderConfigurationUpdateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.UpdateConfigurationAsync(System.String,Picturepark.SDK.V1.ServiceProvider.Contract.ServiceProviderConfigurationUpdateRequest,System.Threading.CancellationToken)">UpdateConfigurationAsync(String, ServiceProviderConfigurationUpdateRequest, CancellationToken)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_UpdateConfigurationAsync_System_String_Picturepark_SDK_V1_ServiceProvider_Contract_ServiceProviderConfigurationUpdateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ServiceProvider.Contract.IServiceProviderRestClient.UpdateConfigurationAsync(System.String,Picturepark.SDK.V1.ServiceProvider.Contract.ServiceProviderConfigurationUpdateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_UpdateConfigurationAsync_System_String_Picturepark_SDK_V1_ServiceProvider_Contract_ServiceProviderConfigurationUpdateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateConfigurationAsync(String, ServiceProviderConfigurationUpdateRequest, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_ServiceProvider_Contract_IServiceProviderRestClient_UpdateConfigurationAsync_System_String_Picturepark_SDK_V1_ServiceProvider_Contract_ServiceProviderConfigurationUpdateRequest_System_Threading_CancellationToken_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;CustomerServiceProviderConfigurationViewItem&gt; UpdateConfigurationAsync(string serviceProviderId, ServiceProviderConfigurationUpdateRequest configuration, CancellationToken cancellationToken)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.String</span></td>
-                    <td><span class="parametername">serviceProviderId</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ServiceProviderConfigurationUpdateRequest.html">ServiceProviderConfigurationUpdateRequest</a></td>
-                    <td><span class="parametername">configuration</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.String</span></span>
+                    <span class="parametername">serviceProviderId</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ServiceProviderConfigurationUpdateRequest.html">ServiceProviderConfigurationUpdateRequest</a></span>
+                    <span class="parametername">configuration</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.CustomerServiceProviderConfigurationViewItem.html">CustomerServiceProviderConfigurationViewItem</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.CustomerServiceProviderConfigurationViewItem.html">CustomerServiceProviderConfigurationViewItem</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.ServiceProvider.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
+              
+              
                         </article>
+          </div>
+          <div class="contribution-panel mobile-hide">
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

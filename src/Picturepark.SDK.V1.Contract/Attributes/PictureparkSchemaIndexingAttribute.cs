@@ -1,5 +1,5 @@
 ﻿using System;
-using Picturepark.SDK.V1.Contract.Attributes.Providers;
+using Picturepark.SDK.V1.Contract.Providers;
 
 namespace Picturepark.SDK.V1.Contract.Attributes
 {

@@ -76,1219 +76,1243 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content">
-              
-              
               <h1 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient">Interface ICloudBackupClient
               </h1>
               <div class="markdown level0 summary"></div>
               <div class="markdown level0 conceptual"></div>
-              <h6><strong>Namespace</strong>:Picturepark.SDK.V1.CloudManager.Contract</h6>
-              <h6><strong>Assembly</strong>:cs.temp.dll.dll</h6>
+
+              
+              
+              
+              <h6><strong>Namespace</strong>: Picturepark.SDK.V1.CloudManager.Contract</h6>
+              
               <h5 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_syntax">Syntax</h5>
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">public interface ICloudBackupClient</code></pre>
               </div>
+
+              
+              
+              
+              
               <h3 id="methods">Methods
               </h3>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneCustomerAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneCustomerAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneCustomerAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneCustomerAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest)">CloneCustomerAsync(SnapshotCustomerCloneRequest)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneCustomerAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneCustomerAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneCustomerAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_" class="expander" data-toggle="collapse">CloneCustomerAsync(SnapshotCustomerCloneRequest)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneCustomerAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;Customer&gt; CloneCustomerAsync(SnapshotCustomerCloneRequest cloneRequest)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html">SnapshotCustomerCloneRequest</a></td>
-                    <td><span class="parametername">cloneRequest</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html">SnapshotCustomerCloneRequest</a></span>
+                    <span class="parametername">cloneRequest</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.Customer.html">Customer</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.Customer.html">Customer</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneCustomerAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneCustomerAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneCustomerAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneCustomerAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest,System.Threading.CancellationToken)">CloneCustomerAsync(SnapshotCustomerCloneRequest, CancellationToken)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneCustomerAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CloneCustomerAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneCustomerAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CloneCustomerAsync(SnapshotCustomerCloneRequest, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CloneCustomerAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCloneRequest_System_Threading_CancellationToken_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;Customer&gt; CloneCustomerAsync(SnapshotCustomerCloneRequest cloneRequest, CancellationToken cancellationToken)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html">SnapshotCustomerCloneRequest</a></td>
-                    <td><span class="parametername">cloneRequest</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html">SnapshotCustomerCloneRequest</a></span>
+                    <span class="parametername">cloneRequest</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.Customer.html">Customer</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.Customer.html">Customer</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepository2Async_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepository2Async*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepository2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryEnvironmentCreateRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepository2Async(Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryEnvironmentCreateRequest)">CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepository2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryEnvironmentCreateRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepository2Async(Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryEnvironmentCreateRequest)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepository2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryEnvironmentCreateRequest_" class="expander" data-toggle="collapse">CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepository2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryEnvironmentCreateRequest_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;SnapshotRepository&gt; CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest snapshotRepositoryEnvironmentCreateRequest)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryEnvironmentCreateRequest.html">SnapshotRepositoryEnvironmentCreateRequest</a></td>
-                    <td><span class="parametername">snapshotRepositoryEnvironmentCreateRequest</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryEnvironmentCreateRequest.html">SnapshotRepositoryEnvironmentCreateRequest</a></span>
+                    <span class="parametername">snapshotRepositoryEnvironmentCreateRequest</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepository.html">SnapshotRepository</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepository.html">SnapshotRepository</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepository2Async_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepository2Async*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepository2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryEnvironmentCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepository2Async(Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryEnvironmentCreateRequest,System.Threading.CancellationToken)">CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest, CancellationToken)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepository2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryEnvironmentCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepository2Async(Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryEnvironmentCreateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepository2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryEnvironmentCreateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepository2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryEnvironmentCreateRequest_System_Threading_CancellationToken_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;SnapshotRepository&gt; CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest snapshotRepositoryEnvironmentCreateRequest, CancellationToken cancellationToken)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryEnvironmentCreateRequest.html">SnapshotRepositoryEnvironmentCreateRequest</a></td>
-                    <td><span class="parametername">snapshotRepositoryEnvironmentCreateRequest</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryEnvironmentCreateRequest.html">SnapshotRepositoryEnvironmentCreateRequest</a></span>
+                    <span class="parametername">snapshotRepositoryEnvironmentCreateRequest</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepository.html">SnapshotRepository</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepository.html">SnapshotRepository</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepositoryAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepositoryAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepositoryAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerCreateRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepositoryAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerCreateRequest)">CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepositoryAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerCreateRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepositoryAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerCreateRequest)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepositoryAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerCreateRequest_" class="expander" data-toggle="collapse">CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepositoryAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerCreateRequest_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;SnapshotRepository&gt; CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest snapshotRepositoryCustomerCreateRequest)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerCreateRequest.html">SnapshotRepositoryCustomerCreateRequest</a></td>
-                    <td><span class="parametername">snapshotRepositoryCustomerCreateRequest</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerCreateRequest.html">SnapshotRepositoryCustomerCreateRequest</a></span>
+                    <span class="parametername">snapshotRepositoryCustomerCreateRequest</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepository.html">SnapshotRepository</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepository.html">SnapshotRepository</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepositoryAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepositoryAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepositoryAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepositoryAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerCreateRequest,System.Threading.CancellationToken)">CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest, CancellationToken)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepositoryAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateRepositoryAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerCreateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepositoryAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerCreateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateRepositoryAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerCreateRequest_System_Threading_CancellationToken_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;SnapshotRepository&gt; CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest snapshotRepositoryCustomerCreateRequest, CancellationToken cancellationToken)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerCreateRequest.html">SnapshotRepositoryCustomerCreateRequest</a></td>
-                    <td><span class="parametername">snapshotRepositoryCustomerCreateRequest</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerCreateRequest.html">SnapshotRepositoryCustomerCreateRequest</a></span>
+                    <span class="parametername">snapshotRepositoryCustomerCreateRequest</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepository.html">SnapshotRepository</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepository.html">SnapshotRepository</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshot2Async_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshot2Async*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshot2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentCreateRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshot2Async(Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentCreateRequest)">CreateSnapshot2Async(SnapshotEnvironmentCreateRequest)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshot2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentCreateRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshot2Async(Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentCreateRequest)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshot2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentCreateRequest_" class="expander" data-toggle="collapse">CreateSnapshot2Async(SnapshotEnvironmentCreateRequest)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshot2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentCreateRequest_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;Snapshot&gt; CreateSnapshot2Async(SnapshotEnvironmentCreateRequest snapshotEnvironmentCreateRequest)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentCreateRequest.html">SnapshotEnvironmentCreateRequest</a></td>
-                    <td><span class="parametername">snapshotEnvironmentCreateRequest</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentCreateRequest.html">SnapshotEnvironmentCreateRequest</a></span>
+                    <span class="parametername">snapshotEnvironmentCreateRequest</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.Snapshot.html">Snapshot</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.Snapshot.html">Snapshot</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshot2Async_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshot2Async*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshot2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshot2Async(Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentCreateRequest,System.Threading.CancellationToken)">CreateSnapshot2Async(SnapshotEnvironmentCreateRequest, CancellationToken)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshot2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshot2Async(Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentCreateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshot2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentCreateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateSnapshot2Async(SnapshotEnvironmentCreateRequest, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshot2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentCreateRequest_System_Threading_CancellationToken_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;Snapshot&gt; CreateSnapshot2Async(SnapshotEnvironmentCreateRequest snapshotEnvironmentCreateRequest, CancellationToken cancellationToken)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentCreateRequest.html">SnapshotEnvironmentCreateRequest</a></td>
-                    <td><span class="parametername">snapshotEnvironmentCreateRequest</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentCreateRequest.html">SnapshotEnvironmentCreateRequest</a></span>
+                    <span class="parametername">snapshotEnvironmentCreateRequest</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.Snapshot.html">Snapshot</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.Snapshot.html">Snapshot</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshotAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCreateRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshotAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCreateRequest)">CreateSnapshotAsync(SnapshotCustomerCreateRequest)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCreateRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshotAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCreateRequest)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCreateRequest_" class="expander" data-toggle="collapse">CreateSnapshotAsync(SnapshotCustomerCreateRequest)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCreateRequest_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;Snapshot&gt; CreateSnapshotAsync(SnapshotCustomerCreateRequest snapshotCustomerCreateRequest)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCreateRequest.html">SnapshotCustomerCreateRequest</a></td>
-                    <td><span class="parametername">snapshotCustomerCreateRequest</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCreateRequest.html">SnapshotCustomerCreateRequest</a></span>
+                    <span class="parametername">snapshotCustomerCreateRequest</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.Snapshot.html">Snapshot</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.Snapshot.html">Snapshot</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshotAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshotAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCreateRequest,System.Threading.CancellationToken)">CreateSnapshotAsync(SnapshotCustomerCreateRequest, CancellationToken)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.CreateSnapshotAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCreateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCreateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateSnapshotAsync(SnapshotCustomerCreateRequest, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_CreateSnapshotAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerCreateRequest_System_Threading_CancellationToken_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;Snapshot&gt; CreateSnapshotAsync(SnapshotCustomerCreateRequest snapshotCustomerCreateRequest, CancellationToken cancellationToken)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCreateRequest.html">SnapshotCustomerCreateRequest</a></td>
-                    <td><span class="parametername">snapshotCustomerCreateRequest</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCreateRequest.html">SnapshotCustomerCreateRequest</a></span>
+                    <span class="parametername">snapshotCustomerCreateRequest</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.Snapshot.html">Snapshot</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.Snapshot.html">Snapshot</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshot2Async_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.RestoreSnapshot2Async*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshot2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentRestoreRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.RestoreSnapshot2Async(Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentRestoreRequest)">RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshot2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentRestoreRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.RestoreSnapshot2Async(Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentRestoreRequest)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshot2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentRestoreRequest_" class="expander" data-toggle="collapse">RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshot2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentRestoreRequest_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;SnapshotRestore&gt; RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest snapshotEnvironmentRestoreRequest)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentRestoreRequest.html">SnapshotEnvironmentRestoreRequest</a></td>
-                    <td><span class="parametername">snapshotEnvironmentRestoreRequest</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentRestoreRequest.html">SnapshotEnvironmentRestoreRequest</a></span>
+                    <span class="parametername">snapshotEnvironmentRestoreRequest</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRestore.html">SnapshotRestore</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRestore.html">SnapshotRestore</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshot2Async_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.RestoreSnapshot2Async*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshot2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentRestoreRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.RestoreSnapshot2Async(Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentRestoreRequest,System.Threading.CancellationToken)">RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest, CancellationToken)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshot2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentRestoreRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.RestoreSnapshot2Async(Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentRestoreRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshot2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentRestoreRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshot2Async_Picturepark_SDK_V1_CloudManager_Contract_SnapshotEnvironmentRestoreRequest_System_Threading_CancellationToken_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;SnapshotRestore&gt; RestoreSnapshot2Async(SnapshotEnvironmentRestoreRequest snapshotEnvironmentRestoreRequest, CancellationToken cancellationToken)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentRestoreRequest.html">SnapshotEnvironmentRestoreRequest</a></td>
-                    <td><span class="parametername">snapshotEnvironmentRestoreRequest</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentRestoreRequest.html">SnapshotEnvironmentRestoreRequest</a></span>
+                    <span class="parametername">snapshotEnvironmentRestoreRequest</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRestore.html">SnapshotRestore</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRestore.html">SnapshotRestore</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshotAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.RestoreSnapshotAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshotAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerRestoreRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.RestoreSnapshotAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerRestoreRequest)">RestoreSnapshotAsync(SnapshotCustomerRestoreRequest)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshotAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerRestoreRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.RestoreSnapshotAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerRestoreRequest)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshotAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerRestoreRequest_" class="expander" data-toggle="collapse">RestoreSnapshotAsync(SnapshotCustomerRestoreRequest)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshotAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerRestoreRequest_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;SnapshotRestore&gt; RestoreSnapshotAsync(SnapshotCustomerRestoreRequest snapshotCustomerRestoreRequest)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerRestoreRequest.html">SnapshotCustomerRestoreRequest</a></td>
-                    <td><span class="parametername">snapshotCustomerRestoreRequest</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerRestoreRequest.html">SnapshotCustomerRestoreRequest</a></span>
+                    <span class="parametername">snapshotCustomerRestoreRequest</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRestore.html">SnapshotRestore</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRestore.html">SnapshotRestore</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshotAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.RestoreSnapshotAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshotAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerRestoreRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.RestoreSnapshotAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerRestoreRequest,System.Threading.CancellationToken)">RestoreSnapshotAsync(SnapshotCustomerRestoreRequest, CancellationToken)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshotAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerRestoreRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.RestoreSnapshotAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerRestoreRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshotAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerRestoreRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">RestoreSnapshotAsync(SnapshotCustomerRestoreRequest, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_RestoreSnapshotAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerRestoreRequest_System_Threading_CancellationToken_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;SnapshotRestore&gt; RestoreSnapshotAsync(SnapshotCustomerRestoreRequest snapshotCustomerRestoreRequest, CancellationToken cancellationToken)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerRestoreRequest.html">SnapshotCustomerRestoreRequest</a></td>
-                    <td><span class="parametername">snapshotCustomerRestoreRequest</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerRestoreRequest.html">SnapshotCustomerRestoreRequest</a></span>
+                    <span class="parametername">snapshotCustomerRestoreRequest</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRestore.html">SnapshotRestore</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRestore.html">SnapshotRestore</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest)">SearchAsync(SnapshotCustomerSearchRequest)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_" class="expander" data-toggle="collapse">SearchAsync(SnapshotCustomerSearchRequest)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;SnapshotCustomerSearchResult&gt; SearchAsync(SnapshotCustomerSearchRequest snapshotCustomerSearchRequest)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.html">SnapshotCustomerSearchRequest</a></td>
-                    <td><span class="parametername">snapshotCustomerSearchRequest</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.html">SnapshotCustomerSearchRequest</a></span>
+                    <span class="parametername">snapshotCustomerSearchRequest</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchResult.html">SnapshotCustomerSearchResult</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchResult.html">SnapshotCustomerSearchResult</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest,System.Threading.CancellationToken)">SearchAsync(SnapshotCustomerSearchRequest, CancellationToken)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(SnapshotCustomerSearchRequest, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotCustomerSearchRequest_System_Threading_CancellationToken_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;SnapshotCustomerSearchResult&gt; SearchAsync(SnapshotCustomerSearchRequest snapshotCustomerSearchRequest, CancellationToken cancellationToken)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.html">SnapshotCustomerSearchRequest</a></td>
-                    <td><span class="parametername">snapshotCustomerSearchRequest</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchRequest.html">SnapshotCustomerSearchRequest</a></span>
+                    <span class="parametername">snapshotCustomerSearchRequest</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchResult.html">SnapshotCustomerSearchResult</a>&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchResult.html">SnapshotCustomerSearchResult</a>&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchRepositoriesAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchRepositoriesAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchRepositoriesAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerSearchRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchRepositoriesAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerSearchRequest)">SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchRepositoriesAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerSearchRequest_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchRepositoriesAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerSearchRequest)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchRepositoriesAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerSearchRequest_" class="expander" data-toggle="collapse">SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchRepositoriesAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerSearchRequest_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;List&lt;string&gt;&gt; SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest searchRequest)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerSearchRequest.html">SnapshotRepositoryCustomerSearchRequest</a></td>
-                    <td><span class="parametername">searchRequest</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerSearchRequest.html">SnapshotRepositoryCustomerSearchRequest</a></span>
+                    <span class="parametername">searchRequest</span>
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
               
               
               <a id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchRepositoriesAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchRepositoriesAsync*"></a>
-              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchRepositoriesAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchRepositoriesAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerSearchRequest,System.Threading.CancellationToken)">SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest, CancellationToken)</h4>
+              
+              <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchRepositoriesAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.SearchRepositoriesAsync(Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchRepositoriesAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest, CancellationToken)</a></h4>
+              
+              <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICloudBackupClient_SearchRepositoriesAsync_Picturepark_SDK_V1_CloudManager_Contract_SnapshotRepositoryCustomerSearchRequest_System_Threading_CancellationToken_" class="collapse in">
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
+
               <div class="codewrapper">
                 <pre><code class="lang-csharp hljs">Task&lt;List&lt;string&gt;&gt; SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest searchRequest, CancellationToken cancellationToken)</code></pre>
               </div>
+
               <h5 class="parameters">Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerSearchRequest.html">SnapshotRepositoryCustomerSearchRequest</a></td>
-                    <td><span class="parametername">searchRequest</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Threading.CancellationToken</span></td>
-                    <td><span class="parametername">cancellationToken</span></td>
-                    <td><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.SnapshotRepositoryCustomerSearchRequest.html">SnapshotRepositoryCustomerSearchRequest</a></span>
+                    <span class="parametername">searchRequest</span>
+                    <p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+                    <span class="parametername">cancellationToken</span>
+                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
               <h5 class="returns">Returns</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
-                    <td></td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;&gt;
+                    <p>
+                  </td>
+                </tr>
               </table>
+              
+              
+              
+              
+              
+              
+              
+              
+              
               <h5 class="exceptions">Exceptions</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>Condition</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a></td>
-                    <td><p>A server side error occurred.</p>
-</td>
-                  </tr>
-                  <tr>
-                    <td><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;</td>
-                    <td><p>Internal server error</p>
-</td>
-                  </tr>
-                </tbody>
+              <table>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+                    <p><p>A server side error occurred.</p>
+</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException-1.html">ApiException</a>&lt;TResult&gt;
+                    <p><p>Internal server error</p>
+</p>
+                  </td>
+                </tr>
               </table>
+              
+              </div>
+              
+              
                         </article>
+          </div>
+          <div class="contribution-panel mobile-hide">
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>
             </div>
           </div>

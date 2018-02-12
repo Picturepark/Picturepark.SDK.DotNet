@@ -18,19 +18,9 @@ namespace Picturepark.SDK.V1.Contract
 		/// <summary>Creates or updates the given <see cref="SchemaDetail"/>.</summary>
 		/// <param name="schemaDetail">The schema detail.</param>
 		/// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
-		void CreateOrUpdateAndWaitForCompletion(SchemaDetail schemaDetail, bool enableForBinaryFiles);
-
-		/// <summary>Creates or updates the given <see cref="SchemaDetail"/>.</summary>
-		/// <param name="schemaDetail">The schema detail.</param>
-		/// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <returns>The task.</returns>
 		Task CreateOrUpdateAndWaitForCompletionAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, CancellationToken cancellationToken = default(CancellationToken));
-
-		/// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
-		/// <param name="schemaDetail">The schema detail.</param>
-		/// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
-		void CreateAndWaitForCompletion(SchemaDetail schemaDetail, bool enableForBinaryFiles);
 
 		/// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
 		/// <param name="schemaDetail">The schema detail.</param>
@@ -41,20 +31,10 @@ namespace Picturepark.SDK.V1.Contract
 
 		/// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
 		/// <param name="schemaDetail">The schema detail.</param>
-		/// <exception cref="ApiException">A server side error occurred.</exception>
-		void CreateAndWaitForCompletion(SchemaDetail schemaDetail);
-
-		/// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
-		/// <param name="schemaDetail">The schema detail.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <returns>The task.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		Task CreateAndWaitForCompletionAsync(SchemaDetail schemaDetail, CancellationToken cancellationToken = default(CancellationToken));
-
-		/// <summary>Deletes the a schema.</summary>
-		/// <param name="schemaId">The schema ID.</param>
-		/// <exception cref="ApiException">A server side error occurred.</exception>
-		void DeleteAndWaitForCompletion(string schemaId);
 
 		/// <summary>Deletes the a schema.</summary>
 		/// <param name="schemaId">The schema ID.</param>
@@ -74,21 +54,10 @@ namespace Picturepark.SDK.V1.Contract
 		/// <summary>Updates a schema.</summary>
 		/// <param name="schemaId">The schema ID.</param>
 		/// <param name="updateRequest">The update request.</param>
-		/// <exception cref="ApiException">A server side error occurred.</exception>
-		void UpdateAndWaitForCompletion(string schemaId, SchemaUpdateRequest updateRequest);
-
-		/// <summary>Updates a schema.</summary>
-		/// <param name="schemaId">The schema ID.</param>
-		/// <param name="updateRequest">The update request.</param>
 		/// <param name="cancellationToken">The cancellation token.</param>
 		/// <returns>The task.</returns>
 		/// <exception cref="ApiException">A server side error occurred.</exception>
 		Task UpdateAndWaitForCompletionAsync(string schemaId, SchemaUpdateRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken));
-
-		/// <summary>Checks whether a schema ID already exists.</summary>
-		/// <param name="schemaId">The schema ID.</param>
-		/// <param name="fieldId">The optional field ID.</param>
-		bool Exists(string schemaId, string fieldId = null);
 
 		/// <summary>Checks whether a schema ID already exists.</summary>
 		/// <param name="schemaId">The schema ID.</param>

@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Security;
 using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Win32;
@@ -9,13 +9,12 @@ using MyToolkit.Command;
 using MyToolkit.Dialogs;
 using MyToolkit.Mvvm;
 using MyToolkit.Storage;
+using Newtonsoft.Json;
+using Picturepark.ContentUploader.Views;
+using Picturepark.ContentUploader.Views.OidcClient;
 using Picturepark.SDK.V1;
 using Picturepark.SDK.V1.Authentication;
 using Picturepark.SDK.V1.Contract;
-using Picturepark.ContentUploader.Views.OidcClient;
-using Picturepark.ContentUploader.Views;
-using Newtonsoft.Json;
-using System.Security;
 
 namespace Picturepark.ContentUploader.ViewModels
 {
@@ -26,7 +25,7 @@ namespace Picturepark.ContentUploader.ViewModels
         public MainWindowModel()
         {
             UploadCommand = new AsyncRelayCommand(UploadAsync, () =>
-                !string.IsNullOrEmpty(Server) &&
+                !string.IsNullOrEmpty(ApiServer) &&
                 !string.IsNullOrEmpty(CustomerAlias) &&
                 !string.IsNullOrEmpty(FilePath));
 
@@ -36,20 +35,26 @@ namespace Picturepark.ContentUploader.ViewModels
             UnregisterContextMenuCommand = new AsyncRelayCommand(UnregisterContextMenuAsync);
         }
 
+        #region Commands
+
         public AsyncRelayCommand UploadCommand { get; }
 
         public AsyncRelayCommand RegisterContextMenuCommand { get; }
 
         public AsyncRelayCommand UnregisterContextMenuCommand { get; }
 
-        public string Server
+        #endregion
+
+        #region Configuration
+
+        public string ApiServer
         {
 #if DEBUG
-            get { return ApplicationSettings.GetSetting("Server", "https://devnext.preview-picturepark.com"); }
+            get { return ApplicationSettings.GetSetting("ApiServer", "https://devnext-api.preview-picturepark.com"); }
 #else
-            get { return ApplicationSettings.GetSetting("Server", ""); }
+            get { return ApplicationSettings.GetSetting("ApiServer", ""); }
 #endif
-            set { ApplicationSettings.SetSetting("Server", value); }
+            set { ApplicationSettings.SetSetting("ApiServer", value); }
         }
 
         public string IdentityServer
@@ -76,7 +81,7 @@ namespace Picturepark.ContentUploader.ViewModels
 
         public string RedirectUri
         {
-            get { return ApplicationSettings.GetSetting("RedirectUri", ""); }
+            get { return ApplicationSettings.GetSetting("RedirectUri", "http://localhost/wpf"); }
             set { ApplicationSettings.SetSetting("RedirectUri", value); }
         }
 
@@ -98,6 +103,8 @@ namespace Picturepark.ContentUploader.ViewModels
             set { ApplicationSettings.SetSetting("RefreshToken", value); }
         }
 
+        #endregion
+
         public string AccessToken { get; set; }
 
         public DateTime AccessTokenExpiration { get; set; }
@@ -108,27 +115,28 @@ namespace Picturepark.ContentUploader.ViewModels
             set { Set(ref _filePath, value); }
         }
 
-        public override void HandleException(Exception exception)
+        public async Task UploadAsync()
         {
-            ExceptionBox.Show("An error occurred", exception, Application.Current.MainWindow);
-        }
-
-        private async Task UploadAsync()
-        {
-            if (File.Exists(FilePath))
+            await RunTaskAsync(async () =>
             {
-                var fileName = Path.GetFileName(FilePath);
-
-                await RunTaskAsync(async () =>
+                if (File.Exists(FilePath))
                 {
+                    var fileName = Path.GetFileName(FilePath);
+
                     var accessToken = await GetAccessTokenAsync();
-                    var authClient = new AccessTokenAuthClient(Server, accessToken, CustomerAlias);
+                    var authClient = new AccessTokenAuthClient(ApiServer, accessToken, CustomerAlias);
                     using (var client = new PictureparkClient(new PictureparkClientSettings(authClient)))
                     {
                         await client.Transfers.UploadFilesAsync(fileName, new[] { FilePath }, new UploadOptions { ChunkSize = 1024 * 1024 });
+                        MessageBox.Show("The image has been successfully uploaded.", "Image uploaded");
                     }
-                });
-            }
+                }
+            });
+        }
+
+        public override void HandleException(Exception exception)
+        {
+            ExceptionBox.Show("An error occurred", exception, Application.Current.MainWindow);
         }
 
         private async Task<string> GetAccessTokenAsync()

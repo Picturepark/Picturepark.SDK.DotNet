@@ -4,7 +4,7 @@ using System;
 namespace Picturepark.SDK.V1.Contract
 {
 	public partial class ListItem
-    {
+	{
 		/// <summary>Converts the content of a list item detail to the given type.</summary>
 		/// <typeparam name="T">The content type.</typeparam>
 		/// <param name="schemaId">The schema ID.</param>
@@ -17,7 +17,7 @@ namespace Picturepark.SDK.V1.Contract
 				throw new InvalidOperationException("The schema IDs do not match.");
 			}
 
-			return ((JObject)Content).ToObject<T>();
+			return Content is T ? (T)Content : ((JObject)Content).ToObject<T>();
 		}
 	}
 }

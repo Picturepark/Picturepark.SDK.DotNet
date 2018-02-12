@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
-using Picturepark.SDK.V1.Contract.Attributes.Providers;
+using Picturepark.SDK.V1.Contract.Providers;
 
 namespace Picturepark.SDK.V1.Contract.Attributes
 {
@@ -9,9 +9,11 @@ namespace Picturepark.SDK.V1.Contract.Attributes
 	{
 		public PictureparkTagboxAttribute(string filter)
 		{
-			if (!string.IsNullOrEmpty(filter))
-				Filter = JsonConvert.DeserializeObject<FilterBase>(filter);
-		}
+		    if (!string.IsNullOrEmpty(filter))
+		    {
+		        Filter = JsonConvert.DeserializeObject<FilterBase>(filter);
+		    }
+        }
 
 		public PictureparkTagboxAttribute(Type filterProvider)
 		{

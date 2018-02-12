@@ -2,8 +2,8 @@
 	<PropertyGroup>
 		<Description>Picturepark .NET SDK CloudManager: Manage Picturepark backend instances.</Description>
 		<AssemblyTitle>Picturepark.SDK.V1.CloudManager</AssemblyTitle>
-		<TargetFramework>netstandard1.3</TargetFramework>
-		<NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>
+    <TargetFrameworks>netstandard1.3;net45</TargetFrameworks>
+    <NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<AssemblyName>Picturepark.SDK.V1.CloudManager</AssemblyName>
 		<PackageId>Picturepark.SDK.V1.CloudManager</PackageId>
@@ -18,7 +18,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Picturepark.SDK.V1\Picturepark.SDK.V1.csproj" />
+		<ProjectReference Include="..\Picturepark.SDK.V1.Contract\Picturepark.SDK.V1.Contract.csproj" />
 	</ItemGroup>
 
 	<PropertyGroup>
@@ -40,4 +40,24 @@
 	</ImportGroup>
 	<Target Name="FixUpVersion" BeforeTargets="_GenerateRestoreProjectSpec" DependsOnTargets="GetBuildVersion" Condition=" '$(NerdbankGitVersioningTasksPath)' != '' " />
 
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <PackageReference Include="System.Runtime" Version="4.3.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />
+    <PackageReference Include="System.Threading" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Timer" Version="4.3.0" />
+    <PackageReference Include="System.Net.Primitives" Version="4.3.0" />
+    <PackageReference Include="System.IO" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
+    <PackageReference Include="System.Net.Http" Version="4.3.0" />
+    <PackageReference Include="System.Collections" Version="4.3.0" />
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <PackageReference Include="System.Net.Http" Version="4.1.1" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
 </Project>

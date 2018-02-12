@@ -99,14 +99,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			await _client.Schemas.DeleteAndWaitForCompletionAsync(schemaDetail.Id);
 
 			/// Assert
-			await Assert.ThrowsAsync<ApiException>(async () => await _client.Schemas.GetAsync(tagSchema.Id));
+			await Assert.ThrowsAsync<SchemaNotFoundException>(async () => await _client.Schemas.GetAsync(tagSchema.Id));
 		}
 
 		[Fact]
 		[Trait("Stack", "Schema")]
 		public async Task ShouldExist()
 		{
-			string schemaId = _fixture.GetRandomSchemaId(20);
+			string schemaId = await _fixture.GetRandomSchemaIdAsync(20);
 
 			/// Act
 			bool schemaExists = await _client.Schemas.ExistsAsync(schemaId);
@@ -167,7 +167,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldGetJsonValidationSchema()
 		{
 			/// Arrange
-			var schemaId = _fixture.GetRandomSchemaId(20);
+			var schemaId = await _fixture.GetRandomSchemaIdAsync(20);
 
 			/// Act
 			var result = await _client.JsonSchemas.GetAsync(schemaId);
@@ -187,7 +187,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			/// Act
 			var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("SoccerPlayer");
-			var jsonConvertedField = generatedSoccerPlayerSchema.Fields[0].ToJson();
+			var jsonConvertedField = generatedSoccerPlayerSchema.Fields.Single(i => i.Id == "club").ToJson();
 
 			/// Assert
 			Assert.True(jsonConvertedField.Contains(expectedFilterString));
@@ -203,7 +203,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			/// Act
 			var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("Person");
-			var jsonConvertedField = generatedSoccerPlayerSchema.Fields[0].ToJson();
+			var jsonConvertedField = generatedSoccerPlayerSchema.Fields.ToList()[0].ToJson();
 
 			/// Assert
 			Assert.True(jsonConvertedField.Contains(expectedMultilineString));
@@ -239,7 +239,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		public async Task ShouldUpdate()
 		{
 			/// Arrange
-			string schemaId = _fixture.GetRandomSchemaId(20);
+			string schemaId = await _fixture.GetRandomSchemaIdAsync(20);
 			SchemaDetail schemaDetail = await _client.Schemas.GetAsync(schemaId);
 
 			string language = "es";

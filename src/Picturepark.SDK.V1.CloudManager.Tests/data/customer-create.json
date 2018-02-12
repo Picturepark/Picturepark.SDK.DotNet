@@ -1,0 +1,380 @@
+﻿{
+	"alias": "{customeralias}",
+	"name": "{customeralias}",
+	"elasticSearchNumberOfReplicas": 0,
+	"elasticSearchNumberOfShards": 1,
+	"rootContentSearchIndexNumberOfShards": 1,
+	"rootContentSearchIndexNumberOfReplicas": 0,
+	"rootListItemSearchIndexNumberOfShards": 1,
+	"rootListItemSearchIndexNumberOfReplicas": 0,
+	"corsAllowedHosts": [ "editor.swagger.io" ],
+	"contentRetentionTime": "30.00:00:00",
+	"listItemRetentionTime": "30.00:00:00",
+	"snapshotRetentionTime": "30.00:00:00",
+	"baseUrl": "{baseurl}",
+	"storagePath": "{storagepath}",
+	"customerHosts": [],
+	"supportContactEmailAddress": "support@picturepark.com",
+	"useSsl": false,
+	"noReplyEmailAddress": "no-reply@picturepark.com",
+	"createTransferBusinessProcess": "TransferMonitor",
+	"languageConfiguration": {
+		"systemLanguages": [ "en", "de" ],
+		"metadataLanguages": [ "en", "tr", "nl", "fr", "de", "pt", "es", "fi", "it", "no", "bg", "da", "hu", "pl", "ro", "ru" ],
+		"defaultLanguage": "en"
+	},
+	"indexedFieldThreshold": 0,
+	"identityServerProviders": [],
+	"externalProviders": [],
+	"outputFormats": [
+		{
+			"static": true,
+			"system": false,
+			"dynamic": false,
+			"dataExtraction": false,
+			"temporary": true,
+			"sourceOutputFormats": null,
+			"render": false,
+			"format": {
+				"kind": "OriginalFormat",
+				"defaultOutputExtension": "",
+				"allowedOutputExtensions": [],
+				"renderer": null
+			},
+			"id": "Original",
+			"version": 0
+		},
+		{
+			"static": true,
+			"system": true,
+			"dynamic": false,
+			"dataExtraction": true,
+			"temporary": false,
+			"sourceOutputFormats": {
+				"image": "Preview",
+				"video": "Preview",
+				"document": "Preview",
+				"audio": "Preview"
+			},
+			"render": false,
+			"format": {
+				"kind": "JpegFormat",
+				"quality": 95,
+				"isProgressive": false,
+				"chromaSubsamplingEnabled": false,
+				"defaultOutputExtension": ".jpg",
+				"allowedOutputExtensions": [
+					".jpg",
+					".jpeg"
+				],
+				"colorProfile": null,
+				"colorTransformationIntent": 0,
+				"horizontalResolution": 72.0,
+				"verticalResolution": 72.0,
+				"renderFirstFrameOnly": false,
+				"keepClippingPath": false,
+				"cloneExif": false,
+				"cloneIptc": false,
+				"cloneAdobeResources": false,
+				"cloneXmp": false,
+				"resizeAction": {
+					"width": 320,
+					"height": 320,
+					"resizeMode": 0
+				},
+				"actions": null,
+				"renderer": 2
+			},
+			"id": "ThumbnailLarge",
+			"version": 0
+		},
+		{
+			"static": true,
+			"system": true,
+			"dynamic": false,
+			"dataExtraction": true,
+			"temporary": false,
+			"sourceOutputFormats": {
+				"image": "ThumbnailLarge",
+				"video": "ThumbnailLarge",
+				"document": "ThumbnailLarge",
+				"audio": "ThumbnailLarge"
+			},
+			"render": false,
+			"format": {
+				"kind": "JpegFormat",
+				"quality": 95,
+				"isProgressive": false,
+				"chromaSubsamplingEnabled": false,
+				"defaultOutputExtension": ".jpg",
+				"allowedOutputExtensions": [
+					".jpg",
+					".jpeg"
+				],
+				"colorProfile": null,
+				"colorTransformationIntent": 0,
+				"horizontalResolution": 72.0,
+				"verticalResolution": 72.0,
+				"renderFirstFrameOnly": false,
+				"keepClippingPath": false,
+				"cloneExif": false,
+				"cloneIptc": false,
+				"cloneAdobeResources": false,
+				"cloneXmp": false,
+				"resizeAction": {
+					"width": 220,
+					"height": 200,
+					"resizeMode": 0
+				},
+				"actions": null,
+				"renderer": 2
+			},
+			"id": "ThumbnailMedium",
+			"version": 0
+		},
+		{
+			"static": true,
+			"system": true,
+			"dynamic": false,
+			"dataExtraction": true,
+			"temporary": false,
+			"sourceOutputFormats": {
+				"image": "ThumbnailLarge",
+				"video": "ThumbnailLarge",
+				"document": "ThumbnailLarge",
+				"audio": "ThumbnailLarge"
+			},
+			"render": false,
+			"format": {
+				"kind": "JpegFormat",
+				"quality": 95,
+				"isProgressive": false,
+				"chromaSubsamplingEnabled": false,
+				"defaultOutputExtension": ".jpg",
+				"allowedOutputExtensions": [
+					".jpg",
+					".jpeg"
+				],
+				"colorProfile": null,
+				"colorTransformationIntent": 0,
+				"horizontalResolution": 72.0,
+				"verticalResolution": 72.0,
+				"renderFirstFrameOnly": false,
+				"keepClippingPath": false,
+				"cloneExif": false,
+				"cloneIptc": false,
+				"cloneAdobeResources": false,
+				"cloneXmp": false,
+				"resizeAction": {
+					"width": 120,
+					"height": 90,
+					"resizeMode": 0
+				},
+				"actions": null,
+				"renderer": 2
+			},
+			"id": "ThumbnailSmall",
+			"version": 0
+		},
+		{
+			"static": true,
+			"system": false,
+			"dynamic": false,
+			"dataExtraction": true,
+			"temporary": false,
+			"sourceOutputFormats": {
+				"image": "Original",
+				"video": "VideoPreview",
+				"document": "DocumentPreview",
+				"audio": "AudioPreview"
+			},
+			"render": false,
+			"format": {
+				"kind": "JpegFormat",
+				"quality": 95,
+				"isProgressive": false,
+				"chromaSubsamplingEnabled": false,
+				"defaultOutputExtension": ".jpg",
+				"allowedOutputExtensions": [
+					".jpg",
+					".jpeg"
+				],
+				"colorProfile": 6,
+				"colorTransformationIntent": 1,
+				"horizontalResolution": null,
+				"verticalResolution": null,
+				"renderFirstFrameOnly": false,
+				"keepClippingPath": false,
+				"cloneExif": false,
+				"cloneIptc": false,
+				"cloneAdobeResources": false,
+				"cloneXmp": false,
+				"resizeAction": {
+					"width": 1600,
+					"height": 1600,
+					"resizeMode": 0
+				},
+				"actions": null,
+				"renderer": 2
+			},
+			"id": "Preview",
+			"version": 0
+		},
+		{
+			"static": true,
+			"system": false,
+			"dynamic": false,
+			"dataExtraction": true,
+			"temporary": true,
+			"sourceOutputFormats": {
+				"image": null,
+				"video": "Original",
+				"document": null,
+				"audio": null
+			},
+			"render": true,
+			"format": {
+				"kind": "VideoStillFormat",
+				"defaultOutputExtension": ".jpg",
+				"allowedOutputExtensions": [
+					".jpg",
+					".jpeg",
+					".png",
+					".tif",
+					".tiff"
+				],
+				"positionInSeconds": 10,
+				"renderer": 4
+			},
+			"id": "VideoPreview",
+			"version": 0
+		},
+		{
+			"static": true,
+			"system": false,
+			"dynamic": false,
+			"dataExtraction": true,
+			"temporary": true,
+			"sourceOutputFormats": {
+				"image": null,
+				"video": null,
+				"document": "Pdf",
+				"audio": null
+			},
+			"render": true,
+			"format": {
+				"kind": "DocumentStillFormat",
+				"defaultOutputExtension": ".jpg",
+				"allowedOutputExtensions": [
+					".jpg",
+					".jpeg",
+					".png",
+					".tif",
+					".tiff"
+				],
+				"renderer": 0
+			},
+			"id": "DocumentPreview",
+			"version": 0
+		},
+		{
+			"static": true,
+			"system": false,
+			"dynamic": false,
+			"dataExtraction": true,
+			"temporary": true,
+			"sourceOutputFormats": {
+				"image": null,
+				"video": null,
+				"document": null,
+				"audio": "Original"
+			},
+			"render": true,
+			"format": {
+				"kind": "AudioStillFormat",
+				"defaultOutputExtension": ".png",
+				"allowedOutputExtensions": [
+					".jpg",
+					".jpeg",
+					".png",
+					".tif",
+					".tiff"
+				],
+				"renderer": 5
+			},
+			"id": "AudioPreview",
+			"version": 0
+		},
+		{
+			"static": true,
+			"system": false,
+			"dynamic": false,
+			"dataExtraction": false,
+			"temporary": false,
+			"sourceOutputFormats": {
+				"image": null,
+				"video": "Original",
+				"document": null,
+				"audio": null
+			},
+			"render": true,
+			"format": {
+				"kind": "VideoSpriteFormat",
+				"spriteResizeAction": {
+					"width": 160,
+					"height": 160,
+					"resizeMode": 0
+				},
+				"maxNumberOfSprites": 50,
+				"quality": 80,
+				"defaultOutputExtension": ".jpg",
+				"allowedOutputExtensions": [
+					".jpg",
+					".jpeg"
+				],
+				"renderer": 4
+			},
+			"id": "VideoKeyframes",
+			"version": 0
+		},
+		{
+			"static": false,
+			"system": false,
+			"dynamic": false,
+			"dataExtraction": false,
+			"temporary": false,
+			"sourceOutputFormats": {
+				"image": null,
+				"video": "Original",
+				"document": null,
+				"audio": null
+			},
+			"render": true,
+			"format": {
+				"kind": "Mp4VideoFormat",
+				"resizeAction": {
+					"width": 1280,
+					"height": 720,
+					"resizeMode": 0
+				},
+				"audioCodec": {
+					"kind": "AacAudioFormat",
+					"defaultOutputExtension": ".mp3",
+					"allowedOutputExtensions": [ ".mp3" ],
+					"bitrate": null,
+					"quality": 4,
+					"renderer": 5,
+					"profile": "Aac_low",
+					"coder": "Twoloop"
+				},
+				"preset": 5,
+				"defaultOutputExtension": ".mp4",
+				"allowedOutputExtensions": [ ".mp4" ],
+				"actions": null,
+				"renderer": 4
+			},
+			"id": "VideoLarge",
+			"version": 0
+		}
+	]
+}
