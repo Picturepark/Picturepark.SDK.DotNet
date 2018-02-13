@@ -1808,7 +1808,7 @@
         "tags": [
           "CloudBackup"
         ],
-        "operationId": "CloudBackup_CreateRepository",
+        "operationId": "CloudBackup_CreateCustomerSnapshotRepository",
         "parameters": [
           {
             "name": "snapshotRepositoryCustomerCreateRequest",
@@ -1894,7 +1894,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/Snapshot"
+              "$ref": "#/definitions/SnapshotEnqueueResult"
             },
             "x-nullable": true
           },
@@ -2018,7 +2018,7 @@
         "tags": [
           "CloudBackup"
         ],
-        "operationId": "CloudBackup_CreateRepository2",
+        "operationId": "CloudBackup_CreateEnvironmentSnapshotRepository",
         "parameters": [
           {
             "name": "snapshotRepositoryEnvironmentCreateRequest",
@@ -2104,7 +2104,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/Snapshot"
+              "$ref": "#/definitions/SnapshotEnqueueResult"
             },
             "x-nullable": true
           },
@@ -2228,7 +2228,7 @@
         "tags": [
           "CloudBackup"
         ],
-        "operationId": "CloudBackup_Search",
+        "operationId": "CloudBackup_SearchSnapshots",
         "parameters": [
           {
             "name": "snapshotCustomerSearchRequest",
@@ -7889,6 +7889,9 @@
           "type": "string",
           "description": "Timestamp when creating the requst (utc). If there is a more recent snapshot in the repository, it will keep/return the latest one,\ninstead of creating a new one.",
           "format": "date-time"
+        },
+        "tokenId": {
+          "type": "string"
         }
       }
     },
@@ -7906,109 +7909,12 @@
         "Deletion"
       ]
     },
-    "Snapshot": {
+    "SnapshotEnqueueResult": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "durationInMilliseconds",
-        "endTime",
-        "endTimeInMilliseconds",
-        "startTime",
-        "startTimeInMilliseconds",
-        "entityType",
-        "restoreDate",
-        "isArchived"
-      ],
       "properties": {
-        "durationInMilliseconds": {
-          "type": "integer",
-          "description": "The snapshot creation DurationInMilliseconds.",
-          "format": "int64"
-        },
-        "endTime": {
-          "type": "string",
-          "description": "The snapshot EndTime.",
-          "format": "date-time"
-        },
-        "endTimeInMilliseconds": {
-          "type": "integer",
-          "description": "The snapshot EndTimeInMilliseconds.",
-          "format": "int64"
-        },
-        "failures": {
-          "type": "array",
-          "description": "The snapshot elastic search shard Falures.",
-          "items": {
-            "$ref": "#/definitions/SnapshotShardFailure"
-          }
-        },
-        "indices": {
-          "type": "array",
-          "description": "The snapshot Indices.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "name": {
-          "type": "string",
-          "description": "The snapshot Name."
-        },
-        "repositoryName": {
-          "type": "string",
-          "description": "The repository name."
-        },
-        "startTime": {
-          "type": "string",
-          "description": "The snapshot StartTime.",
-          "format": "date-time"
-        },
-        "startTimeInMilliseconds": {
-          "type": "integer",
-          "description": "The snapshot StartTimeInMilliseconds.",
-          "format": "int64"
-        },
-        "state": {
-          "type": "string",
-          "description": "The snapshot State."
-        },
-        "entityId": {
+        "tokenId": {
           "type": "string"
-        },
-        "entityType": {
-          "$ref": "#/definitions/BackupEntityType"
-        },
-        "restoreDate": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "isArchived": {
-          "type": "boolean"
-        }
-      }
-    },
-    "SnapshotShardFailure": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "index": {
-          "type": "string",
-          "description": "The Index having the shard failure."
-        },
-        "nodeId": {
-          "type": "string",
-          "description": "The elastic search NodeId."
-        },
-        "reason": {
-          "type": "string",
-          "description": "The elastic serach shard failure Reason."
-        },
-        "shardId": {
-          "type": "string",
-          "description": "The failing elastic search ShardId."
-        },
-        "status": {
-          "type": "string",
-          "description": "The snapshot failure status."
         }
       }
     },
@@ -8179,6 +8085,112 @@
         },
         "queryDebugInformation": {
           "$ref": "#/definitions/QueryDebugInformation"
+        }
+      }
+    },
+    "Snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "durationInMilliseconds",
+        "endTime",
+        "endTimeInMilliseconds",
+        "startTime",
+        "startTimeInMilliseconds",
+        "entityType",
+        "restoreDate",
+        "isArchived"
+      ],
+      "properties": {
+        "durationInMilliseconds": {
+          "type": "integer",
+          "description": "The snapshot creation DurationInMilliseconds.",
+          "format": "int64"
+        },
+        "endTime": {
+          "type": "string",
+          "description": "The snapshot EndTime.",
+          "format": "date-time"
+        },
+        "endTimeInMilliseconds": {
+          "type": "integer",
+          "description": "The snapshot EndTimeInMilliseconds.",
+          "format": "int64"
+        },
+        "failures": {
+          "type": "array",
+          "description": "The snapshot elastic search shard Falures.",
+          "items": {
+            "$ref": "#/definitions/SnapshotShardFailure"
+          }
+        },
+        "indices": {
+          "type": "array",
+          "description": "The snapshot Indices.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "string",
+          "description": "The snapshot Name."
+        },
+        "repositoryName": {
+          "type": "string",
+          "description": "The repository name."
+        },
+        "startTime": {
+          "type": "string",
+          "description": "The snapshot StartTime.",
+          "format": "date-time"
+        },
+        "startTimeInMilliseconds": {
+          "type": "integer",
+          "description": "The snapshot StartTimeInMilliseconds.",
+          "format": "int64"
+        },
+        "state": {
+          "type": "string",
+          "description": "The snapshot State."
+        },
+        "entityId": {
+          "type": "string"
+        },
+        "entityType": {
+          "$ref": "#/definitions/BackupEntityType"
+        },
+        "restoreDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "isArchived": {
+          "type": "boolean"
+        }
+      }
+    },
+    "SnapshotShardFailure": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "index": {
+          "type": "string",
+          "description": "The Index having the shard failure."
+        },
+        "nodeId": {
+          "type": "string",
+          "description": "The elastic search NodeId."
+        },
+        "reason": {
+          "type": "string",
+          "description": "The elastic serach shard failure Reason."
+        },
+        "shardId": {
+          "type": "string",
+          "description": "The failing elastic search ShardId."
+        },
+        "status": {
+          "type": "string",
+          "description": "The snapshot failure status."
         }
       }
     },
