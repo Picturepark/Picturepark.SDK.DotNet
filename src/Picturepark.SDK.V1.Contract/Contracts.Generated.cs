@@ -16336,7 +16336,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowMissingDependencies { get; set; }
     
-        /// <summary>Allow creating list items that refer to list items or contents that don't exist in the system.</summary>
+        /// <summary>Import the list items for the schema.</summary>
         [Newtonsoft.Json.JsonProperty("importListItems", Required = Newtonsoft.Json.Required.Always)]
         public bool ImportListItems { get; set; }
     
