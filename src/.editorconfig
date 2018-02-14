@@ -4,7 +4,7 @@ root = true
 end_of_line = crlf
 
 [*.xml]
-indent_style = space
+indent_style = tab
 
 [*.cs]
-indent_style = space
+indent_style = tab

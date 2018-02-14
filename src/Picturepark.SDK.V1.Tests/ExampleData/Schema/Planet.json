@@ -1,0 +1,114 @@
+{
+	"Version": "1.0.0.0",
+	"SchemaTransferItems": [
+		{
+			"id": "Planet",
+			"dependencies": [],
+			"schemaNamespace": "Planet",
+			"types": [
+				"List",
+				"Struct"
+			],
+			"names": {
+				"x-default": "Planet"
+			},
+			"descriptions": {
+				"x-default": "Sample schema used in .NET SDK unit tests for schema import."
+			},
+			"layerSchemaIds": [],
+			"displayPatterns": [
+				{
+					"templateEngine": "DotLiquid",
+					"displayPatternType": "Thumbnail",
+					"templates": {
+						"x-default": "{{data.planet.name.x-default}}"
+					}
+				},
+				{
+					"templateEngine": "DotLiquid",
+					"displayPatternType": "List",
+					"templates": {
+						"x-default": "{{data.planet.name.x-default}}"
+					}
+				},
+				{
+					"templateEngine": "DotLiquid",
+					"displayPatternType": "Detail",
+					"templates": {
+						"x-default": "{{data.planet.name.x-default}}"
+					}
+				},
+				{
+					"templateEngine": "DotLiquid",
+					"displayPatternType": "Name",
+					"templates": {
+						"x-default": "{{data.planet.name.x-default}}"
+					}
+				}
+			],
+			"fields": [
+				{
+					"typeName": "FieldTranslatedString",
+					"id": "name",
+					"fieldNamespace": "Planet.name",
+					"names": {
+						"x-default": "Name"
+					},
+					"descriptions": {},
+					"required": false,
+					"fixed": false,
+					"index": true,
+					"simpleSearch": true,
+					"uniqueItems": false,
+					"keepFieldValue": false,
+					"multiLine": false,
+					"boost": 1,
+					"requiredMetadataLanguages": [],
+					"analyzers": [
+						{
+							"typeName": "LanguageAnalyzer",
+							"simpleSearch": true
+						}
+					]
+				}
+			],
+			"fieldsOverwrite": [],
+			"sort": [],
+			"aggregations": [],
+			"sortOrder": 0,
+			"referencedInContentSchemaIds": []
+		}
+	],
+	"ListItemTransferItems": [
+		[
+			{
+				"id": "88ffa8a35cd9457184aea4f8859ac541",
+				"dependencies": [],
+				"contentSchemaId": "Planet",
+				"data": {
+					"planet": {
+						"name": {
+							"x-default": "Saturn"
+						},
+						"kind": "Planet",
+						"refId": "88ffa8a35cd9457184aea4f8859ac541"
+					}
+				}
+			},
+			{
+				"id": "49e440a50f854fcd88567057cb3d9ca4",
+				"dependencies": [],
+				"contentSchemaId": "Planet",
+				"data": {
+					"planet": {
+						"name": {
+							"x-default": "Mars"
+						},
+						"kind": "Planet",
+						"refId": "49e440a50f854fcd88567057cb3d9ca4"
+					}
+				}
+			}
+		]
+	]
+}

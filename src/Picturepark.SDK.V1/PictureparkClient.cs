@@ -52,6 +52,8 @@ namespace Picturepark.SDK.V1
 
 		public IProfileClient Profile { get; private set; }
 
+		public ISchemaTransferClient SchemaTransfer { get; private set; }
+
 		public IServiceProviderClient ServiceProviders { get; private set; }
 
 		public void Dispose()
@@ -79,6 +81,7 @@ namespace Picturepark.SDK.V1
 			ListItems = new ListItemClient((BusinessProcessClient)BusinessProcesses, settings, httpClient);
 			Profile = new ProfileClient(settings, httpClient);
 			ServiceProviders = new ServiceProviderClient(settings, httpClient);
+			SchemaTransfer = new SchemaTransferClient(settings, httpClient);
 		}
 	}
 }
