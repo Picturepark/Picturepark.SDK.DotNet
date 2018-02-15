@@ -37,6 +37,8 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
 		public string ExampleFilesBasePath => ProjectDirectory + "/ExampleData/Pool";
 
+		public string ExampleSchemaBasePath => ProjectDirectory + "/ExampleData/Schema";
+
 		public TestConfiguration Configuration => _configuration;
 
 		public PictureparkClient Client => _client;
