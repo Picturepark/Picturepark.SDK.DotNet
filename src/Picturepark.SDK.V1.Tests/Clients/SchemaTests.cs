@@ -259,7 +259,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			Assert.Equal(schemaId, outString);
 		}
 
-	    [Fact(Skip = "Test")]
+	    [Fact(Skip="MigrationOnly")]
 	    [Trait("Stack", "Schema")]
 	    public async Task ShouldWrapFiltersInNestedFilter()
 	    {
@@ -285,9 +285,36 @@ namespace Picturepark.SDK.V1.Tests.Clients
 	                        multiTagbox.Filter = WrapFilter(multiTagbox.Filter, indexFields);
 	                    }
 	                }
-	            }
 
-	            await _client.Schemas.UpdateAndWaitForCompletionAsync(details, false);
+	                if (field is FieldSingleTagbox singleTagbox)
+	                {
+	                    if (singleTagbox.Filter != null)
+	                    {
+	                        singleTagbox.Filter = WrapFilter(singleTagbox.Filter, indexFields);
+	                    }
+	                }
+                }
+
+	            foreach (var field in details.FieldsOverwrite)
+	            {
+	                if (field is FieldOverwriteMultiTagbox multiTagbox)
+	                {
+	                    if (multiTagbox.Filter != null)
+	                    {
+	                        multiTagbox.Filter = WrapFilter(multiTagbox.Filter, indexFields);
+	                    }
+	                }
+
+	                if (field is FieldOverwriteSingleTagbox singleTagbox)
+	                {
+	                    if (singleTagbox.Filter != null)
+	                    {
+	                        singleTagbox.Filter = WrapFilter(singleTagbox.Filter, indexFields);
+	                    }
+	                }
+                }
+
+                await _client.Schemas.UpdateAndWaitForCompletionAsync(details, false);
 	        }
 	    }
 
