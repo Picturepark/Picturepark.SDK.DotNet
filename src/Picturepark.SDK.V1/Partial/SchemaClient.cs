@@ -151,7 +151,8 @@ namespace Picturepark.SDK.V1
                 Sort = schemaDetail.Sort,
                 SortOrder = schemaDetail.SortOrder,
                 Types = schemaDetail.Types,
-                LayerSchemaIds = schemaDetail.LayerSchemaIds
+                LayerSchemaIds = schemaDetail.LayerSchemaIds,
+                FieldsOverwrite = schemaDetail.FieldsOverwrite
             };
 
             await UpdateAndWaitForCompletionAsync(schemaDetail.Id, updateRequest, cancellationToken).ConfigureAwait(false);

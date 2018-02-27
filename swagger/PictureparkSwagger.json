@@ -5003,6 +5003,84 @@
         ]
       }
     },
+    "/v1/schemas/indexFields": {
+      "post": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Get index fields",
+        "description": "Gets the indexed fields for specific schemas",
+        "operationId": "Schema_GetIndexFields",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GetIndexFieldsRequest"
+            },
+            "x-nullable": true,
+            "description": "The get request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Indexed fields",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IndexField"
+              }
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/schemas/{schemaId}/exists": {
       "get": {
         "tags": [
@@ -7831,6 +7909,102 @@
           {
             "Bearer": [
               "profile_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/schematransfers/import": {
+      "post": {
+        "tags": [
+          "SchemaTransfer"
+        ],
+        "summary": "Import schemas",
+        "description": "Import schemas\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "SchemaTransfer_Import",
+        "parameters": [
+          {
+            "name": "schemaImportRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SchemaImportRequest"
+            },
+            "x-nullable": true,
+            "description": "The schema import request."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Transfer",
+            "schema": {
+              "$ref": "#/definitions/Transfer"
+            },
+            "x-nullable": false
+          },
+          "400": {
+            "description": "File transfer not found\nor\nArgument must not be null\nor\nValidation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkBusinessException"
+            },
+            "x-nullable": true,
+            "x-expectedSchemas": [
+              {
+                "description": "File transfer not found",
+                "schema": {
+                  "$ref": "#/definitions/FileTransferNotFoundException"
+                }
+              },
+              {
+                "description": "Argument must not be null",
+                "schema": {
+                  "$ref": "#/definitions/PictureparkArgumentNullException"
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "$ref": "#/definitions/PictureparkValidationException"
+                }
+              }
+            ]
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_write",
+              "transfer_write"
             ]
           }
         ]
@@ -14999,16 +15173,10 @@
       "description": "Count info of fields for search operations",
       "additionalProperties": false,
       "required": [
-        "dataField",
         "indexedField",
         "simpleSearchField"
       ],
       "properties": {
-        "dataField": {
-          "type": "integer",
-          "description": "The number of fields generated by the schema in the Search index.",
-          "format": "int32"
-        },
         "indexedField": {
           "type": "integer",
           "description": "The number of indexed fields generated by the schema in the Search index.",
@@ -15194,6 +15362,67 @@
         "system": {
           "type": "boolean",
           "description": "Is true when schema is system provided."
+        }
+      }
+    },
+    "GetIndexFieldsRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "IndexField": {
+      "type": "object",
+      "description": "Contains compiled field information.",
+      "additionalProperties": false,
+      "required": [
+        "boost",
+        "ignoreForSearch"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string",
+          "description": "The field id."
+        },
+        "type": {
+          "type": "string",
+          "description": "The field's type name."
+        },
+        "indexFields": {
+          "type": "object",
+          "description": "Contains all index field name variants of the field.",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "simpleSearchFields": {
+          "type": "array",
+          "description": "Contains all simple search field name variants of the field.\nThe amount of simple search fields can be equal or less to the amount of IndexFields, but never more.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "boost": {
+          "type": "number",
+          "description": "Contains the fields boost value.",
+          "format": "double"
+        },
+        "ignoreForSearch": {
+          "type": "boolean",
+          "description": "Not to be returned for search query, but only used for mapping purposes"
+        },
+        "nestedPath": {
+          "type": "string",
+          "description": "The path of the Nested document this property belongs to. If set to null, it means that there is no Nested document"
         }
       }
     },
@@ -22221,6 +22450,29 @@
           "$ref": "#/definitions/AuthorizationState"
         }
       }
+    },
+    "SchemaImportRequest": {
+      "type": "object",
+      "description": "Schema import request",
+      "additionalProperties": false,
+      "required": [
+        "allowMissingDependencies",
+        "importListItems"
+      ],
+      "properties": {
+        "fileTransferId": {
+          "type": "string",
+          "description": "Id of the previously uploaded file transfer"
+        },
+        "allowMissingDependencies": {
+          "type": "boolean",
+          "description": "Allow creating list items that refer to list items or contents that don't exist in the system."
+        },
+        "importListItems": {
+          "type": "boolean",
+          "description": "Import the list items for the schema."
+        }
+      }
     }
   },
   "parameters": {},
@@ -22323,6 +22575,10 @@
     {
       "name": "Profile",
       "description": "Endpoints to work with currently logged in user profile.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ProfileTests.cs)\r\n"
+    },
+    {
+      "name": "SchemaTransfer",
+      "description": "Endpoints to transfer schemas.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/SchemaTransferTests.cs)\r\n"
     }
   ]
 }
