@@ -42,27 +42,29 @@ namespace Picturepark.SDK.V1
 			return await SearchFilesAsync(request);
 		}
 
-		/// <summary>Uploads multiple files from the filesystem.</summary>
-		/// <param name="transferName">The name of the created transfer.</param>
-		/// <param name="filePaths">The file paths on the filesystem.</param>
-		/// <param name="uploadOptions">The file upload options.</param>
-		/// <param name="cancellationToken">The cancellation token.</param>
-		/// <returns>The created transfer object.</returns>
-		public async Task<CreateTransferResult> UploadFilesAsync(string transferName, IEnumerable<string> filePaths, UploadOptions uploadOptions, CancellationToken cancellationToken = default(CancellationToken))
+        /// <summary>Uploads multiple files from the filesystem.</summary>
+        /// <param name="transferName">The name of the created transfer.</param>
+        /// <param name="filePaths">The file paths on the filesystem.</param>
+        /// <param name="uploadOptions">The file upload options.</param>
+        /// <param name="timeout">The timeout to wait for completion.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The created transfer object.</returns>
+        public async Task<CreateTransferResult> UploadFilesAsync(string transferName, IEnumerable<string> filePaths, UploadOptions uploadOptions, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var filteredFileNames = FilterFilesByBlacklist(filePaths.ToList());
-			var result = await CreateAndWaitForCompletionAsync(transferName, filteredFileNames.Select(Path.GetFileName), cancellationToken).ConfigureAwait(false);
-			await UploadFilesAsync(result.Transfer, filteredFileNames, uploadOptions, cancellationToken).ConfigureAwait(false);
+			var result = await CreateAndWaitForCompletionAsync(transferName, filteredFileNames.Select(Path.GetFileName), timeout, cancellationToken).ConfigureAwait(false);
+			await UploadFilesAsync(result.Transfer, filteredFileNames, uploadOptions, timeout, cancellationToken).ConfigureAwait(false);
 			return result;
 		}
 
-		/// <summary>Uploads multiple files from the filesystem.</summary>
-		/// <param name="transfer">The existing transfer object.</param>
-		/// <param name="filePaths">The file paths on the filesystem.</param>
-		/// <param name="uploadOptions">The file upload options.</param>
-		/// <param name="cancellationToken">The cancellation token.</param>
-		/// <returns>The created transfer object.</returns>
-		public async Task UploadFilesAsync(Transfer transfer, IEnumerable<string> filePaths, UploadOptions uploadOptions, CancellationToken cancellationToken = default(CancellationToken))
+        /// <summary>Uploads multiple files from the filesystem.</summary>
+        /// <param name="transfer">The existing transfer object.</param>
+        /// <param name="filePaths">The file paths on the filesystem.</param>
+        /// <param name="uploadOptions">The file upload options.</param>
+        /// <param name="timeout">The timeout to wait for completion.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The created transfer object.</returns>
+        public async Task UploadFilesAsync(Transfer transfer, IEnumerable<string> filePaths, UploadOptions uploadOptions, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			uploadOptions = uploadOptions ?? new UploadOptions();
 
@@ -97,40 +99,42 @@ namespace Picturepark.SDK.V1
 
 			if (uploadOptions.WaitForTransferCompletion)
 			{
-				await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, cancellationToken: cancellationToken).ConfigureAwait(false);
+				await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, timeout, cancellationToken).ConfigureAwait(false);
 			}
 		}
 
-		/// <summary>Transfers the uploaded files and waits for its completions.</summary>
-		/// <param name="transfer">The transfer.</param>
-		/// <param name="createRequest">The create request.</param>
-		/// <param name="timeout">The timeout in ms to wait for completion.</param>
-		/// <param name="cancellationToken">The cancellcation token.</param>
-		/// <returns>The task.</returns>
-		public async Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        /// <summary>Transfers the uploaded files and waits for its completions.</summary>
+        /// <param name="transfer">The transfer.</param>
+        /// <param name="createRequest">The create request.</param>
+        /// <param name="timeout">The timeout to wait for completion.</param>
+        /// <param name="cancellationToken">The cancellcation token.</param>
+        /// <returns>The task.</returns>
+        public async Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var importedTransfer = await ImportTransferAsync(transfer.Id, createRequest, cancellationToken).ConfigureAwait(false);
 			await _businessProcessClient.WaitForCompletionAsync(importedTransfer.BusinessProcessId, timeout, cancellationToken).ConfigureAwait(false);
 		}
 
-		/// <summary>Creates a transfer and waits for its completion.</summary>
-		/// <param name="request">The create request.</param>
-		/// <param name="cancellationToken">The cancellation token.</param>
-		/// <returns>The transfer.</returns>
-		public async Task<CreateTransferResult> CreateAndWaitForCompletionAsync(CreateTransferRequest request, CancellationToken cancellationToken = default(CancellationToken))
+        /// <summary>Creates a transfer and waits for its completion.</summary>
+        /// <param name="request">The create request.</param>
+        /// <param name="timeout">The timeout to wait for completion.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The transfer.</returns>
+        public async Task<CreateTransferResult> CreateAndWaitForCompletionAsync(CreateTransferRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var transfer = await CreateAsync(request, cancellationToken).ConfigureAwait(false);
-			await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, cancellationToken: cancellationToken).ConfigureAwait(false);
+			await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, timeout, cancellationToken).ConfigureAwait(false);
 
 			return new CreateTransferResult(transfer, request.Files);
 		}
 
-		/// <summary>Creates a transfer and waits for its completion.</summary>
-		/// <param name="transferName">The name of the transfer.</param>
-		/// <param name="fileNames">The file names of the transfer.</param>
-		/// <param name="cancellationToken">The cancellation token.</param>
-		/// <returns>The transfer.</returns>
-		public async Task<CreateTransferResult> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<string> fileNames, CancellationToken cancellationToken = default(CancellationToken))
+        /// <summary>Creates a transfer and waits for its completion.</summary>
+        /// <param name="transferName">The name of the transfer.</param>
+        /// <param name="fileNames">The file names of the transfer.</param>
+        /// <param name="timeout">The timeout to wait for completion.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The transfer.</returns>
+        public async Task<CreateTransferResult> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<string> fileNames, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
 		{
 			var filteredFileNames = FilterFilesByBlacklist(fileNames);
 
@@ -146,7 +150,7 @@ namespace Picturepark.SDK.V1
 			};
 
 			var transfer = await CreateAsync(request, cancellationToken).ConfigureAwait(false);
-			await _businessProcessClient.WaitForStatesAsync(transfer.BusinessProcessId, new[] { TransferState.Created.ToString() }, null, cancellationToken).ConfigureAwait(false);
+			await _businessProcessClient.WaitForStatesAsync(transfer.BusinessProcessId, new[] { TransferState.Created.ToString() }, timeout, cancellationToken).ConfigureAwait(false);
 
 			return new CreateTransferResult(transfer, request.Files);
 		}
