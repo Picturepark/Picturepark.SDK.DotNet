@@ -376,89 +376,6 @@
         ]
       }
     },
-    "/v1/contents/{channelId}/search": {
-      "post": {
-        "tags": [
-          "Content"
-        ],
-        "summary": "Search by channel",
-        "description": "Searches contents as specified in the search request and limits the search results to the specified channel.",
-        "operationId": "Content_SearchByChannel",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "channelId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The channel id."
-          },
-          {
-            "name": "contentSearchRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ContentSearchRequest"
-            },
-            "x-nullable": true,
-            "description": "The content search request."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "ContentSearchResult",
-            "schema": {
-              "$ref": "#/definitions/ContentSearchResult"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "description": "Entity not found",
-            "schema": {
-              "$ref": "#/definitions/PictureparkNotFoundException"
-            },
-            "x-nullable": true
-          },
-          "409": {
-            "description": "Version conflic",
-            "schema": {
-              "$ref": "#/definitions/PictureparkConflictException"
-            },
-            "x-nullable": true
-          },
-          "400": {
-            "description": "Validation exception",
-            "schema": {
-              "$ref": "#/definitions/PictureparkValidationException"
-            },
-            "x-nullable": true
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "content_read"
-            ]
-          }
-        ]
-      }
-    },
     "/v1/contents/aggregate": {
       "post": {
         "tags": [
@@ -534,32 +451,24 @@
         ]
       }
     },
-    "/v1/contents/{channelId}/aggregate": {
+    "/v1/contents/aggregateonchannel": {
       "post": {
         "tags": [
           "Content"
         ],
-        "summary": "Aggregate by channel",
-        "description": "Aggregates content fields as specified in the aggregation request and limits the aggregation results to the specified channel.",
-        "operationId": "Content_AggregateByChannel",
+        "summary": "Aggregate on channel",
+        "description": "Aggregates content fields as specified in the aggregators saved on a channel.",
+        "operationId": "Content_AggregateOnChannel",
         "parameters": [
           {
-            "type": "string",
-            "name": "channelId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The channel id"
-          },
-          {
-            "name": "contentAggregationRequest",
+            "name": "contentAggregationOnChannelRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ContentAggregationRequest"
+              "$ref": "#/definitions/ContentAggregationOnChannelRequest"
             },
             "x-nullable": true,
-            "description": "The content aggregation request."
+            "description": "The content aggregation on channel request."
           }
         ],
         "responses": {
@@ -8802,6 +8711,20 @@
         }
       ]
     },
+    "CustomerNotActiveException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
     "ConfigurationIndexNotFoundException": {
       "type": "object",
       "additionalProperties": false,
@@ -9665,6 +9588,37 @@
         }
       ]
     },
+    "AggregationFilterInvalidException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aggregationFilterNames": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "AggregationNameInvalidException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aggregationName": {
+          "type": "string"
+        },
+        "aggregationPrefix": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "SchemaFieldOverwriteTypeMismatchException": {
       "type": "object",
       "additionalProperties": false,
@@ -9849,6 +9803,32 @@
           "format": "double"
         },
         "indexedFieldThreshold": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SortableFieldThresholdExceededException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sortableFieldCount",
+        "sortableFieldThreshold"
+      ],
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "sortableFieldCount": {
+          "type": "number",
+          "format": "double"
+        },
+        "sortableFieldThreshold": {
           "type": "integer",
           "format": "int32"
         }
@@ -10972,12 +10952,9 @@
         "debugMode"
       ],
       "properties": {
-        "channelIds": {
-          "type": "array",
-          "description": "Limits the simple search fields to the fields available in the specified channel.",
-          "items": {
-            "type": "string"
-          }
+        "channelId": {
+          "type": "string",
+          "description": "Limits the simple search fields to the fields available in the specified channel."
         },
         "displayLanguage": {
           "type": "string",
@@ -11496,7 +11473,7 @@
           "description": "The name of the aggregation this filter is connected to."
         },
         "filter": {
-          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceFilter.",
+          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter, GeoDistanceFilter and NestedFilter.",
           "allOf": [
             {
               "$ref": "#/definitions/FilterBase"
@@ -11730,9 +11707,9 @@
             "type": "string"
           }
         },
-        "brokenRelationIds": {
+        "brokenRelationTargetIds": {
           "type": "array",
-          "description": "All the ids of the broken relations",
+          "description": "All the target ids of the broken relations",
           "items": {
             "type": "string"
           }
@@ -11756,89 +11733,20 @@
     "ContentAggregationRequest": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "lifeCycleFilter",
-        "brokenDependenciesFilter",
-        "searchType"
-      ],
       "properties": {
-        "searchString": {
-          "type": "string",
-          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
-        },
-        "searchBehaviours": {
-          "type": "array",
-          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
-          "items": {
-            "$ref": "#/definitions/SearchBehaviour"
-          }
-        },
-        "filter": {
-          "description": "An optional search filter. Limits the content document result set.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/FilterBase"
-            }
-          ]
-        },
-        "aggregationFilters": {
-          "type": "array",
-          "description": "Special filters used to filter down on a specific aggregated value.",
-          "items": {
-            "$ref": "#/definitions/AggregationFilter"
-          }
-        },
         "aggregators": {
           "type": "array",
           "description": "Defines the aggregation resultset.",
           "items": {
             "$ref": "#/definitions/AggregatorBase"
           }
-        },
-        "channelId": {
-          "type": "string",
-          "description": "Limits the simple search fields to the fields available in the specified channel."
-        },
-        "displayLanguage": {
-          "type": "string",
-          "description": "Defines the return language of translation values. Defaults to x-default."
-        },
-        "searchLanguages": {
-          "type": "array",
-          "description": "Only searches the specified language values. Defaults to all metadata languages in configured within the customer's language configuration.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "collectionId": {
-          "type": "string",
-          "description": "The collection id."
-        },
-        "lifeCycleFilter": {
-          "description": "Limits the content document result set to that life cycle state. Defaults to ActiveOnly.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/LifeCycleFilter"
-            }
-          ]
-        },
-        "brokenDependenciesFilter": {
-          "description": "Filter the content document result set to those that have or not have broken references",
-          "allOf": [
-            {
-              "$ref": "#/definitions/BrokenDependenciesFilter"
-            }
-          ]
-        },
-        "searchType": {
-          "description": "Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/ContentSearchType"
-            }
-          ]
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ContentAggregationOnChannelRequest"
+        }
+      ]
     },
     "AggregatorBase": {
       "type": "object",
@@ -11889,26 +11797,6 @@
           "items": {
             "$ref": "#/definitions/DateRange"
           }
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/AggregatorBase"
-        }
-      ]
-    },
-    "FilterAggregator": {
-      "type": "object",
-      "description": "The FilterAggregator is a single bucket aggregation of documents that match a specified filter.",
-      "additionalProperties": false,
-      "properties": {
-        "filter": {
-          "description": "Limits the result set.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/FilterBase"
-            }
-          ]
         }
       },
       "allOf": [
@@ -12036,6 +11924,17 @@
           "items": {
             "type": "string"
           }
+        },
+        "searchString": {
+          "type": "string",
+          "description": "Search string to be used to search within possible aggregation values"
+        },
+        "searchFields": {
+          "type": "array",
+          "description": "Search fields to be used to search the SearchString value into. If no search field is specified, the Field value is used",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "allOf": [
@@ -12103,6 +12002,86 @@
         }
       ]
     },
+    "ContentAggregationOnChannelRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lifeCycleFilter",
+        "brokenDependenciesFilter",
+        "searchType"
+      ],
+      "properties": {
+        "searchString": {
+          "type": "string",
+          "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
+        },
+        "searchBehaviours": {
+          "type": "array",
+          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
+        },
+        "filter": {
+          "description": "An optional search filter. Limits the content document result set.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        },
+        "aggregationFilters": {
+          "type": "array",
+          "description": "Special filters used to filter down on a specific aggregated value.",
+          "items": {
+            "$ref": "#/definitions/AggregationFilter"
+          }
+        },
+        "channelId": {
+          "type": "string",
+          "description": "Limits the simple search fields to the fields available in the specified channel and retrieve the existing aggregation for it."
+        },
+        "displayLanguage": {
+          "type": "string",
+          "description": "Defines the return language of translation values. Defaults to x-default."
+        },
+        "searchLanguages": {
+          "type": "array",
+          "description": "Only searches the specified language values. Defaults to all metadata languages in configured within the customer's language configuration.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "collectionId": {
+          "type": "string",
+          "description": "The collection id."
+        },
+        "lifeCycleFilter": {
+          "description": "Limits the content document result set to that life cycle state. Defaults to ActiveOnly.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/LifeCycleFilter"
+            }
+          ]
+        },
+        "brokenDependenciesFilter": {
+          "description": "Filter the content document result set to those that have or not have broken references",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BrokenDependenciesFilter"
+            }
+          ]
+        },
+        "searchType": {
+          "description": "Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ContentSearchType"
+            }
+          ]
+        }
+      }
+    },
     "ObjectAggregationResult": {
       "type": "object",
       "additionalProperties": false,
@@ -12141,9 +12120,6 @@
         "sumOtherDocCount": {
           "type": "integer",
           "format": "int64"
-        },
-        "temporaryRequestId": {
-          "type": "string"
         },
         "aggregationResultItems": {
           "type": "array",
@@ -12838,12 +12814,9 @@
         "lifeCycleFilter"
       ],
       "properties": {
-        "channelIds": {
-          "type": "array",
-          "description": "Limits the simple search fields to the fields available in the specified in the channel.",
-          "items": {
-            "type": "string"
-          }
+        "channelId": {
+          "type": "string",
+          "description": "Limits the simple search fields to the fields available in the specified channel."
         },
         "searchLanguages": {
           "type": "array",
@@ -14200,6 +14173,7 @@
         "fixed",
         "index",
         "simpleSearch",
+        "sortable",
         "kind"
       ],
       "properties": {
@@ -14246,6 +14220,10 @@
         "simpleSearch": {
           "type": "boolean",
           "description": "Includes fields in the simple search. Index must be true."
+        },
+        "sortable": {
+          "type": "boolean",
+          "description": "Field is stored for sorting."
         },
         "kind": {
           "type": "string"
@@ -14540,6 +14518,7 @@
       "required": [
         "index",
         "simpleSearch",
+        "sortable",
         "boost"
       ],
       "properties": {
@@ -14554,6 +14533,10 @@
         "simpleSearch": {
           "type": "boolean",
           "description": "Includes fields in the simple search. Index must be true."
+        },
+        "sortable": {
+          "type": "boolean",
+          "description": "Include the field for the sort index."
         },
         "boost": {
           "type": "number",
@@ -15174,7 +15157,8 @@
       "additionalProperties": false,
       "required": [
         "indexedField",
-        "simpleSearchField"
+        "simpleSearchField",
+        "sortableField"
       ],
       "properties": {
         "indexedField": {
@@ -15185,6 +15169,11 @@
         "simpleSearchField": {
           "type": "integer",
           "description": "The number of fields to be queried in the simple search for the schema.",
+          "format": "int32"
+        },
+        "sortableField": {
+          "type": "integer",
+          "description": "The number of fields that have sorting information stored in the search index.",
           "format": "int32"
         }
       }
@@ -15423,6 +15412,10 @@
         "nestedPath": {
           "type": "string",
           "description": "The path of the Nested document this property belongs to. If set to null, it means that there is no Nested document"
+        },
+        "sortField": {
+          "type": "string",
+          "description": "Path to the sorting information in the DataSortValuesField sort index."
         }
       }
     },

@@ -2735,6 +2735,7 @@
         "rootListItemSearchIndexNumberOfShards",
         "rootListItemSearchIndexNumberOfReplicas",
         "indexedFieldThreshold",
+        "sortableFieldThreshold",
         "contentRetentionTime",
         "listItemRetentionTime",
         "snapshotRetentionTime"
@@ -2819,6 +2820,10 @@
           "format": "int32"
         },
         "indexedFieldThreshold": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sortableFieldThreshold": {
           "type": "integer",
           "format": "int32"
         },
@@ -4031,6 +4036,7 @@
         "rootListItemSearchIndexNumberOfShards",
         "rootListItemSearchIndexNumberOfReplicas",
         "indexedFieldThreshold",
+        "sortableFieldThreshold",
         "redisDatabaseIndex",
         "lifeCycle",
         "contentRetentionTime",
@@ -4174,6 +4180,10 @@
           "format": "int32"
         },
         "indexedFieldThreshold": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sortableFieldThreshold": {
           "type": "integer",
           "format": "int32"
         },
@@ -4995,6 +5005,20 @@
       ]
     },
     "CustomerNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "CustomerNotActiveException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -5871,6 +5895,37 @@
         }
       ]
     },
+    "AggregationFilterInvalidException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aggregationFilterNames": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "AggregationNameInvalidException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aggregationName": {
+          "type": "string"
+        },
+        "aggregationPrefix": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "SchemaFieldOverwriteTypeMismatchException": {
       "type": "object",
       "additionalProperties": false,
@@ -6055,6 +6110,32 @@
           "format": "double"
         },
         "indexedFieldThreshold": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SortableFieldThresholdExceededException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sortableFieldCount",
+        "sortableFieldThreshold"
+      ],
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "sortableFieldCount": {
+          "type": "number",
+          "format": "double"
+        },
+        "sortableFieldThreshold": {
           "type": "integer",
           "format": "int32"
         }
@@ -6868,6 +6949,10 @@
         "indexedFieldThreshold": {
           "type": "integer",
           "format": "int32"
+        },
+        "sortableFieldThreshold": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -7410,7 +7495,7 @@
           "description": "The name of the aggregation this filter is connected to."
         },
         "filter": {
-          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceFilter.",
+          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter, GeoDistanceFilter and NestedFilter.",
           "allOf": [
             {
               "$ref": "#/definitions/FilterBase"

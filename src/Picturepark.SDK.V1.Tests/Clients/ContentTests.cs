@@ -152,40 +152,18 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
-        public async Task ShouldAggregateWithoutAggregators()
-        {
-            // Todo: does not find anything
-            // Check: does Aggregate() without Aggregators make any sense?
-            //// TODO: Must be extended and asserted with useful data.
-
-            var request = new ContentAggregationRequest() { SearchString = "*" };
-            ObjectAggregationResult result = await _client.Contents.AggregateAsync(request);
-
-            var numRangeFilter = new NumericRangeFilter() { Field = "ContentType", Range = new NumericRange { From = 2, To = 5 } };
-            request.Filter = numRangeFilter;
-            result = await _client.Contents.AggregateAsync(request);
-
-            request.Filter = null;
-            request.LifeCycleFilter = LifeCycleFilter.All;
-            result = await _client.Contents.AggregateAsync(request);
-
-            request.Aggregators = new List<AggregatorBase>();
-            result = await _client.Contents.AggregateAsync(request);
-        }
-
-        [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldAggregateByChannel()
         {
             /// Arrange
             var channelId = "rootChannel";
             var request = new ContentAggregationRequest
             {
+                ChannelId = channelId,
                 SearchString = string.Empty
             };
 
             /// Act
-            var result = await _client.Contents.AggregateByChannelAsync(channelId, request);
+            var result = await _client.Contents.AggregateOnChannelAsync(request);
 
             /// Assert
             var originalWidthResults = result.AggregationResults
@@ -203,6 +181,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var channelId = "rootChannel";
             var request = new ContentAggregationRequest
             {
+                ChannelId = channelId,
                 SearchString = string.Empty,
                 Aggregators = new List<AggregatorBase>
                 {
@@ -211,7 +190,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var result = await _client.Contents.AggregateByChannelAsync(channelId, request);
+            var result = await _client.Contents.AggregateAsync(request);
 
             /// Assert
             var permissionSetResults = result.AggregationResults
@@ -559,7 +538,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 ContentFilterRequest = new ContentFilterRequest
                 {
-                    ChannelIds = new List<string> { "rootChannel" },
+                    ChannelId = "rootChannel",
                     Filter = new TermFilter { Field = "id", Term = contentId }
                 },
                 ChangeCommands = new List<MetadataValuesChangeCommandBase>
@@ -736,7 +715,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldSearch()
         {
             /// Arrange
-            var channelIds = new List<string> { "rootChannel" };
+            var channelId = "rootChannel";
             var searchFieldPath =
                 nameof(ContentDetail.Audit).ToLowerCamelCase() + "." +
                 nameof(UserAudit.CreationDate).ToLowerCamelCase();
@@ -749,7 +728,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var filter = new TermFilter { Field = "contentSchemaId", Term = "ImageMetadata" };
             var request = new ContentSearchRequest
             {
-                ChannelIds = channelIds,
+                ChannelId = channelId,
                 SearchString = "*",
                 Sort = sortInfos,
                 Filter = filter,
@@ -777,14 +756,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var request = new ContentSearchRequest
             {
-                ChannelIds = new List<string> { channelId },
+                ChannelId = channelId,
                 SearchString = searchString,
                 Sort = sortInfos,
                 Start = 0,
                 Limit = 8
             };
 
-            ContentSearchResult result = await _client.Contents.SearchByChannelAsync(channelId, request);
+            ContentSearchResult result = await _client.Contents.SearchAsync(request);
             Assert.True(result.Results.Count > 0);
         }
 
