@@ -936,20 +936,5 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.True(!contentPermissionSetIds.Except(currentContentPermissionSetIds).Any());
             Assert.True(!currentContentPermissionSetIds.Except(contentPermissionSetIds).Any());
         }
-
-        [Fact]
-        [Trait("Stack", "Contents")]
-        public async Task ShouldRespectTimeoutWhileUploading()
-        {
-            var transferName = Guid.NewGuid().ToString();
-
-            await Assert.ThrowsAsync<TimeoutException>(
-                async () =>
-                    await _client.Transfers.UploadFilesAsync(
-                        transferName,
-                        new string[0],
-                        new UploadOptions { WaitForTransferCompletion = true },
-                        TimeSpan.FromMilliseconds(1)).ConfigureAwait(false)).ConfigureAwait(false);
-        }
     }
 }
