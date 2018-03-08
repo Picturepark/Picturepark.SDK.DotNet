@@ -1944,6 +1944,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SearchStringLeadingWildcardException", typeof(SearchStringLeadingWildcardException))]
     [JsonInheritanceAttribute("DuplicateAggregatorException", typeof(DuplicateAggregatorException))]
     [JsonInheritanceAttribute("InvalidDateTimeFormatException", typeof(InvalidDateTimeFormatException))]
+    [JsonInheritanceAttribute("InvalidSortFieldException", typeof(InvalidSortFieldException))]
     [JsonInheritanceAttribute("DocumentVersionConflictException", typeof(DocumentVersionConflictException))]
     [JsonInheritanceAttribute("RedisDatabaseExceededException", typeof(RedisDatabaseExceededException))]
     [JsonInheritanceAttribute("DuplicateDocumentException", typeof(DuplicateDocumentException))]
@@ -1979,7 +1980,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
     [JsonInheritanceAttribute("SchemaFieldSchemaIndexInfoSimpleSearchNestingException", typeof(SchemaFieldSchemaIndexInfoSimpleSearchNestingException))]
     [JsonInheritanceAttribute("SchemaFieldSchemaIndexInfoNestingException", typeof(SchemaFieldSchemaIndexInfoNestingException))]
-    [JsonInheritanceAttribute("SchemaFieldSchemaIndexInfoException", typeof(SchemaFieldSchemaIndexInfoException))]
     [JsonInheritanceAttribute("SchemaFieldIdUppercaseException", typeof(SchemaFieldIdUppercaseException))]
     [JsonInheritanceAttribute("SchemaIdLowercaseException", typeof(SchemaIdLowercaseException))]
     [JsonInheritanceAttribute("SchemaInfoNotFoundException", typeof(SchemaInfoNotFoundException))]
@@ -2006,6 +2006,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaFixedFieldChangeException", typeof(SchemaFixedFieldChangeException))]
     [JsonInheritanceAttribute("SchemaFixedFieldDeleteException", typeof(SchemaFixedFieldDeleteException))]
     [JsonInheritanceAttribute("SchemaFieldIndexException", typeof(SchemaFieldIndexException))]
+    [JsonInheritanceAttribute("SchemaFieldNotSortableException", typeof(SchemaFieldNotSortableException))]
     [JsonInheritanceAttribute("SchemaNoContentException", typeof(SchemaNoContentException))]
     [JsonInheritanceAttribute("SchemaParentChangeException", typeof(SchemaParentChangeException))]
     [JsonInheritanceAttribute("SchemaMissingTypeException", typeof(SchemaMissingTypeException))]
@@ -3177,6 +3178,23 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class InvalidSortFieldException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldName { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static InvalidSortFieldException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidSortFieldException>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DocumentVersionConflictException : PictureparkConflictException
     {
         [Newtonsoft.Json.JsonProperty("documentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -4096,29 +4114,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SchemaFieldSchemaIndexInfoException : PictureparkValidationException
-    {
-        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("relatedFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string RelatedFieldId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static SchemaFieldSchemaIndexInfoException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldSchemaIndexInfoException>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SchemaFieldIdUppercaseException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -4626,6 +4621,26 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SchemaFieldIndexException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldIndexException>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SchemaFieldNotSortableException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldNotSortableException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldNotSortableException>(data);
         }
     }
     

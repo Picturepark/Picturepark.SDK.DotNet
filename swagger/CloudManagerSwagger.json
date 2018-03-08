@@ -5227,6 +5227,20 @@
         }
       ]
     },
+    "InvalidSortFieldException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fieldName": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "DocumentVersionConflictException": {
       "type": "object",
       "additionalProperties": false,
@@ -6029,26 +6043,6 @@
         }
       ]
     },
-    "SchemaFieldSchemaIndexInfoException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "schemaId": {
-          "type": "string"
-        },
-        "fieldId": {
-          "type": "string"
-        },
-        "relatedFieldId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkValidationException"
-        }
-      ]
-    },
     "SchemaFieldIdUppercaseException": {
       "type": "object",
       "additionalProperties": false,
@@ -6509,6 +6503,23 @@
           "type": "string"
         },
         "fieldId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaFieldNotSortableException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fieldId": {
+          "type": "string"
+        },
+        "schemaId": {
           "type": "string"
         }
       },
