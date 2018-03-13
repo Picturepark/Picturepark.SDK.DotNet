@@ -2496,6 +2496,83 @@
         ]
       }
     },
+    "/backup/customer/export": {
+      "put": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_Export",
+        "parameters": [
+          {
+            "name": "customerExportRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomerExportRequest"
+            },
+            "x-nullable": true
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "format": "time-span"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerExportResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
     "/{customerAlias}/{userId}/getUserDeveloperFlag": {
       "get": {
         "tags": [
@@ -5227,6 +5304,20 @@
         }
       ]
     },
+    "InvalidSortFieldException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fieldName": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "DocumentVersionConflictException": {
       "type": "object",
       "additionalProperties": false,
@@ -5800,6 +5891,23 @@
         }
       ]
     },
+    "InvalidChangeCommandSchemaChangeInvalidException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "commandTypeName": {
+          "type": "string"
+        },
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "InvalidMetadataException": {
       "type": "object",
       "additionalProperties": false,
@@ -6020,26 +6128,6 @@
           "type": "string"
         },
         "relatedOuterFieldId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkValidationException"
-        }
-      ]
-    },
-    "SchemaFieldSchemaIndexInfoException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "schemaId": {
-          "type": "string"
-        },
-        "fieldId": {
-          "type": "string"
-        },
-        "relatedFieldId": {
           "type": "string"
         }
       },
@@ -6518,6 +6606,23 @@
         }
       ]
     },
+    "SchemaFieldNotSortableException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fieldId": {
+          "type": "string"
+        },
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "SchemaNoContentException": {
       "type": "object",
       "additionalProperties": false,
@@ -6738,6 +6843,23 @@
         }
       ]
     },
+    "ContentLayerInvalidException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string"
+        },
+        "layerIds": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "BusinessProcessWaitTimeoutException": {
       "type": "object",
       "additionalProperties": false,
@@ -6877,6 +6999,24 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SnapshotTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "SnapshotFailedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
         }
       ]
     },
@@ -8372,6 +8512,30 @@
           "type": "string"
         },
         "repositoryName": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomerExportRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerAlias": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomerExportResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        },
+        "repositoryName": {
+          "type": "string"
+        },
+        "snapshotName": {
           "type": "string"
         }
       }

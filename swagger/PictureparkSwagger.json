@@ -8920,6 +8920,20 @@
         }
       ]
     },
+    "InvalidSortFieldException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fieldName": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "DocumentVersionConflictException": {
       "type": "object",
       "additionalProperties": false,
@@ -9493,6 +9507,23 @@
         }
       ]
     },
+    "InvalidChangeCommandSchemaChangeInvalidException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "commandTypeName": {
+          "type": "string"
+        },
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "InvalidMetadataException": {
       "type": "object",
       "additionalProperties": false,
@@ -9713,26 +9744,6 @@
           "type": "string"
         },
         "relatedOuterFieldId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkValidationException"
-        }
-      ]
-    },
-    "SchemaFieldSchemaIndexInfoException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "schemaId": {
-          "type": "string"
-        },
-        "fieldId": {
-          "type": "string"
-        },
-        "relatedFieldId": {
           "type": "string"
         }
       },
@@ -10211,6 +10222,23 @@
         }
       ]
     },
+    "SchemaFieldNotSortableException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fieldId": {
+          "type": "string"
+        },
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "SchemaNoContentException": {
       "type": "object",
       "additionalProperties": false,
@@ -10417,6 +10445,23 @@
         }
       ]
     },
+    "ContentLayerInvalidException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string"
+        },
+        "layerIds": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "BusinessProcessWaitTimeoutException": {
       "type": "object",
       "additionalProperties": false,
@@ -10556,6 +10601,24 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SnapshotTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "SnapshotFailedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
         }
       ]
     },
@@ -14215,11 +14278,11 @@
         },
         "index": {
           "type": "boolean",
-          "description": "Maps the field in the elastic search index and its values become searchable."
+          "description": "Maps the field in the elastic filter index."
         },
         "simpleSearch": {
           "type": "boolean",
-          "description": "Includes fields in the simple search. Index must be true."
+          "description": "Includes fields in the simple search."
         },
         "sortable": {
           "type": "boolean",
@@ -14711,9 +14774,16 @@
           "description": "Defines the maximal string length.",
           "format": "int32"
         },
-        "analyzers": {
+        "indexAnalyzers": {
           "type": "array",
           "description": "A string field can have multiple analyzers, but only one per analyzer type. To have any effect the Index must be true.",
+          "items": {
+            "$ref": "#/definitions/AnalyzerBase"
+          }
+        },
+        "simpleSearchAnalyzers": {
+          "type": "array",
+          "description": "Analyzers used for the simple search. Only one analyzer per type is allowed. Only considered if SimpleSearch is set to true.",
           "items": {
             "$ref": "#/definitions/AnalyzerBase"
           }
@@ -14748,14 +14818,9 @@
       "x-abstract": true,
       "additionalProperties": false,
       "required": [
-        "simpleSearch",
         "kind"
       ],
       "properties": {
-        "simpleSearch": {
-          "type": "boolean",
-          "description": "Includes the analyzed field in the simple search."
-        },
         "kind": {
           "type": "string"
         }
@@ -14885,9 +14950,16 @@
           "description": "Defines the maximal string length.",
           "format": "int32"
         },
-        "analyzers": {
+        "indexAnalyzers": {
           "type": "array",
           "description": "A string field can have multiple analyzers, but only one per analyzer type. To have any effect the Index must be true.",
+          "items": {
+            "$ref": "#/definitions/AnalyzerBase"
+          }
+        },
+        "simpleSearchAnalyzers": {
+          "type": "array",
+          "description": "Analyzers used for the simple search. Only one analyzer per type is allowed. Only considered if SimpleSearch is set to true.",
           "items": {
             "$ref": "#/definitions/AnalyzerBase"
           }
