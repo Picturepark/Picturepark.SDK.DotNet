@@ -7,7 +7,7 @@ namespace Picturepark.SDK.V1.Contract.Attributes.Analyzer
     {
         public override AnalyzerBase CreateAnalyzer()
         {
-            return new NGramAnalyzer { SimpleSearch = SimpleSearch };
+            return new NGramAnalyzer();
         }
     }
 }

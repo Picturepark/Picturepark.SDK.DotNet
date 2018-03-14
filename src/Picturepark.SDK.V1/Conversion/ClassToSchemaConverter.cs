@@ -451,12 +451,13 @@ namespace Picturepark.SDK.V1.Conversion
                         SimpleSearch = true,
                         MultiLine = false,
                         Boost = 1,
-                        Analyzers = new List<AnalyzerBase>
+                        IndexAnalyzers = new List<AnalyzerBase>
                         {
-                            new LanguageAnalyzer
-                            {
-                                SimpleSearch = true
-                            }
+                            new LanguageAnalyzer()
+                        },
+                        SimpleSearchAnalyzers = new List<AnalyzerBase>
+                        {
+                            new LanguageAnalyzer()
                         }
                     };
                 }
@@ -525,12 +526,13 @@ namespace Picturepark.SDK.V1.Conversion
                                 Index = true,
                                 SimpleSearch = true,
                                 Boost = 1,
-                                Analyzers = new List<AnalyzerBase>
+                                IndexAnalyzers = new List<AnalyzerBase>
                                 {
-                                    new SimpleAnalyzer
-                                    {
-                                        SimpleSearch = true
-                                    }
+                                    new SimpleAnalyzer()
+                                },
+                                SimpleSearchAnalyzers = new List<AnalyzerBase>
+                                {
+                                    new SimpleAnalyzer()
                                 },
                                 MultiLine = stringInfos?.MultiLine ?? false
                             };
@@ -719,13 +721,22 @@ namespace Picturepark.SDK.V1.Conversion
                 };
             }
 
-            var fieldAnalyzers = property.PictureparkAttributes
+            var fieldIndexAnalyzers = property.PictureparkAttributes
                 .OfType<PictureparkAnalyzerAttribute>()
                 .Select(a => a.CreateAnalyzer())
                 .ToList();
 
-            if (fieldAnalyzers.Any())
-                field.GetType().GetRuntimeProperty("Analyzers").SetValue(field, fieldAnalyzers);
+            if (fieldIndexAnalyzers.Any())
+                field.GetType().GetRuntimeProperty("IndexAnalyzers").SetValue(field, fieldIndexAnalyzers);
+
+            var fieldSimpleSearchAnalyzers = property.PictureparkAttributes
+                .OfType<PictureparkAnalyzerAttribute>()
+                .Where(a => a.SimpleSearch)
+                .Select(a => a.CreateAnalyzer())
+                .ToList();
+
+            if (fieldSimpleSearchAnalyzers.Any())
+                field.GetType().GetRuntimeProperty("SimpleSearchAnalyzers").SetValue(field, fieldSimpleSearchAnalyzers);
 
             return field;
         }
