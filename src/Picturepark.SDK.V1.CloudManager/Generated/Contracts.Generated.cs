@@ -6335,6 +6335,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("indices", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> Indices { get; set; }
     
+        /// <summary>Snapshot also if the entity is inactive.</summary>
+        [Newtonsoft.Json.JsonProperty("snapshotInactive", Required = Newtonsoft.Json.Required.Always)]
+        public bool SnapshotInactive { get; set; }
+    
         /// <summary>The snapshot backup reason will be added to the snapshot name.</summary>
         [Newtonsoft.Json.JsonProperty("reason", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]

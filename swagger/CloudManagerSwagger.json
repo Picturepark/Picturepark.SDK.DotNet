@@ -8083,6 +8083,7 @@
       "x-abstract": true,
       "additionalProperties": false,
       "required": [
+        "snapshotInactive",
         "reason",
         "timestamp"
       ],
@@ -8101,6 +8102,10 @@
           "items": {
             "type": "string"
           }
+        },
+        "snapshotInactive": {
+          "type": "boolean",
+          "description": "Snapshot also if the entity is inactive."
         },
         "reason": {
           "description": "The snapshot backup reason will be added to the snapshot name.",
