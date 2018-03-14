@@ -9,7 +9,7 @@ namespace Picturepark.SDK.V1.Contract.Attributes.Analyzer
         /// <returns>The analyzer.</returns>
         public override AnalyzerBase CreateAnalyzer()
         {
-            return new PathHierarchyAnalyzer { SimpleSearch = SimpleSearch };
+            return new PathHierarchyAnalyzer();
         }
     }
 }

@@ -1215,6 +1215,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SearchStringLeadingWildcardException", typeof(SearchStringLeadingWildcardException))]
     [JsonInheritanceAttribute("DuplicateAggregatorException", typeof(DuplicateAggregatorException))]
     [JsonInheritanceAttribute("InvalidDateTimeFormatException", typeof(InvalidDateTimeFormatException))]
+    [JsonInheritanceAttribute("InvalidSortFieldException", typeof(InvalidSortFieldException))]
     [JsonInheritanceAttribute("DocumentVersionConflictException", typeof(DocumentVersionConflictException))]
     [JsonInheritanceAttribute("RedisDatabaseExceededException", typeof(RedisDatabaseExceededException))]
     [JsonInheritanceAttribute("DuplicateDocumentException", typeof(DuplicateDocumentException))]
@@ -1247,7 +1248,6 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
     [JsonInheritanceAttribute("SchemaFieldSchemaIndexInfoSimpleSearchNestingException", typeof(SchemaFieldSchemaIndexInfoSimpleSearchNestingException))]
     [JsonInheritanceAttribute("SchemaFieldSchemaIndexInfoNestingException", typeof(SchemaFieldSchemaIndexInfoNestingException))]
-    [JsonInheritanceAttribute("SchemaFieldSchemaIndexInfoException", typeof(SchemaFieldSchemaIndexInfoException))]
     [JsonInheritanceAttribute("SchemaFieldIdUppercaseException", typeof(SchemaFieldIdUppercaseException))]
     [JsonInheritanceAttribute("SchemaIdLowercaseException", typeof(SchemaIdLowercaseException))]
     [JsonInheritanceAttribute("SchemaInfoNotFoundException", typeof(SchemaInfoNotFoundException))]
@@ -1271,6 +1271,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaFixedFieldChangeException", typeof(SchemaFixedFieldChangeException))]
     [JsonInheritanceAttribute("SchemaFixedFieldDeleteException", typeof(SchemaFixedFieldDeleteException))]
     [JsonInheritanceAttribute("SchemaFieldIndexException", typeof(SchemaFieldIndexException))]
+    [JsonInheritanceAttribute("SchemaFieldNotSortableException", typeof(SchemaFieldNotSortableException))]
     [JsonInheritanceAttribute("SchemaNoContentException", typeof(SchemaNoContentException))]
     [JsonInheritanceAttribute("SchemaParentChangeException", typeof(SchemaParentChangeException))]
     [JsonInheritanceAttribute("SchemaMissingTypeException", typeof(SchemaMissingTypeException))]
@@ -2454,6 +2455,23 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class InvalidSortFieldException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldName { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static InvalidSortFieldException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidSortFieldException>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DocumentVersionConflictException : PictureparkConflictException
     {
         [Newtonsoft.Json.JsonProperty("documentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3373,29 +3391,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SchemaFieldSchemaIndexInfoException : PictureparkValidationException
-    {
-        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("relatedFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string RelatedFieldId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static SchemaFieldSchemaIndexInfoException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldSchemaIndexInfoException>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SchemaFieldIdUppercaseException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3903,6 +3898,26 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaFieldIndexException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldIndexException>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SchemaFieldNotSortableException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldNotSortableException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldNotSortableException>(data);
         }
     }
     
@@ -7973,11 +7988,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fixed", Required = Newtonsoft.Json.Required.Always)]
         public bool Fixed { get; set; }
     
-        /// <summary>Maps the field in the elastic search index and its values become searchable.</summary>
+        /// <summary>Maps the field in the elastic filter index.</summary>
         [Newtonsoft.Json.JsonProperty("index", Required = Newtonsoft.Json.Required.Always)]
         public bool Index { get; set; }
     
-        /// <summary>Includes fields in the simple search. Index must be true.</summary>
+        /// <summary>Includes fields in the simple search.</summary>
         [Newtonsoft.Json.JsonProperty("simpleSearch", Required = Newtonsoft.Json.Required.Always)]
         public bool SimpleSearch { get; set; }
     
@@ -8433,8 +8448,12 @@ namespace Picturepark.SDK.V1.Contract
         public int? MaximumLength { get; set; }
     
         /// <summary>A string field can have multiple analyzers, but only one per analyzer type. To have any effect the Index must be true.</summary>
-        [Newtonsoft.Json.JsonProperty("analyzers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AnalyzerBase> Analyzers { get; set; }
+        [Newtonsoft.Json.JsonProperty("indexAnalyzers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AnalyzerBase> IndexAnalyzers { get; set; }
+    
+        /// <summary>Analyzers used for the simple search. Only one analyzer per type is allowed. Only considered if SimpleSearch is set to true.</summary>
+        [Newtonsoft.Json.JsonProperty("simpleSearchAnalyzers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AnalyzerBase> SimpleSearchAnalyzers { get; set; }
     
         /// <summary>Displays the field value in a multiline component.</summary>
         [Newtonsoft.Json.JsonProperty("multiLine", Required = Newtonsoft.Json.Required.Always)]
@@ -8469,10 +8488,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class AnalyzerBase 
     {
-        /// <summary>Includes the analyzed field in the simple search.</summary>
-        [Newtonsoft.Json.JsonProperty("simpleSearch", Required = Newtonsoft.Json.Required.Always)]
-        public bool SimpleSearch { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -8619,8 +8634,12 @@ namespace Picturepark.SDK.V1.Contract
         public int? MaximumLength { get; set; }
     
         /// <summary>A string field can have multiple analyzers, but only one per analyzer type. To have any effect the Index must be true.</summary>
-        [Newtonsoft.Json.JsonProperty("analyzers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AnalyzerBase> Analyzers { get; set; }
+        [Newtonsoft.Json.JsonProperty("indexAnalyzers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AnalyzerBase> IndexAnalyzers { get; set; }
+    
+        /// <summary>Analyzers used for the simple search. Only one analyzer per type is allowed. Only considered if SimpleSearch is set to true.</summary>
+        [Newtonsoft.Json.JsonProperty("simpleSearchAnalyzers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AnalyzerBase> SimpleSearchAnalyzers { get; set; }
     
         /// <summary>Displays the field value in a multiline component.</summary>
         [Newtonsoft.Json.JsonProperty("multiLine", Required = Newtonsoft.Json.Required.Always)]
