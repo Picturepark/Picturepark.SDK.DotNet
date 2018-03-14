@@ -9507,6 +9507,23 @@
         }
       ]
     },
+    "InvalidChangeCommandSchemaChangeInvalidException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "commandTypeName": {
+          "type": "string"
+        },
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "InvalidMetadataException": {
       "type": "object",
       "additionalProperties": false,
@@ -10428,6 +10445,23 @@
         }
       ]
     },
+    "ContentLayerInvalidException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string"
+        },
+        "layerIds": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "BusinessProcessWaitTimeoutException": {
       "type": "object",
       "additionalProperties": false,
@@ -10567,6 +10601,24 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SnapshotTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "SnapshotFailedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
         }
       ]
     },
