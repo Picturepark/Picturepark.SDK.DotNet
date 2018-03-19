@@ -422,7 +422,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 Id = contentId,
-                SchemaIds = new List<string> { "Drive" },
+                LayerSchemaIds = new List<string> { "Drive" },
                 Metadata = new DataDictionary
                 {
                     {
@@ -452,7 +452,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request1 = new ContentMetadataUpdateRequest
             {
                 Id = contentId1,
-                SchemaIds = new List<string> { "Drive" },
+                LayerSchemaIds = new List<string> { "Drive" },
                 Metadata = new DataDictionary
                 {
                     {
@@ -468,7 +468,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request2 = new ContentMetadataUpdateRequest
             {
                 Id = contentId2,
-                SchemaIds = new List<string> { "Drive" },
+                LayerSchemaIds = new List<string> { "Drive" },
                 Metadata = new DataDictionary
                 {
                     {
@@ -508,7 +508,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 Id = contentId,
-                SchemaIds = new List<string> { "PersonShot" },
+                LayerSchemaIds = new List<string> { "PersonShot" },
                 Metadata = new DataDictionary
                 {
                     {
