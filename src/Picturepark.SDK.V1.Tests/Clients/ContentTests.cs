@@ -422,7 +422,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 Id = contentId,
-                SchemaIds = new List<string> { "Drive" },
+                LayerSchemaIds = new List<string> { "Drive" },
                 Metadata = new DataDictionary
                 {
                     {
@@ -452,7 +452,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request1 = new ContentMetadataUpdateRequest
             {
                 Id = contentId1,
-                SchemaIds = new List<string> { "Drive" },
+                LayerSchemaIds = new List<string> { "Drive" },
                 Metadata = new DataDictionary
                 {
                     {
@@ -468,7 +468,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request2 = new ContentMetadataUpdateRequest
             {
                 Id = contentId2,
-                SchemaIds = new List<string> { "Drive" },
+                LayerSchemaIds = new List<string> { "Drive" },
                 Metadata = new DataDictionary
                 {
                     {
@@ -508,7 +508,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 Id = contentId,
-                SchemaIds = new List<string> { "PersonShot" },
+                LayerSchemaIds = new List<string> { "PersonShot" },
                 Metadata = new DataDictionary
                 {
                     {
@@ -526,6 +526,232 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             /// Assert
             Assert.Equal("test description", ((JObject)response.Metadata["personShot"])["displayValue"]["name"].ToString());
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldMergeLayersOnMetadataUpdate()
+        {
+            /// Arrange
+            foreach (var type in new[] { typeof(PersonShot), typeof(AllDataTypesContract) })
+            {
+                var schemas = await _client.Schemas.GenerateSchemasAsync(type);
+                foreach (var schema in schemas)
+                {
+                    await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
+                }
+            }
+
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            var request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                LayerSchemaIds = new List<string> { nameof(PersonShot) },
+                Metadata = new DataDictionary
+                {
+                    {
+                        nameof(PersonShot),
+                        new Dictionary<string, object>
+                        {
+                            { "Description", "test description" }
+                        }
+                    }
+                }
+            };
+
+            await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+            request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
+                Metadata = new DataDictionary
+                {
+                    {
+                        nameof(AllDataTypesContract),
+                        new Dictionary<string, object>
+                        {
+                            { "IntegerField", 12345 }
+                        }
+                    }
+                },
+                LayerSchemasUpdateOptions = UpdateOption.Merge
+            };
+
+            /// Act
+            var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+            /// Assert
+            Assert.Equal("test description", ((JObject)response.Metadata["personShot"])["description"].ToString());
+            Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldReplaceLayersOnMetadataUpdate()
+        {
+            /// Arrange
+            foreach (var type in new[] { typeof(PersonShot), typeof(AllDataTypesContract) })
+            {
+                var schemas = await _client.Schemas.GenerateSchemasAsync(type);
+                foreach (var schema in schemas)
+                {
+                    await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
+                }
+            }
+
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            var request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                LayerSchemaIds = new List<string> { nameof(PersonShot) },
+                Metadata = new DataDictionary
+                {
+                    {
+                        nameof(PersonShot),
+                        new Dictionary<string, object>
+                        {
+                            { "Description", "test description" }
+                        }
+                    }
+                }
+            };
+
+            await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+            request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
+                Metadata = new DataDictionary
+                {
+                    {
+                        nameof(AllDataTypesContract),
+                        new Dictionary<string, object>
+                        {
+                            { "IntegerField", 12345 }
+                        }
+                    }
+                },
+                LayerSchemasUpdateOptions = UpdateOption.Replace
+            };
+
+            /// Act
+            var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+            /// Assert
+            Assert.DoesNotContain("personShot", response.Metadata.Keys);
+            Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldMergeFieldsOnMetadataUpdate()
+        {
+            /// Arrange
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(AllDataTypesContract));
+            foreach (var schema in schemas)
+            {
+                await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
+            }
+
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            var request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
+                Metadata = new DataDictionary
+                {
+                    {
+                        nameof(AllDataTypesContract),
+                        new Dictionary<string, object>
+                        {
+                            { "IntegerField", 12345 }
+                        }
+                    }
+                }
+            };
+
+            await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+            request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
+                Metadata = new DataDictionary
+                {
+                    {
+                        nameof(AllDataTypesContract),
+                        new Dictionary<string, object>
+                        {
+                            { "StringField", "test string" }
+                        }
+                    }
+                },
+                SchemaFieldsUpdateOptions = UpdateOption.Merge
+            };
+
+            /// Act
+            var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+            /// Assert
+            Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
+            Assert.Equal("test string", ((JObject)response.Metadata["allDataTypesContract"])["stringField"].ToString());
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldReplaceFieldsOnMetadataUpdate()
+        {
+            /// Arrange
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(AllDataTypesContract));
+            foreach (var schema in schemas)
+            {
+                await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
+            }
+
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            var request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
+                Metadata = new DataDictionary
+                {
+                    {
+                        nameof(AllDataTypesContract),
+                        new Dictionary<string, object>
+                        {
+                            { "IntegerField", 12345 }
+                        }
+                    }
+                }
+            };
+
+            await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+            request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
+                Metadata = new DataDictionary
+                {
+                    {
+                        nameof(AllDataTypesContract),
+                        new Dictionary<string, object>
+                        {
+                            { "StringField", "test string" }
+                        }
+                    }
+                },
+                SchemaFieldsUpdateOptions = UpdateOption.Replace
+            };
+
+            /// Act
+            var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+            /// Assert
+            Assert.Null(((JObject)response.Metadata["allDataTypesContract"])["integerField"]);
+            Assert.Equal("test string", ((JObject)response.Metadata["allDataTypesContract"])["stringField"].ToString());
         }
 
         [Fact]

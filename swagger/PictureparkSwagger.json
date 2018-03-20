@@ -12582,27 +12582,67 @@
     "ContentMetadataUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "layerSchemasUpdateOptions",
+        "schemaFieldsUpdateOptions"
+      ],
       "properties": {
         "id": {
           "type": "string",
           "description": "The content id."
         },
-        "schemaIds": {
+        "layerSchemaIds": {
           "type": "array",
-          "description": "An id list of schemas with schema type content or layer.",
+          "description": "An id list of schemas with schema type layer.",
           "items": {
             "type": "string"
           }
         },
-        "metadata": {
-          "description": "The dynamic data structure matching the field schematics of the schemas with schema type content or layer.",
+        "content": {
+          "description": "The dynamic data structure matching the field schematics of the content schema (ContentSchemaId).",
           "allOf": [
             {
               "$ref": "#/definitions/DataDictionary"
             }
           ]
+        },
+        "metadata": {
+          "description": "The dynamic data structure matching the field schematics of the schemas with type layer (LayerSchemaIds).",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataDictionary"
+            }
+          ]
+        },
+        "layerSchemasUpdateOptions": {
+          "description": "Options to modify the behavior for updating schemas.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpdateOption"
+            }
+          ]
+        },
+        "schemaFieldsUpdateOptions": {
+          "description": "Options to modify the behavior for updating the values of schemas.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/UpdateOption"
+            }
+          ]
         }
       }
+    },
+    "UpdateOption": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Merge",
+        "Replace"
+      ],
+      "enum": [
+        "Merge",
+        "Replace"
+      ]
     },
     "ContentPermissionsUpdateRequest": {
       "type": "object",
@@ -12785,6 +12825,26 @@
       "type": "object",
       "description": "Removes schema values.",
       "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/MetadataValuesChangeCommandBase"
+        }
+      ]
+    },
+    "MetadataValuesSchemaReplaceCommand": {
+      "type": "object",
+      "description": "Replaces schema values.",
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "description": "The metadata values containing the new values for the schema. All old values will be overwritten.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataDictionary"
+            }
+          ]
+        }
+      },
       "allOf": [
         {
           "$ref": "#/definitions/MetadataValuesChangeCommandBase"
