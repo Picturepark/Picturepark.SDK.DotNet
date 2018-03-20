@@ -256,7 +256,7 @@
 				"MetadataSchemaId": "Years",
 				"Metadata": {
 					"Name": "2013",
-					"refId": "f5bec70820754035ae50332efa63dae9"
+					"_refId": "f5bec70820754035ae50332efa63dae9"
 				}
 			},
 			{
@@ -265,7 +265,7 @@
 				"MetadataSchemaId": "Years",
 				"Metadata": {
 					"Name": "2015",
-					"refId": "641488ccd4dc485ea6ddcc7e1927cead"
+					"_refId": "641488ccd4dc485ea6ddcc7e1927cead"
 				}
 			},
 			{
@@ -274,7 +274,7 @@
 				"MetadataSchemaId": "Years",
 				"Metadata": {
 					"Name": "2014",
-					"refId": "51a579cdfcd54b6ea44907bf59887406"
+					"_refId": "51a579cdfcd54b6ea44907bf59887406"
 				}
 			},
 			{
@@ -283,7 +283,7 @@
 				"MetadataSchemaId": "Years",
 				"Metadata": {
 					"Name": "2016",
-					"refId": "64e3bfdfd32941869ecee36db6c7e858"
+					"_refId": "64e3bfdfd32941869ecee36db6c7e858"
 				}
 			},
 			{
@@ -292,7 +292,7 @@
 				"MetadataSchemaId": "Years",
 				"Metadata": {
 					"Name": "2012",
-					"refId": "c1f3fc683735490c8dcda15f1f86c8b2"
+					"_refId": "c1f3fc683735490c8dcda15f1f86c8b2"
 				}
 			},
 			{
@@ -301,7 +301,7 @@
 				"MetadataSchemaId": "Years",
 				"Metadata": {
 					"Name": "2011",
-					"refId": "5296390962034726b67119988ae308d6"
+					"_refId": "5296390962034726b67119988ae308d6"
 				}
 			}
 		],
@@ -312,7 +312,7 @@
 				"MetadataSchemaId": "Keyword",
 				"Metadata": {
 					"Name": "Präsentation",
-					"refId": "225d4cd1ed704ec488b3aff292c47ad0"
+					"_refId": "225d4cd1ed704ec488b3aff292c47ad0"
 				}
 			},
 			{
@@ -321,7 +321,7 @@
 				"MetadataSchemaId": "Keyword",
 				"Metadata": {
 					"Name": "Brand element",
-					"refId": "5d68051c297740d3b2d1c9004843c481"
+					"_refId": "5d68051c297740d3b2d1c9004843c481"
 				}
 			},
 			{
@@ -330,7 +330,7 @@
 				"MetadataSchemaId": "Keyword",
 				"Metadata": {
 					"Name": "Fallstudie",
-					"refId": "2d81c2959ade496981787d084fb10de6"
+					"_refId": "2d81c2959ade496981787d084fb10de6"
 				}
 			},
 			{
@@ -339,7 +339,7 @@
 				"MetadataSchemaId": "Keyword",
 				"Metadata": {
 					"Name": "Management",
-					"refId": "11726e34eed14c0f8edc63aa2bc0fbcc"
+					"_refId": "11726e34eed14c0f8edc63aa2bc0fbcc"
 				}
 			},
 			{
@@ -348,7 +348,7 @@
 				"MetadataSchemaId": "Keyword",
 				"Metadata": {
 					"Name": "Broschüre",
-					"refId": "837807b3a09e451eb8ad645130b53efa"
+					"_refId": "837807b3a09e451eb8ad645130b53efa"
 				}
 			},
 			{
@@ -357,7 +357,7 @@
 				"MetadataSchemaId": "Keyword",
 				"Metadata": {
 					"Name": "Logo",
-					"refId": "d7acfd792c0645a19eaa0acd71073dd9"
+					"_refId": "d7acfd792c0645a19eaa0acd71073dd9"
 				}
 			},
 			{
@@ -366,7 +366,7 @@
 				"MetadataSchemaId": "Keyword",
 				"Metadata": {
 					"Name": "Multimedia",
-					"refId": "af62c43ade884d63b87c82d15a614959"
+					"_refId": "af62c43ade884d63b87c82d15a614959"
 				}
 			}
 		]

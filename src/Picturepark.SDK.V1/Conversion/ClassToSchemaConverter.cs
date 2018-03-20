@@ -16,7 +16,7 @@ namespace Picturepark.SDK.V1.Conversion
     public class ClassToSchemaConverter
     {
         private readonly IContractResolver _contractResolver;
-        private readonly List<string> _ignoredProperties = new List<string> { "refId", "_relId", "_relationType", "_targetContext", "_targetId" };
+        private readonly List<string> _ignoredProperties = new List<string> { "_refId", "_relationType", "_targetDocType", "_targetId" };
 
         public ClassToSchemaConverter()
             : this(new CamelCasePropertyNamesContractResolver())

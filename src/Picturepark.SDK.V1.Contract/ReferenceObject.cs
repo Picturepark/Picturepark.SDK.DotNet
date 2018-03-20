@@ -4,7 +4,7 @@ namespace Picturepark.SDK.V1.Contract
 {
 	public abstract class ReferenceObject : IReferenceObject
 	{
-		[JsonProperty("refId", NullValueHandling = NullValueHandling.Ignore)]
+		[JsonProperty("_refId", NullValueHandling = NullValueHandling.Ignore)]
 		public string RefId { get; set; }
 	}
 }
