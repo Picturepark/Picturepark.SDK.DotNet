@@ -16737,7 +16737,7 @@ namespace Picturepark.SDK.V1.Contract
         public LanguageConfigurationItem LanguageConfiguration { get; set; }
     
         [Newtonsoft.Json.JsonProperty("languages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<ListItem2> Languages { get; set; }
+        public System.Collections.Generic.ICollection<Language> Languages { get; set; }
     
         public string ToJson() 
         {
@@ -16778,44 +16778,34 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.27.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ListItem2 
+    public partial class Language 
     {
-        /// <summary>The list item id.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
     
-        /// <summary>The id of the schema with schema type list.</summary>
-        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentSchemaId { get; set; }
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
     
-        /// <summary>Contains language specific display values, rendered according to the list schema's display pattern configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DisplayValueDictionary DisplayValues { get; set; }
+        [Newtonsoft.Json.JsonProperty("ietf", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Ietf { get; set; }
     
-        /// <summary>The content data of the list item.</summary>
-        [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DataDictionary Content { get; set; }
+        [Newtonsoft.Json.JsonProperty("twoLetterISOLanguageName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TwoLetterISOLanguageName { get; set; }
     
-        /// <summary>All the ids of the broken references (tagboxes)</summary>
-        [Newtonsoft.Json.JsonProperty("brokenReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> BrokenReferenceIds { get; set; }
+        [Newtonsoft.Json.JsonProperty("threeLetterISOLanguageName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ThreeLetterISOLanguageName { get; set; }
     
-        /// <summary>All the target ids of the broken relations</summary>
-        [Newtonsoft.Json.JsonProperty("brokenRelationTargetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> BrokenRelationTargetIds { get; set; }
-    
-        /// <summary>All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)</summary>
-        [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> BrokenIndirectReferenceIds { get; set; }
+        [Newtonsoft.Json.JsonProperty("regionCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RegionCode { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ListItem2 FromJson(string data)
+        public static Language FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItem2>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Language>(data);
         }
     }
     

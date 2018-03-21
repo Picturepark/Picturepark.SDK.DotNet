@@ -22725,7 +22725,7 @@
         "languages": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ListItem2"
+            "$ref": "#/definitions/Language"
           }
         }
       }
@@ -22755,54 +22755,27 @@
         }
       }
     },
-    "ListItem2": {
+    "Language": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "The list item id."
+        "name": {
+          "type": "string"
         },
-        "contentSchemaId": {
-          "type": "string",
-          "description": "The id of the schema with schema type list."
+        "names": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
         },
-        "displayValues": {
-          "description": "Contains language specific display values, rendered according to the list schema's display pattern configuration.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/DisplayValueDictionary"
-            }
-          ]
+        "ietf": {
+          "type": "string"
         },
-        "content": {
-          "description": "The content data of the list item.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/DataDictionary"
-            }
-          ]
+        "twoLetterISOLanguageName": {
+          "type": "string"
         },
-        "brokenReferenceIds": {
-          "type": "array",
-          "description": "All the ids of the broken references (tagboxes)",
-          "items": {
-            "type": "string"
-          }
+        "threeLetterISOLanguageName": {
+          "type": "string"
         },
-        "brokenRelationTargetIds": {
-          "type": "array",
-          "description": "All the target ids of the broken relations",
-          "items": {
-            "type": "string"
-          }
-        },
-        "brokenIndirectReferenceIds": {
-          "type": "array",
-          "description": "All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)",
-          "items": {
-            "type": "string"
-          }
+        "regionCode": {
+          "type": "string"
         }
       }
     }
