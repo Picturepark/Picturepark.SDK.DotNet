@@ -7918,6 +7918,68 @@
           }
         ]
       }
+    },
+    "/v1/info": {
+      "get": {
+        "tags": [
+          "Info"
+        ],
+        "summary": "Get info",
+        "description": "Get the customer specific infos",
+        "operationId": "Info_Get",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "CustomerInfo",
+            "schema": {
+              "$ref": "#/definitions/CustomerInfo"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
     }
   },
   "definitions": {
@@ -8556,6 +8618,20 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "MissingCustomerDefaultLanguageException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerDefaultLanguage": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },
@@ -11021,7 +11097,7 @@
         },
         "displayLanguage": {
           "type": "string",
-          "description": "Defines the return language of translation values. Defaults to x-default."
+          "description": "Defines the return language of translation values. Defaults to customer default language."
         },
         "displayPatternIds": {
           "type": "array",
@@ -11262,14 +11338,6 @@
       "description": "The date range class used in aggregators and filters.",
       "additionalProperties": false,
       "properties": {
-        "names": {
-          "description": "Tranlsated range names.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        },
         "from": {
           "type": "string",
           "description": "The from value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
@@ -11279,19 +11347,6 @@
           "description": "The to value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
         }
       }
-    },
-    "TranslatedStringDictionary": {
-      "type": "object",
-      "description": "A custom dictionary type to distinguish language specific class properties.",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        }
-      ]
     },
     "ExistsFilter": {
       "type": "object",
@@ -11443,14 +11498,6 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "names": {
-          "description": "Tranlsated range names.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        },
         "from": {
           "type": "number",
           "description": "The from value.",
@@ -11845,6 +11892,19 @@
         }
       }
     },
+    "TranslatedStringDictionary": {
+      "type": "object",
+      "description": "A custom dictionary type to distinguish language specific class properties.",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      ]
+    },
     "DateRangeAggregator": {
       "type": "object",
       "description": "The DateRangeAggregator is a multi-bucket range aggregation dedicated for date values. Each bucket represents a range.",
@@ -11858,7 +11918,7 @@
           "type": "array",
           "description": "A list of date ranges. Supported pattern: now(+-)(int)(YMDHm).",
           "items": {
-            "$ref": "#/definitions/DateRange"
+            "$ref": "#/definitions/DateRangeForAggregator"
           }
         }
       },
@@ -11867,6 +11927,29 @@
           "$ref": "#/definitions/AggregatorBase"
         }
       ]
+    },
+    "DateRangeForAggregator": {
+      "type": "object",
+      "description": "The date range class used in aggregators and filters.",
+      "additionalProperties": false,
+      "properties": {
+        "names": {
+          "description": "Tranlsated range names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "from": {
+          "type": "string",
+          "description": "The from value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
+        },
+        "to": {
+          "type": "string",
+          "description": "The to value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
+        }
+      }
     },
     "GeoDistanceAggregator": {
       "type": "object",
@@ -11950,7 +12033,7 @@
           "type": "array",
           "description": "A list of numeric ranges.",
           "items": {
-            "$ref": "#/definitions/NumericRange"
+            "$ref": "#/definitions/NumericRangeForAggregator"
           }
         }
       },
@@ -11959,6 +12042,30 @@
           "$ref": "#/definitions/AggregatorBase"
         }
       ]
+    },
+    "NumericRangeForAggregator": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "names": {
+          "description": "Tranlsated range names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "from": {
+          "type": "number",
+          "description": "The from value.",
+          "format": "double"
+        },
+        "to": {
+          "type": "number",
+          "description": "The to value.",
+          "format": "double"
+        }
+      }
     },
     "TermsAggregator": {
       "type": "object",
@@ -12106,7 +12213,7 @@
         },
         "displayLanguage": {
           "type": "string",
-          "description": "Defines the return language of translation values. Defaults to x-default."
+          "description": "Defines the return language of translation values. Defaults to customer default language."
         },
         "searchLanguages": {
           "type": "array",
@@ -12950,7 +13057,7 @@
         },
         "displayLanguage": {
           "type": "string",
-          "description": "Defines the return language of translation values. Defaults to x-default."
+          "description": "Defines the return language of translation values. Defaults to customer default language."
         },
         "searchString": {
           "type": "string",
@@ -13562,7 +13669,7 @@
         },
         "displayLanguage": {
           "type": "string",
-          "description": "Defines the return language of translation values. Defaults to x-default."
+          "description": "Defines the return language of translation values. Defaults to customer default language."
         },
         "displayPatternIds": {
           "type": "array",
@@ -13735,7 +13842,7 @@
         },
         "displayLanguage": {
           "type": "string",
-          "description": "Defines the return language of translation values. Defaults to x-default."
+          "description": "Defines the return language of translation values. Defaults to customer default language."
         },
         "searchLanguages": {
           "type": "array",
@@ -13952,7 +14059,7 @@
         },
         "displayLanguage": {
           "type": "string",
-          "description": "Defines the return language of translation values. Defaults to x-default."
+          "description": "Defines the return language of translation values. Defaults to customer default language."
         },
         "searchLanguages": {
           "type": "array",
@@ -15030,7 +15137,7 @@
         },
         "requiredMetadataLanguages": {
           "type": "array",
-          "description": "Sets the required metadata languages for the translation field. The langauge configuration limits the available metadata languages.\nIf Required is true, the field and all its metadata languages are required, including x-default.\nIf Required is false, the field can be left empty, but as soon as a value is entered all required metadata languages are mandatory, including x-default.",
+          "description": "Sets the required metadata languages for the translation field. The langauge configuration limits the available metadata languages.\nIf Required is true, the field and all its metadata languages are required.\nIf Required is false, the field can be left empty, but as soon as a value is entered all required metadata languages are mandatory.",
           "items": {
             "type": "string"
           }
@@ -22598,6 +22705,106 @@
           "description": "Import the list items for the schema."
         }
       }
+    },
+    "CustomerInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        },
+        "customerAlias": {
+          "type": "string"
+        },
+        "identityServerUrl": {
+          "type": "string"
+        },
+        "languageConfiguration": {
+          "$ref": "#/definitions/LanguageConfigurationItem"
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ListItem2"
+          }
+        }
+      }
+    },
+    "LanguageConfigurationItem": {
+      "type": "object",
+      "description": "The customer's language configuration.",
+      "additionalProperties": false,
+      "properties": {
+        "systemLanguages": {
+          "type": "array",
+          "description": "A list of languages serving as system languages.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "metadataLanguages": {
+          "type": "array",
+          "description": "A list of languages serving as metadata languages.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "defaultLanguage": {
+          "type": "string",
+          "description": "The default language. Not the be confused with the metadata fallback language x-default."
+        }
+      }
+    },
+    "ListItem2": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The list item id."
+        },
+        "contentSchemaId": {
+          "type": "string",
+          "description": "The id of the schema with schema type list."
+        },
+        "displayValues": {
+          "description": "Contains language specific display values, rendered according to the list schema's display pattern configuration.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DisplayValueDictionary"
+            }
+          ]
+        },
+        "content": {
+          "description": "The content data of the list item.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/DataDictionary"
+            }
+          ]
+        },
+        "brokenReferenceIds": {
+          "type": "array",
+          "description": "All the ids of the broken references (tagboxes)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "brokenRelationTargetIds": {
+          "type": "array",
+          "description": "All the target ids of the broken relations",
+          "items": {
+            "type": "string"
+          }
+        },
+        "brokenIndirectReferenceIds": {
+          "type": "array",
+          "description": "All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
     }
   },
   "parameters": {},
@@ -22704,6 +22911,10 @@
     {
       "name": "SchemaTransfer",
       "description": "Endpoints to transfer schemas.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/SchemaTransferTests.cs)\r\n"
+    },
+    {
+      "name": "Info",
+      "description": "Endpoint to get basic configuration information."
     }
   ]
 }

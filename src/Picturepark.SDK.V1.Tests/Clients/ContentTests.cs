@@ -133,10 +133,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Second Aggregator
-            var ranges = new List<NumericRange>
+            var ranges = new List<NumericRangeForAggregator>
             {
-                new NumericRange { From = null, To = 499,  Names = new TranslatedStringDictionary { { "en", "Aggregator2a" } } },
-                new NumericRange { From = 500, To = 5000, Names = new TranslatedStringDictionary { { "en", "Aggregator2b" } } }
+                new NumericRangeForAggregator { From = null, To = 499, Names = new TranslatedStringDictionary { { "en", "Aggregator2a" } } },
+                new NumericRangeForAggregator { From = 500, To = 5000, Names = new TranslatedStringDictionary { { "en", "Aggregator2b" } } }
             };
 
             var numRangeAggregator = new NumericRangeAggregator()

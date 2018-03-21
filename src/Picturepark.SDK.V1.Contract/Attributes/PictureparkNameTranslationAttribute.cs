@@ -4,17 +4,30 @@ using System.Text;
 
 namespace Picturepark.SDK.V1.Contract.Attributes
 {
-	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Property, AllowMultiple = true)]
-	public class PictureparkNameTranslationAttribute : Attribute, IPictureparkAttribute
-	{
-		public PictureparkNameTranslationAttribute(string languageAbbreviation, string translation)
-		{
-			LanguageAbbreviation = languageAbbreviation;
-			Translation = translation;
-		}
+    /// <summary>
+    /// Adds name translations to a field.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Property, AllowMultiple = true)]
+    public class PictureparkNameTranslationAttribute : Attribute, IPictureparkAttribute
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PictureparkNameTranslationAttribute"/> class.
+        /// Adds the translations for the default language
+        /// </summary>
+        /// <param name="translation"></param>
+        public PictureparkNameTranslationAttribute(string translation)
+        {
+            Translation = translation;
+        }
 
-		public string LanguageAbbreviation { get; }
+        public PictureparkNameTranslationAttribute(string languageAbbreviation, string translation)
+        {
+            LanguageAbbreviation = languageAbbreviation;
+            Translation = translation;
+        }
 
-		public string Translation { get; }
-	}
+        public string LanguageAbbreviation { get; }
+
+        public string Translation { get; }
+    }
 }

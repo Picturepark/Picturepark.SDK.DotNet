@@ -5,7 +5,12 @@ namespace Picturepark.SDK.V1.Contract.Attributes
 	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Property, AllowMultiple = true)]
 	public class PictureparkDescriptionTranslationAttribute : Attribute, IPictureparkAttribute
 	{
-		public PictureparkDescriptionTranslationAttribute(string languageAbbreviation, string translation)
+	    public PictureparkDescriptionTranslationAttribute(string translation)
+	    {
+	        Translation = translation;
+	    }
+
+	    public PictureparkDescriptionTranslationAttribute(string languageAbbreviation, string translation)
 		{
 			LanguageAbbreviation = languageAbbreviation;
 			Translation = translation;
