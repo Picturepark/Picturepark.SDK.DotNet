@@ -9,7 +9,7 @@ namespace Picturepark.SDK.V1.Contract
 		/// <returns>The file metadata.</returns>
 		public FileMetadata GetFileMetadata()
 		{
-			return Content is FileMetadata ? (FileMetadata)Content : ((JObject)Content).ToObject<FileMetadata>();
+			return Content is FileMetadata metadata ? metadata : ((JObject)Content).ToObject<FileMetadata>();
 		}
 
 		/// <summary>Creates a typed content item wrapped in a ContentItem container.</summary>

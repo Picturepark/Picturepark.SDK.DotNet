@@ -56,7 +56,7 @@ namespace Picturepark.SDK.V1
 
         public IServiceProviderClient ServiceProviders { get; private set; }
 
-        public IInfoClient InfoClient { get; private set; }
+        public IInfoClient Info { get; private set; }
 
         public void Dispose()
         {
@@ -78,8 +78,8 @@ namespace Picturepark.SDK.V1
             PublicAccess = new PublicAccessClient(settings, httpClient);
             Shares = new ShareClient(settings, httpClient);
             Users = new UserClient(settings, httpClient);
-            InfoClient = new InfoClient(settings, httpClient);
-            Schemas = new SchemaClient((BusinessProcessClient)BusinessProcesses, (InfoClient)InfoClient, settings, httpClient);
+            Info = new InfoClient(settings, httpClient);
+            Schemas = new SchemaClient((BusinessProcessClient)BusinessProcesses, (InfoClient)Info, settings, httpClient);
             Transfers = new TransferClient((BusinessProcessClient)BusinessProcesses, settings, httpClient);
             ListItems = new ListItemClient((BusinessProcessClient)BusinessProcesses, settings, httpClient);
             Profile = new ProfileClient(settings, httpClient);
