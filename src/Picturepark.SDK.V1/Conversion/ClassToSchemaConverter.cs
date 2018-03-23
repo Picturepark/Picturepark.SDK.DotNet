@@ -15,12 +15,14 @@ namespace Picturepark.SDK.V1.Conversion
     /// <summary>Converts .NET types to Picturepark schemas.</summary>
     public class ClassToSchemaConverter
     {
+        private readonly string _defaultLanguage;
         private readonly IContractResolver _contractResolver;
         private readonly List<string> _ignoredProperties = new List<string> { "_refId", "_relationType", "_targetDocType", "_targetId" };
 
-        public ClassToSchemaConverter()
+        public ClassToSchemaConverter(string defaultLanguage)
             : this(new CamelCasePropertyNamesContractResolver())
         {
+            _defaultLanguage = defaultLanguage;
         }
 
         public ClassToSchemaConverter(IContractResolver contractResolver)
@@ -99,7 +101,7 @@ namespace Picturepark.SDK.V1.Conversion
                 Fields = new List<FieldBase>(),
                 FieldsOverwrite = new List<FieldOverwriteBase>(),
                 ParentSchemaId = parentSchemaId,
-                Names = new TranslatedStringDictionary { { "x-default", schemaId } },
+                Names = new TranslatedStringDictionary { { _defaultLanguage, schemaId } },
                 Descriptions = new TranslatedStringDictionary(),
                 Types = types,
                 DisplayPatterns = new List<DisplayPattern>()
@@ -229,7 +231,10 @@ namespace Picturepark.SDK.V1.Conversion
 
             foreach (var translationAttribute in descriptionTranslationAttributes)
             {
-                schemaDetail.Descriptions[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
+                var language = string.IsNullOrEmpty(translationAttribute.LanguageAbbreviation)
+                    ? _defaultLanguage
+                    : translationAttribute.LanguageAbbreviation;
+                schemaDetail.Descriptions[language] = translationAttribute.Translation;
             }
         }
 
@@ -242,7 +247,10 @@ namespace Picturepark.SDK.V1.Conversion
 
             foreach (var translationAttribute in nameTranslationAttributes)
             {
-                schemaDetail.Names[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
+                var language = string.IsNullOrEmpty(translationAttribute.LanguageAbbreviation)
+                    ? _defaultLanguage
+                    : translationAttribute.LanguageAbbreviation;
+                schemaDetail.Names[language] = translationAttribute.Translation;
             }
         }
 
@@ -259,7 +267,7 @@ namespace Picturepark.SDK.V1.Conversion
                 {
                     DisplayPatternType = displayPatternAttribute.Type,
                     TemplateEngine = displayPatternAttribute.TemplateEngine,
-                    Templates = new TranslatedStringDictionary { { "x-default", displayPatternAttribute.DisplayPattern } }
+                    Templates = new TranslatedStringDictionary { { _defaultLanguage, displayPatternAttribute.DisplayPattern } }
                 };
 
                 schemaDetail.DisplayPatterns.Add(displayPattern);
@@ -586,7 +594,7 @@ namespace Picturepark.SDK.V1.Conversion
                         Id = i.Name,
                         Filter = i.Filter,
                         TargetDocType = i.TargetDocType,
-                        Names = new TranslatedStringDictionary { { "x-default", i.Name } }
+                        Names = new TranslatedStringDictionary { { _defaultLanguage, i.Name } }
                     }).ToList();
                 }
 
@@ -706,7 +714,11 @@ namespace Picturepark.SDK.V1.Conversion
                     if (field.Names == null)
                         field.Names = new TranslatedStringDictionary();
 
-                    field.Names[nameTranslationAttribute.LanguageAbbreviation] = nameTranslationAttribute.Translation;
+                    var language = string.IsNullOrEmpty(nameTranslationAttribute.LanguageAbbreviation)
+                        ? _defaultLanguage
+                        : nameTranslationAttribute.LanguageAbbreviation;
+
+                    field.Names[language] = nameTranslationAttribute.Translation;
                 }
             }
 
@@ -717,7 +729,7 @@ namespace Picturepark.SDK.V1.Conversion
             {
                 field.Names = new TranslatedStringDictionary
                 {
-                    ["x-default"] = fieldName
+                    [_defaultLanguage] = fieldName
                 };
             }
 

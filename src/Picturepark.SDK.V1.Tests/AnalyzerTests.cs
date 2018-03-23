@@ -37,7 +37,6 @@ namespace Picturepark.SDK.V1.Tests
                     EdgeNGramField = "EdgeNGramFieldValue",
                     LanguageField = new TranslatedStringDictionary
                     {
-                        { "x-default", "XDefaultValue" },
                         { "en", "Cities" }
                     },
                     NGramField = "NGramFieldValue",
