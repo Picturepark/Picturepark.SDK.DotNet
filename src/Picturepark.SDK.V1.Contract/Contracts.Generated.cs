@@ -8049,10 +8049,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("aggregations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregations { get; set; }
     
-        /// <summary>A simple ordering property for schemas.</summary>
-        [Newtonsoft.Json.JsonProperty("sortOrder", Required = Newtonsoft.Json.Required.Always)]
-        public int SortOrder { get; set; }
-    
         /// <summary>Is true when schema is system provided.</summary>
         [Newtonsoft.Json.JsonProperty("system", Required = Newtonsoft.Json.Required.Always)]
         public bool System { get; set; }
@@ -9382,10 +9378,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("aggregations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregations { get; set; }
     
-        /// <summary>A simple ordering property for schemas.</summary>
-        [Newtonsoft.Json.JsonProperty("sortOrder", Required = Newtonsoft.Json.Required.Always)]
-        public int SortOrder { get; set; }
-    
         /// <summary>Sorts content documents and/or list items.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
@@ -9443,10 +9435,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>An optional list of aggregations to group content documents and list items.</summary>
         [Newtonsoft.Json.JsonProperty("aggregations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregations { get; set; }
-    
-        /// <summary>A simple ordering property for schemas.</summary>
-        [Newtonsoft.Json.JsonProperty("sortOrder", Required = Newtonsoft.Json.Required.Always)]
-        public int SortOrder { get; set; }
     
         /// <summary>Sorts content documents and/or list items.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]

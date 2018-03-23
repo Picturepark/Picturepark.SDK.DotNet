@@ -99,7 +99,6 @@ namespace Picturepark.SDK.V1
                 Public = schemaDetail.Public,
                 ReferencedInContentSchemaIds = schemaDetail.ReferencedInContentSchemaIds,
                 Sort = schemaDetail.Sort,
-                SortOrder = schemaDetail.SortOrder,
                 Types = schemaDetail.Types,
                 LayerSchemaIds = schemaDetail.LayerSchemaIds
             };
@@ -152,7 +151,6 @@ namespace Picturepark.SDK.V1
                 Public = schemaDetail.Public,
                 ReferencedInContentSchemaIds = schemaDetail.ReferencedInContentSchemaIds,
                 Sort = schemaDetail.Sort,
-                SortOrder = schemaDetail.SortOrder,
                 Types = schemaDetail.Types,
                 LayerSchemaIds = schemaDetail.LayerSchemaIds,
                 FieldsOverwrite = schemaDetail.FieldsOverwrite

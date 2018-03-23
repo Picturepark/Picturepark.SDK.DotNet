@@ -14219,7 +14219,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "sortOrder",
         "system",
         "public"
       ],
@@ -14296,11 +14295,6 @@
           "items": {
             "$ref": "#/definitions/AggregatorBase"
           }
-        },
-        "sortOrder": {
-          "type": "integer",
-          "description": "A simple ordering property for schemas.",
-          "format": "int32"
         },
         "system": {
           "type": "boolean",
@@ -15676,7 +15670,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "sortOrder",
         "public"
       ],
       "properties": {
@@ -15739,11 +15732,6 @@
             "$ref": "#/definitions/AggregatorBase"
           }
         },
-        "sortOrder": {
-          "type": "integer",
-          "description": "A simple ordering property for schemas.",
-          "format": "int32"
-        },
         "sort": {
           "type": "array",
           "description": "Sorts content documents and/or list items.",
@@ -15782,7 +15770,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "sortOrder",
         "public"
       ],
       "properties": {
@@ -15829,11 +15816,6 @@
           "items": {
             "$ref": "#/definitions/AggregatorBase"
           }
-        },
-        "sortOrder": {
-          "type": "integer",
-          "description": "A simple ordering property for schemas.",
-          "format": "int32"
         },
         "sort": {
           "type": "array",
