@@ -43,7 +43,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
 
 			/// Assert
-			Assert.Equal(schemas.Count, 8);
+			Assert.Equal(8, schemas.Count);
 		}
 
 		[Fact]
@@ -62,7 +62,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			/// Assert
 			Assert.True(await _client.Schemas.ExistsAsync(schemas.First().Id));
-			Assert.Equal(schemas.Count, 9);
+			Assert.Equal(9, schemas.Count);
 		}
 
 		[Fact]
@@ -88,7 +88,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		{
 			/// Arrange
 			var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Tag));
-			Assert.Equal(schemas.Count, 1);
+			Assert.Equal(1, schemas.Count);
 
 			// modify schema ID before submit
 			var tagSchema = schemas.First();
@@ -192,7 +192,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var jsonConvertedField = generatedSoccerPlayerSchema.Fields.Single(i => i.Id == "club").ToJson();
 
 			/// Assert
-			Assert.True(jsonConvertedField.Contains(expectedFilterString));
+			Assert.Contains(expectedFilterString, jsonConvertedField);
 		}
 
 		[Fact]
@@ -208,7 +208,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var jsonConvertedField = generatedSoccerPlayerSchema.Fields.ToList()[0].ToJson();
 
 			/// Assert
-			Assert.True(jsonConvertedField.Contains(expectedMultilineString));
+			Assert.Contains(expectedMultilineString, jsonConvertedField);
 		}
 
 		[Fact]
