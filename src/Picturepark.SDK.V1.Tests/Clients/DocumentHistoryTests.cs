@@ -105,8 +105,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			/// Assert
 			Assert.True(waitResult.HasLifeCycleHit);
-			Assert.NotEqual(updatedHistory.DocumentVersion, 0);
-			Assert.True(difference.NewValues.ToString().Contains(@"""location"": """ + location + @""""));
+			Assert.NotEqual(0, updatedHistory.DocumentVersion);
+			Assert.Contains(@"""location"": """ + location + @"""", difference.NewValues.ToString());
 		}
 
 		[Fact]

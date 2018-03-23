@@ -44,7 +44,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			/// Assert
 			Assert.NotNull(aggregation);
-			Assert.Equal(aggregation.AggregationResultItems.Count, 20);
+			Assert.Equal(20, aggregation.AggregationResultItems.Count);
 		}
 
 		[Fact]
@@ -158,7 +158,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var createdObjects = await _client.ListItems.CreateFromObjectAsync(tag, nameof(Tag));
 
 			/// Assert
-			Assert.Equal(1, createdObjects.Count());
+			Assert.Single(createdObjects);
 		}
 
 		[Fact]

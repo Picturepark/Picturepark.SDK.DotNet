@@ -38,8 +38,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             var json = JsonConvert.SerializeObject(info, Formatting.Indented);
 
             //// Assert
-            Assert.True(info.Fields.Single(f => f.Id == "child")
-                .RelatedSchemaIndexing.Fields.Any(f => f.Id == "firstName"));
+            Assert.Contains(info.Fields.Single(f => f.Id == "child").RelatedSchemaIndexing.Fields, f => f.Id == "firstName");
         }
 
         [Fact]
@@ -57,8 +56,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             var json = JsonConvert.SerializeObject(info, Formatting.Indented);
 
             //// Assert
-            Assert.True(info.Fields.Single(f => f.Id == "children")
-                .RelatedSchemaIndexing.Fields.Any(f => f.Id == "firstName"));
+            Assert.Contains(info.Fields.Single(f => f.Id == "children").RelatedSchemaIndexing.Fields, f => f.Id == "firstName");
 
             Assert.Null(info.Fields.Single(f => f.Id == "children")
                 .RelatedSchemaIndexing.Fields.Single(f => f.Id == "firstName")
@@ -81,8 +79,8 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             var json = JsonConvert.SerializeObject(info, Formatting.Indented);
 
             //// Assert
-            Assert.True(info.Fields.Any(f => f.Id == "foo"));
-            Assert.True(info.Fields.Any(f => f.Id == "bar"));
+            Assert.Contains(info.Fields, f => f.Id == "foo");
+            Assert.Contains(info.Fields, f => f.Id == "bar");
 
             Assert.Null(info.Fields.Single(f => f.Id == "foo").RelatedSchemaIndexing);
             Assert.Null(info.Fields.Single(f => f.Id == "bar").RelatedSchemaIndexing);
@@ -103,13 +101,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             var json = JsonConvert.SerializeObject(info, Formatting.Indented);
 
             //// Assert
-            Assert.True(info.Fields.Single(f => f.Id == "child")
-                .RelatedSchemaIndexing.Fields.Any(f => f.Id == "firstName"));
+            Assert.Contains(info.Fields.Single(f => f.Id == "child").RelatedSchemaIndexing.Fields, f => f.Id == "firstName");
 
-            Assert.True(info.Fields.Single(f => f.Id == "child")
-                .RelatedSchemaIndexing.Fields.Any(f => f.Id == "lastName"));
-            Assert.False(info.Fields.Single(f => f.Id == "child")
-                .RelatedSchemaIndexing.Fields.Any(f => f.Id == "dateOfBirth"));
+            Assert.Contains(info.Fields.Single(f => f.Id == "child").RelatedSchemaIndexing.Fields, f => f.Id == "lastName");
+            Assert.DoesNotContain(info.Fields.Single(f => f.Id == "child").RelatedSchemaIndexing.Fields, f => f.Id == "dateOfBirth");
 
             Assert.Null(info.Fields.Single(f => f.Id == "child")
                 .RelatedSchemaIndexing.Fields.Single(f => f.Id == "lastName").RelatedSchemaIndexing);
@@ -132,9 +127,9 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             var json = JsonConvert.SerializeObject(info, Formatting.Indented);
 
             //// Assert
-            Assert.True(info.Fields.Any(f => f.Id == "firstName"));
-            Assert.True(info.Fields.Any(f => f.Id == "lastName"));
-            Assert.False(info.Fields.Any(f => f.Id == "dateOfBirth"));
+            Assert.Contains(info.Fields, f => f.Id == "firstName");
+            Assert.Contains(info.Fields, f => f.Id == "lastName");
+            Assert.DoesNotContain(info.Fields, f => f.Id == "dateOfBirth");
 
             Assert.Null(info.Fields.Single(f => f.Id == "firstName").RelatedSchemaIndexing);
             Assert.Null(info.Fields.Single(f => f.Id == "lastName").RelatedSchemaIndexing);

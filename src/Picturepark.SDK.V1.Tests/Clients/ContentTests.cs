@@ -387,7 +387,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             using (var response = await _client.Contents.DownloadAsync(contentId, "Original", null, null, "bytes=0-20000000"))
             {
                 var stream = response.Stream;
-                Assert.Equal(true, stream.CanRead);
+                Assert.True(stream.CanRead);
 
                 await response.Stream.WriteToFileAsync(filePath);
                 Assert.True(File.Exists(filePath));
@@ -825,7 +825,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldThrowExceptionWhenContentNotFound()
         {
             var contentId = "foobar.baz";
-            await Assert.ThrowsAsync(typeof(ContentNotFoundException), async () =>
+            await Assert.ThrowsAsync<ContentNotFoundException>(async () =>
             {
                 await _client.Contents.GetAsync(contentId);
             });
@@ -1086,7 +1086,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new FileTransferSearchRequest() { Limit = 20, SearchString = "*", Filter = new TermFilter { Field = "transferId", Term = createTransferResult.Transfer.Id } };
             FileTransferSearchResult result = await _client.Transfers.SearchFilesAsync(request);
 
-            Assert.Equal(result.TotalResults, 1);
+            Assert.Equal(1, result.TotalResults);
 
             var updateRequest = new ContentFileUpdateRequest
             {
