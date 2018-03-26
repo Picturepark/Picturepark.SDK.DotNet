@@ -8,8 +8,9 @@ using Picturepark.SDK.V1.Tests.Fixtures;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Picturepark.SDK.V1.Contract.Builders;
+using Picturepark.SDK.V1.Builders;
 using Picturepark.SDK.V1.Contract.Providers;
+using Picturepark.SDK.V1.Providers;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Conversion
@@ -99,14 +100,14 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             /// Assert
             var jsonTransformSchema = jsonTransformSchemas.First();
 
-            Assert.False(jsonTransformSchema.Fields.Any(i => i.Id == nameof(JsonTransform.IgnoredString)));
+            Assert.DoesNotContain(jsonTransformSchema.Fields, i => i.Id == nameof(JsonTransform.IgnoredString));
             var schemaSimpleRelation = jsonTransformSchemas.First(i => i.Id == nameof(SimpleRelation));
 
-            Assert.True(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationInfo).ToLowerCamelCase()));
-            Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationId).ToLowerCamelCase()));
-            Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationType).ToLowerCamelCase()));
-            Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.TargetDocType).ToLowerCamelCase()));
-            Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.TargetId).ToLowerCamelCase()));
+            Assert.Contains(schemaSimpleRelation.Fields, i => i.Id == nameof(SimpleRelation.RelationInfo).ToLowerCamelCase());
+            Assert.DoesNotContain(schemaSimpleRelation.Fields, i => i.Id == nameof(SimpleRelation.RelationId).ToLowerCamelCase());
+            Assert.DoesNotContain(schemaSimpleRelation.Fields, i => i.Id == nameof(SimpleRelation.RelationType).ToLowerCamelCase());
+            Assert.DoesNotContain(schemaSimpleRelation.Fields, i => i.Id == nameof(SimpleRelation.TargetDocType).ToLowerCamelCase());
+            Assert.DoesNotContain(schemaSimpleRelation.Fields, i => i.Id == nameof(SimpleRelation.TargetId).ToLowerCamelCase());
         }
 
         [Fact]
@@ -119,8 +120,8 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             /// Assert
             var jsonTransformSchema = jsonTransformSchemas.First(i => i.Id == nameof(JsonTransform));
 
-            Assert.False(jsonTransformSchema.Fields.Any(i => i.Id == nameof(JsonTransform.OldName).ToLowerCamelCase()));
-            Assert.True(jsonTransformSchema.Fields.Any(i => i.Id == "_newName"));
+            Assert.DoesNotContain(jsonTransformSchema.Fields, i => i.Id == nameof(JsonTransform.OldName).ToLowerCamelCase());
+            Assert.Contains(jsonTransformSchema.Fields, i => i.Id == "_newName");
         }
 
         [PictureparkSchemaType(SchemaType.Struct)]

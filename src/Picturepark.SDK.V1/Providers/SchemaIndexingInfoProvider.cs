@@ -1,7 +1,8 @@
-﻿using System;
-using Picturepark.SDK.V1.Contract.Builders;
+﻿using Picturepark.SDK.V1.Builders;
+using Picturepark.SDK.V1.Contract;
+using Picturepark.SDK.V1.Contract.Providers;
 
-namespace Picturepark.SDK.V1.Contract.Providers
+namespace Picturepark.SDK.V1.Providers
 {
     public abstract class SchemaIndexingInfoProvider<T> : ISchemaIndexingInfoProvider
     {

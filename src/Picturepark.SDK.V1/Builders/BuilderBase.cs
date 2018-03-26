@@ -2,7 +2,7 @@
 using System.Linq;
 using Newtonsoft.Json;
 
-namespace Picturepark.SDK.V1.Contract.Builders
+namespace Picturepark.SDK.V1.Builders
 {
     public class BuilderBase
     {

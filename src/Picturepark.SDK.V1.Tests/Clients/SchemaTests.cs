@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Newtonsoft.Json;
+using Xunit.Sdk;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -41,7 +43,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
 
 			/// Assert
-			Assert.Equal(schemas.Count, 8);
+			Assert.Equal(8, schemas.Count);
 		}
 
 		[Fact]
@@ -60,7 +62,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
 			/// Assert
 			Assert.True(await _client.Schemas.ExistsAsync(schemas.First().Id));
-			Assert.Equal(schemas.Count, 9);
+			Assert.Equal(9, schemas.Count);
 		}
 
 		[Fact]
@@ -86,7 +88,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 		{
 			/// Arrange
 			var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Tag));
-			Assert.Equal(schemas.Count, 1);
+			Assert.Equal(1, schemas.Count);
 
 			// modify schema ID before submit
 			var tagSchema = schemas.First();
@@ -99,7 +101,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			await _client.Schemas.DeleteAndWaitForCompletionAsync(schemaDetail.Id);
 
 			/// Assert
-			await Assert.ThrowsAsync<ApiException>(async () => await _client.Schemas.GetAsync(tagSchema.Id));
+			await Assert.ThrowsAsync<SchemaNotFoundException>(async () => await _client.Schemas.GetAsync(tagSchema.Id));
 		}
 
 		[Fact]
@@ -190,7 +192,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var jsonConvertedField = generatedSoccerPlayerSchema.Fields.Single(i => i.Id == "club").ToJson();
 
 			/// Assert
-			Assert.True(jsonConvertedField.Contains(expectedFilterString));
+			Assert.Contains(expectedFilterString, jsonConvertedField);
 		}
 
 		[Fact]
@@ -206,7 +208,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			var jsonConvertedField = generatedSoccerPlayerSchema.Fields.ToList()[0].ToJson();
 
 			/// Assert
-			Assert.True(jsonConvertedField.Contains(expectedMultilineString));
+			Assert.Contains(expectedMultilineString, jsonConvertedField);
 		}
 
 		[Fact]
@@ -257,7 +259,120 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			Assert.Equal(schemaId, outString);
 		}
 
-		private async Task CreateFromClassGenericAsync<T>()
+	    [Fact(Skip="MigrationOnly")]
+	    [Trait("Stack", "Schema")]
+	    public async Task ShouldWrapFiltersInNestedFilter()
+	    {
+	        var schemas = (await _client.Schemas.SearchAsync(new SchemaSearchRequest
+	        {
+	            Limit = 1000
+	        })).Results.Where(i => !i.System).ToList();
+
+	        var indexFields = await _client.Schemas.GetIndexFieldsAsync(new GetIndexFieldsRequest
+	        {
+	            SchemaIds = schemas.Select(i => i.Id).ToList()
+	        });
+            foreach (var layer in schemas)
+	        {
+	            var details = await _client.Schemas.GetAsync(layer.Id);
+
+	            foreach (var field in details.Fields)
+	            {
+	                if (field is FieldMultiTagbox multiTagbox)
+	                {
+	                    if (multiTagbox.Filter != null)
+	                    {
+	                        multiTagbox.Filter = WrapFilter(multiTagbox.Filter, indexFields);
+	                    }
+	                }
+
+	                if (field is FieldSingleTagbox singleTagbox)
+	                {
+	                    if (singleTagbox.Filter != null)
+	                    {
+	                        singleTagbox.Filter = WrapFilter(singleTagbox.Filter, indexFields);
+	                    }
+	                }
+                }
+
+	            foreach (var field in details.FieldsOverwrite)
+	            {
+	                if (field is FieldOverwriteMultiTagbox multiTagbox)
+	                {
+	                    if (multiTagbox.Filter != null)
+	                    {
+	                        multiTagbox.Filter = WrapFilter(multiTagbox.Filter, indexFields);
+	                    }
+	                }
+
+	                if (field is FieldOverwriteSingleTagbox singleTagbox)
+	                {
+	                    if (singleTagbox.Filter != null)
+	                    {
+	                        singleTagbox.Filter = WrapFilter(singleTagbox.Filter, indexFields);
+	                    }
+	                }
+                }
+
+                await _client.Schemas.UpdateAndWaitForCompletionAsync(details, false);
+	        }
+	    }
+
+	    private FilterBase WrapFilter(FilterBase filter, ICollection<IndexField> indexFields)
+	    {
+	        switch (filter)
+	        {
+	            case AndFilter andFilter:
+	                var andFilters = andFilter.Filters.ToList();
+
+                    for (var i = 0; i < andFilters.Count; i++)
+	                {
+	                    andFilters[i] = WrapFilter(andFilters[i], indexFields);
+	                }
+
+	                andFilter.Filters = andFilters;
+	                return andFilter;
+	            case OrFilter orFilter:
+	                var orFilters = orFilter.Filters.ToList();
+
+	                for (var i = 0; i < orFilters.Count; i++)
+	                {
+	                    orFilters[i] = WrapFilter(orFilters[i], indexFields);
+	                }
+
+	                orFilter.Filters = orFilters;
+                    return orFilter;
+	            case NotFilter notFilter:
+	                return WrapFilter(notFilter.Filter, indexFields);
+	            case TermFilter termFilter:
+	                return GetWrappedFilter(termFilter.Field, termFilter, indexFields);
+	            case TermsFilter termsFilter:
+	                return GetWrappedFilter(termsFilter.Field, termsFilter, indexFields);
+	            case PrefixFilter prefixFilter:
+	                return GetWrappedFilter(prefixFilter.Field, prefixFilter, indexFields);
+                case NestedFilter nestedFilter:
+	                return nestedFilter;
+                default:
+                    throw new NotImplementedException();
+	        }
+        }
+
+	    private FilterBase GetWrappedFilter(string field, FilterBase filter, ICollection<IndexField> indexFields)
+	    {
+	        var indexField = indexFields.SingleOrDefault(i => i.Id == field.Replace(".x-default", string.Empty));
+	        if (!string.IsNullOrEmpty(indexField?.NestedPath))
+	        {
+	            return new NestedFilter
+	            {
+	                Path = indexField.NestedPath,
+	                Filter = filter
+                };
+	        }
+
+	        return filter;
+	    }
+
+        private async Task CreateFromClassGenericAsync<T>()
 			where T : class
 		{
 			var childSchemas = await _client.Schemas.GenerateSchemasAsync(typeof(T));

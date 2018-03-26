@@ -24,6 +24,7 @@
 		"defaultLanguage": "en"
 	},
 	"indexedFieldThreshold": 0,
+	"sortableFieldThreshold": 0, 
 	"identityServerProviders": [],
 	"externalProviders": [],
 	"outputFormats": [

@@ -25,7 +25,7 @@ namespace Picturepark.Microsite.Example.Helpers
 
 				if (!updateSchema)
 				{
-					if (!_client.Schemas.Exists(schema.Id))
+					if (await _client.Schemas.ExistsAsync(schema.Id) == false)
 						await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true);
 				}
 				else
