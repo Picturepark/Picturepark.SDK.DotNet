@@ -1,5 +1,4 @@
 ﻿using Picturepark.SDK.V1.Contract;
-using Picturepark.SDK.V1.ServiceProvider.Contract;
 using RabbitMQ.Client;
 using System;
 
