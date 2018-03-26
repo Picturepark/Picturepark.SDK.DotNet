@@ -8642,9 +8642,15 @@
     "CustomerExportRequest": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "keepRepository"
+      ],
       "properties": {
         "customerAlias": {
           "type": "string"
+        },
+        "keepRepository": {
+          "type": "boolean"
         }
       }
     },
