@@ -13629,7 +13629,7 @@
         "limit",
         "includeAllSchemaChildren",
         "brokenDependenciesFilter",
-        "includeMetadata",
+        "includeContentData",
         "debugMode",
         "lifeCycleFilter"
       ],
@@ -13716,7 +13716,7 @@
             "type": "string"
           }
         },
-        "includeMetadata": {
+        "includeContentData": {
           "type": "boolean",
           "description": "When set to true the content data is included in the result items."
         },
