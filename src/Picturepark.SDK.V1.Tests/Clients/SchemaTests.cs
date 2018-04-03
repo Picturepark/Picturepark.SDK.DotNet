@@ -244,7 +244,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 			string schemaId = await _fixture.GetRandomSchemaIdAsync(20);
 			SchemaDetail schemaDetail = await _client.Schemas.GetAsync(schemaId);
 
-			string language = "es";
+			string language = "de";
 
 			schemaDetail.Names.Remove(language);
 			schemaDetail.Names.Add(language, schemaId);
