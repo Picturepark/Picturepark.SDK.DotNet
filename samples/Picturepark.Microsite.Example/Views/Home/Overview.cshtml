@@ -30,7 +30,7 @@
 							<h2 class="entry-title"><a asp-area="" asp-controller="Home" asp-action="Detail" asp-route-id="@portal.Id">@portal.Content.Headline.GetTranslation()</a></h2>
 
 							<div class="post-content">
-								<p>@portal.Content.Teaser.GetTranslation()</p>
+								<p>@portal.Content.Teaser?.GetTranslation()</p>
 								<a asp-area="" asp-controller="Home" asp-action="Detail" asp-route-id="@portal.Id" class="more-link">@Localizer.GetString("Read more")</a>
 							</div>
 						</article>
