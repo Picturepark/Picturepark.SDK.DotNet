@@ -9404,6 +9404,29 @@
         }
       ]
     },
+    "ListItemUpdateManyException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "failedItemsCount",
+        "totalItemsCount"
+      ],
+      "properties": {
+        "failedItemsCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalItemsCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "TransferInfoNotFoundException": {
       "type": "object",
       "additionalProperties": false,
@@ -13991,7 +14014,8 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "allowMissingDependencies"
+        "allowMissingDependencies",
+        "notifyProgress"
       ],
       "properties": {
         "listItemIds": {
@@ -14011,6 +14035,10 @@
         "allowMissingDependencies": {
           "type": "boolean",
           "description": "Allow storing references to missing list items / contents"
+        },
+        "notifyProgress": {
+          "type": "boolean",
+          "description": "Create notification and notify on progress"
         }
       }
     },
@@ -14019,7 +14047,8 @@
       "description": "ListItemFieldsFilterUpdateRequest class",
       "additionalProperties": false,
       "required": [
-        "allowMissingDependencies"
+        "allowMissingDependencies",
+        "notifyProgress"
       ],
       "properties": {
         "listItemFilterRequest": {
@@ -14040,6 +14069,10 @@
         "allowMissingDependencies": {
           "type": "boolean",
           "description": "Allow storing references to missing list items / contents"
+        },
+        "notifyProgress": {
+          "type": "boolean",
+          "description": "Create notification and notify on progress"
         }
       }
     },

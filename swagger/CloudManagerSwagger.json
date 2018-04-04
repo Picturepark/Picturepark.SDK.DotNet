@@ -5963,6 +5963,29 @@
         }
       ]
     },
+    "ListItemUpdateManyException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "failedItemsCount",
+        "totalItemsCount"
+      ],
+      "properties": {
+        "failedItemsCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalItemsCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "TransferInfoNotFoundException": {
       "type": "object",
       "additionalProperties": false,
