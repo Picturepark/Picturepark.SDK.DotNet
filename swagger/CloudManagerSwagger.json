@@ -6829,40 +6829,6 @@
         }
       ]
     },
-    "SchemaFixedFieldChangeException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "schemaId": {
-          "type": "string"
-        },
-        "fieldId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkValidationException"
-        }
-      ]
-    },
-    "SchemaFixedFieldDeleteException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "schemaId": {
-          "type": "string"
-        },
-        "fieldId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkValidationException"
-        }
-      ]
-    },
     "SchemaFieldIndexException": {
       "type": "object",
       "additionalProperties": false,
@@ -7040,6 +7006,20 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "SystemSchemaInvalidModificationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },

@@ -2168,8 +2168,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaSortFieldException", typeof(SchemaSortFieldException))]
     [JsonInheritanceAttribute("SchemaFieldIdException", typeof(SchemaFieldIdException))]
     [JsonInheritanceAttribute("SchemaFieldTypeChangeException", typeof(SchemaFieldTypeChangeException))]
-    [JsonInheritanceAttribute("SchemaFixedFieldChangeException", typeof(SchemaFixedFieldChangeException))]
-    [JsonInheritanceAttribute("SchemaFixedFieldDeleteException", typeof(SchemaFixedFieldDeleteException))]
     [JsonInheritanceAttribute("SchemaFieldIndexException", typeof(SchemaFieldIndexException))]
     [JsonInheritanceAttribute("SchemaFieldNotSortableException", typeof(SchemaFieldNotSortableException))]
     [JsonInheritanceAttribute("SchemaNoContentException", typeof(SchemaNoContentException))]
@@ -2180,6 +2178,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaIdException", typeof(SchemaIdException))]
     [JsonInheritanceAttribute("SchemaInUseException", typeof(SchemaInUseException))]
     [JsonInheritanceAttribute("SchemaNotFoundException", typeof(SchemaNotFoundException))]
+    [JsonInheritanceAttribute("SystemSchemaInvalidModificationException", typeof(SystemSchemaInvalidModificationException))]
     [JsonInheritanceAttribute("ContentsNotFoundException", typeof(ContentsNotFoundException))]
     [JsonInheritanceAttribute("DeleteContentsWithRelationsException", typeof(DeleteContentsWithRelationsException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
@@ -4790,46 +4789,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SchemaFixedFieldChangeException : PictureparkValidationException
-    {
-        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static SchemaFixedFieldChangeException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFixedFieldChangeException>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SchemaFixedFieldDeleteException : PictureparkValidationException
-    {
-        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SchemaId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static SchemaFixedFieldDeleteException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFixedFieldDeleteException>(data);
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SchemaFieldIndexException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -5031,6 +4990,23 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SchemaNotFoundException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaNotFoundException>(data);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.18.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SystemSchemaInvalidModificationException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SystemSchemaInvalidModificationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SystemSchemaInvalidModificationException>(data);
         }
     }
     
