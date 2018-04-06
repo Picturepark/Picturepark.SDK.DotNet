@@ -39,11 +39,9 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
 		// Usage for recursions
 		[PictureparkSearch(Index = true, SimpleSearch = true, Boost = 10)]
-		[PictureparkMaximumRecursion(MaxRecursion = 2)]
 		public Person Child { get; set; }
 
 		[PictureparkSearch(Index = true, SimpleSearch = true, Boost = 10)]
-		[PictureparkMaximumRecursion(MaxRecursion = 3)]
 		public List<Person> Siblings { get; set; }
 	}
 

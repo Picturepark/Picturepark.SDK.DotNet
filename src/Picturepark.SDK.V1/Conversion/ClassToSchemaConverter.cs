@@ -582,7 +582,6 @@ namespace Picturepark.SDK.V1.Conversion
             {
                 var schemaIndexingAttribute = property.PictureparkAttributes.OfType<PictureparkSchemaIndexingAttribute>().SingleOrDefault();
                 var listItemCreateTemplateAttribute = property.PictureparkAttributes.OfType<PictureparkListItemCreateTemplateAttribute>().SingleOrDefault();
-                var maximumRecursionAttribute = property.PictureparkAttributes.OfType<PictureparkMaximumRecursionAttribute>().SingleOrDefault();
                 var tagboxAttributes = property.PictureparkAttributes.OfType<PictureparkTagboxAttribute>().SingleOrDefault();
                 var contentRelationAttributes = property.PictureparkAttributes.OfType<PictureparkContentRelationAttribute>().ToList();
 
@@ -720,6 +719,21 @@ namespace Picturepark.SDK.V1.Conversion
 
                     field.Names[language] = nameTranslationAttribute.Translation;
                 }
+
+                if (attribute is PictureparkSortAttribute)
+                {
+                    if (field is FieldSingleRelation || field is FieldMultiRelation)
+                    {
+                        throw new InvalidOperationException($"Relation property {property.Name} must not be marked as sortable.");
+                    }
+
+                    if (field is FieldGeoPoint)
+                    {
+                        throw new InvalidOperationException($"GeoPoint property {property.Name} must not be marked as sortable.");
+                    }
+
+                    field.Sortable = true;
+                }
             }
 
             var fieldName = property.Name;
@@ -733,8 +747,15 @@ namespace Picturepark.SDK.V1.Conversion
                 };
             }
 
+            if (property.PictureparkAttributes.OfType<PictureparkAnalyzerAttribute>().Any(a => !a.Index && !a.SimpleSearch))
+            {
+                throw new InvalidOperationException(
+                    $"Property {property.Name} has invalid analyzer configuration: Specify one or both of {nameof(PictureparkAnalyzerAttribute.Index)}, {nameof(PictureparkAnalyzerAttribute.SimpleSearch)}.");
+            }
+
             var fieldIndexAnalyzers = property.PictureparkAttributes
                 .OfType<PictureparkAnalyzerAttribute>()
+                .Where(a => a.Index)
                 .Select(a => a.CreateAnalyzer())
                 .ToList();
 

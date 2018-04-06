@@ -111,19 +111,19 @@ namespace Picturepark.SDK.V1.Tests
         [PictureparkSchemaType(SchemaType.List)]
         public class AnalyzerTestObject
         {
-            [PictureparkEdgeNGramAnalyzer]
+            [PictureparkEdgeNGramAnalyzer(Index = true)]
             public string EdgeNGramField { get; set; }
 
-            [PictureparkNGramAnalyzer]
+            [PictureparkNGramAnalyzer(Index = true)]
             public string NGramField { get; set; }
 
-            [PictureparkPathHierarchyAnalyzer]
+            [PictureparkPathHierarchyAnalyzer(Index = true)]
             public string PathHierarchyField { get; set; }
 
-            [PictureparkSimpleAnalyzer]
+            [PictureparkSimpleAnalyzer(Index = true)]
             public string SimpleField { get; set; }
 
-            [PictureparkLanguageAnalyzer]
+            [PictureparkLanguageAnalyzer(Index = true)]
             public TranslatedStringDictionary LanguageField { get; set; }
         }
     }
