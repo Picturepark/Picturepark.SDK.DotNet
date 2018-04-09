@@ -3053,6 +3053,12 @@
         },
         "createTransferBusinessProcess": {
           "type": "string"
+        },
+        "adminUser": {
+          "$ref": "#/definitions/User"
+        },
+        "adminUserPassword": {
+          "type": "string"
         }
       }
     },
@@ -4209,6 +4215,24 @@
         }
       ]
     },
+    "User": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        }
+      }
+    },
     "CustomerConfigurationItem": {
       "type": "object",
       "additionalProperties": false,
@@ -4216,10 +4240,13 @@
         "useSsl",
         "elasticSearchNumberOfShards",
         "elasticSearchNumberOfReplicas",
+        "elasticSearchNumberOfRoutingShards",
         "rootContentSearchIndexNumberOfShards",
         "rootContentSearchIndexNumberOfReplicas",
+        "rootContentSearchIndexNumberOfRoutingShards",
         "rootListItemSearchIndexNumberOfShards",
         "rootListItemSearchIndexNumberOfReplicas",
+        "rootListItemSearchIndexNumberOfRoutingShards",
         "indexedFieldThreshold",
         "sortableFieldThreshold",
         "redisDatabaseIndex",
@@ -4348,6 +4375,10 @@
           "type": "integer",
           "format": "int32"
         },
+        "elasticSearchNumberOfRoutingShards": {
+          "type": "integer",
+          "format": "int32"
+        },
         "rootContentSearchIndexNumberOfShards": {
           "type": "integer",
           "format": "int32"
@@ -4356,11 +4387,19 @@
           "type": "integer",
           "format": "int32"
         },
+        "rootContentSearchIndexNumberOfRoutingShards": {
+          "type": "integer",
+          "format": "int32"
+        },
         "rootListItemSearchIndexNumberOfShards": {
           "type": "integer",
           "format": "int32"
         },
         "rootListItemSearchIndexNumberOfReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rootListItemSearchIndexNumberOfRoutingShards": {
           "type": "integer",
           "format": "int32"
         },
@@ -4411,6 +4450,12 @@
         },
         "deactivationMessage": {
           "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "superAdminUserId": {
+          "type": "string"
+        },
+        "serviceAdminUserId": {
+          "type": "string"
         }
       }
     },
@@ -7440,24 +7485,6 @@
         "response": {}
       }
     },
-    "User": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "emailAddress": {
-          "type": "string"
-        }
-      }
-    },
     "CustomerSearchRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -7980,7 +8007,8 @@
       "additionalProperties": false,
       "required": [
         "numberOfShards",
-        "numberOfReplicas"
+        "numberOfReplicas",
+        "numberOfRoutingShards"
       ],
       "properties": {
         "searchIndexId": {
@@ -7993,6 +8021,10 @@
         "numberOfReplicas": {
           "type": "integer",
           "format": "int32"
+        },
+        "numberOfRoutingShards": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -8002,6 +8034,7 @@
       "required": [
         "numberOfShards",
         "numberOfReplicas",
+        "numberOfRoutingShards",
         "indexType",
         "state"
       ],
@@ -8020,6 +8053,10 @@
           "format": "int32"
         },
         "numberOfReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfRoutingShards": {
           "type": "integer",
           "format": "int32"
         },
@@ -8874,12 +8911,6 @@
         },
         "referencedFields": {
           "$ref": "#/definitions/DataGenerationReferencedFields"
-        },
-        "importSchemas": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ImportSchemasRequest"
-          }
         }
       }
     },
@@ -8904,12 +8935,6 @@
         "userRoleGrantedMax": {
           "type": "integer",
           "format": "int32"
-        },
-        "adminUser": {
-          "$ref": "#/definitions/User"
-        },
-        "adminUserPassword": {
-          "type": "string"
         },
         "userRightGrantedAverage": {
           "type": "number",
@@ -9133,21 +9158,6 @@
           "format": "int32"
         },
         "generateData": {
-          "type": "boolean"
-        }
-      }
-    },
-    "ImportSchemasRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "importListItems"
-      ],
-      "properties": {
-        "path": {
-          "type": "string"
-        },
-        "importListItems": {
           "type": "boolean"
         }
       }
