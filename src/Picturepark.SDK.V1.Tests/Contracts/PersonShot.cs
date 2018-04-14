@@ -5,18 +5,18 @@ using System.Collections.Generic;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
 {
-	[PictureparkSchemaType(SchemaType.Layer)]
-	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.personShot.description}}")]
-	public class PersonShot
-	{
-		public List<Person> Persons { get; set; }
+    [PictureparkSchemaType(SchemaType.Layer)]
+    [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.personShot.description}}")]
+    public class PersonShot
+    {
+        public List<Person> Persons { get; set; }
 
-		public List<Country> Countries { get; set; }
+        public List<Country> Countries { get; set; }
 
-		[PictureparkSimpleAnalyzer(SimpleSearch = true)]
-		public string Description { get; set; }
+        [PictureparkSimpleAnalyzer(SimpleSearch = true)]
+        public string Description { get; set; }
 
-		[PictureparkPathHierarchyAnalyzer(SimpleSearch = true)]
-		public string Path { get; set; }
-	}
+        [PictureparkPathHierarchyAnalyzer(SimpleSearch = true)]
+        public string Path { get; set; }
+    }
 }

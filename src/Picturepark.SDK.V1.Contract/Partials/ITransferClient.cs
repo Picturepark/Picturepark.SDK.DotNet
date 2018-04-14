@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Contract
 {
-	public partial interface ITransferClient
-	{
-		/// <summary>Searches files of a given transfer ID.</summary>
-		/// <param name="transferId">The transfer ID.</param>
-		/// <param name="limit">The maximum number of search results.</param>
-		/// <returns>The result.</returns>
-		Task<FileTransferSearchResult> SearchFilesByTransferIdAsync(string transferId, int limit = 20);
+    public partial interface ITransferClient
+    {
+        /// <summary>Searches files of a given transfer ID.</summary>
+        /// <param name="transferId">The transfer ID.</param>
+        /// <param name="limit">The maximum number of search results.</param>
+        /// <returns>The result.</returns>
+        Task<FileTransferSearchResult> SearchFilesByTransferIdAsync(string transferId, int limit = 20);
 
         /// <summary>Uploads multiple files from the filesystem.</summary>
         /// <param name="transferName">The name of the created transfer.</param>
@@ -53,5 +53,5 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The transfer.</returns>
         Task<CreateTransferResult> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<string> fileNames, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
-	}
+    }
 }
