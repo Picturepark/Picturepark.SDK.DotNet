@@ -2,7 +2,7 @@
 
 namespace Picturepark.SDK.V1
 {
-	public partial class UserClient
-	{
-	}
+    public partial class UserClient
+    {
+    }
 }

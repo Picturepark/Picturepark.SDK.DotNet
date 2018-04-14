@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Contract
 {
-	public partial interface IListItemClient
-	{
+    public partial interface IListItemClient
+    {
         /// <summary>Creates a <see cref="ListItemDetail"/>.</summary>
         /// <param name="createRequest">The create request.</param>
         /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
@@ -34,14 +34,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">The business process has not been completed.</exception>
         Task<IEnumerable<ListItem>> CreateManyAsync(ListItemCreateManyRequest createManyRequest, CancellationToken cancellationToken = default(CancellationToken));
 
-		/// <summary>Gets an existing list item and converts its content to the requested type.</summary>
-		/// <typeparam name="T">The requested content type.</typeparam>
-		/// <param name="listItemId">The list item ID.</param>
-		/// <param name="schemaId">The schema ID of the requested type.</param>
-		/// <param name="cancellationToken">The cancellation token.</param>
-		/// <returns>The converted object.</returns>
-		/// <exception cref="ApiException">A server side error occurred.</exception>
-		Task<T> GetAndConvertToAsync<T>(string listItemId, string schemaId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>Gets an existing list item and converts its content to the requested type.</summary>
+        /// <typeparam name="T">The requested content type.</typeparam>
+        /// <param name="listItemId">The list item ID.</param>
+        /// <param name="schemaId">The schema ID of the requested type.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The converted object.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        Task<T> GetAndConvertToAsync<T>(string listItemId, string schemaId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Updates a list item by providing its content.</summary>
         /// <param name="listItemId">The list item ID.</param>
@@ -63,5 +63,5 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The updated <see cref="ListItemDetail"/>.</returns>
         Task<ListItemDetail> UpdateAsync(ListItemUpdateRequest updateRequest, bool resolve = false, bool allowMissingDependencies = false, TimeSpan? timeout = null, IEnumerable<DisplayPatternType> patterns = null, CancellationToken cancellationToken = default(CancellationToken));
-	}
+    }
 }

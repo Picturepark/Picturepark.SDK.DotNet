@@ -8,7 +8,7 @@ using Xunit;
 
 namespace Picturepark.SDK.V1.Tests
 {
-	public class AnalyzerTests : IClassFixture<ClientFixture>
+    public class AnalyzerTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
         private readonly PictureparkClient _client;
@@ -24,7 +24,7 @@ namespace Picturepark.SDK.V1.Tests
         public async Task ShouldSearchAnalyzedFields()
         {
             /// Arrange
-	        if (await _client.Schemas.ExistsAsync(nameof(AnalyzerTestObject)) == false)
+            if (await _client.Schemas.ExistsAsync(nameof(AnalyzerTestObject)) == false)
             {
                 var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(AnalyzerTestObject));
                 foreach (var schema in schemas)
