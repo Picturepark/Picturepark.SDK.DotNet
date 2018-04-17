@@ -4,25 +4,16 @@ using System;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Contract.SystemTypes;
-using Picturepark.SDK.V1.Tests.Fixtures;
 using System.Linq;
+using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Picturepark.SDK.V1.Builders;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Conversion
 {
-    public class SchemaIndexingInfoBuilderTests : IClassFixture<ClientFixture>
+    public class SchemaIndexingInfoBuilderTests
     {
-        private readonly ClientFixture _fixture;
-        private readonly PictureparkClient _client;
-
-        public SchemaIndexingInfoBuilderTests(ClientFixture fixture)
-        {
-            _fixture = fixture;
-            _client = _fixture.Client;
-        }
-
         [Fact]
         [Trait("Stack", "Schema")]
         public void ShouldAddIndexOnPropertyPath()
@@ -147,6 +138,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             public string Bar { get; set; }
         }
 
+        [KnownType(typeof(SpecialChild))]
         [PictureparkSchemaType(SchemaType.Struct)]
         public class Child : Relation
         {
@@ -157,6 +149,71 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             public string LastName { get; set; }
 
             public DateTime DateOfBirth { get; set; }
+        }
+
+        public class SpecialChild : Child
+        {
+            [PictureparkSearch(Index = true, Boost = 1.4, SimpleSearch = true)]
+            public string Speciality { get; set; }
+        }
+
+        // inheritance tests
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public void ShouldAddIndexOnPropertyPathWithInheritance()
+        {
+            //// Arrange
+            var builder = new SchemaIndexingInfoBuilder<Parent>();
+
+            //// Act
+            var info = builder
+                .AddIndex(p => ((SpecialChild)p.Child).Speciality)
+                .Build();
+
+            var json = JsonConvert.SerializeObject(info, Formatting.Indented);
+
+            //// Assert
+            Assert.Contains(info.Fields.Single(f => f.Id == "child").RelatedSchemaIndexing.Fields, f => f.Id == "speciality");
+        }
+
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public void ShouldAddIndexOnCollectionPathWithInheritance()
+        {
+            //// Arrange
+            var builder = new SchemaIndexingInfoBuilder<Parent>();
+
+            //// Act
+            var info = builder
+                .AddIndex(p => p.Children.OfType<SpecialChild>().Select(c => c.Speciality))
+                .Build();
+
+            var json = JsonConvert.SerializeObject(info, Formatting.Indented);
+
+            //// Assert
+            Assert.Contains(info.Fields.Single(f => f.Id == "children").RelatedSchemaIndexing.Fields, f => f.Id == "speciality");
+
+            Assert.Null(info.Fields.Single(f => f.Id == "children")
+                .RelatedSchemaIndexing.Fields.Single(f => f.Id == "speciality")
+                .RelatedSchemaIndexing);
+        }
+
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public void ShouldAddDefaultIndexesWithInheritance()
+        {
+            //// Arrange
+            var builder = new SchemaIndexingInfoBuilder<Parent>();
+
+            //// Act
+            var info = builder
+                .AddDefaultIndexes(p => p.Child, 1)
+                .Build();
+
+            var json = JsonConvert.SerializeObject(info, Formatting.Indented);
+
+            //// Assert
+            Assert.Contains(info.Fields.Single(f => f.Id == "child").RelatedSchemaIndexing.Fields, f => f.Id == "speciality");
         }
     }
 }
