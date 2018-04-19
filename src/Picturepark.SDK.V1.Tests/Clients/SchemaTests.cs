@@ -67,6 +67,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Schema")]
+        public async Task ShouldCorrectlyDeserializeExceptions()
+        {
+            /// Arrange
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
+
+            /// Act & Assert
+            await Assert.ThrowsAsync<SchemaValidationException>(async () =>
+            {
+                foreach (var schema in schemas)
+                {
+                    schema.Id = "000";
+                    await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true); // throws exception
+                }
+            });
+        }
+
+        [Fact]
+        [Trait("Stack", "Schema")]
         public async Task ShouldGenerateAndCreateOrUpdateSchemas()
         {
             /// Act
