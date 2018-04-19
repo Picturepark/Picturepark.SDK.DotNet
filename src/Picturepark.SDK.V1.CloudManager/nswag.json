@@ -39,7 +39,7 @@
       "operationGenerationMode": "MultipleClientsFromOperationId",
       "additionalNamespaceUsages": [],
       "generateOptionalParameters": true,
-      "generateJsonMethods": false,
+      "generateJsonMethods": true,
       "parameterArrayType": "System.Collections.Generic.IEnumerable",
       "parameterDictionaryType": "System.Collections.Generic.IDictionary",
       "responseArrayType": "System.Collections.Generic.ICollection",

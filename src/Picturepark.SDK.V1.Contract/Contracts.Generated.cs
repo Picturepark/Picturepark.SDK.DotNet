@@ -1324,6 +1324,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("httpStatusCode", Required = Newtonsoft.Json.Required.Always)]
         public int HttpStatusCode { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PictureparkException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkException>(data);
+        }
     
     }
     
@@ -1339,6 +1348,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string UserId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PictureparkBusinessException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkBusinessException>(data);
+        }
     
     }
     
@@ -1348,6 +1366,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("reference", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Reference { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PictureparkNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkNotFoundException>(data);
+        }
     
     }
     
@@ -1357,6 +1384,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentNotFoundException>(data);
+        }
     
     }
     
@@ -1383,6 +1419,15 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PictureparkValidationException : PictureparkBusinessException
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PictureparkValidationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkValidationException>(data);
+        }
     
     }
     
@@ -1392,6 +1437,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("reference", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Reference { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PictureparkConflictException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkConflictException>(data);
+        }
     
     }
     
@@ -1401,6 +1455,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Email { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserEmailAlreadyExistsException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserEmailAlreadyExistsException>(data);
+        }
     
     }
     
@@ -1410,6 +1473,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("userRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string UserRoleId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserRoleAssignedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleAssignedException>(data);
+        }
     
     }
     
@@ -1419,12 +1491,30 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("missingUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MissingUserId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserNotFoundException>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class RenderingException : PictureparkBusinessException
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static RenderingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RenderingException>(data);
+        }
     
     }
     
@@ -1437,6 +1527,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("detailedErrorMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DetailedErrorMessage { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ServiceProviderDeleteException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ServiceProviderDeleteException>(data);
+        }
     
     }
     
@@ -1455,6 +1554,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("detailErrorMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DetailErrorMessage { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ServiceProviderCreateException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ServiceProviderCreateException>(data);
+        }
     
     }
     
@@ -1464,6 +1572,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("missingServiceProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MissingServiceProviderId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ServiceProviderNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ServiceProviderNotFoundException>(data);
+        }
     
     }
     
@@ -1476,12 +1593,30 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("documentVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DocumentVersion { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DocumentVersionNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentVersionNotFoundException>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DefaultChannelDeleteException : PictureparkValidationException
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DefaultChannelDeleteException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DefaultChannelDeleteException>(data);
+        }
     
     }
     
@@ -1494,6 +1629,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("actualVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ActualVersion { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ElasticVersionUpdateException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ElasticVersionUpdateException>(data);
+        }
     
     }
     
@@ -1506,18 +1650,45 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Version { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static InvalidVersionException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidVersionException>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class EnvironmentNotDeactivatedException : PictureparkException
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static EnvironmentNotDeactivatedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EnvironmentNotDeactivatedException>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class EnvironmentNotFoundException : PictureparkException
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static EnvironmentNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EnvironmentNotFoundException>(data);
+        }
     
     }
     
@@ -1527,6 +1698,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("deactivationMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DeactivationMessage { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static EnvironmentDeactivationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EnvironmentDeactivationException>(data);
+        }
     
     }
     
@@ -1536,6 +1716,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("shareId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ShareId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareNotFoundException>(data);
+        }
     
     }
     
@@ -1545,6 +1734,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Token { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareByTokenNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareByTokenNotFoundException>(data);
+        }
     
     }
     
@@ -1554,6 +1752,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("retries", Required = Newtonsoft.Json.Required.Always)]
         public long Retries { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TokenGenerationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TokenGenerationException>(data);
+        }
     
     }
     
@@ -1563,6 +1770,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("outputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OutputId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputIdNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputIdNotFoundException>(data);
+        }
     
     }
     
@@ -1575,12 +1791,30 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OutputFormatId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputNotFoundException>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DriveCacheExpiredException : PictureparkBusinessException
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DriveCacheExpiredException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DriveCacheExpiredException>(data);
+        }
     
     }
     
@@ -1590,18 +1824,45 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fileId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FileId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DriveFileNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DriveFileNotFoundException>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DriveRequestException : PictureparkBusinessException
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DriveRequestException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DriveRequestException>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TokenValidationException : PictureparkValidationException
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TokenValidationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TokenValidationException>(data);
+        }
     
     }
     
@@ -1611,6 +1872,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("resourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ResourceId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static LeaseNotAcquiredException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LeaseNotAcquiredException>(data);
+        }
     
     }
     
@@ -1622,6 +1892,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LeaseResourceType LeaseResourceType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OperationInProgressException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OperationInProgressException>(data);
+        }
     
     }
     
@@ -1642,6 +1921,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("innerExceptionDetail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string InnerExceptionDetail { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static RetryException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RetryException>(data);
+        }
     
     }
     
@@ -1651,6 +1939,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("ownerTokenUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OwnerTokenUserId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OwnerTokenNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OwnerTokenNotFoundException>(data);
+        }
     
     }
     
@@ -1663,6 +1960,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string State { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static InvalidStateException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidStateException>(data);
+        }
     
     }
     
@@ -1672,6 +1978,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("argumentName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ArgumentName { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PictureparkArgumentNullException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkArgumentNullException>(data);
+        }
     
     }
     
@@ -1681,6 +1996,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Type { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ObjectTypeMismatchException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectTypeMismatchException>(data);
+        }
     
     }
     
@@ -1690,6 +2014,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("transition", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Transition { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static InvalidStateTransitionException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidStateTransitionException>(data);
+        }
     
     }
     
@@ -1699,18 +2032,45 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("resourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ResourceId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FailedToLockException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FailedToLockException>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PictureparkOperationCanceledException : PictureparkBusinessException
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PictureparkOperationCanceledException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkOperationCanceledException>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PictureparkApplicationException : PictureparkBusinessException
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PictureparkApplicationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkApplicationException>(data);
+        }
     
     }
     
@@ -1720,6 +2080,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("customerDefaultLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomerDefaultLanguage { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MissingCustomerDefaultLanguageException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MissingCustomerDefaultLanguageException>(data);
+        }
     
     }
     
@@ -1732,6 +2101,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("argumentValue", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ArgumentValue { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static InvalidArgumentException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidArgumentException>(data);
+        }
     
     }
     
@@ -1741,6 +2119,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("exceptionDetail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExceptionDetail { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UnknownException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnknownException>(data);
+        }
     
     }
     
@@ -1750,6 +2137,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("ownerTokenUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OwnerTokenUserId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OwnerTokenInUseException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OwnerTokenInUseException>(data);
+        }
     
     }
     
@@ -1762,6 +2158,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("currentCustomerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CurrentCustomerId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CustomerViolationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerViolationException>(data);
+        }
     
     }
     
@@ -1771,6 +2176,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("customerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomerAlias { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CustomerAliasNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerAliasNotFoundException>(data);
+        }
     
     }
     
@@ -1783,6 +2197,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("alias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Alias { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CustomerAliasInUseException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerAliasInUseException>(data);
+        }
     
     }
     
@@ -1792,6 +2215,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomerId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CustomerNotDeactivatedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerNotDeactivatedException>(data);
+        }
     
     }
     
@@ -1804,6 +2236,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("deactivationMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DeactivationMessage { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CustomerDeactivationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerDeactivationException>(data);
+        }
     
     }
     
@@ -1813,6 +2254,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("hostName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string HostName { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CustomerHostNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerHostNotFoundException>(data);
+        }
     
     }
     
@@ -1822,6 +2272,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomerId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CustomerNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerNotFoundException>(data);
+        }
     
     }
     
@@ -1831,6 +2290,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomerId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CustomerNotActiveException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerNotActiveException>(data);
+        }
     
     }
     
@@ -1840,6 +2308,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("configurationIndex", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ConfigurationIndex { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ConfigurationIndexNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConfigurationIndexNotFoundException>(data);
+        }
     
     }
     
@@ -1849,6 +2326,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchIndexDocId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchIndexDocId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DuplicateSearchIndexDocException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicateSearchIndexDocException>(data);
+        }
     
     }
     
@@ -1858,6 +2344,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchIndexDocId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchIndexDocId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SearchIndexDocNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchIndexDocNotFoundException>(data);
+        }
     
     }
     
@@ -1867,6 +2362,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("indexId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string IndexId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static IndexDocumentNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexDocumentNotFoundException>(data);
+        }
     
     }
     
@@ -1876,6 +2380,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("indexAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string IndexAlias { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DuplicateAliasException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicateAliasException>(data);
+        }
     
     }
     
@@ -1885,12 +2398,30 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchIndexId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchIndexId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SearchIndexNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchIndexNotFoundException>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DefaultSearchIndexDeleteException : PictureparkBusinessException
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DefaultSearchIndexDeleteException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DefaultSearchIndexDeleteException>(data);
+        }
     
     }
     
@@ -1900,6 +2431,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchIndex", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchIndex { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SearchIndexInUseException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchIndexInUseException>(data);
+        }
     
     }
     
@@ -1912,6 +2452,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("debugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DebugInformation { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static IndexException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexException>(data);
+        }
     
     }
     
@@ -1924,6 +2473,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("debugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DebugInformation { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static IndexMappingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexMappingException>(data);
+        }
     
     }
     
@@ -1933,12 +2491,30 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("duplicatedSearchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DuplicatedSearchBehaviours { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DuplicatedSearchBehaviourException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicatedSearchBehaviourException>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SearchStringLeadingWildcardException : PictureparkValidationException
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SearchStringLeadingWildcardException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchStringLeadingWildcardException>(data);
+        }
     
     }
     
@@ -1948,6 +2524,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("aggregatorName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AggregatorName { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DuplicateAggregatorException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicateAggregatorException>(data);
+        }
     
     }
     
@@ -1960,6 +2545,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("expectedFormat", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExpectedFormat { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static InvalidDateTimeFormatException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidDateTimeFormatException>(data);
+        }
     
     }
     
@@ -1969,6 +2563,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldName { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static InvalidSortFieldException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidSortFieldException>(data);
+        }
     
     }
     
@@ -1984,6 +2587,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("documentVersion", Required = Newtonsoft.Json.Required.Always)]
         public long DocumentVersion { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DocumentVersionConflictException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentVersionConflictException>(data);
+        }
     
     }
     
@@ -2005,6 +2617,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("redisDatabaseCount", Required = Newtonsoft.Json.Required.Always)]
         public int RedisDatabaseCount { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static RedisDatabaseExceededException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RedisDatabaseExceededException>(data);
+        }
     
     }
     
@@ -2017,6 +2638,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("documentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DocumentType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DuplicateDocumentException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicateDocumentException>(data);
+        }
     
     }
     
@@ -2029,6 +2659,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("message", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Message { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ObjectStoreResponseException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectStoreResponseException>(data);
+        }
     
     }
     
@@ -2041,6 +2680,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("errorMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ErrorMessage { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ObjectStoreException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectStoreException>(data);
+        }
     
     }
     
@@ -2053,6 +2701,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("serverError", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public StorageServerError ServerError { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static QueryException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<QueryException>(data);
+        }
     
     }
     
@@ -2065,6 +2722,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         public int Status { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static StorageServerError FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StorageServerError>(data);
+        }
     
     }
     
@@ -2092,6 +2758,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("causedBy", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public StorageCausedBy CausedBy { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static StorageError FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StorageError>(data);
+        }
     
     }
     
@@ -2113,6 +2788,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Type { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static StorageRootCause FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StorageRootCause>(data);
+        }
     
     }
     
@@ -2128,6 +2812,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("innerCausedBy", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public StorageCausedBy InnerCausedBy { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static StorageCausedBy FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StorageCausedBy>(data);
+        }
     
     }
     
@@ -2142,6 +2835,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public UserRight MissingUserRight { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionOwnershipTransferException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionOwnershipTransferException>(data);
+        }
     
     }
     
@@ -2204,6 +2906,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("permissionSetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PermissionSetId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionSetNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetNotFoundException>(data);
+        }
     
     }
     
@@ -2213,6 +2924,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("permissionSetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PermissionSetId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DuplicateRightException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicateRightException>(data);
+        }
     
     }
     
@@ -2225,6 +2945,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("operation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Operation { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionValidationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionValidationException>(data);
+        }
     
     }
     
@@ -2234,6 +2963,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("commandType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CommandType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UnsupportedListItemChangeCommandException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnsupportedListItemChangeCommandException>(data);
+        }
     
     }
     
@@ -2243,6 +2981,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("listItemId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ListItemId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemLayerException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemLayerException>(data);
+        }
     
     }
     
@@ -2252,6 +2999,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("listItemId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ListItemId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemNotFoundException>(data);
+        }
     
     }
     
@@ -2261,6 +3017,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("listItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ListItemIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemCyclicDependencyException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemCyclicDependencyException>(data);
+        }
     
     }
     
@@ -2273,6 +3038,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("references", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string References { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DeleteListItemsWithReferencesException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DeleteListItemsWithReferencesException>(data);
+        }
     
     }
     
@@ -2285,6 +3059,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("totalItemsCount", Required = Newtonsoft.Json.Required.Always)]
         public int TotalItemsCount { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemUpdateManyException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemUpdateManyException>(data);
+        }
     
     }
     
@@ -2294,6 +3077,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("transferInfoId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TransferInfoId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TransferInfoNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TransferInfoNotFoundException>(data);
+        }
     
     }
     
@@ -2303,6 +3095,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fileTransferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FileTransferId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FileTransferNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileTransferNotFoundException>(data);
+        }
     
     }
     
@@ -2314,6 +3115,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TransferType TransferType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static InvalidTransferTypeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidTransferTypeException>(data);
+        }
     
     }
     
@@ -2346,6 +3156,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TransferId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TransferNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TransferNotFoundException>(data);
+        }
     
     }
     
@@ -2358,6 +3177,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("expected", Required = Newtonsoft.Json.Required.Always)]
         public long Expected { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static WrongChunkSizeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<WrongChunkSizeException>(data);
+        }
     
     }
     
@@ -2367,6 +3195,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("itemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ItemIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MissingDependenciesException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MissingDependenciesException>(data);
+        }
     
     }
     
@@ -2379,6 +3216,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("itemType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ItemType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static RelationSelfReferencingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RelationSelfReferencingException>(data);
+        }
     
     }
     
@@ -2400,6 +3246,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldExpectedType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldExpectedType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static InvalidChangeCommandFieldTypeInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidChangeCommandFieldTypeInvalidException>(data);
+        }
     
     }
     
@@ -2415,6 +3270,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static InvalidChangeCommandFieldNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidChangeCommandFieldNotFoundException>(data);
+        }
     
     }
     
@@ -2427,6 +3291,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static InvalidChangeCommandSchemaChangeInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidChangeCommandSchemaChangeInvalidException>(data);
+        }
     
     }
     
@@ -2436,6 +3309,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("metadataErrors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<MetadataError> MetadataErrors { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static InvalidMetadataException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidMetadataException>(data);
+        }
     
     }
     
@@ -2460,6 +3342,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataError FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataError>(data);
+        }
     
     }
     
@@ -2469,6 +3360,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("relationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RelationId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static RelationNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RelationNotFoundException>(data);
+        }
     
     }
     
@@ -2478,6 +3378,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("relationType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RelationType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static RelationTypeNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RelationTypeNotFoundException>(data);
+        }
     
     }
     
@@ -2493,6 +3402,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("expectedTargetDocType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExpectedTargetDocType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static RelationTypeTargetDocTypeMismatchException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RelationTypeTargetDocTypeMismatchException>(data);
+        }
     
     }
     
@@ -2502,6 +3420,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("aggregationFilterNames", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AggregationFilterNames { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AggregationFilterInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationFilterInvalidException>(data);
+        }
     
     }
     
@@ -2514,6 +3441,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("aggregationPrefix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AggregationPrefix { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AggregationNameInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationNameInvalidException>(data);
+        }
     
     }
     
@@ -2532,6 +3468,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldOverwriteTypeMismatchException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldOverwriteTypeMismatchException>(data);
+        }
     
     }
     
@@ -2544,6 +3489,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldOverwriteIdException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldOverwriteIdException>(data);
+        }
     
     }
     
@@ -2556,6 +3510,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldIdDuplicatedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldIdDuplicatedException>(data);
+        }
     
     }
     
@@ -2574,6 +3537,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("relatedOuterFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RelatedOuterFieldId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldSchemaIndexInfoSimpleSearchNestingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldSchemaIndexInfoSimpleSearchNestingException>(data);
+        }
     
     }
     
@@ -2592,6 +3564,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("relatedOuterFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RelatedOuterFieldId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldSchemaIndexInfoNestingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldSchemaIndexInfoNestingException>(data);
+        }
     
     }
     
@@ -2604,6 +3585,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldIdUppercaseException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldIdUppercaseException>(data);
+        }
     
     }
     
@@ -2613,6 +3603,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaIdLowercaseException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaIdLowercaseException>(data);
+        }
     
     }
     
@@ -2622,6 +3621,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaInfoNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaInfoNotFoundException>(data);
+        }
     
     }
     
@@ -2637,6 +3645,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("indexedFieldThreshold", Required = Newtonsoft.Json.Required.Always)]
         public int IndexedFieldThreshold { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static IndexedFieldThresholdExceededException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexedFieldThresholdExceededException>(data);
+        }
     
     }
     
@@ -2652,6 +3669,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sortableFieldThreshold", Required = Newtonsoft.Json.Required.Always)]
         public int SortableFieldThreshold { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SortableFieldThresholdExceededException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SortableFieldThresholdExceededException>(data);
+        }
     
     }
     
@@ -2661,6 +3687,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DuplicateSchemaInfoException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicateSchemaInfoException>(data);
+        }
     
     }
     
@@ -2679,6 +3714,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("maxValue", Required = Newtonsoft.Json.Required.Always)]
         public decimal MaxValue { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldNumberRangeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldNumberRangeException>(data);
+        }
     
     }
     
@@ -2691,6 +3735,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentSchemaIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaInUseContentSchemaException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaInUseContentSchemaException>(data);
+        }
     
     }
     
@@ -2703,6 +3756,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("listItemCount", Required = Newtonsoft.Json.Required.Always)]
         public long ListItemCount { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaInUseListItemException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaInUseListItemException>(data);
+        }
     
     }
     
@@ -2715,6 +3777,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentCount", Required = Newtonsoft.Json.Required.Always)]
         public long ContentCount { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaInUseContentException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaInUseContentException>(data);
+        }
     
     }
     
@@ -2727,6 +3798,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldNamespaces", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> FieldNamespaces { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaInUseFieldException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaInUseFieldException>(data);
+        }
     
     }
     
@@ -2739,6 +3819,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaNotFoundInSearchIndexException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaNotFoundInSearchIndexException>(data);
+        }
     
     }
     
@@ -2751,6 +3840,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("displayPatternId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DisplayPatternId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DuplicateMetadataDisplayPatternException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicateMetadataDisplayPatternException>(data);
+        }
     
     }
     
@@ -2760,12 +3858,30 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DuplicateSchemaException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicateSchemaException>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SchemaImportEmptyException : PictureparkValidationException
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaImportEmptyException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaImportEmptyException>(data);
+        }
     
     }
     
@@ -2778,6 +3894,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("expectedVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExpectedVersion { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaImportVersionMismatchException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaImportVersionMismatchException>(data);
+        }
     
     }
     
@@ -2787,6 +3912,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaCyclicDependencyException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaCyclicDependencyException>(data);
+        }
     
     }
     
@@ -2796,6 +3930,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaInheritanceFieldIndexDeviationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaInheritanceFieldIndexDeviationException>(data);
+        }
     
     }
     
@@ -2805,6 +3948,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaInheritanceTypeDeviationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaInheritanceTypeDeviationException>(data);
+        }
     
     }
     
@@ -2817,6 +3969,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("exceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<PictureparkBusinessException> Exceptions { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaValidationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaValidationException>(data);
+        }
     
     }
     
@@ -2829,6 +3990,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaSortFieldException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaSortFieldException>(data);
+        }
     
     }
     
@@ -2841,6 +4011,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldIdException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldIdException>(data);
+        }
     
     }
     
@@ -2859,6 +4038,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("newType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string NewType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldTypeChangeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldTypeChangeException>(data);
+        }
     
     }
     
@@ -2871,6 +4059,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldIndexException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldIndexException>(data);
+        }
     
     }
     
@@ -2883,6 +4080,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldNotSortableException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldNotSortableException>(data);
+        }
     
     }
     
@@ -2892,6 +4098,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaNoContentException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaNoContentException>(data);
+        }
     
     }
     
@@ -2907,6 +4122,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("newSchemaParentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string NewSchemaParentId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaParentChangeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaParentChangeException>(data);
+        }
     
     }
     
@@ -2919,6 +4143,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("expectedSchemaTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SchemaType> ExpectedSchemaTypes { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaMissingTypeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaMissingTypeException>(data);
+        }
     
     }
     
@@ -2945,6 +4178,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaPermissionException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaPermissionException>(data);
+        }
     
     }
     
@@ -2954,6 +4196,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaNoLayerException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaNoLayerException>(data);
+        }
     
     }
     
@@ -2963,6 +4214,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaIdException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaIdException>(data);
+        }
     
     }
     
@@ -2975,6 +4235,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("exceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<PictureparkBusinessException> Exceptions { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaInUseException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaInUseException>(data);
+        }
     
     }
     
@@ -2984,6 +4253,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaNotFoundException>(data);
+        }
     
     }
     
@@ -2993,6 +4271,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SystemSchemaInvalidModificationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SystemSchemaInvalidModificationException>(data);
+        }
     
     }
     
@@ -3002,6 +4289,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentsNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentsNotFoundException>(data);
+        }
     
     }
     
@@ -3014,6 +4310,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("relations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Relations { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DeleteContentsWithRelationsException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DeleteContentsWithRelationsException>(data);
+        }
     
     }
     
@@ -3026,6 +4331,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("totalItemsCount", Required = Newtonsoft.Json.Required.Always)]
         public int TotalItemsCount { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentMetadataUpdateManyException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentMetadataUpdateManyException>(data);
+        }
     
     }
     
@@ -3038,6 +4352,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("layerIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LayerIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentLayerInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentLayerInvalidException>(data);
+        }
     
     }
     
@@ -3047,6 +4370,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BusinessProcessId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessWaitTimeoutException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitTimeoutException>(data);
+        }
     
     }
     
@@ -3059,6 +4391,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("engineError", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EngineError { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessEngineRequestException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessEngineRequestException>(data);
+        }
     
     }
     
@@ -3068,6 +4409,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BusinessProcessId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessNotFoundException>(data);
+        }
     
     }
     
@@ -3077,6 +4427,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("processDefinitionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ProcessDefinitionId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessDefinitionNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDefinitionNotFoundException>(data);
+        }
     
     }
     
@@ -3086,6 +4445,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("processDefinitionIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ProcessDefinitionIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessDefinitionCreateException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDefinitionCreateException>(data);
+        }
     
     }
     
@@ -3101,6 +4469,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("existingFieldIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExistingFieldIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldImportMismatchException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldImportMismatchException>(data);
+        }
     
     }
     
@@ -3119,6 +4496,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("existingRelatedSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExistingRelatedSchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldImportRelatedSchemaMismatchException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldImportRelatedSchemaMismatchException>(data);
+        }
     
     }
     
@@ -3137,18 +4523,45 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("existingFieldType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExistingFieldType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldImportTypeMismatchException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldImportTypeMismatchException>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SnapshotTimeoutException : PictureparkBusinessException
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SnapshotTimeoutException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotTimeoutException>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SnapshotFailedException : PictureparkBusinessException
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SnapshotFailedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotFailedException>(data);
+        }
     
     }
     
@@ -3207,6 +4620,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("trashed", Required = Newtonsoft.Json.Required.Always)]
         public bool Trashed { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentDetail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetail>(data);
+        }
     
     }
     
@@ -3227,6 +4649,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("modifiedByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ModifiedByUser { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserAudit FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAudit>(data);
+        }
     
     }
     
@@ -3301,6 +4732,15 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DisplayValueDictionary : System.Collections.Generic.Dictionary<string, string>
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DisplayValueDictionary FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DisplayValueDictionary>(data);
+        }
     
     }
     
@@ -3308,6 +4748,15 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DataDictionary : System.Collections.Generic.Dictionary<string, object>
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DataDictionary FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DataDictionary>(data);
+        }
     
     }
     
@@ -3328,6 +4777,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("detail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public OutputDataBase Detail { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static Output FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Output>(data);
+        }
     
     }
     
@@ -3355,6 +4813,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sha1Hash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Sha1Hash { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputDataBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDataBase>(data);
+        }
     
     }
     
@@ -3367,6 +4834,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.Always)]
         public int Height { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputDataImage FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDataImage>(data);
+        }
     
     }
     
@@ -3376,6 +4852,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("durationInSeconds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? DurationInSeconds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputDataAudio FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDataAudio>(data);
+        }
     
     }
     
@@ -3394,6 +4879,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sprites", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Sprite> Sprites { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputDataVideo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDataVideo>(data);
+        }
     
     }
     
@@ -3420,6 +4914,15 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.TimeSpan End { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static Sprite FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Sprite>(data);
+        }
     
     }
     
@@ -3429,18 +4932,45 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("pageCount", Required = Newtonsoft.Json.Required.Always)]
         public int PageCount { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputDataDocument FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDataDocument>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class OutputDataDefault : OutputDataBase
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputDataDefault FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDataDefault>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class OutputDetail : Output
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputDetail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDetail>(data);
+        }
     
     }
     
@@ -3517,6 +5047,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSearchRequest>(data);
+        }
     
     }
     
@@ -3544,6 +5083,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public SortDirection Direction { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SortInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SortInfo>(data);
+        }
     
     }
     
@@ -3578,6 +5126,15 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FilterBase 
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FilterBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FilterBase>(data);
+        }
     
     }
     
@@ -3589,6 +5146,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("filters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FilterBase> Filters { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AndFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AndFilter>(data);
+        }
     
     }
     
@@ -3600,6 +5166,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("filters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FilterBase> Filters { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OrFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OrFilter>(data);
+        }
     
     }
     
@@ -3611,6 +5186,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static NotFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotFilter>(data);
+        }
     
     }
     
@@ -3626,6 +5210,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("range", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DateRange Range { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DateRangeFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DateRangeFilter>(data);
+        }
     
     }
     
@@ -3645,6 +5238,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string To { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DateRange FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DateRange>(data);
+        }
     
     }
     
@@ -3652,6 +5254,15 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TranslatedStringDictionary : System.Collections.Generic.Dictionary<string, string>
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TranslatedStringDictionary FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TranslatedStringDictionary>(data);
+        }
     
     }
     
@@ -3663,6 +5274,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ExistsFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ExistsFilter>(data);
+        }
     
     }
     
@@ -3682,6 +5302,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("bottomRight", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public GeoLocation BottomRight { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static GeoBoundingBoxFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoBoundingBoxFilter>(data);
+        }
     
     }
     
@@ -3694,6 +5323,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("lon", Required = Newtonsoft.Json.Required.Always)]
         public double Lon { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static GeoLocation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoLocation>(data);
+        }
     
     }
     
@@ -3713,6 +5351,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("distance", Required = Newtonsoft.Json.Required.Always)]
         public double Distance { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static GeoDistanceFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoDistanceFilter>(data);
+        }
     
     }
     
@@ -3728,6 +5375,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static NestedFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NestedFilter>(data);
+        }
     
     }
     
@@ -3743,6 +5399,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("range", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public NumericRange Range { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static NumericRangeFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRangeFilter>(data);
+        }
     
     }
     
@@ -3761,6 +5426,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? To { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static NumericRange FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRange>(data);
+        }
     
     }
     
@@ -3776,6 +5450,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("prefix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Prefix { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PrefixFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PrefixFilter>(data);
+        }
     
     }
     
@@ -3791,6 +5474,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("term", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Term { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TermFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermFilter>(data);
+        }
     
     }
     
@@ -3806,6 +5498,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("terms", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> Terms { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TermsFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermsFilter>(data);
+        }
     
     }
     
@@ -3824,6 +5525,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("temporaryAggregatorRequestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TemporaryAggregatorRequestId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AggregationFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationFilter>(data);
+        }
     
     }
     
@@ -3839,6 +5549,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ChildFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ChildFilter>(data);
+        }
     
     }
     
@@ -3854,6 +5573,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ParentFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ParentFilter>(data);
+        }
     
     }
     
@@ -3940,6 +5668,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public QueryDebugInformation QueryDebugInformation { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfContent FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfContent>(data);
+        }
     
     }
     
@@ -3952,6 +5689,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SearchBehaviourBaseResultOfContent FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviourBaseResultOfContent>(data);
+        }
     
     }
     
@@ -3961,6 +5707,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSearchResult>(data);
+        }
     
     }
     
@@ -3997,6 +5752,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("brokenRelationTargetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> BrokenRelationTargetIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static Content FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Content>(data);
+        }
     
     }
     
@@ -4015,6 +5779,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Response { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static QueryDebugInformation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<QueryDebugInformation>(data);
+        }
     
     }
     
@@ -4071,6 +5844,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ContentSearchType SearchType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentAggregationOnChannelRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentAggregationOnChannelRequest>(data);
+        }
     
     }
     
@@ -4081,6 +5863,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentAggregationRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentAggregationRequest>(data);
+        }
     
     }
     
@@ -4108,6 +5899,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AggregatorBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregatorBase>(data);
+        }
     
     }
     
@@ -4123,6 +5923,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("ranges", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<DateRangeForAggregator> Ranges { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DateRangeAggregator FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DateRangeAggregator>(data);
+        }
     
     }
     
@@ -4142,6 +5951,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string To { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DateRangeForAggregator FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DateRangeForAggregator>(data);
+        }
     
     }
     
@@ -4161,6 +5979,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("ranges", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<GeoDistance> Ranges { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static GeoDistanceAggregator FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoDistanceAggregator>(data);
+        }
     
     }
     
@@ -4175,6 +6002,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("distance", Required = Newtonsoft.Json.Required.Always)]
         public double Distance { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static GeoDistance FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoDistance>(data);
+        }
     
     }
     
@@ -4186,6 +6022,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Path { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static NestedAggregator FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NestedAggregator>(data);
+        }
     
     }
     
@@ -4201,6 +6046,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("ranges", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<NumericRangeForAggregator> Ranges { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static NumericRangeAggregator FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRangeAggregator>(data);
+        }
     
     }
     
@@ -4219,6 +6073,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? To { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static NumericRangeForAggregator FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRangeForAggregator>(data);
+        }
     
     }
     
@@ -4250,6 +6113,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchFields { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TermsAggregator FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermsAggregator>(data);
+        }
     
     }
     
@@ -4263,6 +6135,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TermsRelationAggregatorDocumentType DocumentType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TermsRelationAggregator FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermsRelationAggregator>(data);
+        }
     
     }
     
@@ -4297,6 +6178,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("enumType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EnumType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TermsEnumAggregator FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermsEnumAggregator>(data);
+        }
     
     }
     
@@ -4317,6 +6207,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ObjectAggregationResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectAggregationResult>(data);
+        }
     
     }
     
@@ -4332,6 +6231,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("aggregationResultItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregationResultItem> AggregationResultItems { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AggregationResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResult>(data);
+        }
     
     }
     
@@ -4353,6 +6261,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregationResult> AggregationResults { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AggregationResultItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResultItem>(data);
+        }
     
     }
     
@@ -4362,6 +6279,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contents", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ContentDownloadRequestItem> Contents { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentDownloadLinkCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDownloadLinkCreateRequest>(data);
+        }
     
     }
     
@@ -4374,6 +6300,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OutputFormatId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentDownloadRequestItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDownloadRequestItem>(data);
+        }
     
     }
     
@@ -4386,6 +6321,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("downloadUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DownloadUrl { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DownloadLink FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DownloadLink>(data);
+        }
     
     }
     
@@ -4428,6 +6372,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentCreateRequest>(data);
+        }
     
     }
     
@@ -4443,6 +6396,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("requests", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ContentCreateRequest> Requests { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentCreateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentCreateManyRequest>(data);
+        }
     
     }
     
@@ -4497,6 +6459,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("processDefinitionName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ProcessDefinitionName { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcess FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcess>(data);
+        }
     
     }
     
@@ -4547,6 +6518,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ErrorResponse Error { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessState FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessState>(data);
+        }
     
     }
     
@@ -4562,6 +6542,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("traceJobId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TraceJobId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ErrorResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ErrorResponse>(data);
+        }
     
     }
     
@@ -4571,6 +6560,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BulkResponse Response { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessBulkResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessBulkResponse>(data);
+        }
     
     }
     
@@ -4580,6 +6578,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("rows", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BulkResponseRow> Rows { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BulkResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BulkResponse>(data);
+        }
     
     }
     
@@ -4601,6 +6608,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         public int Status { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BulkResponseRow FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BulkResponseRow>(data);
+        }
     
     }
     
@@ -4619,6 +6635,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("forceReferenceRemoval", Required = Newtonsoft.Json.Required.Always)]
         public bool ForceReferenceRemoval { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentDeactivateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDeactivateRequest>(data);
+        }
     
     }
     
@@ -4637,6 +6662,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowMissingDependencies { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentReactivateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentReactivateRequest>(data);
+        }
     
     }
     
@@ -4649,6 +6683,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fileTransferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FileTransferId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentFileUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFileUpdateRequest>(data);
+        }
     
     }
     
@@ -4683,6 +6726,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public UpdateOption SchemaFieldsUpdateOptions { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentMetadataUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentMetadataUpdateRequest>(data);
+        }
     
     }
     
@@ -4708,6 +6760,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentPermissionsUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionsUpdateRequest>(data);
+        }
     
     }
     
@@ -4723,6 +6784,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("requests", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ContentMetadataUpdateRequest> Requests { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentMetadataUpdateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentMetadataUpdateManyRequest>(data);
+        }
     
     }
     
@@ -4737,6 +6807,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TransferUserId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentOwnershipTransferRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentOwnershipTransferRequest>(data);
+        }
     
     }
     
@@ -4751,6 +6830,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TransferUserId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentsOwnershipTransferRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentsOwnershipTransferRequest>(data);
+        }
     
     }
     
@@ -4772,6 +6860,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
         public bool NotifyProgress { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesChangeRequestBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesChangeRequestBase>(data);
+        }
     
     }
     
@@ -4782,6 +6879,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentFieldsUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFieldsUpdateRequest>(data);
+        }
     
     }
     
@@ -4801,6 +6907,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesChangeCommandBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesChangeCommandBase>(data);
+        }
     
     }
     
@@ -4812,6 +6927,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Value { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesSchemaUpdateCommand FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesSchemaUpdateCommand>(data);
+        }
     
     }
     
@@ -4823,6 +6947,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Value { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesSchemaUpsertCommand FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesSchemaUpsertCommand>(data);
+        }
     
     }
     
@@ -4830,6 +6963,15 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MetadataValuesSchemaRemoveCommand : MetadataValuesChangeCommandBase
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesSchemaRemoveCommand FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesSchemaRemoveCommand>(data);
+        }
     
     }
     
@@ -4841,6 +6983,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Value { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesSchemaReplaceCommand FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesSchemaReplaceCommand>(data);
+        }
     
     }
     
@@ -4852,6 +7003,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldPath { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesFieldRemoveCommand FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesFieldRemoveCommand>(data);
+        }
     
     }
     
@@ -4871,6 +7031,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("referenceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReferenceId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesSchemaItemAddCommand FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesSchemaItemAddCommand>(data);
+        }
     
     }
     
@@ -4890,6 +7059,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("referenceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReferenceId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataValuesSchemaItemRemoveCommand FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataValuesSchemaItemRemoveCommand>(data);
+        }
     
     }
     
@@ -4899,6 +7077,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentFilterRequest", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ContentFilterRequest ContentFilterRequest { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentFieldsFilterUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFieldsFilterUpdateRequest>(data);
+        }
     
     }
     
@@ -4945,6 +7132,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("rightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<ContentRight> RightsFilter { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentFilterRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFilterRequest>(data);
+        }
     
     }
     
@@ -4971,6 +7167,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessSearchRequest>(data);
+        }
     
     }
     
@@ -4989,6 +7194,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public QueryDebugInformation QueryDebugInformation { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfBusinessProcess FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfBusinessProcess>(data);
+        }
     
     }
     
@@ -5001,6 +7215,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SearchBehaviourBaseResultOfBusinessProcess FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviourBaseResultOfBusinessProcess>(data);
+        }
     
     }
     
@@ -5010,6 +7233,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessSearchResult>(data);
+        }
     
     }
     
@@ -5036,6 +7268,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("businessProcess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BusinessProcess BusinessProcess { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessWaitResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitResult>(data);
+        }
     
     }
     
@@ -5045,6 +7286,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BusinessProcessDetailsDataBase Details { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessDetails FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetails>(data);
+        }
     
     }
     
@@ -5054,6 +7304,15 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class BusinessProcessDetailsDataBase 
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessDetailsDataBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataBase>(data);
+        }
     
     }
     
@@ -5063,6 +7322,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BulkResponse Response { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessDetailsDataBulkResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataBulkResponse>(data);
+        }
     
     }
     
@@ -5078,6 +7346,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("listItemImportResult", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ListItemImportResult ListItemImportResult { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessDetailsDataSchemaImport FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataSchemaImport>(data);
+        }
     
     }
     
@@ -5105,6 +7382,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("importedSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ImportedSchemaIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaImportResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaImportResult>(data);
+        }
     
     }
     
@@ -5132,6 +7418,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("importedListItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ImportedListItemIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemImportResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemImportResult>(data);
+        }
     
     }
     
@@ -5176,6 +7471,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SortInfo Sort { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DocumentHistorySearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentHistorySearchRequest>(data);
+        }
     
     }
     
@@ -5194,6 +7498,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DocumentHistorySearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentHistorySearchResult>(data);
+        }
     
     }
     
@@ -5237,6 +7550,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public DocumentChangeAction Action { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DocumentHistory FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentHistory>(data);
+        }
     
     }
     
@@ -5250,6 +7572,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("modifiedByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ModifiedByUser { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserAuditHistory FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAuditHistory>(data);
+        }
     
     }
     
@@ -5291,6 +7622,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("newValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object NewValues { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DocumentHistoryDifference FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentHistoryDifference>(data);
+        }
     
     }
     
@@ -5314,6 +7654,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemDetail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemDetail>(data);
+        }
     
     }
     
@@ -5388,6 +7737,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleFilter LifeCycleFilter { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemSearchRequest>(data);
+        }
     
     }
     
@@ -5406,6 +7764,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public QueryDebugInformation QueryDebugInformation { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfListItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfListItem>(data);
+        }
     
     }
     
@@ -5413,6 +7780,15 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ListItemSearchResult : BaseResultOfListItem
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemSearchResult>(data);
+        }
     
     }
     
@@ -5436,6 +7812,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItem>(data);
+        }
     
     }
     
@@ -5490,6 +7875,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleFilter LifeCycleFilter { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemAggregationRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemAggregationRequest>(data);
+        }
     
     }
     
@@ -5509,6 +7903,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("listItemId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ListItemId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemCreateRequest>(data);
+        }
     
     }
     
@@ -5524,6 +7927,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("requests", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ListItemCreateRequest> Requests { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemCreateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemCreateManyRequest>(data);
+        }
     
     }
     
@@ -5539,6 +7951,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemUpdateRequest>(data);
+        }
     
     }
     
@@ -5554,6 +7975,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("requests", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ListItemUpdateRequest> Requests { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemUpdateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemUpdateManyRequest>(data);
+        }
     
     }
     
@@ -5566,6 +7996,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("forceReferenceRemoval", Required = Newtonsoft.Json.Required.Always)]
         public bool ForceReferenceRemoval { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemDeactivateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemDeactivateRequest>(data);
+        }
     
     }
     
@@ -5578,6 +8017,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowMissingDependencies { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemReactivateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemReactivateRequest>(data);
+        }
     
     }
     
@@ -5600,6 +8048,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
         public bool NotifyProgress { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemFieldsUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemFieldsUpdateRequest>(data);
+        }
     
     }
     
@@ -5623,6 +8080,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
         public bool NotifyProgress { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemFieldsFilterUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemFieldsFilterUpdateRequest>(data);
+        }
     
     }
     
@@ -5653,6 +8119,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemFilterRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemFilterRequest>(data);
+        }
     
     }
     
@@ -5668,12 +8143,30 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isReferencedByRestrictedItem", Required = Newtonsoft.Json.Required.Always)]
         public bool IsReferencedByRestrictedItem { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ReferencesBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ReferencesBase>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ListItemReferences : ReferencesBase
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemReferences FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemReferences>(data);
+        }
     
     }
     
@@ -5689,6 +8182,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sourceDocType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SourceDocType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataReference FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataReference>(data);
+        }
     
     }
     
@@ -5717,6 +8219,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static LiveStreamSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LiveStreamSearchRequest>(data);
+        }
     
     }
     
@@ -5735,6 +8246,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public QueryDebugInformation QueryDebugInformation { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfObject FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfObject>(data);
+        }
     
     }
     
@@ -5747,6 +8267,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SearchBehaviourBaseResultOfObject FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviourBaseResultOfObject>(data);
+        }
     
     }
     
@@ -5756,6 +8285,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ObjectSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectSearchResult>(data);
+        }
     
     }
     
@@ -5837,6 +8375,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchFieldCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SearchFieldCount SearchFieldCount { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaDetail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaDetail>(data);
+        }
     
     }
     
@@ -5859,6 +8406,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("templates", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Templates { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DisplayPattern FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DisplayPattern>(data);
+        }
     
     }
     
@@ -5934,6 +8490,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sortable", Required = Newtonsoft.Json.Required.Always)]
         public bool Sortable { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldBase>(data);
+        }
     
     }
     
@@ -5944,6 +8509,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldBoolean FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldBoolean>(data);
+        }
     
     }
     
@@ -5958,6 +8532,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldDate FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDate>(data);
+        }
     
     }
     
@@ -5972,6 +8555,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldDateTime FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDateTime>(data);
+        }
     
     }
     
@@ -5988,6 +8580,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("minimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinimumItems { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldDateTimeArray FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDateTimeArray>(data);
+        }
     
     }
     
@@ -6009,6 +8610,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldDecimal FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDecimal>(data);
+        }
     
     }
     
@@ -6020,6 +8630,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldDictionary FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDictionary>(data);
+        }
     
     }
     
@@ -6036,6 +8655,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("minimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinimumItems { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldDictionaryArray FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldDictionaryArray>(data);
+        }
     
     }
     
@@ -6046,6 +8674,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldGeoPoint FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldGeoPoint>(data);
+        }
     
     }
     
@@ -6067,6 +8704,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldLong FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldLong>(data);
+        }
     
     }
     
@@ -6083,6 +8729,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("minimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinimumItems { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldLongArray FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldLongArray>(data);
+        }
     
     }
     
@@ -6097,6 +8752,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaIndexingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaIndexingInfo SchemaIndexingInfo { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldSingleFieldset FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldSingleFieldset>(data);
+        }
     
     }
     
@@ -6107,6 +8771,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldIndexingInfo> Fields { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaIndexingInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaIndexingInfo>(data);
+        }
     
     }
     
@@ -6137,6 +8810,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("relatedSchemaIndexing", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaIndexingInfo RelatedSchemaIndexing { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldIndexingInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldIndexingInfo>(data);
+        }
     
     }
     
@@ -6163,6 +8845,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("minimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinimumItems { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldMultiFieldset FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldMultiFieldset>(data);
+        }
     
     }
     
@@ -6185,6 +8876,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("listItemCreateTemplate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ListItemCreateTemplate { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldSingleTagbox FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldSingleTagbox>(data);
+        }
     
     }
     
@@ -6219,6 +8919,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("listItemCreateTemplate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ListItemCreateTemplate { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldMultiTagbox FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldMultiTagbox>(data);
+        }
     
     }
     
@@ -6265,6 +8974,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldString FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldString>(data);
+        }
     
     }
     
@@ -6278,6 +8996,15 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class AnalyzerBase 
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AnalyzerBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AnalyzerBase>(data);
+        }
     
     }
     
@@ -6289,6 +9016,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldSuffix { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static EdgeNGramAnalyzer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EdgeNGramAnalyzer>(data);
+        }
     
     }
     
@@ -6300,6 +9036,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldSuffix { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static LanguageAnalyzer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LanguageAnalyzer>(data);
+        }
     
     }
     
@@ -6311,6 +9056,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldSuffix { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static NGramAnalyzer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NGramAnalyzer>(data);
+        }
     
     }
     
@@ -6322,6 +9076,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldSuffix { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PathHierarchyAnalyzer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PathHierarchyAnalyzer>(data);
+        }
     
     }
     
@@ -6333,6 +9096,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldSuffix { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SimpleAnalyzer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SimpleAnalyzer>(data);
+        }
     
     }
     
@@ -6349,6 +9121,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("minimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinimumItems { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldStringArray FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldStringArray>(data);
+        }
     
     }
     
@@ -6397,6 +9178,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldTranslatedString FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldTranslatedString>(data);
+        }
     
     }
     
@@ -6415,6 +9205,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("relationTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<RelationType> RelationTypes { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldSingleRelation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldSingleRelation>(data);
+        }
     
     }
     
@@ -6437,6 +9236,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static RelationType FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RelationType>(data);
+        }
     
     }
     
@@ -6467,6 +9275,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("minimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinimumItems { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldMultiRelation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldMultiRelation>(data);
+        }
     
     }
     
@@ -6489,6 +9306,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("overwriteRequired", Required = Newtonsoft.Json.Required.Always)]
         public bool OverwriteRequired { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldOverwriteBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldOverwriteBase>(data);
+        }
     
     }
     
@@ -6512,6 +9338,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("overwriteListItemCreateTemplate", Required = Newtonsoft.Json.Required.Always)]
         public bool OverwriteListItemCreateTemplate { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldOverwriteSingleTagbox FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldOverwriteSingleTagbox>(data);
+        }
     
     }
     
@@ -6551,6 +9386,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("overwriteMinimumItems", Required = Newtonsoft.Json.Required.Always)]
         public bool OverwriteMinimumItems { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FieldOverwriteMultiTagbox FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldOverwriteMultiTagbox>(data);
+        }
     
     }
     
@@ -6570,6 +9414,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sortableField", Required = Newtonsoft.Json.Required.Always)]
         public int SortableField { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SearchFieldCount FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchFieldCount>(data);
+        }
     
     }
     
@@ -6604,6 +9457,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaSearchRequest>(data);
+        }
     
     }
     
@@ -6622,6 +9484,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public QueryDebugInformation QueryDebugInformation { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfSchema FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfSchema>(data);
+        }
     
     }
     
@@ -6634,12 +9505,30 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SearchBehaviourBaseResultOfSchema FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviourBaseResultOfSchema>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SchemaSearchResult : SearchBehaviourBaseResultOfSchema
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaSearchResult>(data);
+        }
     
     }
     
@@ -6686,6 +9575,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("system", Required = Newtonsoft.Json.Required.Always)]
         public bool System { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static Schema FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Schema>(data);
+        }
     
     }
     
@@ -6695,6 +9593,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static GetIndexFieldsRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GetIndexFieldsRequest>(data);
+        }
     
     }
     
@@ -6738,6 +9645,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sortField", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SortField { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static IndexField FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexField>(data);
+        }
     
     }
     
@@ -6749,6 +9665,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("exists", Required = Newtonsoft.Json.Required.Always)]
         public bool Exists { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ExistsResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ExistsResponse>(data);
+        }
     
     }
     
@@ -6811,6 +9736,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("referencedInContentSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ReferencedInContentSchemaIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaCreateRequest>(data);
+        }
     
     }
     
@@ -6865,6 +9799,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("types", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SchemaType> Types { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaUpdateRequest>(data);
+        }
     
     }
     
@@ -6901,6 +9844,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionSetSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetSearchRequest>(data);
+        }
     
     }
     
@@ -6927,6 +9879,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public QueryDebugInformation QueryDebugInformation { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfPermissionSet FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfPermissionSet>(data);
+        }
     
     }
     
@@ -6939,6 +9900,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SearchBehaviourBaseResultOfPermissionSet FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviourBaseResultOfPermissionSet>(data);
+        }
     
     }
     
@@ -6948,6 +9918,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionSetSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetSearchResult>(data);
+        }
     
     }
     
@@ -6965,6 +9944,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionSet FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSet>(data);
+        }
     
     }
     
@@ -6989,12 +9977,30 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
         public bool Exclusive { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionSetDetailOfContentRight FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetDetailOfContentRight>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentPermissionSetDetail : PermissionSetDetailOfContentRight
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentPermissionSetDetail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetDetail>(data);
+        }
     
     }
     
@@ -7010,6 +10016,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("rights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<ContentRight> Rights { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionUserRoleRightsOfContentRight FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionUserRoleRightsOfContentRight>(data);
+        }
     
     }
     
@@ -7025,6 +10040,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("rights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<PermissionSetRight> Rights { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionUserRoleRightsOfPermissionSetRight FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionUserRoleRightsOfPermissionSetRight>(data);
+        }
     
     }
     
@@ -7049,12 +10073,30 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
         public bool Exclusive { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionSetDetailOfMetadataRight FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetDetailOfMetadataRight>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SchemaPermissionSetDetail : PermissionSetDetailOfMetadataRight
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaPermissionSetDetail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaPermissionSetDetail>(data);
+        }
     
     }
     
@@ -7070,6 +10112,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("rights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<MetadataRight> Rights { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionUserRoleRightsOfMetadataRight FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionUserRoleRightsOfMetadataRight>(data);
+        }
     
     }
     
@@ -7107,6 +10158,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("release", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Release { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static VersionInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<VersionInfo>(data);
+        }
     
     }
     
@@ -7156,6 +10216,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ShareType ShareType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareDetail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDetail>(data);
+        }
     
     }
     
@@ -7171,6 +10240,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("emailHash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EmailHash { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareUser FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareUser>(data);
+        }
     
     }
     
@@ -7206,6 +10284,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DisplayValueDictionary DisplayValues { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareContentDetail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareContentDetail>(data);
+        }
     
     }
     
@@ -7228,12 +10315,30 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("detail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public OutputDataBase Detail { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareOutputBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareOutputBase>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareOutputBasic : ShareOutputBase
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareOutputBasic FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareOutputBasic>(data);
+        }
     
     }
     
@@ -7243,6 +10348,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Token { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareOutputEmbed FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareOutputEmbed>(data);
+        }
     
     }
     
@@ -7255,6 +10369,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareDataBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDataBase>(data);
+        }
     
     }
     
@@ -7264,6 +10387,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Token { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareDataEmbed FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDataEmbed>(data);
+        }
     
     }
     
@@ -7279,6 +10411,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LanguageCode { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareDataBasic FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDataBasic>(data);
+        }
     
     }
     
@@ -7294,6 +10435,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MailRecipient FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MailRecipient>(data);
+        }
     
     }
     
@@ -7309,6 +10459,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EmailAddress { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserEmail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserEmail>(data);
+        }
     
     }
     
@@ -7324,6 +10483,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static InternalRecipient FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InternalRecipient>(data);
+        }
     
     }
     
@@ -7342,6 +10510,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EmailAddress { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static User FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<User>(data);
+        }
     
     }
     
@@ -7358,6 +10535,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Height { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TemplateBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TemplateBase>(data);
+        }
     
     }
     
@@ -7376,18 +10562,45 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("showFooter", Required = Newtonsoft.Json.Required.Always)]
         public bool ShowFooter { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CardTemplate FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CardTemplate>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ListTemplate : TemplateBase
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListTemplate FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListTemplate>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BasicTemplate : TemplateBase
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BasicTemplate FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BasicTemplate>(data);
+        }
     
     }
     
@@ -7447,6 +10660,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareSearchRequest>(data);
+        }
     
     }
     
@@ -7465,6 +10687,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public QueryDebugInformation QueryDebugInformation { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfShare FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfShare>(data);
+        }
     
     }
     
@@ -7477,6 +10708,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SearchBehaviourBaseResultOfShare FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviourBaseResultOfShare>(data);
+        }
     
     }
     
@@ -7486,6 +10726,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareSearchResult>(data);
+        }
     
     }
     
@@ -7512,6 +10761,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ShareType ShareType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static Share FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Share>(data);
+        }
     
     }
     
@@ -7541,6 +10799,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DisplayLanguage { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareAggregationRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareAggregationRequest>(data);
+        }
     
     }
     
@@ -7573,6 +10840,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public OutputAccess OutputAccess { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareBaseCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareBaseCreateRequest>(data);
+        }
     
     }
     
@@ -7585,6 +10861,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("outputFormatIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> OutputFormatIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareContent FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareContent>(data);
+        }
     
     }
     
@@ -7606,6 +10891,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("mailTemplateId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MailTemplateId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareBasicCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareBasicCreateRequest>(data);
+        }
     
     }
     
@@ -7627,12 +10921,30 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("userRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<UserRight> UserRights { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserRole FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRole>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareEmbedCreateRequest : ShareBaseCreateRequest
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareEmbedCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareEmbedCreateRequest>(data);
+        }
     
     }
     
@@ -7642,6 +10954,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("shareId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ShareId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CreateShareResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CreateShareResult>(data);
+        }
     
     }
     
@@ -7677,18 +10998,45 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public OutputAccess OutputAccess { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareBaseUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareBaseUpdateRequest>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareBasicUpdateRequest : ShareBaseUpdateRequest
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareBasicUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareBasicUpdateRequest>(data);
+        }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.42.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareEmbedUpdateRequest : ShareBaseUpdateRequest
     {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareEmbedUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareEmbedUpdateRequest>(data);
+        }
     
     }
     
@@ -7707,6 +11055,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("settings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Settings { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CustomerServiceProviderConfiguration FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderConfiguration>(data);
+        }
     
     }
     
@@ -7725,6 +11082,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ServiceProviderConfigurationUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ServiceProviderConfigurationUpdateRequest>(data);
+        }
     
     }
     
@@ -7777,6 +11143,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CollectionId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TransferDetail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TransferDetail>(data);
+        }
     
     }
     
@@ -7848,6 +11223,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TransferSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TransferSearchRequest>(data);
+        }
     
     }
     
@@ -7866,6 +11250,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public QueryDebugInformation QueryDebugInformation { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfTransfer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfTransfer>(data);
+        }
     
     }
     
@@ -7878,6 +11271,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SearchBehaviourBaseResultOfTransfer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviourBaseResultOfTransfer>(data);
+        }
     
     }
     
@@ -7887,6 +11289,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TransferSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TransferSearchResult>(data);
+        }
     
     }
     
@@ -7918,6 +11329,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CollectionId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static Transfer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Transfer>(data);
+        }
     
     }
     
@@ -7947,6 +11367,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("createCollection", Required = Newtonsoft.Json.Required.Always)]
         public bool CreateCollection { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CreateTransferRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CreateTransferRequest>(data);
+        }
     
     }
     
@@ -7956,6 +11385,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("identifier", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Identifier { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TransferFile FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TransferFile>(data);
+        }
     
     }
     
@@ -7965,6 +11403,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fileName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FileName { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TransferUploadFile FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TransferUploadFile>(data);
+        }
     
     }
     
@@ -7983,6 +11430,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("externalOutputFolderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExternalOutputFolderId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TransferDriveFile FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TransferDriveFile>(data);
+        }
     
     }
     
@@ -7992,6 +11448,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TransferWebLink FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TransferWebLink>(data);
+        }
     
     }
     
@@ -8033,6 +11498,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FileTransferDetail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileTransferDetail>(data);
+        }
     
     }
     
@@ -8124,6 +11598,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("language", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Language { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FileMetadata FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileMetadata>(data);
+        }
     
     }
     
@@ -8133,6 +11616,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("audioStreams", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AudioStream> AudioStreams { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AudioMetadata FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AudioMetadata>(data);
+        }
     
     }
     
@@ -8172,6 +11664,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("streamSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long? StreamSize { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AudioStream FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AudioStream>(data);
+        }
     
     }
     
@@ -8232,6 +11733,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("embeddedFiles", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FileMetadata> EmbeddedFiles { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DocumentMetadata FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentMetadata>(data);
+        }
     
     }
     
@@ -8247,6 +11757,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("heightInPoints", Required = Newtonsoft.Json.Required.Always)]
         public double HeightInPoints { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static EpsMetadata FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EpsMetadata>(data);
+        }
     
     }
     
@@ -8325,6 +11844,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("uncompressedSizeInBytes", Required = Newtonsoft.Json.Required.Always)]
         public long UncompressedSizeInBytes { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ImageMetadata FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ImageMetadata>(data);
+        }
     
     }
     
@@ -8355,6 +11883,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("audioStreams", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AudioStream> AudioStreams { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static VideoMetadata FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<VideoMetadata>(data);
+        }
     
     }
     
@@ -8403,6 +11940,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("rotation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? Rotation { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static VideoStream FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<VideoStream>(data);
+        }
     
     }
     
@@ -8421,6 +11967,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DriveMetadata FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DriveMetadata>(data);
+        }
     
     }
     
@@ -8439,6 +11994,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("created", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Created { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DriveMetadataAudit FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DriveMetadataAudit>(data);
+        }
     
     }
     
@@ -8456,6 +12020,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public OutputSource OutputSource { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FileTransferOutput FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileTransferOutput>(data);
+        }
     
     }
     
@@ -8493,6 +12066,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FileTransferSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileTransferSearchRequest>(data);
+        }
     
     }
     
@@ -8511,6 +12093,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public QueryDebugInformation QueryDebugInformation { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfFileTransfer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfFileTransfer>(data);
+        }
     
     }
     
@@ -8523,6 +12114,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SearchBehaviourBaseResultOfFileTransfer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviourBaseResultOfFileTransfer>(data);
+        }
     
     }
     
@@ -8532,6 +12132,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FileTransferSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileTransferSearchResult>(data);
+        }
     
     }
     
@@ -8558,6 +12167,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FileTransfer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileTransfer>(data);
+        }
     
     }
     
@@ -8567,6 +12185,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BlacklistItem> Items { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static Blacklist FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Blacklist>(data);
+        }
     
     }
     
@@ -8579,6 +12206,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("match", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Match { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BlacklistItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BlacklistItem>(data);
+        }
     
     }
     
@@ -8591,6 +12227,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fileTransferIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> FileTransferIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FileTransferDeleteRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileTransferDeleteRequest>(data);
+        }
     
     }
     
@@ -8611,6 +12256,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FileTransfer2ContentCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileTransfer2ContentCreateRequest>(data);
+        }
     
     }
     
@@ -8623,6 +12277,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FileTransferCreateItem> Items { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FileTransferPartial2ContentCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileTransferPartial2ContentCreateRequest>(data);
+        }
     
     }
     
@@ -8643,6 +12306,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FileTransferCreateItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileTransferCreateItem>(data);
+        }
     
     }
     
@@ -8672,6 +12344,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AuthorizationState AuthorizationState { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserDetail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetail>(data);
+        }
     
     }
     
@@ -8702,6 +12383,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("countryCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CountryCode { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserAddress FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAddress>(data);
+        }
     
     }
     
@@ -8719,6 +12409,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public DriveType DriveType { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static Drive FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Drive>(data);
+        }
     
     }
     
@@ -8747,6 +12446,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string UserId { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OwnerToken FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OwnerToken>(data);
+        }
     
     }
     
@@ -8804,6 +12512,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserSearchRequest>(data);
+        }
     
     }
     
@@ -8822,6 +12539,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public QueryDebugInformation QueryDebugInformation { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfUserWithRoles FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfUserWithRoles>(data);
+        }
     
     }
     
@@ -8834,6 +12560,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SearchBehaviourBaseResultOfUserWithRoles FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviourBaseResultOfUserWithRoles>(data);
+        }
     
     }
     
@@ -8843,6 +12578,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserSearchResult>(data);
+        }
     
     }
     
@@ -8864,6 +12608,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EmailAddress { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserWithRoles FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserWithRoles>(data);
+        }
     
     }
     
@@ -8908,6 +12661,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("missingResultsDisplayPatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary MissingResultsDisplayPatterns { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static Channel FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Channel>(data);
+        }
     
     }
     
@@ -8917,6 +12679,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentsByIdsRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentsByIdsRequest>(data);
+        }
     
     }
     
@@ -8946,6 +12717,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AuthorizationState AuthorizationState { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserProfile FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserProfile>(data);
+        }
     
     }
     
@@ -8965,6 +12745,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("importListItems", Required = Newtonsoft.Json.Required.Always)]
         public bool ImportListItems { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaImportRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaImportRequest>(data);
+        }
     
     }
     
@@ -8986,6 +12775,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("languages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Language> Languages { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CustomerInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerInfo>(data);
+        }
     
     }
     
@@ -9004,6 +12802,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("defaultLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DefaultLanguage { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static LanguageConfiguration FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LanguageConfiguration>(data);
+        }
     
     }
     
@@ -9028,6 +12835,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("regionCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RegionCode { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static Language FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Language>(data);
+        }
     
     }
     
