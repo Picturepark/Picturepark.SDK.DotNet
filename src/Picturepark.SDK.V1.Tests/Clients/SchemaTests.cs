@@ -381,7 +381,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 if (await _client.Schemas.ExistsAsync(schema.Id) == false)
                 {
-                    await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true);
+                    try
+                    {
+                        await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true);
+                    }
+                    catch (DuplicateSchemaException)
+                    {
+                        // ignore DuplicateSchemaException exceptions
+                    }
                 }
             }
 
