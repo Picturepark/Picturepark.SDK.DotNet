@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.IO;
+using System.Net;
 using System.Reflection;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Authentication;
@@ -16,6 +17,14 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
         public ClientFixture()
         {
             ProjectDirectory = Path.GetFullPath(Path.GetDirectoryName(typeof(ClientFixture).GetTypeInfo().Assembly.Location) + "/../../../");
+
+#if NET45
+            ServicePointManager.SecurityProtocol =
+                SecurityProtocolType.Ssl3 |
+                SecurityProtocolType.Tls12 |
+                SecurityProtocolType.Tls11 |
+                SecurityProtocolType.Tls;
+#endif
 
             // Fix
             if (!File.Exists(ProjectDirectory + "Configuration.json"))

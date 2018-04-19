@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Picturepark.SDK.V1
 {
@@ -32,10 +33,10 @@ namespace Picturepark.SDK.V1
                 {
                     if (errors.Count == 1)
                     {
-                        throw PictureparkException.FromJson(errors.First().Exception);
+                        throw JsonConvert.DeserializeObject<PictureparkException>(errors.First().Exception, JsonSerializerSettings);
                     }
 
-                    var exceptions = errors.Select(error => PictureparkException.FromJson(error.Exception));
+                    var exceptions = errors.Select(error => JsonConvert.DeserializeObject<PictureparkException>(error.Exception, JsonSerializerSettings));
                     throw new AggregateException(exceptions);
                 }
 
@@ -66,10 +67,10 @@ namespace Picturepark.SDK.V1
                 {
                     if (errors.Count == 1)
                     {
-                        throw PictureparkException.FromJson(errors.First().Exception);
+                        throw JsonConvert.DeserializeObject<PictureparkException>(errors.First().Exception, JsonSerializerSettings);
                     }
 
-                    var exceptions = errors.Select(error => PictureparkException.FromJson(error.Exception));
+                    var exceptions = errors.Select(error => JsonConvert.DeserializeObject<PictureparkException>(error.Exception, JsonSerializerSettings));
                     throw new AggregateException(exceptions);
                 }
 
@@ -101,10 +102,10 @@ namespace Picturepark.SDK.V1
                 {
                     if (errors.Count == 1)
                     {
-                        throw PictureparkException.FromJson(errors.First().Exception);
+                        throw JsonConvert.DeserializeObject<PictureparkException>(errors.First().Exception, JsonSerializerSettings);
                     }
 
-                    var exceptions = errors.Select(error => PictureparkException.FromJson(error.Exception));
+                    var exceptions = errors.Select(error => JsonConvert.DeserializeObject<PictureparkException>(error.Exception, JsonSerializerSettings));
                     throw new AggregateException(exceptions);
                 }
 

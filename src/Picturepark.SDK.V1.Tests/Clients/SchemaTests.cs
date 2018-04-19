@@ -67,6 +67,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Schema")]
+        public async Task ShouldCorrectlyDeserializeExceptions()
+        {
+            /// Arrange
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
+
+            /// Act & Assert
+            await Assert.ThrowsAsync<SchemaValidationException>(async () =>
+            {
+                foreach (var schema in schemas)
+                {
+                    schema.Id = "000";
+                    await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true); // throws exception
+                }
+            });
+        }
+
+        [Fact]
+        [Trait("Stack", "Schema")]
         public async Task ShouldGenerateAndCreateOrUpdateSchemas()
         {
             /// Act
@@ -189,10 +207,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             /// Act
             var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("SoccerPlayer");
-            var jsonConvertedField = generatedSoccerPlayerSchema.Fields.Single(i => i.Id == "club").ToJson();
+            var jsonConvertedField = generatedSoccerPlayerSchema.Fields.Single(i => i.Id == "club");
 
             /// Assert
-            Assert.Contains(expectedFilterString, jsonConvertedField);
+            Assert.Contains(expectedFilterString, JsonConvert.SerializeObject(jsonConvertedField));
         }
 
         [Fact]
@@ -205,10 +223,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             /// Act
             var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("Person");
-            var jsonConvertedField = generatedSoccerPlayerSchema.Fields.ToList()[0].ToJson();
+            var jsonConvertedField = generatedSoccerPlayerSchema.Fields.ToList()[0];
 
             /// Assert
-            Assert.Contains(expectedMultilineString, jsonConvertedField);
+            Assert.Contains(expectedMultilineString, JsonConvert.SerializeObject(jsonConvertedField));
         }
 
         [Fact]
