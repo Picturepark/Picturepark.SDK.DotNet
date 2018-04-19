@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 using Picturepark.SDK.V1.Contract.Providers;
 
 namespace Picturepark.SDK.V1.Contract.Attributes
@@ -11,7 +12,7 @@ namespace Picturepark.SDK.V1.Contract.Attributes
         {
             if (!string.IsNullOrEmpty(filter))
             {
-                Filter = FilterBase.FromJson(filter);
+                Filter = JsonConvert.DeserializeObject<FilterBase>(filter);
             }
         }
 
