@@ -988,11 +988,6 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Upload file</summary>
         /// <param name="formFile">Gets or sets the form file.</param>
-        /// <param name="relativePath">Relative path of the uploading file</param>
-        /// <param name="chunkNumber">Current chunk number. starts with 1</param>
-        /// <param name="currentChunkSize">Size in bytes of the current chunk</param>
-        /// <param name="totalSize">Total size in bytes of the uploading file</param>
-        /// <param name="totalChunks">Total chunks of the uploading file</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -5012,7 +5007,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>A custom implementation of Dictionary{string, object}</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DataDictionary : System.Collections.Generic.Dictionary<string, object>
     {
@@ -5245,73 +5239,57 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentSearchRequest 
     {
-        /// <summary>Limits the simple search fields to the fields available in the specified channel.</summary>
         [Newtonsoft.Json.JsonProperty("channelId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ChannelId { get; set; }
     
-        /// <summary>Defines the return language of translation values. Defaults to customer default language.</summary>
         [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DisplayLanguage { get; set; }
     
-        /// <summary>Limits the display values included in the search response. Defaults to all display values.</summary>
         [Newtonsoft.Json.JsonProperty("displayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> DisplayPatternIds { get; set; }
     
-        /// <summary>Only searches the specified language values. Defaults to all metadata languages of the language configuration.</summary>
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
     
-        /// <summary>The collection id.</summary>
         [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CollectionId { get; set; }
     
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied in the specified order.</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
     
-        /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
-        /// <summary>An optional search filter. Limits the content document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
-        /// <summary>Limits the content document result set to that life cycle state. Defaults to ActiveOnly.</summary>
         [Newtonsoft.Json.JsonProperty("lifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleFilter LifeCycleFilter { get; set; }
     
-        /// <summary>Filter the returned contents that have or not have broken references</summary>
         [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }
     
-        /// <summary>Limits the content document result set to specific ContentRights the user has</summary>
         [Newtonsoft.Json.JsonProperty("rightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<ContentRight> RightsFilter { get; set; }
     
-        /// <summary>Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.</summary>
         [Newtonsoft.Json.JsonProperty("searchType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ContentSearchType SearchType { get; set; }
     
-        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
     
@@ -5341,11 +5319,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SortInfo 
     {
-        /// <summary>The elastic search index field to sort on.</summary>
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field { get; set; }
     
-        /// <summary>The sort direction (Asc/Desc).</summary>
         [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -5374,7 +5350,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The FilterBase is the base class for all filters.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("AggregationFilter", typeof(AggregationFilter))]
     [JsonInheritanceAttribute("AndFilter", typeof(AndFilter))]
@@ -5406,11 +5381,9 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The AndFilter&gt; is a compound filter and returns documents that match all of the specified filters.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class AndFilter : FilterBase
     {
-        /// <summary>Accepts all filters.</summary>
         [Newtonsoft.Json.JsonProperty("filters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FilterBase> Filters { get; set; }
     
@@ -5426,11 +5399,9 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The OrFilter is a compound filter and returns documents that match any of the specified filters.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class OrFilter : FilterBase
     {
-        /// <summary>Accepts all filters.</summary>
         [Newtonsoft.Json.JsonProperty("filters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FilterBase> Filters { get; set; }
     
@@ -5446,11 +5417,9 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The NotFilter is a compound filter and returns documents that do not match the specified filter.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class NotFilter : FilterBase
     {
-        /// <summary>Limits the result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
@@ -5466,15 +5435,12 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The DateRangeFilter returns documents with fields that have date values within a certain range.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DateRangeFilter : FilterBase
     {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field { get; set; }
     
-        /// <summary>The date range. Supported pattern: now(+-)(int)(YMDHm).</summary>
         [Newtonsoft.Json.JsonProperty("range", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DateRange Range { get; set; }
     
@@ -5490,19 +5456,15 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The date range class used in aggregators and filters.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DateRange 
     {
-        /// <summary>Tranlsated range names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
-        /// <summary>The from value can be a datetime string or a pattern now(+-)(int)(YMDHm).</summary>
         [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string From { get; set; }
     
-        /// <summary>The to value can be a datetime string or a pattern now(+-)(int)(YMDHm).</summary>
         [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string To { get; set; }
     
@@ -5518,7 +5480,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>A custom dictionary type to distinguish language specific class properties.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TranslatedStringDictionary : System.Collections.Generic.Dictionary<string, string>
     {
@@ -5534,11 +5495,9 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The ExistsFilter returns documents that have at least one non-null value in the original field.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ExistsFilter : FilterBase
     {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field { get; set; }
     
@@ -5554,19 +5513,15 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class GeoBoundingBoxFilter : FilterBase
     {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field { get; set; }
     
-        /// <summary>The top left longitude/latitude configuration.</summary>
         [Newtonsoft.Json.JsonProperty("topLeft", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public GeoLocation TopLeft { get; set; }
     
-        /// <summary>The bottom right longitude/latitude configuration.</summary>
         [Newtonsoft.Json.JsonProperty("bottomRight", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public GeoLocation BottomRight { get; set; }
     
@@ -5603,19 +5558,15 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The GeoDistanceFilter returns documents that include only hits that exists within a specific distance from a geo point.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class GeoDistanceFilter : FilterBase
     {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field { get; set; }
     
-        /// <summary>The longitude/latitude configuration for the point of origin.</summary>
         [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public GeoLocation Location { get; set; }
     
-        /// <summary>The range distance in meters.</summary>
         [Newtonsoft.Json.JsonProperty("distance", Required = Newtonsoft.Json.Required.Always)]
         public double Distance { get; set; }
     
@@ -5631,15 +5582,12 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class NestedFilter : FilterBase
     {
-        /// <summary>The path pointing to the nested object.</summary>
         [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Path { get; set; }
     
-        /// <summary>Limits the result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
@@ -5655,15 +5603,12 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The NumericRangeFilter returns documents with fields that have numeric values within a certain range.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class NumericRangeFilter : FilterBase
     {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field { get; set; }
     
-        /// <summary>The numeric range with from and to properties.</summary>
         [Newtonsoft.Json.JsonProperty("range", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public NumericRange Range { get; set; }
     
@@ -5682,15 +5627,12 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class NumericRange 
     {
-        /// <summary>Tranlsated range names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
-        /// <summary>The from value.</summary>
         [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? From { get; set; }
     
-        /// <summary>The to value.</summary>
         [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? To { get; set; }
     
@@ -5706,15 +5648,12 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PrefixFilter : FilterBase
     {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field { get; set; }
     
-        /// <summary>The prefix term to filter on.</summary>
         [Newtonsoft.Json.JsonProperty("prefix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Prefix { get; set; }
     
@@ -5730,15 +5669,12 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The TermFilter returns documents that contain the exact term specified in the inverted index.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TermFilter : FilterBase
     {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field { get; set; }
     
-        /// <summary>The term to filter on.</summary>
         [Newtonsoft.Json.JsonProperty("term", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Term { get; set; }
     
@@ -5754,15 +5690,12 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TermsFilter : FilterBase
     {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field { get; set; }
     
-        /// <summary>A list of OR combined terms.</summary>
         [Newtonsoft.Json.JsonProperty("terms", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> Terms { get; set; }
     
@@ -5778,15 +5711,12 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class AggregationFilter : FilterBase
     {
-        /// <summary>The name of the aggregation this filter is connected to.</summary>
         [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AggregationName { get; set; }
     
-        /// <summary>The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter, GeoDistanceFilter and NestedFilter.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
@@ -5805,15 +5735,12 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ChildFilter : FilterBase
     {
-        /// <summary>The elastic search index type to filter as a child.</summary>
         [Newtonsoft.Json.JsonProperty("childType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ChildType { get; set; }
     
-        /// <summary>The filter to apply on the child entity. It accepts all filters.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
@@ -5829,15 +5756,12 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ParentFilter : FilterBase
     {
-        /// <summary>The elastic search index type to filter as a parent.</summary>
         [Newtonsoft.Json.JsonProperty("parentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ParentType { get; set; }
     
-        /// <summary>The filter to apply on the child entity. It accepts all filters.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
@@ -5993,30 +5917,24 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserAudit Audit { get; set; }
     
-        /// <summary>The id of the schema with schema type content.</summary>
         [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentSchemaId { get; set; }
     
-        /// <summary>An optional id list of schemas with schema type layer.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
-        /// <summary>Contains display values of the specified language, rendered according to the content schema's display pattern configuration.</summary>
         [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.IDictionary<string, string> DisplayValues { get; set; }
     
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
-        /// <summary>All the ids of the broken references (tagboxes)</summary>
         [Newtonsoft.Json.JsonProperty("brokenReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> BrokenReferenceIds { get; set; }
     
-        /// <summary>All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)</summary>
         [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> BrokenIndirectReferenceIds { get; set; }
     
-        /// <summary>All the target ids of the broken relations</summary>
         [Newtonsoft.Json.JsonProperty("brokenRelationTargetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> BrokenRelationTargetIds { get; set; }
     
@@ -6062,51 +5980,40 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentAggregationOnChannelRequest 
     {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
     
-        /// <summary>An optional search filter. Limits the content document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
-        /// <summary>Special filters used to filter down on a specific aggregated value.</summary>
         [Newtonsoft.Json.JsonProperty("aggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregationFilter> AggregationFilters { get; set; }
     
-        /// <summary>Limits the simple search fields to the fields available in the specified channel and retrieve the existing aggregation for it.</summary>
         [Newtonsoft.Json.JsonProperty("channelId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ChannelId { get; set; }
     
-        /// <summary>Defines the return language of translation values. Defaults to customer default language.</summary>
         [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DisplayLanguage { get; set; }
     
-        /// <summary>Only searches the specified language values. Defaults to all metadata languages in configured within the customer's language configuration.</summary>
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
     
-        /// <summary>The collection id.</summary>
         [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CollectionId { get; set; }
     
-        /// <summary>Limits the content document result set to that life cycle state. Defaults to ActiveOnly.</summary>
         [Newtonsoft.Json.JsonProperty("lifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleFilter LifeCycleFilter { get; set; }
     
-        /// <summary>Filter the content document result set to those that have or not have broken references</summary>
         [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }
     
-        /// <summary>Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.</summary>
         [Newtonsoft.Json.JsonProperty("searchType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -6127,7 +6034,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentAggregationRequest : ContentAggregationOnChannelRequest
     {
-        /// <summary>Defines the aggregation resultset.</summary>
         [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
     
@@ -6143,7 +6049,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The AggregatorBase is the base class for all aggregators.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("DateRangeAggregator", typeof(DateRangeAggregator))]
     [JsonInheritanceAttribute("GeoDistanceAggregator", typeof(GeoDistanceAggregator))]
@@ -6155,15 +6060,12 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class AggregatorBase 
     {
-        /// <summary>The slug name of the aggregation. Must be unique per aggregation request.</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        /// <summary>The translated names of the aggregation.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
-        /// <summary>An optional aggregator list for nested aggregations.</summary>
         [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
     
@@ -6179,15 +6081,12 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The DateRangeAggregator is a multi-bucket range aggregation dedicated for date values. Each bucket represents a range.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DateRangeAggregator : AggregatorBase
     {
-        /// <summary>The elastic search index field to execute the aggregation on.</summary>
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field { get; set; }
     
-        /// <summary>A list of date ranges. Supported pattern: now(+-)(int)(YMDHm).</summary>
         [Newtonsoft.Json.JsonProperty("ranges", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<DateRangeForAggregator> Ranges { get; set; }
     
@@ -6203,19 +6102,15 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The date range class used in aggregators.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DateRangeForAggregator 
     {
-        /// <summary>Tranlsated range names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
-        /// <summary>The from value can be a datetime string or a pattern now(+-)(int)(YMDHm).</summary>
         [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string From { get; set; }
     
-        /// <summary>The to value can be a datetime string or a pattern now(+-)(int)(YMDHm).</summary>
         [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string To { get; set; }
     
@@ -6231,19 +6126,15 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The GeoDistanceAggregator is a multi-bucket range aggregation that works on geo_point fields. Each bucket represents a range.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class GeoDistanceAggregator : AggregatorBase
     {
-        /// <summary>The elastic search index field to execute the aggregation on.</summary>
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field { get; set; }
     
-        /// <summary>The latitude/logitude configuration for the point of origin.</summary>
         [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public GeoLocation Location { get; set; }
     
-        /// <summary>A list of numeric ranges in meter.</summary>
         [Newtonsoft.Json.JsonProperty("ranges", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<GeoDistance> Ranges { get; set; }
     
@@ -6262,11 +6153,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class GeoDistance 
     {
-        /// <summary>Tranlsated range names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
-        /// <summary>The to value.</summary>
         [Newtonsoft.Json.JsonProperty("distance", Required = Newtonsoft.Json.Required.Always)]
         public double Distance { get; set; }
     
@@ -6282,11 +6171,9 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The NestedAggregator is a special single bucket aggregation that enables aggregating nested documents.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class NestedAggregator : AggregatorBase
     {
-        /// <summary>The path pointing to the nested object.</summary>
         [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Path { get; set; }
     
@@ -6302,15 +6189,12 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The NumericRangeAggregator is a multi-bucket range aggregation. Each bucket represents a range.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class NumericRangeAggregator : AggregatorBase
     {
-        /// <summary>The elastic search index field to execute the aggregation on.</summary>
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field { get; set; }
     
-        /// <summary>A list of numeric ranges.</summary>
         [Newtonsoft.Json.JsonProperty("ranges", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<NumericRangeForAggregator> Ranges { get; set; }
     
@@ -6329,15 +6213,12 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class NumericRangeForAggregator 
     {
-        /// <summary>Tranlsated range names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
-        /// <summary>The from value.</summary>
         [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? From { get; set; }
     
-        /// <summary>The to value.</summary>
         [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? To { get; set; }
     
@@ -6353,31 +6234,24 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The TermsAggregator is a multi-bucket value aggregation where buckets are dynamically built - one per unique value.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TermsAggregator : AggregatorBase
     {
-        /// <summary>The elastic search index field (not analyzed) to execute the aggregation on.</summary>
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field { get; set; }
     
-        /// <summary>The size parameter can be set to define how many term buckets should be returned out of the overall terms list.</summary>
         [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Size { get; set; }
     
-        /// <summary>Includes values for which buckets will be created. Supports regular expression strings or arrays of exact values.</summary>
         [Newtonsoft.Json.JsonProperty("includes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> Includes { get; set; }
     
-        /// <summary>Excludes values for which buckets will be created. Supports regular expression strings or arrays of exact values.</summary>
         [Newtonsoft.Json.JsonProperty("excludes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> Excludes { get; set; }
     
-        /// <summary>Search string to be used to search within possible aggregation values</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Search fields to be used to search the SearchString value into. If no search field is specified, the Field value is used</summary>
         [Newtonsoft.Json.JsonProperty("searchFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchFields { get; set; }
     
@@ -6393,11 +6267,9 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The TermsRelationAggregator is derived from TermsAggregator and used for aggregations on relation item ids.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TermsRelationAggregator : TermsAggregator
     {
-        /// <summary>When aggregating on relations ids the DocumentType is needed to resolve the target item translation.</summary>
         [Newtonsoft.Json.JsonProperty("documentType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -6438,11 +6310,9 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The TermsRelationAggregator is derived from the TermsAggregator and used for aggregations on indexed enum values.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TermsEnumAggregator : TermsAggregator
     {
-        /// <summary>When aggregating on enum fields EnumType is needed to resolve the enum translation.</summary>
         [Newtonsoft.Json.JsonProperty("enumType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EnumType { get; set; }
     
@@ -6467,11 +6337,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregationResult> AggregationResults { get; set; }
     
-        /// <summary>The search string used to query the data</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -6966,29 +6834,23 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentMetadataUpdateRequest 
     {
-        /// <summary>The content id.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
-        /// <summary>An id list of schemas with schema type layer.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
-        /// <summary>The dynamic data structure matching the field schematics of the content schema (ContentSchemaId).</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Content { get; set; }
     
-        /// <summary>The dynamic data structure matching the field schematics of the schemas with type layer (LayerSchemaIds).</summary>
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Metadata { get; set; }
     
-        /// <summary>Options to modify the behavior for updating schemas.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemasUpdateOptions", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public UpdateOption LayerSchemasUpdateOptions { get; set; }
     
-        /// <summary>Options to modify the behavior for updating the values of schemas.</summary>
         [Newtonsoft.Json.JsonProperty("schemaFieldsUpdateOptions", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -7020,11 +6882,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentPermissionsUpdateRequest 
     {
-        /// <summary>The content id.</summary>
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
     
-        /// <summary>An optional id list of content permission sets. Controls content accessibility outside of content ownership.</summary>
         [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }
     
@@ -7040,15 +6900,12 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Update many contents metadata</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentMetadataUpdateManyRequest 
     {
-        /// <summary>Allow storing references to missing list items</summary>
         [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowMissingDependencies { get; set; }
     
-        /// <summary>Update requests</summary>
         [Newtonsoft.Json.JsonProperty("requests", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ContentMetadataUpdateRequest> Requests { get; set; }
     
@@ -7067,11 +6924,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentOwnershipTransferRequest 
     {
-        /// <summary>The content id.</summary>
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
     
-        /// <summary>The id of the user to whom the content document has to be transfered to.</summary>
         [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TransferUserId { get; set; }
     
@@ -7090,11 +6945,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentsOwnershipTransferRequest 
     {
-        /// <summary>The content ids.</summary>
         [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
     
-        /// <summary>The id of user to whom the content documents have to be transfered to.</summary>
         [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TransferUserId { get; set; }
     
@@ -7116,15 +6969,12 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class MetadataValuesChangeRequestBase 
     {
-        /// <summary>A container for all change commads.</summary>
         [Newtonsoft.Json.JsonProperty("changeCommands", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<MetadataValuesChangeCommandBase> ChangeCommands { get; set; }
     
-        /// <summary>Allow storing references to missing list items / contents</summary>
         [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowMissingDependencies { get; set; }
     
-        /// <summary>Create notification and notify on progress</summary>
         [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
         public bool NotifyProgress { get; set; }
     
@@ -7143,7 +6993,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentFieldsUpdateRequest : MetadataValuesChangeRequestBase
     {
-        /// <summary>The ids of the content documents.</summary>
         [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
     
@@ -7159,7 +7008,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The base class for metadata value change commands.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("MetadataValuesSchemaUpdateCommand", typeof(MetadataValuesSchemaUpdateCommand))]
     [JsonInheritanceAttribute("MetadataValuesSchemaUpsertCommand", typeof(MetadataValuesSchemaUpsertCommand))]
@@ -7171,7 +7019,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class MetadataValuesChangeCommandBase 
     {
-        /// <summary>The id of the schema to which the operation scope is addressed.</summary>
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
@@ -7187,11 +7034,9 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Updates schema values.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MetadataValuesSchemaUpdateCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The metadata values containing a set of changes. Update is additive and will not remove values. To remove complete fields use the MetadataValuesFieldRemoveCommand instead.</summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Value { get; set; }
     
@@ -7207,11 +7052,9 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Adds or updates schema values.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MetadataValuesSchemaUpsertCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The metadata values containing a set of changes. Update is additive and will not remove values. To remove complete fields use the MetadataValuesFieldRemoveCommand instead.</summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Value { get; set; }
     
@@ -7227,7 +7070,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Removes schema values.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MetadataValuesSchemaRemoveCommand : MetadataValuesChangeCommandBase
     {
@@ -7243,11 +7085,9 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Replaces schema values.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MetadataValuesSchemaReplaceCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The metadata values containing the new values for the schema. All old values will be overwritten.</summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Value { get; set; }
     
@@ -7263,11 +7103,9 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Removes a field and its value from the schema values.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MetadataValuesFieldRemoveCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The path of the field to be removed (within tha data structure), e.g. "data.schemaId.fieldId"</summary>
         [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldPath { get; set; }
     
@@ -7283,19 +7121,15 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Adds a list item id reference to a multi tagbox.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MetadataValuesSchemaItemAddCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The path of the field relative to the Content or Layer schema values defined by the schemaId property</summary>
         [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldPath { get; set; }
     
-        /// <summary>The field namespace</summary>
         [Newtonsoft.Json.JsonProperty("fieldNamespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldNamespace { get; set; }
     
-        /// <summary>The id of the list item to be added.</summary>
         [Newtonsoft.Json.JsonProperty("referenceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReferenceId { get; set; }
     
@@ -7311,19 +7145,15 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Removes a list item id reference from a multi tagbox.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MetadataValuesSchemaItemRemoveCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The path of the field relative to the Content or Layer schema values defined by the schemaId property</summary>
         [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldPath { get; set; }
     
-        /// <summary>The field namespace</summary>
         [Newtonsoft.Json.JsonProperty("fieldNamespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldNamespace { get; set; }
     
-        /// <summary>The id of the list item to be removed.</summary>
         [Newtonsoft.Json.JsonProperty("referenceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReferenceId { get; set; }
     
@@ -7360,43 +7190,34 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentFilterRequest 
     {
-        /// <summary>Limits the simple search fields to the fields available in the specified channel.</summary>
         [Newtonsoft.Json.JsonProperty("channelId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ChannelId { get; set; }
     
-        /// <summary>Only searches the specified language values. Defaults to all metadata languages of the language configuration.</summary>
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
     
-        /// <summary>Defines the return language of translation values. Defaults to customer default language.</summary>
         [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DisplayLanguage { get; set; }
     
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.</summary>
         [Newtonsoft.Json.JsonProperty("searchType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ContentSearchType SearchType { get; set; }
     
-        /// <summary>The collection id.</summary>
         [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CollectionId { get; set; }
     
-        /// <summary>An optional search filter. Limits the content document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
-        /// <summary>Limits the content document result set to that life cycle state. Defaults to ActiveOnly.</summary>
         [Newtonsoft.Json.JsonProperty("lifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleFilter LifeCycleFilter { get; set; }
     
-        /// <summary>Limits the content document result set to specific ContentRights the user has</summary>
         [Newtonsoft.Json.JsonProperty("rightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<ContentRight> RightsFilter { get; set; }
     
@@ -7415,11 +7236,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessSearchRequest 
     {
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
@@ -7605,15 +7424,12 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Business process detailed information regarding Schema / ListItems import operation</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessDetailsDataSchemaImport : BusinessProcessDetailsDataBase
     {
-        /// <summary>Result information of a schema import operation</summary>
         [Newtonsoft.Json.JsonProperty("schemaImportResult", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaImportResult SchemaImportResult { get; set; }
     
-        /// <summary>Result information of a list item import operation</summary>
         [Newtonsoft.Json.JsonProperty("listItemImportResult", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ListItemImportResult ListItemImportResult { get; set; }
     
@@ -7629,27 +7445,21 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Result information of a schema import operation</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SchemaImportResult 
     {
-        /// <summary>Number of schemas imported</summary>
         [Newtonsoft.Json.JsonProperty("importedSchemaCount", Required = Newtonsoft.Json.Required.Always)]
         public int ImportedSchemaCount { get; set; }
     
-        /// <summary>Number of schema skipped during import phase because they were already found in the system</summary>
         [Newtonsoft.Json.JsonProperty("skippedSchemaCount", Required = Newtonsoft.Json.Required.Always)]
         public int SkippedSchemaCount { get; set; }
     
-        /// <summary>Total number of schemas requested to be imported</summary>
         [Newtonsoft.Json.JsonProperty("totalSchemaCount", Required = Newtonsoft.Json.Required.Always)]
         public int TotalSchemaCount { get; set; }
     
-        /// <summary>Ids of the schemas that were not imported because already found in the system</summary>
         [Newtonsoft.Json.JsonProperty("skippedSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SkippedSchemaIds { get; set; }
     
-        /// <summary>Ids of the schemas that were successfully imported</summary>
         [Newtonsoft.Json.JsonProperty("importedSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ImportedSchemaIds { get; set; }
     
@@ -7665,27 +7475,21 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Result information of a list item import operation</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ListItemImportResult 
     {
-        /// <summary>Number of list items imported</summary>
         [Newtonsoft.Json.JsonProperty("importedListItemCount", Required = Newtonsoft.Json.Required.Always)]
         public int ImportedListItemCount { get; set; }
     
-        /// <summary>Number of list items skipped during import phase because they were already found in the system</summary>
         [Newtonsoft.Json.JsonProperty("skippedListItemCount", Required = Newtonsoft.Json.Required.Always)]
         public int SkippedListItemCount { get; set; }
     
-        /// <summary>Total number of list items requested to be imported</summary>
         [Newtonsoft.Json.JsonProperty("totalListItemCount", Required = Newtonsoft.Json.Required.Always)]
         public int TotalListItemCount { get; set; }
     
-        /// <summary>Ids of the list items that were not imported because already found in the system</summary>
         [Newtonsoft.Json.JsonProperty("skippedListItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SkippedListItemIds { get; set; }
     
-        /// <summary>Ids of the list items that were successfully imported</summary>
         [Newtonsoft.Json.JsonProperty("importedListItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ImportedListItemIds { get; set; }
     
@@ -7704,41 +7508,32 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DocumentHistorySearchRequest 
     {
-        /// <summary>Limits the start date of the search request. Default to last 1 year.</summary>
         [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime From { get; set; }
     
-        /// <summary>Limits the end date of the search request. Default to now.</summary>
         [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime To { get; set; }
     
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
-        /// <summary>To get a large amount of data, page token returned from the response can be used to get all data.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
-        /// <summary>Limits the search to a specific document id. E.g. ContentId</summary>
         [Newtonsoft.Json.JsonProperty("documentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DocumentId { get; set; }
     
-        /// <summary>The document version to search. Default to -1 to not limit to a specific document version.</summary>
         [Newtonsoft.Json.JsonProperty("documentVersion", Required = Newtonsoft.Json.Required.Always)]
         public long DocumentVersion { get; set; } = -1L;
     
-        /// <summary>Limits the search to a specifc document type.</summary>
         [Newtonsoft.Json.JsonProperty("documentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DocumentType { get; set; }
     
-        /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SortInfo Sort { get; set; }
     
@@ -7940,69 +7735,53 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ListItemSearchRequest 
     {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
     
-        /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
-        /// <summary>An optional search filter. Limits the list item result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
-        /// <summary>Broadens the search and include all schema descendant list items.</summary>
         [Newtonsoft.Json.JsonProperty("includeAllSchemaChildren", Required = Newtonsoft.Json.Required.Always)]
         public bool IncludeAllSchemaChildren { get; set; }
     
-        /// <summary>Limits the search to list items of the provided schemas.</summary>
         [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
     
-        /// <summary>Defines the return language of translation values. Defaults to customer default language.</summary>
         [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DisplayLanguage { get; set; }
     
-        /// <summary>Limits the display values included in the search response. Defaults to all display values.</summary>
         [Newtonsoft.Json.JsonProperty("displayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> DisplayPatternIds { get; set; }
     
-        /// <summary>Filter the returned list items that have or not have broken references</summary>
         [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }
     
-        /// <summary>Define the display values included in the search response for the referenced fields. Defaults to no display value.</summary>
         [Newtonsoft.Json.JsonProperty("referencedFieldsDisplayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ReferencedFieldsDisplayPatternIds { get; set; }
     
-        /// <summary>Only searches the specified language values. Defaults to all metadata languages of the language configuration.</summary>
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
     
-        /// <summary>When set to true the content data is included in the result items.</summary>
         [Newtonsoft.Json.JsonProperty("includeContentData", Required = Newtonsoft.Json.Required.Always)]
         public bool IncludeContentData { get; set; }
     
-        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
     
-        /// <summary>Limits the list item document result set to that life cycle state. Defaults to ActiveOnly.</summary>
         [Newtonsoft.Json.JsonProperty("lifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -8098,49 +7877,38 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ListItemAggregationRequest 
     {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
     
-        /// <summary>An optional search filter. Limits the list item result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
-        /// <summary>Special filters used to filter down on a specific aggregated value.</summary>
         [Newtonsoft.Json.JsonProperty("aggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregationFilter> AggregationFilters { get; set; }
     
-        /// <summary>Defines the aggregation resultset.</summary>
         [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
     
-        /// <summary>Broadens the aggregation and include all schema descendant list items.</summary>
         [Newtonsoft.Json.JsonProperty("includeAllSchemaChildren", Required = Newtonsoft.Json.Required.Always)]
         public bool IncludeAllSchemaChildren { get; set; }
     
-        /// <summary>Filter the list items document result set to those that have or not have broken references</summary>
         [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }
     
-        /// <summary>Limits the aggregation to list items of the provided schemas.</summary>
         [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
     
-        /// <summary>Defines the return language of translation values. Defaults to customer default language.</summary>
         [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DisplayLanguage { get; set; }
     
-        /// <summary>Only searches the specified language values. Defaults to all metadata languages of the language configuration.</summary>
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
     
-        /// <summary>Limits the list item document result set to that life cycle state. Defaults to ActiveOnly.</summary>
         [Newtonsoft.Json.JsonProperty("lifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -8303,19 +8071,15 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ListItemFieldsUpdateRequest 
     {
-        /// <summary>The ids of the list items whose fields need to be updated</summary>
         [Newtonsoft.Json.JsonProperty("listItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ListItemIds { get; set; }
     
-        /// <summary>The change commads to be applied to the list items</summary>
         [Newtonsoft.Json.JsonProperty("changeCommands", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<MetadataValuesChangeCommandBase> ChangeCommands { get; set; }
     
-        /// <summary>Allow storing references to missing list items / contents</summary>
         [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowMissingDependencies { get; set; }
     
-        /// <summary>Create notification and notify on progress</summary>
         [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
         public bool NotifyProgress { get; set; }
     
@@ -8331,23 +8095,18 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>ListItemFieldsFilterUpdateRequest class</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ListItemFieldsFilterUpdateRequest 
     {
-        /// <summary>The search request used to filter the list items on which the change commands must be applied</summary>
         [Newtonsoft.Json.JsonProperty("listItemFilterRequest", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ListItemFilterRequest ListItemFilterRequest { get; set; }
     
-        /// <summary>The change commads to be applied to the list items</summary>
         [Newtonsoft.Json.JsonProperty("changeCommands", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<MetadataValuesChangeCommandBase> ChangeCommands { get; set; }
     
-        /// <summary>Allow storing references to missing list items / contents</summary>
         [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowMissingDependencies { get; set; }
     
-        /// <summary>Create notification and notify on progress</summary>
         [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
         public bool NotifyProgress { get; set; }
     
@@ -8366,27 +8125,21 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ListItemFilterRequest 
     {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>An optional search filter. Limits the list item result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
-        /// <summary>Broadens the search and include all schema descendant list items.</summary>
         [Newtonsoft.Json.JsonProperty("includeAllSchemaChildren", Required = Newtonsoft.Json.Required.Always)]
         public bool IncludeAllSchemaChildren { get; set; }
     
-        /// <summary>Limits the search to list items of the provided schemas.</summary>
         [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
     
-        /// <summary>Defines the return language of translation values. Defaults to customer default language.</summary>
         [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DisplayLanguage { get; set; }
     
-        /// <summary>Only searches the specified language values. Defaults to all metadata languages of the language configuration.</summary>
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
     
@@ -8468,25 +8221,20 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class LiveStreamSearchRequest 
     {
-        /// <summary>Limits the start date of the search request.</summary>
         [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime From { get; set; }
     
-        /// <summary>Limits the end date of the search request.</summary>
         [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime To { get; set; }
     
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
-        /// <summary>To get a large amount of data, page token returned from the response can be used to get all data.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -8571,78 +8319,60 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SchemaDetail 
     {
-        /// <summary>The schema id.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
-        /// <summary>The parent schema id.</summary>
         [Newtonsoft.Json.JsonProperty("parentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ParentSchemaId { get; set; }
     
-        /// <summary>Types control schema usage.</summary>
         [Newtonsoft.Json.JsonProperty("types", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SchemaType> Types { get; set; }
     
-        /// <summary>Language specific schema names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
-        /// <summary>Language specific schema descriptions.</summary>
         [Newtonsoft.Json.JsonProperty("descriptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Descriptions { get; set; }
     
-        /// <summary>An optional id list of schemas with type layer.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
-        /// <summary>Language specific DotLiquid templates. These templates will be resolved into display values in content documents and/or list items.</summary>
         [Newtonsoft.Json.JsonProperty("displayPatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<DisplayPattern> DisplayPatterns { get; set; }
     
-        /// <summary>The schema fields.</summary>
         [Newtonsoft.Json.JsonProperty("fields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldBase> Fields { get; set; }
     
-        /// <summary>The schema fields overwrite information.</summary>
         [Newtonsoft.Json.JsonProperty("fieldsOverwrite", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldOverwriteBase> FieldsOverwrite { get; set; }
     
-        /// <summary>Sorts content documents and/or list items.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>An optional list of aggregations to group content documents and list items.</summary>
         [Newtonsoft.Json.JsonProperty("aggregations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregations { get; set; }
     
-        /// <summary>Is true when schema is system provided.</summary>
         [Newtonsoft.Json.JsonProperty("system", Required = Newtonsoft.Json.Required.Always)]
         public bool System { get; set; }
     
-        /// <summary>The owner token id. Defines the schema owner.</summary>
         [Newtonsoft.Json.JsonProperty("ownerTokenId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OwnerTokenId { get; set; }
     
-        /// <summary>Opens list item document accessibility. If true the SchemaPermissionSetIds must be empty.</summary>
         [Newtonsoft.Json.JsonProperty("public", Required = Newtonsoft.Json.Required.Always)]
         public bool Public { get; set; }
     
-        /// <summary>An optional id list of schema permission sets which control list item permissions. When not empty Public must be false.</summary>
         [Newtonsoft.Json.JsonProperty("schemaPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaPermissionSetIds { get; set; }
     
-        /// <summary>An optional id list of schemas with type content for a schema with type layer.</summary>
         [Newtonsoft.Json.JsonProperty("referencedInContentSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ReferencedInContentSchemaIds { get; set; }
     
-        /// <summary>A complete id list of all descendant schemas.</summary>
         [Newtonsoft.Json.JsonProperty("descendantSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> DescendantSchemaIds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserAudit Audit { get; set; }
     
-        /// <summary>The number of fields generated by the schema for the Search operations.</summary>
         [Newtonsoft.Json.JsonProperty("searchFieldCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SearchFieldCount SearchFieldCount { get; set; }
     
@@ -8661,19 +8391,16 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DisplayPattern 
     {
-        /// <summary>Defines the template engine for parsing the templates.</summary>
         [Newtonsoft.Json.JsonProperty("templateEngine", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TemplateEngine TemplateEngine { get; set; }
     
-        /// <summary>Defines the pattern type of the templates.</summary>
         [Newtonsoft.Json.JsonProperty("displayPatternType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public DisplayPatternType DisplayPatternType { get; set; }
     
-        /// <summary>Language specific pattern templates.</summary>
         [Newtonsoft.Json.JsonProperty("templates", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Templates { get; set; }
     
@@ -8697,7 +8424,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The field base class.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("FieldBoolean", typeof(FieldBoolean))]
     [JsonInheritanceAttribute("FieldDate", typeof(FieldDate))]
@@ -8721,43 +8447,33 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class FieldBase 
     {
-        /// <summary>The field id. Can be a slug and must be unique within the schema.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
-        /// <summary>The index id is auto generated by the system.</summary>
         [Newtonsoft.Json.JsonProperty("indexId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string IndexId { get; set; }
     
-        /// <summary>The namespace is auto generated by the system.</summary>
         [Newtonsoft.Json.JsonProperty("fieldNamespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldNamespace { get; set; }
     
-        /// <summary>Language specific field names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
-        /// <summary>Language specific field descriptions.</summary>
         [Newtonsoft.Json.JsonProperty("descriptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Descriptions { get; set; }
     
-        /// <summary>Defines if a field value is mandatory or not.</summary>
         [Newtonsoft.Json.JsonProperty("required", Required = Newtonsoft.Json.Required.Always)]
         public bool Required { get; set; }
     
-        /// <summary>Defines if the field can be edited or not.</summary>
         [Newtonsoft.Json.JsonProperty("fixed", Required = Newtonsoft.Json.Required.Always)]
         public bool Fixed { get; set; }
     
-        /// <summary>Maps the field in the elastic filter index.</summary>
         [Newtonsoft.Json.JsonProperty("index", Required = Newtonsoft.Json.Required.Always)]
         public bool Index { get; set; }
     
-        /// <summary>Includes fields in the simple search.</summary>
         [Newtonsoft.Json.JsonProperty("simpleSearch", Required = Newtonsoft.Json.Required.Always)]
         public bool SimpleSearch { get; set; }
     
-        /// <summary>Field is stored for sorting.</summary>
         [Newtonsoft.Json.JsonProperty("sortable", Required = Newtonsoft.Json.Required.Always)]
         public bool Sortable { get; set; }
     
@@ -8776,7 +8492,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldBoolean : FieldBase
     {
-        /// <summary>Priorizes search results. SimpleSearch must be true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
@@ -8795,11 +8510,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldDate : FieldBase
     {
-        /// <summary>Defines the date format structure.</summary>
         [Newtonsoft.Json.JsonProperty("format", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Format { get; set; }
     
-        /// <summary>Priorizes search results. SimpleSearch must be true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
@@ -8818,11 +8531,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldDateTime : FieldBase
     {
-        /// <summary>Defines the date time format structure.</summary>
         [Newtonsoft.Json.JsonProperty("format", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Format { get; set; }
     
-        /// <summary>Priorizes search results. SimpleSearch must be true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
@@ -8838,7 +8549,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>For internal use only (system schemas)</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldDateTimeArray : FieldDateTime
     {
@@ -8869,15 +8579,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("pattern", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Pattern { get; set; }
     
-        /// <summary>Defines the lowest possible value.</summary>
         [Newtonsoft.Json.JsonProperty("minimum", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public decimal? Minimum { get; set; }
     
-        /// <summary>Defines the highest possible value.</summary>
         [Newtonsoft.Json.JsonProperty("maximum", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public decimal? Maximum { get; set; }
     
-        /// <summary>Priorizes search results. SimpleSearch must be true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
@@ -8893,11 +8600,9 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>For internal use only (system schemas)</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldDictionary : FieldBase
     {
-        /// <summary>Priorizes search results. SimpleSearch must be true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
@@ -8913,7 +8618,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>For internal use only (system schemas)</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldDictionaryArray : FieldDictionary
     {
@@ -8941,7 +8645,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldGeoPoint : FieldBase
     {
-        /// <summary>Priorizes search results. SimpleSearch must be true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
@@ -8963,15 +8666,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("pattern", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Pattern { get; set; }
     
-        /// <summary>Defines the lowest possible value.</summary>
         [Newtonsoft.Json.JsonProperty("minimum", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public decimal? Minimum { get; set; }
     
-        /// <summary>Defines the highest possible value.</summary>
         [Newtonsoft.Json.JsonProperty("maximum", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public decimal? Maximum { get; set; }
     
-        /// <summary>Priorizes search results. SimpleSearch must be true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
@@ -8987,7 +8687,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>For internal use only (system schemas)</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldLongArray : FieldLong
     {
@@ -9015,11 +8714,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldSingleFieldset : FieldBase
     {
-        /// <summary>The id of the schema with type struct.</summary>
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
-        /// <summary>Indexing information of fields of the related schema identified by the SchemaId property</summary>
         [Newtonsoft.Json.JsonProperty("schemaIndexingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaIndexingInfo SchemaIndexingInfo { get; set; }
     
@@ -9038,7 +8735,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SchemaIndexingInfo 
     {
-        /// <summary>A collecction of indexing information for the fields of a schema</summary>
         [Newtonsoft.Json.JsonProperty("fields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldIndexingInfo> Fields { get; set; }
     
@@ -9057,27 +8753,21 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldIndexingInfo 
     {
-        /// <summary>The field Id</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
-        /// <summary>Maps the field in the elastic search index and its values become searchable.</summary>
         [Newtonsoft.Json.JsonProperty("index", Required = Newtonsoft.Json.Required.Always)]
         public bool Index { get; set; }
     
-        /// <summary>Includes fields in the simple search. Index must be true.</summary>
         [Newtonsoft.Json.JsonProperty("simpleSearch", Required = Newtonsoft.Json.Required.Always)]
         public bool SimpleSearch { get; set; }
     
-        /// <summary>Include the field for the sort index.</summary>
         [Newtonsoft.Json.JsonProperty("sortable", Required = Newtonsoft.Json.Required.Always)]
         public bool Sortable { get; set; }
     
-        /// <summary>Priorizes search results. SimpleSearch must be true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
-        /// <summary>Indexing information of fields of the schema related to this field (if existing)</summary>
         [Newtonsoft.Json.JsonProperty("relatedSchemaIndexing", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaIndexingInfo RelatedSchemaIndexing { get; set; }
     
@@ -9096,23 +8786,18 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldMultiFieldset : FieldBase
     {
-        /// <summary>The id of the schema with type struct.</summary>
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
-        /// <summary>Indexing information of fields of the related schema identified by the SchemaId property</summary>
         [Newtonsoft.Json.JsonProperty("schemaIndexingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaIndexingInfo SchemaIndexingInfo { get; set; }
     
-        /// <summary>Prevents duplicate values.</summary>
         [Newtonsoft.Json.JsonProperty("uniqueItems", Required = Newtonsoft.Json.Required.Always)]
         public bool UniqueItems { get; set; }
     
-        /// <summary>Defines the highest possible fieldset count.</summary>
         [Newtonsoft.Json.JsonProperty("maximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MaximumItems { get; set; }
     
-        /// <summary>Defines the lowest possible fieldset count.</summary>
         [Newtonsoft.Json.JsonProperty("minimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinimumItems { get; set; }
     
@@ -9131,19 +8816,15 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldSingleTagbox : FieldBase
     {
-        /// <summary>The id of the schema with type list.</summary>
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
-        /// <summary>Indexing information of fields of the related schema identified by the SchemaId property</summary>
         [Newtonsoft.Json.JsonProperty("schemaIndexingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaIndexingInfo SchemaIndexingInfo { get; set; }
     
-        /// <summary>An optional search filter. Limits the list item result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
-        /// <summary>Json serialized template used for creating new list item</summary>
         [Newtonsoft.Json.JsonProperty("listItemCreateTemplate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ListItemCreateTemplate { get; set; }
     
@@ -9162,31 +8843,24 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldMultiTagbox : FieldBase
     {
-        /// <summary>The id of the schema with type list.</summary>
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
-        /// <summary>Indexing information of fields of the related schema identified by the SchemaId property</summary>
         [Newtonsoft.Json.JsonProperty("schemaIndexingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaIndexingInfo SchemaIndexingInfo { get; set; }
     
-        /// <summary>Prevents duplicate values.</summary>
         [Newtonsoft.Json.JsonProperty("uniqueItems", Required = Newtonsoft.Json.Required.Always)]
         public bool UniqueItems { get; set; }
     
-        /// <summary>Defines the highest possible item count.</summary>
         [Newtonsoft.Json.JsonProperty("maximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MaximumItems { get; set; }
     
-        /// <summary>Defines the lowest possible item count.</summary>
         [Newtonsoft.Json.JsonProperty("minimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinimumItems { get; set; }
     
-        /// <summary>An optional search filter. Limits the list item result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
-        /// <summary>Json serialized template used for creating new list item</summary>
         [Newtonsoft.Json.JsonProperty("listItemCreateTemplate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ListItemCreateTemplate { get; set; }
     
@@ -9205,43 +8879,33 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldString : FieldBase
     {
-        /// <summary>It is a DotLiquid template.</summary>
         [Newtonsoft.Json.JsonProperty("template", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Template { get; set; }
     
-        /// <summary>If true the Template will only render on item creation otherwise it will render on each update.</summary>
         [Newtonsoft.Json.JsonProperty("keepFieldValue", Required = Newtonsoft.Json.Required.Always)]
         public bool KeepFieldValue { get; set; }
     
-        /// <summary>Contains a regex validation pattern.</summary>
         [Newtonsoft.Json.JsonProperty("pattern", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Pattern { get; set; }
     
-        /// <summary>Defines the minimal string length.</summary>
         [Newtonsoft.Json.JsonProperty("minimumLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinimumLength { get; set; }
     
-        /// <summary>Defines the maximal string length.</summary>
         [Newtonsoft.Json.JsonProperty("maximumLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MaximumLength { get; set; }
     
-        /// <summary>A string field can have multiple analyzers, but only one per analyzer type. To have any effect the Index must be true.</summary>
         [Newtonsoft.Json.JsonProperty("indexAnalyzers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AnalyzerBase> IndexAnalyzers { get; set; }
     
-        /// <summary>Analyzers used for the simple search. Only one analyzer per type is allowed. Only considered if SimpleSearch is set to true.</summary>
         [Newtonsoft.Json.JsonProperty("simpleSearchAnalyzers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AnalyzerBase> SimpleSearchAnalyzers { get; set; }
     
-        /// <summary>Displays the field value in a multiline component.</summary>
         [Newtonsoft.Json.JsonProperty("multiLine", Required = Newtonsoft.Json.Required.Always)]
         public bool MultiLine { get; set; }
     
-        /// <summary>Similar to an enumeration valid field values are limited to values of this list.</summary>
         [Newtonsoft.Json.JsonProperty("grantedValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> GrantedValues { get; set; }
     
-        /// <summary>Priorizes search results. SimpleSearch must be true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
@@ -9257,7 +8921,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The analyzer base class.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("EdgeNGramAnalyzer", typeof(EdgeNGramAnalyzer))]
     [JsonInheritanceAttribute("LanguageAnalyzer", typeof(LanguageAnalyzer))]
@@ -9279,8 +8942,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>An analyzer using the EdgeNGram tokenizer.
-    /// https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-edgengram-tokenizer.html</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class EdgeNGramAnalyzer : AnalyzerBase
     {
@@ -9299,8 +8960,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>An analyzer using a language analyzer. Restricted to the languages supported by elastic search.
-    /// https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lang-analyzer.html</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class LanguageAnalyzer : AnalyzerBase
     {
@@ -9319,8 +8978,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>An analyzer using the NGram tokenizer.
-    /// https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-ngram-tokenizer.html</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class NGramAnalyzer : AnalyzerBase
     {
@@ -9339,8 +8996,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>An analyzer using the path hierarchy tokenizer.
-    /// https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pathhierarchy-tokenizer.html</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PathHierarchyAnalyzer : AnalyzerBase
     {
@@ -9359,8 +9014,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>An analyzer using a custom pattern tokenizer.
-    /// https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pattern-tokenizer.html</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SimpleAnalyzer : AnalyzerBase
     {
@@ -9379,7 +9032,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>For internal use only (system schemas)</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldStringArray : FieldString
     {
@@ -9407,45 +9059,33 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldTranslatedString : FieldBase
     {
-        /// <summary>Contains a regex validation pattern.</summary>
         [Newtonsoft.Json.JsonProperty("pattern", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Pattern { get; set; }
     
-        /// <summary>Defines the minimal string length.</summary>
         [Newtonsoft.Json.JsonProperty("minimumLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinimumLength { get; set; }
     
-        /// <summary>Defines the maximal string length.</summary>
         [Newtonsoft.Json.JsonProperty("maximumLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MaximumLength { get; set; }
     
-        /// <summary>A string field can have multiple analyzers, but only one per analyzer type. To have any effect the Index must be true.</summary>
         [Newtonsoft.Json.JsonProperty("indexAnalyzers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AnalyzerBase> IndexAnalyzers { get; set; }
     
-        /// <summary>Analyzers used for the simple search. Only one analyzer per type is allowed. Only considered if SimpleSearch is set to true.</summary>
         [Newtonsoft.Json.JsonProperty("simpleSearchAnalyzers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AnalyzerBase> SimpleSearchAnalyzers { get; set; }
     
-        /// <summary>Displays the field value in a multiline component.</summary>
         [Newtonsoft.Json.JsonProperty("multiLine", Required = Newtonsoft.Json.Required.Always)]
         public bool MultiLine { get; set; }
     
-        /// <summary>Sets the required metadata languages for the translation field. The langauge configuration limits the available metadata languages.
-        /// If Required is true, the field and all its metadata languages are required, including x-default.
-        /// If Required is false, the field can be left empty, but as soon as a value is entered all required metadata languages are mandatory, including x-default.</summary>
         [Newtonsoft.Json.JsonProperty("requiredMetadataLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> RequiredMetadataLanguages { get; set; }
     
-        /// <summary>It is a DotLiquid template.</summary>
         [Newtonsoft.Json.JsonProperty("template", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Template { get; set; }
     
-        /// <summary>If true the Template will only render on item creation otherwise it will render on each update.</summary>
         [Newtonsoft.Json.JsonProperty("keepFieldValue", Required = Newtonsoft.Json.Required.Always)]
         public bool KeepFieldValue { get; set; }
     
-        /// <summary>Priorizes search results. SimpleSearch must be true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
@@ -9464,15 +9104,12 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldSingleRelation : FieldBase
     {
-        /// <summary>The id of the schema with type struct.</summary>
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
-        /// <summary>Indexing information of fields of the related schema identified by the SchemaId property</summary>
         [Newtonsoft.Json.JsonProperty("schemaIndexingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaIndexingInfo SchemaIndexingInfo { get; set; }
     
-        /// <summary>Defines the relation types supported by the field.</summary>
         [Newtonsoft.Json.JsonProperty("relationTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<RelationType> RelationTypes { get; set; }
     
@@ -9491,19 +9128,15 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class RelationType 
     {
-        /// <summary>The id property.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
-        /// <summary>Language specific relation names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
-        /// <summary>Defines the valid target context.</summary>
         [Newtonsoft.Json.JsonProperty("targetDocType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TargetDocType { get; set; }
     
-        /// <summary>An optional search filter. Limits the content or the list item result set depending on the relation's target context.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
@@ -9522,27 +9155,21 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldMultiRelation : FieldBase
     {
-        /// <summary>The id of the schema with type struct.</summary>
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
     
-        /// <summary>Indexing information of fields of the related schema identified by the SchemaId property</summary>
         [Newtonsoft.Json.JsonProperty("schemaIndexingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaIndexingInfo SchemaIndexingInfo { get; set; }
     
-        /// <summary>Defines the relation types supported by the field.</summary>
         [Newtonsoft.Json.JsonProperty("relationTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<RelationType> RelationTypes { get; set; }
     
-        /// <summary>Prevents duplicate values.</summary>
         [Newtonsoft.Json.JsonProperty("uniqueItems", Required = Newtonsoft.Json.Required.Always)]
         public bool UniqueItems { get; set; }
     
-        /// <summary>Defines the highest possible item count.</summary>
         [Newtonsoft.Json.JsonProperty("maximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MaximumItems { get; set; }
     
-        /// <summary>Dfines the lowest possible item count.</summary>
         [Newtonsoft.Json.JsonProperty("minimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinimumItems { get; set; }
     
@@ -9558,22 +9185,18 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Base class for overwritten information on a field.</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("FieldOverwriteSingleTagbox", typeof(FieldOverwriteSingleTagbox))]
     [JsonInheritanceAttribute("FieldOverwriteMultiTagbox", typeof(FieldOverwriteMultiTagbox))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class FieldOverwriteBase 
     {
-        /// <summary>The field id. Can be a slug and must be unique within the schema.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
-        /// <summary>Defines if a field value is mandatory or not.</summary>
         [Newtonsoft.Json.JsonProperty("required", Required = Newtonsoft.Json.Required.Always)]
         public bool Required { get; set; }
     
-        /// <summary>Defines if the required property of the field is overwritten</summary>
         [Newtonsoft.Json.JsonProperty("overwriteRequired", Required = Newtonsoft.Json.Required.Always)]
         public bool OverwriteRequired { get; set; }
     
@@ -9589,23 +9212,18 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Overwritten information for Single Tagbox field.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldOverwriteSingleTagbox : FieldOverwriteBase
     {
-        /// <summary>An optional search filter. Limits the list item result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
-        /// <summary>Defines if the Filter property of the field is overwritten</summary>
         [Newtonsoft.Json.JsonProperty("overwriteFilter", Required = Newtonsoft.Json.Required.Always)]
         public bool OverwriteFilter { get; set; }
     
-        /// <summary>Json serialized template used for creating new list item</summary>
         [Newtonsoft.Json.JsonProperty("listItemCreateTemplate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ListItemCreateTemplate { get; set; }
     
-        /// <summary>Defines if the ListItemCreateTemplate property of the field is overwritten</summary>
         [Newtonsoft.Json.JsonProperty("overwriteListItemCreateTemplate", Required = Newtonsoft.Json.Required.Always)]
         public bool OverwriteListItemCreateTemplate { get; set; }
     
@@ -9621,39 +9239,30 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Overwritten information for Multi Tagbox field.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldOverwriteMultiTagbox : FieldOverwriteBase
     {
-        /// <summary>An optional search filter. Limits the list item result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
-        /// <summary>Defines if the Filter property of the field is overwritten</summary>
         [Newtonsoft.Json.JsonProperty("overwriteFilter", Required = Newtonsoft.Json.Required.Always)]
         public bool OverwriteFilter { get; set; }
     
-        /// <summary>Json serialized template used for creating new list item</summary>
         [Newtonsoft.Json.JsonProperty("listItemCreateTemplate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ListItemCreateTemplate { get; set; }
     
-        /// <summary>Defines if the ListItemCreateTemplate property of the field is overwritten</summary>
         [Newtonsoft.Json.JsonProperty("overwriteListItemCreateTemplate", Required = Newtonsoft.Json.Required.Always)]
         public bool OverwriteListItemCreateTemplate { get; set; }
     
-        /// <summary>Defines the highest possible item count.</summary>
         [Newtonsoft.Json.JsonProperty("maximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MaximumItems { get; set; }
     
-        /// <summary>Defines if the MaximumItems property of the field is overwritten</summary>
         [Newtonsoft.Json.JsonProperty("overwriteMaximumItems", Required = Newtonsoft.Json.Required.Always)]
         public bool OverwriteMaximumItems { get; set; }
     
-        /// <summary>Defines the lowest possible item count.</summary>
         [Newtonsoft.Json.JsonProperty("minimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinimumItems { get; set; }
     
-        /// <summary>Defines if the MinimumItems property of the field is overwritten</summary>
         [Newtonsoft.Json.JsonProperty("overwriteMinimumItems", Required = Newtonsoft.Json.Required.Always)]
         public bool OverwriteMinimumItems { get; set; }
     
@@ -9669,19 +9278,15 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Count info of fields for search operations</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SearchFieldCount 
     {
-        /// <summary>The number of indexed fields generated by the schema in the Search index.</summary>
         [Newtonsoft.Json.JsonProperty("indexedField", Required = Newtonsoft.Json.Required.Always)]
         public int IndexedField { get; set; }
     
-        /// <summary>The number of fields to be queried in the simple search for the schema.</summary>
         [Newtonsoft.Json.JsonProperty("simpleSearchField", Required = Newtonsoft.Json.Required.Always)]
         public int SimpleSearchField { get; set; }
     
-        /// <summary>The number of fields that have sorting information stored in the search index.</summary>
         [Newtonsoft.Json.JsonProperty("sortableField", Required = Newtonsoft.Json.Required.Always)]
         public int SortableField { get; set; }
     
@@ -9700,31 +9305,24 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SchemaSearchRequest 
     {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
     
-        /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
-        /// <summary>An optional search filter. Limits the schema result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
-        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
     
@@ -9806,43 +9404,33 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class Schema 
     {
-        /// <summary>The schema id.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
-        /// <summary>The parent schema id.</summary>
         [Newtonsoft.Json.JsonProperty("parentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ParentSchemaId { get; set; }
     
-        /// <summary>Types control schema usage.</summary>
         [Newtonsoft.Json.JsonProperty("types", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SchemaType> Types { get; set; }
     
-        /// <summary>Language specific schema names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
-        /// <summary>Language specific schema descriptions.</summary>
         [Newtonsoft.Json.JsonProperty("descriptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Descriptions { get; set; }
     
-        /// <summary>An optional id list of schemas with type layer.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
-        /// <summary>The count of all fields.</summary>
         [Newtonsoft.Json.JsonProperty("fieldCount", Required = Newtonsoft.Json.Required.Always)]
         public int FieldCount { get; set; }
     
-        /// <summary>The count of all schema descendants with a immediate inheritance.</summary>
         [Newtonsoft.Json.JsonProperty("childCount", Required = Newtonsoft.Json.Required.Always)]
         public int ChildCount { get; set; }
     
-        /// <summary>The descendancy depth of the schema.</summary>
         [Newtonsoft.Json.JsonProperty("level", Required = Newtonsoft.Json.Required.Always)]
         public int Level { get; set; }
     
-        /// <summary>Is true when schema is system provided.</summary>
         [Newtonsoft.Json.JsonProperty("system", Required = Newtonsoft.Json.Required.Always)]
         public bool System { get; set; }
     
@@ -9876,43 +9464,33 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Contains compiled field information.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class IndexField 
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
-        /// <summary>The field id.</summary>
         [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldId { get; set; }
     
-        /// <summary>The field's type name.</summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Type { get; set; }
     
-        /// <summary>Contains all index field name variants of the field.</summary>
         [Newtonsoft.Json.JsonProperty("indexFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.IDictionary<string, string> IndexFields { get; set; }
     
-        /// <summary>Contains all simple search field name variants of the field.
-        /// The amount of simple search fields can be equal or less to the amount of IndexFields, but never more.</summary>
         [Newtonsoft.Json.JsonProperty("simpleSearchFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SimpleSearchFields { get; set; }
     
-        /// <summary>Contains the fields boost value.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; }
     
-        /// <summary>Not to be returned for search query, but only used for mapping purposes</summary>
         [Newtonsoft.Json.JsonProperty("ignoreForSearch", Required = Newtonsoft.Json.Required.Always)]
         public bool IgnoreForSearch { get; set; }
     
-        /// <summary>The path of the Nested document this property belongs to. If set to null, it means that there is no Nested document</summary>
         [Newtonsoft.Json.JsonProperty("nestedPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string NestedPath { get; set; }
     
-        /// <summary>Path to the sorting information in the DataSortValuesField sort index.</summary>
         [Newtonsoft.Json.JsonProperty("sortField", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SortField { get; set; }
     
@@ -9928,11 +9506,9 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Response that tells if exists</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ExistsResponse 
     {
-        /// <summary>Gets or sets a value indicating whether it exists</summary>
         [Newtonsoft.Json.JsonProperty("exists", Required = Newtonsoft.Json.Required.Always)]
         public bool Exists { get; set; }
     
@@ -9951,59 +9527,45 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SchemaCreateRequest 
     {
-        /// <summary>The schema id. Can be a slug, but must be unique throughout the whole customer setup.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
-        /// <summary>The parent schema id.</summary>
         [Newtonsoft.Json.JsonProperty("parentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ParentSchemaId { get; set; }
     
-        /// <summary>Types control schema usage.</summary>
         [Newtonsoft.Json.JsonProperty("types", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SchemaType> Types { get; set; }
     
-        /// <summary>Language specific schema names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
-        /// <summary>Language specific schema descriptions.</summary>
         [Newtonsoft.Json.JsonProperty("descriptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Descriptions { get; set; }
     
-        /// <summary>Language specific DotLiquid templates. These templates will be resolved into display values in content documents and/or list items.</summary>
         [Newtonsoft.Json.JsonProperty("displayPatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<DisplayPattern> DisplayPatterns { get; set; }
     
-        /// <summary>The schema fields. Can be empty.</summary>
         [Newtonsoft.Json.JsonProperty("fields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldBase> Fields { get; set; }
     
-        /// <summary>The schema fields overwrite information.</summary>
         [Newtonsoft.Json.JsonProperty("fieldsOverwrite", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldOverwriteBase> FieldsOverwrite { get; set; }
     
-        /// <summary>An optional list of aggregations to group content documents and/or list items.</summary>
         [Newtonsoft.Json.JsonProperty("aggregations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregations { get; set; }
     
-        /// <summary>Sorts content documents and/or list items.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>Opens list item document accessibility. If true SchemaPermissionSetIds must be empty.</summary>
         [Newtonsoft.Json.JsonProperty("public", Required = Newtonsoft.Json.Required.Always)]
         public bool Public { get; set; }
     
-        /// <summary>An optional id list of schema permission sets. Control list item document permissions. When not empty Public must be false.</summary>
         [Newtonsoft.Json.JsonProperty("schemaPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaPermissionSetIds { get; set; }
     
-        /// <summary>An optional id list of schemas with type layer.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
-        /// <summary>An optional id list of schemas with type content for a schema with type layer.</summary>
         [Newtonsoft.Json.JsonProperty("referencedInContentSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ReferencedInContentSchemaIds { get; set; }
     
@@ -10022,51 +9584,39 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SchemaUpdateRequest 
     {
-        /// <summary>Language specific schema names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
-        /// <summary>Language specific schema descriptions.</summary>
         [Newtonsoft.Json.JsonProperty("descriptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Descriptions { get; set; }
     
-        /// <summary>Language specific DotLiquid templates. These templates will be resolved into display values in content documents and/or list items.</summary>
         [Newtonsoft.Json.JsonProperty("displayPatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<DisplayPattern> DisplayPatterns { get; set; }
     
-        /// <summary>The schema fields.</summary>
         [Newtonsoft.Json.JsonProperty("fields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldBase> Fields { get; set; }
     
-        /// <summary>The schema fields overwrite information.</summary>
         [Newtonsoft.Json.JsonProperty("fieldsOverwrite", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldOverwriteBase> FieldsOverwrite { get; set; }
     
-        /// <summary>An optional list of aggregations to group content documents and list items.</summary>
         [Newtonsoft.Json.JsonProperty("aggregations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregations { get; set; }
     
-        /// <summary>Sorts content documents and/or list items.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>Opens schema accessibility.</summary>
         [Newtonsoft.Json.JsonProperty("public", Required = Newtonsoft.Json.Required.Always)]
         public bool Public { get; set; }
     
-        /// <summary>An optional id list of schema permission sets which control list item permissions. When not empty Public must be false.</summary>
         [Newtonsoft.Json.JsonProperty("schemaPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaPermissionSetIds { get; set; }
     
-        /// <summary>An optional id list of schemas with type layer.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
-        /// <summary>An optional id list of schemas with type content for a schema with type layer.</summary>
         [Newtonsoft.Json.JsonProperty("referencedInContentSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ReferencedInContentSchemaIds { get; set; }
     
-        /// <summary>Types control schema usage. Schema types can only be added, but not removed.</summary>
         [Newtonsoft.Json.JsonProperty("types", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SchemaType> Types { get; set; }
     
@@ -10085,22 +9635,18 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PermissionSetSearchRequest 
     {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
     
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
@@ -10111,7 +9657,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public PermissionSetRight? RightFilter { get; set; }
     
-        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
     
@@ -10204,14 +9749,12 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PermissionSet 
     {
-        /// <summary>The permission set id.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("trashed", Required = Newtonsoft.Json.Required.Always)]
         public bool Trashed { get; set; }
     
-        /// <summary>Language specific permission set names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
@@ -10409,23 +9952,18 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The version view item for the environment.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class VersionInfo 
     {
-        /// <summary>The manual file version of Picturepark.Contract.dll.</summary>
         [Newtonsoft.Json.JsonProperty("fileVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FileVersion { get; set; }
     
-        /// <summary>The GitVersionTask generated file product version of Picturepark.Configuration.dll.</summary>
         [Newtonsoft.Json.JsonProperty("fileProductVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FileProductVersion { get; set; }
     
-        /// <summary>The current contract version stored in CustomerDoc / EnvironmentDoc.</summary>
         [Newtonsoft.Json.JsonProperty("contractVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContractVersion { get; set; }
     
-        /// <summary>The bamboo release version. Only provided on bamboo deployments.</summary>
         [Newtonsoft.Json.JsonProperty("release", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Release { get; set; }
     
@@ -10499,15 +10037,12 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Reduced set of user information used for shares</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareUser 
     {
-        /// <summary>Name of user</summary>
         [Newtonsoft.Json.JsonProperty("displayName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DisplayName { get; set; }
     
-        /// <summary>MD5 hash of email address. Can be used to display gravatar image</summary>
         [Newtonsoft.Json.JsonProperty("emailHash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EmailHash { get; set; }
     
@@ -10526,11 +10061,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareContentDetail 
     {
-        /// <summary>The id of the schema with schema type content.</summary>
         [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentSchemaId { get; set; }
     
-        /// <summary>An optional id list of schemas with type layer.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
@@ -10551,7 +10084,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ContentType ContentType { get; set; }
     
-        /// <summary>Contains language specific display values, rendered according to the content schema's display pattern configuration.</summary>
         [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DisplayValueDictionary DisplayValues { get; set; }
     
@@ -10579,7 +10111,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OutputFormatId { get; set; }
     
-        /// <summary>Url to directly download output. In case of BasicShare if not fetched using a token, a placeholder {token} is included which needs to be replaced with the recipient's token</summary>
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
     
@@ -10903,31 +10434,24 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareSearchRequest 
     {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
     
-        /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
-        /// <summary>An optional search filter. Limits the share document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
-        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
     
@@ -11050,14 +10574,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
     
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>An optional search filter. Limits the content document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
@@ -11177,18 +10699,15 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserRole 
     {
-        /// <summary>The user role id.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("trashed", Required = Newtonsoft.Json.Required.Always)]
         public bool Trashed { get; set; }
     
-        /// <summary>Language specific user role names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
-        /// <summary>All user rights for this user role.</summary>
         [Newtonsoft.Json.JsonProperty("userRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<UserRight> UserRights { get; set; }
     
@@ -11473,7 +10992,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TransferSearchRequest 
     {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
@@ -11483,11 +11001,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
@@ -12326,11 +11842,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
@@ -12516,14 +12030,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TransferId { get; set; }
     
-        /// <summary>An optional id list of schemas with type layer.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Metadata { get; set; }
     
-        /// <summary>An optional id list of content permission sets. Controls content accessibility outside of content ownership.</summary>
         [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }
     
@@ -12566,14 +12078,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fileId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FileId { get; set; }
     
-        /// <summary>An optional id list of schemas with type layer.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Metadata { get; set; }
     
-        /// <summary>An optional id list of content permission sets. Controls content accessibility outside of content ownership.</summary>
         [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }
     
@@ -12709,11 +12219,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class OwnerToken 
     {
-        /// <summary>The ownertoken id.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
-        /// <summary>The id of the user to whom this ownertoken currently belongs to.</summary>
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string UserId { get; set; }
     
@@ -12749,22 +12257,18 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserSearchRequest 
     {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
     
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
@@ -12779,7 +12283,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("userRightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<UserRight> UserRightsFilter { get; set; }
     
-        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
     
@@ -12900,35 +12403,27 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sortOrder", Required = Newtonsoft.Json.Required.Always)]
         public int SortOrder { get; set; }
     
-        /// <summary>The search index id.</summary>
         [Newtonsoft.Json.JsonProperty("searchIndexId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchIndexId { get; set; }
     
-        /// <summary>An id list of schemas with schema type content whose content documents should be found by the simple search.
-        /// The search by filters and aggregations are unaffected.</summary>
         [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
     
-        /// <summary>An optional search filter. Limits the content document result set on each search and aggregation request.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
-        /// <summary>Language specific names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>An optional list of aggregators. These aggregations are added by default on each aggregation requests.</summary>
         [Newtonsoft.Json.JsonProperty("aggregations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregations { get; set; }
     
-        /// <summary>An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.</summary>
         [Newtonsoft.Json.JsonProperty("extendedSimpleSearchFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ExtendedSimpleSearchFields { get; set; }
     
-        /// <summary>Display pattern to use for rendering details when 0 results are returned</summary>
         [Newtonsoft.Json.JsonProperty("missingResultsDisplayPatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary MissingResultsDisplayPatterns { get; set; }
     
@@ -13000,19 +12495,15 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Schema import request</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SchemaImportRequest 
     {
-        /// <summary>Id of the previously uploaded file transfer</summary>
         [Newtonsoft.Json.JsonProperty("fileTransferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FileTransferId { get; set; }
     
-        /// <summary>Allow creating list items that refer to list items or contents that don't exist in the system.</summary>
         [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowMissingDependencies { get; set; }
     
-        /// <summary>Import the list items for the schema.</summary>
         [Newtonsoft.Json.JsonProperty("importListItems", Required = Newtonsoft.Json.Required.Always)]
         public bool ImportListItems { get; set; }
     
@@ -13061,15 +12552,12 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class LanguageConfiguration 
     {
-        /// <summary>A list of languages serving as system languages.</summary>
         [Newtonsoft.Json.JsonProperty("systemLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SystemLanguages { get; set; }
     
-        /// <summary>A list of languages serving as metadata languages.</summary>
         [Newtonsoft.Json.JsonProperty("metadataLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> MetadataLanguages { get; set; }
     
-        /// <summary>The default language. Not the be confused with the metadata fallback language x-default.</summary>
         [Newtonsoft.Json.JsonProperty("defaultLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DefaultLanguage { get; set; }
     

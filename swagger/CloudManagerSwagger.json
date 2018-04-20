@@ -3081,13 +3081,38 @@
         ]
       }
     },
-    "/environmentProcesses/wait": {
+    "/environmentProcesses/{processId}/wait": {
       "get": {
         "tags": [
           "EnvironmentProcess"
         ],
         "operationId": "EnvironmentProcess_WaitForLifecycle",
-        "parameters": [],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "type": "array",
+            "name": "lifecycles",
+            "in": "query",
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "items": {
+              "$ref": "#/definitions/EnvironmentProcessLifeCycle"
+            }
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "format": "time-span"
+          }
+        ],
         "responses": {
           "200": {
             "description": "",

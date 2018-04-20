@@ -8078,10 +8078,17 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkConflictException">Version conflic</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<EnvironmentProcessWaitResult> WaitForLifecycleAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<EnvironmentProcessWaitResult> WaitForLifecycleAsync(string processId, System.Collections.Generic.IEnumerable<EnvironmentProcessLifeCycle> lifecycles = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (processId == null)
+                throw new System.ArgumentNullException("processId");
+    
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/environmentProcesses/wait");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/environmentProcesses/{processId}/wait?");
+            urlBuilder_.Replace("{processId}", System.Uri.EscapeDataString(ConvertToString(processId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (lifecycles != null) foreach (var item_ in lifecycles) { urlBuilder_.Append("lifecycles=").Append(System.Uri.EscapeDataString(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Length--;
     
             var client_ = _httpClient;
             try
