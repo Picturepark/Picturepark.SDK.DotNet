@@ -8139,6 +8139,15 @@
         }
       ]
     },
+    "PictureparkTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "UserEmailAlreadyExistsException": {
       "type": "object",
       "additionalProperties": false,
@@ -10551,7 +10560,7 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/PictureparkBusinessException"
+          "$ref": "#/definitions/PictureparkTimeoutException"
         }
       ]
     },
@@ -10688,7 +10697,7 @@
       "additionalProperties": false,
       "allOf": [
         {
-          "$ref": "#/definitions/PictureparkBusinessException"
+          "$ref": "#/definitions/PictureparkTimeoutException"
         }
       ]
     },
@@ -10698,6 +10707,82 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "AddMetadataLanguageTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "environmentProcessId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkTimeoutException"
+        }
+      ]
+    },
+    "EnvironmentProcessAlreadyRunningException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "environmentProcessType"
+      ],
+      "properties": {
+        "environmentProcessType": {
+          "$ref": "#/definitions/EnvironmentProcessType"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "EnvironmentProcessType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "AddMetadataLanguage",
+        "CustomerUpdate",
+        "EnvironmentUpdate"
+      ],
+      "enum": [
+        "AddMetadataLanguage",
+        "CustomerUpdate",
+        "EnvironmentUpdate"
+      ]
+    },
+    "EnvironmentProcessNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "environmentProcessId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "EnvironmentProcessWaitTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "environmentProcessId": {
+          "type": "string"
+        },
+        "waitedLifecycles": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkTimeoutException"
         }
       ]
     },
@@ -13284,6 +13369,9 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "docType": {
+          "type": "string"
+        },
         "response": {
           "$ref": "#/definitions/BulkResponse"
         }
