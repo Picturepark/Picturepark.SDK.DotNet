@@ -57,8 +57,6 @@ namespace Picturepark.SDK.V1.Tests.Conversion
                 .AddIndex(p => ((SpecialChild)p.Child).Speciality)
                 .Build();
 
-            var json = JsonConvert.SerializeObject(info, Formatting.Indented);
-
             //// Assert
             Assert.Contains(info.Fields.Single(f => f.Id == "child").RelatedSchemaIndexing.Fields, f => f.Id == "speciality");
         }
@@ -74,8 +72,6 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             var info = builder
                 .AddIndex(p => p.Children.OfType<SpecialChild>().Select(c => c.Speciality))
                 .Build();
-
-            var json = JsonConvert.SerializeObject(info, Formatting.Indented);
 
             //// Assert
             Assert.Contains(info.Fields.Single(f => f.Id == "children").RelatedSchemaIndexing.Fields, f => f.Id == "speciality");
@@ -96,8 +92,6 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             var info = builder
                 .AddDefaultIndexes(p => p.Child, 1)
                 .Build();
-
-            var json = JsonConvert.SerializeObject(info, Formatting.Indented);
 
             //// Assert
             Assert.Contains(info.Fields.Single(f => f.Id == "child").RelatedSchemaIndexing.Fields, f => f.Id == "speciality");
