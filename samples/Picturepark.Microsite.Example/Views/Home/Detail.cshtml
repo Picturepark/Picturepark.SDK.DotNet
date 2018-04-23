@@ -26,7 +26,7 @@
 							<br />
 
 							<img src="/Home/ImageResized/@Model.Content.KeyVisual.TargetId?width=750&height=600" />
-							<div class="et-box et-shadow"><div class="et-box-content" style="padding: 4px !important;">@Model.Content.KeyVisual.Usage.GetTranslation()</div></div>
+							<div class="et-box et-shadow"><div class="et-box-content" style="padding: 4px !important;">@Model.Content.KeyVisual.Usage?.GetTranslation()</div></div>
 
 
 							<markdown>@Html.Raw(Model.Content.Text?.GetTranslation())</markdown>
@@ -40,7 +40,7 @@
 									<div class="thumbnail">
 										<a asp-area="" asp-controller="Home" asp-action="Embed" asp-route-id="@download.TargetId">
 											<img class="img-responsive" src="/Home/Thumbnail/@download.TargetId" alt="" style="max-height: 160px;">
-											<p style="padding: 6px;">@download.Usage.GetTranslation()</p>
+											<p style="padding: 6px;">@download.Usage?.GetTranslation()</p>
 										</a>
 									</div>
 								</div>
