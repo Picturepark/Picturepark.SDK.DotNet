@@ -4,7 +4,6 @@ using System;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Contract.SystemTypes;
-using Picturepark.SDK.V1.Tests.Fixtures;
 using System.Linq;
 using Newtonsoft.Json;
 using Picturepark.SDK.V1.Builders;
@@ -12,17 +11,8 @@ using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Conversion
 {
-    public class SchemaIndexingInfoBuilderTests : IClassFixture<ClientFixture>
+    public class SchemaIndexingInfoBuilderTests
     {
-        private readonly ClientFixture _fixture;
-        private readonly PictureparkClient _client;
-
-        public SchemaIndexingInfoBuilderTests(ClientFixture fixture)
-        {
-            _fixture = fixture;
-            _client = _fixture.Client;
-        }
-
         [Fact]
         [Trait("Stack", "Schema")]
         public void ShouldAddIndexOnPropertyPath()
