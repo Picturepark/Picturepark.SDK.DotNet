@@ -32,7 +32,7 @@ namespace Picturepark.SDK.V1.ServiceProvider.Buffer
 
         public Thread Start()
         {
-            _thread = new Thread(() => { ConsumeEntries(); });
+            _thread = new Thread(ConsumeEntries);
 
             _thread.Start();
 
@@ -41,8 +41,6 @@ namespace Picturepark.SDK.V1.ServiceProvider.Buffer
 
         public void ConsumeEntries()
         {
-            var random = new Random();
-
             while (_keepRunning)
             {
                 // wait for a new message, give air to re-checking the keep running flag

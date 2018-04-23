@@ -378,7 +378,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);
 
             var fileMetadata = contentDetail.GetFileMetadata();
-            var fileName = new Random().Next(0, 999999).ToString() + "-" + fileMetadata.FileName + ".jpg";
+            var fileName = new Random().Next(0, 999999) + "-" + fileMetadata.FileName + ".jpg";
             var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
             if (File.Exists(filePath))
@@ -842,7 +842,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);
 
             var fileMetadata = contentDetail.GetFileMetadata();
-            var fileName = new Random().Next(0, 999999).ToString() + "-" + fileMetadata.FileName + ".jpg";
+            var fileName = new Random().Next(0, 999999) + "-" + fileMetadata.FileName + ".jpg";
             var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
             if (File.Exists(filePath))
@@ -864,7 +864,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
             Assert.False(string.IsNullOrEmpty(contentId));
 
-            var fileName = new Random().Next(0, 999999).ToString() + "-" + contentId + ".jpg";
+            var fileName = new Random().Next(0, 999999) + "-" + contentId + ".jpg";
             var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
             if (File.Exists(filePath))
@@ -1069,7 +1069,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
             };
-            var directoryPath = Path.GetDirectoryName(filePaths.First());
             string transferName = nameof(ShouldUpdateFile) + "-" + new Random().Next(1000, 9999);
             var createTransferResult = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, filePaths.Select(Path.GetFileName).ToList());
 

@@ -20,7 +20,7 @@ namespace Picturepark.SDK.V1
                     var newTimeout = timeout.Value.Subtract(httpClient.Timeout);
                     if (newTimeout.TotalMilliseconds > 0)
                     {
-                        return await Poll<T>(httpClient, newTimeout, cancellationToken, execute);
+                        return await Poll(httpClient, newTimeout, cancellationToken, execute);
                     }
                 }
 

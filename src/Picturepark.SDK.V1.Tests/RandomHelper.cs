@@ -10,14 +10,14 @@ namespace Picturepark.SDK.V1.Tests
     {
         public static async Task<ContentSearchResult> GetRandomContentsAsync(PictureparkClient client, string searchString, int limit)
         {
-            var request = new ContentSearchRequest() { SearchString = searchString, Limit = limit };
+            var request = new ContentSearchRequest { SearchString = searchString, Limit = limit };
             return await client.Contents.SearchAsync(request);
         }
 
         public static async Task<string> GetRandomContentIdAsync(PictureparkClient client, string searchString, int limit)
         {
             string contentId = string.Empty;
-            ContentSearchRequest request = new ContentSearchRequest() { Limit = limit };
+            ContentSearchRequest request = new ContentSearchRequest { Limit = limit };
 
             if (!string.IsNullOrEmpty(searchString))
                 request.SearchString = searchString;
@@ -97,7 +97,7 @@ namespace Picturepark.SDK.V1.Tests
         public static async Task<string> GetRandomMetadataPermissionSetIdAsync(PictureparkClient client, int limit)
         {
             string permissionSetId = string.Empty;
-            var request = new PermissionSetSearchRequest() { Limit = limit };
+            var request = new PermissionSetSearchRequest { Limit = limit };
             PermissionSetSearchResult result = await client.Permissions.SearchSchemaPermissionSetsAsync(request);
 
             if (result.Results.Count > 0)

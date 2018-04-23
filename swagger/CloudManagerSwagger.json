@@ -714,6 +714,90 @@
         ]
       }
     },
+    "/customer/{customerAlias}/metadataLanguage": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_CreateMetadataLanguage",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "customerAlias",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "name": "metadataLanguageCreateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomerMetadataLanguageCreateRequest"
+            },
+            "x-nullable": true
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "format": "time-span"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EnvironmentProcess"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
     "/services/shutdownAll": {
       "get": {
         "tags": [
@@ -1347,7 +1431,11 @@
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EnvironmentProcess"
+            },
+            "x-nullable": true
           },
           "500": {
             "description": "Internal server error",
@@ -1756,7 +1844,14 @@
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EnvironmentProcess"
+              }
+            },
+            "x-nullable": true
           },
           "500": {
             "description": "Internal server error",
@@ -2870,6 +2965,293 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/VersionInfo"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/environmentProcesses/{processId}": {
+      "get": {
+        "tags": [
+          "EnvironmentProcess"
+        ],
+        "operationId": "EnvironmentProcess_Get",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EnvironmentProcess"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/environmentProcesses/{processId}/wait": {
+      "get": {
+        "tags": [
+          "EnvironmentProcess"
+        ],
+        "operationId": "EnvironmentProcess_WaitForLifecycle",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "type": "array",
+            "name": "lifecycles",
+            "in": "query",
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "items": {
+              "$ref": "#/definitions/EnvironmentProcessLifeCycle"
+            }
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "format": "time-span"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EnvironmentProcessWaitResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/environmentProcesses/{processId}/cancel": {
+      "post": {
+        "tags": [
+          "EnvironmentProcess"
+        ],
+        "operationId": "EnvironmentProcess_Cancel",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/environmentProcesses/search": {
+      "post": {
+        "tags": [
+          "EnvironmentProcess"
+        ],
+        "operationId": "EnvironmentProcess_Search",
+        "parameters": [
+          {
+            "name": "searchRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EnvironmentProcessSearchRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EnvironmentProcessSearchResult"
             },
             "x-nullable": true
           },
@@ -4723,6 +5105,15 @@
           "type": "string"
         }
       },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "PictureparkTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
@@ -7169,7 +7560,7 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/PictureparkBusinessException"
+          "$ref": "#/definitions/PictureparkTimeoutException"
         }
       ]
     },
@@ -7306,7 +7697,7 @@
       "additionalProperties": false,
       "allOf": [
         {
-          "$ref": "#/definitions/PictureparkBusinessException"
+          "$ref": "#/definitions/PictureparkTimeoutException"
         }
       ]
     },
@@ -7316,6 +7707,82 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "AddMetadataLanguageTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "environmentProcessId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkTimeoutException"
+        }
+      ]
+    },
+    "EnvironmentProcessAlreadyRunningException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "environmentProcessType"
+      ],
+      "properties": {
+        "environmentProcessType": {
+          "$ref": "#/definitions/EnvironmentProcessType"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "EnvironmentProcessType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "AddMetadataLanguage",
+        "CustomerUpdate",
+        "EnvironmentUpdate"
+      ],
+      "enum": [
+        "AddMetadataLanguage",
+        "CustomerUpdate",
+        "EnvironmentUpdate"
+      ]
+    },
+    "EnvironmentProcessNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "environmentProcessId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "EnvironmentProcessWaitTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "environmentProcessId": {
+          "type": "string"
+        },
+        "waitedLifecycles": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkTimeoutException"
         }
       ]
     },
@@ -8143,6 +8610,269 @@
         "Closed",
         "ReindexInProgress",
         "Cancelled"
+      ]
+    },
+    "CustomerMetadataLanguageCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "language": {
+          "type": "string"
+        }
+      }
+    },
+    "EnvironmentProcess": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "processType",
+        "lifeCycle",
+        "startDate",
+        "endDate"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "processType": {
+          "$ref": "#/definitions/EnvironmentProcessType"
+        },
+        "lifeCycle": {
+          "$ref": "#/definitions/EnvironmentProcessLifeCycle"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "error": {
+          "$ref": "#/definitions/ErrorResponse"
+        },
+        "data": {
+          "$ref": "#/definitions/EnvironmentProcessDataViewItemBase"
+        }
+      }
+    },
+    "EnvironmentProcessLifeCycle": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "CancellationInProgress",
+        "Failed"
+      ],
+      "enum": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "CancellationInProgress",
+        "Failed"
+      ]
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exception": {
+          "type": "string"
+        },
+        "traceId": {
+          "type": "string"
+        },
+        "traceJobId": {
+          "type": "string"
+        }
+      }
+    },
+    "EnvironmentProcessDataViewItemBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "x-abstract": true,
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "EnvironmentProcessAddMetadataLanguageData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/AddMetadataLanguageState"
+        },
+        "language": {
+          "type": "string"
+        },
+        "stateHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EnvironmentProcessState"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/EnvironmentProcessDataViewItemBase"
+        }
+      ]
+    },
+    "AddMetadataLanguageState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "InProgress",
+        "CustomerExported",
+        "CustomerUpdated",
+        "MasterDataReindexed",
+        "RedisCacheRestored",
+        "TranslationsForSystemEntitiesAdded",
+        "SortingFallbackApplied",
+        "SearchIndexesReindexed",
+        "Succeeded",
+        "Cancelled",
+        "Failed"
+      ],
+      "enum": [
+        "Draft",
+        "InProgress",
+        "CustomerExported",
+        "CustomerUpdated",
+        "MasterDataReindexed",
+        "RedisCacheRestored",
+        "TranslationsForSystemEntitiesAdded",
+        "SortingFallbackApplied",
+        "SearchIndexesReindexed",
+        "Succeeded",
+        "Cancelled",
+        "Failed"
+      ]
+    },
+    "EnvironmentProcessState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "timestamp"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "result": {
+          "type": "string"
+        }
+      }
+    },
+    "EnvironmentProcessCustomerUpdateData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/CustomerUpdateState"
+        },
+        "targetVersion": {
+          "type": "string"
+        },
+        "stateHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EnvironmentProcessState"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/EnvironmentProcessDataViewItemBase"
+        }
+      ]
+    },
+    "CustomerUpdateState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "InProgress",
+        "CustomerExported",
+        "Succeeded",
+        "Cancelled",
+        "Failed"
+      ],
+      "enum": [
+        "Draft",
+        "InProgress",
+        "CustomerExported",
+        "Succeeded",
+        "Cancelled",
+        "Failed"
+      ]
+    },
+    "EnvironmentProcessEnvironmentUpdateData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/EnvironmentUpdateState"
+        },
+        "targetVersion": {
+          "type": "string"
+        },
+        "stateHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EnvironmentProcessState"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/EnvironmentProcessDataViewItemBase"
+        }
+      ]
+    },
+    "EnvironmentUpdateState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "Failed"
+      ],
+      "enum": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "Failed"
       ]
     },
     "NodeInfo": {
@@ -9192,6 +9922,62 @@
               "$ref": "#/definitions/TranslatedStringDictionary"
             }
           ]
+        }
+      }
+    },
+    "EnvironmentProcessWaitResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lifeCycleHit": {
+          "$ref": "#/definitions/EnvironmentProcessLifeCycle"
+        },
+        "environmentProcess": {
+          "$ref": "#/definitions/EnvironmentProcess"
+        }
+      }
+    },
+    "EnvironmentProcessSearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "limit"
+      ],
+      "properties": {
+        "start": {
+          "type": "integer",
+          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+          "format": "int32",
+          "default": 0
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Limits the document count of the result set. Defaults to 30.",
+          "format": "int32",
+          "default": 30
+        },
+        "filter": {
+          "$ref": "#/definitions/FilterBase"
+        }
+      }
+    },
+    "EnvironmentProcessSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "totalResults"
+      ],
+      "properties": {
+        "totalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EnvironmentProcess"
+          }
         }
       }
     }
