@@ -10,10 +10,10 @@
 				"Struct"
 			],
 			"names": {
-				"x-default": "Planet"
+				"en": "Planet"
 			},
 			"descriptions": {
-				"x-default": "Sample schema used in .NET SDK unit tests for schema import."
+				"en": "Sample schema used in .NET SDK unit tests for schema import."
 			},
 			"layerSchemaIds": [],
 			"displayPatterns": [
@@ -21,28 +21,28 @@
 					"templateEngine": "DotLiquid",
 					"displayPatternType": "Thumbnail",
 					"templates": {
-						"x-default": "{{data.planet.name.x-default}}"
+						"en": "{{data.planet.name.x-default}}"
 					}
 				},
 				{
 					"templateEngine": "DotLiquid",
 					"displayPatternType": "List",
 					"templates": {
-						"x-default": "{{data.planet.name.x-default}}"
+						"en": "{{data.planet.name.x-default}}"
 					}
 				},
 				{
 					"templateEngine": "DotLiquid",
 					"displayPatternType": "Detail",
 					"templates": {
-						"x-default": "{{data.planet.name.x-default}}"
+						"en": "{{data.planet.name.x-default}}"
 					}
 				},
 				{
 					"templateEngine": "DotLiquid",
 					"displayPatternType": "Name",
 					"templates": {
-						"x-default": "{{data.planet.name.x-default}}"
+						"en": "{{data.planet.name.x-default}}"
 					}
 				}
 			],
@@ -52,7 +52,7 @@
 					"id": "name",
 					"fieldNamespace": "Planet.name",
 					"names": {
-						"x-default": "Name"
+						"en": "Name"
 					},
 					"descriptions": {},
 					"required": false,
@@ -88,7 +88,7 @@
 				"data": {
 					"planet": {
 						"name": {
-							"x-default": "Saturn"
+							"en": "Saturn"
 						},
 						"kind": "Planet",
 						"refId": "88ffa8a35cd9457184aea4f8859ac541"
@@ -102,7 +102,7 @@
 				"data": {
 					"planet": {
 						"name": {
-							"x-default": "Mars"
+							"en": "Mars"
 						},
 						"kind": "Planet",
 						"refId": "49e440a50f854fcd88567057cb3d9ca4"

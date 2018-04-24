@@ -15,12 +15,14 @@ namespace Picturepark.SDK.V1.Conversion
     /// <summary>Converts .NET types to Picturepark schemas.</summary>
     public class ClassToSchemaConverter
     {
+        private readonly string _defaultLanguage;
         private readonly IContractResolver _contractResolver;
-        private readonly List<string> _ignoredProperties = new List<string> { "refId", "_relId", "_relationType", "_targetContext", "_targetId" };
+        private readonly List<string> _ignoredProperties = new List<string> { "_refId", "_relationType", "_targetDocType", "_targetId" };
 
-        public ClassToSchemaConverter()
+        public ClassToSchemaConverter(string defaultLanguage)
             : this(new CamelCasePropertyNamesContractResolver())
         {
+            _defaultLanguage = defaultLanguage;
         }
 
         public ClassToSchemaConverter(IContractResolver contractResolver)
@@ -99,7 +101,7 @@ namespace Picturepark.SDK.V1.Conversion
                 Fields = new List<FieldBase>(),
                 FieldsOverwrite = new List<FieldOverwriteBase>(),
                 ParentSchemaId = parentSchemaId,
-                Names = new TranslatedStringDictionary { { "x-default", schemaId } },
+                Names = new TranslatedStringDictionary { { _defaultLanguage, schemaId } },
                 Descriptions = new TranslatedStringDictionary(),
                 Types = types,
                 DisplayPatterns = new List<DisplayPattern>()
@@ -229,7 +231,10 @@ namespace Picturepark.SDK.V1.Conversion
 
             foreach (var translationAttribute in descriptionTranslationAttributes)
             {
-                schemaDetail.Descriptions[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
+                var language = string.IsNullOrEmpty(translationAttribute.LanguageAbbreviation)
+                    ? _defaultLanguage
+                    : translationAttribute.LanguageAbbreviation;
+                schemaDetail.Descriptions[language] = translationAttribute.Translation;
             }
         }
 
@@ -242,7 +247,10 @@ namespace Picturepark.SDK.V1.Conversion
 
             foreach (var translationAttribute in nameTranslationAttributes)
             {
-                schemaDetail.Names[translationAttribute.LanguageAbbreviation] = translationAttribute.Translation;
+                var language = string.IsNullOrEmpty(translationAttribute.LanguageAbbreviation)
+                    ? _defaultLanguage
+                    : translationAttribute.LanguageAbbreviation;
+                schemaDetail.Names[language] = translationAttribute.Translation;
             }
         }
 
@@ -259,7 +267,7 @@ namespace Picturepark.SDK.V1.Conversion
                 {
                     DisplayPatternType = displayPatternAttribute.Type,
                     TemplateEngine = displayPatternAttribute.TemplateEngine,
-                    Templates = new TranslatedStringDictionary { { "x-default", displayPatternAttribute.DisplayPattern } }
+                    Templates = new TranslatedStringDictionary { { _defaultLanguage, displayPatternAttribute.DisplayPattern } }
                 };
 
                 schemaDetail.DisplayPatterns.Add(displayPattern);
@@ -451,12 +459,13 @@ namespace Picturepark.SDK.V1.Conversion
                         SimpleSearch = true,
                         MultiLine = false,
                         Boost = 1,
-                        Analyzers = new List<AnalyzerBase>
+                        IndexAnalyzers = new List<AnalyzerBase>
                         {
-                            new LanguageAnalyzer
-                            {
-                                SimpleSearch = true
-                            }
+                            new LanguageAnalyzer()
+                        },
+                        SimpleSearchAnalyzers = new List<AnalyzerBase>
+                        {
+                            new LanguageAnalyzer()
                         }
                     };
                 }
@@ -525,12 +534,13 @@ namespace Picturepark.SDK.V1.Conversion
                                 Index = true,
                                 SimpleSearch = true,
                                 Boost = 1,
-                                Analyzers = new List<AnalyzerBase>
+                                IndexAnalyzers = new List<AnalyzerBase>
                                 {
-                                    new SimpleAnalyzer
-                                    {
-                                        SimpleSearch = true
-                                    }
+                                    new SimpleAnalyzer()
+                                },
+                                SimpleSearchAnalyzers = new List<AnalyzerBase>
+                                {
+                                    new SimpleAnalyzer()
                                 },
                                 MultiLine = stringInfos?.MultiLine ?? false
                             };
@@ -572,7 +582,6 @@ namespace Picturepark.SDK.V1.Conversion
             {
                 var schemaIndexingAttribute = property.PictureparkAttributes.OfType<PictureparkSchemaIndexingAttribute>().SingleOrDefault();
                 var listItemCreateTemplateAttribute = property.PictureparkAttributes.OfType<PictureparkListItemCreateTemplateAttribute>().SingleOrDefault();
-                var maximumRecursionAttribute = property.PictureparkAttributes.OfType<PictureparkMaximumRecursionAttribute>().SingleOrDefault();
                 var tagboxAttributes = property.PictureparkAttributes.OfType<PictureparkTagboxAttribute>().SingleOrDefault();
                 var contentRelationAttributes = property.PictureparkAttributes.OfType<PictureparkContentRelationAttribute>().ToList();
 
@@ -584,7 +593,7 @@ namespace Picturepark.SDK.V1.Conversion
                         Id = i.Name,
                         Filter = i.Filter,
                         TargetDocType = i.TargetDocType,
-                        Names = new TranslatedStringDictionary { { "x-default", i.Name } }
+                        Names = new TranslatedStringDictionary { { _defaultLanguage, i.Name } }
                     }).ToList();
                 }
 
@@ -704,7 +713,26 @@ namespace Picturepark.SDK.V1.Conversion
                     if (field.Names == null)
                         field.Names = new TranslatedStringDictionary();
 
-                    field.Names[nameTranslationAttribute.LanguageAbbreviation] = nameTranslationAttribute.Translation;
+                    var language = string.IsNullOrEmpty(nameTranslationAttribute.LanguageAbbreviation)
+                        ? _defaultLanguage
+                        : nameTranslationAttribute.LanguageAbbreviation;
+
+                    field.Names[language] = nameTranslationAttribute.Translation;
+                }
+
+                if (attribute is PictureparkSortAttribute)
+                {
+                    if (field is FieldSingleRelation || field is FieldMultiRelation)
+                    {
+                        throw new InvalidOperationException($"Relation property {property.Name} must not be marked as sortable.");
+                    }
+
+                    if (field is FieldGeoPoint)
+                    {
+                        throw new InvalidOperationException($"GeoPoint property {property.Name} must not be marked as sortable.");
+                    }
+
+                    field.Sortable = true;
                 }
             }
 
@@ -715,17 +743,33 @@ namespace Picturepark.SDK.V1.Conversion
             {
                 field.Names = new TranslatedStringDictionary
                 {
-                    ["x-default"] = fieldName
+                    [_defaultLanguage] = fieldName
                 };
             }
 
-            var fieldAnalyzers = property.PictureparkAttributes
+            if (property.PictureparkAttributes.OfType<PictureparkAnalyzerAttribute>().Any(a => !a.Index && !a.SimpleSearch))
+            {
+                throw new InvalidOperationException(
+                    $"Property {property.Name} has invalid analyzer configuration: Specify one or both of {nameof(PictureparkAnalyzerAttribute.Index)}, {nameof(PictureparkAnalyzerAttribute.SimpleSearch)}.");
+            }
+
+            var fieldIndexAnalyzers = property.PictureparkAttributes
                 .OfType<PictureparkAnalyzerAttribute>()
+                .Where(a => a.Index)
                 .Select(a => a.CreateAnalyzer())
                 .ToList();
 
-            if (fieldAnalyzers.Any())
-                field.GetType().GetRuntimeProperty("Analyzers").SetValue(field, fieldAnalyzers);
+            if (fieldIndexAnalyzers.Any())
+                field.GetType().GetRuntimeProperty("IndexAnalyzers").SetValue(field, fieldIndexAnalyzers);
+
+            var fieldSimpleSearchAnalyzers = property.PictureparkAttributes
+                .OfType<PictureparkAnalyzerAttribute>()
+                .Where(a => a.SimpleSearch)
+                .Select(a => a.CreateAnalyzer())
+                .ToList();
+
+            if (fieldSimpleSearchAnalyzers.Any())
+                field.GetType().GetRuntimeProperty("SimpleSearchAnalyzers").SetValue(field, fieldSimpleSearchAnalyzers);
 
             return field;
         }

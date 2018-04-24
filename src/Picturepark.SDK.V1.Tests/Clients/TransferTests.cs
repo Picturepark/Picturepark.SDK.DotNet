@@ -149,10 +149,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldDelete()
         {
             /// Arrange
-		    var result = await CreateTransferAsync();
+            var result = await CreateTransferAsync();
 
             /// Act
-		    var transferId = result.Transfer.Id;
+            var transferId = result.Transfer.Id;
             var transfer = await _client.Transfers.GetAsync(result.Transfer.Id);
 
             await _client.Transfers.DeleteAsync(transferId);
@@ -167,7 +167,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGet()
         {
             /// Arrange
-		    var result = await CreateTransferAsync();
+            var result = await CreateTransferAsync();
 
             /// Act
             TransferDetail transfer = await _client.Transfers.GetAsync(result.Transfer.Id);
@@ -182,7 +182,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetFile()
         {
             /// Arrange
-		    // var result = await CreateTransferAsync(); // TODO: Fix null pointer exception in backend
+            // var result = await CreateTransferAsync(); // TODO: Fix null pointer exception in backend
             var transferId = await _fixture.GetRandomFileTransferIdAsync(20);
 
             /// Act
@@ -228,7 +228,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldPartialImport()
         {
             /// Arrange
-			const int desiredUploadFiles = 10;
+            const int desiredUploadFiles = 10;
 
             var transferName = nameof(ShouldUploadAndImportFiles) + "-" + new Random().Next(1000, 9999);
             var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, "*").ToList();
@@ -312,6 +312,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentIds = result.Results.Select(r => r.ContentId);
 
             Assert.Equal(importFilePaths.Count(), contentIds.Count());
+        }
+
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldRespectTimeoutWhileUploading()
+        {
+            var transferName = Guid.NewGuid().ToString();
+
+            await Assert.ThrowsAsync<TimeoutException>(
+                async () =>
+                    await _client.Transfers.UploadFilesAsync(
+                        transferName,
+                        new string[0],
+                        new UploadOptions { WaitForTransferCompletion = true },
+                        TimeSpan.FromMilliseconds(1)).ConfigureAwait(false)).ConfigureAwait(false);
         }
 
         private async Task<CreateTransferResult> CreateTransferAsync()

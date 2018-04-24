@@ -133,10 +133,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Second Aggregator
-            var ranges = new List<NumericRange>
+            var ranges = new List<NumericRangeForAggregator>
             {
-                new NumericRange { From = null, To = 499,  Names = new TranslatedStringDictionary { { "en", "Aggregator2a" } } },
-                new NumericRange { From = 500, To = 5000, Names = new TranslatedStringDictionary { { "en", "Aggregator2b" } } }
+                new NumericRangeForAggregator { From = null, To = 499, Names = new TranslatedStringDictionary { { "en", "Aggregator2a" } } },
+                new NumericRangeForAggregator { From = 500, To = 5000, Names = new TranslatedStringDictionary { { "en", "Aggregator2b" } } }
             };
 
             var numRangeAggregator = new NumericRangeAggregator()
@@ -152,40 +152,18 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
-        public async Task ShouldAggregateWithoutAggregators()
-        {
-            // Todo: does not find anything
-            // Check: does Aggregate() without Aggregators make any sense?
-            //// TODO: Must be extended and asserted with useful data.
-
-            var request = new ContentAggregationRequest() { SearchString = "*" };
-            ObjectAggregationResult result = await _client.Contents.AggregateAsync(request);
-
-            var numRangeFilter = new NumericRangeFilter() { Field = "ContentType", Range = new NumericRange { From = 2, To = 5 } };
-            request.Filter = numRangeFilter;
-            result = await _client.Contents.AggregateAsync(request);
-
-            request.Filter = null;
-            request.LifeCycleFilter = LifeCycleFilter.All;
-            result = await _client.Contents.AggregateAsync(request);
-
-            request.Aggregators = new List<AggregatorBase>();
-            result = await _client.Contents.AggregateAsync(request);
-        }
-
-        [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldAggregateByChannel()
         {
             /// Arrange
             var channelId = "rootChannel";
             var request = new ContentAggregationRequest
             {
+                ChannelId = channelId,
                 SearchString = string.Empty
             };
 
             /// Act
-            var result = await _client.Contents.AggregateByChannelAsync(channelId, request);
+            var result = await _client.Contents.AggregateOnChannelAsync(request);
 
             /// Assert
             var originalWidthResults = result.AggregationResults
@@ -203,6 +181,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var channelId = "rootChannel";
             var request = new ContentAggregationRequest
             {
+                ChannelId = channelId,
                 SearchString = string.Empty,
                 Aggregators = new List<AggregatorBase>
                 {
@@ -211,7 +190,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var result = await _client.Contents.AggregateByChannelAsync(channelId, request);
+            var result = await _client.Contents.AggregateAsync(request);
 
             /// Assert
             var permissionSetResults = result.AggregationResults
@@ -399,7 +378,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);
 
             var fileMetadata = contentDetail.GetFileMetadata();
-            var fileName = new Random().Next(0, 999999).ToString() + "-" + fileMetadata.FileName + ".jpg";
+            var fileName = new Random().Next(0, 999999) + "-" + fileMetadata.FileName + ".jpg";
             var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
             if (File.Exists(filePath))
@@ -408,7 +387,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             using (var response = await _client.Contents.DownloadAsync(contentId, "Original", null, null, "bytes=0-20000000"))
             {
                 var stream = response.Stream;
-                Assert.Equal(true, stream.CanRead);
+                Assert.True(stream.CanRead);
 
                 await response.Stream.WriteToFileAsync(filePath);
                 Assert.True(File.Exists(filePath));
@@ -443,7 +422,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 Id = contentId,
-                SchemaIds = new List<string> { "Drive" },
+                LayerSchemaIds = new List<string> { "Drive" },
                 Metadata = new DataDictionary
                 {
                     {
@@ -473,7 +452,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request1 = new ContentMetadataUpdateRequest
             {
                 Id = contentId1,
-                SchemaIds = new List<string> { "Drive" },
+                LayerSchemaIds = new List<string> { "Drive" },
                 Metadata = new DataDictionary
                 {
                     {
@@ -489,7 +468,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request2 = new ContentMetadataUpdateRequest
             {
                 Id = contentId2,
-                SchemaIds = new List<string> { "Drive" },
+                LayerSchemaIds = new List<string> { "Drive" },
                 Metadata = new DataDictionary
                 {
                     {
@@ -529,7 +508,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 Id = contentId,
-                SchemaIds = new List<string> { "PersonShot" },
+                LayerSchemaIds = new List<string> { "PersonShot" },
                 Metadata = new DataDictionary
                 {
                     {
@@ -551,6 +530,232 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
+        public async Task ShouldMergeLayersOnMetadataUpdate()
+        {
+            /// Arrange
+            foreach (var type in new[] { typeof(PersonShot), typeof(AllDataTypesContract) })
+            {
+                var schemas = await _client.Schemas.GenerateSchemasAsync(type);
+                foreach (var schema in schemas)
+                {
+                    await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
+                }
+            }
+
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            var request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                LayerSchemaIds = new List<string> { nameof(PersonShot) },
+                Metadata = new DataDictionary
+                {
+                    {
+                        nameof(PersonShot),
+                        new Dictionary<string, object>
+                        {
+                            { "Description", "test description" }
+                        }
+                    }
+                }
+            };
+
+            await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+            request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
+                Metadata = new DataDictionary
+                {
+                    {
+                        nameof(AllDataTypesContract),
+                        new Dictionary<string, object>
+                        {
+                            { "IntegerField", 12345 }
+                        }
+                    }
+                },
+                LayerSchemasUpdateOptions = UpdateOption.Merge
+            };
+
+            /// Act
+            var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+            /// Assert
+            Assert.Equal("test description", ((JObject)response.Metadata["personShot"])["description"].ToString());
+            Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldReplaceLayersOnMetadataUpdate()
+        {
+            /// Arrange
+            foreach (var type in new[] { typeof(PersonShot), typeof(AllDataTypesContract) })
+            {
+                var schemas = await _client.Schemas.GenerateSchemasAsync(type);
+                foreach (var schema in schemas)
+                {
+                    await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
+                }
+            }
+
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            var request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                LayerSchemaIds = new List<string> { nameof(PersonShot) },
+                Metadata = new DataDictionary
+                {
+                    {
+                        nameof(PersonShot),
+                        new Dictionary<string, object>
+                        {
+                            { "Description", "test description" }
+                        }
+                    }
+                }
+            };
+
+            await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+            request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
+                Metadata = new DataDictionary
+                {
+                    {
+                        nameof(AllDataTypesContract),
+                        new Dictionary<string, object>
+                        {
+                            { "IntegerField", 12345 }
+                        }
+                    }
+                },
+                LayerSchemasUpdateOptions = UpdateOption.Replace
+            };
+
+            /// Act
+            var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+            /// Assert
+            Assert.DoesNotContain("personShot", response.Metadata.Keys);
+            Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldMergeFieldsOnMetadataUpdate()
+        {
+            /// Arrange
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(AllDataTypesContract));
+            foreach (var schema in schemas)
+            {
+                await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
+            }
+
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            var request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
+                Metadata = new DataDictionary
+                {
+                    {
+                        nameof(AllDataTypesContract),
+                        new Dictionary<string, object>
+                        {
+                            { "IntegerField", 12345 }
+                        }
+                    }
+                }
+            };
+
+            await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+            request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
+                Metadata = new DataDictionary
+                {
+                    {
+                        nameof(AllDataTypesContract),
+                        new Dictionary<string, object>
+                        {
+                            { "StringField", "test string" }
+                        }
+                    }
+                },
+                SchemaFieldsUpdateOptions = UpdateOption.Merge
+            };
+
+            /// Act
+            var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+            /// Assert
+            Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
+            Assert.Equal("test string", ((JObject)response.Metadata["allDataTypesContract"])["stringField"].ToString());
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldReplaceFieldsOnMetadataUpdate()
+        {
+            /// Arrange
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(AllDataTypesContract));
+            foreach (var schema in schemas)
+            {
+                await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
+            }
+
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            var request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
+                Metadata = new DataDictionary
+                {
+                    {
+                        nameof(AllDataTypesContract),
+                        new Dictionary<string, object>
+                        {
+                            { "IntegerField", 12345 }
+                        }
+                    }
+                }
+            };
+
+            await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+            request = new ContentMetadataUpdateRequest
+            {
+                Id = contentId,
+                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
+                Metadata = new DataDictionary
+                {
+                    {
+                        nameof(AllDataTypesContract),
+                        new Dictionary<string, object>
+                        {
+                            { "StringField", "test string" }
+                        }
+                    }
+                },
+                SchemaFieldsUpdateOptions = UpdateOption.Replace
+            };
+
+            /// Act
+            var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true);
+
+            /// Assert
+            Assert.Null(((JObject)response.Metadata["allDataTypesContract"])["integerField"]);
+            Assert.Equal("test string", ((JObject)response.Metadata["allDataTypesContract"])["stringField"].ToString());
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
         public async Task ShouldBatchUpdateFieldsByFilter()
         {
             /// Arrange
@@ -559,7 +764,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 ContentFilterRequest = new ContentFilterRequest
                 {
-                    ChannelIds = new List<string> { "rootChannel" },
+                    ChannelId = "rootChannel",
                     Filter = new TermFilter { Field = "id", Term = contentId }
                 },
                 ChangeCommands = new List<MetadataValuesChangeCommandBase>
@@ -620,7 +825,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldThrowExceptionWhenContentNotFound()
         {
             var contentId = "foobar.baz";
-            await Assert.ThrowsAsync(typeof(ContentNotFoundException), async () =>
+            await Assert.ThrowsAsync<ContentNotFoundException>(async () =>
             {
                 await _client.Contents.GetAsync(contentId);
             });
@@ -637,7 +842,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);
 
             var fileMetadata = contentDetail.GetFileMetadata();
-            var fileName = new Random().Next(0, 999999).ToString() + "-" + fileMetadata.FileName + ".jpg";
+            var fileName = new Random().Next(0, 999999) + "-" + fileMetadata.FileName + ".jpg";
             var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
             if (File.Exists(filePath))
@@ -659,7 +864,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
             Assert.False(string.IsNullOrEmpty(contentId));
 
-            var fileName = new Random().Next(0, 999999).ToString() + "-" + contentId + ".jpg";
+            var fileName = new Random().Next(0, 999999) + "-" + contentId + ".jpg";
             var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
             if (File.Exists(filePath))
@@ -736,7 +941,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldSearch()
         {
             /// Arrange
-            var channelIds = new List<string> { "rootChannel" };
+            var channelId = "rootChannel";
             var searchFieldPath =
                 nameof(ContentDetail.Audit).ToLowerCamelCase() + "." +
                 nameof(UserAudit.CreationDate).ToLowerCamelCase();
@@ -749,7 +954,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var filter = new TermFilter { Field = "contentSchemaId", Term = "ImageMetadata" };
             var request = new ContentSearchRequest
             {
-                ChannelIds = channelIds,
+                ChannelId = channelId,
                 SearchString = "*",
                 Sort = sortInfos,
                 Filter = filter,
@@ -777,14 +982,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var request = new ContentSearchRequest
             {
-                ChannelIds = new List<string> { channelId },
+                ChannelId = channelId,
                 SearchString = searchString,
                 Sort = sortInfos,
                 Start = 0,
                 Limit = 8
             };
 
-            ContentSearchResult result = await _client.Contents.SearchByChannelAsync(channelId, request);
+            ContentSearchResult result = await _client.Contents.SearchAsync(request);
             Assert.True(result.Results.Count > 0);
         }
 
@@ -864,7 +1069,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
             };
-            var directoryPath = Path.GetDirectoryName(filePaths.First());
             string transferName = nameof(ShouldUpdateFile) + "-" + new Random().Next(1000, 9999);
             var createTransferResult = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, filePaths.Select(Path.GetFileName).ToList());
 
@@ -881,7 +1085,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new FileTransferSearchRequest() { Limit = 20, SearchString = "*", Filter = new TermFilter { Field = "transferId", Term = createTransferResult.Transfer.Id } };
             FileTransferSearchResult result = await _client.Transfers.SearchFilesAsync(request);
 
-            Assert.Equal(result.TotalResults, 1);
+            Assert.Equal(1, result.TotalResults);
 
             var updateRequest = new ContentFileUpdateRequest
             {

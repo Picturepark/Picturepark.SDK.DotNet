@@ -3,11 +3,11 @@ using Picturepark.SDK.V1.Contract.Attributes;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
 {
-	[PictureparkSchemaType(SchemaType.List)]
-	public class BusinessProcessTest
-	{
-		public string Name { get; set; }
+    [PictureparkSchemaType(SchemaType.List)]
+    public class BusinessProcessTest
+    {
+        public string Name { get; set; }
 
-		public string Description { get; set; }
-	}
+        public string Description { get; set; }
+    }
 }

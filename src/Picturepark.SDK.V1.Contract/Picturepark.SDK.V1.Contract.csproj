@@ -17,24 +17,15 @@
 		<PackageProjectUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet</PackageProjectUrl>
 	</PropertyGroup>
 
-	<PropertyGroup>
-		<NerdbankGitVersioningVersion>1.6.35</NerdbankGitVersioningVersion>
-	</PropertyGroup>
-
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
-		<PackageReference Include="Nerdbank.GitVersioning" Version="$(NerdbankGitVersioningVersion)">
-			<PrivateAssets>All</PrivateAssets>
-		</PackageReference>
+	  <PackageReference Include="Nerdbank.GitVersioning" Version="2.1.23">
+	    <PrivateAssets>All</PrivateAssets>
+	  </PackageReference>
 		<PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
 			<PrivateAssets>All</PrivateAssets>
 		</PackageReference>
 	</ItemGroup>
-
-	<ImportGroup Condition=" '$(ExcludeRestorePackageImports)' == 'true' ">
-		<Import Project="$(UserProfile)\.nuget\packages\nerdbank.gitversioning\$(NerdbankGitVersioningVersion)\buildCrossTargeting\Nerdbank.GitVersioning.targets" Condition="Exists('$(UserProfile)\.nuget\packages\nerdbank.gitversioning\$(NerdbankGitVersioningVersion)\buildCrossTargeting\Nerdbank.GitVersioning.targets')" />
-	</ImportGroup>
-	<Target Name="FixUpVersion" BeforeTargets="_GenerateRestoreProjectSpec" DependsOnTargets="GetBuildVersion" Condition=" '$(NerdbankGitVersioningTasksPath)' != '' " />
 
 	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
 		<PackageReference Include="System.Diagnostics.Tools" Version="4.3.0.0" />

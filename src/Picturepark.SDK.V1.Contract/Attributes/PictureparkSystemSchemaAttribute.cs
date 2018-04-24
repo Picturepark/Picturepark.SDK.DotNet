@@ -2,8 +2,8 @@
 
 namespace Picturepark.SDK.V1.Contract.Attributes
 {
-	[AttributeUsage(AttributeTargets.Class)]
-	public class PictureparkSystemSchemaAttribute : Attribute, IPictureparkAttribute
-	{
-	}
+    [AttributeUsage(AttributeTargets.Class)]
+    public class PictureparkSystemSchemaAttribute : Attribute, IPictureparkAttribute
+    {
+    }
 }

@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Reactive;
 using System.Reactive.Linq;
-using System.Text;
-using Picturepark.SDK.V1.ServiceProvider.Contract;
 using System.Net.Security;
 using System.Security.Authentication;
 
@@ -56,8 +54,6 @@ namespace Picturepark.SDK.V1.ServiceProvider
             _liveStreamBuffer.Start();
         }
 
-        public event EventHandler<ServiceProviderRequestEventArgs> ServiceProviderRequestEvent;
-
         public void Dispose()
         {
             ////_liveStreamConsumer.Stop();
@@ -100,44 +96,6 @@ namespace Picturepark.SDK.V1.ServiceProvider
             _liveStreamModel.BasicConsume(queue: queueName, autoAck: false, consumer: consumer);
 
             return result;
-        }
-
-        public IObservable<EventPattern<ServiceProviderRequestEventArgs>> GetRequestObserver()
-        {
-            // exchange
-            var exchangeName = "pp.request";
-            _requestMessageModel.ExchangeDeclare(exchangeName, ExchangeType.Direct);
-
-            var args = new Dictionary<string, object>();
-            args.Add("x-max-priority", _configuration.DefaultQueuePriorityMax);
-
-            // queue
-            var queueName = _requestMessageModel.QueueDeclare($"{exchangeName}", true, false, false, args);
-            _requestMessageModel.QueueBind(queue: queueName, exchange: exchangeName, routingKey: string.Empty, arguments: null);
-
-            // consumer
-            var consumer = new EventingBasicConsumer(_requestMessageModel);
-            consumer.Received += Request_Received;
-            _requestMessageModel.BasicConsume(queue: queueName, autoAck: false, consumer: consumer);
-
-            // create observable
-            return Observable.FromEventPattern<ServiceProviderRequestEventArgs>(
-                ev => ServiceProviderRequestEvent += ev,
-                ev => ServiceProviderRequestEvent -= ev
-            );
-        }
-
-        private void Request_Received(object sender, BasicDeliverEventArgs e)
-        {
-            ServiceProviderMessage message = (ServiceProviderMessage)Newtonsoft.Json.JsonConvert.DeserializeObject<ServiceProviderMessage>(
-                Encoding.UTF8.GetString(e.Body),
-                _configuration.SerializerSettings
-            );
-
-            // process event
-            ServiceProviderRequestEvent(this, new ServiceProviderRequestEventArgs(message));
-
-            ((EventingBasicConsumer)sender).Model.BasicAck(e.DeliveryTag, false);
         }
     }
 }

@@ -514,7 +514,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ExternalProviderItem"
+                "$ref": "#/definitions/ExternalProvider"
               }
             },
             "x-nullable": true
@@ -666,6 +666,90 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/Index"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/{customerAlias}/metadataLanguage": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_CreateMetadataLanguage",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "customerAlias",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "name": "metadataLanguageCreateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomerMetadataLanguageCreateRequest"
+            },
+            "x-nullable": true
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "format": "time-span"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EnvironmentProcess"
             },
             "x-nullable": true
           },
@@ -1347,7 +1431,11 @@
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EnvironmentProcess"
+            },
+            "x-nullable": true
           },
           "500": {
             "description": "Internal server error",
@@ -1756,7 +1844,14 @@
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EnvironmentProcess"
+              }
+            },
+            "x-nullable": true
           },
           "500": {
             "description": "Internal server error",
@@ -2496,6 +2591,83 @@
         ]
       }
     },
+    "/backup/customer/export": {
+      "put": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_Export",
+        "parameters": [
+          {
+            "name": "customerExportRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomerExportRequest"
+            },
+            "x-nullable": true
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "format": "time-span"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerExportResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
     "/{customerAlias}/{userId}/getUserDeveloperFlag": {
       "get": {
         "tags": [
@@ -2720,6 +2892,413 @@
           }
         ]
       }
+    },
+    "/globalConfiguration": {
+      "put": {
+        "tags": [
+          "Configuration"
+        ],
+        "operationId": "Configuration_CreateEnvironment",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EnvironmentConfiguration"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/cloud/version": {
+      "get": {
+        "tags": [
+          "Configuration"
+        ],
+        "operationId": "Configuration_GetVersion",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/VersionInfo"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/environmentProcesses/{processId}": {
+      "get": {
+        "tags": [
+          "EnvironmentProcess"
+        ],
+        "operationId": "EnvironmentProcess_Get",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EnvironmentProcess"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/environmentProcesses/{processId}/wait": {
+      "get": {
+        "tags": [
+          "EnvironmentProcess"
+        ],
+        "operationId": "EnvironmentProcess_WaitForLifecycle",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "type": "array",
+            "name": "lifecycles",
+            "in": "query",
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "items": {
+              "$ref": "#/definitions/EnvironmentProcessLifeCycle"
+            }
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "format": "time-span"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EnvironmentProcessWaitResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/environmentProcesses/{processId}/cancel": {
+      "post": {
+        "tags": [
+          "EnvironmentProcess"
+        ],
+        "operationId": "EnvironmentProcess_Cancel",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/environmentProcesses/search": {
+      "post": {
+        "tags": [
+          "EnvironmentProcess"
+        ],
+        "operationId": "EnvironmentProcess_Search",
+        "parameters": [
+          {
+            "name": "searchRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EnvironmentProcessSearchRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/EnvironmentProcessSearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflic",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
     }
   },
   "definitions": {
@@ -2735,6 +3314,7 @@
         "rootListItemSearchIndexNumberOfShards",
         "rootListItemSearchIndexNumberOfReplicas",
         "indexedFieldThreshold",
+        "sortableFieldThreshold",
         "contentRetentionTime",
         "listItemRetentionTime",
         "snapshotRetentionTime"
@@ -2773,7 +3353,7 @@
         "externalProviders": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ExternalProviderItem"
+            "$ref": "#/definitions/ExternalProviderInput"
           }
         },
         "identityServerProviders": {
@@ -2785,7 +3365,7 @@
         "serviceProviders": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/CustomerServiceProviderItem"
+            "$ref": "#/definitions/CustomerServiceProvider"
           }
         },
         "corsAllowedHosts": {
@@ -2822,11 +3402,15 @@
           "type": "integer",
           "format": "int32"
         },
+        "sortableFieldThreshold": {
+          "type": "integer",
+          "format": "int32"
+        },
         "noReplyEmailAddress": {
           "type": "string"
         },
         "languageConfiguration": {
-          "$ref": "#/definitions/LanguageConfigurationItem"
+          "$ref": "#/definitions/LanguageConfiguration"
         },
         "outputFormats": {
           "type": "array",
@@ -2851,10 +3435,16 @@
         },
         "createTransferBusinessProcess": {
           "type": "string"
+        },
+        "adminUser": {
+          "$ref": "#/definitions/User"
+        },
+        "adminUserPassword": {
+          "type": "string"
         }
       }
     },
-    "ExternalProviderItem": {
+    "ExternalProviderInput": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -2949,7 +3539,7 @@
         }
       }
     },
-    "CustomerServiceProviderItem": {
+    "CustomerServiceProvider": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -3006,9 +3596,8 @@
         }
       }
     },
-    "LanguageConfigurationItem": {
+    "LanguageConfiguration": {
       "type": "object",
-      "description": "The customer's language configuration.",
       "additionalProperties": false,
       "properties": {
         "systemLanguages": {
@@ -3623,12 +4212,6 @@
           "items": {
             "type": "string"
           }
-        },
-        "actions": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/IVideoAction"
-          }
         }
       },
       "allOf": [
@@ -3692,11 +4275,6 @@
         "slow",
         "slower"
       ]
-    },
-    "IVideoAction": {
-      "type": "object",
-      "x-abstract": true,
-      "additionalProperties": false
     },
     "VideoPresetFormat": {
       "type": "object",
@@ -4019,6 +4597,24 @@
         }
       ]
     },
+    "User": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        }
+      }
+    },
     "CustomerConfigurationItem": {
       "type": "object",
       "additionalProperties": false,
@@ -4026,11 +4622,15 @@
         "useSsl",
         "elasticSearchNumberOfShards",
         "elasticSearchNumberOfReplicas",
+        "elasticSearchNumberOfRoutingShards",
         "rootContentSearchIndexNumberOfShards",
         "rootContentSearchIndexNumberOfReplicas",
+        "rootContentSearchIndexNumberOfRoutingShards",
         "rootListItemSearchIndexNumberOfShards",
         "rootListItemSearchIndexNumberOfReplicas",
+        "rootListItemSearchIndexNumberOfRoutingShards",
         "indexedFieldThreshold",
+        "sortableFieldThreshold",
         "redisDatabaseIndex",
         "lifeCycle",
         "contentRetentionTime",
@@ -4131,13 +4731,13 @@
         "externalProviders": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/ExternalProviderItem"
+            "$ref": "#/definitions/ExternalProviderConfigurationItem"
           }
         },
         "serviceProviders": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/CustomerServiceProviderItem"
+            "$ref": "#/definitions/CustomerServiceProviderConfigurationItem"
           }
         },
         "supportContactEmailAddress": {
@@ -4157,11 +4757,19 @@
           "type": "integer",
           "format": "int32"
         },
+        "elasticSearchNumberOfRoutingShards": {
+          "type": "integer",
+          "format": "int32"
+        },
         "rootContentSearchIndexNumberOfShards": {
           "type": "integer",
           "format": "int32"
         },
         "rootContentSearchIndexNumberOfReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rootContentSearchIndexNumberOfRoutingShards": {
           "type": "integer",
           "format": "int32"
         },
@@ -4173,7 +4781,15 @@
           "type": "integer",
           "format": "int32"
         },
+        "rootListItemSearchIndexNumberOfRoutingShards": {
+          "type": "integer",
+          "format": "int32"
+        },
         "indexedFieldThreshold": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sortableFieldThreshold": {
           "type": "integer",
           "format": "int32"
         },
@@ -4216,6 +4832,141 @@
         },
         "deactivationMessage": {
           "$ref": "#/definitions/TranslatedStringDictionary"
+        },
+        "superAdminUserId": {
+          "type": "string"
+        },
+        "serviceAdminUserId": {
+          "type": "string"
+        }
+      }
+    },
+    "ExternalProviderConfigurationItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "providerName"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "providerName": {
+          "$ref": "#/definitions/ExternalProviderName"
+        },
+        "applicationId": {
+          "type": "string"
+        },
+        "applicationSecret": {
+          "type": "string"
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OAuthServiceApiConfigurationItem"
+          }
+        },
+        "redirectUri": {
+          "type": "string"
+        }
+      }
+    },
+    "OAuthServiceApiConfigurationItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "oAuthServiceType"
+      ],
+      "properties": {
+        "scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "oAuthServiceType": {
+          "$ref": "#/definitions/OAuthServiceType"
+        }
+      }
+    },
+    "CustomerServiceProviderConfigurationItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "allowedMessages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomerAllowedMessageConfigurationItem"
+          }
+        },
+        "allowedCommands": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CustomerAllowedCommandConfigurationItem"
+          }
+        },
+        "userRoleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "settings": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomerAllowedMessageConfigurationItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomerAllowedCommandConfigurationItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "LanguageConfigurationItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "systemLanguages": {
+          "type": "array",
+          "description": "A list of languages serving as system languages.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "metadataLanguages": {
+          "type": "array",
+          "description": "A list of languages serving as metadata languages.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "defaultLanguage": {
+          "type": "string",
+          "description": "The default language. Not the be confused with the metadata fallback language x-default."
         }
       }
     },
@@ -4354,6 +5105,15 @@
           "type": "string"
         }
       },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "PictureparkTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
@@ -4856,6 +5616,20 @@
         }
       ]
     },
+    "MissingCustomerDefaultLanguageException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerDefaultLanguage": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "InvalidArgumentException": {
       "type": "object",
       "additionalProperties": false,
@@ -4995,6 +5769,20 @@
       ]
     },
     "CustomerNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkException"
+        }
+      ]
+    },
+    "CustomerNotActiveException": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -5194,6 +5982,20 @@
           "type": "string"
         },
         "expectedFormat": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "InvalidSortFieldException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fieldName": {
           "type": "string"
         }
       },
@@ -5597,6 +6399,29 @@
         }
       ]
     },
+    "ListItemUpdateManyException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "failedItemsCount",
+        "totalItemsCount"
+      ],
+      "properties": {
+        "failedItemsCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "totalItemsCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "TransferInfoNotFoundException": {
       "type": "object",
       "additionalProperties": false,
@@ -5776,6 +6601,23 @@
         }
       ]
     },
+    "InvalidChangeCommandSchemaChangeInvalidException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "commandTypeName": {
+          "type": "string"
+        },
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "InvalidMetadataException": {
       "type": "object",
       "additionalProperties": false,
@@ -5868,6 +6710,37 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "AggregationFilterInvalidException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aggregationFilterNames": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "AggregationNameInvalidException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "aggregationName": {
+          "type": "string"
+        },
+        "aggregationPrefix": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },
@@ -5974,26 +6847,6 @@
         }
       ]
     },
-    "SchemaFieldSchemaIndexInfoException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "schemaId": {
-          "type": "string"
-        },
-        "fieldId": {
-          "type": "string"
-        },
-        "relatedFieldId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkValidationException"
-        }
-      ]
-    },
     "SchemaFieldIdUppercaseException": {
       "type": "object",
       "additionalProperties": false,
@@ -6055,6 +6908,32 @@
           "format": "double"
         },
         "indexedFieldThreshold": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SortableFieldThresholdExceededException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sortableFieldCount",
+        "sortableFieldThreshold"
+      ],
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "sortableFieldCount": {
+          "type": "number",
+          "format": "double"
+        },
+        "sortableFieldThreshold": {
           "type": "integer",
           "format": "int32"
         }
@@ -6386,40 +7265,6 @@
         }
       ]
     },
-    "SchemaFixedFieldChangeException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "schemaId": {
-          "type": "string"
-        },
-        "fieldId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkValidationException"
-        }
-      ]
-    },
-    "SchemaFixedFieldDeleteException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "schemaId": {
-          "type": "string"
-        },
-        "fieldId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkValidationException"
-        }
-      ]
-    },
     "SchemaFieldIndexException": {
       "type": "object",
       "additionalProperties": false,
@@ -6428,6 +7273,23 @@
           "type": "string"
         },
         "fieldId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaFieldNotSortableException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fieldId": {
+          "type": "string"
+        },
+        "schemaId": {
           "type": "string"
         }
       },
@@ -6583,6 +7445,20 @@
         }
       ]
     },
+    "SystemSchemaInvalidModificationException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "ContentsNotFoundException": {
       "type": "object",
       "additionalProperties": false,
@@ -6657,6 +7533,23 @@
         }
       ]
     },
+    "ContentLayerInvalidException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string"
+        },
+        "layerIds": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "BusinessProcessWaitTimeoutException": {
       "type": "object",
       "additionalProperties": false,
@@ -6667,7 +7560,7 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/PictureparkBusinessException"
+          "$ref": "#/definitions/PictureparkTimeoutException"
         }
       ]
     },
@@ -6799,6 +7692,100 @@
         }
       ]
     },
+    "SnapshotTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkTimeoutException"
+        }
+      ]
+    },
+    "SnapshotFailedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "AddMetadataLanguageTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "environmentProcessId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkTimeoutException"
+        }
+      ]
+    },
+    "EnvironmentProcessAlreadyRunningException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "environmentProcessType"
+      ],
+      "properties": {
+        "environmentProcessType": {
+          "$ref": "#/definitions/EnvironmentProcessType"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "EnvironmentProcessType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "AddMetadataLanguage",
+        "CustomerUpdate",
+        "EnvironmentUpdate"
+      ],
+      "enum": [
+        "AddMetadataLanguage",
+        "CustomerUpdate",
+        "EnvironmentUpdate"
+      ]
+    },
+    "EnvironmentProcessNotFoundException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "environmentProcessId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkNotFoundException"
+        }
+      ]
+    },
+    "EnvironmentProcessWaitTimeoutException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "environmentProcessId": {
+          "type": "string"
+        },
+        "waitedLifecycles": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkTimeoutException"
+        }
+      ]
+    },
     "CustomerUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -6866,6 +7853,10 @@
           "type": "string"
         },
         "indexedFieldThreshold": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sortableFieldThreshold": {
           "type": "integer",
           "format": "int32"
         }
@@ -6959,30 +7950,6 @@
         },
         "request": {},
         "response": {}
-      }
-    },
-    "User": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "userRoleIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "id": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "emailAddress": {
-          "type": "string"
-        }
       }
     },
     "CustomerSearchRequest": {
@@ -7410,7 +8377,7 @@
           "description": "The name of the aggregation this filter is connected to."
         },
         "filter": {
-          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter and GeoDistanceFilter.",
+          "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter, GeoDistanceFilter and NestedFilter.",
           "allOf": [
             {
               "$ref": "#/definitions/FilterBase"
@@ -7475,12 +8442,40 @@
         }
       ]
     },
+    "ExternalProvider": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "providerName"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "providerName": {
+          "$ref": "#/definitions/ExternalProviderName"
+        },
+        "applicationId": {
+          "type": "string"
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OAuthServiceApi"
+          }
+        },
+        "redirectUri": {
+          "type": "string"
+        }
+      }
+    },
     "SearchIndexReindexRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
         "numberOfShards",
-        "numberOfReplicas"
+        "numberOfReplicas",
+        "numberOfRoutingShards"
       ],
       "properties": {
         "searchIndexId": {
@@ -7493,6 +8488,10 @@
         "numberOfReplicas": {
           "type": "integer",
           "format": "int32"
+        },
+        "numberOfRoutingShards": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     },
@@ -7502,6 +8501,7 @@
       "required": [
         "numberOfShards",
         "numberOfReplicas",
+        "numberOfRoutingShards",
         "indexType",
         "state"
       ],
@@ -7520,6 +8520,10 @@
           "format": "int32"
         },
         "numberOfReplicas": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfRoutingShards": {
           "type": "integer",
           "format": "int32"
         },
@@ -7606,6 +8610,269 @@
         "Closed",
         "ReindexInProgress",
         "Cancelled"
+      ]
+    },
+    "CustomerMetadataLanguageCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "language": {
+          "type": "string"
+        }
+      }
+    },
+    "EnvironmentProcess": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "processType",
+        "lifeCycle",
+        "startDate",
+        "endDate"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "processType": {
+          "$ref": "#/definitions/EnvironmentProcessType"
+        },
+        "lifeCycle": {
+          "$ref": "#/definitions/EnvironmentProcessLifeCycle"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "error": {
+          "$ref": "#/definitions/ErrorResponse"
+        },
+        "data": {
+          "$ref": "#/definitions/EnvironmentProcessDataViewItemBase"
+        }
+      }
+    },
+    "EnvironmentProcessLifeCycle": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "CancellationInProgress",
+        "Failed"
+      ],
+      "enum": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "CancellationInProgress",
+        "Failed"
+      ]
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "exception": {
+          "type": "string"
+        },
+        "traceId": {
+          "type": "string"
+        },
+        "traceJobId": {
+          "type": "string"
+        }
+      }
+    },
+    "EnvironmentProcessDataViewItemBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "x-abstract": true,
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "EnvironmentProcessAddMetadataLanguageData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/AddMetadataLanguageState"
+        },
+        "language": {
+          "type": "string"
+        },
+        "stateHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EnvironmentProcessState"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/EnvironmentProcessDataViewItemBase"
+        }
+      ]
+    },
+    "AddMetadataLanguageState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "InProgress",
+        "CustomerExported",
+        "CustomerUpdated",
+        "MasterDataReindexed",
+        "RedisCacheRestored",
+        "TranslationsForSystemEntitiesAdded",
+        "SortingFallbackApplied",
+        "SearchIndexesReindexed",
+        "Succeeded",
+        "Cancelled",
+        "Failed"
+      ],
+      "enum": [
+        "Draft",
+        "InProgress",
+        "CustomerExported",
+        "CustomerUpdated",
+        "MasterDataReindexed",
+        "RedisCacheRestored",
+        "TranslationsForSystemEntitiesAdded",
+        "SortingFallbackApplied",
+        "SearchIndexesReindexed",
+        "Succeeded",
+        "Cancelled",
+        "Failed"
+      ]
+    },
+    "EnvironmentProcessState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "timestamp"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "result": {
+          "type": "string"
+        }
+      }
+    },
+    "EnvironmentProcessCustomerUpdateData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/CustomerUpdateState"
+        },
+        "targetVersion": {
+          "type": "string"
+        },
+        "stateHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EnvironmentProcessState"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/EnvironmentProcessDataViewItemBase"
+        }
+      ]
+    },
+    "CustomerUpdateState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "InProgress",
+        "CustomerExported",
+        "Succeeded",
+        "Cancelled",
+        "Failed"
+      ],
+      "enum": [
+        "Draft",
+        "InProgress",
+        "CustomerExported",
+        "Succeeded",
+        "Cancelled",
+        "Failed"
+      ]
+    },
+    "EnvironmentProcessEnvironmentUpdateData": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "$ref": "#/definitions/EnvironmentUpdateState"
+        },
+        "targetVersion": {
+          "type": "string"
+        },
+        "stateHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EnvironmentProcessState"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/EnvironmentProcessDataViewItemBase"
+        }
+      ]
+    },
+    "EnvironmentUpdateState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "Failed"
+      ],
+      "enum": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "Failed"
       ]
     },
     "NodeInfo": {
@@ -7858,6 +9125,7 @@
       "x-abstract": true,
       "additionalProperties": false,
       "required": [
+        "snapshotInactive",
         "reason",
         "timestamp"
       ],
@@ -7876,6 +9144,10 @@
           "items": {
             "type": "string"
           }
+        },
+        "snapshotInactive": {
+          "type": "boolean",
+          "description": "Snapshot also if the entity is inactive."
         },
         "reason": {
           "description": "The snapshot backup reason will be added to the snapshot name.",
@@ -8291,6 +9563,36 @@
         }
       }
     },
+    "CustomerExportRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "keepRepository"
+      ],
+      "properties": {
+        "customerAlias": {
+          "type": "string"
+        },
+        "keepRepository": {
+          "type": "boolean"
+        }
+      }
+    },
+    "CustomerExportResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        },
+        "repositoryName": {
+          "type": "string"
+        },
+        "snapshotName": {
+          "type": "string"
+        }
+      }
+    },
     "UserDeveloperFlagUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -8339,12 +9641,6 @@
         },
         "referencedFields": {
           "$ref": "#/definitions/DataGenerationReferencedFields"
-        },
-        "importSchemas": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ImportSchemasRequest"
-          }
         }
       }
     },
@@ -8370,33 +9666,9 @@
           "type": "integer",
           "format": "int32"
         },
-        "adminUser": {
-          "$ref": "#/definitions/UserItem"
-        },
-        "adminUserPassword": {
-          "type": "string"
-        },
         "userRightGrantedAverage": {
           "type": "number",
           "format": "double"
-        }
-      }
-    },
-    "UserItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "emailAddress": {
-          "type": "string"
         }
       }
     },
@@ -8620,18 +9892,92 @@
         }
       }
     },
-    "ImportSchemasRequest": {
+    "EnvironmentConfiguration": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "importListItems"
+        "lifeCycle"
       ],
       "properties": {
-        "path": {
-          "type": "string"
+        "id": {
+          "type": "string",
+          "description": "The environment configuration id."
         },
-        "importListItems": {
-          "type": "boolean"
+        "contractVersion": {
+          "type": "string",
+          "description": "The contract version of the environment configuration."
+        },
+        "lifeCycle": {
+          "description": "Curent lifecycle state of the entity.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/LifeCycle"
+            }
+          ]
+        },
+        "deactivationMessage": {
+          "description": "Language specific deactivation messages.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        }
+      }
+    },
+    "EnvironmentProcessWaitResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lifeCycleHit": {
+          "$ref": "#/definitions/EnvironmentProcessLifeCycle"
+        },
+        "environmentProcess": {
+          "$ref": "#/definitions/EnvironmentProcess"
+        }
+      }
+    },
+    "EnvironmentProcessSearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "limit"
+      ],
+      "properties": {
+        "start": {
+          "type": "integer",
+          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+          "format": "int32",
+          "default": 0
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Limits the document count of the result set. Defaults to 30.",
+          "format": "int32",
+          "default": 30
+        },
+        "filter": {
+          "$ref": "#/definitions/FilterBase"
+        }
+      }
+    },
+    "EnvironmentProcessSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "totalResults"
+      ],
+      "properties": {
+        "totalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EnvironmentProcess"
+          }
         }
       }
     }

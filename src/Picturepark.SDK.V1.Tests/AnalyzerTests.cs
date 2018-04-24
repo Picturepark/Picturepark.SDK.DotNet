@@ -8,7 +8,7 @@ using Xunit;
 
 namespace Picturepark.SDK.V1.Tests
 {
-	public class AnalyzerTests : IClassFixture<ClientFixture>
+    public class AnalyzerTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
         private readonly PictureparkClient _client;
@@ -24,7 +24,7 @@ namespace Picturepark.SDK.V1.Tests
         public async Task ShouldSearchAnalyzedFields()
         {
             /// Arrange
-	        if (await _client.Schemas.ExistsAsync(nameof(AnalyzerTestObject)) == false)
+            if (await _client.Schemas.ExistsAsync(nameof(AnalyzerTestObject)) == false)
             {
                 var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(AnalyzerTestObject));
                 foreach (var schema in schemas)
@@ -37,7 +37,6 @@ namespace Picturepark.SDK.V1.Tests
                     EdgeNGramField = "EdgeNGramFieldValue",
                     LanguageField = new TranslatedStringDictionary
                     {
-                        { "x-default", "XDefaultValue" },
                         { "en", "Cities" }
                     },
                     NGramField = "NGramFieldValue",
@@ -112,19 +111,19 @@ namespace Picturepark.SDK.V1.Tests
         [PictureparkSchemaType(SchemaType.List)]
         public class AnalyzerTestObject
         {
-            [PictureparkEdgeNGramAnalyzer]
+            [PictureparkEdgeNGramAnalyzer(Index = true)]
             public string EdgeNGramField { get; set; }
 
-            [PictureparkNGramAnalyzer]
+            [PictureparkNGramAnalyzer(Index = true)]
             public string NGramField { get; set; }
 
-            [PictureparkPathHierarchyAnalyzer]
+            [PictureparkPathHierarchyAnalyzer(Index = true)]
             public string PathHierarchyField { get; set; }
 
-            [PictureparkSimpleAnalyzer]
+            [PictureparkSimpleAnalyzer(Index = true)]
             public string SimpleField { get; set; }
 
-            [PictureparkLanguageAnalyzer]
+            [PictureparkLanguageAnalyzer(Index = true)]
             public TranslatedStringDictionary LanguageField { get; set; }
         }
     }

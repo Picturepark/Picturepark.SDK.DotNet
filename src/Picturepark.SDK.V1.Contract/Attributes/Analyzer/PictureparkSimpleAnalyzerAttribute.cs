@@ -7,7 +7,7 @@ namespace Picturepark.SDK.V1.Contract.Attributes.Analyzer
     {
         public override AnalyzerBase CreateAnalyzer()
         {
-            return new SimpleAnalyzer { SimpleSearch = SimpleSearch };
+            return new SimpleAnalyzer();
         }
     }
 }

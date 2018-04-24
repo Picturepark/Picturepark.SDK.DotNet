@@ -1,14 +1,15 @@
 ﻿#pragma warning disable SA1201 // Elements must appear in the correct order
 
+using System;
 using Newtonsoft.Json;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Tests.Fixtures;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Builders;
+using Picturepark.SDK.V1.Contract.Attributes.Analyzer;
 using Picturepark.SDK.V1.Contract.Providers;
 using Picturepark.SDK.V1.Providers;
 using Xunit;
@@ -100,14 +101,14 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             /// Assert
             var jsonTransformSchema = jsonTransformSchemas.First();
 
-            Assert.False(jsonTransformSchema.Fields.Any(i => i.Id == nameof(JsonTransform.IgnoredString)));
+            Assert.DoesNotContain(jsonTransformSchema.Fields, i => i.Id == nameof(JsonTransform.IgnoredString));
             var schemaSimpleRelation = jsonTransformSchemas.First(i => i.Id == nameof(SimpleRelation));
 
-            Assert.True(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationInfo).ToLowerCamelCase()));
-            Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationId).ToLowerCamelCase()));
-            Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.RelationType).ToLowerCamelCase()));
-            Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.TargetDocType).ToLowerCamelCase()));
-            Assert.False(schemaSimpleRelation.Fields.Any(i => i.Id == nameof(SimpleRelation.TargetId).ToLowerCamelCase()));
+            Assert.Contains(schemaSimpleRelation.Fields, i => i.Id == nameof(SimpleRelation.RelationInfo).ToLowerCamelCase());
+            Assert.DoesNotContain(schemaSimpleRelation.Fields, i => i.Id == nameof(SimpleRelation.RelationId).ToLowerCamelCase());
+            Assert.DoesNotContain(schemaSimpleRelation.Fields, i => i.Id == nameof(SimpleRelation.RelationType).ToLowerCamelCase());
+            Assert.DoesNotContain(schemaSimpleRelation.Fields, i => i.Id == nameof(SimpleRelation.TargetDocType).ToLowerCamelCase());
+            Assert.DoesNotContain(schemaSimpleRelation.Fields, i => i.Id == nameof(SimpleRelation.TargetId).ToLowerCamelCase());
         }
 
         [Fact]
@@ -120,8 +121,8 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             /// Assert
             var jsonTransformSchema = jsonTransformSchemas.First(i => i.Id == nameof(JsonTransform));
 
-            Assert.False(jsonTransformSchema.Fields.Any(i => i.Id == nameof(JsonTransform.OldName).ToLowerCamelCase()));
-            Assert.True(jsonTransformSchema.Fields.Any(i => i.Id == "_newName"));
+            Assert.DoesNotContain(jsonTransformSchema.Fields, i => i.Id == nameof(JsonTransform.OldName).ToLowerCamelCase());
+            Assert.Contains(jsonTransformSchema.Fields, i => i.Id == "_newName");
         }
 
         [PictureparkSchemaType(SchemaType.Struct)]
@@ -138,6 +139,67 @@ namespace Picturepark.SDK.V1.Tests.Conversion
                 "{ 'kind': 'TermFilter', 'field': 'contentType', term: 'Bitmap' }"
             )]
             public SimpleRelation RelationField { get; set; }
+        }
+
+        [Fact]
+        [Trait("Stack", "SchemaCreation")]
+        public async Task ShouldNotAllowRelationsMarkedAsSortable()
+        {
+            await Assert.ThrowsAsync<InvalidOperationException>(async() => await _client.Schemas.GenerateSchemasAsync(typeof(ClassSortableRelation)));
+        }
+
+        [PictureparkSchemaType(SchemaType.List)]
+        public class ClassSortableRelation
+        {
+            [PictureparkContentRelation(
+                "RelationName",
+                "{ 'kind': 'TermFilter', 'field': 'contentType', term: 'Bitmap' }"
+            )]
+            [PictureparkSort]
+            public SimpleRelation Relation { get; set; }
+        }
+
+        [Fact]
+        [Trait("Stack", "SchemaCreation")]
+        public async Task ShouldNotAllowGeopointsMarkedAsSortable()
+        {
+            await Assert.ThrowsAsync<InvalidOperationException>(async () => await _client.Schemas.GenerateSchemasAsync(typeof(ClassSortableGeopoint)));
+        }
+
+        [PictureparkSchemaType(SchemaType.List)]
+        public class ClassSortableGeopoint
+        {
+            [PictureparkSort]
+            public GeoPoint Location { get; set; }
+        }
+
+        [Fact]
+        [Trait("Stack", "SchemaCreation")]
+        public async Task ShouldMarkFieldAsSortableWhenMarkedWithSortAttribute()
+        {
+            var schema = await _client.Schemas.GenerateSchemasAsync(typeof(ClassSortableString));
+            Assert.True(schema.First().Fields.First().Sortable);
+        }
+
+        [PictureparkSchemaType(SchemaType.List)]
+        public class ClassSortableString
+        {
+            [PictureparkSort]
+            public string Title { get; set; }
+        }
+
+        [Fact]
+        [Trait("Stack", "SchemaCreation")]
+        public async Task ShouldNotAllowAnalyzerWithoutIndexOrSearch()
+        {
+            await Assert.ThrowsAsync<InvalidOperationException>(async () => await _client.Schemas.GenerateSchemasAsync(typeof(ClassAnalyzerWithoutIndexAndSearch)));
+        }
+
+        [PictureparkSchemaType(SchemaType.List)]
+        public class ClassAnalyzerWithoutIndexAndSearch
+        {
+            [PictureparkSimpleAnalyzer(Index = false, SimpleSearch = false)]
+            public string Title { get; set; }
         }
     }
 }

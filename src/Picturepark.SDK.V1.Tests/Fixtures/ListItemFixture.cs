@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1.Tests.Fixtures
 {
-	public class ListItemFixture : ClientFixture
-	{
-		public ListItemFixture()
-		{
-			Setup().Wait();
-		}
+    public class ListItemFixture : ClientFixture
+    {
+        public ListItemFixture()
+        {
+            Setup().Wait();
+        }
 
-		public async Task Setup()
-		{
-			if (await Client.Schemas.ExistsAsync(nameof(Tag)) == false)
-			{
-				var schema = await Client.Schemas.GenerateSchemasAsync(typeof(Tag));
-				await Client.Schemas.CreateAndWaitForCompletionAsync(schema.First(), true);
-			}
-		}
-	}
+        public async Task Setup()
+        {
+            if (await Client.Schemas.ExistsAsync(nameof(Tag)) == false)
+            {
+                var schema = await Client.Schemas.GenerateSchemasAsync(typeof(Tag));
+                await Client.Schemas.CreateAndWaitForCompletionAsync(schema.First(), true);
+            }
+        }
+    }
 }

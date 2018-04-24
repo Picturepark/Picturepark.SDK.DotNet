@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
+using System.Runtime.Serialization;
 using Newtonsoft.Json.Serialization;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
@@ -120,48 +122,85 @@ namespace Picturepark.SDK.V1.Builders
         private ICollection<FieldIndexingInfo> GenerateFieldIndexingInfos(Type type, int levels, Func<Type, JsonProperty, bool> propertySelector)
         {
             var fields = new Collection<FieldIndexingInfo>();
-            if (_contractResolver.ResolveContract(type) is JsonObjectContract contract)
+
+            foreach (var property in GetTypePropertiesWithInheritance(type))
             {
-                foreach (var property in contract.Properties)
+                if (propertySelector?.Invoke(type, property) != false)
                 {
-                    if (propertySelector?.Invoke(type, property) != false)
+                    var searchAttribute = property.AttributeProvider
+                        .GetAttributes(true)
+                        .OfType<PictureparkSearchAttribute>()
+                        .SingleOrDefault();
+
+                    var field = new FieldIndexingInfo
                     {
-                        var searchAttribute = property.AttributeProvider
-                            .GetAttributes(true)
-                            .OfType<PictureparkSearchAttribute>()
-                            .SingleOrDefault();
+                        Id = property.PropertyName,
+                        SimpleSearch = searchAttribute?.SimpleSearch ?? false,
+                        Index = searchAttribute?.Index ?? false,
+                        Boost = searchAttribute?.Boost ?? 0.0,
+                    };
+                    fields.Add(field);
 
-                        var field = new FieldIndexingInfo
+                    ApplyPictureparkSchemaIndexingAttribute(property, field);
+
+                    if (levels > 0)
+                    {
+                        var propertyType = property.PropertyType.GenericTypeArguments.Any()
+                            ? property.PropertyType.GenericTypeArguments.First()
+                            : property.PropertyType;
+
+                        var subFields = GenerateFieldIndexingInfos(propertyType, levels - 1, propertySelector);
+                        if (subFields != null && subFields.Any())
                         {
-                            Id = property.PropertyName,
-                            SimpleSearch = searchAttribute?.SimpleSearch ?? false,
-                            Index = searchAttribute?.Index ?? false,
-                            Boost = searchAttribute?.Boost ?? 0.0,
-                        };
-                        fields.Add(field);
-
-                        ApplyPictureparkSchemaIndexingAttribute(property, field);
-
-                        if (levels > 0)
-                        {
-                            var propertyType = property.PropertyType.GenericTypeArguments.Any()
-                                ? property.PropertyType.GenericTypeArguments.First()
-                                : property.PropertyType;
-
-                            var subFields = GenerateFieldIndexingInfos(propertyType, levels - 1, propertySelector);
-                            if (subFields != null && subFields.Any())
+                            field.RelatedSchemaIndexing = new SchemaIndexingInfo
                             {
-                                field.RelatedSchemaIndexing = new SchemaIndexingInfo
-                                {
-                                    Fields = subFields
-                                };
-                            }
+                                Fields = subFields
+                            };
                         }
                     }
                 }
             }
 
             return fields;
+        }
+
+        private IEnumerable<JsonProperty> GetTypePropertiesWithInheritance(Type type)
+        {
+            var properties = GetTypeProperties(type, new JsonProperty[0]).ToList();
+
+            foreach (var knownTypeAttribute in type.GetTypeInfo().GetCustomAttributes<KnownTypeAttribute>())
+            {
+                if (knownTypeAttribute.Type != null)
+                {
+                    properties.AddRange(GetTypeProperties(knownTypeAttribute.Type, properties));
+                }
+                else if (knownTypeAttribute.MethodName != null)
+                {
+                    var method = type.GetRuntimeMethod(knownTypeAttribute.MethodName, new Type[0]);
+                    if (method != null)
+                    {
+                        var knownTypes = (IEnumerable<Type>)method.Invoke(null, new object[0]);
+                        foreach (var knownType in knownTypes)
+                        {
+                            properties.AddRange(GetTypeProperties(knownType, properties));
+                        }
+                    }
+                }
+            }
+
+            return properties;
+        }
+
+        private IEnumerable<JsonProperty> GetTypeProperties(Type type, IEnumerable<JsonProperty> excludedProperties)
+        {
+            if (_contractResolver.ResolveContract(type) is JsonObjectContract contract)
+            {
+                return contract.Properties
+                    .Where(p => excludedProperties.All(ep => ep.PropertyName != p.PropertyName))
+                    .ToList();
+            }
+
+            return new JsonProperty[] { };
         }
 
         private void ApplyPictureparkSchemaIndexingAttribute(JsonProperty property, FieldIndexingInfo field)
@@ -241,6 +280,18 @@ namespace Picturepark.SDK.V1.Builders
                     return GetExpressionPath(pathExpression)
                         .Concat(GetExpressionPath(selectExpression))
                         .ToArray();
+                }
+                else if (methodCallExpression.Method.Name == "OfType")
+                {
+                    var pathExpression = methodCallExpression.Arguments.First();
+                    return GetExpressionPath(pathExpression);
+                }
+            }
+            else if (expression is UnaryExpression unaryExpression)
+            {
+                if (expression.NodeType == ExpressionType.Convert)
+                {
+                    return GetExpressionPath(unaryExpression.Operand);
                 }
             }
 
