@@ -15675,6 +15675,11 @@ namespace Picturepark.SDK.V1
     
         /// <summary>Upload file</summary>
         /// <param name="formFile">Gets or sets the form file.</param>
+        /// <param name="relativePath">Relative path of the uploading file</param>
+        /// <param name="chunkNumber">Current chunk number. starts with 1</param>
+        /// <param name="currentChunkSize">Size in bytes of the current chunk</param>
+        /// <param name="totalSize">Total size in bytes of the uploading file</param>
+        /// <param name="totalChunks">Total chunks of the uploading file</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
