@@ -7299,6 +7299,23 @@
         }
       ]
     },
+    "SchemaFieldNotSearchableException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fieldId": {
+          "type": "string"
+        },
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "SchemaNoContentException": {
       "type": "object",
       "additionalProperties": false,

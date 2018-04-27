@@ -10313,6 +10313,23 @@
         }
       ]
     },
+    "SchemaFieldNotSearchableException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fieldId": {
+          "type": "string"
+        },
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "SchemaNoContentException": {
       "type": "object",
       "additionalProperties": false,
@@ -15025,7 +15042,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "keepFieldValue",
         "multiLine",
         "boost"
       ],
@@ -15033,10 +15049,6 @@
         "template": {
           "type": "string",
           "description": "It is a DotLiquid template."
-        },
-        "keepFieldValue": {
-          "type": "boolean",
-          "description": "If true the Template will only render on item creation otherwise it will render on each update."
         },
         "pattern": {
           "type": "string",
@@ -15210,7 +15222,6 @@
       "additionalProperties": false,
       "required": [
         "multiLine",
-        "keepFieldValue",
         "boost"
       ],
       "properties": {
@@ -15256,10 +15267,6 @@
         "template": {
           "type": "string",
           "description": "It is a DotLiquid template."
-        },
-        "keepFieldValue": {
-          "type": "boolean",
-          "description": "If true the Template will only render on item creation otherwise it will render on each update."
         },
         "boost": {
           "type": "number",

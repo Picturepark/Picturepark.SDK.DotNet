@@ -1289,6 +1289,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaFieldTypeChangeException", typeof(SchemaFieldTypeChangeException))]
     [JsonInheritanceAttribute("SchemaFieldIndexException", typeof(SchemaFieldIndexException))]
     [JsonInheritanceAttribute("SchemaFieldNotSortableException", typeof(SchemaFieldNotSortableException))]
+    [JsonInheritanceAttribute("SchemaFieldNotSearchableException", typeof(SchemaFieldNotSearchableException))]
     [JsonInheritanceAttribute("SchemaNoContentException", typeof(SchemaNoContentException))]
     [JsonInheritanceAttribute("SchemaParentChangeException", typeof(SchemaParentChangeException))]
     [JsonInheritanceAttribute("SchemaMissingTypeException", typeof(SchemaMissingTypeException))]
@@ -4238,6 +4239,28 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaFieldNotSortableException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldNotSortableException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldNotSearchableException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldNotSearchableException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldNotSearchableException>(data);
         }
     
     }
@@ -9209,10 +9232,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("template", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Template { get; set; }
     
-        /// <summary>If true the Template will only render on item creation otherwise it will render on each update.</summary>
-        [Newtonsoft.Json.JsonProperty("keepFieldValue", Required = Newtonsoft.Json.Required.Always)]
-        public bool KeepFieldValue { get; set; }
-    
         /// <summary>Contains a regex validation pattern.</summary>
         [Newtonsoft.Json.JsonProperty("pattern", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Pattern { get; set; }
@@ -9440,10 +9459,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>It is a DotLiquid template.</summary>
         [Newtonsoft.Json.JsonProperty("template", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Template { get; set; }
-    
-        /// <summary>If true the Template will only render on item creation otherwise it will render on each update.</summary>
-        [Newtonsoft.Json.JsonProperty("keepFieldValue", Required = Newtonsoft.Json.Required.Always)]
-        public bool KeepFieldValue { get; set; }
     
         /// <summary>Priorizes search results. SimpleSearch must be true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
