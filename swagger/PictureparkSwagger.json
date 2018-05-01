@@ -16036,10 +16036,12 @@
       "type": "string",
       "description": "",
       "x-enumNames": [
-        "Apply"
+        "Apply",
+        "Manage"
       ],
       "enum": [
-        "Apply"
+        "Apply",
+        "Manage"
       ]
     },
     "PermissionSetSearchResult": {
@@ -16170,6 +16172,9 @@
         },
         "exclusive": {
           "type": "boolean"
+        },
+        "ownerTokenId": {
+          "type": "string"
         }
       }
     },
@@ -16250,6 +16255,9 @@
         },
         "exclusive": {
           "type": "boolean"
+        },
+        "ownerTokenId": {
+          "type": "string"
         }
       }
     },

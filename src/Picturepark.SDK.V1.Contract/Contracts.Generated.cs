@@ -10148,6 +10148,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "Apply")]
         Apply = 0,
     
+        [System.Runtime.Serialization.EnumMember(Value = "Manage")]
+        Manage = 1,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -10263,6 +10266,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
         public bool Exclusive { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("ownerTokenId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OwnerTokenId { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -10358,6 +10364,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
         public bool Exclusive { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ownerTokenId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OwnerTokenId { get; set; }
     
         public string ToJson() 
         {
