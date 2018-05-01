@@ -1,6 +1,7 @@
 ﻿using System;
 using Picturepark.SDK.V1.Contract;
 using System.Net.Http;
+using Picturepark.SDK.V1.CloudManager.Contract;
 
 namespace Picturepark.SDK.V1.CloudManager
 {
@@ -36,6 +37,12 @@ namespace Picturepark.SDK.V1.CloudManager
 
         public CloudBackupClient CloudBackup { get; private set; }
 
+        public ServiceProviderClient ServiceProvider { get; private set; }
+
+        public CustomerServiceProviderClient CustomerServiceProvider { get; private set; }
+
+        public EnvironmentClient Environment { get; private set; }
+
         public EnvironmentProcessClient EnvironmentProcess { get; private set; }
 
         public void Dispose()
@@ -55,6 +62,9 @@ namespace Picturepark.SDK.V1.CloudManager
             SampleData = new SampleDataClient(settings, httpClient);
             CloudBackup = new CloudBackupClient(settings, httpClient);
             EnvironmentProcess = new EnvironmentProcessClient(settings, httpClient);
+            Environment = new EnvironmentClient(settings, httpClient);
+            ServiceProvider = new ServiceProviderClient(settings, httpClient);
+            CustomerServiceProvider = new CustomerServiceProviderClient(settings, httpClient);
         }
     }
 }

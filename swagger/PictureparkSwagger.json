@@ -103,7 +103,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -202,7 +202,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -275,7 +275,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -350,7 +350,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -425,7 +425,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -500,7 +500,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -575,7 +575,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -686,7 +686,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -791,7 +791,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -883,7 +883,7 @@
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -922,7 +922,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -979,7 +979,7 @@
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -1018,7 +1018,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1086,7 +1086,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1176,7 +1176,7 @@
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -1215,7 +1215,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1283,7 +1283,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1366,7 +1366,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1466,7 +1466,7 @@
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -1505,7 +1505,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1583,7 +1583,7 @@
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -1629,7 +1629,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1711,7 +1711,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1789,7 +1789,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1862,7 +1862,7 @@
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -1901,7 +1901,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1969,7 +1969,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2044,7 +2044,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2119,7 +2119,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2194,7 +2194,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2303,7 +2303,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2384,7 +2384,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2457,7 +2457,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2532,7 +2532,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2605,7 +2605,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2686,7 +2686,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2768,7 +2768,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2859,7 +2859,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2930,7 +2930,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3035,7 +3035,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3151,7 +3151,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3226,7 +3226,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3301,7 +3301,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3393,7 +3393,7 @@
           "400": {
             "description": "\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -3432,7 +3432,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3500,7 +3500,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3573,7 +3573,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3645,7 +3645,7 @@
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -3684,7 +3684,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3752,7 +3752,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3834,7 +3834,7 @@
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -3873,7 +3873,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3941,7 +3941,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4016,7 +4016,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4091,7 +4091,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4163,7 +4163,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4242,7 +4242,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4316,7 +4316,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4401,7 +4401,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4529,7 +4529,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4634,7 +4634,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4706,7 +4706,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4818,7 +4818,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4886,7 +4886,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4964,7 +4964,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5044,7 +5044,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5119,7 +5119,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5192,7 +5192,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5267,7 +5267,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5340,7 +5340,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5407,7 +5407,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5501,7 +5501,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5564,7 +5564,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5634,7 +5634,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5719,7 +5719,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5782,7 +5782,7 @@
           "400": {
             "description": "\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -5821,7 +5821,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5889,7 +5889,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5964,7 +5964,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6060,7 +6060,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6137,7 +6137,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6209,7 +6209,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6288,7 +6288,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6360,7 +6360,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6426,7 +6426,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6500,7 +6500,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6567,7 +6567,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6641,7 +6641,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6713,7 +6713,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6787,7 +6787,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6850,7 +6850,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6923,7 +6923,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7005,7 +7005,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7087,7 +7087,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7210,7 +7210,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7282,7 +7282,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7356,7 +7356,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7428,7 +7428,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7494,7 +7494,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7572,7 +7572,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7660,7 +7660,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7725,7 +7725,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7797,7 +7797,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7899,7 +7899,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7957,7 +7957,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -8144,7 +8144,7 @@
       "additionalProperties": false,
       "allOf": [
         {
-          "$ref": "#/definitions/PictureparkBusinessException"
+          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },
@@ -16036,10 +16036,12 @@
       "type": "string",
       "description": "",
       "x-enumNames": [
-        "Apply"
+        "Apply",
+        "Manage"
       ],
       "enum": [
-        "Apply"
+        "Apply",
+        "Manage"
       ]
     },
     "PermissionSetSearchResult": {
@@ -16170,6 +16172,9 @@
         },
         "exclusive": {
           "type": "boolean"
+        },
+        "ownerTokenId": {
+          "type": "string"
         }
       }
     },
@@ -16250,6 +16255,9 @@
         },
         "exclusive": {
           "type": "boolean"
+        },
+        "ownerTokenId": {
+          "type": "string"
         }
       }
     },

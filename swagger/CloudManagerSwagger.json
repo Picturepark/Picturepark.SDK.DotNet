@@ -64,7 +64,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -132,7 +132,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -200,7 +200,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -262,7 +262,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -330,7 +330,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -398,7 +398,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -469,7 +469,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -549,7 +549,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -613,7 +613,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -690,7 +690,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -774,7 +774,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -830,7 +830,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -886,7 +886,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -950,7 +950,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1014,7 +1014,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1070,7 +1070,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1133,7 +1133,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1196,7 +1196,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1256,7 +1256,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1322,7 +1322,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1388,7 +1388,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1458,7 +1458,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1529,7 +1529,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1592,7 +1592,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1660,7 +1660,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1729,7 +1729,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1798,7 +1798,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1874,7 +1874,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1944,7 +1944,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2014,7 +2014,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2084,7 +2084,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2154,7 +2154,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2224,7 +2224,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2294,7 +2294,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2364,7 +2364,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2437,7 +2437,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2507,7 +2507,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2567,7 +2567,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2623,6 +2623,27 @@
             },
             "x-nullable": true
           },
+          "400": {
+            "description": "\nor\nValidation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true,
+            "x-expectedSchemas": [
+              {
+                "description": "",
+                "schema": {
+                  "$ref": "#/definitions/SnapshotTimeoutException"
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "$ref": "#/definitions/PictureparkValidationException"
+                }
+              }
+            ]
+          },
           "500": {
             "description": "Internal server error",
             "schema": {
@@ -2644,16 +2665,9 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
-            },
-            "x-nullable": true
-          },
-          "400": {
-            "description": "Validation exception",
-            "schema": {
-              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true
           },
@@ -2719,7 +2733,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2796,7 +2810,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2869,7 +2883,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2893,12 +2907,341 @@
         ]
       }
     },
-    "/globalConfiguration": {
-      "put": {
+    "/service/serviceProvider": {
+      "post": {
         "tags": [
-          "Configuration"
+          "ServiceProvider"
         ],
-        "operationId": "Configuration_CreateEnvironment",
+        "operationId": "ServiceProvider_Create",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ServiceProviderCreateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ServiceProvider"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/service/serviceProvider/{serviceProviderId}": {
+      "delete": {
+        "tags": [
+          "ServiceProvider"
+        ],
+        "operationId": "ServiceProvider_Delete",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "serviceProviderId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "404": {
+            "description": "Service provoider with this id could not be found\nor\nEntity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true,
+            "x-expectedSchemas": [
+              {
+                "description": "Service provoider with this id could not be found",
+                "schema": {
+                  "$ref": "#/definitions/ServiceProviderNotFoundException"
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "$ref": "#/definitions/PictureparkNotFoundException"
+                }
+              }
+            ]
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/service/customer/serviceProvider": {
+      "post": {
+        "tags": [
+          "CustomerServiceProvider"
+        ],
+        "operationId": "CustomerServiceProvider_Create",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CustomerServiceProviderCreateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/CustomerServiceProvider"
+            },
+            "x-nullable": false
+          },
+          "404": {
+            "description": "Service provoider with this id could not be found\nor\nCustomer with this alias could not be found\nor\nEntity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true,
+            "x-expectedSchemas": [
+              {
+                "description": "Service provoider with this id could not be found",
+                "schema": {
+                  "$ref": "#/definitions/ServiceProviderNotFoundException"
+                }
+              },
+              {
+                "description": "Customer with this alias could not be found",
+                "schema": {
+                  "$ref": "#/definitions/CustomerAliasNotFoundException"
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "$ref": "#/definitions/PictureparkNotFoundException"
+                }
+              }
+            ]
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/service/customer/{customerAlias}/serviceProvider/{serviceProviderId}": {
+      "delete": {
+        "tags": [
+          "CustomerServiceProvider"
+        ],
+        "operationId": "CustomerServiceProvider_Delete",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "customerAlias",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "type": "string",
+            "name": "serviceProviderId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "404": {
+            "description": "Service provoider with this id could not be found\nor\nCustomer with this alias could not be found\nor\nEntity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true,
+            "x-expectedSchemas": [
+              {
+                "description": "Service provoider with this id could not be found",
+                "schema": {
+                  "$ref": "#/definitions/ServiceProviderNotFoundException"
+                }
+              },
+              {
+                "description": "Customer with this alias could not be found",
+                "schema": {
+                  "$ref": "#/definitions/CustomerAliasNotFoundException"
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "$ref": "#/definitions/PictureparkNotFoundException"
+                }
+              }
+            ]
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/service/environment": {
+      "post": {
+        "tags": [
+          "Environment"
+        ],
+        "operationId": "Environment_CreateEnvironment",
         "parameters": [],
         "responses": {
           "200": {
@@ -2929,7 +3272,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2953,12 +3296,12 @@
         ]
       }
     },
-    "/cloud/version": {
+    "/service/environment/version": {
       "get": {
         "tags": [
-          "Configuration"
+          "Environment"
         ],
-        "operationId": "Configuration_GetVersion",
+        "operationId": "Environment_GetVersion",
         "parameters": [],
         "responses": {
           "200": {
@@ -2989,7 +3332,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3057,7 +3400,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3142,7 +3485,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3206,7 +3549,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3276,7 +3619,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5116,7 +5459,7 @@
       "additionalProperties": false,
       "allOf": [
         {
-          "$ref": "#/definitions/PictureparkBusinessException"
+          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },
@@ -9906,6 +10249,69 @@
         },
         "generateData": {
           "type": "boolean"
+        }
+      }
+    },
+    "ServiceProviderCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "externalId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "applicationKey": {
+          "type": "string"
+        },
+        "messageQueueUser": {
+          "type": "string"
+        },
+        "messageQueuePassword": {
+          "type": "string"
+        },
+        "baseUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "ServiceProvider": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "applicationKey": {
+          "type": "string"
+        },
+        "virtualHost": {
+          "type": "string"
+        },
+        "baseUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "CustomerServiceProviderCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "customerAlias": {
+          "type": "string"
+        },
+        "customerId": {
+          "type": "string"
+        },
+        "serviceProvider": {
+          "$ref": "#/definitions/CustomerServiceProvider"
         }
       }
     },
