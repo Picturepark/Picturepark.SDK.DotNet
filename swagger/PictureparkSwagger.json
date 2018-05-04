@@ -5463,7 +5463,6 @@
               "ManageUserRoles",
               "ManagePermissions",
               "ManageSearchIndexes",
-              "ManageRecipients",
               "ManageCollections",
               "ManageListItems",
               "ManageServiceProviders",
@@ -9263,7 +9262,6 @@
         "ManageUserRoles",
         "ManagePermissions",
         "ManageSearchIndexes",
-        "ManageRecipients",
         "ManageCollections",
         "ManageListItems",
         "ManageServiceProviders",
@@ -9281,7 +9279,6 @@
         "ManageUserRoles",
         "ManagePermissions",
         "ManageSearchIndexes",
-        "ManageRecipients",
         "ManageCollections",
         "ManageListItems",
         "ManageServiceProviders",
@@ -10974,7 +10971,6 @@
     },
     "DataDictionary": {
       "type": "object",
-      "description": "A custom implementation of Dictionary{string, object}",
       "additionalProperties": false,
       "allOf": [
         {
