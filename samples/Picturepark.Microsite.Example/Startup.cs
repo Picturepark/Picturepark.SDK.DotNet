@@ -8,6 +8,7 @@ using Picturepark.Microsite.Example.Helpers;
 using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.IdentityModel.Tokens;
@@ -34,8 +35,10 @@ namespace Picturepark.Microsite.Example
 			// Configure Picturepark
 			services.Configure<PictureparkConfiguration>(Configuration.GetSection("Picturepark"));
 
-			// Register PictureparkServiceClient as singleton
-			services.AddSingleton<IPictureparkServiceClientSettings, PictureparkServiceClientSettings>();
+		    services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            // Register PictureparkServiceClient as singleton
+            services.AddSingleton<IPictureparkServiceClientSettings, PictureparkServiceClientSettings>();
 			services.AddSingleton<IPictureparkServiceClient, PictureparkServiceClient>();
 
 			// Register PictureparkPerRequestClient as transient
@@ -45,8 +48,8 @@ namespace Picturepark.Microsite.Example
 			services.AddSingleton<IServiceHelper, ServiceHelper>();
 			services.AddSingleton<IPressReleaseRepository, PressReleaseRepository>();
 
-			// Add the localization services to the services container
-			services.AddLocalization(options => options.ResourcesPath = "Resources");
+            // Add the localization services to the services container
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
 
 			services.AddMvc()
 				.AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
@@ -134,7 +137,7 @@ namespace Picturepark.Microsite.Example
 			var serviceHelper = app.ApplicationServices.GetService<IServiceHelper>();
 			var updateSchema = env.IsDevelopment();
 
-			serviceHelper.EnsureSchemaExists<PressRelease>(null, updateSchema);
+			serviceHelper.EnsureSchemaExists<PressRelease>(null, updateSchema).Wait();
 
 			app.UseMvc(routes =>
 			{
