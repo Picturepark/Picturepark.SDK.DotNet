@@ -15,7 +15,7 @@ namespace Picturepark.SDK.V1.Contract
         public bool WaitForTransferCompletion { get; set; } = true;
 
         /// <summary>Gets or sets the success delegate which is called when a file has been uploaded.</summary>
-        public Action<string> SuccessDelegate { get; set; } = null;
+        public Action<FileLocations> SuccessDelegate { get; set; } = null;
 
         /// <summary>Gets or sets the error delegate which is called when file upload failed.</summary>
         public Action<Exception> ErrorDelegate { get; set; } = null;

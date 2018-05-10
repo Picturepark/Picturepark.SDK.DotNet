@@ -37,7 +37,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             /// Arrange
             var transferName = new Random().Next(1000, 9999).ToString();
-            var files = new List<string>
+            var files = new FileLocations[]
             {
                 Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
             };
@@ -46,8 +46,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var result = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, files);
 
             /// Assert
-            Assert.Equal(TransferState.Draft, result.Transfer.State);
             Assert.NotNull(result);
+            Assert.Equal(TransferState.Draft, result.Transfer.State);
         }
 
         [Fact(Skip = "TransferClient.GetAsync: Should correctly throw NotFoundException")]
@@ -58,7 +58,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             /// Arrange
             var transferName = new Random().Next(1000, 9999).ToString();
-            var files = new List<string>
+            var files = new FileLocations[]
             {
                 Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
             };
@@ -95,7 +95,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             /// Arrange
             var transferName = new Random().Next(1000, 9999).ToString();
-            var files = new List<string>
+            var files = new FileLocations[]
             {
                 Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
             };
@@ -239,7 +239,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var randomNumber = new Random().Next(0, numberOfFilesInDirectory - numberOfUploadFiles);
             var importFilePaths = filesInDirectory
                 .Skip(randomNumber)
-                .Take(numberOfUploadFiles);
+                .Take(numberOfUploadFiles)
+                .Select(path => new FileLocations(path));
 
             /// Act
             var uploadOptions = new UploadOptions
@@ -273,7 +274,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             /// Arrange
             const int desiredUploadFiles = 10;
-            TimeSpan timeout = TimeSpan.FromMinutes(2);
+            var timeout = TimeSpan.FromMinutes(2);
 
             var transferName = nameof(ShouldUploadAndImportFiles) + "-" + new Random().Next(1000, 9999);
 
@@ -285,7 +286,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var randomNumber = new Random().Next(0, numberOfFilesInDirectory - numberOfUploadFiles);
             var importFilePaths = filesInDirectory
                 .Skip(randomNumber)
-                .Take(numberOfUploadFiles);
+                .Take(numberOfUploadFiles)
+                .Select(fn => new FileLocations(fn, $"{Path.GetFileNameWithoutExtension(fn)}_1{Path.GetExtension(fn)}"));
 
             /// Act
             var uploadOptions = new UploadOptions
@@ -324,7 +326,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 async () =>
                     await _client.Transfers.UploadFilesAsync(
                         transferName,
-                        new string[0],
+                        new FileLocations[0],
                         new UploadOptions { WaitForTransferCompletion = true },
                         TimeSpan.FromMilliseconds(1)).ConfigureAwait(false)).ConfigureAwait(false);
         }

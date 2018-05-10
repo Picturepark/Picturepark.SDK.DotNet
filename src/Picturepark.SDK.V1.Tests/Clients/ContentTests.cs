@@ -1065,12 +1065,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
             string contentId = await _fixture.GetRandomContentIdAsync(".jpg -0030_JabLtzJl8bc", 20);
 
             // Create transfer
-            var filePaths = new List<string>
+            var filePaths = new FileLocations[]
             {
                 Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
             };
             string transferName = nameof(ShouldUpdateFile) + "-" + new Random().Next(1000, 9999);
-            var createTransferResult = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, filePaths.Select(Path.GetFileName).ToList());
+            var createTransferResult = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, filePaths);
 
             // Upload file
             var uploadOptions = new UploadOptions
