@@ -9909,7 +9909,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Contains all simple search field name variants of the field.
         /// The amount of simple search fields can be equal or less to the amount of IndexFields, but never more.</summary>
         [Newtonsoft.Json.JsonProperty("simpleSearchFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SimpleSearchFields { get; set; }
+        public System.Collections.Generic.IDictionary<string, string> SimpleSearchFields { get; set; }
     
         /// <summary>Contains the fields boost value.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]

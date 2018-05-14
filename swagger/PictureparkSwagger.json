@@ -15747,9 +15747,9 @@
           }
         },
         "simpleSearchFields": {
-          "type": "array",
+          "type": "object",
           "description": "Contains all simple search field name variants of the field.\nThe amount of simple search fields can be equal or less to the amount of IndexFields, but never more.",
-          "items": {
+          "additionalProperties": {
             "type": "string"
           }
         },
