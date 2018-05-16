@@ -7453,72 +7453,6 @@
         ]
       }
     },
-    "/v1/users/channels": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "summary": "Get list of channels",
-        "operationId": "User_GetChannels",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Channel"
-              }
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "description": "Entity not found",
-            "schema": {
-              "$ref": "#/definitions/PictureparkNotFoundException"
-            },
-            "x-nullable": true
-          },
-          "409": {
-            "description": "Version conflict",
-            "schema": {
-              "$ref": "#/definitions/PictureparkConflictException"
-            },
-            "x-nullable": true
-          },
-          "400": {
-            "description": "Validation exception",
-            "schema": {
-              "$ref": "#/definitions/PictureparkValidationException"
-            },
-            "x-nullable": true
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "user_read"
-            ]
-          }
-        ]
-      }
-    },
     "/v1/outputs": {
       "post": {
         "tags": [
@@ -7976,6 +7910,72 @@
         "security": [
           {
             "Bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/channels": {
+      "get": {
+        "tags": [
+          "Channel"
+        ],
+        "summary": "Get list of channels",
+        "operationId": "Channel_GetChannels",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Channel"
+              }
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_read"
+            ]
           }
         ]
       }
@@ -18575,77 +18575,6 @@
         }
       }
     },
-    "Channel": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "sortOrder"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "sortOrder": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "searchIndexId": {
-          "type": "string",
-          "description": "The search index id."
-        },
-        "schemaIds": {
-          "type": "array",
-          "description": "An id list of schemas with schema type content whose content documents should be found by the simple search.\nThe search by filters and aggregations are unaffected.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "filter": {
-          "description": "An optional search filter. Limits the content document result set on each search and aggregation request.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/FilterBase"
-            }
-          ]
-        },
-        "names": {
-          "description": "Language specific names.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        },
-        "sort": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
-          }
-        },
-        "aggregations": {
-          "type": "array",
-          "description": "An optional list of aggregators. These aggregations are added by default on each aggregation requests.",
-          "items": {
-            "$ref": "#/definitions/AggregatorBase"
-          }
-        },
-        "extendedSimpleSearchFields": {
-          "type": "array",
-          "description": "An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "missingResultsDisplayPatterns": {
-          "description": "Display pattern to use for rendering details when 0 results are returned",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        }
-      }
-    },
     "ContentsByIdsRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -18779,6 +18708,77 @@
           "type": "string"
         }
       }
+    },
+    "Channel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sortOrder"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sortOrder": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "searchIndexId": {
+          "type": "string",
+          "description": "The search index id."
+        },
+        "schemaIds": {
+          "type": "array",
+          "description": "An id list of schemas with schema type content whose content documents should be found by the simple search.\nThe search by filters and aggregations are unaffected.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "filter": {
+          "description": "An optional search filter. Limits the content document result set on each search and aggregation request.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        },
+        "names": {
+          "description": "Language specific names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "sort": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        },
+        "aggregations": {
+          "type": "array",
+          "description": "An optional list of aggregators. These aggregations are added by default on each aggregation requests.",
+          "items": {
+            "$ref": "#/definitions/AggregatorBase"
+          }
+        },
+        "extendedSimpleSearchFields": {
+          "type": "array",
+          "description": "An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "missingResultsDisplayPatterns": {
+          "description": "Display pattern to use for rendering details when 0 results are returned",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        }
+      }
     }
   },
   "parameters": {},
@@ -18889,6 +18889,10 @@
     {
       "name": "Info",
       "description": "Endpoint to get basic configuration information."
+    },
+    {
+      "name": "Channel",
+      "description": "Endpoints to work with channel."
     }
   ]
 }
