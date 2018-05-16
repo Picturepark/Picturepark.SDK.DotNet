@@ -18770,6 +18770,13 @@
             "type": "string"
           }
         },
+        "grantedUserRoleIds": {
+          "type": "array",
+          "description": "User roles granted access to the channel.",
+          "items": {
+            "type": "string"
+          }
+        },
         "missingResultsDisplayPatterns": {
           "description": "Display pattern to use for rendering details when 0 results are returned",
           "allOf": [
@@ -18777,6 +18784,9 @@
               "$ref": "#/definitions/TranslatedStringDictionary"
             }
           ]
+        },
+        "audit": {
+          "$ref": "#/definitions/UserAudit"
         }
       }
     }
