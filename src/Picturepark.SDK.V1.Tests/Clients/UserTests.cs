@@ -58,16 +58,5 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Assert
             Assert.NotNull(owner);
         }
-
-        [Fact]
-        [Trait("Stack", "Users")]
-        public async Task ShouldGetChannels()
-        {
-            // Act
-            var channels = await _client.Users.GetChannelsAsync();
-
-            // Assert
-            Assert.True(channels.Count > 0);
-        }
     }
 }
