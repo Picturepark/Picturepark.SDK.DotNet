@@ -14,7 +14,7 @@ namespace Picturepark.SDK.V1
         private static readonly object s_lock = new object();
 
         private readonly BusinessProcessClient _businessProcessClient;
-        private volatile List<string> _fileNameBlacklist;
+        private volatile ISet<string> _fileNameBlacklist;
 
         public TransferClient(BusinessProcessClient businessProcessClient, IPictureparkClientSettings settings, HttpClient httpClient)
             : this(settings, httpClient)
@@ -44,35 +44,36 @@ namespace Picturepark.SDK.V1
 
         /// <summary>Uploads multiple files from the filesystem.</summary>
         /// <param name="transferName">The name of the created transfer.</param>
-        /// <param name="filePaths">The file paths on the filesystem.</param>
+        /// <param name="files">The file paths on the filesystem with optional overrides.</param>
         /// <param name="uploadOptions">The file upload options.</param>
         /// <param name="timeout">The timeout to wait for completion.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The created transfer object.</returns>
-        public async Task<CreateTransferResult> UploadFilesAsync(string transferName, IEnumerable<string> filePaths, UploadOptions uploadOptions, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<CreateTransferResult> UploadFilesAsync(string transferName, IEnumerable<FileLocations> files, UploadOptions uploadOptions, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var filteredFileNames = FilterFilesByBlacklist(filePaths.ToList());
-            var result = await CreateAndWaitForCompletionAsync(transferName, filteredFileNames.Select(Path.GetFileName), timeout, cancellationToken).ConfigureAwait(false);
-            await UploadFilesAsync(result.Transfer, filteredFileNames, uploadOptions, timeout, cancellationToken).ConfigureAwait(false);
+            var fileLocations = files as FileLocations[] ?? files.ToArray();
+
+            var result = await CreateAndWaitForCompletionAsync(transferName, fileLocations, timeout, cancellationToken).ConfigureAwait(false);
+            await UploadFilesAsync(result.Transfer, fileLocations, uploadOptions, timeout, cancellationToken).ConfigureAwait(false);
             return result;
         }
 
         /// <summary>Uploads multiple files from the filesystem.</summary>
         /// <param name="transfer">The existing transfer object.</param>
-        /// <param name="filePaths">The file paths on the filesystem.</param>
+        /// <param name="files">The file paths on the filesystem with optional overrides.</param>
         /// <param name="uploadOptions">The file upload options.</param>
         /// <param name="timeout">The timeout to wait for completion.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The created transfer object.</returns>
-        public async Task UploadFilesAsync(Transfer transfer, IEnumerable<string> filePaths, UploadOptions uploadOptions, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task UploadFilesAsync(Transfer transfer, IEnumerable<FileLocations> files, UploadOptions uploadOptions, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             uploadOptions = uploadOptions ?? new UploadOptions();
 
             var exceptions = new List<Exception>();
 
-            // Limits concurrent downloads
+            // Limits concurrent uploads
             var throttler = new SemaphoreSlim(uploadOptions.ConcurrentUploads);
-            var filteredFileNames = FilterFilesByBlacklist(filePaths.ToList());
+            var filteredFileNames = FilterFilesByBlacklist(files);
 
             // TODO: File by file uploads
             var tasks = filteredFileNames
@@ -130,22 +131,22 @@ namespace Picturepark.SDK.V1
 
         /// <summary>Creates a transfer and waits for its completion.</summary>
         /// <param name="transferName">The name of the transfer.</param>
-        /// <param name="fileNames">The file names of the transfer.</param>
+        /// <param name="files">The file names of the transfer.</param>
         /// <param name="timeout">The timeout to wait for completion.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The transfer.</returns>
-        public async Task<CreateTransferResult> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<string> fileNames, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<CreateTransferResult> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<FileLocations> files, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var filteredFileNames = FilterFilesByBlacklist(fileNames);
+            var filteredFileNames = FilterFilesByBlacklist(files);
 
             var request = new CreateTransferRequest
             {
-                Name = string.IsNullOrEmpty(transferName) ? new Random().Next(1000, 9999).ToString() : transferName,
+                Name = !string.IsNullOrEmpty(transferName) ? transferName : new Random().Next(1000, 9999).ToString(),
                 TransferType = TransferType.FileUpload,
-                Files = filteredFileNames.Select(i => new TransferUploadFile
+                Files = filteredFileNames.Select(f => new TransferUploadFile
                 {
                     Identifier = Guid.NewGuid().ToString(),
-                    FileName = i
+                    FileName = f.UploadAs
                 }).ToList()
             };
 
@@ -155,13 +156,13 @@ namespace Picturepark.SDK.V1
             return new CreateTransferResult(transfer, request.Files);
         }
 
-        private async Task UploadFileAsync(SemaphoreSlim throttler, string transferId, string absoluteFilePath, int chunkSize, CancellationToken cancellationToken = default(CancellationToken))
+        private async Task UploadFileAsync(SemaphoreSlim throttler, string transferId, FileLocations fileLocation, int chunkSize, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var fileName = Path.GetFileName(absoluteFilePath);
-            var identifier = fileName;
+            var sourceFileName = Path.GetFileName(fileLocation.AbsoluteSourcePath);
+            var identifier = sourceFileName;
 
-            var fileSize = new FileInfo(absoluteFilePath).Length;
-            var relativePath = fileName;
+            var fileSize = new FileInfo(fileLocation.AbsoluteSourcePath).Length;
+            var targetFileName = Path.GetFileName(fileLocation.UploadAs);
             var totalChunks = (long)Math.Ceiling((decimal)fileSize / chunkSize);
 
             var uploadTasks = new List<Task>();
@@ -175,7 +176,7 @@ namespace Picturepark.SDK.V1
                 {
                     try
                     {
-                        using (var fileStream = File.OpenRead(absoluteFilePath))
+                        using (var fileStream = File.OpenRead(fileLocation.AbsoluteSourcePath))
                         {
                             var currentChunkSize = chunkSize;
                             var position = (number - 1) * chunkSize;
@@ -196,8 +197,8 @@ namespace Picturepark.SDK.V1
                                 await UploadFileAsync(
                                     transferId,
                                     identifier,
-                                    new FileParameter(memoryStream, fileName),
-                                    relativePath,
+                                    new FileParameter(memoryStream, sourceFileName),
+                                    targetFileName,
                                     number,
                                     currentChunkSize,
                                     fileSize,
@@ -216,14 +217,13 @@ namespace Picturepark.SDK.V1
             await Task.WhenAll(uploadTasks).ConfigureAwait(false);
         }
 
-        private IEnumerable<string> FilterFilesByBlacklist(IEnumerable<string> files)
+        private IEnumerable<FileLocations> FilterFilesByBlacklist(IEnumerable<FileLocations> files)
         {
             var blacklist = GetCachedBlacklist();
-            var filteredFileNames = files.Where(i => !blacklist.Contains(Path.GetFileName(i).ToLowerInvariant()));
-            return filteredFileNames;
+            return files.Where(i => !blacklist.Contains(Path.GetFileName(i.AbsoluteSourcePath)?.ToLowerInvariant()));
         }
 
-        private List<string> GetCachedBlacklist()
+        private ISet<string> GetCachedBlacklist()
         {
             if (_fileNameBlacklist != null)
                 return _fileNameBlacklist;
@@ -233,8 +233,8 @@ namespace Picturepark.SDK.V1
                 if (_fileNameBlacklist != null)
                     return _fileNameBlacklist;
 
-                var blacklist = Task.Run(async () => await GetBlacklistAsync()).GetAwaiter().GetResult(); // TODO: GetCachedBlacklist: Use async version
-                _fileNameBlacklist = blacklist.Items.Select(i => i.Match.ToLowerInvariant()).ToList();
+                var blacklist = Task.Run(() => GetBlacklistAsync()).GetAwaiter().GetResult(); // TODO: GetCachedBlacklist: Use async version
+                _fileNameBlacklist = new HashSet<string>(blacklist.Items.Select(i => i.Match.ToLowerInvariant()));
             }
 
             return _fileNameBlacklist;

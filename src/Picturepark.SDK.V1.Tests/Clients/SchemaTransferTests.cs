@@ -48,7 +48,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var transferName = new Random().Next(1000, 9999).ToString();
 
-            var files = new List<string>
+            var files = new FileLocations[]
             {
                 Path.Combine(_fixture.ExampleSchemaBasePath, "Planet.json")
             };
