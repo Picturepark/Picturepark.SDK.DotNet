@@ -73,14 +73,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<CustomerConfigurationItem> AddExternalProvidersAsync(string customerId, System.Collections.Generic.IEnumerable<ExternalProvider> addRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task RestoreAsync(string customerAlias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -512,9 +504,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("supportContactEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SupportContactEmailAddress { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("externalProviders", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<ExternalProviderInput> ExternalProviders { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("identityServerProviders", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<IdentityServerProvider> IdentityServerProviders { get; set; }
     
@@ -590,98 +579,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerCreateRequest>(data);
         }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ExternalProviderInput 
-    {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("providerName", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ExternalProviderName ProviderName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ApplicationId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("applicationSecret", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ApplicationSecret { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("services", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<OAuthServiceApi> Services { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("redirectUri", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string RedirectUri { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ExternalProviderInput FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ExternalProviderInput>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum ExternalProviderName
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Google")]
-        Google = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Windows")]
-        Windows = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Dropbox")]
-        Dropbox = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Buffer")]
-        Buffer = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Picturepark")]
-        Picturepark = 4,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class OAuthServiceApi 
-    {
-        [Newtonsoft.Json.JsonProperty("scopes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Scopes { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("oAuthServiceType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public OAuthServiceType OAuthServiceType { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static OAuthServiceApi FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<OAuthServiceApi>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum OAuthServiceType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Drive")]
-        Drive = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "SocialMedia")]
-        SocialMedia = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "ContentStore")]
-        ContentStore = 2,
     
     }
     
@@ -1933,9 +1830,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Always)]
         public bool UseSsl { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("externalProviders", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<ExternalProviderConfigurationItem> ExternalProviders { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("serviceProviders", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<CustomerServiceProviderConfigurationItem> ServiceProviders { get; set; }
     
@@ -2033,64 +1927,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static CustomerConfigurationItem FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerConfigurationItem>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ExternalProviderConfigurationItem 
-    {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("providerName", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ExternalProviderName ProviderName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ApplicationId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("applicationSecret", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ApplicationSecret { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("services", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<OAuthServiceApiConfigurationItem> Services { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("redirectUri", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string RedirectUri { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ExternalProviderConfigurationItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ExternalProviderConfigurationItem>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class OAuthServiceApiConfigurationItem 
-    {
-        [Newtonsoft.Json.JsonProperty("scopes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Scopes { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("oAuthServiceType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public OAuthServiceType OAuthServiceType { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static OAuthServiceApiConfigurationItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<OAuthServiceApiConfigurationItem>(data);
         }
     
     }
@@ -2236,9 +2072,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("PictureparkTimeoutException", typeof(PictureparkTimeoutException))]
     [JsonInheritanceAttribute("ServiceProviderNotFoundException", typeof(ServiceProviderNotFoundException))]
     [JsonInheritanceAttribute("CustomerAliasNotFoundException", typeof(CustomerAliasNotFoundException))]
+    [JsonInheritanceAttribute("PictureparkForbiddenException", typeof(PictureparkForbiddenException))]
     [JsonInheritanceAttribute("UserEmailAlreadyExistsException", typeof(UserEmailAlreadyExistsException))]
     [JsonInheritanceAttribute("UserRoleAssignedException", typeof(UserRoleAssignedException))]
     [JsonInheritanceAttribute("UserNotFoundException", typeof(UserNotFoundException))]
+    [JsonInheritanceAttribute("UserInactiveOrDeletedException", typeof(UserInactiveOrDeletedException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("ServiceProviderDeleteException", typeof(ServiceProviderDeleteException))]
     [JsonInheritanceAttribute("ServiceProviderCreateException", typeof(ServiceProviderCreateException))]
@@ -2254,10 +2092,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("TokenGenerationException", typeof(TokenGenerationException))]
     [JsonInheritanceAttribute("OutputIdNotFoundException", typeof(OutputIdNotFoundException))]
     [JsonInheritanceAttribute("OutputNotFoundException", typeof(OutputNotFoundException))]
-    [JsonInheritanceAttribute("DriveCacheExpiredException", typeof(DriveCacheExpiredException))]
-    [JsonInheritanceAttribute("DriveFileNotFoundException", typeof(DriveFileNotFoundException))]
-    [JsonInheritanceAttribute("DriveRequestException", typeof(DriveRequestException))]
-    [JsonInheritanceAttribute("TokenValidationException", typeof(TokenValidationException))]
     [JsonInheritanceAttribute("LeaseNotAcquiredException", typeof(LeaseNotAcquiredException))]
     [JsonInheritanceAttribute("OperationInProgressException", typeof(OperationInProgressException))]
     [JsonInheritanceAttribute("RetryException", typeof(RetryException))]
@@ -2325,7 +2159,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("RelationNotFoundException", typeof(RelationNotFoundException))]
     [JsonInheritanceAttribute("RelationTypeNotFoundException", typeof(RelationTypeNotFoundException))]
     [JsonInheritanceAttribute("RelationTypeTargetDocTypeMismatchException", typeof(RelationTypeTargetDocTypeMismatchException))]
-    [JsonInheritanceAttribute("AggregationFilterInvalidException", typeof(AggregationFilterInvalidException))]
     [JsonInheritanceAttribute("AggregationNameInvalidException", typeof(AggregationNameInvalidException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
@@ -2372,6 +2205,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
     [JsonInheritanceAttribute("ContentLayerInvalidException", typeof(ContentLayerInvalidException))]
+    [JsonInheritanceAttribute("ContentFileReplaceTypeMismatchException", typeof(ContentFileReplaceTypeMismatchException))]
     [JsonInheritanceAttribute("BusinessProcessWaitTimeoutException", typeof(BusinessProcessWaitTimeoutException))]
     [JsonInheritanceAttribute("BusinessProcessEngineRequestException", typeof(BusinessProcessEngineRequestException))]
     [JsonInheritanceAttribute("BusinessProcessNotFoundException", typeof(BusinessProcessNotFoundException))]
@@ -2513,6 +2347,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class PictureparkForbiddenException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PictureparkForbiddenException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkForbiddenException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class UserEmailAlreadyExistsException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2564,6 +2414,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static UserNotFoundException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserInactiveOrDeletedException : PictureparkForbiddenException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserInactiveOrDeletedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserInactiveOrDeletedException>(data);
         }
     
     }
@@ -2899,73 +2765,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static OutputNotFoundException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputNotFoundException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class DriveCacheExpiredException : PictureparkBusinessException
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static DriveCacheExpiredException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DriveCacheExpiredException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class DriveFileNotFoundException : PictureparkNotFoundException
-    {
-        [Newtonsoft.Json.JsonProperty("fileId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FileId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static DriveFileNotFoundException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DriveFileNotFoundException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class DriveRequestException : PictureparkBusinessException
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static DriveRequestException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DriveRequestException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class TokenValidationException : PictureparkValidationException
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static TokenValidationException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TokenValidationException>(data);
         }
     
     }
@@ -4005,44 +3804,41 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = "ManageSharings")]
         ManageSharings = 1,
     
-        [System.Runtime.Serialization.EnumMember(Value = "ManageDrives")]
-        ManageDrives = 2,
-    
         [System.Runtime.Serialization.EnumMember(Value = "ManageTransfer")]
-        ManageTransfer = 3,
+        ManageTransfer = 2,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageChannels")]
-        ManageChannels = 4,
+        ManageChannels = 3,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageSchemas")]
-        ManageSchemas = 5,
+        ManageSchemas = 4,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageUsers")]
-        ManageUsers = 6,
+        ManageUsers = 5,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageUserRoles")]
-        ManageUserRoles = 7,
+        ManageUserRoles = 6,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManagePermissions")]
-        ManagePermissions = 8,
+        ManagePermissions = 7,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageSearchIndexes")]
-        ManageSearchIndexes = 9,
+        ManageSearchIndexes = 8,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageCollections")]
-        ManageCollections = 10,
+        ManageCollections = 9,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageListItems")]
-        ManageListItems = 11,
+        ManageListItems = 10,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageServiceProviders")]
-        ManageServiceProviders = 12,
+        ManageServiceProviders = 11,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageEmbeds")]
-        ManageEmbeds = 13,
+        ManageEmbeds = 12,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageTemplates")]
-        ManageTemplates = 14,
+        ManageTemplates = 13,
     
     }
     
@@ -4294,17 +4090,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = "FileUploadAutoImport")]
         FileUploadAutoImport = 1,
     
-        [System.Runtime.Serialization.EnumMember(Value = "DriveImport")]
-        DriveImport = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "DriveExport")]
-        DriveExport = 3,
-    
         [System.Runtime.Serialization.EnumMember(Value = "WebDownload")]
-        WebDownload = 4,
+        WebDownload = 2,
     
         [System.Runtime.Serialization.EnumMember(Value = "SchemaImport")]
-        SchemaImport = 5,
+        SchemaImport = 3,
     
     }
     
@@ -4579,25 +4369,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static RelationTypeTargetDocTypeMismatchException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<RelationTypeTargetDocTypeMismatchException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class AggregationFilterInvalidException : PictureparkValidationException
-    {
-        [Newtonsoft.Json.JsonProperty("aggregationFilterNames", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AggregationFilterNames { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AggregationFilterInvalidException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationFilterInvalidException>(data);
         }
     
     }
@@ -5621,6 +5392,103 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ContentFileReplaceTypeMismatchException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("originalContentType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ContentType OriginalContentType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("newContentType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ContentType NewContentType { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentFileReplaceTypeMismatchException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFileReplaceTypeMismatchException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ContentType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Unknown")]
+        Unknown = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Bitmap")]
+        Bitmap = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "VectorGraphic")]
+        VectorGraphic = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "RawImage")]
+        RawImage = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InterchangeDocument")]
+        InterchangeDocument = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "WordProcessingDocument")]
+        WordProcessingDocument = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "TextDocument")]
+        TextDocument = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "DesktopPublishingDocument")]
+        DesktopPublishingDocument = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Presentation")]
+        Presentation = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Spreadsheet")]
+        Spreadsheet = 9,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Archive")]
+        Archive = 10,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Audio")]
+        Audio = 11,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Video")]
+        Video = 12,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Font")]
+        Font = 13,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Multimedia")]
+        Multimedia = 14,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Application")]
+        Application = 15,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "SourceCode")]
+        SourceCode = 16,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Database")]
+        Database = 17,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Cad")]
+        Cad = 18,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Model3d")]
+        Model3d = 19,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ContentItem")]
+        ContentItem = 20,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class BusinessProcessWaitTimeoutException : PictureparkTimeoutException
     {
         [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -6637,38 +6505,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static ParentFilter FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ParentFilter>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.43.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ExternalProvider 
-    {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("providerName", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ExternalProviderName ProviderName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("applicationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ApplicationId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("services", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<OAuthServiceApi> Services { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("redirectUri", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string RedirectUri { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ExternalProvider FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ExternalProvider>(data);
         }
     
     }
