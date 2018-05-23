@@ -5455,7 +5455,6 @@
             "enum": [
               "ManageContent",
               "ManageSharings",
-              "ManageDrives",
               "ManageTransfer",
               "ManageChannels",
               "ManageSchemas",
@@ -8147,6 +8146,15 @@
         }
       ]
     },
+    "PictureparkForbiddenException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "UserEmailAlreadyExistsException": {
       "type": "object",
       "additionalProperties": false,
@@ -8186,6 +8194,15 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "UserInactiveOrDeletedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkForbiddenException"
         }
       ]
     },
@@ -8418,47 +8435,6 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "DriveCacheExpiredException": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "DriveFileNotFoundException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "fileId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkNotFoundException"
-        }
-      ]
-    },
-    "DriveRequestException": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "TokenValidationException": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },
@@ -9254,7 +9230,6 @@
       "x-enumNames": [
         "ManageContent",
         "ManageSharings",
-        "ManageDrives",
         "ManageTransfer",
         "ManageChannels",
         "ManageSchemas",
@@ -9271,7 +9246,6 @@
       "enum": [
         "ManageContent",
         "ManageSharings",
-        "ManageDrives",
         "ManageTransfer",
         "ManageChannels",
         "ManageSchemas",
@@ -9484,16 +9458,12 @@
       "x-enumNames": [
         "FileUpload",
         "FileUploadAutoImport",
-        "DriveImport",
-        "DriveExport",
         "WebDownload",
         "SchemaImport"
       ],
       "enum": [
         "FileUpload",
         "FileUploadAutoImport",
-        "DriveImport",
-        "DriveExport",
         "WebDownload",
         "SchemaImport"
       ]
@@ -9721,20 +9691,6 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "AggregationFilterInvalidException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "aggregationFilterNames": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },
@@ -10564,6 +10520,80 @@
         }
       ]
     },
+    "ContentFileReplaceTypeMismatchException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "originalContentType",
+        "newContentType"
+      ],
+      "properties": {
+        "contentId": {
+          "type": "string"
+        },
+        "originalContentType": {
+          "$ref": "#/definitions/ContentType"
+        },
+        "newContentType": {
+          "$ref": "#/definitions/ContentType"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "ContentType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Unknown",
+        "Bitmap",
+        "VectorGraphic",
+        "RawImage",
+        "InterchangeDocument",
+        "WordProcessingDocument",
+        "TextDocument",
+        "DesktopPublishingDocument",
+        "Presentation",
+        "Spreadsheet",
+        "Archive",
+        "Audio",
+        "Video",
+        "Font",
+        "Multimedia",
+        "Application",
+        "SourceCode",
+        "Database",
+        "Cad",
+        "Model3d",
+        "ContentItem"
+      ],
+      "enum": [
+        "Unknown",
+        "Bitmap",
+        "VectorGraphic",
+        "RawImage",
+        "InterchangeDocument",
+        "WordProcessingDocument",
+        "TextDocument",
+        "DesktopPublishingDocument",
+        "Presentation",
+        "Spreadsheet",
+        "Archive",
+        "Audio",
+        "Video",
+        "Font",
+        "Multimedia",
+        "Application",
+        "SourceCode",
+        "Database",
+        "Cad",
+        "Model3d",
+        "ContentItem"
+      ]
+    },
     "BusinessProcessWaitTimeoutException": {
       "type": "object",
       "additionalProperties": false,
@@ -10906,56 +10936,6 @@
           "type": "string"
         }
       }
-    },
-    "ContentType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Unknown",
-        "Bitmap",
-        "VectorGraphic",
-        "RawImage",
-        "InterchangeDocument",
-        "WordProcessingDocument",
-        "TextDocument",
-        "DesktopPublishingDocument",
-        "Presentation",
-        "Spreadsheet",
-        "Archive",
-        "Audio",
-        "Video",
-        "Font",
-        "Multimedia",
-        "Application",
-        "SourceCode",
-        "Database",
-        "Cad",
-        "Model3d",
-        "ContentItem"
-      ],
-      "enum": [
-        "Unknown",
-        "Bitmap",
-        "VectorGraphic",
-        "RawImage",
-        "InterchangeDocument",
-        "WordProcessingDocument",
-        "TextDocument",
-        "DesktopPublishingDocument",
-        "Presentation",
-        "Spreadsheet",
-        "Archive",
-        "Audio",
-        "Video",
-        "Font",
-        "Multimedia",
-        "Application",
-        "SourceCode",
-        "Database",
-        "Cad",
-        "Model3d",
-        "ContentItem"
-      ]
     },
     "DisplayValueDictionary": {
       "type": "object",
@@ -17389,12 +17369,6 @@
             "$ref": "#/definitions/TransferUploadFile"
           }
         },
-        "driveFiles": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/TransferDriveFile"
-          }
-        },
         "webLinks": {
           "type": "array",
           "items": {
@@ -17432,29 +17406,6 @@
           "type": "string"
         }
       }
-    },
-    "TransferDriveFile": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "driveId": {
-          "type": "string"
-        },
-        "fileId": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "externalOutputFolderId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/TransferFile"
-        }
-      ]
     },
     "TransferWebLink": {
       "type": "object",
@@ -17500,9 +17451,6 @@
         },
         "fileMetadata": {
           "$ref": "#/definitions/FileMetadata"
-        },
-        "driveMetadata": {
-          "$ref": "#/definitions/DriveMetadata"
         },
         "outputItems": {
           "type": "array",
@@ -17993,42 +17941,6 @@
         }
       }
     },
-    "DriveMetadata": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "location": {
-          "type": "string"
-        },
-        "fileType": {
-          "type": "string"
-        },
-        "audit": {
-          "$ref": "#/definitions/DriveMetadataAudit"
-        },
-        "description": {
-          "type": "string"
-        }
-      }
-    },
-    "DriveMetadataAudit": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "owner": {
-          "type": "string"
-        },
-        "modified": {
-          "type": "string"
-        },
-        "opened": {
-          "type": "string"
-        },
-        "created": {
-          "type": "string"
-        }
-      }
-    },
     "FileTransferOutput": {
       "type": "object",
       "additionalProperties": false,
@@ -18317,12 +18229,6 @@
         "address": {
           "$ref": "#/definitions/UserAddress"
         },
-        "drives": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Drive"
-          }
-        },
         "ownerTokens": {
           "type": "array",
           "items": {
@@ -18368,38 +18274,6 @@
           "type": "string"
         }
       }
-    },
-    "Drive": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "driveType"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "driveType": {
-          "$ref": "#/definitions/DriveType"
-        }
-      }
-    },
-    "DriveType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "GoogleDrive",
-        "OneDrive",
-        "Dropbox"
-      ],
-      "enum": [
-        "GoogleDrive",
-        "OneDrive",
-        "Dropbox"
-      ]
     },
     "OwnerToken": {
       "type": "object",
