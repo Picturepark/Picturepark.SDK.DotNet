@@ -493,86 +493,6 @@
         ]
       }
     },
-    "/customer/{customerId}/externalProvider": {
-      "post": {
-        "tags": [
-          "Customer"
-        ],
-        "operationId": "Customer_AddExternalProviders",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "customerId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false
-          },
-          {
-            "name": "addRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ExternalProvider"
-              }
-            },
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/CustomerConfigurationItem"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "description": "Entity not found",
-            "schema": {
-              "$ref": "#/definitions/PictureparkNotFoundException"
-            },
-            "x-nullable": true
-          },
-          "409": {
-            "description": "Version conflict",
-            "schema": {
-              "$ref": "#/definitions/PictureparkConflictException"
-            },
-            "x-nullable": true
-          },
-          "400": {
-            "description": "Validation exception",
-            "schema": {
-              "$ref": "#/definitions/PictureparkValidationException"
-            },
-            "x-nullable": true
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
     "/customer/{customerAlias}/restore": {
       "post": {
         "tags": [
@@ -3693,12 +3613,6 @@
         "supportContactEmailAddress": {
           "type": "string"
         },
-        "externalProviders": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ExternalProviderInput"
-          }
-        },
         "identityServerProviders": {
           "type": "array",
           "items": {
@@ -3786,86 +3700,6 @@
           "type": "string"
         }
       }
-    },
-    "ExternalProviderInput": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "providerName"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "providerName": {
-          "$ref": "#/definitions/ExternalProviderName"
-        },
-        "applicationId": {
-          "type": "string"
-        },
-        "applicationSecret": {
-          "type": "string"
-        },
-        "services": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OAuthServiceApi"
-          }
-        },
-        "redirectUri": {
-          "type": "string"
-        }
-      }
-    },
-    "ExternalProviderName": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Google",
-        "Windows",
-        "Dropbox",
-        "Buffer",
-        "Picturepark"
-      ],
-      "enum": [
-        "Google",
-        "Windows",
-        "Dropbox",
-        "Buffer",
-        "Picturepark"
-      ]
-    },
-    "OAuthServiceApi": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "oAuthServiceType"
-      ],
-      "properties": {
-        "scopes": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "oAuthServiceType": {
-          "$ref": "#/definitions/OAuthServiceType"
-        }
-      }
-    },
-    "OAuthServiceType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Drive",
-        "SocialMedia",
-        "ContentStore"
-      ],
-      "enum": [
-        "Drive",
-        "SocialMedia",
-        "ContentStore"
-      ]
     },
     "IdentityServerProvider": {
       "type": "object",
@@ -5071,12 +4905,6 @@
         "useSsl": {
           "type": "boolean"
         },
-        "externalProviders": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ExternalProviderConfigurationItem"
-          }
-        },
         "serviceProviders": {
           "type": "array",
           "items": {
@@ -5181,54 +5009,6 @@
         },
         "serviceAdminUserId": {
           "type": "string"
-        }
-      }
-    },
-    "ExternalProviderConfigurationItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "providerName"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "providerName": {
-          "$ref": "#/definitions/ExternalProviderName"
-        },
-        "applicationId": {
-          "type": "string"
-        },
-        "applicationSecret": {
-          "type": "string"
-        },
-        "services": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OAuthServiceApiConfigurationItem"
-          }
-        },
-        "redirectUri": {
-          "type": "string"
-        }
-      }
-    },
-    "OAuthServiceApiConfigurationItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "oAuthServiceType"
-      ],
-      "properties": {
-        "scopes": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "oAuthServiceType": {
-          "$ref": "#/definitions/OAuthServiceType"
         }
       }
     },
@@ -5463,6 +5243,15 @@
         }
       ]
     },
+    "PictureparkForbiddenException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "UserEmailAlreadyExistsException": {
       "type": "object",
       "additionalProperties": false,
@@ -5502,6 +5291,15 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "UserInactiveOrDeletedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkForbiddenException"
         }
       ]
     },
@@ -5748,47 +5546,6 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "DriveCacheExpiredException": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "DriveFileNotFoundException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "fileId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkNotFoundException"
-        }
-      ]
-    },
-    "DriveRequestException": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "TokenValidationException": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },
@@ -6584,7 +6341,6 @@
       "x-enumNames": [
         "ManageContent",
         "ManageSharings",
-        "ManageDrives",
         "ManageTransfer",
         "ManageChannels",
         "ManageSchemas",
@@ -6601,7 +6357,6 @@
       "enum": [
         "ManageContent",
         "ManageSharings",
-        "ManageDrives",
         "ManageTransfer",
         "ManageChannels",
         "ManageSchemas",
@@ -6814,16 +6569,12 @@
       "x-enumNames": [
         "FileUpload",
         "FileUploadAutoImport",
-        "DriveImport",
-        "DriveExport",
         "WebDownload",
         "SchemaImport"
       ],
       "enum": [
         "FileUpload",
         "FileUploadAutoImport",
-        "DriveImport",
-        "DriveExport",
         "WebDownload",
         "SchemaImport"
       ]
@@ -7051,20 +6802,6 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "AggregationFilterInvalidException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "aggregationFilterNames": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },
@@ -7906,6 +7643,80 @@
         {
           "$ref": "#/definitions/PictureparkValidationException"
         }
+      ]
+    },
+    "ContentFileReplaceTypeMismatchException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "originalContentType",
+        "newContentType"
+      ],
+      "properties": {
+        "contentId": {
+          "type": "string"
+        },
+        "originalContentType": {
+          "$ref": "#/definitions/ContentType"
+        },
+        "newContentType": {
+          "$ref": "#/definitions/ContentType"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "ContentType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Unknown",
+        "Bitmap",
+        "VectorGraphic",
+        "RawImage",
+        "InterchangeDocument",
+        "WordProcessingDocument",
+        "TextDocument",
+        "DesktopPublishingDocument",
+        "Presentation",
+        "Spreadsheet",
+        "Archive",
+        "Audio",
+        "Video",
+        "Font",
+        "Multimedia",
+        "Application",
+        "SourceCode",
+        "Database",
+        "Cad",
+        "Model3d",
+        "ContentItem"
+      ],
+      "enum": [
+        "Unknown",
+        "Bitmap",
+        "VectorGraphic",
+        "RawImage",
+        "InterchangeDocument",
+        "WordProcessingDocument",
+        "TextDocument",
+        "DesktopPublishingDocument",
+        "Presentation",
+        "Spreadsheet",
+        "Archive",
+        "Audio",
+        "Video",
+        "Font",
+        "Multimedia",
+        "Application",
+        "SourceCode",
+        "Database",
+        "Cad",
+        "Model3d",
+        "ContentItem"
       ]
     },
     "BusinessProcessWaitTimeoutException": {
@@ -8799,33 +8610,6 @@
           "$ref": "#/definitions/FilterBase"
         }
       ]
-    },
-    "ExternalProvider": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "providerName"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "providerName": {
-          "$ref": "#/definitions/ExternalProviderName"
-        },
-        "applicationId": {
-          "type": "string"
-        },
-        "services": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OAuthServiceApi"
-          }
-        },
-        "redirectUri": {
-          "type": "string"
-        }
-      }
     },
     "SearchIndexReindexRequest": {
       "type": "object",
