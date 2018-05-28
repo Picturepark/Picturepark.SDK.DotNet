@@ -14,7 +14,10 @@
       "generateKnownTypes": true,
       "generateXmlObjects": false,
       "output": null,
-      "assemblyPaths": [],
+      "outputType": "Swagger2",
+      "assemblyPaths": [
+        "../../../Picturepark/Picturepark.API.Contract.V1/bin/Debug/netstandard1.3/Picturepark.API.Contract.V1.dll"
+      ],
       "referencePaths": []
     }
   },
@@ -34,6 +37,7 @@
       "useBaseUrl": true,
       "generateBaseUrlProperty": true,
       "generateSyncMethods": false,
+      "exposeJsonSerializerSettings": false,
       "clientClassAccessModifier": "public",
       "typeAccessModifier": "public",
       "generateContractsOutput": false,
@@ -44,6 +48,7 @@
       "className": "{controller}Client",
       "operationGenerationMode": "MultipleClientsFromOperationId",
       "generateOptionalParameters": false,
+      "generateJsonMethods": true,
       "parameterArrayType": "System.Collections.Generic.IEnumerable",
       "parameterDictionaryType": "System.Collections.Generic.IDictionary",
       "responseArrayType": "System.Collections.Generic.ICollection",
