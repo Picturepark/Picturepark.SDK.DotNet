@@ -9943,8 +9943,7 @@
       "additionalProperties": false,
       "required": [
         "numberOfSets",
-        "numberOfRolesPerSet",
-        "roleRightGrantedAverage"
+        "numberOfRolesPerSet"
       ],
       "properties": {
         "numberOfSets": {
@@ -9954,10 +9953,6 @@
         "numberOfRolesPerSet": {
           "type": "integer",
           "format": "int32"
-        },
-        "roleRightGrantedAverage": {
-          "type": "number",
-          "format": "double"
         }
       }
     },
@@ -9966,8 +9961,7 @@
       "additionalProperties": false,
       "required": [
         "numberOfSets",
-        "numberOfRolesPerSet",
-        "roleRightGrantedAverage"
+        "numberOfRolesPerSet"
       ],
       "properties": {
         "numberOfSets": {
@@ -9977,10 +9971,6 @@
         "numberOfRolesPerSet": {
           "type": "integer",
           "format": "int32"
-        },
-        "roleRightGrantedAverage": {
-          "type": "number",
-          "format": "double"
         }
       }
     },

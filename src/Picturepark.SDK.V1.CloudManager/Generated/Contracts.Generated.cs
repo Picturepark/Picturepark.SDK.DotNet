@@ -8102,9 +8102,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("numberOfRolesPerSet", Required = Newtonsoft.Json.Required.Always)]
         public int NumberOfRolesPerSet { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("roleRightGrantedAverage", Required = Newtonsoft.Json.Required.Always)]
-        public double RoleRightGrantedAverage { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -8125,9 +8122,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("numberOfRolesPerSet", Required = Newtonsoft.Json.Required.Always)]
         public int NumberOfRolesPerSet { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("roleRightGrantedAverage", Required = Newtonsoft.Json.Required.Always)]
-        public double RoleRightGrantedAverage { get; set; }
     
         public string ToJson() 
         {
