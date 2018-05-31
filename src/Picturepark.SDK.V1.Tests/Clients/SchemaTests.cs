@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Newtonsoft.Json;
-using Xunit.Sdk;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -203,7 +201,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             /// Arrange
             var expectedFilterString = "{\"kind\":\"TermFilter\",\"field\":\"contentType\",\"term\":\"FC Aarau\"}";
-            await CreateFromClassGenericAsync<SoccerPlayer>();
+            await CreateSchemasAsync<SoccerPlayer>();
 
             /// Act
             var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("SoccerPlayer");
@@ -219,7 +217,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             /// Arrange
             string expectedMultilineString = "\"multiLine\":true";
-            await CreateFromClassGenericAsync<Person>();
+            await CreateSchemasAsync<Person>();
 
             /// Act
             var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("Person");
@@ -234,7 +232,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateSchemaAndValidateMaxRecursion()
         {
             /// Act
-            await CreateFromClassGenericAsync<Person>();
+            await CreateSchemasAsync<Person>();
         }
 
         [Fact]
@@ -390,7 +388,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             return filter;
         }
 
-        private async Task CreateFromClassGenericAsync<T>()
+        private async Task CreateSchemasAsync<T>()
             where T : class
         {
             var childSchemas = await _client.Schemas.GenerateSchemasAsync(typeof(T));

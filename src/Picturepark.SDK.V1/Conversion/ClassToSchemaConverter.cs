@@ -165,6 +165,7 @@ namespace Picturepark.SDK.V1.Conversion
             }
 
             // Create schemas for all subtypes
+            // TODO: Here we should scan for KnownTypeAttributes and also create schema for all contractType.GetTypeInfo().BaseType
             var subtypes = contractType.GetTypeInfo().Assembly.GetTypes().Where(t => t.GetTypeInfo().IsSubclassOf(contractType));
             foreach (var subtype in subtypes)
             {

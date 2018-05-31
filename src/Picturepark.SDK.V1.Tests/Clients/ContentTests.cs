@@ -1205,7 +1205,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
         {
             // TODO: Remove this and use custom schemaIdGenerator
-
             var systemSchemaIds = new[] { "Country" };
             if (!systemSchemaIds.Contains(schema.Id))
             {

@@ -164,6 +164,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateComplexObjectWithHelper()
         {
             /// Arrange
+            await CreateSchemasAsync<Person>();
+
             // Reusable as reference
             var dog = new Dog
             {
@@ -229,6 +231,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateObjectWithoutHelper()
         {
             /// Arrange
+            await CreateSchemasAsync<Person>();
+
             var originalPlayer = new SoccerPlayer
             {
                 BirthDate = DateTime.Now,
@@ -240,7 +244,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Act
             var createRequest = new ListItemCreateRequest
             {
-                ContentSchemaId = "SoccerPlayer",
+                ContentSchemaId = nameof(SoccerPlayer),
                 Content = originalPlayer
             };
 
@@ -367,10 +371,22 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdate()
         {
             /// Arrange
+            await CreateSchemasAsync<Person>();
+
+            // Create object
+            var objectName = "ObjectToUpdate" + new Random().Next(0, 999999);
+            var listItem = new ListItemCreateRequest
+            {
+                ContentSchemaId = nameof(SoccerPlayer),
+                Content = new SoccerPlayer { Firstname = objectName, LastName = "Foo", EmailAddress = "abc@def.ch" }
+            };
+            var x = await _client.ListItems.CreateAsync(listItem);
+
+            // Search object
             var players = await _client.ListItems.SearchAsync(new ListItemSearchRequest
             {
                 Limit = 20,
-                SearchString = "-ivorejvioe",
+                SearchString = objectName,
                 SchemaIds = new List<string> { "SoccerPlayer" }
             });
 
@@ -393,6 +409,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdateMany()
         {
             /// Arrange
+            await CreateSchemasAsync<SoccerPlayer>();
+
             var originalPlayer = new SoccerPlayer
             {
                 BirthDate = DateTime.Now,
@@ -403,7 +421,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var createRequest = new ListItemCreateRequest
             {
-                ContentSchemaId = "SoccerPlayer",
+                ContentSchemaId = nameof(SoccerPlayer),
                 Content = originalPlayer
             };
 
@@ -503,6 +521,32 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Assert
             Assert.NotNull(await _client.ListItems.GetAsync(listItem1.Id, true));
             Assert.NotNull(await _client.ListItems.GetAsync(listItem2.Id, true));
+        }
+
+        private async Task CreateSchemasAsync<T>()
+            where T : class
+        {
+            var childSchemas = await _client.Schemas.GenerateSchemasAsync(typeof(T));
+
+            foreach (var schema in childSchemas)
+            {
+                if (await _client.Schemas.ExistsAsync(schema.Id) == false)
+                {
+                    try
+                    {
+                        await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true);
+                    }
+                    catch (DuplicateSchemaException)
+                    {
+                        // ignore DuplicateSchemaException exceptions
+                    }
+                }
+            }
+
+            var schemaId = typeof(T).Name;
+            var generatedPersonSchema = await _client.Schemas.GetAsync(schemaId);
+
+            Assert.Contains(generatedPersonSchema.Types, i => i == SchemaType.List || i == SchemaType.Struct);
         }
     }
 }
