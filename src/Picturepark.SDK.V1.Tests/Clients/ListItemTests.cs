@@ -164,8 +164,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateComplexObjectWithHelper()
         {
             /// Arrange
-            await SchemaHelper.CreateSchemasIfNotExistentAsync<SoccerPlayer>(_client);
-            await SchemaHelper.CreateSchemasIfNotExistentAsync<SoccerTrainer>(_client);
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client);
 
             // Reusable as reference
             var dog = new Dog

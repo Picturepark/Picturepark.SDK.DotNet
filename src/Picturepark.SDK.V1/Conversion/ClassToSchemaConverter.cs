@@ -87,6 +87,16 @@ namespace Picturepark.SDK.V1.Conversion
             if (schemaList.Any(s => s.Id == schemaId))
                 return null;
 
+            // Create schema for base class
+            var baseType = contractType.GetTypeInfo().BaseType;
+            if (baseType != null &&
+                baseType != typeof(object) &&
+                baseType != typeof(Relation) &&
+                baseType != typeof(ReferenceObject))
+            {
+                CreateSchemas(baseType, GetProperties(baseType), schemaId, schemaList);
+            }
+
             var typeAttributes = contractType.GetTypeInfo()
                 .GetCustomAttributes(typeof(PictureparkSchemaTypeAttribute), true)
                 .OfType<PictureparkSchemaTypeAttribute>()
@@ -171,16 +181,6 @@ namespace Picturepark.SDK.V1.Conversion
             // Create schemas for all known types
             foreach (var knownType in contractType.GetKnownTypes())
                 CreateSchemas(knownType, GetProperties(knownType), schemaId, schemaList);
-
-            // Create schema for base class
-            var baseType = contractType.GetTypeInfo().BaseType;
-            if (baseType != null &&
-                baseType != typeof(object) &&
-                baseType != typeof(Relation) &&
-                baseType != typeof(ReferenceObject))
-            {
-                CreateSchemas(baseType, GetProperties(baseType), schemaId, schemaList);
-            }
 
             return schemaItem;
         }
