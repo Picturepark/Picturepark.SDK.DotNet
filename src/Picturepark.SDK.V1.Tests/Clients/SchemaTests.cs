@@ -200,8 +200,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateSchemaAndValidateFilter()
         {
             /// Arrange
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<SoccerPlayer>(_client);
             var expectedFilterString = "{\"kind\":\"TermFilter\",\"field\":\"contentType\",\"term\":\"FC Aarau\"}";
-            await CreateSchemasAsync<SoccerPlayer>();
 
             /// Act
             var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("SoccerPlayer");
@@ -216,8 +216,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateSchemaAndValidateMultiline()
         {
             /// Arrange
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client);
             string expectedMultilineString = "\"multiLine\":true";
-            await CreateSchemasAsync<Person>();
 
             /// Act
             var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("Person");
@@ -232,7 +232,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateSchemaAndValidateMaxRecursion()
         {
             /// Act
-            await CreateSchemasAsync<Person>();
+            var schema = await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client);
+
+            /// Assert
+            Assert.Contains(schema.Types, i => i == SchemaType.List || i == SchemaType.Struct);
         }
 
         [Fact]
@@ -386,32 +389,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
 
             return filter;
-        }
-
-        private async Task CreateSchemasAsync<T>()
-            where T : class
-        {
-            var childSchemas = await _client.Schemas.GenerateSchemasAsync(typeof(T));
-
-            foreach (var schema in childSchemas)
-            {
-                if (await _client.Schemas.ExistsAsync(schema.Id) == false)
-                {
-                    try
-                    {
-                        await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true);
-                    }
-                    catch (DuplicateSchemaException)
-                    {
-                        // ignore DuplicateSchemaException exceptions
-                    }
-                }
-            }
-
-            var schemaId = typeof(T).Name;
-            var generatedPersonSchema = await _client.Schemas.GetAsync(schemaId);
-
-            Assert.Contains(generatedPersonSchema.Types, i => i == SchemaType.List || i == SchemaType.Struct);
         }
     }
 }

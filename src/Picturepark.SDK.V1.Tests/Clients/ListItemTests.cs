@@ -164,7 +164,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateComplexObjectWithHelper()
         {
             /// Arrange
-            await CreateSchemasAsync<Person>();
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client);
 
             // Reusable as reference
             var dog = new Dog
@@ -231,7 +231,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateObjectWithoutHelper()
         {
             /// Arrange
-            await CreateSchemasAsync<Person>();
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client);
 
             var originalPlayer = new SoccerPlayer
             {
@@ -371,7 +371,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdate()
         {
             /// Arrange
-            await CreateSchemasAsync<Person>();
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client);
 
             // Create object
             var objectName = "ObjectToUpdate" + new Random().Next(0, 999999);
@@ -409,7 +409,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdateMany()
         {
             /// Arrange
-            await CreateSchemasAsync<SoccerPlayer>();
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<SoccerPlayer>(_client);
 
             var originalPlayer = new SoccerPlayer
             {
@@ -521,32 +521,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Assert
             Assert.NotNull(await _client.ListItems.GetAsync(listItem1.Id, true));
             Assert.NotNull(await _client.ListItems.GetAsync(listItem2.Id, true));
-        }
-
-        private async Task CreateSchemasAsync<T>()
-            where T : class
-        {
-            var childSchemas = await _client.Schemas.GenerateSchemasAsync(typeof(T));
-
-            foreach (var schema in childSchemas)
-            {
-                if (await _client.Schemas.ExistsAsync(schema.Id) == false)
-                {
-                    try
-                    {
-                        await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true);
-                    }
-                    catch (DuplicateSchemaException)
-                    {
-                        // ignore DuplicateSchemaException exceptions
-                    }
-                }
-            }
-
-            var schemaId = typeof(T).Name;
-            var generatedPersonSchema = await _client.Schemas.GetAsync(schemaId);
-
-            Assert.Contains(generatedPersonSchema.Types, i => i == SchemaType.List || i == SchemaType.Struct);
         }
     }
 }
