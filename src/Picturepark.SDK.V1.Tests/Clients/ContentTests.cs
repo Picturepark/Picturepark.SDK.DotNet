@@ -594,11 +594,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldReplaceLayersOnMetadataUpdate()
         {
             /// Arrange
+            var schemaSuffix = new Random().Next(0, 999999);
             foreach (var type in new[] { typeof(PersonShot), typeof(AllDataTypesContract) })
             {
                 var schemas = await _client.Schemas.GenerateSchemasAsync(type);
                 foreach (var schema in schemas)
                 {
+                    AppendSchemaIdSuffix(schema, schemaSuffix);
                     await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
                 }
             }
@@ -607,11 +609,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 Id = contentId,
-                LayerSchemaIds = new List<string> { nameof(PersonShot) },
+                LayerSchemaIds = new List<string> { nameof(PersonShot) + schemaSuffix },
                 Metadata = new DataDictionary
                 {
                     {
-                        nameof(PersonShot),
+                        nameof(PersonShot) + schemaSuffix,
                         new Dictionary<string, object>
                         {
                             { "Description", "test description" }
@@ -625,11 +627,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             request = new ContentMetadataUpdateRequest
             {
                 Id = contentId,
-                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
+                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) + schemaSuffix },
                 Metadata = new DataDictionary
                 {
                     {
-                        nameof(AllDataTypesContract),
+                        nameof(AllDataTypesContract) + schemaSuffix,
                         new Dictionary<string, object>
                         {
                             { "IntegerField", 12345 }
@@ -644,7 +646,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             /// Assert
             Assert.DoesNotContain("personShot", response.Metadata.Keys);
-            Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
+            Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract" + schemaSuffix])["integerField"].ToObject<int>());
         }
 
         [Fact]
@@ -1198,6 +1200,52 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             await _client.Schemas.CreateAndWaitForCompletionAsync(schemaItem, false);
             return schemaItem;
+        }
+
+        private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
+        {
+            // TODO: Remove this and use custom schemaIdGenerator
+
+            var systemSchemaIds = new[] { "Country" };
+            if (!systemSchemaIds.Contains(schema.Id))
+            {
+                schema.Id = schema.Id + schemaSuffix;
+            }
+
+            if (!string.IsNullOrEmpty(schema.ParentSchemaId) && !systemSchemaIds.Contains(schema.ParentSchemaId))
+            {
+                schema.ParentSchemaId = schema.ParentSchemaId + schemaSuffix;
+            }
+
+            foreach (var field in schema.Fields.OfType<FieldSingleTagbox>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
+
+            foreach (var field in schema.Fields.OfType<FieldMultiTagbox>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
+
+            foreach (var field in schema.Fields.OfType<FieldSingleFieldset>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
+
+            foreach (var field in schema.Fields.OfType<FieldMultiFieldset>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
+
+            foreach (var field in schema.Fields.OfType<FieldSingleRelation>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
+
+            foreach (var field in schema.Fields.OfType<FieldMultiRelation>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
         }
     }
 }
