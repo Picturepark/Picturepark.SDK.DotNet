@@ -16,8 +16,6 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         public ClientFixture()
         {
-            ProjectDirectory = Path.GetFullPath(Path.GetDirectoryName(typeof(ClientFixture).GetTypeInfo().Assembly.Location) + "/../../../");
-
 #if NET452
             ServicePointManager.SecurityProtocol =
                 SecurityProtocolType.Ssl3 |
@@ -26,12 +24,17 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
                 SecurityProtocolType.Tls;
 #endif
 
-            // Fix
-            if (!File.Exists(ProjectDirectory + "Configuration.json"))
-                ProjectDirectory += "../";
+            var assemblyDirectory = Path.GetFullPath(Path.GetDirectoryName(typeof(ClientFixture).GetTypeInfo().Assembly.Location));
+            ProjectDirectory = Path.GetFullPath(assemblyDirectory + "/../../../");
 
             if (!File.Exists(ProjectDirectory + "Configuration.json"))
-                ProjectDirectory = Directory.GetCurrentDirectory() + "/../../../";
+                ProjectDirectory = Path.GetFullPath(ProjectDirectory + "../");
+
+            if (!File.Exists(ProjectDirectory + "Configuration.json"))
+                ProjectDirectory = Path.GetFullPath(Directory.GetCurrentDirectory() + "/../../../");
+
+            if (!File.Exists(ProjectDirectory + "Configuration.json"))
+                ProjectDirectory = Path.GetFullPath(Directory.GetCurrentDirectory() + "/../../../../");
 
             if (!Directory.Exists(TempDirectory))
                 Directory.CreateDirectory(TempDirectory);
