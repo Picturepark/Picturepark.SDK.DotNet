@@ -41,7 +41,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
 
             /// Assert
-            Assert.Equal(8, schemas.Count);
+            Assert.Equal(6, schemas.Count);
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             /// Assert
             Assert.True(await _client.Schemas.ExistsAsync(schemas.First().Id));
-            Assert.Equal(9, schemas.Count);
+            Assert.Equal(7, schemas.Count);
         }
 
         [Fact]

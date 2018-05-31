@@ -9,6 +9,8 @@ using Picturepark.SDK.V1.Contract.Attributes.Analyzer;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Serialization;
+using Picturepark.SDK.V1.Contract.SystemTypes;
+using ReferenceObject = Picturepark.SDK.V1.Contract.ReferenceObject;
 
 namespace Picturepark.SDK.V1.Conversion
 {
@@ -82,6 +84,8 @@ namespace Picturepark.SDK.V1.Conversion
         private SchemaDetail CreateSchemas(Type contractType, List<ContractPropertyInfo> properties, string parentSchemaId, List<SchemaDetail> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
         {
             var schemaId = contractType.Name;
+            if (schemaList.Any(s => s.Id == schemaId))
+                return null;
 
             var typeAttributes = contractType.GetTypeInfo()
                 .GetCustomAttributes(typeof(PictureparkSchemaTypeAttribute), true)
@@ -164,12 +168,18 @@ namespace Picturepark.SDK.V1.Conversion
                     schemaList.Add(schemaItem);
             }
 
-            // Create schemas for all subtypes
-            // TODO: Here we should scan for KnownTypeAttributes and also create schema for all contractType.GetTypeInfo().BaseType
-            var subtypes = contractType.GetTypeInfo().Assembly.GetTypes().Where(t => t.GetTypeInfo().IsSubclassOf(contractType));
-            foreach (var subtype in subtypes)
+            // Create schemas for all known types
+            foreach (var knownType in contractType.GetKnownTypes())
+                CreateSchemas(knownType, GetProperties(knownType), schemaId, schemaList);
+
+            // Create schema for base class
+            var baseType = contractType.GetTypeInfo().BaseType;
+            if (baseType != null &&
+                baseType != typeof(object) &&
+                baseType != typeof(Relation) &&
+                baseType != typeof(ReferenceObject))
             {
-                CreateSchemas(subtype, GetProperties(subtype), schemaId, schemaList);
+                CreateSchemas(baseType, GetProperties(baseType), schemaId, schemaList);
             }
 
             return schemaItem;
