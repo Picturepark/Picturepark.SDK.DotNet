@@ -17,21 +17,21 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Gets an item in the dictionary as DataDictionary
         /// </summary>
-        /// <param name="key"></param>
+        /// <param name="schemaId"></param>
         /// <returns></returns>
-        public DataDictionary Get(string key)
+        public DataDictionary Get(string schemaId)
         {
-            return (DataDictionary)this[key];
+            return ((JObject)this[schemaId]).ToObject<DataDictionary>();
         }
 
         /// <summary>
         /// Gets an item in the dictionary as List&lt;DataDictionary&gt;
         /// </summary>
-        /// <param name="key"></param>
+        /// <param name="schemaId"></param>
         /// <returns></returns>
-        public List<DataDictionary> GetList(string key)
+        public List<DataDictionary> GetList(string schemaId)
         {
-            return (List<DataDictionary>)this[key];
+            return ((JObject)this[schemaId]).ToObject<List<DataDictionary>>();
         }
     }
 }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
-using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using System;
 
@@ -74,6 +73,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Arrange
             string location = "testlocation" + new Random().Next(0, 999999);
             string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+
+            var schema = await CreateTestSchemaAsync();
             var content = await _client.Contents.GetAsync(contentId);
             var history = await _client.DocumentHistory.GetAsync(contentId);
 
@@ -84,10 +85,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     new MetadataValuesSchemaUpsertCommand
                     {
-                        SchemaId = "Drive",
+                        SchemaId = schema.Id,
                         Value = new DataDictionary
                         {
-                            { "Location", location }
+                            { "name", location }
                         }
                     }
                 }
@@ -106,7 +107,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Assert
             Assert.True(waitResult.HasLifeCycleHit);
             Assert.NotEqual(0, updatedHistory.DocumentVersion);
-            Assert.Contains(@"""location"": """ + location + @"""", difference.NewValues.ToString());
+            Assert.Contains(@"""name"": """ + location + @"""", difference.NewValues.ToString());
         }
 
         [Fact]
@@ -122,6 +123,39 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             /// Assert
             Assert.True(difference.OldDocumentVersion <= difference.NewDocumentVersion);
+        }
+
+        private async Task<SchemaDetail> CreateTestSchemaAsync()
+        {
+            var schemaId = "Schema" + new Random().Next(0, 999999);
+            var config = await _client.Info.GetAsync().ConfigureAwait(false);
+            var schemaItem = new SchemaDetail
+            {
+                Id = schemaId,
+                ReferencedInContentSchemaIds = new List<string>
+                {
+                    "ImageMetadata"
+                },
+                Fields = new List<FieldBase>
+                {
+                    new FieldString
+                    {
+                        Id = "name",
+                        Names = new TranslatedStringDictionary { { config.LanguageConfiguration.DefaultLanguage, "Name" } },
+                    }
+                },
+                FieldsOverwrite = new List<FieldOverwriteBase>(),
+                Names = new TranslatedStringDictionary { { config.LanguageConfiguration.DefaultLanguage, schemaId } },
+                Descriptions = new TranslatedStringDictionary(),
+                Types = new List<SchemaType>
+                {
+                    SchemaType.Layer
+                },
+                DisplayPatterns = new List<DisplayPattern>()
+            };
+
+            await _client.Schemas.CreateAndWaitForCompletionAsync(schemaItem, false);
+            return schemaItem;
         }
     }
 }
