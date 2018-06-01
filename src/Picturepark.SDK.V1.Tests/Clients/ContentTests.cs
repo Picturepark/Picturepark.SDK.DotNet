@@ -6,7 +6,6 @@ using Xunit;
 using System.IO;
 using System.Net.Http;
 using Picturepark.SDK.V1.Contract;
-using Picturepark.SDK.V1.Contract.Extensions;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -418,18 +417,20 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdateMetadata()
         {
             /// Arrange
+            var expectedName = "test" + new Random().Next(0, 999999);
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            var schema = await CreateTestSchemaAsync();
             var request = new ContentMetadataUpdateRequest
             {
                 Id = contentId,
-                LayerSchemaIds = new List<string> { "Drive" },
+                LayerSchemaIds = new List<string> { schema.Id },
                 Metadata = new DataDictionary
                 {
                     {
-                        "Drive",
+                        schema.Id,
                         new Dictionary<string, object>
                         {
-                            { "location", "test" }
+                            { "name", expectedName }
                         }
                     }
                 }
@@ -439,7 +440,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var response = await _client.Contents.UpdateMetadataAsync(contentId, request, true);
 
             /// Assert
-            Assert.True(true);
+            Assert.NotNull(response);
+            Assert.Equal(expectedName, response.Metadata.Get(schema.Id.ToLowerInvariant())["name"]);
         }
 
         [Fact]
@@ -449,17 +451,18 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Arrange
             var contentId1 = await _fixture.GetRandomContentIdAsync(".jpg", 20);
             var contentId2 = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            var schema = await CreateTestSchemaAsync();
             var request1 = new ContentMetadataUpdateRequest
             {
                 Id = contentId1,
-                LayerSchemaIds = new List<string> { "Drive" },
+                LayerSchemaIds = new List<string> { schema.Id },
                 Metadata = new DataDictionary
                 {
                     {
-                        "Drive",
+                        schema.Id,
                         new Dictionary<string, object>
                         {
-                            { "location", "Content1" }
+                            { "name", "Content1" }
                         }
                     }
                 }
@@ -468,14 +471,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request2 = new ContentMetadataUpdateRequest
             {
                 Id = contentId2,
-                LayerSchemaIds = new List<string> { "Drive" },
+                LayerSchemaIds = new List<string> { schema.Id },
                 Metadata = new DataDictionary
                 {
                     {
-                        "Drive",
+                        schema.Id,
                         new Dictionary<string, object>
                         {
-                            { "location", "Content2" }
+                            { "name", "Content2" }
                         }
                     }
                 }
@@ -591,11 +594,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldReplaceLayersOnMetadataUpdate()
         {
             /// Arrange
+            var schemaSuffix = new Random().Next(0, 999999);
             foreach (var type in new[] { typeof(PersonShot), typeof(AllDataTypesContract) })
             {
                 var schemas = await _client.Schemas.GenerateSchemasAsync(type);
                 foreach (var schema in schemas)
                 {
+                    AppendSchemaIdSuffix(schema, schemaSuffix);
                     await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
                 }
             }
@@ -604,11 +609,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 Id = contentId,
-                LayerSchemaIds = new List<string> { nameof(PersonShot) },
+                LayerSchemaIds = new List<string> { nameof(PersonShot) + schemaSuffix },
                 Metadata = new DataDictionary
                 {
                     {
-                        nameof(PersonShot),
+                        nameof(PersonShot) + schemaSuffix,
                         new Dictionary<string, object>
                         {
                             { "Description", "test description" }
@@ -622,11 +627,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             request = new ContentMetadataUpdateRequest
             {
                 Id = contentId,
-                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
+                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) + schemaSuffix },
                 Metadata = new DataDictionary
                 {
                     {
-                        nameof(AllDataTypesContract),
+                        nameof(AllDataTypesContract) + schemaSuffix,
                         new Dictionary<string, object>
                         {
                             { "IntegerField", 12345 }
@@ -641,7 +646,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             /// Assert
             Assert.DoesNotContain("personShot", response.Metadata.Keys);
-            Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
+            Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract" + schemaSuffix])["integerField"].ToObject<int>());
         }
 
         [Fact]
@@ -760,6 +765,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             /// Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            var schema = await CreateTestSchemaAsync();
             var request = new ContentFieldsFilterUpdateRequest
             {
                 ContentFilterRequest = new ContentFilterRequest
@@ -771,10 +777,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     new MetadataValuesSchemaUpsertCommand
                     {
-                        SchemaId = "Drive",
+                        SchemaId = schema.Id,
                         Value = new DataDictionary
                         {
-                            { "location", "testlocation" }
+                            { "name", "testlocation" }
                         }
                     }
                 }
@@ -796,6 +802,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
 
             var content = await _client.Contents.GetAsync(contentId);
+            var schema = await CreateTestSchemaAsync();
             var updateRequest = new ContentFieldsUpdateRequest
             {
                 ContentIds = new List<string> { content.Id },
@@ -803,10 +810,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     new MetadataValuesSchemaUpsertCommand
                     {
-                        SchemaId = "Drive",
+                        SchemaId = schema.Id,
                         Value = new DataDictionary
                         {
-                            { "location", "testlocation" }
+                            { "name", "testlocation" }
                         }
                     }
                 }
@@ -1160,6 +1167,84 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Assert
             Assert.True(!contentPermissionSetIds.Except(currentContentPermissionSetIds).Any());
             Assert.True(!currentContentPermissionSetIds.Except(contentPermissionSetIds).Any());
+        }
+
+        private async Task<SchemaDetail> CreateTestSchemaAsync()
+        {
+            var schemaId = "Test" + new Random().Next(0, 999999);
+            var config = await _client.Info.GetAsync().ConfigureAwait(false);
+            var schemaItem = new SchemaDetail
+            {
+                Id = schemaId,
+                ReferencedInContentSchemaIds = new List<string>
+                {
+                    "ImageMetadata"
+                },
+                Fields = new List<FieldBase>
+                {
+                    new FieldString
+                    {
+                        Id = "name",
+                        Names = new TranslatedStringDictionary { { config.LanguageConfiguration.DefaultLanguage, "Name" } },
+                    }
+                },
+                FieldsOverwrite = new List<FieldOverwriteBase>(),
+                Names = new TranslatedStringDictionary { { config.LanguageConfiguration.DefaultLanguage, schemaId } },
+                Descriptions = new TranslatedStringDictionary(),
+                Types = new List<SchemaType>
+                {
+                    SchemaType.Layer
+                },
+                DisplayPatterns = new List<DisplayPattern>()
+            };
+
+            await _client.Schemas.CreateAndWaitForCompletionAsync(schemaItem, false);
+            return schemaItem;
+        }
+
+        private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
+        {
+            // TODO: Remove this and use custom schemaIdGenerator
+            var systemSchemaIds = new[] { "Country" };
+            if (!systemSchemaIds.Contains(schema.Id))
+            {
+                schema.Id = schema.Id + schemaSuffix;
+            }
+
+            if (!string.IsNullOrEmpty(schema.ParentSchemaId) && !systemSchemaIds.Contains(schema.ParentSchemaId))
+            {
+                schema.ParentSchemaId = schema.ParentSchemaId + schemaSuffix;
+            }
+
+            foreach (var field in schema.Fields.OfType<FieldSingleTagbox>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
+
+            foreach (var field in schema.Fields.OfType<FieldMultiTagbox>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
+
+            foreach (var field in schema.Fields.OfType<FieldSingleFieldset>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
+
+            foreach (var field in schema.Fields.OfType<FieldMultiFieldset>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
+
+            foreach (var field in schema.Fields.OfType<FieldSingleRelation>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
+
+            foreach (var field in schema.Fields.OfType<FieldMultiRelation>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
         }
     }
 }

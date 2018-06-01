@@ -83,6 +83,8 @@ namespace Picturepark.SDK.V1.Tests.Contracts
     }
 
     [PictureparkReference]
+    [KnownType(typeof(Dog))]
+    [KnownType(typeof(Cat))]
     [JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [PictureparkSchemaType(SchemaType.List)]
     public class Pet : ReferenceObject

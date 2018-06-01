@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Reflection;
-using System.Runtime.Serialization;
 using Newtonsoft.Json.Serialization;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
@@ -167,25 +165,9 @@ namespace Picturepark.SDK.V1.Builders
         private IEnumerable<JsonProperty> GetTypePropertiesWithInheritance(Type type)
         {
             var properties = GetTypeProperties(type, new JsonProperty[0]).ToList();
-
-            foreach (var knownTypeAttribute in type.GetTypeInfo().GetCustomAttributes<KnownTypeAttribute>())
+            foreach (var knownType in type.GetKnownTypes())
             {
-                if (knownTypeAttribute.Type != null)
-                {
-                    properties.AddRange(GetTypeProperties(knownTypeAttribute.Type, properties));
-                }
-                else if (knownTypeAttribute.MethodName != null)
-                {
-                    var method = type.GetRuntimeMethod(knownTypeAttribute.MethodName, new Type[0]);
-                    if (method != null)
-                    {
-                        var knownTypes = (IEnumerable<Type>)method.Invoke(null, new object[0]);
-                        foreach (var knownType in knownTypes)
-                        {
-                            properties.AddRange(GetTypeProperties(knownType, properties));
-                        }
-                    }
-                }
+                properties.AddRange(GetTypeProperties(knownType, properties));
             }
 
             return properties;
