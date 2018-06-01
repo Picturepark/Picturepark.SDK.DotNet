@@ -3628,6 +3628,76 @@
           }
         ]
       }
+    },
+    "/contentBackup/contents/searchmissing": {
+      "post": {
+        "tags": [
+          "ContentBackup"
+        ],
+        "operationId": "ContentBackup_SearchMissingContentBackups",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentBackupSearchRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ContentBackupSearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
     }
   },
   "definitions": {
@@ -10009,8 +10079,7 @@
       "additionalProperties": false,
       "required": [
         "numberOfSets",
-        "numberOfRolesPerSet",
-        "roleRightGrantedAverage"
+        "numberOfRolesPerSet"
       ],
       "properties": {
         "numberOfSets": {
@@ -10020,10 +10089,6 @@
         "numberOfRolesPerSet": {
           "type": "integer",
           "format": "int32"
-        },
-        "roleRightGrantedAverage": {
-          "type": "number",
-          "format": "double"
         }
       }
     },
@@ -10032,8 +10097,7 @@
       "additionalProperties": false,
       "required": [
         "numberOfSets",
-        "numberOfRolesPerSet",
-        "roleRightGrantedAverage"
+        "numberOfRolesPerSet"
       ],
       "properties": {
         "numberOfSets": {
@@ -10043,10 +10107,6 @@
         "numberOfRolesPerSet": {
           "type": "integer",
           "format": "int32"
-        },
-        "roleRightGrantedAverage": {
-          "type": "number",
-          "format": "double"
         }
       }
     },
@@ -10264,6 +10324,57 @@
           "type": "string"
         },
         "contentId": {
+          "type": "string"
+        }
+      }
+    },
+    "ContentBackupSearchRequest": {
+      "type": "object",
+      "description": "Request to search aggregation values for Contents",
+      "additionalProperties": false,
+      "required": [
+        "exclusionTime",
+        "limit"
+      ],
+      "properties": {
+        "customerId": {
+          "type": "string"
+        },
+        "exclusionTime": {
+          "type": "string",
+          "description": "Time span relative to now for which missing backup timestamp is not considered a missing backup",
+          "format": "time-span"
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Limits the document count of the result set. Defaults to 30.",
+          "format": "int32",
+          "default": 30
+        },
+        "pageToken": {
+          "type": "string",
+          "description": "To get a large amount of data, page token returned from the response can be used to get all data."
+        }
+      }
+    },
+    "ContentBackupSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "totalResults"
+      ],
+      "properties": {
+        "totalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pageToken": {
           "type": "string"
         }
       }

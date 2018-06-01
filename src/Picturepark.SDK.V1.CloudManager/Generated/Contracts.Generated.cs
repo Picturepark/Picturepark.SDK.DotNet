@@ -483,6 +483,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task CompleteOutputBackupAsync(ContentBackupCompleteByOutputRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<ContentBackupSearchResult> SearchMissingContentBackupsAsync(ContentBackupSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     
@@ -8115,9 +8123,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("numberOfRolesPerSet", Required = Newtonsoft.Json.Required.Always)]
         public int NumberOfRolesPerSet { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("roleRightGrantedAverage", Required = Newtonsoft.Json.Required.Always)]
-        public double RoleRightGrantedAverage { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -8138,9 +8143,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("numberOfRolesPerSet", Required = Newtonsoft.Json.Required.Always)]
         public int NumberOfRolesPerSet { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("roleRightGrantedAverage", Required = Newtonsoft.Json.Required.Always)]
-        public double RoleRightGrantedAverage { get; set; }
     
         public string ToJson() 
         {
@@ -8418,6 +8420,62 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static ContentBackupCompleteByOutputRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupCompleteByOutputRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to search aggregation values for Contents</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentBackupSearchRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerId { get; set; }
+    
+        /// <summary>Time span relative to now for which missing backup timestamp is not considered a missing backup</summary>
+        [Newtonsoft.Json.JsonProperty("exclusionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.TimeSpan ExclusionTime { get; set; }
+    
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        /// <summary>To get a large amount of data, page token returned from the response can be used to get all data.</summary>
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentBackupSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupSearchRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentBackupSearchResult 
+    {
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Results { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentBackupSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupSearchResult>(data);
         }
     
     }

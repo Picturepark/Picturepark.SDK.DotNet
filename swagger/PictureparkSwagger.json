@@ -10979,6 +10979,10 @@
         "detail": {
           "$ref": "#/definitions/OutputDataBase"
         },
+        "backupTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
         "kind": {
           "type": "string"
         }
