@@ -45,6 +45,8 @@ namespace Picturepark.SDK.V1.CloudManager
 
         public EnvironmentProcessClient EnvironmentProcess { get; private set; }
 
+        public ContentBackupClient ContentBackup { get; private set; }
+
         public void Dispose()
         {
             if (_httpClient != null)
@@ -65,6 +67,7 @@ namespace Picturepark.SDK.V1.CloudManager
             Environment = new EnvironmentClient(settings, httpClient);
             ServiceProvider = new ServiceProviderClient(settings, httpClient);
             CustomerServiceProvider = new CustomerServiceProviderClient(settings, httpClient);
+            ContentBackup = new ContentBackupClient(settings, httpClient);
         }
     }
 }
