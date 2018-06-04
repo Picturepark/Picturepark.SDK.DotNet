@@ -39,7 +39,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/CustomerConfigurationItem"
+              "$ref": "#/definitions/CustomerConfiguration"
             },
             "x-nullable": true
           },
@@ -107,7 +107,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/CustomerConfigurationItem"
+              "$ref": "#/definitions/CustomerConfiguration"
             },
             "x-nullable": true
           },
@@ -175,7 +175,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/CustomerConfigurationItem"
+              "$ref": "#/definitions/CustomerConfiguration"
             },
             "x-nullable": true
           },
@@ -3629,7 +3629,7 @@
         ]
       }
     },
-    "/contentBackup/contents/searchmissing": {
+    "/contentBackup/contents/searchMissing": {
       "post": {
         "tags": [
           "ContentBackup"
@@ -3651,6 +3651,74 @@
             "description": "",
             "schema": {
               "$ref": "#/definitions/ContentBackupSearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/{customerAlias}/cdn/purge": {
+      "post": {
+        "tags": [
+          "Cdn"
+        ],
+        "operationId": "Cdn_PurgeCdnForCustomer",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "customerAlias",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
             },
             "x-nullable": true
           },
@@ -3743,8 +3811,8 @@
         "useSsl": {
           "type": "boolean"
         },
-        "cdnUrl": {
-          "type": "string"
+        "cdnConfiguration": {
+          "$ref": "#/definitions/CdnConfigurationBase"
         },
         "supportContactEmailAddress": {
           "type": "string"
@@ -3836,6 +3904,40 @@
           "type": "string"
         }
       }
+    },
+    "CdnConfigurationBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "x-abstract": true,
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "FastlyCdnConfiguration": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "apiToken": {
+          "type": "string"
+        },
+        "serviceId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/CdnConfigurationBase"
+        }
+      ]
     },
     "IdentityServerProvider": {
       "type": "object",
@@ -4928,7 +5030,7 @@
         }
       }
     },
-    "CustomerConfigurationItem": {
+    "CustomerConfiguration": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -5044,7 +5146,7 @@
         "serviceProviders": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/CustomerServiceProviderConfigurationItem"
+            "$ref": "#/definitions/CustomerServiceProviderConfiguration"
           }
         },
         "supportContactEmailAddress": {
@@ -5053,8 +5155,8 @@
         "baseUrl": {
           "type": "string"
         },
-        "cdnUrl": {
-          "type": "string"
+        "cdnConfiguration": {
+          "$ref": "#/definitions/CdnConfigurationBase"
         },
         "elasticSearchNumberOfShards": {
           "type": "integer",
@@ -5110,7 +5212,7 @@
           "type": "string"
         },
         "languageConfiguration": {
-          "$ref": "#/definitions/LanguageConfigurationItem"
+          "$ref": "#/definitions/LanguageConfiguration"
         },
         "businessProcessEngineConnectionString": {
           "type": "string"
@@ -5148,30 +5250,15 @@
         }
       }
     },
-    "CustomerServiceProviderConfigurationItem": {
+    "CustomerServiceProviderConfiguration": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "id": {
+        "serviceProviderId": {
           "type": "string"
         },
-        "scopes": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "allowedMessages": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CustomerAllowedMessageConfigurationItem"
-          }
-        },
-        "allowedCommands": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/CustomerAllowedCommandConfigurationItem"
-          }
+        "customerId": {
+          "type": "string"
         },
         "userRoleIds": {
           "type": "array",
@@ -5181,51 +5268,6 @@
         },
         "settings": {
           "type": "string"
-        }
-      }
-    },
-    "CustomerAllowedMessageConfigurationItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "target": {
-          "type": "string"
-        }
-      }
-    },
-    "CustomerAllowedCommandConfigurationItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      }
-    },
-    "LanguageConfigurationItem": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "systemLanguages": {
-          "type": "array",
-          "description": "A list of languages serving as system languages.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "metadataLanguages": {
-          "type": "array",
-          "description": "A list of languages serving as metadata languages.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "defaultLanguage": {
-          "type": "string",
-          "description": "The default language. Not the be confused with the metadata fallback language x-default."
         }
       }
     },
@@ -8139,8 +8181,8 @@
         "useSsl": {
           "type": "boolean"
         },
-        "cdnUrl": {
-          "type": "string"
+        "cdnConfiguration": {
+          "$ref": "#/definitions/CdnConfigurationBase"
         },
         "baseUrl": {
           "type": "string"
@@ -10376,6 +10418,174 @@
         },
         "pageToken": {
           "type": "string"
+        }
+      }
+    },
+    "BusinessProcess": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "supportsCancellation",
+        "businessProcessScope",
+        "lifeCycle",
+        "startDate",
+        "endDate",
+        "finished",
+        "kind"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "processDefinitionId": {
+          "type": "string"
+        },
+        "referenceId": {
+          "type": "string"
+        },
+        "referenceDocType": {
+          "type": "string"
+        },
+        "supportsCancellation": {
+          "type": "boolean"
+        },
+        "businessProcessScope": {
+          "$ref": "#/definitions/BusinessProcessScope"
+        },
+        "lifeCycle": {
+          "$ref": "#/definitions/BusinessProcessLifeCycle"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "finished": {
+          "type": "boolean"
+        },
+        "stateHistory": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BusinessProcessState"
+          }
+        },
+        "currentState": {
+          "type": "string"
+        },
+        "processDefinitionName": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "BusinessProcessScope": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "System",
+        "User"
+      ],
+      "enum": [
+        "System",
+        "User"
+      ]
+    },
+    "BusinessProcessLifeCycle": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "CancellationInProgress",
+        "Failed"
+      ],
+      "enum": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "CancellationInProgress",
+        "Failed"
+      ]
+    },
+    "BusinessProcessState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "timestamp"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "error": {
+          "$ref": "#/definitions/ErrorResponse"
+        }
+      }
+    },
+    "BusinessProcessBulkResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "response": {
+          "$ref": "#/definitions/BulkResponse"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BusinessProcess"
+        }
+      ]
+    },
+    "BulkResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BulkResponseRow"
+          }
+        }
+      }
+    },
+    "BulkResponseRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "succeeded",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "error": {
+          "type": "string"
+        },
+        "succeeded": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
         }
       }
     }

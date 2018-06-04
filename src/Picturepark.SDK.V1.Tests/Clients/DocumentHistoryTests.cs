@@ -26,7 +26,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Arrange
             var request = new DocumentHistorySearchRequest
             {
-                Start = 0,
                 Limit = 10,
             };
 

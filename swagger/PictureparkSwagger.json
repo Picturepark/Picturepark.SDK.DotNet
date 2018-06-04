@@ -13489,13 +13489,82 @@
         }
       }
     },
+    "BusinessProcessDetailsDataCdnPurge": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "serializedCdnConfiguration": {
+          "type": "string"
+        },
+        "jobs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CdnPurgeJobBase"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BusinessProcessDetailsDataBase"
+        }
+      ]
+    },
+    "CdnPurgeJobBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "success",
+        "retriesLeft",
+        "kind"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "retriesLeft": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "CdnPurgeJobByTag": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tag": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/CdnPurgeJobBase"
+        }
+      ]
+    },
+    "CdnPurgeJobByUri": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "uri": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/CdnPurgeJobBase"
+        }
+      ]
+    },
     "DocumentHistorySearchRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
         "from",
         "to",
-        "start",
         "limit",
         "documentVersion"
       ],
@@ -13509,12 +13578,6 @@
           "type": "string",
           "description": "Limits the end date of the search request. Default to now.",
           "format": "date-time"
-        },
-        "start": {
-          "type": "integer",
-          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-          "format": "int32",
-          "default": 0
         },
         "limit": {
           "type": "integer",
@@ -14236,7 +14299,6 @@
       "required": [
         "from",
         "to",
-        "start",
         "limit"
       ],
       "properties": {
@@ -14249,12 +14311,6 @@
           "type": "string",
           "description": "Limits the end date of the search request.",
           "format": "date-time"
-        },
-        "start": {
-          "type": "integer",
-          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-          "format": "int32",
-          "default": 0
         },
         "limit": {
           "type": "integer",

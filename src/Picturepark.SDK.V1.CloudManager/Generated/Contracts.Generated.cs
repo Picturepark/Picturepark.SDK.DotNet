@@ -17,7 +17,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<CustomerConfigurationItem> CreateAsync(CustomerCreateRequest createRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomerConfiguration> CreateAsync(CustomerCreateRequest createRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -25,7 +25,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<CustomerConfigurationItem> UpdateAsync(CustomerUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomerConfiguration> UpdateAsync(CustomerUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -33,7 +33,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<CustomerConfigurationItem> GetAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<CustomerConfiguration> GetAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -493,6 +493,19 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.17.3.0 (NJsonSchema v9.10.46.0 (Newtonsoft.Json v9.0.0.0))")]
+    public partial interface ICdnClient
+    {
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> PurgeCdnForCustomerAsync(string customerAlias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -519,8 +532,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Always)]
         public bool UseSsl { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("cdnUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CdnUrl { get; set; }
+        [Newtonsoft.Json.JsonProperty("cdnConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CdnConfigurationBase CdnConfiguration { get; set; }
     
         [Newtonsoft.Json.JsonProperty("supportContactEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SupportContactEmailAddress { get; set; }
@@ -599,6 +612,47 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static CustomerCreateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerCreateRequest>(data);
+        }
+    
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("FastlyCdnConfiguration", typeof(FastlyCdnConfiguration))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public abstract partial class CdnConfigurationBase 
+    {
+        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CdnConfigurationBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CdnConfigurationBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class FastlyCdnConfiguration : CdnConfigurationBase
+    {
+        [Newtonsoft.Json.JsonProperty("apiToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ApiToken { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("serviceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ServiceId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FastlyCdnConfiguration FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FastlyCdnConfiguration>(data);
         }
     
     }
@@ -1762,7 +1816,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class CustomerConfigurationItem 
+    public partial class CustomerConfiguration 
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
@@ -1852,7 +1906,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public bool UseSsl { get; set; }
     
         [Newtonsoft.Json.JsonProperty("serviceProviders", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<CustomerServiceProviderConfigurationItem> ServiceProviders { get; set; }
+        public System.Collections.Generic.ICollection<CustomerServiceProviderConfiguration> ServiceProviders { get; set; }
     
         [Newtonsoft.Json.JsonProperty("supportContactEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SupportContactEmailAddress { get; set; }
@@ -1860,8 +1914,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BaseUrl { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("cdnUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CdnUrl { get; set; }
+        [Newtonsoft.Json.JsonProperty("cdnConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CdnConfigurationBase CdnConfiguration { get; set; }
     
         [Newtonsoft.Json.JsonProperty("elasticSearchNumberOfShards", Required = Newtonsoft.Json.Required.Always)]
         public int ElasticSearchNumberOfShards { get; set; }
@@ -1903,7 +1957,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public string NoReplyEmailAddress { get; set; }
     
         [Newtonsoft.Json.JsonProperty("languageConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LanguageConfigurationItem LanguageConfiguration { get; set; }
+        public LanguageConfiguration LanguageConfiguration { get; set; }
     
         [Newtonsoft.Json.JsonProperty("businessProcessEngineConnectionString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BusinessProcessEngineConnectionString { get; set; }
@@ -1945,27 +1999,21 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static CustomerConfigurationItem FromJson(string data)
+        public static CustomerConfiguration FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerConfigurationItem>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerConfiguration>(data);
         }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class CustomerServiceProviderConfigurationItem 
+    public partial class CustomerServiceProviderConfiguration 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
+        [Newtonsoft.Json.JsonProperty("serviceProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ServiceProviderId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("scopes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Scopes { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("allowedMessages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<CustomerAllowedMessageConfigurationItem> AllowedMessages { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("allowedCommands", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<CustomerAllowedCommandConfigurationItem> AllowedCommands { get; set; }
+        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
@@ -1978,75 +2026,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static CustomerServiceProviderConfigurationItem FromJson(string data)
+        public static CustomerServiceProviderConfiguration FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderConfigurationItem>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class CustomerAllowedMessageConfigurationItem 
-    {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("target", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Target { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static CustomerAllowedMessageConfigurationItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerAllowedMessageConfigurationItem>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class CustomerAllowedCommandConfigurationItem 
-    {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static CustomerAllowedCommandConfigurationItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerAllowedCommandConfigurationItem>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class LanguageConfigurationItem 
-    {
-        /// <summary>A list of languages serving as system languages.</summary>
-        [Newtonsoft.Json.JsonProperty("systemLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SystemLanguages { get; set; }
-    
-        /// <summary>A list of languages serving as metadata languages.</summary>
-        [Newtonsoft.Json.JsonProperty("metadataLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> MetadataLanguages { get; set; }
-    
-        /// <summary>The default language. Not the be confused with the metadata fallback language x-default.</summary>
-        [Newtonsoft.Json.JsonProperty("defaultLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DefaultLanguage { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static LanguageConfigurationItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<LanguageConfigurationItem>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderConfiguration>(data);
         }
     
     }
@@ -5852,8 +5834,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Always)]
         public bool UseSsl { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("cdnUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CdnUrl { get; set; }
+        [Newtonsoft.Json.JsonProperty("cdnConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CdnConfigurationBase CdnConfiguration { get; set; }
     
         [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BaseUrl { get; set; }
@@ -8476,6 +8458,193 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static ContentBackupSearchResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupSearchResult>(data);
+        }
+    
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("BusinessProcessBulkResponse", typeof(BusinessProcessBulkResponse))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BusinessProcess 
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("processDefinitionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ProcessDefinitionId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("referenceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ReferenceId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("referenceDocType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ReferenceDocType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("supportsCancellation", Required = Newtonsoft.Json.Required.Always)]
+        public bool SupportsCancellation { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("businessProcessScope", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BusinessProcessScope BusinessProcessScope { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BusinessProcessLifeCycle LifeCycle { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.DateTime StartDate { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.DateTime EndDate { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("finished", Required = Newtonsoft.Json.Required.Always)]
+        public bool Finished { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("stateHistory", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BusinessProcessState> StateHistory { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("currentState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CurrentState { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("processDefinitionName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ProcessDefinitionName { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcess FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcess>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum BusinessProcessScope
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "System")]
+        System = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "User")]
+        User = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum BusinessProcessLifeCycle
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Draft")]
+        Draft = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InProgress")]
+        InProgress = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Succeeded")]
+        Succeeded = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Cancelled")]
+        Cancelled = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "CancellationInProgress")]
+        CancellationInProgress = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Failed")]
+        Failed = 5,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BusinessProcessState 
+    {
+        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string State { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("timestamp", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.DateTime Timestamp { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ErrorResponse Error { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessState FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessState>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BusinessProcessBulkResponse : BusinessProcess
+    {
+        [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BulkResponse Response { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessBulkResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessBulkResponse>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BulkResponse 
+    {
+        [Newtonsoft.Json.JsonProperty("rows", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BulkResponseRow> Rows { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BulkResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BulkResponse>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BulkResponseRow 
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.Always)]
+        public long Version { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Error { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("succeeded", Required = Newtonsoft.Json.Required.Always)]
+        public bool Succeeded { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
+        public int Status { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BulkResponseRow FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BulkResponseRow>(data);
         }
     
     }

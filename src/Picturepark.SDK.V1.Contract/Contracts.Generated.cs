@@ -7560,6 +7560,7 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("BusinessProcessDetailsDataBulkResponse", typeof(BusinessProcessDetailsDataBulkResponse))]
     [JsonInheritanceAttribute("BusinessProcessDetailsDataSchemaImport", typeof(BusinessProcessDetailsDataSchemaImport))]
+    [JsonInheritanceAttribute("BusinessProcessDetailsDataCdnPurge", typeof(BusinessProcessDetailsDataCdnPurge))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class BusinessProcessDetailsDataBase 
     {
@@ -7693,6 +7694,87 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BusinessProcessDetailsDataCdnPurge : BusinessProcessDetailsDataBase
+    {
+        [Newtonsoft.Json.JsonProperty("serializedCdnConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SerializedCdnConfiguration { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("jobs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<CdnPurgeJobBase> Jobs { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessDetailsDataCdnPurge FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataCdnPurge>(data);
+        }
+    
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("CdnPurgeJobByTag", typeof(CdnPurgeJobByTag))]
+    [JsonInheritanceAttribute("CdnPurgeJobByUri", typeof(CdnPurgeJobByUri))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CdnPurgeJobBase 
+    {
+        [Newtonsoft.Json.JsonProperty("success", Required = Newtonsoft.Json.Required.Always)]
+        public bool Success { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("retriesLeft", Required = Newtonsoft.Json.Required.Always)]
+        public int RetriesLeft { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CdnPurgeJobBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CdnPurgeJobBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CdnPurgeJobByTag : CdnPurgeJobBase
+    {
+        [Newtonsoft.Json.JsonProperty("tag", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Tag { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CdnPurgeJobByTag FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CdnPurgeJobByTag>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CdnPurgeJobByUri : CdnPurgeJobBase
+    {
+        [Newtonsoft.Json.JsonProperty("uri", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Uri { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CdnPurgeJobByUri FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CdnPurgeJobByUri>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DocumentHistorySearchRequest 
     {
         /// <summary>Limits the start date of the search request. Default to last 1 year.</summary>
@@ -7704,10 +7786,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime To { get; set; }
-    
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
-        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; } = 0;
     
         /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
@@ -8468,10 +8546,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime To { get; set; }
-    
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
-        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; } = 0;
     
         /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
