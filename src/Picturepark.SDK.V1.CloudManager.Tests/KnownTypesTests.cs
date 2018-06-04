@@ -5,6 +5,7 @@ using Xunit;
 
 namespace Picturepark.SDK.V1.CloudManager.Tests
 {
+    [Trait("Stack-CloudManager", "KnownTypes")]
     public class KnownTypesTests
     {
         [Fact]

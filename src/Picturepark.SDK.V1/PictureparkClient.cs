@@ -58,6 +58,8 @@ namespace Picturepark.SDK.V1
 
         public IInfoClient Info { get; private set; }
 
+        public IChannelClient Channels { get; private set; }
+
         public void Dispose()
         {
             if (_httpClient != null)
@@ -85,6 +87,7 @@ namespace Picturepark.SDK.V1
             Profile = new ProfileClient(settings, httpClient);
             ServiceProviders = new ServiceProviderClient(settings, httpClient);
             SchemaTransfer = new SchemaTransferClient(settings, httpClient);
+            Channels = new ChannelClient(settings, httpClient);
         }
     }
 }

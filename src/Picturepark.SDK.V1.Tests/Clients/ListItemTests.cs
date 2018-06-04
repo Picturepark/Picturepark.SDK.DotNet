@@ -164,6 +164,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateComplexObjectWithHelper()
         {
             /// Arrange
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client);
+
             // Reusable as reference
             var dog = new Dog
             {
@@ -229,6 +231,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateObjectWithoutHelper()
         {
             /// Arrange
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client);
+
             var originalPlayer = new SoccerPlayer
             {
                 BirthDate = DateTime.Now,
@@ -240,7 +244,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Act
             var createRequest = new ListItemCreateRequest
             {
-                ContentSchemaId = "SoccerPlayer",
+                ContentSchemaId = nameof(SoccerPlayer),
                 Content = originalPlayer
             };
 
@@ -367,10 +371,22 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdate()
         {
             /// Arrange
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client);
+
+            // Create object
+            var objectName = "ObjectToUpdate" + new Random().Next(0, 999999);
+            var listItem = new ListItemCreateRequest
+            {
+                ContentSchemaId = nameof(SoccerPlayer),
+                Content = new SoccerPlayer { Firstname = objectName, LastName = "Foo", EmailAddress = "abc@def.ch" }
+            };
+            var x = await _client.ListItems.CreateAsync(listItem);
+
+            // Search object
             var players = await _client.ListItems.SearchAsync(new ListItemSearchRequest
             {
                 Limit = 20,
-                SearchString = "-ivorejvioe",
+                SearchString = objectName,
                 SchemaIds = new List<string> { "SoccerPlayer" }
             });
 
@@ -393,6 +409,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdateMany()
         {
             /// Arrange
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<SoccerPlayer>(_client);
+
             var originalPlayer = new SoccerPlayer
             {
                 BirthDate = DateTime.Now,
@@ -403,7 +421,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var createRequest = new ListItemCreateRequest
             {
-                ContentSchemaId = "SoccerPlayer",
+                ContentSchemaId = nameof(SoccerPlayer),
                 Content = originalPlayer
             };
 

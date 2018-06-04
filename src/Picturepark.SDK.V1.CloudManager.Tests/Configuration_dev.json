@@ -1,0 +1,10 @@
+﻿{
+	"Server": "https://devnext-api.preview-picturepark.com",
+	"CustomerAlias": "",
+	"AccessToken": "",
+	"EmailRecipient": {
+		"FirstName": "Firstname",
+		"LastName": "Lastname",
+		"EmailAddress": "email"
+	}
+}

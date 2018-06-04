@@ -103,7 +103,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -202,7 +202,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -275,7 +275,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -350,7 +350,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -425,7 +425,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -500,7 +500,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -575,7 +575,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -686,7 +686,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -791,7 +791,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -883,7 +883,7 @@
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -922,7 +922,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -979,7 +979,7 @@
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -1018,7 +1018,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1086,7 +1086,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1176,7 +1176,7 @@
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -1215,7 +1215,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1283,7 +1283,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1366,7 +1366,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1466,7 +1466,7 @@
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -1505,7 +1505,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1583,7 +1583,7 @@
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -1629,7 +1629,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1711,7 +1711,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1789,7 +1789,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1862,7 +1862,7 @@
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -1901,7 +1901,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -1969,7 +1969,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2044,7 +2044,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2119,7 +2119,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2194,7 +2194,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2303,7 +2303,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2384,7 +2384,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2457,7 +2457,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2532,7 +2532,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2605,7 +2605,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2686,7 +2686,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2768,7 +2768,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2859,7 +2859,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -2930,7 +2930,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3035,7 +3035,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3151,7 +3151,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3226,7 +3226,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3301,7 +3301,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3393,7 +3393,7 @@
           "400": {
             "description": "\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -3432,7 +3432,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3500,7 +3500,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3573,7 +3573,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3645,7 +3645,7 @@
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -3684,7 +3684,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3752,7 +3752,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3834,7 +3834,7 @@
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -3873,7 +3873,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -3941,7 +3941,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4016,7 +4016,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4091,7 +4091,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4163,7 +4163,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4242,7 +4242,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4316,7 +4316,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4401,7 +4401,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4529,7 +4529,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4634,7 +4634,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4706,7 +4706,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4818,7 +4818,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4886,7 +4886,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -4964,7 +4964,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5044,7 +5044,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5119,7 +5119,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5192,7 +5192,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5267,7 +5267,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5340,7 +5340,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5407,7 +5407,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5455,7 +5455,6 @@
             "enum": [
               "ManageContent",
               "ManageSharings",
-              "ManageDrives",
               "ManageTransfer",
               "ManageChannels",
               "ManageSchemas",
@@ -5463,7 +5462,6 @@
               "ManageUserRoles",
               "ManagePermissions",
               "ManageSearchIndexes",
-              "ManageRecipients",
               "ManageCollections",
               "ManageListItems",
               "ManageServiceProviders",
@@ -5501,7 +5499,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5564,7 +5562,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5634,7 +5632,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5719,7 +5717,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5782,7 +5780,7 @@
           "400": {
             "description": "\nor\nValidation exception",
             "schema": {
-              "$ref": "#/definitions/PictureparkBusinessException"
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true,
             "x-expectedSchemas": [
@@ -5821,7 +5819,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5889,7 +5887,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -5964,7 +5962,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6060,7 +6058,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6137,7 +6135,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6209,7 +6207,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6288,7 +6286,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6360,7 +6358,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6426,7 +6424,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6500,7 +6498,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6567,7 +6565,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6641,7 +6639,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6713,7 +6711,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6787,7 +6785,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6850,7 +6848,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -6923,7 +6921,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7005,7 +7003,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7087,7 +7085,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7210,7 +7208,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7282,7 +7280,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7356,7 +7354,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7428,73 +7426,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
-            "schema": {
-              "$ref": "#/definitions/PictureparkConflictException"
-            },
-            "x-nullable": true
-          },
-          "400": {
-            "description": "Validation exception",
-            "schema": {
-              "$ref": "#/definitions/PictureparkValidationException"
-            },
-            "x-nullable": true
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "user_read"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/users/channels": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "summary": "Get list of channels",
-        "operationId": "User_GetChannels",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Channel"
-              }
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "description": "Entity not found",
-            "schema": {
-              "$ref": "#/definitions/PictureparkNotFoundException"
-            },
-            "x-nullable": true
-          },
-          "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7572,7 +7504,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7660,7 +7592,7 @@
             "description": "Method not allowed"
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7725,7 +7657,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7797,7 +7729,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7899,7 +7831,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7957,7 +7889,7 @@
             "x-nullable": true
           },
           "409": {
-            "description": "Version conflic",
+            "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
             },
@@ -7977,6 +7909,72 @@
         "security": [
           {
             "Bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/channels": {
+      "get": {
+        "tags": [
+          "Channel"
+        ],
+        "summary": "Get list of channels",
+        "operationId": "Channel_GetChannels",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Channel"
+              }
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_read"
+            ]
           }
         ]
       }
@@ -8144,6 +8142,15 @@
       "additionalProperties": false,
       "allOf": [
         {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "PictureparkForbiddenException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
           "$ref": "#/definitions/PictureparkBusinessException"
         }
       ]
@@ -8187,6 +8194,15 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "UserInactiveOrDeletedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkForbiddenException"
         }
       ]
     },
@@ -8419,47 +8435,6 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "DriveCacheExpiredException": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "DriveFileNotFoundException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "fileId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkNotFoundException"
-        }
-      ]
-    },
-    "DriveRequestException": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "TokenValidationException": {
-      "type": "object",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },
@@ -9255,7 +9230,6 @@
       "x-enumNames": [
         "ManageContent",
         "ManageSharings",
-        "ManageDrives",
         "ManageTransfer",
         "ManageChannels",
         "ManageSchemas",
@@ -9263,7 +9237,6 @@
         "ManageUserRoles",
         "ManagePermissions",
         "ManageSearchIndexes",
-        "ManageRecipients",
         "ManageCollections",
         "ManageListItems",
         "ManageServiceProviders",
@@ -9273,7 +9246,6 @@
       "enum": [
         "ManageContent",
         "ManageSharings",
-        "ManageDrives",
         "ManageTransfer",
         "ManageChannels",
         "ManageSchemas",
@@ -9281,7 +9253,6 @@
         "ManageUserRoles",
         "ManagePermissions",
         "ManageSearchIndexes",
-        "ManageRecipients",
         "ManageCollections",
         "ManageListItems",
         "ManageServiceProviders",
@@ -9487,16 +9458,12 @@
       "x-enumNames": [
         "FileUpload",
         "FileUploadAutoImport",
-        "DriveImport",
-        "DriveExport",
         "WebDownload",
         "SchemaImport"
       ],
       "enum": [
         "FileUpload",
         "FileUploadAutoImport",
-        "DriveImport",
-        "DriveExport",
         "WebDownload",
         "SchemaImport"
       ]
@@ -9724,20 +9691,6 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkBusinessException"
-        }
-      ]
-    },
-    "AggregationFilterInvalidException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "aggregationFilterNames": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkValidationException"
         }
       ]
     },
@@ -10313,6 +10266,23 @@
         }
       ]
     },
+    "SchemaFieldNotSearchableException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fieldId": {
+          "type": "string"
+        },
+        "schemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "SchemaNoContentException": {
       "type": "object",
       "additionalProperties": false,
@@ -10548,6 +10518,80 @@
         {
           "$ref": "#/definitions/PictureparkValidationException"
         }
+      ]
+    },
+    "ContentFileReplaceTypeMismatchException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "originalContentType",
+        "newContentType"
+      ],
+      "properties": {
+        "contentId": {
+          "type": "string"
+        },
+        "originalContentType": {
+          "$ref": "#/definitions/ContentType"
+        },
+        "newContentType": {
+          "$ref": "#/definitions/ContentType"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "ContentType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Unknown",
+        "Bitmap",
+        "VectorGraphic",
+        "RawImage",
+        "InterchangeDocument",
+        "WordProcessingDocument",
+        "TextDocument",
+        "DesktopPublishingDocument",
+        "Presentation",
+        "Spreadsheet",
+        "Archive",
+        "Audio",
+        "Video",
+        "Font",
+        "Multimedia",
+        "Application",
+        "SourceCode",
+        "Database",
+        "Cad",
+        "Model3d",
+        "ContentItem"
+      ],
+      "enum": [
+        "Unknown",
+        "Bitmap",
+        "VectorGraphic",
+        "RawImage",
+        "InterchangeDocument",
+        "WordProcessingDocument",
+        "TextDocument",
+        "DesktopPublishingDocument",
+        "Presentation",
+        "Spreadsheet",
+        "Archive",
+        "Audio",
+        "Video",
+        "Font",
+        "Multimedia",
+        "Application",
+        "SourceCode",
+        "Database",
+        "Cad",
+        "Model3d",
+        "ContentItem"
       ]
     },
     "BusinessProcessWaitTimeoutException": {
@@ -10893,56 +10937,6 @@
         }
       }
     },
-    "ContentType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Unknown",
-        "Bitmap",
-        "VectorGraphic",
-        "RawImage",
-        "InterchangeDocument",
-        "WordProcessingDocument",
-        "TextDocument",
-        "DesktopPublishingDocument",
-        "Presentation",
-        "Spreadsheet",
-        "Archive",
-        "Audio",
-        "Video",
-        "Font",
-        "Multimedia",
-        "Application",
-        "SourceCode",
-        "Database",
-        "Cad",
-        "Model3d",
-        "ContentItem"
-      ],
-      "enum": [
-        "Unknown",
-        "Bitmap",
-        "VectorGraphic",
-        "RawImage",
-        "InterchangeDocument",
-        "WordProcessingDocument",
-        "TextDocument",
-        "DesktopPublishingDocument",
-        "Presentation",
-        "Spreadsheet",
-        "Archive",
-        "Audio",
-        "Video",
-        "Font",
-        "Multimedia",
-        "Application",
-        "SourceCode",
-        "Database",
-        "Cad",
-        "Model3d",
-        "ContentItem"
-      ]
-    },
     "DisplayValueDictionary": {
       "type": "object",
       "additionalProperties": false,
@@ -10957,7 +10951,6 @@
     },
     "DataDictionary": {
       "type": "object",
-      "description": "A custom implementation of Dictionary{string, object}",
       "additionalProperties": false,
       "allOf": [
         {
@@ -10985,6 +10978,10 @@
         },
         "detail": {
           "$ref": "#/definitions/OutputDataBase"
+        },
+        "backupTimestamp": {
+          "type": "string",
+          "format": "date-time"
         },
         "kind": {
           "type": "string"
@@ -13492,13 +13489,82 @@
         }
       }
     },
+    "BusinessProcessDetailsDataCdnPurge": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "serializedCdnConfiguration": {
+          "type": "string"
+        },
+        "jobs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CdnPurgeJobBase"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/BusinessProcessDetailsDataBase"
+        }
+      ]
+    },
+    "CdnPurgeJobBase": {
+      "type": "object",
+      "discriminator": "kind",
+      "additionalProperties": false,
+      "required": [
+        "success",
+        "retriesLeft",
+        "kind"
+      ],
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "retriesLeft": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "kind": {
+          "type": "string"
+        }
+      }
+    },
+    "CdnPurgeJobByTag": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tag": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/CdnPurgeJobBase"
+        }
+      ]
+    },
+    "CdnPurgeJobByUri": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "uri": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/CdnPurgeJobBase"
+        }
+      ]
+    },
     "DocumentHistorySearchRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
         "from",
         "to",
-        "start",
         "limit",
         "documentVersion"
       ],
@@ -13512,12 +13578,6 @@
           "type": "string",
           "description": "Limits the end date of the search request. Default to now.",
           "format": "date-time"
-        },
-        "start": {
-          "type": "integer",
-          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-          "format": "int32",
-          "default": 0
         },
         "limit": {
           "type": "integer",
@@ -14239,7 +14299,6 @@
       "required": [
         "from",
         "to",
-        "start",
         "limit"
       ],
       "properties": {
@@ -14252,12 +14311,6 @@
           "type": "string",
           "description": "Limits the end date of the search request.",
           "format": "date-time"
-        },
-        "start": {
-          "type": "integer",
-          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-          "format": "int32",
-          "default": 0
         },
         "limit": {
           "type": "integer",
@@ -15025,7 +15078,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "keepFieldValue",
         "multiLine",
         "boost"
       ],
@@ -15033,10 +15085,6 @@
         "template": {
           "type": "string",
           "description": "It is a DotLiquid template."
-        },
-        "keepFieldValue": {
-          "type": "boolean",
-          "description": "If true the Template will only render on item creation otherwise it will render on each update."
         },
         "pattern": {
           "type": "string",
@@ -15210,7 +15258,6 @@
       "additionalProperties": false,
       "required": [
         "multiLine",
-        "keepFieldValue",
         "boost"
       ],
       "properties": {
@@ -15256,10 +15303,6 @@
         "template": {
           "type": "string",
           "description": "It is a DotLiquid template."
-        },
-        "keepFieldValue": {
-          "type": "boolean",
-          "description": "If true the Template will only render on item creation otherwise it will render on each update."
         },
         "boost": {
           "type": "number",
@@ -15744,9 +15787,9 @@
           }
         },
         "simpleSearchFields": {
-          "type": "array",
+          "type": "object",
           "description": "Contains all simple search field name variants of the field.\nThe amount of simple search fields can be equal or less to the amount of IndexFields, but never more.",
-          "items": {
+          "additionalProperties": {
             "type": "string"
           }
         },
@@ -16029,10 +16072,12 @@
       "type": "string",
       "description": "",
       "x-enumNames": [
-        "Apply"
+        "Apply",
+        "Manage"
       ],
       "enum": [
-        "Apply"
+        "Apply",
+        "Manage"
       ]
     },
     "PermissionSetSearchResult": {
@@ -16163,6 +16208,9 @@
         },
         "exclusive": {
           "type": "boolean"
+        },
+        "ownerTokenId": {
+          "type": "string"
         }
       }
     },
@@ -16243,6 +16291,9 @@
         },
         "exclusive": {
           "type": "boolean"
+        },
+        "ownerTokenId": {
+          "type": "string"
         }
       }
     },
@@ -17378,12 +17429,6 @@
             "$ref": "#/definitions/TransferUploadFile"
           }
         },
-        "driveFiles": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/TransferDriveFile"
-          }
-        },
         "webLinks": {
           "type": "array",
           "items": {
@@ -17421,29 +17466,6 @@
           "type": "string"
         }
       }
-    },
-    "TransferDriveFile": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "driveId": {
-          "type": "string"
-        },
-        "fileId": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "externalOutputFolderId": {
-          "type": "string"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/TransferFile"
-        }
-      ]
     },
     "TransferWebLink": {
       "type": "object",
@@ -17489,9 +17511,6 @@
         },
         "fileMetadata": {
           "$ref": "#/definitions/FileMetadata"
-        },
-        "driveMetadata": {
-          "$ref": "#/definitions/DriveMetadata"
         },
         "outputItems": {
           "type": "array",
@@ -17982,42 +18001,6 @@
         }
       }
     },
-    "DriveMetadata": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "location": {
-          "type": "string"
-        },
-        "fileType": {
-          "type": "string"
-        },
-        "audit": {
-          "$ref": "#/definitions/DriveMetadataAudit"
-        },
-        "description": {
-          "type": "string"
-        }
-      }
-    },
-    "DriveMetadataAudit": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "owner": {
-          "type": "string"
-        },
-        "modified": {
-          "type": "string"
-        },
-        "opened": {
-          "type": "string"
-        },
-        "created": {
-          "type": "string"
-        }
-      }
-    },
     "FileTransferOutput": {
       "type": "object",
       "additionalProperties": false,
@@ -18306,12 +18289,6 @@
         "address": {
           "$ref": "#/definitions/UserAddress"
         },
-        "drives": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Drive"
-          }
-        },
         "ownerTokens": {
           "type": "array",
           "items": {
@@ -18357,38 +18334,6 @@
           "type": "string"
         }
       }
-    },
-    "Drive": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "driveType"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "driveType": {
-          "$ref": "#/definitions/DriveType"
-        }
-      }
-    },
-    "DriveType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "GoogleDrive",
-        "OneDrive",
-        "Dropbox"
-      ],
-      "enum": [
-        "GoogleDrive",
-        "OneDrive",
-        "Dropbox"
-      ]
     },
     "OwnerToken": {
       "type": "object",
@@ -18564,77 +18509,6 @@
         }
       }
     },
-    "Channel": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "sortOrder"
-      ],
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "sortOrder": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "searchIndexId": {
-          "type": "string",
-          "description": "The search index id."
-        },
-        "schemaIds": {
-          "type": "array",
-          "description": "An id list of schemas with schema type content whose content documents should be found by the simple search.\nThe search by filters and aggregations are unaffected.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "filter": {
-          "description": "An optional search filter. Limits the content document result set on each search and aggregation request.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/FilterBase"
-            }
-          ]
-        },
-        "names": {
-          "description": "Language specific names.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        },
-        "sort": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
-          }
-        },
-        "aggregations": {
-          "type": "array",
-          "description": "An optional list of aggregators. These aggregations are added by default on each aggregation requests.",
-          "items": {
-            "$ref": "#/definitions/AggregatorBase"
-          }
-        },
-        "extendedSimpleSearchFields": {
-          "type": "array",
-          "description": "An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "missingResultsDisplayPatterns": {
-          "description": "Display pattern to use for rendering details when 0 results are returned",
-          "allOf": [
-            {
-              "$ref": "#/definitions/TranslatedStringDictionary"
-            }
-          ]
-        }
-      }
-    },
     "ContentsByIdsRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -18768,6 +18642,87 @@
           "type": "string"
         }
       }
+    },
+    "Channel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sortOrder"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "sortOrder": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "searchIndexId": {
+          "type": "string",
+          "description": "The search index id."
+        },
+        "schemaIds": {
+          "type": "array",
+          "description": "An id list of schemas with schema type content whose content documents should be found by the simple search.\nThe search by filters and aggregations are unaffected.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "filter": {
+          "description": "An optional search filter. Limits the content document result set on each search and aggregation request.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        },
+        "names": {
+          "description": "Language specific names.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "sort": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        },
+        "aggregations": {
+          "type": "array",
+          "description": "An optional list of aggregators. These aggregations are added by default on each aggregation requests.",
+          "items": {
+            "$ref": "#/definitions/AggregatorBase"
+          }
+        },
+        "extendedSimpleSearchFields": {
+          "type": "array",
+          "description": "An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "grantedUserRoleIds": {
+          "type": "array",
+          "description": "User roles granted access to the channel.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "missingResultsDisplayPatterns": {
+          "description": "Display pattern to use for rendering details when 0 results are returned",
+          "allOf": [
+            {
+              "$ref": "#/definitions/TranslatedStringDictionary"
+            }
+          ]
+        },
+        "audit": {
+          "$ref": "#/definitions/UserAudit"
+        }
+      }
     }
   },
   "parameters": {},
@@ -18878,6 +18833,10 @@
     {
       "name": "Info",
       "description": "Endpoint to get basic configuration information."
+    },
+    {
+      "name": "Channel",
+      "description": "Endpoints to work with channel."
     }
   ]
 }

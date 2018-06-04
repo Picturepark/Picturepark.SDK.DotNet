@@ -220,6 +220,9 @@ namespace Picturepark.SDK.V1
 
         private void BuildReferencedListItems(object obj, List<ListItemCreateRequest> referencedListItems)
         {
+            if (obj == null)
+                return;
+
             // Scan child properties for references
             var nonReferencedProperties = obj.GetType()
                 .GetProperties()
@@ -230,9 +233,13 @@ namespace Picturepark.SDK.V1
             {
                 if (property.PropertyType.GetTypeInfo().ImplementedInterfaces.Contains(typeof(IList)))
                 {
-                    foreach (var value in (IList)property.GetValue(obj))
+                    var list = property.GetValue(obj);
+                    if (list != null)
                     {
-                        BuildReferencedListItems(value, referencedListItems);
+                        foreach (var value in (IList)list)
+                        {
+                            BuildReferencedListItems(value, referencedListItems);
+                        }
                     }
                 }
                 else

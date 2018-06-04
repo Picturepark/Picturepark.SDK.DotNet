@@ -25,7 +25,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         public async Task ShouldOverwriteField()
         {
             /// Act
-            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Teacher));
 
             /// Assert
             Assert.Equal(2, schemas.Count);
