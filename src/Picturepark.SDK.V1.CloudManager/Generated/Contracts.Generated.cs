@@ -604,6 +604,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("adminUserPassword", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AdminUserPassword { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("contentBackupEnabled", Required = Newtonsoft.Json.Required.Always)]
+        public bool ContentBackupEnabled { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -1993,6 +1996,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("serviceAdminUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ServiceAdminUserId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentBackupEnabled", Required = Newtonsoft.Json.Required.Always)]
+        public bool ContentBackupEnabled { get; set; }
     
         public string ToJson() 
         {
@@ -5854,6 +5860,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("sortableFieldThreshold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? SortableFieldThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentBackupEnabled", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? ContentBackupEnabled { get; set; }
     
         public string ToJson() 
         {

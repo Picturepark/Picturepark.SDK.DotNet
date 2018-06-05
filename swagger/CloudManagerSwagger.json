@@ -3784,7 +3784,8 @@
         "sortableFieldThreshold",
         "contentRetentionTime",
         "listItemRetentionTime",
-        "snapshotRetentionTime"
+        "snapshotRetentionTime",
+        "contentBackupEnabled"
       ],
       "properties": {
         "alias": {
@@ -3902,6 +3903,9 @@
         },
         "adminUserPassword": {
           "type": "string"
+        },
+        "contentBackupEnabled": {
+          "type": "boolean"
         }
       }
     },
@@ -5050,7 +5054,8 @@
         "lifeCycle",
         "contentRetentionTime",
         "listItemRetentionTime",
-        "snapshotRetentionTime"
+        "snapshotRetentionTime",
+        "contentBackupEnabled"
       ],
       "properties": {
         "id": {
@@ -5247,6 +5252,9 @@
         },
         "serviceAdminUserId": {
           "type": "string"
+        },
+        "contentBackupEnabled": {
+          "type": "boolean"
         }
       }
     },
@@ -8206,6 +8214,9 @@
         "sortableFieldThreshold": {
           "type": "integer",
           "format": "int32"
+        },
+        "contentBackupEnabled": {
+          "type": "boolean"
         }
       }
     },
