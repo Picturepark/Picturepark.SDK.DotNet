@@ -28,6 +28,8 @@ namespace Picturepark.SDK.V1.Contract
 
         IProfileClient Profile { get; }
 
+        IChannelClient Channels { get; }
+
         IServiceProviderClient ServiceProviders { get; }
     }
 }
