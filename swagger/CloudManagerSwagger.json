@@ -3699,6 +3699,72 @@
         ]
       }
     },
+    "/contentBackup/enable": {
+      "post": {
+        "tags": [
+          "ContentBackup"
+        ],
+        "operationId": "ContentBackup_EnableContentBackup",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentBackupEnableRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
     "/customer/{customerAlias}/cdn/purge": {
       "post": {
         "tags": [
@@ -3785,7 +3851,7 @@
         "contentRetentionTime",
         "listItemRetentionTime",
         "snapshotRetentionTime",
-        "contentBackupEnabled"
+        "contentBackupState"
       ],
       "properties": {
         "alias": {
@@ -3904,8 +3970,8 @@
         "adminUserPassword": {
           "type": "string"
         },
-        "contentBackupEnabled": {
-          "type": "boolean"
+        "contentBackupState": {
+          "$ref": "#/definitions/ContentBackupState"
         }
       }
     },
@@ -5034,6 +5100,20 @@
         }
       }
     },
+    "ContentBackupState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Disabled",
+        "Recovery",
+        "Enabled"
+      ],
+      "enum": [
+        "Disabled",
+        "Recovery",
+        "Enabled"
+      ]
+    },
     "CustomerConfiguration": {
       "type": "object",
       "additionalProperties": false,
@@ -5055,7 +5135,7 @@
         "contentRetentionTime",
         "listItemRetentionTime",
         "snapshotRetentionTime",
-        "contentBackupEnabled"
+        "contentBackupState"
       ],
       "properties": {
         "id": {
@@ -5253,8 +5333,8 @@
         "serviceAdminUserId": {
           "type": "string"
         },
-        "contentBackupEnabled": {
-          "type": "boolean"
+        "contentBackupState": {
+          "$ref": "#/definitions/ContentBackupState"
         }
       }
     },
@@ -8214,9 +8294,6 @@
         "sortableFieldThreshold": {
           "type": "integer",
           "format": "int32"
-        },
-        "contentBackupEnabled": {
-          "type": "boolean"
         }
       }
     },
@@ -10367,7 +10444,7 @@
     },
     "ContentBackupCompleteByOutputRequest": {
       "type": "object",
-      "description": "Request to search aggregation values for Contents",
+      "description": "Request to mark a backup of an Output completed",
       "additionalProperties": false,
       "properties": {
         "customerId": {
@@ -10378,6 +10455,10 @@
         },
         "contentId": {
           "type": "string"
+        },
+        "businessProcessId": {
+          "type": "string",
+          "description": "Id of the business process tracking the output, if any (i.e. in case of ContentBackupRecovery mode)"
         }
       }
     },
@@ -10429,6 +10510,26 @@
         },
         "pageToken": {
           "type": "string"
+        }
+      }
+    },
+    "ContentBackupEnableRequest": {
+      "type": "object",
+      "description": "Request to search aggregation values for Contents",
+      "additionalProperties": false,
+      "required": [
+        "enable",
+        "force"
+      ],
+      "properties": {
+        "customerId": {
+          "type": "string"
+        },
+        "enable": {
+          "type": "boolean"
+        },
+        "force": {
+          "type": "boolean"
         }
       }
     },
