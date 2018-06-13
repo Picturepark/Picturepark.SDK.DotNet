@@ -96,7 +96,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ReindexEvent", typeof(ReindexEvent))]
     [JsonInheritanceAttribute("OutputBackupEvent", typeof(OutputBackupEvent))]
     [JsonInheritanceAttribute("OutputBackupMissingEvent", typeof(OutputBackupMissingEvent))]
-    [JsonInheritanceAttribute("OutputBackupRecoveryEvent", typeof(OutputBackupRecoveryEvent))]
+    [JsonInheritanceAttribute("ContentBackupRecoveryEvent", typeof(ContentBackupRecoveryEvent))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.50.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ApplicationEvent
     {
@@ -265,25 +265,22 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.50.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class OutputBackupRecoveryEvent : ApplicationEvent
+    public partial class ContentBackupRecoveryEvent : ApplicationEvent
     {
-        [Newtonsoft.Json.JsonProperty("OutputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputId { get; set; }
-
         [Newtonsoft.Json.JsonProperty("ContentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("OutputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputFormatId { get; set; }
+        [Newtonsoft.Json.JsonProperty("BusinessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BusinessProcessId { get; set; }
 
         public string ToJson()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
 
-        public static OutputBackupRecoveryEvent FromJson(string data)
+        public static ContentBackupRecoveryEvent FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputBackupRecoveryEvent>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupRecoveryEvent>(data);
         }
 
     }
