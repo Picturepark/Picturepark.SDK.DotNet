@@ -88,7 +88,7 @@ namespace Picturepark.SDK.V1
                     throw new Exception("The business process failed to execute.");
                 }
 
-                var bulkResult = (BusinessProcessDetailsDataBulkResponse)details.Details;
+                var bulkResult = (BusinessProcessDetailsDataBatchResponse)details.Details;
                 if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
                 {
                     // TODO: ListItemClient.CreateManyAsync: Use better exception classes in this method.

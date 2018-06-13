@@ -18,6 +18,7 @@
     "useSsl": false,
     "noReplyEmailAddress": "no-reply@picturepark.com",
     "createTransferBusinessProcess": "TransferMonitor",
+    "contentBackupState": "Disabled",
     "languageConfiguration": {
         "systemLanguages": [ "en", "de" ],
         "metadataLanguages": [ "en", "tr", "nl", "fr", "de", "pt", "es", "fi", "it", "no", "bg", "da", "hu", "pl", "ro", "ru" ],

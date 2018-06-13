@@ -7558,7 +7558,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
-    [JsonInheritanceAttribute("BusinessProcessDetailsDataBulkResponse", typeof(BusinessProcessDetailsDataBulkResponse))]
+    [JsonInheritanceAttribute("BusinessProcessDetailsDataBatchResponse", typeof(BusinessProcessDetailsDataBatchResponse))]
     [JsonInheritanceAttribute("BusinessProcessDetailsDataSchemaImport", typeof(BusinessProcessDetailsDataSchemaImport))]
     [JsonInheritanceAttribute("BusinessProcessDetailsDataCdnPurge", typeof(BusinessProcessDetailsDataCdnPurge))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -7577,22 +7577,70 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class BusinessProcessDetailsDataBulkResponse : BusinessProcessDetailsDataBase
+    public partial class BusinessProcessDetailsDataBatchResponse : BusinessProcessDetailsDataBase
     {
         [Newtonsoft.Json.JsonProperty("docType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DocType { get; set; }
     
         [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BulkResponse Response { get; set; }
+        public BatchResponse Response { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static BusinessProcessDetailsDataBulkResponse FromJson(string data)
+        public static BusinessProcessDetailsDataBatchResponse FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataBulkResponse>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataBatchResponse>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BatchResponse 
+    {
+        [Newtonsoft.Json.JsonProperty("rows", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BatchResponseRow> Rows { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BatchResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BatchResponse>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BatchResponseRow 
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("succeeded", Required = Newtonsoft.Json.Required.Always)]
+        public bool Succeeded { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
+        public int Status { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.Always)]
+        public long Version { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ErrorResponse Error { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BatchResponseRow FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BatchResponseRow>(data);
         }
     
     }
@@ -11465,14 +11513,23 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("itemCount", Required = Newtonsoft.Json.Required.Always)]
         public long ItemCount { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("fileUploadInProgressCount", Required = Newtonsoft.Json.Required.Always)]
+        public long FileUploadInProgressCount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("dataExtractionInProgressCount", Required = Newtonsoft.Json.Required.Always)]
+        public long DataExtractionInProgressCount { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("itemsFailed", Required = Newtonsoft.Json.Required.Always)]
         public long ItemsFailed { get; set; }
     
         [Newtonsoft.Json.JsonProperty("itemsCancelled", Required = Newtonsoft.Json.Required.Always)]
         public long ItemsCancelled { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("lastProgressStamp", Required = Newtonsoft.Json.Required.Always)]
-        public long LastProgressStamp { get; set; }
+        [Newtonsoft.Json.JsonProperty("lastDataExtractionProgressStamp", Required = Newtonsoft.Json.Required.Always)]
+        public long LastDataExtractionProgressStamp { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("lastFileUploadProgressStamp", Required = Newtonsoft.Json.Required.Always)]
+        public long LastFileUploadProgressStamp { get; set; }
     
         [Newtonsoft.Json.JsonProperty("fileTransferCount", Required = Newtonsoft.Json.Required.Always)]
         public long FileTransferCount { get; set; }
