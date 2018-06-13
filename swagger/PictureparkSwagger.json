@@ -13362,7 +13362,7 @@
         }
       }
     },
-    "BusinessProcessDetailsDataBulkResponse": {
+    "BusinessProcessDetailsDataBatchResponse": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -13370,7 +13370,7 @@
           "type": "string"
         },
         "response": {
-          "$ref": "#/definitions/BulkResponse"
+          "$ref": "#/definitions/BatchResponse"
         }
       },
       "allOf": [
@@ -13378,6 +13378,46 @@
           "$ref": "#/definitions/BusinessProcessDetailsDataBase"
         }
       ]
+    },
+    "BatchResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BatchResponseRow"
+          }
+        }
+      }
+    },
+    "BatchResponseRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "succeeded",
+        "status",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "succeeded": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "error": {
+          "$ref": "#/definitions/ErrorResponse"
+        }
+      }
     },
     "BusinessProcessDetailsDataSchemaImport": {
       "type": "object",
