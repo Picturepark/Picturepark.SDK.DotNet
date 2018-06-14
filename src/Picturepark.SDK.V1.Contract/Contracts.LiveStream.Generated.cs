@@ -96,6 +96,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ReindexEvent", typeof(ReindexEvent))]
     [JsonInheritanceAttribute("OutputBackupEvent", typeof(OutputBackupEvent))]
     [JsonInheritanceAttribute("OutputBackupMissingEvent", typeof(OutputBackupMissingEvent))]
+    [JsonInheritanceAttribute("OutputBackupRemoveEvent", typeof(OutputBackupRemoveEvent))]
     [JsonInheritanceAttribute("ContentBackupRecoveryEvent", typeof(ContentBackupRecoveryEvent))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.50.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ApplicationEvent
@@ -260,6 +261,24 @@ namespace Picturepark.SDK.V1.Contract
         public static OutputBackupMissingEvent FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputBackupMissingEvent>(data);
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.50.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class OutputBackupRemoveEvent : ApplicationEvent
+    {
+        [Newtonsoft.Json.JsonProperty("FilePaths", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> FilePaths { get; set; }
+
+        public string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public static OutputBackupRemoveEvent FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputBackupRemoveEvent>(data);
         }
 
     }
