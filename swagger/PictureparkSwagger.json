@@ -17222,9 +17222,12 @@
         "transferType",
         "itemProgress",
         "itemCount",
+        "fileUploadInProgressCount",
+        "dataExtractionInProgressCount",
         "itemsFailed",
         "itemsCancelled",
-        "lastProgressStamp",
+        "lastDataExtractionProgressStamp",
+        "lastFileUploadProgressStamp",
         "fileTransferCount"
       ],
       "properties": {
@@ -17257,6 +17260,14 @@
           "type": "integer",
           "format": "int64"
         },
+        "fileUploadInProgressCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "dataExtractionInProgressCount": {
+          "type": "integer",
+          "format": "int64"
+        },
         "itemsFailed": {
           "type": "integer",
           "format": "int64"
@@ -17265,7 +17276,11 @@
           "type": "integer",
           "format": "int64"
         },
-        "lastProgressStamp": {
+        "lastDataExtractionProgressStamp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "lastFileUploadProgressStamp": {
           "type": "integer",
           "format": "int64"
         },

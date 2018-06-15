@@ -3699,6 +3699,270 @@
         ]
       }
     },
+    "/contentBackup/enable": {
+      "post": {
+        "tags": [
+          "ContentBackup"
+        ],
+        "operationId": "ContentBackup_EnableContentBackup",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentBackupEnableRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/contentBackup/disable": {
+      "post": {
+        "tags": [
+          "ContentBackup"
+        ],
+        "operationId": "ContentBackup_DisableContentBackup",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentBackupDisableRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/contentBackup/cancelRecovery": {
+      "post": {
+        "tags": [
+          "ContentBackup"
+        ],
+        "operationId": "ContentBackup_CancelContentBackupRecovery",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentBackupCancelRecoveryRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/contentBackup/forceCompleteRecovery": {
+      "post": {
+        "tags": [
+          "ContentBackup"
+        ],
+        "operationId": "ContentBackup_ForceCompleteContentBackupRecovery",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentBackupForceCompleteRecoveryRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
     "/customer/{customerAlias}/cdn/purge": {
       "post": {
         "tags": [
@@ -3784,7 +4048,8 @@
         "sortableFieldThreshold",
         "contentRetentionTime",
         "listItemRetentionTime",
-        "snapshotRetentionTime"
+        "snapshotRetentionTime",
+        "contentBackupState"
       ],
       "properties": {
         "alias": {
@@ -3902,6 +4167,9 @@
         },
         "adminUserPassword": {
           "type": "string"
+        },
+        "contentBackupState": {
+          "$ref": "#/definitions/ContentBackupState"
         }
       }
     },
@@ -5030,6 +5298,20 @@
         }
       }
     },
+    "ContentBackupState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Disabled",
+        "Recovery",
+        "Enabled"
+      ],
+      "enum": [
+        "Disabled",
+        "Recovery",
+        "Enabled"
+      ]
+    },
     "CustomerConfiguration": {
       "type": "object",
       "additionalProperties": false,
@@ -5050,7 +5332,8 @@
         "lifeCycle",
         "contentRetentionTime",
         "listItemRetentionTime",
-        "snapshotRetentionTime"
+        "snapshotRetentionTime",
+        "contentBackupState"
       ],
       "properties": {
         "id": {
@@ -5247,6 +5530,9 @@
         },
         "serviceAdminUserId": {
           "type": "string"
+        },
+        "contentBackupState": {
+          "$ref": "#/definitions/ContentBackupState"
         }
       }
     },
@@ -10356,7 +10642,7 @@
     },
     "ContentBackupCompleteByOutputRequest": {
       "type": "object",
-      "description": "Request to search aggregation values for Contents",
+      "description": "Request to mark a backup of an Output completed",
       "additionalProperties": false,
       "properties": {
         "customerId": {
@@ -10367,6 +10653,10 @@
         },
         "contentId": {
           "type": "string"
+        },
+        "businessProcessId": {
+          "type": "string",
+          "description": "Id of the business process tracking the output, if any (i.e. in case of ContentBackupRecovery mode)"
         }
       }
     },
@@ -10417,6 +10707,52 @@
           }
         },
         "pageToken": {
+          "type": "string"
+        }
+      }
+    },
+    "ContentBackupEnableRequest": {
+      "type": "object",
+      "description": "Request to search aggregation values for Contents",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        }
+      }
+    },
+    "ContentBackupDisableRequest": {
+      "type": "object",
+      "description": "Request to search aggregation values for Contents",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        }
+      }
+    },
+    "ContentBackupCancelRecoveryRequest": {
+      "type": "object",
+      "description": "Request to search aggregation values for Contents",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        },
+        "businessProcessId": {
+          "type": "string"
+        }
+      }
+    },
+    "ContentBackupForceCompleteRecoveryRequest": {
+      "type": "object",
+      "description": "Request to search aggregation values for Contents",
+      "additionalProperties": false,
+      "properties": {
+        "customerId": {
+          "type": "string"
+        },
+        "businessProcessId": {
           "type": "string"
         }
       }
