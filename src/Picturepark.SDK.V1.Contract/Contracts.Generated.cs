@@ -8955,9 +8955,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldDateTimeArray : FieldDateTime
     {
-        [Newtonsoft.Json.JsonProperty("uniqueItems", Required = Newtonsoft.Json.Required.Always)]
-        public bool UniqueItems { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("maximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MaximumItems { get; set; }
     
@@ -9030,9 +9027,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldDictionaryArray : FieldDictionary
     {
-        [Newtonsoft.Json.JsonProperty("uniqueItems", Required = Newtonsoft.Json.Required.Always)]
-        public bool UniqueItems { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("maximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MaximumItems { get; set; }
     
@@ -9104,9 +9098,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldLongArray : FieldLong
     {
-        [Newtonsoft.Json.JsonProperty("uniqueItems", Required = Newtonsoft.Json.Required.Always)]
-        public bool UniqueItems { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("maximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MaximumItems { get; set; }
     
@@ -9217,10 +9208,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaIndexingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaIndexingInfo SchemaIndexingInfo { get; set; }
     
-        /// <summary>Prevents duplicate values.</summary>
-        [Newtonsoft.Json.JsonProperty("uniqueItems", Required = Newtonsoft.Json.Required.Always)]
-        public bool UniqueItems { get; set; }
-    
         /// <summary>Defines the highest possible fieldset count.</summary>
         [Newtonsoft.Json.JsonProperty("maximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MaximumItems { get; set; }
@@ -9282,10 +9269,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Indexing information of fields of the related schema identified by the SchemaId property</summary>
         [Newtonsoft.Json.JsonProperty("schemaIndexingInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaIndexingInfo SchemaIndexingInfo { get; set; }
-    
-        /// <summary>Prevents duplicate values.</summary>
-        [Newtonsoft.Json.JsonProperty("uniqueItems", Required = Newtonsoft.Json.Required.Always)]
-        public bool UniqueItems { get; set; }
     
         /// <summary>Defines the highest possible item count.</summary>
         [Newtonsoft.Json.JsonProperty("maximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9492,9 +9475,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.46.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FieldStringArray : FieldString
     {
-        [Newtonsoft.Json.JsonProperty("uniqueItems", Required = Newtonsoft.Json.Required.Always)]
-        public bool UniqueItems { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("maximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MaximumItems { get; set; }
     
@@ -9638,10 +9618,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Defines the relation types supported by the field.</summary>
         [Newtonsoft.Json.JsonProperty("relationTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<RelationType> RelationTypes { get; set; }
-    
-        /// <summary>Prevents duplicate values.</summary>
-        [Newtonsoft.Json.JsonProperty("uniqueItems", Required = Newtonsoft.Json.Required.Always)]
-        public bool UniqueItems { get; set; }
     
         /// <summary>Defines the highest possible item count.</summary>
         [Newtonsoft.Json.JsonProperty("maximumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
