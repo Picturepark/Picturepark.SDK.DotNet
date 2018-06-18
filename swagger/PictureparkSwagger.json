@@ -14733,13 +14733,7 @@
       "type": "object",
       "description": "For internal use only (system schemas)",
       "additionalProperties": false,
-      "required": [
-        "uniqueItems"
-      ],
       "properties": {
-        "uniqueItems": {
-          "type": "boolean"
-        },
         "maximumItems": {
           "type": "integer",
           "format": "int32"
@@ -14811,13 +14805,7 @@
       "type": "object",
       "description": "For internal use only (system schemas)",
       "additionalProperties": false,
-      "required": [
-        "uniqueItems"
-      ],
       "properties": {
-        "uniqueItems": {
-          "type": "boolean"
-        },
         "maximumItems": {
           "type": "integer",
           "format": "int32"
@@ -14888,13 +14876,7 @@
       "type": "object",
       "description": "For internal use only (system schemas)",
       "additionalProperties": false,
-      "required": [
-        "uniqueItems"
-      ],
       "properties": {
-        "uniqueItems": {
-          "type": "boolean"
-        },
         "maximumItems": {
           "type": "integer",
           "format": "int32"
@@ -14990,9 +14972,6 @@
     "FieldMultiFieldset": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "uniqueItems"
-      ],
       "properties": {
         "schemaId": {
           "type": "string",
@@ -15005,10 +14984,6 @@
               "$ref": "#/definitions/SchemaIndexingInfo"
             }
           ]
-        },
-        "uniqueItems": {
-          "type": "boolean",
-          "description": "Prevents duplicate values."
         },
         "maximumItems": {
           "type": "integer",
@@ -15065,9 +15040,6 @@
     "FieldMultiTagbox": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "uniqueItems"
-      ],
       "properties": {
         "schemaId": {
           "type": "string",
@@ -15080,10 +15052,6 @@
               "$ref": "#/definitions/SchemaIndexingInfo"
             }
           ]
-        },
-        "uniqueItems": {
-          "type": "boolean",
-          "description": "Prevents duplicate values."
         },
         "maximumItems": {
           "type": "integer",
@@ -15271,13 +15239,7 @@
       "type": "object",
       "description": "For internal use only (system schemas)",
       "additionalProperties": false,
-      "required": [
-        "uniqueItems"
-      ],
       "properties": {
-        "uniqueItems": {
-          "type": "boolean"
-        },
         "maximumItems": {
           "type": "integer",
           "format": "int32"
@@ -15419,9 +15381,6 @@
     "FieldMultiRelation": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "uniqueItems"
-      ],
       "properties": {
         "schemaId": {
           "type": "string",
@@ -15441,10 +15400,6 @@
           "items": {
             "$ref": "#/definitions/RelationType"
           }
-        },
-        "uniqueItems": {
-          "type": "boolean",
-          "description": "Prevents duplicate values."
         },
         "maximumItems": {
           "type": "integer",
