@@ -28,8 +28,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             /// Assert
             Assert.True(searchResult.Results.Any());
-
-            searchResult.Results.Should().OnlyContain(u => u.)
         }
 
         [Fact]
@@ -84,7 +82,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var activeUserIds = activeUsers.Select(u => u.Id).ToArray();
 
             async Task CheckIfUsersAre(AuthorizationState auth) =>
-                (await _fixture.GetUsersByIds(activeUserIds)).Should().OnlyContain(u => u.AuthorizationState == auth);
+                (await _client.Users.GetManyAsync(activeUserIds)).Should().OnlyContain(u => u.AuthorizationState == auth);
 
             // Act
             var lockProcess = await LockUnlockCall(activeUserIds, true);
@@ -106,12 +104,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdateUser()
         {
             var comment = "We don't like this guy";
-            var city = "Aaray";
+            var city = "Aarray";
 
             // Arrange
             var user = await _fixture.CreateAndActivateUser();
 
             user.Comment = comment;
+            user.Address = user.Address ?? new UserAddress();
             user.Address.City = city;
 
             // Act
@@ -156,6 +155,20 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 .And.ContainSingle(r => r.Succeeded)
                 .And.ContainSingle(r => !r.Succeeded)
                     .Which.Error.Should().Contain(newUserImpostor.EmailAddress);
+        }
+
+        [Fact]
+        [Trait("Stack", "Users")]
+        public async Task ShouldReturnMultipleUsersCorrectly()
+        {
+            // Arrange
+            var users = await _fixture.CreateAndActivateUsers(5);
+
+            // Act
+            var retrievedUsers = await _client.Users.GetManyAsync(users.Select(u => u.Id));
+
+            // Assert
+            retrievedUsers.Should().BeEquivalentTo(users);
         }
 
         private async Task<BusinessProcess> LockUnlockCall(IEnumerable<string> ids, bool @lock)

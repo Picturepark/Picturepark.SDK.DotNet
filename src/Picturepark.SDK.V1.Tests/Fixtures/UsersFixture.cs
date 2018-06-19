@@ -23,9 +23,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
                     LanguageCode = "en"
                 }).ToArray();
 
-            var process = await Client.Users.InviteManyAsync(usersToCreate);
+            var inviteProcess = await Client.Users.InviteManyAsync(usersToCreate);
 
-            await WaitOnBusinessProcessAndAssert(process);
+            await WaitOnBusinessProcessAndAssert(inviteProcess);
 
             var searchRes = await Client.Users.SearchAsync(new UserSearchRequest
             {
@@ -45,7 +45,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
             await WaitOnBusinessProcessAndAssert(reviewProcess);
 
-            var reviewedUsers = await GetUsersByIds(invitedUserIds);
+            var reviewedUsers = (await Client.Users.GetManyAsync(invitedUserIds)).ToArray();
 
             reviewedUsers.Should().OnlyContain(
                 u => u.AuthorizationState == AuthorizationState.Active, "all invited users should be active after review");
@@ -69,13 +69,6 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
                 .GetAwaiter().GetResult().Rows.Should().OnlyContain(r => r.Succeeded);
 
             base.Dispose();
-        }
-
-        public async Task<IReadOnlyList<UserDetail>> GetUsersByIds(IEnumerable<string> ids)
-        {
-            var reviewedUserTasks = ids.Select(async id => await Client.Users.GetAsync(id)).ToArray();
-
-            return await Task.WhenAll(reviewedUserTasks);
         }
 
         public async Task WaitOnBusinessProcessAndAssert(BusinessProcess businessProcess)

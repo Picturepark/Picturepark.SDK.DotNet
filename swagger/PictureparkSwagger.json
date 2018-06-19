@@ -7521,6 +7521,86 @@
         ]
       }
     },
+    "/v1/users": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get multiple user details by supplying their ID's",
+        "operationId": "User_GetMany",
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-nullable": true,
+            "description": "The user ID's"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "IEnumerable&lt;UserDetail&gt;",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UserDetail"
+              }
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/users/aggregate": {
       "post": {
         "tags": [
@@ -19242,6 +19322,9 @@
     "UserWithRoles": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "authorizationState"
+      ],
       "properties": {
         "userRoleIds": {
           "type": "array",
@@ -19260,6 +19343,9 @@
         },
         "emailAddress": {
           "type": "string"
+        },
+        "authorizationState": {
+          "$ref": "#/definitions/AuthorizationState"
         }
       }
     },
