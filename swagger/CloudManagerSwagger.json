@@ -6839,8 +6839,11 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "permissionSetId": {
-          "type": "string"
+        "permissionSetIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "allOf": [
