@@ -10967,6 +10967,7 @@
       "discriminator": "kind",
       "additionalProperties": false,
       "required": [
+        "renderingState",
         "kind"
       ],
       "properties": {
@@ -10979,6 +10980,9 @@
         "contentId": {
           "type": "string"
         },
+        "renderingState": {
+          "$ref": "#/definitions/OutputRenderingState"
+        },
         "detail": {
           "$ref": "#/definitions/OutputDataBase"
         },
@@ -10990,6 +10994,22 @@
           "type": "string"
         }
       }
+    },
+    "OutputRenderingState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "InProgress",
+        "Completed",
+        "Failed",
+        "Skipped"
+      ],
+      "enum": [
+        "InProgress",
+        "Completed",
+        "Failed",
+        "Skipped"
+      ]
     },
     "OutputDataBase": {
       "type": "object",
