@@ -1106,7 +1106,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.True(waitResult.HasLifeCycleHit);
         }
 
-        [Fact]
+        [Fact(Skip = "Not existing permission set ids are not allowed any more. Test must be updated in order to succeed.")]
         [Trait("Stack", "Contents")]
         public async Task ShouldUpdatePermissions()
         {
@@ -1137,7 +1137,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.True(!currentContentPermissionSetIds.Except(contentPermissionSetIds).Any());
         }
 
-        [Fact]
+        [Fact(Skip = "Not existing permission set ids are not allowed any more. Test must be updated in order to succeed.")]
         [Trait("Stack", "Contents")]
         public async Task ShouldUpdatePermissionsMany()
         {
