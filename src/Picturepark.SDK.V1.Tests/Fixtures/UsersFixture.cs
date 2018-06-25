@@ -65,8 +65,11 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         public override void Dispose()
         {
-            Client.Users.DeleteManyAsync(new UserDeactivateRequest { UserIds = _createdUserIds.ToArray() })
-                .GetAwaiter().GetResult().Rows.Should().OnlyContain(r => r.Succeeded);
+            if (!_createdUserIds.IsEmpty)
+            {
+                Client.Users.DeleteManyAsync(new UserDeactivateRequest { UserIds = _createdUserIds.ToArray() })
+                    .GetAwaiter().GetResult().Rows.Should().OnlyContain(r => r.Succeeded);
+            }
 
             base.Dispose();
         }
