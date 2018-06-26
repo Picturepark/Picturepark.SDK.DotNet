@@ -7304,6 +7304,75 @@
             ]
           }
         ]
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Deletes a user",
+        "operationId": "User_Delete",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserDetail"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
       }
     },
     "/v1/users/search": {
@@ -7447,6 +7516,750 @@
           {
             "Bearer": [
               "user_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/users": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get multiple user details by supplying their ID's",
+        "operationId": "User_GetMany",
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-nullable": true,
+            "description": "The user ID's"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "IEnumerable&lt;UserDetail&gt;",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UserDetail"
+              }
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/users/aggregate": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Searches and aggregates users by different attributes",
+        "operationId": "User_Aggregate",
+        "parameters": [
+          {
+            "name": "userAggregationRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserAggregationRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/ObjectAggregationResult"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/users/lock": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Locks or unlocks one or more users",
+        "operationId": "User_LockMany",
+        "parameters": [
+          {
+            "name": "userLockRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserLockRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/users/review": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Sets one or more users as reviewed or under review",
+        "operationId": "User_ReviewMany",
+        "parameters": [
+          {
+            "name": "userReviewRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserReviewRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/users/update": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Updates one or more users",
+        "operationId": "User_UpdateMany",
+        "parameters": [
+          {
+            "name": "userUpdatableDetails",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UserUpdatableDetail"
+              }
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BulkResponse"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/users/validateUserInvites": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Validates if the supplied user create requests would pass the unique email validation",
+        "operationId": "User_ValidateUserInvites",
+        "parameters": [
+          {
+            "name": "userCreateRequests",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UserCreateRequest"
+              }
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BulkResponse"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/users/invite": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Invites (or creates) new users",
+        "operationId": "User_InviteMany",
+        "parameters": [
+          {
+            "name": "userCreateRequests",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UserCreateRequest"
+              }
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcess"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/users/delete": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Deletes multiple users",
+        "operationId": "User_DeleteMany",
+        "parameters": [
+          {
+            "name": "userDeactivateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserDeactivateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BulkResponse"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/users/{userId}/restore": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Restores a previously deleted user",
+        "operationId": "User_Restore",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserDetail"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/users/restore": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Restores multiple previously deleted users",
+        "operationId": "User_RestoreMany",
+        "parameters": [
+          {
+            "name": "userReactivateRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserReactivateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/BulkResponse"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
             ]
           }
         ]
@@ -18307,6 +19120,56 @@
         "authorizationState"
       ],
       "properties": {
+        "ownerTokens": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OwnerToken"
+          }
+        },
+        "authorizationState": {
+          "$ref": "#/definitions/AuthorizationState"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/UserUpdatableDetail"
+        }
+      ]
+    },
+    "OwnerToken": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The ownertoken id."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The id of the user to whom this ownertoken currently belongs to."
+        }
+      }
+    },
+    "AuthorizationState": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Active",
+        "Review",
+        "Locked",
+        "Invited"
+      ],
+      "enum": [
+        "Active",
+        "Review",
+        "Locked",
+        "Invited"
+      ]
+    },
+    "UserUpdatableDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
         "userRoles": {
           "type": "array",
           "items": {
@@ -18321,15 +19184,6 @@
         },
         "address": {
           "$ref": "#/definitions/UserAddress"
-        },
-        "ownerTokens": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/OwnerToken"
-          }
-        },
-        "authorizationState": {
-          "$ref": "#/definitions/AuthorizationState"
         }
       },
       "allOf": [
@@ -18367,36 +19221,6 @@
           "type": "string"
         }
       }
-    },
-    "OwnerToken": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "id": {
-          "type": "string",
-          "description": "The ownertoken id."
-        },
-        "userId": {
-          "type": "string",
-          "description": "The id of the user to whom this ownertoken currently belongs to."
-        }
-      }
-    },
-    "AuthorizationState": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Active",
-        "Review",
-        "Locked",
-        "Invited"
-      ],
-      "enum": [
-        "Active",
-        "Review",
-        "Locked",
-        "Invited"
-      ]
     },
     "UserSearchRequest": {
       "type": "object",
@@ -18521,6 +19345,9 @@
     "UserWithRoles": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "authorizationState"
+      ],
       "properties": {
         "userRoleIds": {
           "type": "array",
@@ -18538,6 +19365,144 @@
           "type": "string"
         },
         "emailAddress": {
+          "type": "string"
+        },
+        "authorizationState": {
+          "$ref": "#/definitions/AuthorizationState"
+        }
+      }
+    },
+    "UserAggregationRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "searchString": {
+          "type": "string"
+        },
+        "searchBehaviours": {
+          "type": "array",
+          "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+          "items": {
+            "$ref": "#/definitions/SearchBehaviour"
+          }
+        },
+        "sort": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SortInfo"
+          }
+        },
+        "filter": {
+          "description": "An optional search filter. Limits the content document result set.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/FilterBase"
+            }
+          ]
+        },
+        "aggregationFilters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregationFilter"
+          }
+        },
+        "aggregators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/AggregatorBase"
+          }
+        },
+        "displayLanguage": {
+          "type": "string"
+        }
+      }
+    },
+    "UserLockRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lock"
+      ],
+      "properties": {
+        "userIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "lock": {
+          "type": "boolean"
+        }
+      }
+    },
+    "UserReviewRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reviewed"
+      ],
+      "properties": {
+        "userIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reviewed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "UserCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "languageCode": {
+          "type": "string"
+        },
+        "userRoleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UserDeactivateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ownerTokenTransferUserId": {
+          "type": "string"
+        }
+      }
+    },
+    "UserReactivateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "userIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ownerTokenTransferUserId": {
           "type": "string"
         }
       }
