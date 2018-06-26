@@ -5466,7 +5466,8 @@
               "ManageListItems",
               "ManageServiceProviders",
               "ManageEmbeds",
-              "ManageTemplates"
+              "ManageTemplates",
+              "ManageTermsOfService"
             ]
           }
         ],
@@ -10054,7 +10055,8 @@
         "ManageListItems",
         "ManageServiceProviders",
         "ManageEmbeds",
-        "ManageTemplates"
+        "ManageTemplates",
+        "ManageTermsOfService"
       ],
       "enum": [
         "ManageContent",
@@ -10070,7 +10072,8 @@
         "ManageListItems",
         "ManageServiceProviders",
         "ManageEmbeds",
-        "ManageTemplates"
+        "ManageTemplates",
+        "ManageTermsOfService"
       ]
     },
     "PermissionSetNotFoundException": {
@@ -14067,12 +14070,6 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/SearchBehaviour"
-          }
-        },
-        "sort": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
           }
         }
       }
@@ -18136,12 +18133,6 @@
             "$ref": "#/definitions/SearchBehaviour"
           }
         },
-        "sort": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
-          }
-        },
         "start": {
           "type": "integer",
           "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
@@ -18894,12 +18885,6 @@
             "$ref": "#/definitions/SearchBehaviour"
           }
         },
-        "sort": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
-          }
-        },
         "start": {
           "type": "integer",
           "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
@@ -19474,6 +19459,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "address": {
+          "$ref": "#/definitions/UserAddress"
         }
       }
     },
