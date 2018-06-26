@@ -9639,9 +9639,16 @@
       "type": "object",
       "x-abstract": true,
       "additionalProperties": false,
+      "required": [
+        "startTime"
+      ],
       "properties": {
         "repositoryName": {
           "type": "string"
+        },
+        "startTime": {
+          "type": "string",
+          "format": "date-time"
         }
       }
     },
@@ -9649,7 +9656,8 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "entityType"
+        "entityType",
+        "isArchived"
       ],
       "properties": {
         "id": {
@@ -9663,6 +9671,9 @@
         },
         "entityType": {
           "$ref": "#/definitions/BackupEntityType"
+        },
+        "isArchived": {
+          "type": "boolean"
         }
       }
     },
@@ -9936,8 +9947,7 @@
         "startTime",
         "startTimeInMilliseconds",
         "entityType",
-        "restoreDate",
-        "isArchived"
+        "restoreDate"
       ],
       "properties": {
         "durationInMilliseconds": {
@@ -10000,9 +10010,6 @@
         "restoreDate": {
           "type": "string",
           "format": "date-time"
-        },
-        "isArchived": {
-          "type": "boolean"
         }
       }
     },
@@ -10093,19 +10100,7 @@
         "cleanupTime"
       ],
       "properties": {
-        "cleanupSucceededSnapshots": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SnapshotsCleanupSnapshotInfo"
-          }
-        },
-        "cleanupFailedSnapshots": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SnapshotsCleanupSnapshotInfo"
-          }
-        },
-        "emptyRepositories": {
+        "repositories": {
           "type": "array",
           "items": {
             "type": "string"
@@ -10114,18 +10109,6 @@
         "cleanupTime": {
           "type": "string",
           "format": "date-time"
-        }
-      }
-    },
-    "SnapshotsCleanupSnapshotInfo": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "repositoryName": {
-          "type": "string"
         }
       }
     },
