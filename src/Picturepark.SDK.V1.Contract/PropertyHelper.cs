@@ -9,6 +9,8 @@ namespace Picturepark.SDK.V1.Contract
     {
         public static string ToLowerCamelCase(this string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+                return value;
             return char.ToLowerInvariant(value[0]) + value.Substring(1);
         }
 
@@ -25,7 +27,7 @@ namespace Picturepark.SDK.V1.Contract
         private static string GetLowerCamelCasePropertyPath(Expression expr)
         {
             var path = new StringBuilder();
-            MemberExpression memberExpression = GetMemberExpression(expr);
+            var memberExpression = GetMemberExpression(expr);
             do
             {
                 if (path.Length > 0)
@@ -43,21 +45,20 @@ namespace Picturepark.SDK.V1.Contract
 
         private static MemberExpression GetMemberExpression(Expression expression)
         {
-            if (expression is MemberExpression)
+            switch (expression)
             {
-                return (MemberExpression)expression;
-            }
-            else if (expression is LambdaExpression)
-            {
-                var lambdaExpression = expression as LambdaExpression;
-                if (lambdaExpression.Body is MemberExpression)
-                {
-                    return (MemberExpression)lambdaExpression.Body;
-                }
-                else if (lambdaExpression.Body is UnaryExpression)
-                {
-                    return (MemberExpression)((UnaryExpression)lambdaExpression.Body).Operand;
-                }
+                case MemberExpression memberExpression:
+                    return memberExpression;
+                case LambdaExpression lambdaExpression:
+                    switch (lambdaExpression.Body)
+                    {
+                        case MemberExpression memberExpression2:
+                            return memberExpression2;
+                        case UnaryExpression unaryExpression:
+                            return (MemberExpression)unaryExpression.Operand;
+                    }
+
+                    break;
             }
 
             return null;

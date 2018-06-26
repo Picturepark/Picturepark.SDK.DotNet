@@ -103,7 +103,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             return await RandomHelper.GetRandomShareIdAsync(_client, shareType, limit);
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             _client.Dispose();
         }

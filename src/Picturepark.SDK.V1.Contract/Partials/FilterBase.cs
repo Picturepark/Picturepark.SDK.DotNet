@@ -25,7 +25,7 @@ namespace Picturepark.SDK.V1.Contract
         public static TermsFilter FromExpression<TObject>(Expression<Func<TObject, object>> propertyExpression, params string[] terms)
         {
             var name = PropertyHelper.GetLowerCamelCasePropertyPath(propertyExpression);
-            return new TermsFilter { Field = name, Terms = terms.ToList() };
+            return new TermsFilter { Field = name, Terms = terms };
         }
     }
 }

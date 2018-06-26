@@ -6816,7 +6816,8 @@
         "ManageListItems",
         "ManageServiceProviders",
         "ManageEmbeds",
-        "ManageTemplates"
+        "ManageTemplates",
+        "ManageTermsOfService"
       ],
       "enum": [
         "ManageContent",
@@ -6832,7 +6833,8 @@
         "ManageListItems",
         "ManageServiceProviders",
         "ManageEmbeds",
-        "ManageTemplates"
+        "ManageTemplates",
+        "ManageTermsOfService"
       ]
     },
     "PermissionSetNotFoundException": {
@@ -8599,12 +8601,6 @@
         "searchString": {
           "type": "string"
         },
-        "sort": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
-          }
-        },
         "start": {
           "type": "integer",
           "format": "int32"
@@ -8617,39 +8613,6 @@
           "$ref": "#/definitions/FilterBase"
         }
       }
-    },
-    "SortInfo": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "direction"
-      ],
-      "properties": {
-        "field": {
-          "type": "string",
-          "description": "The elastic search index field to sort on."
-        },
-        "direction": {
-          "description": "The sort direction (Asc/Desc).",
-          "allOf": [
-            {
-              "$ref": "#/definitions/SortDirection"
-            }
-          ]
-        }
-      }
-    },
-    "SortDirection": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Asc",
-        "Desc"
-      ],
-      "enum": [
-        "Asc",
-        "Desc"
-      ]
     },
     "FilterBase": {
       "type": "object",
@@ -9897,12 +9860,6 @@
       "properties": {
         "searchString": {
           "type": "string"
-        },
-        "sort": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/SortInfo"
-          }
         },
         "start": {
           "type": "integer",

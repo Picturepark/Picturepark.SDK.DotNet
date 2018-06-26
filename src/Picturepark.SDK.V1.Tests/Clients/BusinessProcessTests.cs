@@ -26,15 +26,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new BusinessProcessSearchRequest
             {
                 Start = 0,
-                Limit = 20,
-                Sort = new List<SortInfo>
-                {
-                    new SortInfo
-                    {
-                        Field = "audit.creationDate",
-                        Direction = SortDirection.Desc
-                    }
-                }
+                Limit = 20
             };
 
             /// Act
