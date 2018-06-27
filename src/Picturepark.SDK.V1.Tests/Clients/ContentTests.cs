@@ -371,9 +371,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldDownloadSingle()
         {
-            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             Assert.False(string.IsNullOrEmpty(contentId));
-            ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);
+            ContentDetail contentDetail = await _client.Contents.GetAsync(contentId, new ContentResolveBehaviour[] { ContentResolveBehaviour.Content }).ConfigureAwait(false);
 
             var fileMetadata = contentDetail.GetFileMetadata();
             var fileName = new Random().Next(0, 999999) + "-" + fileMetadata.FileName + ".jpg";
@@ -382,12 +382,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
             if (File.Exists(filePath))
                 File.Delete(filePath);
 
-            using (var response = await _client.Contents.DownloadAsync(contentId, "Original", null, null, "bytes=0-20000000"))
+            using (var response = await _client.Contents.DownloadAsync(contentId, "Original", null, null, "bytes=0-20000000").ConfigureAwait(false))
             {
                 var stream = response.Stream;
                 Assert.True(stream.CanRead);
 
-                await response.Stream.WriteToFileAsync(filePath);
+                await response.Stream.WriteToFileAsync(filePath).ConfigureAwait(false);
                 Assert.True(File.Exists(filePath));
             }
         }
@@ -842,10 +842,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldDownloadSingleResized()
         {
             // Download a resized version of an image file
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
 
             Assert.False(string.IsNullOrEmpty(contentId));
-            ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);
+            ContentDetail contentDetail = await _client.Contents.GetAsync(contentId, new ContentResolveBehaviour[] { ContentResolveBehaviour.Content }).ConfigureAwait(false);
 
             var fileMetadata = contentDetail.GetFileMetadata();
             var fileName = new Random().Next(0, 999999) + "-" + fileMetadata.FileName + ".jpg";
@@ -854,9 +854,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             if (File.Exists(filePath))
                 File.Delete(filePath);
 
-            using (var response = await _client.Contents.DownloadAsync(contentId, "Original", 200, 200))
+            using (var response = await _client.Contents.DownloadAsync(contentId, "Original", 200, 200).ConfigureAwait(false))
             {
-                await response.Stream.WriteToFileAsync(filePath);
+                await response.Stream.WriteToFileAsync(filePath).ConfigureAwait(false);
             }
 
             Assert.True(File.Exists(filePath));

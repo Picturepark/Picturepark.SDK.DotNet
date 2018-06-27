@@ -231,7 +231,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateObjectWithoutHelper()
         {
             /// Arrange
-            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client);
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client).ConfigureAwait(false);
 
             var originalPlayer = new SoccerPlayer
             {
@@ -248,7 +248,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Content = originalPlayer
             };
 
-            var playerItem = await _client.ListItems.CreateAsync(createRequest);
+            var playerItem = await _client.ListItems.CreateAsync(createRequest, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
             /// Assert
             Assert.NotNull(playerItem);
@@ -409,7 +409,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdateMany()
         {
             /// Arrange
-            await SchemaHelper.CreateSchemasIfNotExistentAsync<SoccerPlayer>(_client);
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<SoccerPlayer>(_client).ConfigureAwait(false);
 
             var originalPlayer = new SoccerPlayer
             {
@@ -425,7 +425,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Content = originalPlayer
             };
 
-            var playerItem = await _client.ListItems.CreateAsync(createRequest);
+            var playerItem = await _client.ListItems.CreateAsync(createRequest, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
             /// Act
             var player = playerItem.ConvertTo<SoccerPlayer>(nameof(SoccerPlayer));
@@ -438,10 +438,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     new ListItemUpdateRequest { Id = playerItem.Id, Content = player }
                 }
-            });
+            }).ConfigureAwait(false);
 
-            await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
-            var updatedPlayer = await _client.ListItems.GetAndConvertToAsync<SoccerPlayer>(playerItem.Id, nameof(SoccerPlayer));
+            await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+            var updatedPlayer = await _client.ListItems.GetAndConvertToAsync<SoccerPlayer>(playerItem.Id, nameof(SoccerPlayer)).ConfigureAwait(false);
 
             /// Assert
             Assert.Equal(player.Firstname, updatedPlayer.Firstname);
