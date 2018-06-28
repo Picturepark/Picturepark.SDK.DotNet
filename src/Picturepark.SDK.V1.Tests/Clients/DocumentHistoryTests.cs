@@ -94,8 +94,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // TODO: Create ContentHelper to update and wait with one call => UpdateMetadataManyAndWaitForCompletionAsync?
-            var businessProcess = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest);
-            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+            await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest);
 
             // Refetch content and compare versions
             var updatedHistory = await _client.DocumentHistory.GetAsync(contentId);
@@ -104,7 +103,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var difference = await _client.DocumentHistory.GetDifferenceAsync(contentId, history.DocumentVersion, updatedHistory.DocumentVersion);
 
             /// Assert
-            Assert.True(waitResult.HasLifeCycleHit);
             Assert.NotEqual(0, updatedHistory.DocumentVersion);
             Assert.Contains(@"""name"": """ + location + @"""", difference.NewValues.ToString());
         }

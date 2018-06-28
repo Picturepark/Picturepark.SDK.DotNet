@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Xunit;
 using System.IO;
 using System.Net.Http;
+using FluentAssertions;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Newtonsoft.Json;
@@ -332,16 +333,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var result = await _client.Contents.CreateManyAsync(new ContentCreateManyRequest
+            var contents = await _client.Contents.CreateManyAsync(new ContentCreateManyRequest
             {
                 AllowMissingDependencies = false,
                 Requests = new List<ContentCreateRequest> { request1, request2 }
             });
-            await _client.BusinessProcesses.WaitForCompletionAsync(result.Id);
 
             /// Assert
-            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
-            Assert.False(string.IsNullOrEmpty(contentId));
+            var contentsAsArray = contents.ToArray();
+            contentsAsArray[0].Id.Should().NotBeEmpty();
+            contentsAsArray[1].Id.Should().NotBeEmpty();
         }
 
         [Fact]
@@ -485,15 +486,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var waitResult = await _client.Contents.UpdateMetadataManyAsync(new ContentMetadataUpdateManyRequest
+            var results = await _client.Contents.UpdateMetadataManyAsync(new ContentMetadataUpdateManyRequest
             {
                 AllowMissingDependencies = false,
                 Requests = new List<ContentMetadataUpdateRequest> { request1, request2 }
             });
-            var result = await _client.BusinessProcesses.WaitForCompletionAsync(waitResult.Id);
 
             /// Assert
-            Assert.Equal(BusinessProcessLifeCycle.Succeeded, result.BusinessProcess.LifeCycle);
+            results.Should().HaveCount(2);
         }
 
         [Fact]
@@ -787,11 +787,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var businessProcess = await _client.Contents.BatchUpdateFieldsByFilterAsync(request);
-            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+            var results = await _client.Contents.BatchUpdateFieldsByFilterAsync(request);
 
             /// Assert
-            Assert.True(waitResult.HasLifeCycleHit);
+            results.Should().HaveCount(1);
         }
 
         [Fact]
@@ -820,11 +819,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var businessProcess = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest);
-            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+            var results = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest);
 
             /// Assert
-            Assert.True(waitResult.HasLifeCycleHit);
+            results.Should().HaveCount(1);
         }
 
         [Fact]

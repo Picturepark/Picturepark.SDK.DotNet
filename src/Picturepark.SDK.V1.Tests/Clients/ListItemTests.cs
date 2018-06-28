@@ -431,7 +431,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var player = playerItem.ConvertTo<SoccerPlayer>(nameof(SoccerPlayer));
             player.Firstname = "xy jviorej ivorejvioe";
 
-            var businessProcess = await _client.ListItems.UpdateManyAsync(new ListItemUpdateManyRequest
+            await _client.ListItems.UpdateManyAsync(new ListItemUpdateManyRequest
             {
                 AllowMissingDependencies = false,
                 Requests = new[]
@@ -440,7 +440,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             });
 
-            await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
             var updatedPlayer = await _client.ListItems.GetAndConvertToAsync<SoccerPlayer>(playerItem.Id, nameof(SoccerPlayer));
 
             /// Assert
@@ -521,6 +520,77 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Assert
             Assert.NotNull(await _client.ListItems.GetAsync(listItem1.Id, true));
             Assert.NotNull(await _client.ListItems.GetAsync(listItem2.Id, true));
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldThrowExceptionWhenNotAllItemsCanBeCreated()
+        {
+            /// Arange
+            var listItem1 = new ListItemCreateRequest()
+            {
+                ContentSchemaId = nameof(Tag),
+                Content = new Tag { Name = "ListItem1" }
+            };
+
+            var listItem2 = new ListItemCreateRequest()
+            {
+                ContentSchemaId = nameof(Tag),
+                Content = new { Name = 12345 }
+            };
+
+            /// Act & Assert
+            await Assert.ThrowsAsync<Exception>(
+                async () =>
+                    await _client.ListItems.CreateManyAsync(
+                        new ListItemCreateManyRequest()
+                        {
+                            Requests = new List<ListItemCreateRequest> { listItem1, listItem2 }
+                        }));
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldThrowExceptionWhenNotAllItemsCanBeUpdated()
+        {
+            /// Arange
+            var listItem1 = new ListItemCreateRequest()
+            {
+                ContentSchemaId = nameof(Tag),
+                Content = new Tag { Name = "ListItem1" }
+            };
+
+            var listItem2 = new ListItemCreateRequest()
+            {
+                ContentSchemaId = nameof(Tag),
+                Content = new Tag { Name = "ListItem2" }
+            };
+
+            var listItems = await _client.ListItems.CreateManyAsync(
+                new ListItemCreateManyRequest()
+                {
+                    Requests = new List<ListItemCreateRequest> { listItem1, listItem2 }
+                });
+
+            var updateRequest1 = new ListItemUpdateRequest
+            {
+                Id = listItems.First().Id,
+                Content = new Tag { Name = "ListItem1, updated" }
+            };
+
+            var updateRequest2 = new ListItemUpdateRequest
+            {
+                Id = listItems.Last().Id,
+                Content = new { Name = 12345 }
+            };
+
+            /// Act & Assert
+            await Assert.ThrowsAsync<Exception>(
+                async () => await _client.ListItems.UpdateManyAsync(
+                    new ListItemUpdateManyRequest
+                    {
+                        Requests = new List<ListItemUpdateRequest> { updateRequest1, updateRequest2 }
+                    }));
         }
     }
 }

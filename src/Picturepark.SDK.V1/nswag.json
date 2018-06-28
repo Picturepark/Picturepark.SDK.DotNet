@@ -19,7 +19,12 @@
         "BusinessProcessClient.WaitForCompletionAsync",
         "BusinessProcessClient.WaitAsync",
         "ListItemClient.CreateManyAsync",
+        "ListItemClient.UpdateManyAsync",
         "ListItemClient.UpdateAsync",
+        "ContentClient.CreateManyAsync",
+        "ContentClient.UpdateMetadataManyAsync",
+        "ContentClient.BatchUpdateFieldsByFilterAsync",
+        "ContentClient.BatchUpdateFieldsByIdsAsync",
         "SchemaClient.ExistsAsync",
         "JsonSchemaClient.GetAsync"
       ],
