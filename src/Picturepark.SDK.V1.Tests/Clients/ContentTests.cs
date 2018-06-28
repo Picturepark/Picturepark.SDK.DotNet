@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Xunit;
 using System.IO;
 using System.Net.Http;
+using FluentAssertions;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Newtonsoft.Json;
@@ -332,16 +333,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var result = await _client.Contents.CreateManyAsync(new ContentCreateManyRequest
+            var contents = await _client.Contents.CreateManyAsync(new ContentCreateManyRequest
             {
                 AllowMissingDependencies = false,
                 Requests = new List<ContentCreateRequest> { request1, request2 }
             });
-            await _client.BusinessProcesses.WaitForCompletionAsync(result.Id);
 
             /// Assert
-            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
-            Assert.False(string.IsNullOrEmpty(contentId));
+            var contentsAsArray = contents.ToArray();
+            contentsAsArray[0].Id.Should().NotBeEmpty();
+            contentsAsArray[1].Id.Should().NotBeEmpty();
         }
 
         [Fact]
@@ -485,15 +486,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var waitResult = await _client.Contents.UpdateMetadataManyAsync(new ContentMetadataUpdateManyRequest
+            var results = await _client.Contents.UpdateMetadataManyAsync(new ContentMetadataUpdateManyRequest
             {
                 AllowMissingDependencies = false,
                 Requests = new List<ContentMetadataUpdateRequest> { request1, request2 }
             });
-            var result = await _client.BusinessProcesses.WaitForCompletionAsync(waitResult.Id);
 
             /// Assert
-            Assert.Equal(BusinessProcessLifeCycle.Succeeded, result.BusinessProcess.LifeCycle);
+            results.Should().HaveCount(2);
         }
 
         [Fact]
@@ -787,11 +787,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var businessProcess = await _client.Contents.BatchUpdateFieldsByFilterAsync(request);
-            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+            var results = await _client.Contents.BatchUpdateFieldsByFilterAsync(request);
 
             /// Assert
-            Assert.True(waitResult.HasLifeCycleHit);
+            results.Should().HaveCount(1);
         }
 
         [Fact]
@@ -820,11 +819,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var businessProcess = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest);
-            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+            var results = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest);
 
             /// Assert
-            Assert.True(waitResult.HasLifeCycleHit);
+            results.Should().HaveCount(1);
         }
 
         [Fact]
@@ -1167,6 +1165,93 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Assert
             Assert.True(!contentPermissionSetIds.Except(currentContentPermissionSetIds).Any());
             Assert.True(!currentContentPermissionSetIds.Except(contentPermissionSetIds).Any());
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldThrowWhenNotAllContentsCanBeCreated()
+        {
+            /// Arrange
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(ContentItem));
+            foreach (var schema in schemas)
+            {
+                await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, false);
+            }
+
+            var request1 = new ContentCreateRequest
+            {
+                Content = new ContentItem { Name = "Name" },
+                ContentSchemaId = nameof(ContentItem),
+                Metadata = new DataDictionary()
+            };
+
+            var request2 = new ContentCreateRequest
+            {
+                Content = new { Name = 12345 },
+                ContentSchemaId = nameof(ContentItem),
+                Metadata = new DataDictionary()
+            };
+
+            /// Act
+            await Assert.ThrowsAsync<Exception>(
+                async () => await _client.Contents.CreateManyAsync(
+                    new ContentCreateManyRequest
+                    {
+                        AllowMissingDependencies = false,
+                        Requests = new List<ContentCreateRequest> { request1, request2 }
+                    }));
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldThrowWhenNotAllContentsCanBeUpdated()
+        {
+            /// Arrange
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(ContentItem));
+            foreach (var schema in schemas)
+            {
+                await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, false);
+            }
+
+            var request1 = new ContentCreateRequest
+            {
+                Content = new ContentItem { Name = "Name" },
+                ContentSchemaId = nameof(ContentItem),
+                Metadata = new DataDictionary()
+            };
+
+            var request2 = new ContentCreateRequest
+            {
+                Content = new ContentItem { Name = "Name1" },
+                ContentSchemaId = nameof(ContentItem),
+                Metadata = new DataDictionary()
+            };
+
+            var contents = await _client.Contents.CreateManyAsync(
+                new ContentCreateManyRequest
+                {
+                    AllowMissingDependencies = false,
+                    Requests = new List<ContentCreateRequest> { request1, request2 }
+                });
+
+            var updateRequest1 = new ContentMetadataUpdateRequest
+            {
+                Content = new DataDictionary { { "Name", "Name updated" } },
+                Id = contents.First().Id
+            };
+
+            var updateRequest2 = new ContentMetadataUpdateRequest
+            {
+                Content = new DataDictionary { { "Name", 12345 } },
+                Id = contents.Last().Id
+            };
+
+            await Assert.ThrowsAsync<Exception>(
+                async () => await _client.Contents.UpdateMetadataManyAsync(
+                    new ContentMetadataUpdateManyRequest()
+                    {
+                        Requests = new List<ContentMetadataUpdateRequest> { updateRequest1, updateRequest2 }
+                    }));
         }
 
         private async Task<SchemaDetail> CreateTestSchemaAsync()

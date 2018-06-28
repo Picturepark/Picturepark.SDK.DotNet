@@ -72,8 +72,8 @@ namespace Picturepark.SDK.V1
         private void Initialize(IPictureparkClientSettings settings, HttpClient httpClient)
         {
             Outputs = new OutputClient(settings, httpClient);
-            Contents = new ContentClient(settings, httpClient);
             BusinessProcesses = new BusinessProcessClient(settings, httpClient);
+            Contents = new ContentClient((BusinessProcessClient)BusinessProcesses, settings, httpClient);
             DocumentHistory = new DocumentHistoryClient(settings, httpClient);
             JsonSchemas = new JsonSchemaClient(settings, httpClient);
             Permissions = new PermissionClient(settings, httpClient);
