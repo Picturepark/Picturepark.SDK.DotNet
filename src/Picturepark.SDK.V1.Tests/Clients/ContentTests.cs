@@ -1167,6 +1167,93 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.True(!currentContentPermissionSetIds.Except(contentPermissionSetIds).Any());
         }
 
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldThrowWhenNotAllContentsCanBeCreated()
+        {
+            /// Arrange
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(ContentItem));
+            foreach (var schema in schemas)
+            {
+                await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, false);
+            }
+
+            var request1 = new ContentCreateRequest
+            {
+                Content = new ContentItem { Name = "Name" },
+                ContentSchemaId = nameof(ContentItem),
+                Metadata = new DataDictionary()
+            };
+
+            var request2 = new ContentCreateRequest
+            {
+                Content = new { Name = 12345 },
+                ContentSchemaId = nameof(ContentItem),
+                Metadata = new DataDictionary()
+            };
+
+            /// Act
+            await Assert.ThrowsAsync<Exception>(
+                async () => await _client.Contents.CreateManyAsync(
+                    new ContentCreateManyRequest
+                    {
+                        AllowMissingDependencies = false,
+                        Requests = new List<ContentCreateRequest> { request1, request2 }
+                    }));
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldThrowWhenNotAllContentsCanBeUpdated()
+        {
+            /// Arrange
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(ContentItem));
+            foreach (var schema in schemas)
+            {
+                await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, false);
+            }
+
+            var request1 = new ContentCreateRequest
+            {
+                Content = new ContentItem { Name = "Name" },
+                ContentSchemaId = nameof(ContentItem),
+                Metadata = new DataDictionary()
+            };
+
+            var request2 = new ContentCreateRequest
+            {
+                Content = new ContentItem { Name = "Name1" },
+                ContentSchemaId = nameof(ContentItem),
+                Metadata = new DataDictionary()
+            };
+
+            var contents = await _client.Contents.CreateManyAsync(
+                new ContentCreateManyRequest
+                {
+                    AllowMissingDependencies = false,
+                    Requests = new List<ContentCreateRequest> { request1, request2 }
+                });
+
+            var updateRequest1 = new ContentMetadataUpdateRequest
+            {
+                Content = new DataDictionary { { "Name", "Name updated" } },
+                Id = contents.First().Id
+            };
+
+            var updateRequest2 = new ContentMetadataUpdateRequest
+            {
+                Content = new DataDictionary { { "Name", 12345 } },
+                Id = contents.Last().Id
+            };
+
+            await Assert.ThrowsAsync<Exception>(
+                async () => await _client.Contents.UpdateMetadataManyAsync(
+                    new ContentMetadataUpdateManyRequest()
+                    {
+                        Requests = new List<ContentMetadataUpdateRequest> { updateRequest1, updateRequest2 }
+                    }));
+        }
+
         private async Task<SchemaDetail> CreateTestSchemaAsync()
         {
             var schemaId = "Test" + new Random().Next(0, 999999);
