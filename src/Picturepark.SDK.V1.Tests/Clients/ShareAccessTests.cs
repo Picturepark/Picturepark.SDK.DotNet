@@ -30,7 +30,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds },
                 new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds }
-            };
+            }.GroupBy(i => i.ContentId).Select(i => i.First()).ToList();
 
             var request = new ShareEmbedCreateRequest
             {
@@ -63,7 +63,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 new ShareContent { ContentId = contentId1, OutputFormatIds = outputFormatIds },
                 new ShareContent { ContentId = contentId2, OutputFormatIds = outputFormatIds }
-            };
+            }.GroupBy(i => i.ContentId).Select(i => i.First()).ToList();
 
             var request = new ShareEmbedCreateRequest
             {
@@ -98,7 +98,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 new ShareContent { ContentId = contentId1, OutputFormatIds = outputFormatIds },
                 new ShareContent { ContentId = contentId2, OutputFormatIds = outputFormatIds }
-            };
+            }.GroupBy(i => i.ContentId).Select(i => i.First()).ToList();
 
             var request = new ShareEmbedCreateRequest
             {
@@ -135,8 +135,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Act
             var uploadOptions = new UploadOptions
             {
-                ConcurrentUploads = 4,
-                ChunkSize = 20 * 1024,
                 SuccessDelegate = Console.WriteLine,
                 ErrorDelegate = Console.WriteLine
             };
