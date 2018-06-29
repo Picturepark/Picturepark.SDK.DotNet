@@ -13750,7 +13750,8 @@
         "Succeeded",
         "Cancelled",
         "CancellationInProgress",
-        "Failed"
+        "Failed",
+        "SucceededWithErrors"
       ],
       "enum": [
         "Draft",
@@ -13758,7 +13759,8 @@
         "Succeeded",
         "Cancelled",
         "CancellationInProgress",
-        "Failed"
+        "Failed",
+        "SucceededWithErrors"
       ]
     },
     "BusinessProcessState": {

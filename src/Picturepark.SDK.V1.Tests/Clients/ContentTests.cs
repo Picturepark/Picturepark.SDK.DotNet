@@ -1125,7 +1125,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var result = await _client.Contents.UpdatePermissionsAsync(contentDetail.Id, request, new ContentResolveBehaviour[] { }).ConfigureAwait(false);
+            var result = await _client.Contents.UpdatePermissionsAsync(contentDetail.Id, request).ConfigureAwait(false);
 
             var currentContentDetail = await _client.Contents.GetAsync(contentId).ConfigureAwait(false);
             var currentContentPermissionSetIds = currentContentDetail.ContentPermissionSetIds.Select(i => i).ToList();
