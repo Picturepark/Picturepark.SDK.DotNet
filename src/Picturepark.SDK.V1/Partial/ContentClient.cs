@@ -4,22 +4,11 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
-using Picturepark.SDK.V1.Contract.Extensions;
 
 namespace Picturepark.SDK.V1
 {
     public partial class ContentClient
     {
-        /// <summary>Gets a <see cref="ContentDetail"/> by ID.</summary>
-        /// <param name="contentId">The content ID.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The content detail.</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<ContentDetail> GetAsync(string contentId, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return await GetAsync(contentId, true, null, cancellationToken).ConfigureAwait(false);
-        }
-
         /// <summary>Deactivates a content item by ID (i.e. marks the content item as deleted).</summary>
         /// <param name="contentId">The content ID.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
@@ -28,19 +17,6 @@ namespace Picturepark.SDK.V1
         public async Task DeactivateAsync(string contentId, CancellationToken cancellationToken = default(CancellationToken))
         {
             await DeactivateAsync(contentId, null, cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <summary>Reactivates a content item by ID (i.e. marks the content item as not deleted).</summary>
-        /// <param name="contentId">The content ID.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-        /// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
-        /// <param name="allowMissingDependencies">Allow reactivating contents that refer to list items or contents that don't exist in the system.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The task.</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<ContentDetail> ReactivateAsync(string contentId, bool resolve = true, TimeSpan? timeout = null, bool allowMissingDependencies = false, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return await ReactivateAsync(contentId, resolve, timeout, null, allowMissingDependencies, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Downloads multiple files.</summary>
@@ -81,7 +57,7 @@ namespace Picturepark.SDK.V1
                 {
                     try
                     {
-                        var contentDetail = await GetAsync(content.Id, cancellationToken).ConfigureAwait(false);
+                        var contentDetail = await GetAsync(content.Id, new ContentResolveBehaviour[] { ContentResolveBehaviour.Content },  cancellationToken).ConfigureAwait(false);
                         var metadata = contentDetail.GetFileMetadata();
                         string fileNameOriginal = metadata.FileName;
 

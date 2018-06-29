@@ -21,19 +21,6 @@ namespace Picturepark.SDK.V1
             _businessProcessClient = businessProcessClient;
         }
 
-        /// <summary>Creates a <see cref="ListItemDetail"/>.</summary>
-        /// <param name="createRequest">The create request.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-        /// <param name="allowMissingDependencies">Allow creating <see cref="ListItem"/>s that refer to list items or contents that don't exist in the system.</param>
-        /// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The created <see cref="ListItemDetail"/>.</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<ListItemDetail> CreateAsync(ListItemCreateRequest createRequest, bool resolve = false, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return await CreateAsync(createRequest, resolve, allowMissingDependencies, timeout, null, cancellationToken).ConfigureAwait(false);
-        }
-
         /// <summary>Creates a <see cref="ListItem"/>s based on an object and its references.</summary>
         /// <param name="content">The object to create <see cref="ListItem"/>s from.</param>
         /// <param name="schemaId">The schema ID of the object.</param>
@@ -125,20 +112,19 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async Task<T> GetAndConvertToAsync<T>(string listItemId, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var listItem = await GetAsync(listItemId, true, cancellationToken: cancellationToken).ConfigureAwait(false);
+            var listItem = await GetAsync(listItemId, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content, ListItemResolveBehaviour.LinkedListItems }, cancellationToken).ConfigureAwait(false);
             return listItem.ConvertTo<T>(schemaId);
         }
 
         /// <summary>Updates a list item by providing its content.</summary>
         /// <param name="listItemId">The list item ID.</param>
         /// <param name="content">The content which must match the item's schema ID.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="resolveBehaviours">List of enum that control which parts of the list item are resolved and returned.</param>
         /// <param name="allowMissingDependencies">Allow creating <see cref="ListItem"/>s that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
-        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The updated <see cref="ListItemDetail"/>.</returns>
-        public async Task<ListItemDetail> UpdateAsync(string listItemId, object content, bool resolve = false, bool allowMissingDependencies = false, TimeSpan? timeout = null, IEnumerable<DisplayPatternType> patterns = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemDetail> UpdateAsync(string listItemId, object content, IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var updateRequest = new ListItemUpdateRequest()
             {
@@ -146,20 +132,19 @@ namespace Picturepark.SDK.V1
                 Content = content
             };
 
-            return await UpdateAsync(updateRequest, resolve, allowMissingDependencies, timeout, patterns, cancellationToken).ConfigureAwait(false);
+            return await UpdateAsync(updateRequest, resolveBehaviours, allowMissingDependencies, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Updates a list item.</summary>
         /// <param name="updateRequest">The update request.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="resolveBehaviours">List of enum that control which parts of the list item are resolved and returned.</param>
         /// <param name="allowMissingDependencies">Allow creating <see cref="ListItem"/>s that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
-        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The updated <see cref="ListItemDetail"/>.</returns>
-        public async Task<ListItemDetail> UpdateAsync(ListItemUpdateRequest updateRequest, bool resolve = false, bool allowMissingDependencies = false, TimeSpan? timeout = null, IEnumerable<DisplayPatternType> patterns = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemDetail> UpdateAsync(ListItemUpdateRequest updateRequest, IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await UpdateCoreAsync(updateRequest.Id, updateRequest, resolve, allowMissingDependencies, timeout, patterns, cancellationToken).ConfigureAwait(false);
+            return await UpdateCoreAsync(updateRequest.Id, updateRequest, resolveBehaviours, allowMissingDependencies, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         private bool IsSimpleType(Type type)
