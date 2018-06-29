@@ -90,7 +90,8 @@ namespace Picturepark.SDK.V1
             return await _httpClient.Poll(timeout, cancellationToken, async () =>
             {
                 var waitResult = await WaitForCompletionCoreAsync(processId, timeout, cancellationToken).ConfigureAwait(false);
-                if (waitResult.HasLifeCycleHit && waitResult.BusinessProcess.LifeCycle == BusinessProcessLifeCycle.Succeeded)
+                if (waitResult.HasLifeCycleHit && (waitResult.BusinessProcess.LifeCycle == BusinessProcessLifeCycle.Succeeded ||
+                                                   waitResult.BusinessProcess.LifeCycle == BusinessProcessLifeCycle.SucceededWithErrors))
                     return waitResult;
 
                 var errors = waitResult.BusinessProcess.StateHistory?
