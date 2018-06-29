@@ -13,8 +13,7 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>Get detail - single</summary>
         /// <param name="contentId">The content id.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-        /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
+        /// <param name="resolveBehaviours">List of enum that control which parts of the content are resolved and returned</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ContentNotFoundException">Content not found</exception>
@@ -23,12 +22,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> GetAsync(string contentId, bool resolve, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> GetAsync(string contentId, System.Collections.Generic.IEnumerable<ContentResolveBehaviour> resolveBehaviours = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get detail - many</summary>
         /// <param name="ids">List of contentIds</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
-        /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
+        /// <param name="resolveBehaviours">List of enum that control which parts of the content are resolved and returned</param>
         /// <returns>List of ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -36,7 +34,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, bool resolve, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Collections.Generic.IEnumerable<ContentResolveBehaviour> resolveBehaviours = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Create - many</summary>
         /// <param name="contentCreateManyRequest">The content create many request.</param>
@@ -123,10 +121,9 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Create - single</summary>
         /// <param name="contentCreateRequest">The content create request.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="resolveBehaviours">List of enum that control which parts of the content are resolved and returned</param>
         /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -134,7 +131,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> CreateAsync(ContentCreateRequest contentCreateRequest, bool resolve, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> CreateAsync(ContentCreateRequest contentCreateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehaviour> resolveBehaviours = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Deactivate - single</summary>
         /// <param name="contentId">the id of the content to deactivate</param>
@@ -146,7 +143,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> DeactivateAsync(string contentId, System.TimeSpan? timeout, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeactivateAsync(string contentId, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Deactivate - many</summary>
         /// <param name="deactivateRequest">The deactivate request</param>
@@ -161,11 +158,9 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Reactivate - single</summary>
         /// <param name="contentId">The content id.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
         /// <param name="allowMissingDependencies">Allow reactivating contents that refer to list items or contents that don't exist in the system.</param>
-        /// <returns>ContentDetail</returns>
+        /// <returns>Void</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -173,7 +168,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> ReactivateAsync(string contentId, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, bool? allowMissingDependencies = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task ReactivateAsync(string contentId, System.TimeSpan? timeout = null, bool? allowMissingDependencies = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Reactivate - many</summary>
         /// <param name="reactivateRequest">The content reactivate request.</param>
@@ -200,10 +195,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Update metadata - single</summary>
         /// <param name="contentId">The content id.</param>
         /// <param name="updateRequest">The metadata update request.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="resolveBehaviours">List of enum that control which parts of the content are resolved and returned</param>
         /// <param name="allowMissingDependencies">Allow storing references to missing list items</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
@@ -212,14 +206,13 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, ContentMetadataUpdateRequest updateRequest, bool resolve, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, ContentMetadataUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehaviour> resolveBehaviours = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update permissions - single</summary>
         /// <param name="contentId">The content id.</param>
         /// <param name="updateRequest">The content permission update request.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the contents's content.</param>
+        /// <param name="resolveBehaviours">List of enum that control which parts of the content are resolved and returned</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
@@ -228,7 +221,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string contentId, ContentPermissionsUpdateRequest updateRequest, bool resolve, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string contentId, ContentPermissionsUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehaviour> resolveBehaviours = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update metadata - many</summary>
         /// <param name="updateRequest">The metadata update requests.</param>
@@ -403,8 +396,8 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>Get - single</summary>
         /// <param name="listItemId">The list item id.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
-        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
+        /// <param name="resolveBehaviours">List of enum that control which parts of the list item are resolved and returned</param>
+        /// <returns>List item detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ListItemNotFoundException">A server side error occurred.</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -412,7 +405,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ListItemDetail> GetAsync(string listItemId, bool resolve, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListItemDetail> GetAsync(string listItemId, System.Collections.Generic.IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Search</summary>
         /// <param name="listItemSearchRequest">The list item search request.</param>
@@ -438,10 +431,9 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Create - single</summary>
         /// <param name="listItemCreateRequest">List item create request.</param>
-        /// <param name="resolve">Resolves the data of referenced list items into the list item's content.</param>
+        /// <param name="resolveBehaviours">List of enum that control which parts of the list item are resolved and returned</param>
         /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <param name="patterns">Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.</param>
         /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
@@ -450,7 +442,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItemCreateRequest, bool resolve, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItemCreateRequest, System.Collections.Generic.IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update - many</summary>
         /// <param name="listItemUpdateManyRequest">List item update many request.</param>
@@ -467,6 +459,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="listItemId">the id of the list item to deactivate</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="forceReferenceRemoval">A value indicating whether references to the listitem should be removed.</param>
+        /// <returns>Void</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -474,7 +467,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ListItemDetail> DeactivateAsync(string listItemId, System.TimeSpan? timeout, bool? forceReferenceRemoval = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeactivateAsync(string listItemId, System.TimeSpan? timeout, bool? forceReferenceRemoval = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Deactivate - many</summary>
         /// <param name="deactivateRequest">The list items deactivate request</param>
@@ -490,9 +483,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Reactivate - single</summary>
         /// <param name="listItemId">The list item id.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <param name="patterns">List of display pattern types. Resolves display values of referenced list items where the display pattern matches.</param>
         /// <param name="allowMissingDependencies">Allow reactivating list items that refer to list items or contents that don't exist in the system.</param>
-        /// <returns>ListItemDetail</returns>
+        /// <returns>Void</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -500,7 +492,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ListItemDetail> ReactivateAsync(string listItemId, System.TimeSpan? timeout = null, System.Collections.Generic.IEnumerable<DisplayPatternType> patterns = null, bool? allowMissingDependencies = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task ReactivateAsync(string listItemId, System.TimeSpan? timeout = null, bool? allowMissingDependencies = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Reactivate - many</summary>
         /// <param name="reactivateRequest">The list items reactivate request.</param>
@@ -1306,26 +1298,46 @@ namespace Picturepark.SDK.V1.Contract
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum DisplayPatternType
+    public enum ContentResolveBehaviour
     {
-        [System.Runtime.Serialization.EnumMember(Value = "Thumbnail")]
+        [System.Runtime.Serialization.EnumMember(Value = "Content")]
     
-        Thumbnail = 0,
-    
-    
-        [System.Runtime.Serialization.EnumMember(Value = "List")]
-    
-        List = 1,
+        Content = 0,
     
     
-        [System.Runtime.Serialization.EnumMember(Value = "Detail")]
+        [System.Runtime.Serialization.EnumMember(Value = "LinkedListItems")]
     
-        Detail = 2,
+        LinkedListItems = 1,
     
     
-        [System.Runtime.Serialization.EnumMember(Value = "Name")]
+        [System.Runtime.Serialization.EnumMember(Value = "Metadata")]
     
-        Name = 3,
+        Metadata = 2,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Outputs")]
+    
+        Outputs = 3,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueThumbnail")]
+    
+        InnerDisplayValueThumbnail = 4,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueList")]
+    
+        InnerDisplayValueList = 5,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueDetail")]
+    
+        InnerDisplayValueDetail = 6,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueName")]
+    
+        InnerDisplayValueName = 7,
     
     
     }
@@ -7273,12 +7285,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("resolve", Required = Newtonsoft.Json.Required.Always)]
-        public bool Resolve { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("displayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> DisplayPatternIds { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("forceReferenceRemoval", Required = Newtonsoft.Json.Required.Always)]
         public bool ForceReferenceRemoval { get; set; }
     
@@ -7299,12 +7305,6 @@ namespace Picturepark.SDK.V1.Contract
     {
         [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("resolve", Required = Newtonsoft.Json.Required.Always)]
-        public bool Resolve { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("displayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> DisplayPatternIds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowMissingDependencies { get; set; }
@@ -8421,6 +8421,41 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ListItemResolveBehaviour
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Content")]
+    
+        Content = 0,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "LinkedListItems")]
+    
+        LinkedListItems = 1,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueThumbnail")]
+    
+        InnerDisplayValueThumbnail = 2,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueList")]
+    
+        InnerDisplayValueList = 3,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueDetail")]
+    
+        InnerDisplayValueDetail = 4,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueName")]
+    
+        InnerDisplayValueName = 5,
+    
+    
+    }
+    
     /// <summary>The detail view item for the list item.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ListItemDetail 
@@ -9207,6 +9242,31 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "DotLiquid")]
     
         DotLiquid = 0,
+    
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum DisplayPatternType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Thumbnail")]
+    
+        Thumbnail = 0,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "List")]
+    
+        List = 1,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Detail")]
+    
+        Detail = 2,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Name")]
+    
+        Name = 3,
     
     
     }
