@@ -6138,9 +6138,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.TimeSpan SnapshotRetentionTime { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("snapshotFullbackScheduleTime", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("snapshotFullbackupScheduleTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public System.TimeSpan SnapshotFullbackScheduleTime { get; set; }
+        public System.TimeSpan SnapshotFullbackupScheduleTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Always)]
         public bool UseSsl { get; set; }
