@@ -4049,6 +4049,7 @@
         "contentRetentionTime",
         "listItemRetentionTime",
         "snapshotRetentionTime",
+        "snapshotFullbackupScheduleTime",
         "contentBackupState"
       ],
       "properties": {
@@ -4156,6 +4157,10 @@
           "format": "time-span"
         },
         "snapshotRetentionTime": {
+          "type": "string",
+          "format": "time-span"
+        },
+        "snapshotFullbackupScheduleTime": {
           "type": "string",
           "format": "time-span"
         },
@@ -5333,6 +5338,7 @@
         "contentRetentionTime",
         "listItemRetentionTime",
         "snapshotRetentionTime",
+        "snapshotFullbackupScheduleTime",
         "contentBackupState"
       ],
       "properties": {
@@ -5519,6 +5525,10 @@
           "format": "time-span"
         },
         "snapshotRetentionTime": {
+          "type": "string",
+          "format": "time-span"
+        },
+        "snapshotFullbackupScheduleTime": {
           "type": "string",
           "format": "time-span"
         },
@@ -5764,6 +5774,15 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkForbiddenException"
+        }
+      ]
+    },
+    "TermsOfServiceNotNewestException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
         }
       ]
     },
@@ -8424,6 +8443,15 @@
         }
       ]
     },
+    "NoTermsOfServiceDefinedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "BusinessProcessStateNotHitException": {
       "type": "object",
       "additionalProperties": false,
@@ -8504,6 +8532,7 @@
         "contentRetentionTime",
         "listItemRetentionTime",
         "snapshotRetentionTime",
+        "snapshotFullbackupScheduleTime",
         "useSsl"
       ],
       "properties": {
@@ -8537,6 +8566,10 @@
           "format": "time-span"
         },
         "snapshotRetentionTime": {
+          "type": "string",
+          "format": "time-span"
+        },
+        "snapshotFullbackupScheduleTime": {
           "type": "string",
           "format": "time-span"
         },
@@ -10015,6 +10048,8 @@
         "durationInMilliseconds",
         "endTime",
         "endTimeInMilliseconds",
+        "repositoryStartTime",
+        "repositoryIsArchived",
         "startTime",
         "startTimeInMilliseconds",
         "entityType",
@@ -10057,6 +10092,15 @@
         "repositoryName": {
           "type": "string",
           "description": "The repository name."
+        },
+        "repositoryStartTime": {
+          "type": "string",
+          "description": "The repository start time.",
+          "format": "date-time"
+        },
+        "repositoryIsArchived": {
+          "type": "boolean",
+          "description": "Is the repository already archived?"
         },
         "startTime": {
           "type": "string",

@@ -9311,6 +9311,15 @@
         }
       ]
     },
+    "TermsOfServiceNotNewestException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "RenderingException": {
       "type": "object",
       "additionalProperties": false,
@@ -11937,6 +11946,15 @@
       "allOf": [
         {
           "$ref": "#/definitions/PictureparkTimeoutException"
+        }
+      ]
+    },
+    "NoTermsOfServiceDefinedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
         }
       ]
     },
