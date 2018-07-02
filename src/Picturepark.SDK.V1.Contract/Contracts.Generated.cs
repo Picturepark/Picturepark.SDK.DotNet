@@ -1498,6 +1498,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("EnvironmentProcessAlreadyRunningException", typeof(EnvironmentProcessAlreadyRunningException))]
     [JsonInheritanceAttribute("EnvironmentProcessNotFoundException", typeof(EnvironmentProcessNotFoundException))]
     [JsonInheritanceAttribute("EnvironmentProcessWaitTimeoutException", typeof(EnvironmentProcessWaitTimeoutException))]
+    [JsonInheritanceAttribute("BusinessProcessStateNotHitException", typeof(BusinessProcessStateNotHitException))]
+    [JsonInheritanceAttribute("BusinessProcessLifeCycleNotHitException", typeof(BusinessProcessLifeCycleNotHitException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -5181,6 +5183,98 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessProcessStateNotHitException : PictureparkTimeoutException
+    {
+        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BusinessProcessId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("expected", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Expected { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("actual", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Actual { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessStateNotHitException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessStateNotHitException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessProcessLifeCycleNotHitException : PictureparkTimeoutException
+    {
+        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BusinessProcessId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("expected", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<BusinessProcessLifeCycle> Expected { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("actual", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BusinessProcessLifeCycle Actual { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessLifeCycleNotHitException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessLifeCycleNotHitException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum BusinessProcessLifeCycle
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Draft")]
+    
+        Draft = 0,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InProgress")]
+    
+        InProgress = 1,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Succeeded")]
+    
+        Succeeded = 2,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Cancelled")]
+    
+        Cancelled = 3,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "CancellationInProgress")]
+    
+        CancellationInProgress = 4,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Failed")]
+    
+        Failed = 5,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "SucceededWithErrors")]
+    
+        SucceededWithErrors = 6,
+    
+    
+    }
+    
     /// <summary>A content detail.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentDetail 
@@ -7125,46 +7219,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum BusinessProcessLifeCycle
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Draft")]
-    
-        Draft = 0,
-    
-    
-        [System.Runtime.Serialization.EnumMember(Value = "InProgress")]
-    
-        InProgress = 1,
-    
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Succeeded")]
-    
-        Succeeded = 2,
-    
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Cancelled")]
-    
-        Cancelled = 3,
-    
-    
-        [System.Runtime.Serialization.EnumMember(Value = "CancellationInProgress")]
-    
-        CancellationInProgress = 4,
-    
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Failed")]
-    
-        Failed = 5,
-    
-    
-        [System.Runtime.Serialization.EnumMember(Value = "SucceededWithErrors")]
-    
-        SucceededWithErrors = 6,
-    
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessState 
     {
         [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -7896,22 +7950,13 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessWaitResult 
     {
-        [Newtonsoft.Json.JsonProperty("hasStateHit", Required = Newtonsoft.Json.Required.Always)]
-        public bool HasStateHit { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("stateHit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string StateHit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("hasLifeCycleHit", Required = Newtonsoft.Json.Required.Always)]
-        public bool HasLifeCycleHit { get; set; }
     
         [Newtonsoft.Json.JsonProperty("lifeCycleHit", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BusinessProcessLifeCycle LifeCycleHit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("finished", Required = Newtonsoft.Json.Required.Always)]
-        public bool Finished { get; set; }
     
         [Newtonsoft.Json.JsonProperty("businessProcess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BusinessProcess BusinessProcess { get; set; }
@@ -13680,6 +13725,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("languages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Language> Languages { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("outputFormats", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<OutputFormatInfo> OutputFormats { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -13745,6 +13793,27 @@ namespace Picturepark.SDK.V1.Contract
         public static Language FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Language>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class OutputFormatInfo 
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputFormatInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatInfo>(data);
         }
     
     }

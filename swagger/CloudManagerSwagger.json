@@ -4323,6 +4323,9 @@
         "id": {
           "type": "string"
         },
+        "names": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
+        },
         "static": {
           "type": "boolean"
         },
@@ -4348,6 +4351,19 @@
           "$ref": "#/definitions/FormatBase"
         }
       }
+    },
+    "TranslatedStringDictionary": {
+      "type": "object",
+      "description": "A custom dictionary type to distinguish language specific class properties.",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      ]
     },
     "SourceOutputFormats": {
       "type": "object",
@@ -5581,19 +5597,6 @@
         "Active",
         "Inactive",
         "Deleted"
-      ]
-    },
-    "TranslatedStringDictionary": {
-      "type": "object",
-      "description": "A custom dictionary type to distinguish language specific class properties.",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        }
       ]
     },
     "PictureparkException": {
@@ -8434,6 +8437,77 @@
         }
       ]
     },
+    "BusinessProcessStateNotHitException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "businessProcessId": {
+          "type": "string"
+        },
+        "expected": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "actual": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkTimeoutException"
+        }
+      ]
+    },
+    "BusinessProcessLifeCycleNotHitException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "actual"
+      ],
+      "properties": {
+        "businessProcessId": {
+          "type": "string"
+        },
+        "expected": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BusinessProcessLifeCycle"
+          }
+        },
+        "actual": {
+          "$ref": "#/definitions/BusinessProcessLifeCycle"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkTimeoutException"
+        }
+      ]
+    },
+    "BusinessProcessLifeCycle": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "CancellationInProgress",
+        "Failed",
+        "SucceededWithErrors"
+      ],
+      "enum": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "CancellationInProgress",
+        "Failed",
+        "SucceededWithErrors"
+      ]
+    },
     "CustomerUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -10440,8 +10514,7 @@
       "additionalProperties": false,
       "required": [
         "searchLevel",
-        "numberOfSingleTagboxesPerSchema",
-        "generateData"
+        "numberOfSingleTagboxesPerSchema"
       ],
       "properties": {
         "searchLevel": {
@@ -10451,9 +10524,6 @@
         "numberOfSingleTagboxesPerSchema": {
           "type": "integer",
           "format": "int32"
-        },
-        "generateData": {
-          "type": "boolean"
         }
       }
     },
@@ -10799,28 +10869,6 @@
       "enum": [
         "System",
         "User"
-      ]
-    },
-    "BusinessProcessLifeCycle": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Draft",
-        "InProgress",
-        "Succeeded",
-        "Cancelled",
-        "CancellationInProgress",
-        "Failed",
-        "SucceededWithErrors"
-      ],
-      "enum": [
-        "Draft",
-        "InProgress",
-        "Succeeded",
-        "Cancelled",
-        "CancellationInProgress",
-        "Failed",
-        "SucceededWithErrors"
       ]
     },
     "BusinessProcessState": {
