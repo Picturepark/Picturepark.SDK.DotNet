@@ -790,7 +790,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
             /// Assert
-            Assert.True(waitResult.HasLifeCycleHit);
+            Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
         }
 
         [Fact]
@@ -823,7 +823,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
             /// Assert
-            Assert.True(waitResult.HasLifeCycleHit);
+            Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
         }
 
         [Fact]
@@ -1101,7 +1101,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var businessProcess = await _client.Contents.UpdateFileAsync(contentId, updateRequest);
             var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
 
-            Assert.True(waitResult.HasLifeCycleHit);
+            Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
         }
 
         [Fact]

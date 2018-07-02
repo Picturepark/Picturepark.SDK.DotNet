@@ -56,25 +56,33 @@ namespace Picturepark.SDK.V1
         {
             return await _httpClient.Poll(timeout, cancellationToken, async () =>
             {
-                var waitResult = await WaitCoreAsync(processId, states, null, timeout, cancellationToken).ConfigureAwait(false);
-
-                var errors = waitResult.BusinessProcess.StateHistory?
-                    .Where(i => i.Error != null)
-                    .Select(i => i.Error)
-                    .ToList();
-
-                if (errors != null && errors.Any())
+                try
                 {
-                    if (errors.Count == 1)
+                    var waitResult = await WaitCoreAsync(processId, states, null, timeout, cancellationToken).ConfigureAwait(false);
+
+                    var errors = waitResult.BusinessProcess.StateHistory?
+                        .Where(i => i.Error != null)
+                        .Select(i => i.Error)
+                        .ToList();
+
+                    if (errors != null && errors.Any())
                     {
-                        throw JsonConvert.DeserializeObject<PictureparkException>(errors.First().Exception, JsonSerializerSettings);
+                        if (errors.Count == 1)
+                        {
+                            throw JsonConvert.DeserializeObject<PictureparkException>(errors.First().Exception, JsonSerializerSettings);
+                        }
+
+                        var exceptions = errors.Select(error => JsonConvert.DeserializeObject<PictureparkException>(error.Exception, JsonSerializerSettings));
+                        throw new AggregateException(exceptions);
                     }
 
-                    var exceptions = errors.Select(error => JsonConvert.DeserializeObject<PictureparkException>(error.Exception, JsonSerializerSettings));
-                    throw new AggregateException(exceptions);
+                    return waitResult;
                 }
-
-                return waitResult;
+                catch (BusinessProcessStateNotHitException)
+                {
+                    throw new TimeoutException(
+                        $"Wait for business process on states {string.Join(", ", states)} timed out after {timeout?.TotalSeconds} seconds");
+                }
             });
         }
 
@@ -89,28 +97,35 @@ namespace Picturepark.SDK.V1
         {
             return await _httpClient.Poll(timeout, cancellationToken, async () =>
             {
-                var waitResult = await WaitForCompletionCoreAsync(processId, timeout, cancellationToken).ConfigureAwait(false);
-                if (waitResult.HasLifeCycleHit && (waitResult.BusinessProcess.LifeCycle == BusinessProcessLifeCycle.Succeeded ||
-                                                   waitResult.BusinessProcess.LifeCycle == BusinessProcessLifeCycle.SucceededWithErrors))
-                    return waitResult;
-
-                var errors = waitResult.BusinessProcess.StateHistory?
-                    .Where(i => i.Error != null)
-                    .Select(i => i.Error)
-                    .ToList();
-
-                if (errors != null && errors.Any())
+                try
                 {
-                    if (errors.Count == 1)
+                    var waitResult = await WaitForCompletionCoreAsync(processId, timeout, cancellationToken).ConfigureAwait(false);
+                    if (waitResult.BusinessProcess.LifeCycle == BusinessProcessLifeCycle.Succeeded ||
+                        waitResult.BusinessProcess.LifeCycle == BusinessProcessLifeCycle.SucceededWithErrors)
+                        return waitResult;
+
+                    var errors = waitResult.BusinessProcess.StateHistory?
+                        .Where(i => i.Error != null)
+                        .Select(i => i.Error)
+                        .ToList();
+
+                    if (errors != null && errors.Any())
                     {
-                        throw JsonConvert.DeserializeObject<PictureparkException>(errors.First().Exception, JsonSerializerSettings);
+                        if (errors.Count == 1)
+                        {
+                            throw JsonConvert.DeserializeObject<PictureparkException>(errors.First().Exception, JsonSerializerSettings);
+                        }
+
+                        var exceptions = errors.Select(error => JsonConvert.DeserializeObject<PictureparkException>(error.Exception, JsonSerializerSettings));
+                        throw new AggregateException(exceptions);
                     }
 
-                    var exceptions = errors.Select(error => JsonConvert.DeserializeObject<PictureparkException>(error.Exception, JsonSerializerSettings));
-                    throw new AggregateException(exceptions);
+                    return waitResult;
                 }
-
-                throw new TimeoutException($"Wait for business process on completion timed out after {timeout?.TotalSeconds} seconds");
+                catch (BusinessProcessLifeCycleNotHitException)
+                {
+                    throw new TimeoutException($"Wait for business process on completion timed out after {timeout?.TotalSeconds} seconds");
+                }
             });
         }
     }

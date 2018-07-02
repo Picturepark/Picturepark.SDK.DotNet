@@ -11940,6 +11940,77 @@
         }
       ]
     },
+    "BusinessProcessStateNotHitException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "businessProcessId": {
+          "type": "string"
+        },
+        "expected": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "actual": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkTimeoutException"
+        }
+      ]
+    },
+    "BusinessProcessLifeCycleNotHitException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "actual"
+      ],
+      "properties": {
+        "businessProcessId": {
+          "type": "string"
+        },
+        "expected": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BusinessProcessLifeCycle"
+          }
+        },
+        "actual": {
+          "$ref": "#/definitions/BusinessProcessLifeCycle"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkTimeoutException"
+        }
+      ]
+    },
+    "BusinessProcessLifeCycle": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "CancellationInProgress",
+        "Failed",
+        "SucceededWithErrors"
+      ],
+      "enum": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "CancellationInProgress",
+        "Failed",
+        "SucceededWithErrors"
+      ]
+    },
     "ContentDetail": {
       "type": "object",
       "description": "A content detail.",
@@ -13741,28 +13812,6 @@
         "User"
       ]
     },
-    "BusinessProcessLifeCycle": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Draft",
-        "InProgress",
-        "Succeeded",
-        "Cancelled",
-        "CancellationInProgress",
-        "Failed",
-        "SucceededWithErrors"
-      ],
-      "enum": [
-        "Draft",
-        "InProgress",
-        "Succeeded",
-        "Cancelled",
-        "CancellationInProgress",
-        "Failed",
-        "SucceededWithErrors"
-      ]
-    },
     "BusinessProcessState": {
       "type": "object",
       "additionalProperties": false,
@@ -14414,26 +14463,14 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "hasStateHit",
-        "hasLifeCycleHit",
-        "lifeCycleHit",
-        "finished"
+        "lifeCycleHit"
       ],
       "properties": {
-        "hasStateHit": {
-          "type": "boolean"
-        },
         "stateHit": {
           "type": "string"
         },
-        "hasLifeCycleHit": {
-          "type": "boolean"
-        },
         "lifeCycleHit": {
           "$ref": "#/definitions/BusinessProcessLifeCycle"
-        },
-        "finished": {
-          "type": "boolean"
         },
         "businessProcess": {
           "$ref": "#/definitions/BusinessProcess"

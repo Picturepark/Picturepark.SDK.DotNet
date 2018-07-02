@@ -4049,7 +4049,6 @@
         "contentRetentionTime",
         "listItemRetentionTime",
         "snapshotRetentionTime",
-        "snapshotFullbackupScheduleTime",
         "contentBackupState"
       ],
       "properties": {
@@ -4157,10 +4156,6 @@
           "format": "time-span"
         },
         "snapshotRetentionTime": {
-          "type": "string",
-          "format": "time-span"
-        },
-        "snapshotFullbackupScheduleTime": {
           "type": "string",
           "format": "time-span"
         },
@@ -5338,7 +5333,6 @@
         "contentRetentionTime",
         "listItemRetentionTime",
         "snapshotRetentionTime",
-        "snapshotFullbackupScheduleTime",
         "contentBackupState"
       ],
       "properties": {
@@ -5525,10 +5519,6 @@
           "format": "time-span"
         },
         "snapshotRetentionTime": {
-          "type": "string",
-          "format": "time-span"
-        },
-        "snapshotFullbackupScheduleTime": {
           "type": "string",
           "format": "time-span"
         },
@@ -8434,6 +8424,77 @@
         }
       ]
     },
+    "BusinessProcessStateNotHitException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "businessProcessId": {
+          "type": "string"
+        },
+        "expected": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "actual": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkTimeoutException"
+        }
+      ]
+    },
+    "BusinessProcessLifeCycleNotHitException": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "actual"
+      ],
+      "properties": {
+        "businessProcessId": {
+          "type": "string"
+        },
+        "expected": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BusinessProcessLifeCycle"
+          }
+        },
+        "actual": {
+          "$ref": "#/definitions/BusinessProcessLifeCycle"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkTimeoutException"
+        }
+      ]
+    },
+    "BusinessProcessLifeCycle": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "CancellationInProgress",
+        "Failed",
+        "SucceededWithErrors"
+      ],
+      "enum": [
+        "Draft",
+        "InProgress",
+        "Succeeded",
+        "Cancelled",
+        "CancellationInProgress",
+        "Failed",
+        "SucceededWithErrors"
+      ]
+    },
     "CustomerUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -8443,7 +8504,6 @@
         "contentRetentionTime",
         "listItemRetentionTime",
         "snapshotRetentionTime",
-        "snapshotFullbackupScheduleTime",
         "useSsl"
       ],
       "properties": {
@@ -8477,10 +8537,6 @@
           "format": "time-span"
         },
         "snapshotRetentionTime": {
-          "type": "string",
-          "format": "time-span"
-        },
-        "snapshotFullbackupScheduleTime": {
           "type": "string",
           "format": "time-span"
         },
@@ -9959,8 +10015,6 @@
         "durationInMilliseconds",
         "endTime",
         "endTimeInMilliseconds",
-        "repositoryStartTime",
-        "repositoryIsArchived",
         "startTime",
         "startTimeInMilliseconds",
         "entityType",
@@ -10003,15 +10057,6 @@
         "repositoryName": {
           "type": "string",
           "description": "The repository name."
-        },
-        "repositoryStartTime": {
-          "type": "string",
-          "description": "The repository start time.",
-          "format": "date-time"
-        },
-        "repositoryIsArchived": {
-          "type": "boolean",
-          "description": "Is the repository already archived?"
         },
         "startTime": {
           "type": "string",
@@ -10440,8 +10485,7 @@
       "additionalProperties": false,
       "required": [
         "searchLevel",
-        "numberOfSingleTagboxesPerSchema",
-        "generateData"
+        "numberOfSingleTagboxesPerSchema"
       ],
       "properties": {
         "searchLevel": {
@@ -10451,9 +10495,6 @@
         "numberOfSingleTagboxesPerSchema": {
           "type": "integer",
           "format": "int32"
-        },
-        "generateData": {
-          "type": "boolean"
         }
       }
     },
@@ -10799,28 +10840,6 @@
       "enum": [
         "System",
         "User"
-      ]
-    },
-    "BusinessProcessLifeCycle": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Draft",
-        "InProgress",
-        "Succeeded",
-        "Cancelled",
-        "CancellationInProgress",
-        "Failed",
-        "SucceededWithErrors"
-      ],
-      "enum": [
-        "Draft",
-        "InProgress",
-        "Succeeded",
-        "Cancelled",
-        "CancellationInProgress",
-        "Failed",
-        "SucceededWithErrors"
       ]
     },
     "BusinessProcessState": {
