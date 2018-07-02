@@ -11,6 +11,7 @@
     "contentRetentionTime": "30.00:00:00",
     "listItemRetentionTime": "30.00:00:00",
     "snapshotRetentionTime": "30.00:00:00",
+    "SnapshotFullbackupScheduleTime": "13:00:00",
     "baseUrl": "{baseurl}",
     "storagePath": "{storagepath}",
     "customerHosts": [],

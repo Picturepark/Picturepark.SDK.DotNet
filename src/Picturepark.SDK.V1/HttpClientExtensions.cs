@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Picturepark.SDK.V1.Contract;
 
 namespace Picturepark.SDK.V1
 {
@@ -9,22 +11,37 @@ namespace Picturepark.SDK.V1
     {
         public static async Task<T> Poll<T>(this HttpClient httpClient, TimeSpan? timeout, CancellationToken cancellationToken, Func<Task<T>> execute)
         {
-            try
+            while (true)
             {
-                return await execute();
-            }
-            catch (TaskCanceledException)
-            {
-                if (timeout != null)
+                try
                 {
-                    var newTimeout = timeout.Value.Subtract(httpClient.Timeout);
-                    if (newTimeout.TotalMilliseconds > 0)
-                    {
-                        return await Poll(httpClient, newTimeout, cancellationToken, execute);
-                    }
+                    return await execute();
                 }
+                catch (ApiException ex)
+                {
+                    if (ex.StatusCode != (int)HttpStatusCode.GatewayTimeout)
+                        throw;
+                }
+                catch (TaskCanceledException)
+                {
+                    var finished = false;
 
-                throw;
+                    if (timeout != null)
+                    {
+                        var newTimeout = timeout.Value.Subtract(httpClient.Timeout);
+                        if (newTimeout.TotalMilliseconds <= 0)
+                        {
+                            finished = true;
+                        }
+                    }
+                    else
+                    {
+                        finished = true;
+                    }
+
+                    if (finished)
+                        throw;
+                }
             }
         }
     }
