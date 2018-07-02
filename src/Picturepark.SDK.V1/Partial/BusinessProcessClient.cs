@@ -22,25 +22,33 @@ namespace Picturepark.SDK.V1
         {
             return await _httpClient.Poll(timeout, cancellationToken, async () =>
             {
-                var waitResult = await WaitCoreAsync(processId, null, lifeCycleIds, timeout, cancellationToken).ConfigureAwait(false);
-
-                var errors = waitResult.BusinessProcess.StateHistory?
-                    .Where(i => i.Error != null)
-                    .Select(i => i.Error)
-                    .ToList();
-
-                if (errors != null && errors.Any())
+                try
                 {
-                    if (errors.Count == 1)
+                    var waitResult = await WaitCoreAsync(processId, null, lifeCycleIds, timeout, cancellationToken).ConfigureAwait(false);
+
+                    var errors = waitResult.BusinessProcess.StateHistory?
+                        .Where(i => i.Error != null)
+                        .Select(i => i.Error)
+                        .ToList();
+
+                    if (errors != null && errors.Any())
                     {
-                        throw JsonConvert.DeserializeObject<PictureparkException>(errors.First().Exception, JsonSerializerSettings);
+                        if (errors.Count == 1)
+                        {
+                            throw JsonConvert.DeserializeObject<PictureparkException>(errors.First().Exception, JsonSerializerSettings);
+                        }
+
+                        var exceptions = errors.Select(error => JsonConvert.DeserializeObject<PictureparkException>(error.Exception, JsonSerializerSettings));
+                        throw new AggregateException(exceptions);
                     }
 
-                    var exceptions = errors.Select(error => JsonConvert.DeserializeObject<PictureparkException>(error.Exception, JsonSerializerSettings));
-                    throw new AggregateException(exceptions);
+                    return waitResult;
                 }
-
-                return waitResult;
+                catch (BusinessProcessLifeCycleNotHitException)
+                {
+                    throw new TimeoutException(
+                        $"Wait for business process on lifecycles {string.Join(", ", lifeCycleIds)} timed out after {timeout?.TotalSeconds} seconds");
+                }
             });
         }
 
