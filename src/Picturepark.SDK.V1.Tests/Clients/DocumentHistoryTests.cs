@@ -104,7 +104,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var difference = await _client.DocumentHistory.GetDifferenceAsync(contentId, history.DocumentVersion, updatedHistory.DocumentVersion);
 
             /// Assert
-            Assert.True(waitResult.HasLifeCycleHit);
+            Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
             Assert.NotEqual(0, updatedHistory.DocumentVersion);
             Assert.Contains(@"""name"": """ + location + @"""", difference.NewValues.ToString());
         }

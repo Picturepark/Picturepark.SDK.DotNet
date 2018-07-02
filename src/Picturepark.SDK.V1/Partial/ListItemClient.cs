@@ -65,42 +65,36 @@ namespace Picturepark.SDK.V1
 
             var businessProcess = await CreateManyCoreAsync(createManyRequest, cancellationToken).ConfigureAwait(false);
 
-            var waitResult = await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id, null, cancellationToken).ConfigureAwait(false);
-            if (waitResult.HasLifeCycleHit)
+            await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id, null, cancellationToken).ConfigureAwait(false);
+
+            var details = await _businessProcessClient.GetDetailsAsync(businessProcess.Id, cancellationToken).ConfigureAwait(false);
+            if (details.LifeCycle == BusinessProcessLifeCycle.Failed)
             {
-                var details = await _businessProcessClient.GetDetailsAsync(businessProcess.Id, cancellationToken).ConfigureAwait(false);
-                if (details.LifeCycle == BusinessProcessLifeCycle.Failed)
-                {
-                    // TODO: ListItemClient.CreateManyAsync: Should we check for Succeeded here?
-                    throw new Exception("The business process failed to execute.");
-                }
-
-                var bulkResult = (BusinessProcessDetailsDataBatchResponse)details.Details;
-                if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
-                {
-                    // TODO: ListItemClient.CreateManyAsync: Use better exception classes in this method.
-                    throw new Exception("Could not save all objects.");
-                }
-
-                // Fetch created objects
-                var searchRequest = new ListItemSearchRequest
-                {
-                    Start = 0,
-                    Limit = 1000,
-                    Filter = new TermsFilter
-                    {
-                        Field = "id",
-                        Terms = bulkResult.Response.Rows.Select(i => i.Id).ToList()
-                    }
-                };
-
-                var searchResult = await SearchAsync(searchRequest, cancellationToken).ConfigureAwait(false);
-                return searchResult.Results;
+                // TODO: ListItemClient.CreateManyAsync: Should we check for Succeeded here?
+                throw new Exception("The business process failed to execute.");
             }
-            else
+
+            var bulkResult = (BusinessProcessDetailsDataBatchResponse)details.Details;
+            if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
             {
-                throw new Exception("The business process has not been completed.");
+                // TODO: ListItemClient.CreateManyAsync: Use better exception classes in this method.
+                throw new Exception("Could not save all objects.");
             }
+
+            // Fetch created objects
+            var searchRequest = new ListItemSearchRequest
+            {
+                Start = 0,
+                Limit = 1000,
+                Filter = new TermsFilter
+                {
+                    Field = "id",
+                    Terms = bulkResult.Response.Rows.Select(i => i.Id).ToList()
+                }
+            };
+
+            var searchResult = await SearchAsync(searchRequest, cancellationToken).ConfigureAwait(false);
+            return searchResult.Results;
         }
 
         /// <summary>Gets an existing list item and converts its content to the requested type.</summary>
