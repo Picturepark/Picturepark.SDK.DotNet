@@ -4049,6 +4049,7 @@
         "contentRetentionTime",
         "listItemRetentionTime",
         "snapshotRetentionTime",
+        "snapshotFullbackupScheduleTime",
         "contentBackupState"
       ],
       "properties": {
@@ -4156,6 +4157,10 @@
           "format": "time-span"
         },
         "snapshotRetentionTime": {
+          "type": "string",
+          "format": "time-span"
+        },
+        "snapshotFullbackupScheduleTime": {
           "type": "string",
           "format": "time-span"
         },
@@ -5333,6 +5338,7 @@
         "contentRetentionTime",
         "listItemRetentionTime",
         "snapshotRetentionTime",
+        "snapshotFullbackupScheduleTime",
         "contentBackupState"
       ],
       "properties": {
@@ -5519,6 +5525,10 @@
           "format": "time-span"
         },
         "snapshotRetentionTime": {
+          "type": "string",
+          "format": "time-span"
+        },
+        "snapshotFullbackupScheduleTime": {
           "type": "string",
           "format": "time-span"
         },
@@ -8433,6 +8443,7 @@
         "contentRetentionTime",
         "listItemRetentionTime",
         "snapshotRetentionTime",
+        "snapshotFullbackupScheduleTime",
         "useSsl"
       ],
       "properties": {
@@ -8466,6 +8477,10 @@
           "format": "time-span"
         },
         "snapshotRetentionTime": {
+          "type": "string",
+          "format": "time-span"
+        },
+        "snapshotFullbackupScheduleTime": {
           "type": "string",
           "format": "time-span"
         },
@@ -9944,6 +9959,8 @@
         "durationInMilliseconds",
         "endTime",
         "endTimeInMilliseconds",
+        "repositoryStartTime",
+        "repositoryIsArchived",
         "startTime",
         "startTimeInMilliseconds",
         "entityType",
@@ -9986,6 +10003,15 @@
         "repositoryName": {
           "type": "string",
           "description": "The repository name."
+        },
+        "repositoryStartTime": {
+          "type": "string",
+          "description": "The repository start time.",
+          "format": "date-time"
+        },
+        "repositoryIsArchived": {
+          "type": "boolean",
+          "description": "Is the repository already archived?"
         },
         "startTime": {
           "type": "string",
