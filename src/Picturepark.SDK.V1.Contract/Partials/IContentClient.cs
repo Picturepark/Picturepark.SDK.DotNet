@@ -6,20 +6,6 @@ namespace Picturepark.SDK.V1.Contract
 {
     public partial interface IContentClient
     {
-        /// <summary>Gets a <see cref="ContentDetail"/> by ID.</summary>
-        /// <param name="contentId">The content ID.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The content detail.</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        Task<ContentDetail> GetAsync(string contentId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>Deactivates a content item by ID (i.e. marks the content item as deleted).</summary>
-        /// <param name="contentId">The content ID.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The task.</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        Task DeactivateAsync(string contentId, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>Downloads multiple files.</summary>
         /// <param name="contents">The files to download.</param>
         /// <param name="exportDirectory">The directory to store the downloaded files.</param>

@@ -23,18 +23,18 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGet()
         {
             /// Arrange
-            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             Assert.False(string.IsNullOrEmpty(contentId));
 
-            ContentDetail contentDetail = await _client.Contents.GetAsync(contentId);
+            ContentDetail contentDetail = await _client.Contents.GetAsync(contentId, new ContentResolveBehaviour[] { ContentResolveBehaviour.Outputs }).ConfigureAwait(false);
             Assert.True(contentId == contentDetail.Id, "Delivery goes wrong. We never ordered such pizza.");
 
             Assert.True(contentDetail.Outputs.Any());
-            var outputId = contentDetail.Outputs.FirstOrDefault().Id;
+            var outputId = contentDetail.Outputs.FirstOrDefault()?.Id;
             Assert.False(string.IsNullOrEmpty(outputId));
 
             /// Act
-            OutputDetail result = await _client.Outputs.GetAsync(outputId);
+            OutputDetail result = await _client.Outputs.GetAsync(outputId).ConfigureAwait(false);
 
             /// Assert
             Assert.True(result.ContentId == contentId);

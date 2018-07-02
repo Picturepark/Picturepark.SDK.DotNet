@@ -41,22 +41,14 @@
             "description": "The content id."
           },
           {
-            "type": "boolean",
-            "name": "resolve",
-            "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Resolves the data of referenced list items into the contents's content."
-          },
-          {
             "type": "array",
-            "name": "patterns",
+            "name": "resolveBehaviours",
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
-            "description": "List of display pattern types. Resolves display values of referenced list items where the display pattern matches.",
+            "description": "List of enum that control which parts of the content are resolved and returned",
             "items": {
-              "$ref": "#/definitions/DisplayPatternType"
+              "$ref": "#/definitions/ContentResolveBehaviour"
             }
           }
         ],
@@ -151,22 +143,14 @@
             }
           },
           {
-            "type": "boolean",
-            "name": "resolve",
-            "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Resolves the data of referenced list items into the contents's content."
-          },
-          {
             "type": "array",
-            "name": "patterns",
+            "name": "resolveBehaviours",
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
-            "description": "List of display pattern types. Resolves display values of referenced list items where the display pattern matches.",
+            "description": "List of enum that control which parts of the content are resolved and returned",
             "items": {
-              "$ref": "#/definitions/DisplayPatternType"
+              "$ref": "#/definitions/ContentResolveBehaviour"
             }
           }
         ],
@@ -837,12 +821,15 @@
             "description": "The content create request."
           },
           {
-            "type": "boolean",
-            "name": "resolve",
+            "type": "array",
+            "name": "resolveBehaviours",
             "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Resolves the data of referenced list items into the contents's content."
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "List of enum that control which parts of the content are resolved and returned",
+            "items": {
+              "$ref": "#/definitions/ContentResolveBehaviour"
+            }
           },
           {
             "type": "boolean",
@@ -859,17 +846,6 @@
             "x-nullable": true,
             "description": "Maximum time to wait for the business process completed state.",
             "format": "time-span"
-          },
-          {
-            "type": "array",
-            "name": "patterns",
-            "in": "query",
-            "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "List of display pattern types. Resolves display values of referenced list items where the display pattern matches.",
-            "items": {
-              "$ref": "#/definitions/DisplayPatternType"
-            }
           }
         ],
         "responses": {
@@ -942,7 +918,7 @@
       }
     },
     "/v1/contents/{contentId}/deactivate": {
-      "put": {
+      "post": {
         "tags": [
           "Content"
         ],
@@ -962,7 +938,6 @@
             "type": "string",
             "name": "timeout",
             "in": "query",
-            "required": true,
             "x-nullable": true,
             "description": "Maximum time to wait for the business process completed state.",
             "format": "time-span"
@@ -970,11 +945,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ContentDetail"
-            },
-            "x-nullable": false
+            "description": ""
           },
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
@@ -1113,7 +1084,7 @@
       }
     },
     "/v1/contents/{contentId}/reactivate": {
-      "put": {
+      "post": {
         "tags": [
           "Content"
         ],
@@ -1130,31 +1101,12 @@
             "description": "The content id."
           },
           {
-            "type": "boolean",
-            "name": "resolve",
-            "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Resolves the data of referenced list items into the contents's content."
-          },
-          {
             "type": "string",
             "name": "timeout",
             "in": "query",
             "x-nullable": true,
             "description": "Maximum time to wait for the business process completed state.",
             "format": "time-span"
-          },
-          {
-            "type": "array",
-            "name": "patterns",
-            "in": "query",
-            "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "List of display pattern types. Resolves display values of referenced list items where the display pattern matches.",
-            "items": {
-              "$ref": "#/definitions/DisplayPatternType"
-            }
           },
           {
             "type": "boolean",
@@ -1167,11 +1119,7 @@
         ],
         "responses": {
           "200": {
-            "description": "ContentDetail",
-            "schema": {
-              "$ref": "#/definitions/ContentDetail"
-            },
-            "x-nullable": false
+            "description": "Void"
           },
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
@@ -1420,12 +1368,15 @@
             "description": "The metadata update request."
           },
           {
-            "type": "boolean",
-            "name": "resolve",
+            "type": "array",
+            "name": "resolveBehaviours",
             "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Resolves the data of referenced list items into the contents's content."
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "List of enum that control which parts of the content are resolved and returned",
+            "items": {
+              "$ref": "#/definitions/ContentResolveBehaviour"
+            }
           },
           {
             "type": "boolean",
@@ -1442,17 +1393,6 @@
             "x-nullable": true,
             "description": "Maximum time to wait for the business process completed state.",
             "format": "time-span"
-          },
-          {
-            "type": "array",
-            "name": "patterns",
-            "in": "query",
-            "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "List of display pattern types. Resolves display values of referenced list items where the display pattern matches.",
-            "items": {
-              "$ref": "#/definitions/DisplayPatternType"
-            }
           }
         ],
         "responses": {
@@ -1552,12 +1492,15 @@
             "description": "The content permission update request."
           },
           {
-            "type": "boolean",
-            "name": "resolve",
+            "type": "array",
+            "name": "resolveBehaviours",
             "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Resolves the data of referenced list items into the contents's content."
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "List of enum that control which parts of the content are resolved and returned",
+            "items": {
+              "$ref": "#/definitions/ContentResolveBehaviour"
+            }
           },
           {
             "type": "string",
@@ -1566,17 +1509,6 @@
             "x-nullable": true,
             "description": "Maximum time to wait for the business process completed state.",
             "format": "time-span"
-          },
-          {
-            "type": "array",
-            "name": "patterns",
-            "in": "query",
-            "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "List of display pattern types. Resolves display values of referenced list items where the display pattern matches.",
-            "items": {
-              "$ref": "#/definitions/DisplayPatternType"
-            }
           }
         ],
         "responses": {
@@ -2973,28 +2905,20 @@
             "description": "The list item id."
           },
           {
-            "type": "boolean",
-            "name": "resolve",
-            "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Resolves the data of referenced list items into the list item's content."
-          },
-          {
             "type": "array",
-            "name": "patterns",
+            "name": "resolveBehaviours",
             "in": "query",
             "x-nullable": true,
             "collectionFormat": "multi",
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
+            "description": "List of enum that control which parts of the list item are resolved and returned",
             "items": {
-              "$ref": "#/definitions/DisplayPatternType"
+              "$ref": "#/definitions/ListItemResolveBehaviour"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "List item detail",
             "schema": {
               "$ref": "#/definitions/ListItemDetail"
             },
@@ -3087,12 +3011,15 @@
             "description": "The list item update request."
           },
           {
-            "type": "boolean",
-            "name": "resolve",
+            "type": "array",
+            "name": "resolveBehaviours",
             "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Resolves the data of referenced list items into the list item's content."
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "List of enum that control which parts of the list item are resolved and returned",
+            "items": {
+              "$ref": "#/definitions/ListItemResolveBehaviour"
+            }
           },
           {
             "type": "boolean",
@@ -3109,17 +3036,6 @@
             "x-nullable": true,
             "description": "Maximum time to wait for the business process completed state.",
             "format": "time-span"
-          },
-          {
-            "type": "array",
-            "name": "patterns",
-            "in": "query",
-            "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
-            "items": {
-              "$ref": "#/definitions/DisplayPatternType"
-            }
           }
         ],
         "responses": {
@@ -3347,12 +3263,15 @@
             "description": "List item create request."
           },
           {
-            "type": "boolean",
-            "name": "resolve",
+            "type": "array",
+            "name": "resolveBehaviours",
             "in": "query",
-            "required": true,
-            "x-nullable": false,
-            "description": "Resolves the data of referenced list items into the list item's content."
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "List of enum that control which parts of the list item are resolved and returned",
+            "items": {
+              "$ref": "#/definitions/ListItemResolveBehaviour"
+            }
           },
           {
             "type": "boolean",
@@ -3369,17 +3288,6 @@
             "x-nullable": true,
             "description": "Maximum time to wait for the business process completed state.",
             "format": "time-span"
-          },
-          {
-            "type": "array",
-            "name": "patterns",
-            "in": "query",
-            "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "Comma-separated list of display pattern ids. Resolves display values of referenced list items where the display pattern id matches.",
-            "items": {
-              "$ref": "#/definitions/DisplayPatternType"
-            }
           }
         ],
         "responses": {
@@ -3600,7 +3508,7 @@
       }
     },
     "/v1/listItems/{listItemId}/deactivate": {
-      "put": {
+      "post": {
         "tags": [
           "ListItem"
         ],
@@ -3636,11 +3544,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/ListItemDetail"
-            },
-            "x-nullable": false
+            "description": "Void"
           },
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
@@ -3779,7 +3683,7 @@
       }
     },
     "/v1/listItems/{listItemId}/reactivate": {
-      "put": {
+      "post": {
         "tags": [
           "ListItem"
         ],
@@ -3804,17 +3708,6 @@
             "format": "time-span"
           },
           {
-            "type": "array",
-            "name": "patterns",
-            "in": "query",
-            "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "List of display pattern types. Resolves display values of referenced list items where the display pattern matches.",
-            "items": {
-              "$ref": "#/definitions/DisplayPatternType"
-            }
-          },
-          {
             "type": "boolean",
             "name": "allowMissingDependencies",
             "in": "query",
@@ -3825,11 +3718,7 @@
         ],
         "responses": {
           "200": {
-            "description": "ListItemDetail",
-            "schema": {
-              "$ref": "#/definitions/ListItemDetail"
-            },
-            "x-nullable": false
+            "description": "Void"
           },
           "400": {
             "description": "The specified wait timeout exceeded\nor\nValidation exception",
@@ -5611,6 +5500,794 @@
               "$ref": "#/definitions/ShareDetail"
             },
             "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/shareAccess/json/{token}": {
+      "get": {
+        "tags": [
+          "ShareAccess"
+        ],
+        "summary": "Get Share json",
+        "operationId": "ShareAccess_GetShareJson",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ShareDetail",
+            "schema": {},
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/shareAccess/d/{token}": {
+      "get": {
+        "tags": [
+          "ShareAccess"
+        ],
+        "summary": "Download Shared outputs",
+        "operationId": "ShareAccess_Download",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The token"
+          },
+          {
+            "type": "integer",
+            "name": "width",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional width in pixels to resize image",
+            "format": "int32"
+          },
+          {
+            "type": "integer",
+            "name": "height",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional height in pixels to resize image",
+            "format": "int32"
+          },
+          {
+            "type": "string",
+            "name": "range",
+            "in": "header",
+            "x-nullable": true,
+            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "HttpResponseMessage",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": false
+          },
+          "206": {
+            "description": "HttpResponseMessage",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/shareAccess/d/{token}/{contentId}": {
+      "get": {
+        "tags": [
+          "ShareAccess"
+        ],
+        "summary": "Download Shared outputs\n            ",
+        "description": "Download single content in a specific outputformat. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
+        "operationId": "ShareAccess_DownloadWithContentId",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The token"
+          },
+          {
+            "type": "string",
+            "name": "contentId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The content id"
+          },
+          {
+            "type": "integer",
+            "name": "width",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional width in pixels to resize image",
+            "format": "int32"
+          },
+          {
+            "type": "integer",
+            "name": "height",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional height in pixels to resize image",
+            "format": "int32"
+          },
+          {
+            "type": "string",
+            "name": "range",
+            "in": "header",
+            "x-nullable": true,
+            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "HttpResponseMessage",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": false
+          },
+          "206": {
+            "description": "HttpResponseMessage",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/shareAccess/d/{token}/{contentId}/{outputFormatId}": {
+      "get": {
+        "tags": [
+          "ShareAccess"
+        ],
+        "summary": "Download Shared outputs\n            ",
+        "description": "Download single content in a specific outputformat. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
+        "operationId": "ShareAccess_DownloadWithOutputFormatId",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The token"
+          },
+          {
+            "type": "string",
+            "name": "contentId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The content id"
+          },
+          {
+            "type": "string",
+            "name": "outputFormatId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The output format id+"
+          },
+          {
+            "type": "integer",
+            "name": "width",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional width in pixels to resize image",
+            "format": "int32"
+          },
+          {
+            "type": "integer",
+            "name": "height",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional height in pixels to resize image",
+            "format": "int32"
+          },
+          {
+            "type": "string",
+            "name": "range",
+            "in": "header",
+            "x-nullable": true,
+            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "HttpResponseMessage",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": false
+          },
+          "206": {
+            "description": "HttpResponseMessage",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/shareAccess/json/{token}": {
+      "get": {
+        "tags": [
+          "ShareAccess"
+        ],
+        "summary": "Get Share json",
+        "operationId": "ShareAccess_GetShareJson",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ShareDetail",
+            "schema": {},
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/shareAccess/d/{token}": {
+      "get": {
+        "tags": [
+          "ShareAccess"
+        ],
+        "summary": "Download Shared outputs",
+        "operationId": "ShareAccess_Download",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The token"
+          },
+          {
+            "type": "integer",
+            "name": "width",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional width in pixels to resize image",
+            "format": "int32"
+          },
+          {
+            "type": "integer",
+            "name": "height",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional height in pixels to resize image",
+            "format": "int32"
+          },
+          {
+            "type": "string",
+            "name": "range",
+            "in": "header",
+            "x-nullable": true,
+            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "HttpResponseMessage",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": false
+          },
+          "206": {
+            "description": "HttpResponseMessage",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/shareAccess/d/{token}/{contentId}": {
+      "get": {
+        "tags": [
+          "ShareAccess"
+        ],
+        "summary": "Download Shared outputs\n            ",
+        "description": "Download single content in a specific outputformat. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
+        "operationId": "ShareAccess_DownloadWithContentId",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The token"
+          },
+          {
+            "type": "string",
+            "name": "contentId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The content id"
+          },
+          {
+            "type": "integer",
+            "name": "width",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional width in pixels to resize image",
+            "format": "int32"
+          },
+          {
+            "type": "integer",
+            "name": "height",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional height in pixels to resize image",
+            "format": "int32"
+          },
+          {
+            "type": "string",
+            "name": "range",
+            "in": "header",
+            "x-nullable": true,
+            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "HttpResponseMessage",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": false
+          },
+          "206": {
+            "description": "HttpResponseMessage",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/shareAccess/d/{token}/{contentId}/{outputFormatId}": {
+      "get": {
+        "tags": [
+          "ShareAccess"
+        ],
+        "summary": "Download Shared outputs\n            ",
+        "description": "Download single content in a specific outputformat. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
+        "operationId": "ShareAccess_DownloadWithOutputFormatId",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The token"
+          },
+          {
+            "type": "string",
+            "name": "contentId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The content id"
+          },
+          {
+            "type": "string",
+            "name": "outputFormatId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The output format id+"
+          },
+          {
+            "type": "integer",
+            "name": "width",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional width in pixels to resize image",
+            "format": "int32"
+          },
+          {
+            "type": "integer",
+            "name": "height",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Optional height in pixels to resize image",
+            "format": "int32"
+          },
+          {
+            "type": "string",
+            "name": "range",
+            "in": "header",
+            "x-nullable": true,
+            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "HttpResponseMessage",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": false
+          },
+          "206": {
+            "description": "HttpResponseMessage",
+            "schema": {
+              "type": "file"
+            },
+            "x-nullable": true
           },
           "500": {
             "description": "Internal server error",
@@ -9189,20 +9866,28 @@
     }
   },
   "definitions": {
-    "DisplayPatternType": {
+    "ContentResolveBehaviour": {
       "type": "string",
       "description": "",
       "x-enumNames": [
-        "Thumbnail",
-        "List",
-        "Detail",
-        "Name"
+        "Content",
+        "LinkedListItems",
+        "Metadata",
+        "Outputs",
+        "InnerDisplayValueThumbnail",
+        "InnerDisplayValueList",
+        "InnerDisplayValueDetail",
+        "InnerDisplayValueName"
       ],
       "enum": [
-        "Thumbnail",
-        "List",
-        "Detail",
-        "Name"
+        "Content",
+        "LinkedListItems",
+        "Metadata",
+        "Outputs",
+        "InnerDisplayValueThumbnail",
+        "InnerDisplayValueList",
+        "InnerDisplayValueDetail",
+        "InnerDisplayValueName"
       ]
     },
     "ContentNotFoundException": {
@@ -13853,7 +14538,8 @@
         "Succeeded",
         "Cancelled",
         "CancellationInProgress",
-        "Failed"
+        "Failed",
+        "SucceededWithErrors"
       ],
       "enum": [
         "Draft",
@@ -13861,7 +14547,8 @@
         "Succeeded",
         "Cancelled",
         "CancellationInProgress",
-        "Failed"
+        "Failed",
+        "SucceededWithErrors"
       ]
     },
     "BusinessProcessState": {
@@ -13956,20 +14643,10 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "resolve",
         "forceReferenceRemoval"
       ],
       "properties": {
         "contentIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "resolve": {
-          "type": "boolean"
-        },
-        "displayPatternIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -13984,20 +14661,10 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "resolve",
         "allowMissingDependencies"
       ],
       "properties": {
         "contentIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "resolve": {
-          "type": "boolean"
-        },
-        "displayPatternIds": {
           "type": "array",
           "items": {
             "type": "string"
@@ -15013,6 +15680,26 @@
         "newValues": {}
       }
     },
+    "ListItemResolveBehaviour": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Content",
+        "LinkedListItems",
+        "InnerDisplayValueThumbnail",
+        "InnerDisplayValueList",
+        "InnerDisplayValueDetail",
+        "InnerDisplayValueName"
+      ],
+      "enum": [
+        "Content",
+        "LinkedListItems",
+        "InnerDisplayValueThumbnail",
+        "InnerDisplayValueList",
+        "InnerDisplayValueDetail",
+        "InnerDisplayValueName"
+      ]
+    },
     "ListItemDetail": {
       "type": "object",
       "description": "The detail view item for the list item.",
@@ -15821,6 +16508,22 @@
       ],
       "enum": [
         "DotLiquid"
+      ]
+    },
+    "DisplayPatternType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Thumbnail",
+        "List",
+        "Detail",
+        "Name"
+      ],
+      "enum": [
+        "Thumbnail",
+        "List",
+        "Detail",
+        "Name"
       ]
     },
     "FieldBase": {
@@ -20184,7 +20887,7 @@
     },
     {
       "name": "ShareAccess",
-      "description": "Endpoints to work with shared ressources.\r\n\r\nNo need to pass an AccessToken in the header.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/PublicAccessTests.cs)\r\n"
+      "description": "Endpoints to work with shared resources.\r\n\r\nNo need to pass an AccessToken in the header.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/PublicAccessTests.cs)\r\n"
     },
     {
       "name": "Share",
