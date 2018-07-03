@@ -41,6 +41,11 @@ namespace Picturepark.SDK.V1
                     message.Headers.TryAddWithoutValidation(header.Key, header.Value);
             }
 
+            if (!string.IsNullOrEmpty(_settings.DisplayLanguage))
+            {
+                message.Headers.TryAddWithoutValidation("Picturepark-Language", _settings.DisplayLanguage);
+            }
+
             return message;
         }
     }

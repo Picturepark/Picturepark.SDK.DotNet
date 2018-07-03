@@ -272,13 +272,19 @@ namespace Picturepark.SDK.V1.Conversion
                 .Select(i => i as PictureparkDisplayPatternAttribute)
                 .ToList();
 
-            foreach (var displayPatternAttribute in displayPatternAttributes)
+            foreach (var displayPatternAttribute in displayPatternAttributes.GroupBy(g => new { g.Type, g.TemplateEngine }))
             {
+                if (displayPatternAttribute.GroupBy(x => x.Language).Any(i => i.Count() > 1))
+                {
+                    throw new InvalidOperationException("Multiple display patterns for the same language are defined.");
+                }
+
                 var displayPattern = new DisplayPattern
                 {
-                    DisplayPatternType = displayPatternAttribute.Type,
-                    TemplateEngine = displayPatternAttribute.TemplateEngine,
-                    Templates = new TranslatedStringDictionary { { _defaultLanguage, displayPatternAttribute.DisplayPattern } }
+                    DisplayPatternType = displayPatternAttribute.Key.Type,
+                    TemplateEngine = displayPatternAttribute.Key.TemplateEngine,
+                    Templates = new TranslatedStringDictionary(
+                        displayPatternAttribute.ToDictionary(x => string.IsNullOrEmpty(x.Language) ? _defaultLanguage : x.Language, x => x.DisplayPattern))
                 };
 
                 schemaDetail.DisplayPatterns.Add(displayPattern);
