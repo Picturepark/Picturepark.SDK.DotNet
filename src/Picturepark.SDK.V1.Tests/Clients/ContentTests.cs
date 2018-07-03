@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Xunit;
 using System.IO;
 using System.Net.Http;
+using FluentAssertions;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Newtonsoft.Json;
@@ -1165,6 +1166,62 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Assert
             Assert.True(!contentPermissionSetIds.Except(currentContentPermissionSetIds).Any());
             Assert.True(!currentContentPermissionSetIds.Except(contentPermissionSetIds).Any());
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldUseDisplayLanguageToResolveDisplayPatterns()
+        {
+            /// Arrange
+            var schemaId = $"DisplayLanguageContentSchema{Guid.NewGuid():N}";
+            var contentSchema = new SchemaDetail
+            {
+                Id = schemaId,
+                Types = new List<SchemaType> { SchemaType.Content },
+                Fields = new List<FieldBase>
+                {
+                    new FieldString { Id = "value1" },
+                    new FieldString { Id = "value2" }
+                },
+                DisplayPatterns = new List<DisplayPattern>
+                {
+                    new DisplayPattern
+                    {
+                        DisplayPatternType = DisplayPatternType.Name,
+                        TemplateEngine = TemplateEngine.DotLiquid,
+                        Templates = new TranslatedStringDictionary
+                        {
+                            { "en", $"{{{{data.{schemaId.ToLowerCamelCase()}.value1}}}}" },
+                            { "de", $"{{{{data.{schemaId.ToLowerCamelCase()}.value2}}}}" }
+                        }
+                    }
+                }
+            };
+
+            await _client.Schemas.CreateAndWaitForCompletionAsync(contentSchema).ConfigureAwait(false);
+
+            var content = new ContentCreateRequest
+            {
+                ContentSchemaId = schemaId,
+                Content = new
+                {
+                    value1 = "value1",
+                    value2 = "value2"
+                }
+            };
+
+            var detail = await _client.Contents.CreateAsync(content).ConfigureAwait(false);
+
+            /// Act
+            var englishClient = _fixture.GetLocalizedPictureparkClient("en");
+            var englishContent = await englishClient.Contents.GetAsync(detail.Id, new[] { ContentResolveBehaviour.Content }).ConfigureAwait(false);
+
+            var germanClient = _fixture.GetLocalizedPictureparkClient("de");
+            var germanContent = await germanClient.Contents.GetAsync(detail.Id, new[] { ContentResolveBehaviour.Content }).ConfigureAwait(false);
+
+            /// Assert
+            englishContent.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value1");
+            germanContent.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value2");
         }
 
         private async Task<SchemaDetail> CreateTestSchemaAsync()

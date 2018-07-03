@@ -45,5 +45,8 @@ namespace Picturepark.SDK.V1.Contract
 
         /// <summary>Gets the customer alias.</summary>
         public string CustomerAlias { get; set; }
+
+        /// <summary>Gets or sets the display language.</summary>
+        public string DisplayLanguage { get; set; }
     }
 }

@@ -201,5 +201,20 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             [PictureparkSimpleAnalyzer(Index = false, SimpleSearch = false)]
             public string Title { get; set; }
         }
+
+        [Fact]
+        [Trait("Stack", "SchemaCreation")]
+        public async Task ShouldNotAllowMultipleDisplayPatternsOfSameTypeAndLanguage()
+        {
+            await Assert.ThrowsAsync<InvalidOperationException>(
+                async () => await _client.Schemas.GenerateSchemasAsync(typeof(ClassWithMultipleDisplayPatternsForEnglishName)));
+        }
+
+        [PictureparkSchemaType(SchemaType.List)]
+        [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{pattern}}", "en")]
+        [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{pattern}}", "en")]
+        public class ClassWithMultipleDisplayPatternsForEnglishName
+        {
+        }
     }
 }

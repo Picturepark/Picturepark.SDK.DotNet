@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Contract;
@@ -520,6 +521,33 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Assert
             Assert.NotNull(await _client.ListItems.GetAsync(listItem1.Id).ConfigureAwait(false));
             Assert.NotNull(await _client.ListItems.GetAsync(listItem2.Id).ConfigureAwait(false));
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldUseDisplayLanguageToResolveDisplayValues()
+        {
+            /// Arange
+            var schema = await SchemaHelper.CreateSchemasIfNotExistentAsync<DisplayLanguageTestItems>(_client).ConfigureAwait(false);
+
+            var listItem1 = new DisplayLanguageTestItems()
+            {
+                Value1 = "value1",
+                Value2 = "value2"
+            };
+
+            var detail = await _client.ListItems.CreateAsync(new ListItemCreateRequest() { ContentSchemaId = schema.Id, Content = listItem1 }).ConfigureAwait(false);
+
+            /// Act
+            var englishClient = _fixture.GetLocalizedPictureparkClient("en");
+            var receivedItem1 = await englishClient.ListItems.GetAsync(detail.Id, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+
+            var germanClient = _fixture.GetLocalizedPictureparkClient("de");
+            var receivedItem2 = await germanClient.ListItems.GetAsync(detail.Id, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+
+            /// Assert
+            receivedItem1.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value2");
+            receivedItem2.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value1");
         }
     }
 }
