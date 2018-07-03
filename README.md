@@ -52,7 +52,7 @@ Run the following commands to regenerate the clients based on the Swagger specif
 Branch: master
 
 - NuGet CI Feed: https://www.myget.org/gallery/picturepark-sdk-dotnet-ci
-- AppVeyor CI Build: https://ci.appveyor.com/project/Picturepark/picturepark-sdk-dotnet-y10cr
+- AppVeyor CI Build: https://ci.appveyor.com/project/Picturepark/picturepark-sdk-dotnet-7lqi5
 
 ### Release Builds
 
