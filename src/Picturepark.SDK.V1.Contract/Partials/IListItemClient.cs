@@ -14,7 +14,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The created <see cref="ListItem"/>s.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        Task<IEnumerable<ListItem>> CreateFromObjectAsync(object content, string schemaId, bool allowMissingDependencies = false, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IEnumerable<ListItemDetail>> CreateFromObjectAsync(object content, string schemaId, bool allowMissingDependencies = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Creates multiple <see cref="ListItem"/>s.</summary>
         /// <param name="createManyRequest">The create many request.</param>
@@ -22,7 +22,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The created <see cref="ListItem"/>s.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">The business process has not been completed.</exception>
-        Task<IEnumerable<ListItem>> CreateManyAsync(ListItemCreateManyRequest createManyRequest, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IEnumerable<ListItemDetail>> CreateManyAsync(ListItemCreateManyRequest createManyRequest, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Gets an existing list item and converts its content to the requested type.</summary>
         /// <typeparam name="T">The requested content type.</typeparam>
