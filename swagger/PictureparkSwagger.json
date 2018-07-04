@@ -19927,6 +19927,12 @@
           "items": {
             "$ref": "#/definitions/Language"
           }
+        },
+        "outputFormats": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OutputFormatInfo"
+          }
         }
       }
     },
@@ -19972,6 +19978,18 @@
         },
         "regionCode": {
           "type": "string"
+        }
+      }
+    },
+    "OutputFormatInfo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "names": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
         }
       }
     },

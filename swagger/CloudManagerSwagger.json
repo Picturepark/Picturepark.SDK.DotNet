@@ -4323,6 +4323,9 @@
         "id": {
           "type": "string"
         },
+        "names": {
+          "$ref": "#/definitions/TranslatedStringDictionary"
+        },
         "static": {
           "type": "boolean"
         },
@@ -4348,6 +4351,19 @@
           "$ref": "#/definitions/FormatBase"
         }
       }
+    },
+    "TranslatedStringDictionary": {
+      "type": "object",
+      "description": "A custom dictionary type to distinguish language specific class properties.",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      ]
     },
     "SourceOutputFormats": {
       "type": "object",
@@ -5581,19 +5597,6 @@
         "Active",
         "Inactive",
         "Deleted"
-      ]
-    },
-    "TranslatedStringDictionary": {
-      "type": "object",
-      "description": "A custom dictionary type to distinguish language specific class properties.",
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          }
-        }
       ]
     },
     "PictureparkException": {
