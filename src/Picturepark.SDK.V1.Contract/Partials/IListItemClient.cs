@@ -33,6 +33,15 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         Task<T> GetAndConvertToAsync<T>(string listItemId, string schemaId, CancellationToken cancellationToken = default(CancellationToken));
 
+        /// <summary>Gets a list of existing list items and converts their content to the requested type.</summary>
+        /// <typeparam name="T">The requested content type.</typeparam>
+        /// <param name="listItemIds">The list of list item IDs.</param>
+        /// <param name="schemaId">The schema ID of the requested type.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The list of converted objects.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        Task<IEnumerable<T>> GetManyAndConvertToAsync<T>(IEnumerable<string> listItemIds, string schemaId, CancellationToken cancellationToken = default(CancellationToken));
+
         /// <summary>Updates a list item by providing its content.</summary>
         /// <param name="listItemId">The list item ID.</param>
         /// <param name="content">The content which must match the item's schema ID.</param>

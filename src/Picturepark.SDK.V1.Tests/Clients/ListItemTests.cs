@@ -311,6 +311,84 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ListItem")]
+        public async Task ShouldGetManyObjects()
+        {
+            // Arrange
+            var objectName1 = "ThisObjectC" + new Random().Next(0, 999999);
+            var objectName2 = "ThisObjectC" + new Random().Next(0, 999999);
+
+            var createRequest = new ListItemCreateManyRequest()
+            {
+                Requests = new List<ListItemCreateRequest>
+                {
+                    new ListItemCreateRequest
+                    {
+                        ContentSchemaId = nameof(Tag),
+                        Content = new Tag { Name = objectName1 }
+                    },
+                    new ListItemCreateRequest
+                    {
+                        ContentSchemaId = nameof(Tag),
+                        Content = new Tag { Name = objectName2 }
+                    }
+                }
+            };
+
+            var createdListItems = await _client.ListItems.CreateManyAsync(createRequest).ConfigureAwait(false);
+
+            // Act
+            var resultListItems = await _client.ListItems.GetManyAsync(createdListItems.Select(li => li.Id), new List<ListItemResolveBehaviour> { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+
+            // Assert
+            resultListItems.Should().NotBeNull().And.HaveCount(2);
+
+            var listItem1 = resultListItems.ElementAt(0);
+            listItem1.Id.Should().Be(createdListItems.ElementAt(0).Id);
+            listItem1.Content.As<Newtonsoft.Json.Linq.JObject>()["name"].ToString().Should().Be(objectName1);
+
+            var listItem2 = resultListItems.ElementAt(1);
+            listItem2.Id.Should().Be(createdListItems.ElementAt(1).Id);
+            listItem2.Content.As<Newtonsoft.Json.Linq.JObject>()["name"].ToString().Should().Be(objectName2);
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldGetManyObjectsConverted()
+        {
+            // Arrange
+            var objectName1 = "ThisObjectC" + new Random().Next(0, 999999);
+            var objectName2 = "ThisObjectC" + new Random().Next(0, 999999);
+
+            var createRequest = new ListItemCreateManyRequest()
+            {
+                Requests = new List<ListItemCreateRequest>
+                {
+                    new ListItemCreateRequest
+                    {
+                        ContentSchemaId = nameof(Tag),
+                        Content = new Tag { Name = objectName1 }
+                    },
+                    new ListItemCreateRequest
+                    {
+                        ContentSchemaId = nameof(Tag),
+                        Content = new Tag { Name = objectName2 }
+                    }
+                }
+            };
+
+            var createdListItems = await _client.ListItems.CreateManyAsync(createRequest).ConfigureAwait(false);
+
+            // Act
+            var resultListItems = await _client.ListItems.GetManyAndConvertToAsync<Tag>(createdListItems.Select(li => li.Id), nameof(Tag)).ConfigureAwait(false);
+
+            // Assert
+            resultListItems.Should().NotBeNull().And.HaveCount(2);
+            resultListItems.ElementAt(0).Name.Should().Be(objectName1);
+            resultListItems.ElementAt(1).Name.Should().Be(objectName2);
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
         public async Task ShouldSearchObjects()
         {
             /// Arrange
