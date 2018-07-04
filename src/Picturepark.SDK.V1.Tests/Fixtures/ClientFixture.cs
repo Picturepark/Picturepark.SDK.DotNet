@@ -42,8 +42,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             var configurationJson = File.ReadAllText(ProjectDirectory + "Configuration.json");
             _configuration = JsonConvert.DeserializeObject<TestConfiguration>(configurationJson);
 
-            var authClient = new AccessTokenAuthClient(_configuration.Server, _configuration.AccessToken, _configuration.CustomerAlias);
-            _client = new PictureparkClient(new PictureparkClientSettings(authClient));
+            _client = GetLocalizedPictureparkClient("en");
         }
 
         public string ProjectDirectory { get; }
@@ -106,6 +105,12 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
         public virtual void Dispose()
         {
             _client.Dispose();
+        }
+
+        public PictureparkClient GetLocalizedPictureparkClient(string language)
+        {
+            var authClient = new AccessTokenAuthClient(_configuration.Server, _configuration.AccessToken, _configuration.CustomerAlias);
+            return new PictureparkClient(new PictureparkClientSettings(authClient) { DisplayLanguage = language });
         }
     }
 }

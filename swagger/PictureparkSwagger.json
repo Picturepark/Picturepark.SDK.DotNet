@@ -9311,6 +9311,15 @@
         }
       ]
     },
+    "TermsOfServiceNotNewestException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "RenderingException": {
       "type": "object",
       "additionalProperties": false,
@@ -11940,6 +11949,15 @@
         }
       ]
     },
+    "NoTermsOfServiceDefinedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "BusinessProcessStateNotHitException": {
       "type": "object",
       "additionalProperties": false,
@@ -12380,10 +12398,6 @@
         "channelId": {
           "type": "string",
           "description": "Limits the simple search fields to the fields available in the specified channel."
-        },
-        "displayLanguage": {
-          "type": "string",
-          "description": "Defines the return language of translation values. Defaults to customer default language."
         },
         "displayPatternIds": {
           "type": "array",
@@ -13513,10 +13527,6 @@
           "type": "string",
           "description": "Limits the simple search fields to the fields available in the specified channel and retrieve the existing aggregation for it."
         },
-        "displayLanguage": {
-          "type": "string",
-          "description": "Defines the return language of translation values. Defaults to customer default language."
-        },
         "searchLanguages": {
           "type": "array",
           "description": "Only searches the specified language values. Defaults to all metadata languages in configured within the customer's language configuration.",
@@ -14317,10 +14327,6 @@
             "type": "string"
           }
         },
-        "displayLanguage": {
-          "type": "string",
-          "description": "Defines the return language of translation values. Defaults to customer default language."
-        },
         "searchString": {
           "type": "string",
           "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *."
@@ -15037,10 +15043,6 @@
             "type": "string"
           }
         },
-        "displayLanguage": {
-          "type": "string",
-          "description": "Defines the return language of translation values. Defaults to customer default language."
-        },
         "displayPatternIds": {
           "type": "array",
           "description": "Limits the display values included in the search response. Defaults to all display values.",
@@ -15209,10 +15211,6 @@
           "items": {
             "type": "string"
           }
-        },
-        "displayLanguage": {
-          "type": "string",
-          "description": "Defines the return language of translation values. Defaults to customer default language."
         },
         "searchLanguages": {
           "type": "array",
@@ -15436,10 +15434,6 @@
           "items": {
             "type": "string"
           }
-        },
-        "displayLanguage": {
-          "type": "string",
-          "description": "Defines the return language of translation values. Defaults to customer default language."
         },
         "searchLanguages": {
           "type": "array",
@@ -16795,6 +16789,12 @@
         "debugMode": {
           "type": "boolean",
           "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
+        },
+        "searchLanguages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -17239,6 +17239,12 @@
         "debugMode": {
           "type": "boolean",
           "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
+        },
+        "searchLanguages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -18094,9 +18100,6 @@
           "items": {
             "$ref": "#/definitions/AggregatorBase"
           }
-        },
-        "displayLanguage": {
-          "type": "string"
         }
       }
     },
@@ -19742,9 +19745,6 @@
           "items": {
             "$ref": "#/definitions/AggregatorBase"
           }
-        },
-        "displayLanguage": {
-          "type": "string"
         }
       }
     },

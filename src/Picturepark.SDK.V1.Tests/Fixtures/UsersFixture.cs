@@ -80,7 +80,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
             var waitResult = await Client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, TimeSpan.FromSeconds(10));
 
-            waitResult.Finished.Should().BeTrue();
+            waitResult.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
         }
     }
 }

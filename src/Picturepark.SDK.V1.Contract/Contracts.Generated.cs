@@ -1367,6 +1367,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("UserRoleAssignedException", typeof(UserRoleAssignedException))]
     [JsonInheritanceAttribute("UserNotFoundException", typeof(UserNotFoundException))]
     [JsonInheritanceAttribute("UserInactiveOrDeletedException", typeof(UserInactiveOrDeletedException))]
+    [JsonInheritanceAttribute("TermsOfServiceNotNewestException", typeof(TermsOfServiceNotNewestException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("ServiceProviderDeleteException", typeof(ServiceProviderDeleteException))]
     [JsonInheritanceAttribute("ServiceProviderCreateException", typeof(ServiceProviderCreateException))]
@@ -1498,6 +1499,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("EnvironmentProcessAlreadyRunningException", typeof(EnvironmentProcessAlreadyRunningException))]
     [JsonInheritanceAttribute("EnvironmentProcessNotFoundException", typeof(EnvironmentProcessNotFoundException))]
     [JsonInheritanceAttribute("EnvironmentProcessWaitTimeoutException", typeof(EnvironmentProcessWaitTimeoutException))]
+    [JsonInheritanceAttribute("NoTermsOfServiceDefinedException", typeof(NoTermsOfServiceDefinedException))]
     [JsonInheritanceAttribute("BusinessProcessStateNotHitException", typeof(BusinessProcessStateNotHitException))]
     [JsonInheritanceAttribute("BusinessProcessLifeCycleNotHitException", typeof(BusinessProcessLifeCycleNotHitException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -1759,6 +1761,22 @@ namespace Picturepark.SDK.V1.Contract
         public static UserInactiveOrDeletedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserInactiveOrDeletedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class TermsOfServiceNotNewestException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TermsOfServiceNotNewestException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermsOfServiceNotNewestException>(data);
         }
     
     }
@@ -5185,6 +5203,22 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class NoTermsOfServiceDefinedException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static NoTermsOfServiceDefinedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NoTermsOfServiceDefinedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class BusinessProcessStateNotHitException : PictureparkTimeoutException
     {
         [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -5654,10 +5688,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Limits the simple search fields to the fields available in the specified channel.</summary>
         [Newtonsoft.Json.JsonProperty("channelId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ChannelId { get; set; }
-    
-        /// <summary>Defines the return language of translation values. Defaults to customer default language.</summary>
-        [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DisplayLanguage { get; set; }
     
         /// <summary>Limits the display values included in the search response. Defaults to all display values.</summary>
         [Newtonsoft.Json.JsonProperty("displayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -6527,10 +6557,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Limits the simple search fields to the fields available in the specified channel and retrieve the existing aggregation for it.</summary>
         [Newtonsoft.Json.JsonProperty("channelId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ChannelId { get; set; }
-    
-        /// <summary>Defines the return language of translation values. Defaults to customer default language.</summary>
-        [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DisplayLanguage { get; set; }
     
         /// <summary>Only searches the specified language values. Defaults to all metadata languages in configured within the customer's language configuration.</summary>
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -7805,10 +7831,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
     
-        /// <summary>Defines the return language of translation values. Defaults to customer default language.</summary>
-        [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DisplayLanguage { get; set; }
-    
         /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
@@ -8568,10 +8590,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
     
-        /// <summary>Defines the return language of translation values. Defaults to customer default language.</summary>
-        [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DisplayLanguage { get; set; }
-    
         /// <summary>Limits the display values included in the search response. Defaults to all display values.</summary>
         [Newtonsoft.Json.JsonProperty("displayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> DisplayPatternIds { get; set; }
@@ -8727,10 +8745,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Limits the aggregation to list items of the provided schemas.</summary>
         [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
-    
-        /// <summary>Defines the return language of translation values. Defaults to customer default language.</summary>
-        [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DisplayLanguage { get; set; }
     
         /// <summary>Only searches the specified language values. Defaults to all metadata languages of the language configuration.</summary>
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -8977,10 +8991,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Limits the search to list items of the provided schemas.</summary>
         [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
-    
-        /// <summary>Defines the return language of translation values. Defaults to customer default language.</summary>
-        [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DisplayLanguage { get; set; }
     
         /// <summary>Only searches the specified language values. Defaults to all metadata languages of the language configuration.</summary>
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -10315,6 +10325,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -10701,6 +10714,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
     
         public string ToJson() 
         {
@@ -11682,9 +11698,6 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DisplayLanguage { get; set; }
     
         public string ToJson() 
         {
@@ -13490,9 +13503,6 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("displayLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DisplayLanguage { get; set; }
     
         public string ToJson() 
         {
