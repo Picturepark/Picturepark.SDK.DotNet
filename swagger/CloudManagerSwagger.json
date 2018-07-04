@@ -6939,8 +6939,11 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "listItemId": {
-          "type": "string"
+        "listItemIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "allOf": [
@@ -8045,23 +8048,6 @@
         }
       ]
     },
-    "ContentsNotFoundException": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "contentIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/definitions/PictureparkNotFoundException"
-        }
-      ]
-    },
     "DeleteContentsWithRelationsException": {
       "type": "object",
       "additionalProperties": false,
@@ -8109,8 +8095,11 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "contentId": {
-          "type": "string"
+        "contentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "allOf": [
