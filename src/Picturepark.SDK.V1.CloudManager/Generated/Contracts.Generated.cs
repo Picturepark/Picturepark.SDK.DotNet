@@ -2405,7 +2405,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaInUseException", typeof(SchemaInUseException))]
     [JsonInheritanceAttribute("SchemaNotFoundException", typeof(SchemaNotFoundException))]
     [JsonInheritanceAttribute("SystemSchemaInvalidModificationException", typeof(SystemSchemaInvalidModificationException))]
-    [JsonInheritanceAttribute("ContentsNotFoundException", typeof(ContentsNotFoundException))]
     [JsonInheritanceAttribute("DeleteContentsWithRelationsException", typeof(DeleteContentsWithRelationsException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
@@ -4213,8 +4212,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class ListItemNotFoundException : PictureparkNotFoundException
     {
-        [Newtonsoft.Json.JsonProperty("listItemId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ListItemId { get; set; }
+        [Newtonsoft.Json.JsonProperty("listItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ListItemIds { get; set; }
     
         public string ToJson() 
         {
@@ -5573,25 +5572,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class ContentsNotFoundException : PictureparkNotFoundException
-    {
-        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ContentsNotFoundException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentsNotFoundException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class DeleteContentsWithRelationsException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("relationList", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -5638,8 +5618,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class ContentNotFoundException : PictureparkNotFoundException
     {
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
+        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
     
         public string ToJson() 
         {

@@ -29,8 +29,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="resolveBehaviours">List of enum that control which parts of the content are resolved and returned</param>
         /// <returns>List of ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="ContentNotFoundException">One or more contents not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -227,7 +228,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="updateRequest">The metadata update requests.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ContentsNotFoundException">Not all provided contents could be found</exception>
+        /// <exception cref="ContentNotFoundException">Not all provided contents could be found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
@@ -394,18 +395,42 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.17.19.0 (NJsonSchema v9.10.58.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial interface IListItemClient
     {
-        /// <summary>Get - single</summary>
+        /// <summary>Get detail - single</summary>
         /// <param name="listItemId">The list item id.</param>
         /// <param name="resolveBehaviours">List of enum that control which parts of the list item are resolved and returned</param>
         /// <returns>List item detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ListItemNotFoundException">A server side error occurred.</exception>
+        /// <exception cref="ListItemNotFoundException">List item not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ListItemDetail> GetAsync(string listItemId, System.Collections.Generic.IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Get detail - many</summary>
+        /// <param name="ids">List of list item ids</param>
+        /// <param name="resolveBehaviours">List of enum that control which parts of the list items are resolved and returned</param>
+        /// <returns>List of list item details</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="ListItemNotFoundException">One or more list items not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ListItemDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Collections.Generic.IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Update - many</summary>
+        /// <param name="listItemUpdateManyRequest">List item update many request.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(ListItemUpdateManyRequest listItemUpdateManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Search</summary>
         /// <param name="listItemSearchRequest">The list item search request.</param>
@@ -443,17 +468,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItemCreateRequest, System.Collections.Generic.IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Update - many</summary>
-        /// <param name="listItemUpdateManyRequest">List item update many request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(ListItemUpdateManyRequest listItemUpdateManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Deactivate - single</summary>
         /// <param name="listItemId">the id of the list item to deactivate</param>
@@ -1350,7 +1364,6 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("PictureparkValidationException", typeof(PictureparkValidationException))]
     [JsonInheritanceAttribute("BusinessProcessWaitTimeoutException", typeof(BusinessProcessWaitTimeoutException))]
     [JsonInheritanceAttribute("PictureparkTimeoutException", typeof(PictureparkTimeoutException))]
-    [JsonInheritanceAttribute("ContentsNotFoundException", typeof(ContentsNotFoundException))]
     [JsonInheritanceAttribute("ListItemNotFoundException", typeof(ListItemNotFoundException))]
     [JsonInheritanceAttribute("SchemaNotFoundException", typeof(SchemaNotFoundException))]
     [JsonInheritanceAttribute("PictureparkArgumentNullException", typeof(PictureparkArgumentNullException))]
@@ -1580,8 +1593,8 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class ContentNotFoundException : PictureparkNotFoundException
     {
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
+        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
     
         public string ToJson() 
         {
@@ -3307,8 +3320,8 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class ListItemNotFoundException : PictureparkNotFoundException
     {
-        [Newtonsoft.Json.JsonProperty("listItemId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ListItemId { get; set; }
+        [Newtonsoft.Json.JsonProperty("listItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ListItemIds { get; set; }
     
         public string ToJson() 
         {
@@ -4661,25 +4674,6 @@ namespace Picturepark.SDK.V1.Contract
         public static SystemSchemaInvalidModificationException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SystemSchemaInvalidModificationException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class ContentsNotFoundException : PictureparkNotFoundException
-    {
-        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ContentsNotFoundException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentsNotFoundException>(data);
         }
     
     }
