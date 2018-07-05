@@ -341,14 +341,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             resultListItems.Should().NotBeNull().And.HaveCount(2);
-
-            var listItem1 = resultListItems.ElementAt(0);
-            listItem1.Id.Should().Be(createdListItems.ElementAt(0).Id);
-            listItem1.Content.As<Newtonsoft.Json.Linq.JObject>()["name"].ToString().Should().Be(objectName1);
-
-            var listItem2 = resultListItems.ElementAt(1);
-            listItem2.Id.Should().Be(createdListItems.ElementAt(1).Id);
-            listItem2.Content.As<Newtonsoft.Json.Linq.JObject>()["name"].ToString().Should().Be(objectName2);
+            resultListItems.Select(li => li.Id).Should().BeEquivalentTo(createdListItems.ElementAt(0).Id, createdListItems.ElementAt(1).Id);
+            resultListItems.Select(li => li.Content.As<Newtonsoft.Json.Linq.JObject>()["name"].ToString()).Should().BeEquivalentTo(objectName1, objectName2);
         }
 
         [Fact]
@@ -383,8 +377,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             resultListItems.Should().NotBeNull().And.HaveCount(2);
-            resultListItems.ElementAt(0).Name.Should().Be(objectName1);
-            resultListItems.ElementAt(1).Name.Should().Be(objectName2);
+            resultListItems.Select(li => li.Name).Should().BeEquivalentTo(objectName1, objectName2);
         }
 
         [Fact]
