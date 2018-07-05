@@ -88,7 +88,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var details = await _client.BusinessProcesses.GetDetailsAsync(businessProcess.Id);
 
             /// Assert
-            Assert.True(waitResult.HasLifeCycleHit);
+            Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
         }
     }
 }

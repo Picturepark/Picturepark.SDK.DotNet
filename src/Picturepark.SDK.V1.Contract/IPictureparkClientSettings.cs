@@ -17,5 +17,8 @@ namespace Picturepark.SDK.V1.Contract
 
         /// <summary>Gets the customer alias.</summary>
         string CustomerAlias { get; }
+
+        /// <summary>Gets the display language.</summary>
+        string DisplayLanguage { get; }
     }
 }

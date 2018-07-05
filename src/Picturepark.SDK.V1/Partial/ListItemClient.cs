@@ -28,7 +28,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The created <see cref="ListItem"/>s.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<IEnumerable<ListItem>> CreateFromObjectAsync(object content, string schemaId, bool allowMissingDependencies = false, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ICollection<ListItem>> CreateFromObjectAsync(object content, string schemaId, bool allowMissingDependencies = false, CancellationToken cancellationToken = default(CancellationToken))
         {
             var createManyRequest = new ListItemCreateManyRequest
             {
@@ -56,7 +56,7 @@ namespace Picturepark.SDK.V1
         /// <returns>The created <see cref="ListItem"/>s.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">The business process has not been completed.</exception>
-        public async Task<IEnumerable<ListItem>> CreateManyAsync(ListItemCreateManyRequest createManyRequest, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ICollection<ListItem>> CreateManyAsync(ListItemCreateManyRequest createManyRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (!createManyRequest.Requests.Any())
             {
@@ -65,42 +65,36 @@ namespace Picturepark.SDK.V1
 
             var businessProcess = await CreateManyCoreAsync(createManyRequest, cancellationToken).ConfigureAwait(false);
 
-            var waitResult = await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id, null, cancellationToken).ConfigureAwait(false);
-            if (waitResult.HasLifeCycleHit)
+            await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id, null, cancellationToken).ConfigureAwait(false);
+
+            var details = await _businessProcessClient.GetDetailsAsync(businessProcess.Id, cancellationToken).ConfigureAwait(false);
+            if (details.LifeCycle == BusinessProcessLifeCycle.Failed)
             {
-                var details = await _businessProcessClient.GetDetailsAsync(businessProcess.Id, cancellationToken).ConfigureAwait(false);
-                if (details.LifeCycle == BusinessProcessLifeCycle.Failed)
-                {
-                    // TODO: ListItemClient.CreateManyAsync: Should we check for Succeeded here?
-                    throw new Exception("The business process failed to execute.");
-                }
-
-                var bulkResult = (BusinessProcessDetailsDataBatchResponse)details.Details;
-                if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
-                {
-                    // TODO: ListItemClient.CreateManyAsync: Use better exception classes in this method.
-                    throw new Exception("Could not save all objects.");
-                }
-
-                // Fetch created objects
-                var searchRequest = new ListItemSearchRequest
-                {
-                    Start = 0,
-                    Limit = 1000,
-                    Filter = new TermsFilter
-                    {
-                        Field = "id",
-                        Terms = bulkResult.Response.Rows.Select(i => i.Id).ToList()
-                    }
-                };
-
-                var searchResult = await SearchAsync(searchRequest, cancellationToken).ConfigureAwait(false);
-                return searchResult.Results;
+                // TODO: ListItemClient.CreateManyAsync: Should we check for Succeeded here?
+                throw new Exception("The business process failed to execute.");
             }
-            else
+
+            var bulkResult = (BusinessProcessDetailsDataBatchResponse)details.Details;
+            if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
             {
-                throw new Exception("The business process has not been completed.");
+                // TODO: ListItemClient.CreateManyAsync: Use better exception classes in this method.
+                throw new Exception("Could not save all objects.");
             }
+
+            // Fetch created objects
+            var searchRequest = new ListItemSearchRequest
+            {
+                Start = 0,
+                Limit = 1000,
+                Filter = new TermsFilter
+                {
+                    Field = "id",
+                    Terms = bulkResult.Response.Rows.Select(i => i.Id).ToList()
+                }
+            };
+
+            var searchResult = await SearchAsync(searchRequest, cancellationToken).ConfigureAwait(false);
+            return searchResult.Results;
         }
 
         /// <summary>Gets an existing list item and converts its content to the requested type.</summary>
@@ -114,6 +108,19 @@ namespace Picturepark.SDK.V1
         {
             var listItem = await GetAsync(listItemId, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content, ListItemResolveBehaviour.LinkedListItems }, cancellationToken).ConfigureAwait(false);
             return listItem.ConvertTo<T>(schemaId);
+        }
+
+        /// <summary>Gets a list of existing list items and converts their content to the requested type.</summary>
+        /// <typeparam name="T">The requested content type.</typeparam>
+        /// <param name="listItemIds">The list of list item IDs.</param>
+        /// <param name="schemaId">The schema ID of the requested type.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The list of converted objects.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public async Task<ICollection<T>> GetManyAndConvertToAsync<T>(IEnumerable<string> listItemIds, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var listItems = await GetManyAsync(listItemIds, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content, ListItemResolveBehaviour.LinkedListItems }, cancellationToken).ConfigureAwait(false);
+            return listItems.Select(li => li.ConvertTo<T>(schemaId)).ToList();
         }
 
         /// <summary>Updates a list item by providing its content.</summary>
@@ -164,7 +171,7 @@ namespace Picturepark.SDK.V1
                 Convert.GetTypeCode(type) != TypeCode.Object;
         }
 
-        private async Task<IEnumerable<ListItem>> CreateReferencedObjectsAsync(object obj, bool allowMissingDependencies, CancellationToken cancellationToken = default(CancellationToken))
+        private async Task<ICollection<ListItem>> CreateReferencedObjectsAsync(object obj, bool allowMissingDependencies, CancellationToken cancellationToken = default(CancellationToken))
         {
             var referencedListItems = new List<ListItemCreateRequest>();
             var createManyRequest = new ListItemCreateManyRequest
