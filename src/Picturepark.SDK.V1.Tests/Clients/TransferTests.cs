@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
@@ -72,7 +73,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             var fileParameter = new FileParameter(new MemoryStream(new byte[] { 1, 2, 3 }));
-            await _client.Transfers.UploadFileAsync(createTransferResult.Transfer.Id, "foobar", fileParameter);
+            await _client.Transfers.UploadFileAsync(createTransferResult.Transfer.Id, createTransferResult.FileUploads.First().Identifier, fileParameter);
 
             FileTransferSearchResult searchResult = await _client.Transfers.SearchFilesAsync(searchRequest);
 
@@ -329,6 +330,33 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         new FileLocations[0],
                         new UploadOptions { WaitForTransferCompletion = true },
                         TimeSpan.FromMilliseconds(1)).ConfigureAwait(false)).ConfigureAwait(false);
+        }
+
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldUploadSameFileTwiceInSameTransfer()
+        {
+            // Arrange
+            var transferName = Guid.NewGuid().ToString();
+            var file = Path.GetTempFileName();
+
+            File.WriteAllText(file, "foobar");
+
+            var files = Enumerable.Range(0, 2).Select(x => new FileLocations(file));
+
+            // Act
+            var result = await _client.Transfers.UploadFilesAsync(
+                transferName,
+                files,
+                new UploadOptions()
+                {
+                    WaitForTransferCompletion = true,
+                    ErrorDelegate = Console.WriteLine,
+                    SuccessDelegate = Console.WriteLine
+                }).ConfigureAwait(false);
+
+            // Assert
+            result.FileUploads.Should().HaveCount(2);
         }
 
         private async Task<CreateTransferResult> CreateTransferAsync()

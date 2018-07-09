@@ -19028,12 +19028,6 @@
         },
         "epsInfo": {
           "$ref": "#/definitions/EpsMetadata"
-        },
-        "embeddedFiles": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/FileMetadata"
-          }
         }
       },
       "allOf": [
