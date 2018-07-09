@@ -524,6 +524,161 @@
         ]
       }
     },
+    "/v1/contents/{contentId}/references": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Get references",
+        "description": "Gets references (list items, contents, shares) to content documents defined by id.",
+        "operationId": "Content_GetReferences",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "contentId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
+          {
+            "name": "contentReferencesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentReferencesRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ContentReferencesResult",
+            "schema": {
+              "$ref": "#/definitions/ContentReferencesResult"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contents/many/references": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Get references - many",
+        "description": "Gets references (list items, contents, shares) to content documents defined by ids.",
+        "operationId": "Content_GetReferencesMany",
+        "parameters": [
+          {
+            "name": "contentManyReferencesRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentManyReferencesRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ContentReferencesResult",
+            "schema": {
+              "$ref": "#/definitions/ContentReferencesResult"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/contents/downloadLinks": {
       "post": {
         "tags": [
@@ -1863,7 +2018,7 @@
         ]
       }
     },
-    "/v1/contents/many/ownership/transfer": {
+    "/v1/contents/many/ownership": {
       "put": {
         "tags": [
           "Content"
@@ -13745,6 +13900,190 @@
         }
       }
     },
+    "ContentReferencesRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string"
+        },
+        "shares": {
+          "$ref": "#/definitions/PagingRequest"
+        }
+      }
+    },
+    "PagingRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "limit"
+      ],
+      "properties": {
+        "start": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "ContentReferencesResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "metadataReferences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContentReferences"
+          }
+        },
+        "shareReferences": {
+          "$ref": "#/definitions/ContentShareReferenceResult"
+        }
+      }
+    },
+    "ContentReferences": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "relations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MetadataReference"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ReferencesBase"
+        }
+      ]
+    },
+    "MetadataReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "targetDocType": {
+          "type": "string"
+        },
+        "sourceId": {
+          "type": "string"
+        },
+        "sourceDocType": {
+          "type": "string"
+        }
+      }
+    },
+    "ReferencesBase": {
+      "type": "object",
+      "x-abstract": true,
+      "additionalProperties": false,
+      "required": [
+        "isReferencedByRestrictedItem"
+      ],
+      "properties": {
+        "targetMetadataItemId": {
+          "type": "string"
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MetadataReference"
+          }
+        },
+        "isReferencedByRestrictedItem": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ContentShareReferenceResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfContentShareReference"
+        }
+      ]
+    },
+    "BaseResultOfContentShareReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "totalResults"
+      ],
+      "properties": {
+        "totalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContentShareReference"
+          }
+        },
+        "pageToken": {
+          "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
+        }
+      }
+    },
+    "ContentShareReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shareType"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "audit": {
+          "$ref": "#/definitions/UserAudit"
+        },
+        "shareType": {
+          "$ref": "#/definitions/ShareType"
+        },
+        "emailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "ShareType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Basic",
+        "Embed"
+      ],
+      "enum": [
+        "Basic",
+        "Embed"
+      ]
+    },
+    "ContentManyReferencesRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "shares": {
+          "$ref": "#/definitions/PagingRequest"
+        }
+      }
+    },
     "ContentDownloadLinkCreateRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -15584,43 +15923,6 @@
           "$ref": "#/definitions/ReferencesBase"
         }
       ]
-    },
-    "ReferencesBase": {
-      "type": "object",
-      "x-abstract": true,
-      "additionalProperties": false,
-      "required": [
-        "isReferencedByRestrictedItem"
-      ],
-      "properties": {
-        "targetMetadataItemId": {
-          "type": "string"
-        },
-        "references": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/MetadataReference"
-          }
-        },
-        "isReferencedByRestrictedItem": {
-          "type": "boolean"
-        }
-      }
-    },
-    "MetadataReference": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "targetDocType": {
-          "type": "string"
-        },
-        "sourceId": {
-          "type": "string"
-        },
-        "sourceDocType": {
-          "type": "string"
-        }
-      }
     },
     "LiveStreamSearchRequest": {
       "type": "object",
@@ -18032,18 +18334,6 @@
         "Full",
         "Preview",
         "None"
-      ]
-    },
-    "ShareType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Basic",
-        "Embed"
-      ],
-      "enum": [
-        "Basic",
-        "Embed"
       ]
     },
     "ShareSearchRequest": {
