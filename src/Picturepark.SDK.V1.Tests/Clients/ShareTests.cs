@@ -6,15 +6,16 @@ using Picturepark.SDK.V1.Contract.Extensions;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using System.Linq;
+using FluentAssertions;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
-    public class ShareTests : IClassFixture<ClientFixture>
+    public class ShareTests : IClassFixture<ShareFixture>
     {
-        private readonly ClientFixture _fixture;
+        private readonly ShareFixture _fixture;
         private readonly PictureparkClient _client;
 
-        public ShareTests(ClientFixture fixture)
+        public ShareTests(ShareFixture fixture)
         {
             _fixture = fixture;
             _client = _fixture.Client;
@@ -25,23 +26,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldAggregate()
         {
             /// Arrange
-            var outputFormatIds = new List<string> { "Original" };
-
-            var shareContentItems = new List<ShareContent>
-            {
-                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds },
-                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds }
-            };
-
             var createRequest = new ShareEmbedCreateRequest
             {
-                Contents = shareContentItems,
+                Contents = await GetRandomShareContent().ConfigureAwait(false),
                 Description = "Description of Embed share bbb",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Embed share bbb"
             };
 
-            await _client.Shares.CreateAsync(createRequest);
+            var createResult = await _client.Shares.CreateAsync(createRequest);
+            _fixture.CreatedShareIds.Enqueue(createResult.ShareId);
 
             /// Act
             var request = new ShareAggregationRequest
@@ -71,23 +65,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdate()
         {
             /// Arrange
-            var outputFormatIds = new List<string> { "Original" };
-
-            var shareContentItems = new List<ShareContent>
-            {
-                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds },
-                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds }
-            };
-
             var createRequest = new ShareEmbedCreateRequest
             {
-                Contents = shareContentItems,
+                Contents = await GetRandomShareContent().ConfigureAwait(false),
                 Description = "Description of Embed share bbb",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Embed share bbb"
             };
 
             var createResult = await _client.Shares.CreateAsync(createRequest);
+            _fixture.CreatedShareIds.Enqueue(createResult.ShareId);
 
             /// Act
             var request = new ShareEmbedUpdateRequest
@@ -108,23 +95,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldDeleteMany()
         {
             /// Arrange
-            var outputFormatIds = new List<string> { "Original" };
-
-            var shareContentItems = new List<ShareContent>
-            {
-                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds },
-                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds }
-            };
-
             var createRequest = new ShareEmbedCreateRequest
             {
-                Contents = shareContentItems,
+                Contents = await GetRandomShareContent().ConfigureAwait(false),
                 Description = "Description of Embed share bbb",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Embed share bbb"
             };
 
             var createResult = await _client.Shares.CreateAsync(createRequest);
+            _fixture.CreatedShareIds.Enqueue(createResult.ShareId);
+
             var share = await _client.Shares.GetAsync(createResult.ShareId);
             Assert.Equal(createResult.ShareId, share.Id);
 
@@ -142,17 +123,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateBasicShare()
         {
             /// Arrange
-            var outputFormatIds = new List<string> { "Original" };
-
-            var shareContentItems = new List<ShareContent>
-            {
-                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds },
-                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds }
-            };
-
             var request = new ShareBasicCreateRequest
             {
-                Contents = shareContentItems,
+                Contents = await GetRandomShareContent().ConfigureAwait(false),
                 Description = "Description of Basic share aaa",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Basic share aaa",
@@ -163,10 +136,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var result = await _client.Shares.CreateAsync(request);
+            var createResult = await _client.Shares.CreateAsync(request);
+            _fixture.CreatedShareIds.Enqueue(createResult.ShareId);
 
             /// Assert
-            Assert.NotNull(result);
+            Assert.NotNull(createResult);
         }
 
         [Fact]
@@ -206,17 +180,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateEmbedShare()
         {
             // Arrange
-            var outputFormatIds = new List<string> { "Original" };
-
-            var shareContentItems = new List<ShareContent>
-            {
-                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds },
-                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds }
-            };
-
             var request = new ShareEmbedCreateRequest
             {
-                Contents = shareContentItems,
+                Contents = await GetRandomShareContent().ConfigureAwait(false),
                 Description = "Description of Embed share bbb",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Embed share bbb"
@@ -224,6 +190,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Act
             var createResult = await _client.Shares.CreateAsync(request);
+            _fixture.CreatedShareIds.Enqueue(createResult.ShareId);
 
             /// Assert
             var share = await _client.Shares.GetAsync(createResult.ShareId);
@@ -232,59 +199,55 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Shares")]
-        public async Task ShouldGetBasicShare()
-        {
-            /// Arrange
-            var shareId = await _fixture.GetRandomShareIdAsync(ShareType.Basic, 20);
-
-            /// Act
-            var result = await _client.Shares.GetAsync(shareId);
-
-            /// Assert
-            Assert.Equal(shareId, result.Id);
-        }
-
-        [Fact]
-        [Trait("Stack", "Shares")]
-        public async Task ShouldGetEmbedShare()
-        {
-            /// Arrange
-            var shareId = await _fixture.GetRandomShareIdAsync(ShareType.Embed, 200);
-
-            /// Act
-            var result = await _client.Shares.GetAsync(shareId);
-
-            /// Assert
-            Assert.Equal(shareId, result.Id);
-        }
-
-        [Fact]
-        [Trait("Stack", "Shares")]
         public async Task ShouldSearch()
         {
-            /// Arrange
-            // TODO: Create better search example
-            var shareType = ShareType.Basic;
+            // Arrange
+            var createRequest = new ShareEmbedCreateRequest
+            {
+                Contents = await GetRandomShareContent().ConfigureAwait(false),
+                Description = "Description of Embed share bbb",
+                ExpirationDate = new DateTime(2020, 12, 31),
+                Name = "Embed share to search" + new Random().Next(0, 999999)
+            };
+            var createResult = await _client.Shares.CreateAsync(createRequest);
+            _fixture.CreatedShareIds.Enqueue(createResult.ShareId);
 
+            // Act
             var request = new ShareSearchRequest
             {
-                Start = 1,
+                Start = 0,
                 Limit = 100,
-                Filter = new TermFilter { Field = "shareType" }
+                Filter = new AndFilter()
+                {
+                    Filters = new List<FilterBase>
+                    {
+                        FilterBase.FromExpression<Share>(i => i.ShareType, ShareType.Embed.ToString()),
+                        FilterBase.FromExpression<Share>(i => i.Name, createRequest.Name)
+                    }
+                }
             };
 
             /// Act
             var result = await _client.Shares.SearchAsync(request);
 
             /// Assert
-            var shares = new List<Share>();
-            foreach (var item in result.Results)
-            {
-                if (item.ShareType == shareType)
-                    shares.Add(item);
-            }
+            result.TotalResults.Should().Be(1);
+            result.Results.First().Name.Should().Be(createRequest.Name);
+        }
 
-            Assert.True(shares.Any());
+        private async Task<List<ShareContent>> GetRandomShareContent(int count = 2)
+        {
+            var outputFormatIds = new List<string> { "Original" };
+
+            var randomContents = await _fixture.GetRandomContentsAsync(string.Empty, count);
+            var shareContentItems = randomContents.Results.Select(i =>
+                new ShareContent
+                {
+                    ContentId = i.Id,
+                    OutputFormatIds = outputFormatIds
+                }).ToList();
+
+            return shareContentItems;
         }
     }
 }
