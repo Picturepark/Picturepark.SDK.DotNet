@@ -6101,8 +6101,11 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "ownerTokenUserId": {
-          "type": "string"
+        "ownerTokenUserIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "allOf": [

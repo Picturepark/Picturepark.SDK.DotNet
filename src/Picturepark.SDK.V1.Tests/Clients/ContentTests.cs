@@ -99,12 +99,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }).ConfigureAwait(false);
 
             var newUser = searchResult.Results.First(u => u.Id != previousOwner.Id);
-            var request = new ContentsOwnershipTransferRequest
+            var manyRequest = new ContentOwnershipTransferManyRequest
             {
-                ContentIds = contentIds.ToList(),
-                TransferUserId = newUser.Id
+                Requests = contentIds.Select(id => new ContentOwnershipTransferRequest
+                {
+                    ContentId = id,
+                    TransferUserId = newUser.Id
+                }).ToList()
             };
-            var businessProcess = await _client.Contents.TransferOwnershipManyAsync(request).ConfigureAwait(false);
+            var businessProcess = await _client.Contents.TransferOwnershipManyAsync(manyRequest).ConfigureAwait(false);
             await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
             var newContents = await _client.Contents.GetManyAsync(contentIds).ConfigureAwait(false);
@@ -764,9 +767,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldBatchUpdateFieldsByFilter()
         {
             /// Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
-            var schema = await CreateTestSchemaAsync();
-            var request = new ContentFieldsFilterUpdateRequest
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var schema = await CreateTestSchemaAsync().ConfigureAwait(false);
+            var request = new ContentFieldsBatchUpdateFilterRequest
             {
                 ContentFilterRequest = new ContentFilterRequest
                 {
@@ -787,8 +790,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var businessProcess = await _client.Contents.BatchUpdateFieldsByFilterAsync(request);
-            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+            var businessProcess = await _client.Contents.BatchUpdateFieldsByFilterAsync(request).ConfigureAwait(false);
+            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
             /// Assert
             Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
@@ -799,11 +802,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldBatchUpdateFieldsByIds()
         {
             /// Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
 
-            var content = await _client.Contents.GetAsync(contentId);
-            var schema = await CreateTestSchemaAsync();
-            var updateRequest = new ContentFieldsUpdateRequest
+            var content = await _client.Contents.GetAsync(contentId).ConfigureAwait(false);
+            var schema = await CreateTestSchemaAsync().ConfigureAwait(false);
+            var updateRequest = new ContentFieldsBatchUpdateRequest
             {
                 ContentIds = new List<string> { content.Id },
                 ChangeCommands = new List<MetadataValuesChangeCommandBase>
@@ -820,8 +823,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             /// Act
-            var businessProcess = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest);
-            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+            var businessProcess = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
+            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
             /// Assert
             Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
@@ -1141,8 +1144,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdatePermissionsMany()
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
-            var contentDetail = await _client.Contents.GetAsync(contentId);
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentDetail = await _client.Contents.GetAsync(contentId).ConfigureAwait(false);
             var permissionSetId = await _fixture.GetRandomContentPermissionSetIdAsync(20).ConfigureAwait(false);
 
             var contentPermissionSetIds = new List<string>
@@ -1150,22 +1153,27 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 permissionSetId
             };
 
-            var request = new ContentPermissionsUpdateRequest
+            var manyRequest = new ContentPermissionsUpdateManyRequest
             {
-                ContentId = contentDetail.Id,
-                ContentPermissionSetIds = contentPermissionSetIds
+                Requests = new List<ContentPermissionsUpdateRequest>
+                {
+                    new ContentPermissionsUpdateRequest
+                    {
+                        ContentId = contentDetail.Id,
+                        ContentPermissionSetIds = contentPermissionSetIds
+                    }
+                }
             };
 
             /// Act
-            var businessProcess = await _client.Contents.UpdatePermissionsManyAsync(new List<ContentPermissionsUpdateRequest> { request });
-            await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+            var businessProcess = await _client.Contents.UpdatePermissionsManyAsync(manyRequest).ConfigureAwait(false);
+            await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
-            var currentContentDetail = await _client.Contents.GetAsync(contentId);
+            var currentContentDetail = await _client.Contents.GetAsync(contentId).ConfigureAwait(false);
             var currentContentPermissionSetIds = currentContentDetail.ContentPermissionSetIds.Select(i => i).ToList();
 
             /// Assert
-            Assert.True(!contentPermissionSetIds.Except(currentContentPermissionSetIds).Any());
-            Assert.True(!currentContentPermissionSetIds.Except(contentPermissionSetIds).Any());
+            currentContentPermissionSetIds.Should().BeEquivalentTo(contentPermissionSetIds);
         }
 
         [Fact]

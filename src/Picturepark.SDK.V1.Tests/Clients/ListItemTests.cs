@@ -114,7 +114,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             ListItemDetail listItemDetail = await _client.ListItems.CreateAsync(listItem).ConfigureAwait(false);
 
             /// Act
-            var updateRequest = new ListItemFieldsFilterUpdateRequest
+            var updateRequest = new ListItemFieldsBatchUpdateFilterRequest
             {
                 ListItemFilterRequest = new ListItemFilterRequest // TODO: ListItemFieldsFilterUpdateRequest.ListItemFilterRequest: Rename property to FilterRequest?
                 {

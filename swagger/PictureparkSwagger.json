@@ -1848,17 +1848,14 @@
         "operationId": "Content_UpdatePermissionsMany",
         "parameters": [
           {
-            "name": "updateRequest",
+            "name": "updateManyRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ContentPermissionsUpdateRequest"
-              }
+              "$ref": "#/definitions/ContentPermissionsUpdateManyRequest"
             },
             "x-nullable": true,
-            "description": "The permissions update request."
+            "description": "The permissions update many request."
           }
         ],
         "responses": {
@@ -2021,7 +2018,7 @@
         ]
       }
     },
-    "/v1/contents/many/ownership/transfer": {
+    "/v1/contents/many/ownership": {
       "put": {
         "tags": [
           "Content"
@@ -2031,14 +2028,14 @@
         "operationId": "Content_TransferOwnershipMany",
         "parameters": [
           {
-            "name": "contentsOwnershipTransferRequest",
+            "name": "contentOwnershipTransferManyRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ContentsOwnershipTransferRequest"
+              "$ref": "#/definitions/ContentOwnershipTransferManyRequest"
             },
             "x-nullable": true,
-            "description": "The content ownership transfer request."
+            "description": "The content ownership transfer many request."
           }
         ],
         "responses": {
@@ -2110,7 +2107,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ContentFieldsUpdateRequest"
+              "$ref": "#/definitions/ContentFieldsBatchUpdateRequest"
             },
             "x-nullable": true,
             "description": "The metadata update request."
@@ -2185,7 +2182,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ContentFieldsFilterUpdateRequest"
+              "$ref": "#/definitions/ContentFieldsBatchUpdateFilterRequest"
             },
             "x-nullable": true,
             "description": "The metadata update request."
@@ -4141,7 +4138,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ListItemFieldsUpdateRequest"
+              "$ref": "#/definitions/ListItemFieldsBatchUpdateRequest"
             },
             "x-nullable": true,
             "description": "The metadata update request."
@@ -4216,7 +4213,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ListItemFieldsFilterUpdateRequest"
+              "$ref": "#/definitions/ListItemFieldsBatchUpdateFilterRequest"
             },
             "x-nullable": true,
             "description": "The metadata update request."
@@ -9892,8 +9889,11 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "ownerTokenUserId": {
-          "type": "string"
+        "ownerTokenUserIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       },
       "allOf": [
@@ -14505,6 +14505,19 @@
         }
       }
     },
+    "ContentPermissionsUpdateManyRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "requests": {
+          "type": "array",
+          "description": "List of Content Permissions update requests",
+          "items": {
+            "$ref": "#/definitions/ContentPermissionsUpdateRequest"
+          }
+        }
+      }
+    },
     "ContentOwnershipTransferRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -14519,24 +14532,20 @@
         }
       }
     },
-    "ContentsOwnershipTransferRequest": {
+    "ContentOwnershipTransferManyRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "contentIds": {
+        "requests": {
           "type": "array",
-          "description": "The content ids.",
+          "description": "List of Content Permissions ownership transfer requests",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/ContentOwnershipTransferRequest"
           }
-        },
-        "transferUserId": {
-          "type": "string",
-          "description": "The id of user to whom the content documents have to be transfered to."
         }
       }
     },
-    "ContentFieldsUpdateRequest": {
+    "ContentFieldsBatchUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -14738,7 +14747,7 @@
         }
       ]
     },
-    "ContentFieldsFilterUpdateRequest": {
+    "ContentFieldsBatchUpdateFilterRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
@@ -14757,7 +14766,8 @@
       "additionalProperties": false,
       "required": [
         "searchType",
-        "lifeCycleFilter"
+        "lifeCycleFilter",
+        "brokenDependenciesFilter"
       ],
       "properties": {
         "channelId": {
@@ -14800,6 +14810,14 @@
           "allOf": [
             {
               "$ref": "#/definitions/LifeCycleFilter"
+            }
+          ]
+        },
+        "brokenDependenciesFilter": {
+          "description": "Filter the content document result set to those that have or not have broken references",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BrokenDependenciesFilter"
             }
           ]
         },
@@ -15783,7 +15801,7 @@
         }
       }
     },
-    "ListItemFieldsUpdateRequest": {
+    "ListItemFieldsBatchUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
       "required": [
@@ -15815,7 +15833,7 @@
         }
       }
     },
-    "ListItemFieldsFilterUpdateRequest": {
+    "ListItemFieldsBatchUpdateFilterRequest": {
       "type": "object",
       "description": "ListItemFieldsFilterUpdateRequest class",
       "additionalProperties": false,
@@ -15853,7 +15871,8 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "includeAllSchemaChildren"
+        "includeAllSchemaChildren",
+        "brokenDependenciesFilter"
       ],
       "properties": {
         "searchString": {
@@ -15885,6 +15904,14 @@
           "items": {
             "type": "string"
           }
+        },
+        "brokenDependenciesFilter": {
+          "description": "Filter the returned list items that have or not have broken references",
+          "allOf": [
+            {
+              "$ref": "#/definitions/BrokenDependenciesFilter"
+            }
+          ]
         }
       }
     },

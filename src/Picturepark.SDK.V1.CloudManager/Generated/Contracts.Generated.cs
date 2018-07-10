@@ -3078,8 +3078,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class OwnerTokenNotFoundException : PictureparkNotFoundException
     {
-        [Newtonsoft.Json.JsonProperty("ownerTokenUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OwnerTokenUserId { get; set; }
+        [Newtonsoft.Json.JsonProperty("ownerTokenUserIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> OwnerTokenUserIds { get; set; }
     
         public string ToJson() 
         {
