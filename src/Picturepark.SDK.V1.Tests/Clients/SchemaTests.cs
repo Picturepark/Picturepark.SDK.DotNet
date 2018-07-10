@@ -102,7 +102,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     Names = new TranslatedStringDictionary { { _fixture.DefaultLanguage, fieldName } },
                     Id = fieldName
                 });
-                await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
+                await _client.Schemas.UpdateAndWaitForCompletionAsync(schema, true);
             }
 
             var newSchema = await _client.Schemas.GetAsync(nameof(Person) + schemaSuffix);
