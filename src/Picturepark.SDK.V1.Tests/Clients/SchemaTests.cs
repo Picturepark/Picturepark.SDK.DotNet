@@ -273,22 +273,27 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdate()
         {
             /// Arrange
-            string schemaId = await _fixture.GetRandomSchemaIdAsync(20);
-            SchemaDetail schemaDetail = await _client.Schemas.GetAsync(schemaId);
+            var schemaTranslation = "SchemaTranslation" + new Random().Next(0, 999999);
+            var language = "de";
 
-            string language = "de";
+            // Create simple schema
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Tag));
+            var tagSchema = schemas.First();
+            tagSchema.Id = "SchemaToUpdate" + new Random().Next(0, 999999);
 
-            schemaDetail.Names.Remove(language);
-            schemaDetail.Names.Add(language, schemaId);
+            await _client.Schemas.CreateAndWaitForCompletionAsync(tagSchema, false);
+            var schemaDetail = await _client.Schemas.GetAsync(tagSchema.Id);
+
+            schemaDetail.Names[language] = schemaTranslation;
 
             /// Act
             await _client.Schemas.UpdateAndWaitForCompletionAsync(schemaDetail, false);
 
             /// Assert
-            SchemaDetail updatedSchema = await _client.Schemas.GetAsync(schemaId);
+            SchemaDetail updatedSchema = await _client.Schemas.GetAsync(schemaDetail.Id);
             updatedSchema.Names.TryGetValue(language, out string outString);
 
-            Assert.Equal(schemaId, outString);
+            Assert.Equal(schemaTranslation, outString);
         }
 
         private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
