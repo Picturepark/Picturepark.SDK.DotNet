@@ -1244,51 +1244,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             return schemaItem;
         }
 
-        private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
-        {
-            // TODO: Remove this and use custom schemaIdGenerator
-            var systemSchemaIds = new[] { "Country" };
-            if (!systemSchemaIds.Contains(schema.Id))
-            {
-                schema.Id = schema.Id + schemaSuffix;
-            }
-
-            if (!string.IsNullOrEmpty(schema.ParentSchemaId) && !systemSchemaIds.Contains(schema.ParentSchemaId))
-            {
-                schema.ParentSchemaId = schema.ParentSchemaId + schemaSuffix;
-            }
-
-            foreach (var field in schema.Fields.OfType<FieldSingleTagbox>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
-
-            foreach (var field in schema.Fields.OfType<FieldMultiTagbox>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
-
-            foreach (var field in schema.Fields.OfType<FieldSingleFieldset>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
-
-            foreach (var field in schema.Fields.OfType<FieldMultiFieldset>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
-
-            foreach (var field in schema.Fields.OfType<FieldSingleRelation>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
-
-            foreach (var field in schema.Fields.OfType<FieldMultiRelation>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
-        }
-
         private async Task SetupSchema(Type type)
         {
             var schemas = await _client.Schemas.GenerateSchemasAsync(type).ConfigureAwait(false);

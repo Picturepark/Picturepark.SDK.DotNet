@@ -35,36 +35,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Schema")]
-        public async Task ShouldGenerateSchemas()
-        {
-            /// Act
-            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
-
-            /// Assert
-            Assert.Equal(8, schemas.Count);
-        }
-
-        [Fact]
-        [Trait("Stack", "Schema")]
-        public async Task ShouldGenerateAndCreateSchemas()
-        {
-            /// Act
-            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(PersonShot));
-            foreach (var schema in schemas)
-            {
-                if (await _client.Schemas.ExistsAsync(schema.Id) == false)
-                {
-                    await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true);
-                }
-            }
-
-            /// Assert
-            Assert.True(await _client.Schemas.ExistsAsync(schemas.First().Id));
-            Assert.Equal(9, schemas.Count);
-        }
-
-        [Fact]
-        [Trait("Stack", "Schema")]
         public async Task ShouldCorrectlyDeserializeExceptions()
         {
             /// Arrange
@@ -83,19 +53,62 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Schema")]
-        public async Task ShouldGenerateAndCreateOrUpdateSchemas()
+        public async Task ShouldGenerateSchemas()
         {
             /// Act
             var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
+
+            /// Assert
+            Assert.Equal(8, schemas.Count);
+        }
+
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldGenerateAndCreateSchemas()
+        {
+            /// Act
+            var schemaSuffix = new Random().Next(0, 999999);
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(PersonShot));
             foreach (var schema in schemas)
             {
+                AppendSchemaIdSuffix(schema, schemaSuffix);
+                await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true);
+            }
+
+            /// Assert
+            Assert.True(await _client.Schemas.ExistsAsync(schemas.First().Id));
+            Assert.Equal(9, schemas.Count);
+        }
+
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldGenerateAndCreateAndUpdateSchemas()
+        {
+            /// Act
+            var schemaSuffix = new Random().Next(0, 999999);
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
+            foreach (var schema in schemas)
+            {
+                AppendSchemaIdSuffix(schema, schemaSuffix);
+                await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true);
+            }
+
+            // Add a new text field to each schema
+            foreach (var schema in schemas)
+            {
+                var fieldName = "newField" + schema.Id;
+                schema.Fields.Add(new FieldString
+                {
+                    Names = new TranslatedStringDictionary { { _fixture.DefaultLanguage, fieldName } },
+                    Id = fieldName
+                });
                 await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
             }
 
-            var newSchemas = await _client.Schemas.GetAsync(nameof(Person));
+            var newSchema = await _client.Schemas.GetAsync(nameof(Person) + schemaSuffix);
 
             /// Assert
-            Assert.Contains(newSchemas.Types, i => i == SchemaType.List || i == SchemaType.Struct);
+            Assert.Contains(newSchema.Fields, i => i.Id.Contains("newField"));
         }
 
         [Fact]
@@ -278,117 +291,54 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.Equal(schemaId, outString);
         }
 
-        [Fact(Skip = "MigrationOnly")]
-        [Trait("Stack", "Schema")]
-        public async Task ShouldWrapFiltersInNestedFilter()
+        private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
         {
-            var schemas = (await _client.Schemas.SearchAsync(new SchemaSearchRequest
+            // TODO: Remove this and use custom schemaIdGenerator
+            var systemSchemaIds = new[] { "Country" };
+            if (!systemSchemaIds.Contains(schema.Id))
             {
-                Limit = 1000
-            })).Results.Where(i => !i.System).ToList();
+                schema.Id = schema.Id + schemaSuffix;
 
-            var indexFields = await _client.Schemas.GetIndexFieldsAsync(new GetIndexFieldsRequest
-            {
-                SchemaIds = schemas.Select(i => i.Id).ToList()
-            });
-            foreach (var layer in schemas)
-            {
-                var details = await _client.Schemas.GetAsync(layer.Id);
-
-                foreach (var field in details.Fields)
+                foreach (var key in schema.Names.Keys.ToList())
                 {
-                    if (field is FieldMultiTagbox multiTagbox)
-                    {
-                        if (multiTagbox.Filter != null)
-                        {
-                            multiTagbox.Filter = WrapFilter(multiTagbox.Filter, indexFields);
-                        }
-                    }
-
-                    if (field is FieldSingleTagbox singleTagbox)
-                    {
-                        if (singleTagbox.Filter != null)
-                        {
-                            singleTagbox.Filter = WrapFilter(singleTagbox.Filter, indexFields);
-                        }
-                    }
+                    schema.Names[key] = schema.Names[key] + " " + schemaSuffix;
                 }
-
-                foreach (var field in details.FieldsOverwrite)
-                {
-                    if (field is FieldOverwriteMultiTagbox multiTagbox)
-                    {
-                        if (multiTagbox.Filter != null)
-                        {
-                            multiTagbox.Filter = WrapFilter(multiTagbox.Filter, indexFields);
-                        }
-                    }
-
-                    if (field is FieldOverwriteSingleTagbox singleTagbox)
-                    {
-                        if (singleTagbox.Filter != null)
-                        {
-                            singleTagbox.Filter = WrapFilter(singleTagbox.Filter, indexFields);
-                        }
-                    }
-                }
-
-                await _client.Schemas.UpdateAndWaitForCompletionAsync(details, false);
             }
-        }
 
-        private FilterBase WrapFilter(FilterBase filter, ICollection<IndexField> indexFields)
-        {
-            switch (filter)
+            if (!string.IsNullOrEmpty(schema.ParentSchemaId) && !systemSchemaIds.Contains(schema.ParentSchemaId))
             {
-                case AndFilter andFilter:
-                    var andFilters = andFilter.Filters.ToList();
-
-                    for (var i = 0; i < andFilters.Count; i++)
-                    {
-                        andFilters[i] = WrapFilter(andFilters[i], indexFields);
-                    }
-
-                    andFilter.Filters = andFilters;
-                    return andFilter;
-                case OrFilter orFilter:
-                    var orFilters = orFilter.Filters.ToList();
-
-                    for (var i = 0; i < orFilters.Count; i++)
-                    {
-                        orFilters[i] = WrapFilter(orFilters[i], indexFields);
-                    }
-
-                    orFilter.Filters = orFilters;
-                    return orFilter;
-                case NotFilter notFilter:
-                    return WrapFilter(notFilter.Filter, indexFields);
-                case TermFilter termFilter:
-                    return GetWrappedFilter(termFilter.Field, termFilter, indexFields);
-                case TermsFilter termsFilter:
-                    return GetWrappedFilter(termsFilter.Field, termsFilter, indexFields);
-                case PrefixFilter prefixFilter:
-                    return GetWrappedFilter(prefixFilter.Field, prefixFilter, indexFields);
-                case NestedFilter nestedFilter:
-                    return nestedFilter;
-                default:
-                    throw new NotImplementedException();
+                schema.ParentSchemaId = schema.ParentSchemaId + schemaSuffix;
             }
-        }
 
-        private FilterBase GetWrappedFilter(string field, FilterBase filter, ICollection<IndexField> indexFields)
-        {
-            var indexField = indexFields.SingleOrDefault(i => i.Id == field.Replace(".x-default", string.Empty));
-            if (!string.IsNullOrEmpty(indexField?.NestedPath))
+            foreach (var field in schema.Fields.OfType<FieldSingleTagbox>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
             {
-                return new NestedFilter
-                {
-                    Path = indexField.NestedPath,
-                    Filter = filter
-                };
+                field.SchemaId = field.SchemaId + schemaSuffix;
             }
 
-            return filter;
+            foreach (var field in schema.Fields.OfType<FieldMultiTagbox>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
+
+            foreach (var field in schema.Fields.OfType<FieldSingleFieldset>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
+
+            foreach (var field in schema.Fields.OfType<FieldMultiFieldset>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
+
+            foreach (var field in schema.Fields.OfType<FieldSingleRelation>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
+
+            foreach (var field in schema.Fields.OfType<FieldMultiRelation>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            {
+                field.SchemaId = field.SchemaId + schemaSuffix;
+            }
         }
     }
 }
