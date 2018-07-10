@@ -289,11 +289,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateContent()
         {
             /// Arrange
-            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(ContentItem)).ConfigureAwait(false);
-            foreach (var schema in schemas)
-            {
-                await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, false).ConfigureAwait(false);
-            }
+            await SetupContentItemSchema().ConfigureAwait(false);
 
             var request = new ContentCreateRequest
             {
@@ -314,11 +310,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateContents()
         {
             /// Arrange
-            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(ContentItem));
-            foreach (var schema in schemas)
-            {
-                await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, false);
-            }
+            await SetupContentItemSchema().ConfigureAwait(false);
 
             var request1 = new ContentCreateRequest
             {
@@ -1005,41 +997,54 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
-        public async Task ShouldTrashAndUntrashRandomContent()
+        public async Task ShouldDeactivateAndReactivateContent()
         {
             /// Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
-            Assert.False(string.IsNullOrEmpty(contentId));
+            await SetupContentItemSchema().ConfigureAwait(false);
 
-            var contentDetail = await _client.Contents.GetAsync(contentId).ConfigureAwait(false); // Should not throw
+            var request = new ContentCreateRequest
+            {
+                Content = JsonConvert.DeserializeObject(@"{ ""name"": ""contentToTrash"" }"),
+                ContentSchemaId = "ContentItem",
+                Metadata = new DataDictionary()
+            };
 
             /// Act
+            var content = await _client.Contents.CreateAsync(request).ConfigureAwait(false);
 
             // Deactivate
-            await _client.Contents.DeactivateAsync(contentId).ConfigureAwait(false);
-            await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Contents.GetAsync(contentId).ConfigureAwait(false)).ConfigureAwait(false);
+            await _client.Contents.DeactivateAsync(content.Id).ConfigureAwait(false);
+            await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Contents.GetAsync(content.Id).ConfigureAwait(false)).ConfigureAwait(false);
 
             // Reactivate
-            await _client.Contents.ReactivateAsync(contentId, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            await _client.Contents.ReactivateAsync(content.Id, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
             /// Assert
-            Assert.NotNull(await _client.Contents.GetAsync(contentId).ConfigureAwait(false));
+            Assert.NotNull(await _client.Contents.GetAsync(content.Id).ConfigureAwait(false));
         }
 
         [Fact]
         [Trait("Stack", "Contents")]
-        public async Task ShouldTrashAndUntrashRandomContentMany()
+        public async Task ShouldDeactivateAndReactivateContentMany()
         {
             /// Arrange
-            var contentIds = new List<string>
+            await SetupContentItemSchema().ConfigureAwait(false);
+
+            var content1 = await _client.Contents.CreateAsync(new ContentCreateRequest
             {
-                await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false),
-                await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false)
-            };
+                Content = JsonConvert.DeserializeObject(@"{ ""name"": ""contentToTrashMany1"" }"),
+                ContentSchemaId = "ContentItem",
+                Metadata = new DataDictionary()
+            }).ConfigureAwait(false);
 
-            var response = await _client.Contents.GetManyAsync(contentIds).ConfigureAwait(false); // Should not throw
+            var content2 = await _client.Contents.CreateAsync(new ContentCreateRequest
+            {
+                Content = JsonConvert.DeserializeObject(@"{ ""name"": ""contentToTrashMany2"" }"),
+                ContentSchemaId = "ContentItem",
+                Metadata = new DataDictionary()
+            }).ConfigureAwait(false);
 
-            /// Act
+            var contentIds = new List<string> { content1.Id, content2.Id };
 
             // Deactivate
             var deactivationRequest = new ContentDeactivateRequest
@@ -1307,6 +1312,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
             foreach (var field in schema.Fields.OfType<FieldMultiRelation>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
             {
                 field.SchemaId = field.SchemaId + schemaSuffix;
+            }
+        }
+
+        private async Task SetupContentItemSchema()
+        {
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(ContentItem)).ConfigureAwait(false);
+            foreach (var schema in schemas)
+            {
+                await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, false).ConfigureAwait(false);
             }
         }
     }
