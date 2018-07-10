@@ -71,13 +71,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             /// Arrange
             string location = "testlocation" + new Random().Next(0, 999999);
-            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
 
-            var schema = await CreateTestSchemaAsync();
-            var content = await _client.Contents.GetAsync(contentId);
-            var history = await _client.DocumentHistory.GetAsync(contentId);
+            var schema = await CreateTestSchemaAsync().ConfigureAwait(false);
+            var content = await _client.Contents.GetAsync(contentId).ConfigureAwait(false);
+            var history = await _client.DocumentHistory.GetAsync(contentId).ConfigureAwait(false);
 
-            var updateRequest = new ContentFieldsUpdateRequest
+            var updateRequest = new ContentFieldsBatchUpdateRequest
             {
                 ContentIds = new List<string> { content.Id },
                 ChangeCommands = new List<MetadataValuesChangeCommandBase>
@@ -94,14 +94,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // TODO: Create ContentHelper to update and wait with one call => UpdateMetadataManyAndWaitForCompletionAsync?
-            var businessProcess = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest);
-            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+            var businessProcess = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
+            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
             // Refetch content and compare versions
-            var updatedHistory = await _client.DocumentHistory.GetAsync(contentId);
+            var updatedHistory = await _client.DocumentHistory.GetAsync(contentId).ConfigureAwait(false);
 
             /// Act
-            var difference = await _client.DocumentHistory.GetDifferenceAsync(contentId, history.DocumentVersion, updatedHistory.DocumentVersion);
+            var difference = await _client.DocumentHistory.GetDifferenceAsync(contentId, history.DocumentVersion, updatedHistory.DocumentVersion).ConfigureAwait(false);
 
             /// Assert
             Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
