@@ -50,7 +50,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var updatedProfile = await _client.Profile.UpdateAsync(updateRequest).ConfigureAwait(false);
 
             // Assert
-            Assert.Equal(profile.FirstName + "1", updatedProfile.FirstName);
+            updatedProfile.FirstName.Should().Be(profile.FirstName + "1");
         }
     }
 }
