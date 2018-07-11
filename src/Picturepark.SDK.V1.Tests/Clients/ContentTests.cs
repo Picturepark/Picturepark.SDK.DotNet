@@ -61,11 +61,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetMany()
         {
             /// Arrange
-            var contentIds = new[]
-            {
-                await _fixture.GetRandomContentIdAsync(".jpg", 50).ConfigureAwait(false),
-                await _fixture.GetRandomContentIdAsync(".jpg", 50).ConfigureAwait(false)
-            };
+            var randomContents = await _fixture.GetRandomContentsAsync(".jpg", 2).ConfigureAwait(false);
+            var contentIds = randomContents.Results.Select(i => i.Id).ToList();
 
             /// Act
             var contents = await _client.Contents.GetManyAsync(contentIds).ConfigureAwait(false);
@@ -81,11 +78,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldTransferOwnershipMany()
         {
             /// Arrange
-            var contentIds = new[]
-            {
-                await _fixture.GetRandomContentIdAsync(".jpg", 50).ConfigureAwait(false),
-                await _fixture.GetRandomContentIdAsync(".jpg", 50).ConfigureAwait(false)
-            };
+            var randomContents = await _fixture.GetRandomContentsAsync(".jpg", 2).ConfigureAwait(false);
+            var contentIds = randomContents.Results.Select(i => i.Id).ToList();
 
             /// Act
             var previousContents = await _client.Contents.GetManyAsync(contentIds).ConfigureAwait(false);
@@ -247,15 +241,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateDownloadLinkForMultipeFiles()
         {
             /// Arrange
-            var contentId1 = await _fixture.GetRandomContentIdAsync(".jpg", 50);
-            var contentId2 = await _fixture.GetRandomContentIdAsync(".jpg", 50);
+            var randomContents = await _fixture.GetRandomContentsAsync(".jpg", 2).ConfigureAwait(false);
+            var contentIds = randomContents.Results.Select(i => i.Id).ToList();
 
             var createDownloadLinkRequest = new ContentDownloadLinkCreateRequest
             {
                 Contents = new List<ContentDownloadRequestItem>
                 {
-                    new ContentDownloadRequestItem { ContentId = contentId1, OutputFormatId = "Original" },
-                    new ContentDownloadRequestItem { ContentId = contentId2, OutputFormatId = "Original" }
+                    new ContentDownloadRequestItem { ContentId = contentIds[0], OutputFormatId = "Original" },
+                    new ContentDownloadRequestItem { ContentId = contentIds[1], OutputFormatId = "Original" }
                 }
             };
 
@@ -444,12 +438,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdateMetadataMany()
         {
             /// Arrange
-            var contentId1 = await _fixture.GetRandomContentIdAsync(".jpg", 20);
-            var contentId2 = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            var randomContents = await _fixture.GetRandomContentsAsync(".jpg", 2).ConfigureAwait(false);
+            var contentIds = randomContents.Results.Select(i => i.Id).ToList();
+
             var schema = await CreateTestSchemaAsync();
             var request1 = new ContentMetadataUpdateRequest
             {
-                Id = contentId1,
+                Id = contentIds[0],
                 LayerSchemaIds = new List<string> { schema.Id },
                 Metadata = new DataDictionary
                 {
@@ -465,7 +460,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var request2 = new ContentMetadataUpdateRequest
             {
-                Id = contentId2,
+                Id = contentIds[1],
                 LayerSchemaIds = new List<string> { schema.Id },
                 Metadata = new DataDictionary
                 {
