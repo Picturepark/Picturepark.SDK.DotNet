@@ -26,6 +26,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             profile.Should().NotBeNull();
             profile.Id.Should().NotBeNullOrEmpty();
             profile.UserRights.Should().NotBeNull().And.Subject.Should().Contain(UserRight.ManageCollections);
+            profile.UserRoleIds.Should().NotBeNull().And.NotBeEmpty();
         }
 
         [Fact]
