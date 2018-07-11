@@ -202,6 +202,28 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Shares")]
+        public async Task ShouldFailOnSharingDuplicatedContentOutputs()
+        {
+            // Arrange
+            var contents = await GetRandomShareContent(1).ConfigureAwait(false);
+
+            // Share content twice
+            contents.Add(contents.First());
+
+            await Assert.ThrowsAsync<InvalidArgumentException>(async () =>
+            {
+                await CreateShare(new ShareEmbedCreateRequest
+                {
+                    Contents = contents,
+                    Description = "Description of Embed share bbb",
+                    ExpirationDate = new DateTime(2020, 12, 31),
+                    Name = "Embed share bbb"
+                }).ConfigureAwait(false);
+            }).ConfigureAwait(false);
+        }
+
+        [Fact]
+        [Trait("Stack", "Shares")]
         public async Task ShouldSearch()
         {
             // Arrange
