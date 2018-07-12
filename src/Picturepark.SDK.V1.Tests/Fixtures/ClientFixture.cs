@@ -88,9 +88,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             return await RandomHelper.GetRandomFileTransferIdAsync(_client, limit);
         }
 
-        public async Task<string> GetRandomMetadataPermissionSetIdAsync(int limit)
+        public async Task<string> GetRandomSchemaPermissionSetIdAsync(int limit)
         {
-            return await RandomHelper.GetRandomMetadataPermissionSetIdAsync(_client, limit);
+            return await RandomHelper.GetRandomSchemaPermissionSetIdAsync(_client, limit);
         }
 
         public async Task<string> GetRandomSchemaIdAsync(int limit)

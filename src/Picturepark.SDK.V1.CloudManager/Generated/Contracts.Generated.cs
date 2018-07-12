@@ -468,6 +468,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task AcknowledgeAsync(string processId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<EnvironmentProcessSearchResult> SearchAsync(EnvironmentProcessSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -7217,6 +7225,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = "Failed")]
     
         Failed = 5,
+    
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Acknowledged")]
+    
+        Acknowledged = 6,
     
     
     }
