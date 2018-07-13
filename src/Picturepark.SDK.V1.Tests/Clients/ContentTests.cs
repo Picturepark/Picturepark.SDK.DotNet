@@ -1180,7 +1180,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            await _client.Schemas.CreateAndWaitForCompletionAsync(contentSchema).ConfigureAwait(false);
+            await _client.Schemas.CreateAsync(contentSchema, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
             var content = new ContentCreateRequest
             {
@@ -1235,8 +1235,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 DisplayPatterns = new List<DisplayPattern>()
             };
 
-            await _client.Schemas.CreateAndWaitForCompletionAsync(schemaItem, false);
-            return schemaItem;
+            return await _client.Schemas.CreateAsync(schemaItem, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
         }
 
         private async Task SetupSchema(Type type)
@@ -1246,7 +1245,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 if (await _client.Schemas.ExistsAsync(schema.Id).ConfigureAwait(false) == false)
                 {
-                    await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true).ConfigureAwait(false);
+                    await _client.Schemas.CreateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
                 }
             }
         }

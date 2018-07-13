@@ -6,6 +6,7 @@ using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Xunit;
 using System.Linq;
+#pragma warning disable 1587
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -45,7 +46,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // 1. Create or update schema
             var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(BusinessProcessTest)).ConfigureAwait(false);
-            await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schemas.First(), false).ConfigureAwait(false);
+            await _client.Schemas.CreateOrUpdateAsync(schemas.First(), false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
             // 2. Create list items
             var listItemDetail1 = await _client.ListItems.CreateAsync(new ListItemCreateRequest

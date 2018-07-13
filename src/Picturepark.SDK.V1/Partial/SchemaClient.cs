@@ -40,26 +40,28 @@ namespace Picturepark.SDK.V1
         /// <summary>Creates or updates the given <see cref="SchemaDetail"/>.</summary>
         /// <param name="schemaDetail">The schema detail.</param>
         /// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The task.</returns>
-        public async Task CreateOrUpdateAndWaitForCompletionAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<SchemaDetail> CreateOrUpdateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (await ExistsAsync(schemaDetail.Id, null, cancellationToken).ConfigureAwait(false))
             {
-                await UpdateAndWaitForCompletionAsync(schemaDetail, enableForBinaryFiles, cancellationToken).ConfigureAwait(false);
+                return await UpdateAsync(schemaDetail, enableForBinaryFiles, timeout, cancellationToken).ConfigureAwait(false);
             }
             else
             {
-                await CreateAndWaitForCompletionAsync(schemaDetail, enableForBinaryFiles, cancellationToken).ConfigureAwait(false);
+                return await CreateAsync(schemaDetail, enableForBinaryFiles, timeout, cancellationToken).ConfigureAwait(false);
             }
         }
 
         /// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
         /// <param name="schemaDetail">The schema detail.</param>
         /// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The task.</returns>
-        public async Task CreateAndWaitForCompletionAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<SchemaDetail> CreateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Map schema to binary schemas
             if (enableForBinaryFiles && schemaDetail.Types.Contains(SchemaType.Layer))
@@ -76,15 +78,16 @@ namespace Picturepark.SDK.V1
                 schemaDetail.ReferencedInContentSchemaIds = binarySchemas;
             }
 
-            await CreateAndWaitForCompletionAsync(schemaDetail, cancellationToken).ConfigureAwait(false);
+            return await CreateAsync(schemaDetail, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
         /// <param name="schemaDetail">The schema detail.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The task.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task CreateAndWaitForCompletionAsync(SchemaDetail schemaDetail, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<SchemaDetail> CreateAsync(SchemaDetail schemaDetail, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var createRequest = new SchemaCreateRequest
             {
@@ -103,28 +106,17 @@ namespace Picturepark.SDK.V1
                 LayerSchemaIds = schemaDetail.LayerSchemaIds
             };
 
-            var businessProcess = await CreateAsync(createRequest, cancellationToken).ConfigureAwait(false);
-            await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id, cancellationToken: cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <summary>Deletes the a schema.</summary>
-        /// <param name="schemaId">The schema ID.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The task.</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task DeleteAndWaitForCompletionAsync(string schemaId, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            var process = await DeleteAsync(schemaId, cancellationToken).ConfigureAwait(false);
-            await _businessProcessClient.WaitForCompletionAsync(process.Id, cancellationToken: cancellationToken).ConfigureAwait(false);
+            return await CreateAsync(createRequest, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Updates the given <see cref="SchemaDetail"/>.</summary>
         /// <param name="schemaDetail">The schema detail.</param>
         /// <param name="enableForBinaryFiles">Specifies whether to enable the schema for binary files.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The task.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task UpdateAndWaitForCompletionAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<SchemaDetail> UpdateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (enableForBinaryFiles && schemaDetail.Types.Contains(SchemaType.Layer))
             {
@@ -156,19 +148,7 @@ namespace Picturepark.SDK.V1
                 FieldsOverwrite = schemaDetail.FieldsOverwrite
             };
 
-            await UpdateAndWaitForCompletionAsync(schemaDetail.Id, updateRequest, cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <summary>Updates a schema.</summary>
-        /// <param name="schemaId">The schema ID.</param>
-        /// <param name="updateRequest">The update request.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The task.</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task UpdateAndWaitForCompletionAsync(string schemaId, SchemaUpdateRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            var process = await UpdateAsync(schemaId, updateRequest, cancellationToken).ConfigureAwait(false);
-            await _businessProcessClient.WaitForCompletionAsync(process.Id, cancellationToken: cancellationToken).ConfigureAwait(false);
+            return await UpdateAsync(schemaDetail.Id, updateRequest, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Checks whether a schema ID already exists.</summary>
