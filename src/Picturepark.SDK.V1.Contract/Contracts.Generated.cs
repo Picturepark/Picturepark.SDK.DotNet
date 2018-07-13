@@ -697,9 +697,9 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.17.19.0 (NJsonSchema v9.10.58.0 (Newtonsoft.Json v9.0.0.0))")]
-    public partial interface IPermissionClient
+    public partial interface IContentPermissionSetClient
     {
-        /// <summary>Search Content Permissions</summary>
+        /// <summary>Search Content Permission Sets</summary>
         /// <param name="request">The permission search request.</param>
         /// <returns>PermissionSetSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -710,7 +710,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<PermissionSetSearchResult> SearchContentPermissionSetsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Get Content Permission - single</summary>
+        /// <summary>Get Content Permission Set - single</summary>
         /// <param name="permissionSetId">The content permission set id.</param>
         /// <returns>ContentPermissionSetDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -721,7 +721,12 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ContentPermissionSetDetail> GetContentPermissionSetAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Search Schema PermissionSets</summary>
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.17.19.0 (NJsonSchema v9.10.58.0 (Newtonsoft.Json v9.0.0.0))")]
+    public partial interface ISchemaPermissionSetClient
+    {
+        /// <summary>Search Schema Permission Sets</summary>
         /// <param name="request">The permission search request.</param>
         /// <returns>PermissionSetSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -732,7 +737,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<PermissionSetSearchResult> SearchSchemaPermissionSetsAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Get Schema PermissionSets - single</summary>
+        /// <summary>Get Schema Permission Sets - single</summary>
         /// <param name="permissionSetId">The schema permission set id.</param>
         /// <returns>SchemaPermissionSetDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -742,27 +747,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<SchemaPermissionSetDetail> GetSchemaPermissionSetAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Get User rights</summary>
-        /// <returns>list of user permissions</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UserRight>> GetUserRightsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Has UserRight</summary>
-        /// <param name="userRight">The UserRight to validate</param>
-        /// <returns>Boolean - user has permission</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<bool> HasUserRightAsync(UserRight userRight, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -1233,7 +1217,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<UserProfile> UpdateAsync(UserProfile profile, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UserProfile> UpdateAsync(UserProfileUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -13846,6 +13830,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AuthorizationState AuthorizationState { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("userRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<UserRight> UserRights { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -13854,6 +13844,39 @@ namespace Picturepark.SDK.V1.Contract
         public static UserProfile FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserProfile>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.58.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class UserProfileUpdateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string EmailAddress { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FirstName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LastName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LanguageCode { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserAddress Address { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserProfileUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserProfileUpdateRequest>(data);
         }
     
     }

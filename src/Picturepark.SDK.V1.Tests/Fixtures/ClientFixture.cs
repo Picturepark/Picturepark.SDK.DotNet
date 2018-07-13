@@ -43,6 +43,8 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             _configuration = JsonConvert.DeserializeObject<TestConfiguration>(configurationJson);
 
             _client = GetLocalizedPictureparkClient("en");
+
+            CustomerInfo = _client.Info.GetAsync().GetAwaiter().GetResult();
         }
 
         public string ProjectDirectory { get; }
@@ -56,6 +58,10 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
         public TestConfiguration Configuration => _configuration;
 
         public PictureparkClient Client => _client;
+
+        public CustomerInfo CustomerInfo { get; }
+
+        public string DefaultLanguage => CustomerInfo.LanguageConfiguration.DefaultLanguage;
 
         public async Task<ContentSearchResult> GetRandomContentsAsync(string searchString, int limit)
         {
@@ -82,9 +88,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             return await RandomHelper.GetRandomFileTransferIdAsync(_client, limit);
         }
 
-        public async Task<string> GetRandomMetadataPermissionSetIdAsync(int limit)
+        public async Task<string> GetRandomSchemaPermissionSetIdAsync(int limit)
         {
-            return await RandomHelper.GetRandomMetadataPermissionSetIdAsync(_client, limit);
+            return await RandomHelper.GetRandomSchemaPermissionSetIdAsync(_client, limit);
         }
 
         public async Task<string> GetRandomSchemaIdAsync(int limit)
