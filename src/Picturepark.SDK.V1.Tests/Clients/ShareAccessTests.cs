@@ -33,10 +33,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Embed share"
             }).ConfigureAwait(false);
+
             var embedDetail = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
+            var shareOutput = (ShareOutputEmbed)embedDetail.ContentSelections.First().Outputs.First();
+
             // Act
-            var result = await _client.ShareAccess.DownloadAsync(((ShareDataEmbed)embedDetail.Data).Token).ConfigureAwait(false);
+            var result = await _client.ShareAccess.DownloadAsync(shareOutput.Token).ConfigureAwait(false);
 
             // Assert
             Assert.NotNull(result);
@@ -57,10 +60,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }).ConfigureAwait(false);
             var embedDetail = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
-            var shareOutputs = (ShareOutputEmbed)embedDetail.ContentSelections.First().Outputs.First();
+            var shareOutput = (ShareOutputEmbed)embedDetail.ContentSelections.First().Outputs.First();
 
             // Act
-            var result = await _client.ShareAccess.DownloadAsync(shareOutputs.Token).ConfigureAwait(false);
+            var result = await _client.ShareAccess.DownloadAsync(shareOutput.Token).ConfigureAwait(false);
 
             // Assert
             Assert.NotNull(result);

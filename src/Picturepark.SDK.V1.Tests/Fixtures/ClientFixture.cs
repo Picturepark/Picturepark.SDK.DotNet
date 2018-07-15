@@ -118,8 +118,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             var authClient = new AccessTokenAuthClient(_configuration.Server, _configuration.AccessToken, _configuration.CustomerAlias);
             return new PictureparkClient(new PictureparkClientSettings(authClient)
             {
-                DisplayLanguage = language,
-                HttpTimeout = TimeSpan.FromMinutes(5)
+                DisplayLanguage = language
             });
         }
     }
