@@ -32,11 +32,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Description = "Description of Embed share",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Embed share"
-            });
-            var embedDetail = await _client.Shares.GetAsync(createResult.ShareId);
+            }).ConfigureAwait(false);
+            var embedDetail = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
             // Act
-            var result = await _client.ShareAccess.DownloadAsync(((ShareDataEmbed)embedDetail.Data).Token);
+            var result = await _client.ShareAccess.DownloadAsync(((ShareDataEmbed)embedDetail.Data).Token).ConfigureAwait(false);
 
             // Assert
             Assert.NotNull(result);
@@ -54,13 +54,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Description = "Description of Embed share",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Embed share"
-            });
-            var embedDetail = await _client.Shares.GetAsync(createResult.ShareId);
+            }).ConfigureAwait(false);
+            var embedDetail = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
             var shareOutputs = (ShareOutputEmbed)embedDetail.ContentSelections.First().Outputs.First();
 
             // Act
-            var result = await _client.ShareAccess.DownloadAsync(shareOutputs.Token);
+            var result = await _client.ShareAccess.DownloadAsync(shareOutputs.Token).ConfigureAwait(false);
 
             // Assert
             Assert.NotNull(result);
@@ -77,11 +77,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Description = "Description of Embed share",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Embed share"
-            });
-            var embedDetail = await _client.Shares.GetAsync(createResult.ShareId);
+            }).ConfigureAwait(false);
+            var embedDetail = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
             // Act
-            var result = await _client.ShareAccess.DownloadAsync(((ShareDataEmbed)embedDetail.Data).Token, contents.First().ContentId, "Original");
+            var result = await _client.ShareAccess.DownloadAsync(((ShareDataEmbed)embedDetail.Data).Token, contents.First().ContentId, "Original").ConfigureAwait(false);
 
             // Assert
             Assert.NotNull(result);
@@ -105,7 +105,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 SuccessDelegate = Console.WriteLine,
                 ErrorDelegate = Console.WriteLine
             };
-            var createTransferResult = await _client.Transfers.UploadFilesAsync(transferName, importFilePaths, uploadOptions);
+            var createTransferResult = await _client.Transfers.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
 
             var importRequest = new FileTransfer2ContentCreateRequest
             {
@@ -115,13 +115,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 LayerSchemaIds = new List<string>()
             };
 
-            await _client.Transfers.ImportAndWaitForCompletionAsync(createTransferResult.Transfer, importRequest, timeout);
+            await _client.Transfers.ImportAndWaitForCompletionAsync(createTransferResult.Transfer, importRequest, timeout).ConfigureAwait(false);
 
             // Assert
-            var transferResult = await _client.Transfers.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id);
+            var transferResult = await _client.Transfers.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
             var contentIds = transferResult.Results.Select(r => r.ContentId).ToList();
 
-            Assert.Equal(importFilePaths.Count(), contentIds.Count());
+            Assert.Equal(importFilePaths.Count, contentIds.Count);
 
             // Arrange get share
             var contentId = contentIds.First();
@@ -139,13 +139,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Name = "Embed share"
             };
 
-            var createResult = await _client.Shares.CreateAsync(request);
-            var embedDetail = await _client.Shares.GetAsync(createResult.ShareId);
+            var createResult = await _client.Shares.CreateAsync(request).ConfigureAwait(false);
+            var embedDetail = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
             var shareOutput = (ShareOutputEmbed)embedDetail.ContentSelections.Single().Outputs.First();
 
             // Act
-            var result = await _client.ShareAccess.DownloadAsync(shareOutput.Token, contentId, 10, 10);
+            var result = await _client.ShareAccess.DownloadAsync(shareOutput.Token, contentId, 10, 10).ConfigureAwait(false);
 
             // Assert
             Assert.NotNull(result);
