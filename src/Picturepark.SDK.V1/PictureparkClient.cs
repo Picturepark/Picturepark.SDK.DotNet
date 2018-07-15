@@ -40,7 +40,9 @@ namespace Picturepark.SDK.V1
 
         public IListItemClient ListItems { get; private set; }
 
-        public IPermissionClient Permissions { get; private set; }
+        public IContentPermissionSetClient ContentPermissionSets { get; private set; }
+
+        public ISchemaPermissionSetClient SchemaPermissionSets { get; private set; }
 
         public IPublicAccessClient PublicAccess { get; private set; }
 
@@ -76,7 +78,8 @@ namespace Picturepark.SDK.V1
             BusinessProcesses = new BusinessProcessClient(settings, httpClient);
             DocumentHistory = new DocumentHistoryClient(settings, httpClient);
             JsonSchemas = new JsonSchemaClient(settings, httpClient);
-            Permissions = new PermissionClient(settings, httpClient);
+            ContentPermissionSets = new ContentPermissionSetClient(settings, httpClient);
+            SchemaPermissionSets = new SchemaPermissionSetClient(settings, httpClient);
             PublicAccess = new PublicAccessClient(settings, httpClient);
             Shares = new ShareClient(settings, httpClient);
             Users = new UserClient(settings, httpClient);

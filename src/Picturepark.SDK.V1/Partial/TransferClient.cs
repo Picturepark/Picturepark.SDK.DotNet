@@ -81,7 +81,7 @@ namespace Picturepark.SDK.V1
                 {
                     try
                     {
-                        await UploadFileAsync(throttler, transfer.Id, file, uploadOptions.ChunkSize, cancellationToken).ConfigureAwait(false);
+                        await UploadFileAsync(throttler, transfer.Id, file.Identifier, file, uploadOptions.ChunkSize, cancellationToken).ConfigureAwait(false);
                         uploadOptions.SuccessDelegate?.Invoke(file);
                     }
                     catch (Exception ex)
@@ -145,7 +145,7 @@ namespace Picturepark.SDK.V1
                 TransferType = TransferType.FileUpload,
                 Files = filteredFileNames.Select(f => new TransferUploadFile
                 {
-                    Identifier = Guid.NewGuid().ToString(),
+                    Identifier = f.Identifier,
                     FileName = f.UploadAs
                 }).ToList()
             };
@@ -156,10 +156,9 @@ namespace Picturepark.SDK.V1
             return new CreateTransferResult(transfer, request.Files);
         }
 
-        private async Task UploadFileAsync(SemaphoreSlim throttler, string transferId, FileLocations fileLocation, int chunkSize, CancellationToken cancellationToken = default(CancellationToken))
+        private async Task UploadFileAsync(SemaphoreSlim throttler, string transferId, string identifier, FileLocations fileLocation, int chunkSize, CancellationToken cancellationToken = default(CancellationToken))
         {
             var sourceFileName = Path.GetFileName(fileLocation.AbsoluteSourcePath);
-            var identifier = sourceFileName;
 
             var fileSize = new FileInfo(fileLocation.AbsoluteSourcePath).Length;
             var targetFileName = Path.GetFileName(fileLocation.UploadAs);

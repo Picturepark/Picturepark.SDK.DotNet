@@ -26,15 +26,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new BusinessProcessSearchRequest
             {
                 Start = 0,
-                Limit = 20,
-                Sort = new List<SortInfo>
-                {
-                    new SortInfo
-                    {
-                        Field = "audit.creationDate",
-                        Direction = SortDirection.Desc
-                    }
-                }
+                Limit = 20
             };
 
             /// Act
@@ -52,24 +44,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Arrange
 
             // 1. Create or update schema
-            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(BusinessProcessTest));
-            await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schemas.First(), false);
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(BusinessProcessTest)).ConfigureAwait(false);
+            await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schemas.First(), false).ConfigureAwait(false);
 
             // 2. Create list items
             var listItemDetail1 = await _client.ListItems.CreateAsync(new ListItemCreateRequest
             {
                 Content = new BusinessProcessTest { Name = "Test1" },
                 ContentSchemaId = nameof(BusinessProcessTest)
-            });
+            }).ConfigureAwait(false);
 
             var listItemDetail2 = await _client.ListItems.CreateAsync(new ListItemCreateRequest
             {
                 Content = new BusinessProcessTest { Name = "Test2" },
                 ContentSchemaId = nameof(BusinessProcessTest)
-            });
+            }).ConfigureAwait(false);
 
             // 3. Initialize change request
-            var updateRequest = new ListItemFieldsUpdateRequest
+            var updateRequest = new ListItemFieldsBatchUpdateRequest
             {
                 ListItemIds = new List<string>
                 {
@@ -89,14 +81,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            var businessProcess = await _client.ListItems.BatchUpdateFieldsByIdsAsync(updateRequest);
-            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, TimeSpan.FromSeconds(10));
+            var businessProcess = await _client.ListItems.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
+            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, TimeSpan.FromSeconds(10)).ConfigureAwait(false);
 
             /// Act
-            var details = await _client.BusinessProcesses.GetDetailsAsync(businessProcess.Id);
+            var details = await _client.BusinessProcesses.GetDetailsAsync(businessProcess.Id).ConfigureAwait(false);
 
             /// Assert
-            Assert.True(waitResult.HasLifeCycleHit);
+            Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
         }
     }
 }

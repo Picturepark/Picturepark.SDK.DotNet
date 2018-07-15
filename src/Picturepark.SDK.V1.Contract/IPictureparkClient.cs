@@ -16,7 +16,9 @@ namespace Picturepark.SDK.V1.Contract
 
         IListItemClient ListItems { get; }
 
-        IPermissionClient Permissions { get; }
+        IContentPermissionSetClient ContentPermissionSets { get; }
+
+        ISchemaPermissionSetClient SchemaPermissionSets { get; }
 
         IPublicAccessClient PublicAccess { get; }
 

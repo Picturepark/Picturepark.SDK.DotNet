@@ -27,7 +27,6 @@
 					"SimpleSearch": true,
 					"Deleted": false,
 					"MaxRecursion": 0,
-					"UniqueItems": false,
 					"MultiLine": false,
 					"Boost": 1,
 					"Analyzers": [
@@ -73,7 +72,6 @@
 					"SimpleSearch": true,
 					"Deleted": false,
 					"MaxRecursion": 0,
-					"UniqueItems": false,
 					"MultiLine": false,
 					"Boost": 1,
 					"Analyzers": [
@@ -98,7 +96,6 @@
 					"SimpleSearch": true,
 					"Deleted": false,
 					"MaxRecursion": 0,
-					"UniqueItems": false,
 					"MultiLine": false,
 					"Boost": 1,
 					"Analyzers": [
@@ -157,7 +154,6 @@
 					"SimpleSearch": true,
 					"Deleted": false,
 					"MaxRecursion": 0,
-					"UniqueItems": false,
 					"MultiLine": true,
 					"Boost": 1,
 					"Analyzers": [
@@ -183,7 +179,6 @@
 					"Deleted": false,
 					"MetadataSchemaId": "Language",
 					"MaxRecursion": 2,
-					"UniqueItems": false,
 					"MultiLine": false,
 					"Boost": 1
 				},
@@ -203,7 +198,6 @@
 					"Deleted": false,
 					"MetadataSchemaId": "Years",
 					"MaxRecursion": 2,
-					"UniqueItems": false,
 					"MultiLine": false,
 					"Boost": 1
 				},
@@ -223,7 +217,6 @@
 					"Deleted": false,
 					"MetadataSchemaId": "Keyword",
 					"MaxRecursion": 2,
-					"UniqueItems": false,
 					"MultiLine": false,
 					"Boost": 1
 				}

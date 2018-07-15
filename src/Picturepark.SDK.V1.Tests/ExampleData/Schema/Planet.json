@@ -59,7 +59,6 @@
 					"fixed": false,
 					"index": true,
 					"simpleSearch": true,
-					"uniqueItems": false,
 					"keepFieldValue": false,
 					"multiLine": false,
 					"boost": 1,
