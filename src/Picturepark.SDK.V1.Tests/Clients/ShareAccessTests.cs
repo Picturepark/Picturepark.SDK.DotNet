@@ -121,7 +121,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var transferResult = await _client.Transfers.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id);
             var contentIds = transferResult.Results.Select(r => r.ContentId).ToList();
 
-            Assert.Equal(importFilePaths.Count, contentIds.Count);
+            Assert.Equal(importFilePaths.Count(), contentIds.Count());
 
             // Arrange get share
             var contentId = contentIds.First();

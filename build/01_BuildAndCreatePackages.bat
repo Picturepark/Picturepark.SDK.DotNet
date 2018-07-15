@@ -1,5 +1,5 @@
-rmdir %~dp0/Packages /Q /S nonemptydir
-mkdir %~dp0/Packages
+rmdir "%~dp0/Packages" /Q /S nonemptydir
+mkdir "%~dp0/Packages"
 
 del "%~dp0/../src/Picturepark.SDK.V1.Contract/project.lock.json"
 dotnet restore "%~dp0/../src/Picturepark.SDK.V1.Contract/" --no-cache
