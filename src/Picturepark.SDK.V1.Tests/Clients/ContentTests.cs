@@ -327,10 +327,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Requests = new List<ContentCreateRequest> { request1, request2 }
             });
             await _client.BusinessProcesses.WaitForCompletionAsync(result.Id);
+            var detail = await _client.BusinessProcesses.GetDetailsAsync(result.Id);
+            var rows = ((BusinessProcessDetailsDataBatchResponse)detail.Details).Response.Rows;
 
-            /// Assert
-            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
-            Assert.False(string.IsNullOrEmpty(contentId));
+            // Assert
+            rows.Should().OnlyContain(r => r.Succeeded);
         }
 
         [Fact]
