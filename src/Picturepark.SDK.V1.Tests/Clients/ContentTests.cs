@@ -15,12 +15,12 @@ using Picturepark.SDK.V1.Tests.Contracts;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
-    public class ContentTests : IClassFixture<ClientFixture>
+    public class ContentTests : IClassFixture<ContentFixture>
     {
         private readonly ClientFixture _fixture;
         private readonly PictureparkClient _client;
 
-        public ContentTests(ClientFixture fixture)
+        public ContentTests(ContentFixture fixture)
         {
             _fixture = fixture;
             _client = _fixture.Client;
@@ -283,8 +283,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateContent()
         {
             /// Arrange
-            await SetupSchema(typeof(ContentItem)).ConfigureAwait(false);
-
             var request = new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""foo"" }"),
@@ -304,8 +302,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateContents()
         {
             /// Arrange
-            await SetupSchema(typeof(ContentItem)).ConfigureAwait(false);
-
             var request1 = new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""foo"" }"),
@@ -409,15 +405,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Arrange
             var expectedName = "test" + new Random().Next(0, 999999);
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
-            var schema = await CreateTestSchemaAsync().ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
                 Id = contentId,
-                LayerSchemaIds = new List<string> { schema.Id },
+                LayerSchemaIds = new List<string> { nameof(SimpleLayer) },
                 Metadata = new DataDictionary
                 {
                     {
-                        schema.Id,
+                        nameof(SimpleLayer).ToLowerCamelCase(),
                         new Dictionary<string, object>
                         {
                             { "name", expectedName }
@@ -431,7 +426,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             /// Assert
             Assert.NotNull(response);
-            Assert.Equal(expectedName, response.Metadata.Get(schema.Id.ToLowerInvariant())["name"]);
+            Assert.Equal(expectedName, response.Metadata.Get(nameof(SimpleLayer).ToLowerCamelCase())["name"]);
         }
 
         [Fact]
@@ -442,15 +437,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var randomContents = await _fixture.GetRandomContentsAsync(".jpg", 2).ConfigureAwait(false);
             var contentIds = randomContents.Results.Select(i => i.Id).ToList();
 
-            var schema = await CreateTestSchemaAsync();
             var request1 = new ContentMetadataUpdateRequest
             {
                 Id = contentIds[0],
-                LayerSchemaIds = new List<string> { schema.Id },
+                LayerSchemaIds = new List<string> { nameof(SimpleLayer) },
                 Metadata = new DataDictionary
                 {
                     {
-                        schema.Id,
+                        nameof(SimpleLayer),
                         new Dictionary<string, object>
                         {
                             { "name", "Content1" }
@@ -462,11 +456,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request2 = new ContentMetadataUpdateRequest
             {
                 Id = contentIds[1],
-                LayerSchemaIds = new List<string> { schema.Id },
+                LayerSchemaIds = new List<string> { nameof(SimpleLayer) },
                 Metadata = new DataDictionary
                 {
                     {
-                        schema.Id,
+                        nameof(SimpleLayer),
                         new Dictionary<string, object>
                         {
                             { "name", "Content2" }
@@ -492,8 +486,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldSetLayerAndResolveDisplayValues()
         {
             /// Arrange
-            await SetupSchema(typeof(PersonShot)).ConfigureAwait(false);
-
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
@@ -523,9 +515,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldMergeLayersOnMetadataUpdate()
         {
             /// Arrange
-            await SetupSchema(typeof(PersonShot)).ConfigureAwait(false);
-            await SetupSchema(typeof(AllDataTypesContract)).ConfigureAwait(false);
-
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
@@ -575,9 +564,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldReplaceLayersOnMetadataUpdate()
         {
             /// Arrange
-            await SetupSchema(typeof(PersonShot)).ConfigureAwait(false);
-            await SetupSchema(typeof(AllDataTypesContract)).ConfigureAwait(false);
-
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
@@ -627,8 +613,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldMergeFieldsOnMetadataUpdate()
         {
             /// Arrange
-            await SetupSchema(typeof(AllDataTypesContract)).ConfigureAwait(false);
-
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
@@ -678,8 +662,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldReplaceFieldsOnMetadataUpdate()
         {
             /// Arrange
-            await SetupSchema(typeof(AllDataTypesContract)).ConfigureAwait(false);
-
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
@@ -730,7 +712,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             /// Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
-            var schema = await CreateTestSchemaAsync().ConfigureAwait(false);
             var request = new ContentFieldsBatchUpdateFilterRequest
             {
                 ContentFilterRequest = new ContentFilterRequest
@@ -742,7 +723,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     new MetadataValuesSchemaUpsertCommand
                     {
-                        SchemaId = schema.Id,
+                        SchemaId = nameof(SimpleLayer),
                         Value = new DataDictionary
                         {
                             { "name", "testlocation" }
@@ -767,7 +748,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
 
             var content = await _client.Contents.GetAsync(contentId).ConfigureAwait(false);
-            var schema = await CreateTestSchemaAsync().ConfigureAwait(false);
             var updateRequest = new ContentFieldsBatchUpdateRequest
             {
                 ContentIds = new List<string> { content.Id },
@@ -775,7 +755,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     new MetadataValuesSchemaUpsertCommand
                     {
-                        SchemaId = schema.Id,
+                        SchemaId = nameof(SimpleLayer),
                         Value = new DataDictionary
                         {
                             { "name", "testlocation" }
@@ -970,8 +950,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldDeactivateAndReactivateContent()
         {
             /// Arrange
-            await SetupSchema(typeof(ContentItem)).ConfigureAwait(false);
-
             var request = new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""contentToTrash"" }"),
@@ -998,8 +976,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldDeactivateAndReactivateContentMany()
         {
             /// Arrange
-            await SetupSchema(typeof(ContentItem)).ConfigureAwait(false);
-
             var content1 = await _client.Contents.CreateAsync(new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""contentToTrashMany1"" }"),
@@ -1205,51 +1181,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Assert
             englishContent.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value1");
             germanContent.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value2");
-        }
-
-        private async Task<SchemaDetail> CreateTestSchemaAsync()
-        {
-            var schemaId = "Test" + new Random().Next(0, 999999);
-            var config = await _client.Info.GetAsync().ConfigureAwait(false);
-            var schemaItem = new SchemaDetail
-            {
-                Id = schemaId,
-                ReferencedInContentSchemaIds = new List<string>
-                {
-                    "ImageMetadata"
-                },
-                Fields = new List<FieldBase>
-                {
-                    new FieldString
-                    {
-                        Id = "name",
-                        Names = new TranslatedStringDictionary { { config.LanguageConfiguration.DefaultLanguage, "Name" } },
-                    }
-                },
-                FieldsOverwrite = new List<FieldOverwriteBase>(),
-                Names = new TranslatedStringDictionary { { config.LanguageConfiguration.DefaultLanguage, schemaId } },
-                Descriptions = new TranslatedStringDictionary(),
-                Types = new List<SchemaType>
-                {
-                    SchemaType.Layer
-                },
-                DisplayPatterns = new List<DisplayPattern>()
-            };
-
-            await _client.Schemas.CreateAndWaitForCompletionAsync(schemaItem, false);
-            return schemaItem;
-        }
-
-        private async Task SetupSchema(Type type)
-        {
-            var schemas = await _client.Schemas.GenerateSchemasAsync(type).ConfigureAwait(false);
-            foreach (var schema in schemas)
-            {
-                if (await _client.Schemas.ExistsAsync(schema.Id).ConfigureAwait(false) == false)
-                {
-                    await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true).ConfigureAwait(false);
-                }
-            }
         }
     }
 }
