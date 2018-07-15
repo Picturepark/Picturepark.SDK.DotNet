@@ -3,6 +3,7 @@ using Picturepark.Microsite.PressPortal.Configuration;
 using Picturepark.SDK.V1.Authentication;
 using Picturepark.SDK.V1.Contract.Authentication;
 using System;
+using System.Globalization;
 
 namespace Picturepark.Microsite.PressPortal.Services
 {
@@ -15,6 +16,7 @@ namespace Picturepark.Microsite.PressPortal.Services
             BaseUrl = config.Value.BaseUrl;
             CustomerAlias = config.Value.CustomerAlias;
             HttpTimeout = TimeSpan.FromMinutes(10);
+            DisplayLanguage = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
         }
 
         public string BaseUrl { get; }
@@ -24,5 +26,7 @@ namespace Picturepark.Microsite.PressPortal.Services
         public IAuthClient AuthClient { get; }
 
         public string CustomerAlias { get; }
+
+        public string DisplayLanguage { get; }
     }
 }
