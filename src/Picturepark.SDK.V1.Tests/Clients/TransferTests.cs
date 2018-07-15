@@ -231,7 +231,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldPartialImport()
         {
             /// Arrange
-            const int desiredUploadFiles = 10;
+            const int desiredUploadFiles = 4;
 
             var transferName = nameof(ShouldUploadAndImportFiles) + "-" + new Random().Next(1000, 9999);
             var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, "*").ToList();
@@ -243,7 +243,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var importFilePaths = filesInDirectory
                 .Skip(randomNumber)
                 .Take(numberOfUploadFiles)
-                .Select(path => new FileLocations(path));
+                .Select(path => new FileLocations(path)).ToList();
 
             /// Act
             var uploadOptions = new UploadOptions
@@ -268,7 +268,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             /// Assert
             var result = await _client.Transfers.SearchFilesByTransferIdAsync(transfer.Id);
-            Assert.Equal(importFilePaths.Count(), result.Results.Count());
+            Assert.Equal(importFilePaths.Count, result.Results.Count);
         }
 
         [Fact]
