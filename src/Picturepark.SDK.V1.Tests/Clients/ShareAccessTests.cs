@@ -36,13 +36,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var embedDetail = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
-            var shareOutput = (ShareOutputEmbed)embedDetail.ContentSelections.First().Outputs.First();
-
             // Act
-            var result = await _client.ShareAccess.DownloadAsync(shareOutput.Token).ConfigureAwait(false);
-
-            // Assert
-            Assert.NotNull(result);
+            using (var result = await _client.ShareAccess.DownloadAsync(((ShareDataEmbed)embedDetail.Data).Token)
+                .ConfigureAwait(false))
+            {
+                // Assert
+                Assert.NotNull(result);
+            }
         }
 
         [Fact]
@@ -63,10 +63,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var shareOutput = (ShareOutputEmbed)embedDetail.ContentSelections.First().Outputs.First();
 
             // Act
-            var result = await _client.ShareAccess.DownloadAsync(shareOutput.Token).ConfigureAwait(false);
-
-            // Assert
-            Assert.NotNull(result);
+            using (var result = await _client.ShareAccess.DownloadAsync(shareOutput.Token).ConfigureAwait(false))
+            {
+                // Assert
+                Assert.NotNull(result);
+            }
         }
 
         [Fact]
@@ -84,10 +85,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var embedDetail = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
             // Act
-            var result = await _client.ShareAccess.DownloadAsync(((ShareDataEmbed)embedDetail.Data).Token, contents.First().ContentId, "Original").ConfigureAwait(false);
-
-            // Assert
-            Assert.NotNull(result);
+            using (var result = await _client.ShareAccess
+                .DownloadAsync(((ShareDataEmbed)embedDetail.Data).Token, contents.First().ContentId, "Original")
+                .ConfigureAwait(false))
+            {
+                // Assert
+                Assert.NotNull(result);
+            }
         }
 
         [Fact]
@@ -148,10 +152,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var shareOutput = (ShareOutputEmbed)embedDetail.ContentSelections.Single().Outputs.First();
 
             // Act
-            var result = await _client.ShareAccess.DownloadAsync(shareOutput.Token, contentId, 10, 10).ConfigureAwait(false);
-
-            // Assert
-            Assert.NotNull(result);
+            using (var result = await _client.ShareAccess.DownloadAsync(shareOutput.Token, contentId, 10, 10).ConfigureAwait(false))
+            {
+                // Assert
+                Assert.NotNull(result);
+            }
         }
 
         private async Task<List<ShareContent>> GetRandomShareContent(string searchstring, int count = 2)
