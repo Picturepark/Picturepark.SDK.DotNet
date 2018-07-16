@@ -10441,7 +10441,7 @@
           "type": "integer",
           "format": "int64"
         },
-        "repositories": {
+        "results": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/SnapshotRepository"
