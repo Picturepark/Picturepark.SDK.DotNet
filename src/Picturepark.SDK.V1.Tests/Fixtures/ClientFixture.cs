@@ -43,8 +43,6 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             _configuration = JsonConvert.DeserializeObject<TestConfiguration>(configurationJson);
 
             _client = GetLocalizedPictureparkClient("en");
-
-            CustomerInfo = _client.Info.GetAsync().GetAwaiter().GetResult();
         }
 
         public string ProjectDirectory { get; }
@@ -59,9 +57,10 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         public PictureparkClient Client => _client;
 
-        public CustomerInfo CustomerInfo { get; }
+        public Lazy<CustomerInfo> CustomerInfo =>
+            new Lazy<CustomerInfo>(() => _client.Info.GetAsync().GetAwaiter().GetResult());
 
-        public string DefaultLanguage => CustomerInfo.LanguageConfiguration.DefaultLanguage;
+        public string DefaultLanguage => CustomerInfo.Value.LanguageConfiguration.DefaultLanguage;
 
         public async Task<ContentSearchResult> GetRandomContentsAsync(string searchString, int limit)
         {
