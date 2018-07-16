@@ -86,6 +86,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             /// Act
             var schemaSuffix = new Random().Next(0, 999999);
+            var schemaId = nameof(Person) + schemaSuffix;
             var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
             foreach (var schema in schemas)
             {
@@ -94,7 +95,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
 
             // Add a new text field to each schema
-            foreach (var schema in schemas)
+            foreach (var schema in schemas.Where(i => i.Id == schemaId))
             {
                 var fieldName = "newField" + schema.Id;
                 schema.Fields.Add(new FieldString
@@ -105,7 +106,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 await _client.Schemas.UpdateAndWaitForCompletionAsync(schema, true);
             }
 
-            var newSchema = await _client.Schemas.GetAsync(nameof(Person) + schemaSuffix);
+            var newSchema = await _client.Schemas.GetAsync(schemaId);
 
             /// Assert
             Assert.Contains(newSchema.Fields, i => i.Id.Contains("newField"));
