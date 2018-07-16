@@ -51,43 +51,45 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.Equal(TransferState.Draft, result.Transfer.State);
         }
 
-        [Fact(Skip = "TransferClient.GetAsync: Should correctly throw NotFoundException")]
+        [Fact(Skip = "TransferClient.GetAsync: Should correctly throw FileTransferNotFoundException")]
         [Trait("Stack", "Transfers")]
         public async Task ShouldDeleteFiles()
         {
-            // TODO: Fix ShouldDeleteFiles unit test
-
-            /// Arrange
+            // Arrange
             var transferName = new Random().Next(1000, 9999).ToString();
             var files = new FileLocations[]
             {
                 Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
             };
 
-            var createTransferResult = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, files);
+            var createTransferResult = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, files).ConfigureAwait(false);
+            await _client.Transfers.UploadFilesAsync(createTransferResult.Transfer, files, new UploadOptions()).ConfigureAwait(false);
+
             var searchRequest = new FileTransferSearchRequest
             {
                 Limit = 20,
                 SearchString = "*",
-                Filter = new TermFilter { Field = "transferId", Term = createTransferResult.Transfer.Id }
+                Filter = FilterBase.FromExpression<FileTransfer>(i => i.TransferId, createTransferResult.Transfer.Id)
             };
+            var searchResult = await _client.Transfers.SearchFilesAsync(searchRequest).ConfigureAwait(false);
+            var fileId = searchResult.Results.ToList()[0].Id;
 
-            var fileParameter = new FileParameter(new MemoryStream(new byte[] { 1, 2, 3 }));
-            await _client.Transfers.UploadFileAsync(createTransferResult.Transfer.Id, createTransferResult.FileUploads.First().Identifier, fileParameter);
-
-            FileTransferSearchResult searchResult = await _client.Transfers.SearchFilesAsync(searchRequest);
-
-            /// Act
+            // Act
             var request = new FileTransferDeleteRequest
             {
                 TransferId = createTransferResult.Transfer.Id,
-                FileTransferIds = new List<string> { searchResult.Results.ToList()[0].Id }
+                FileTransferIds = new List<string> { fileId }
             };
 
-            await _client.Transfers.DeleteFilesAsync(request);
+            await _client.Transfers.GetFileAsync(fileId).ConfigureAwait(false);
 
-            /// Assert
-            await Assert.ThrowsAsync<ApiException>(async () => await _client.Transfers.GetAsync(createTransferResult.Transfer.Id)); // TODO: TransferClient.GetAsync: Should correctly throw NotFoundException
+            await _client.Transfers.DeleteFilesAsync(request).ConfigureAwait(false);
+
+            // Assert
+            await Assert.ThrowsAsync<FileTransferNotFoundException>(async () =>
+            {
+                await _client.Transfers.GetFileAsync(fileId).ConfigureAwait(false);
+            }).ConfigureAwait(false);
         }
 
         [Fact]
@@ -229,7 +231,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldPartialImport()
         {
             /// Arrange
-            const int desiredUploadFiles = 10;
+            const int desiredUploadFiles = 4;
 
             var transferName = nameof(ShouldUploadAndImportFiles) + "-" + new Random().Next(1000, 9999);
             var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, "*").ToList();
@@ -241,7 +243,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var importFilePaths = filesInDirectory
                 .Skip(randomNumber)
                 .Take(numberOfUploadFiles)
-                .Select(path => new FileLocations(path));
+                .Select(path => new FileLocations(path)).ToList();
 
             /// Act
             var uploadOptions = new UploadOptions
@@ -266,7 +268,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             /// Assert
             var result = await _client.Transfers.SearchFilesByTransferIdAsync(transfer.Id);
-            Assert.Equal(importFilePaths.Count(), result.Results.Count());
+            Assert.Equal(importFilePaths.Count, result.Results.Count);
         }
 
         [Fact]
