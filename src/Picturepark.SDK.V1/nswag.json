@@ -20,6 +20,9 @@
         "BusinessProcessClient.WaitAsync",
         "ListItemClient.CreateManyAsync",
         "ListItemClient.UpdateAsync",
+        "ShareAccessClient.DownloadAsync",
+        "ShareAccessClient.DownloadWithContentIdAsync",
+        "ShareAccessClient.DownloadWithOutputFormatIdAsync",
         "SchemaClient.ExistsAsync",
         "JsonSchemaClient.GetAsync"
       ],

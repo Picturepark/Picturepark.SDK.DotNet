@@ -7,8 +7,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 {
     public class SchemaPermissionSetTests : IClassFixture<ClientFixture>
     {
-        private ClientFixture _fixture;
-        private PictureparkClient _client;
+        private readonly ClientFixture _fixture;
+        private readonly PictureparkClient _client;
 
         public SchemaPermissionSetTests(ClientFixture fixture)
         {

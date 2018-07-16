@@ -33,5 +33,7 @@ namespace Picturepark.SDK.V1.Contract
         IChannelClient Channels { get; }
 
         IServiceProviderClient ServiceProviders { get; }
+
+        IShareAccessClient ShareAccess { get; }
     }
 }
