@@ -13,6 +13,7 @@ using Picturepark.Microsite.PressPortal.Helpers;
 using Picturepark.Microsite.PressPortal.Repository;
 using Picturepark.Microsite.PressPortal.Services;
 using System.Globalization;
+using System.IdentityModel.Tokens.Jwt;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using Picturepark.Microsite.PressPortal.Contracts;
@@ -37,8 +38,8 @@ namespace Picturepark.Microsite.PressPortal
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             // Register PictureparkServiceClient as singleton
-            services.AddSingleton<IPictureparkServiceClientSettings, PictureparkServiceClientSettings>();
-            services.AddSingleton<IPictureparkServiceClient, PictureparkServiceClient>();
+            services.AddTransient<IPictureparkServiceClientSettings, PictureparkServiceClientSettings>();
+            services.AddTransient<IPictureparkServiceClient, PictureparkServiceClient>();
 
             // Register PictureparkPerRequestClient as transient
             services.AddTransient<IPictureparkPerRequestClientSettings, PictureparkPerRequestClientSettings>();
@@ -54,6 +55,8 @@ namespace Picturepark.Microsite.PressPortal
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
                 .AddDataAnnotationsLocalization();
+
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             // Configure authentication
             services.AddAuthentication("Cookies")
@@ -85,7 +88,7 @@ namespace Picturepark.Microsite.PressPortal
                     options.Events.OnRedirectToIdentityProvider = context =>
                     {
                         var tenant = new { id = authConfig.CustomerId, alias = authConfig.CustomerAlias };
-                        context.ProtocolMessage.SetParameter("acr_values", "tenant:" + JsonConvert.SerializeObject(tenant));
+                        context.ProtocolMessage.AcrValues = "tenant:" + JsonConvert.SerializeObject(tenant);
                         return Task.FromResult(0);
                     };
 
