@@ -9,8 +9,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 {
     public class OutputTests : IClassFixture<ClientFixture>
     {
-        private ClientFixture _fixture;
-        private PictureparkClient _client;
+        private readonly ClientFixture _fixture;
+        private readonly PictureparkClient _client;
 
         public OutputTests(ClientFixture fixture)
         {
@@ -26,7 +26,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             Assert.False(string.IsNullOrEmpty(contentId));
 
-            ContentDetail contentDetail = await _client.Contents.GetAsync(contentId, new ContentResolveBehaviour[] { ContentResolveBehaviour.Outputs }).ConfigureAwait(false);
+            ContentDetail contentDetail = await _client.Contents.GetAsync(contentId, new[] { ContentResolveBehaviour.Outputs }).ConfigureAwait(false);
             Assert.True(contentId == contentDetail.Id, "Delivery goes wrong. We never ordered such pizza.");
 
             Assert.True(contentDetail.Outputs.Any());

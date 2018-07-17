@@ -382,7 +382,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ListItem")]
-        public async Task ShouldSearchObjects()
+        public async Task ShouldSearchListItems()
         {
             /// Arrange
             // ---------------------------------------------------------------------------
@@ -391,12 +391,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var searchRequestSchema = new SchemaSearchRequest
             {
                 Start = 0,
-                Limit = 999,
-                Filter = new TermFilter
-                {
-                    Field = "types",
-                    Term = SchemaType.List.ToString()
-                }
+                Limit = 2,
+                Filter = FilterBase.FromExpression<Schema>(i => i.Types, SchemaType.List.ToString())
             };
 
             var searchResultSchema = await _client.Schemas.SearchAsync(searchRequestSchema);

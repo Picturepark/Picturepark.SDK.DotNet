@@ -62,6 +62,8 @@ namespace Picturepark.SDK.V1
 
         public IChannelClient Channels { get; private set; }
 
+        public IShareAccessClient ShareAccess { get; private set; }
+
         public void Dispose()
         {
             if (_httpClient != null)
@@ -82,6 +84,7 @@ namespace Picturepark.SDK.V1
             SchemaPermissionSets = new SchemaPermissionSetClient(settings, httpClient);
             PublicAccess = new PublicAccessClient(settings, httpClient);
             Shares = new ShareClient(settings, httpClient);
+            ShareAccess = new ShareAccessClient(settings, httpClient);
             Users = new UserClient(settings, httpClient);
             Info = new InfoClient(settings, httpClient);
             Schemas = new SchemaClient((BusinessProcessClient)BusinessProcesses, (InfoClient)Info, settings, httpClient);

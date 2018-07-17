@@ -2308,7 +2308,7 @@
         ]
       }
     },
-    "/backup/customer/snapshot/searchRepositories": {
+    "/backup/customer/repository/search": {
       "post": {
         "tags": [
           "CloudBackup"
@@ -2329,10 +2329,77 @@
           "200": {
             "description": "",
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "$ref": "#/definitions/SnapshotRepositorySearchResult"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/backup/environment/repository/search": {
+      "post": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_SearchRepositories2",
+        "parameters": [
+          {
+            "name": "searchRequest",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SnapshotRepositoryEnvironmentSearchRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SnapshotRepositorySearchResult"
             },
             "x-nullable": true
           },
@@ -2588,6 +2655,142 @@
             "description": "Version conflict",
             "schema": {
               "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/backup/snapshot/{repositoryName}/archive": {
+      "put": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_ArchiveRepository",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "repositoryName",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SnapshotRepository"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/backup/snapshot/{repositoryName}": {
+      "get": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_GetRepository",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "repositoryName",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SnapshotRepository"
+            },
+            "x-nullable": true
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
             },
             "x-nullable": true
           },
@@ -10223,6 +10426,34 @@
           "type": "string"
         },
         "customerAlias": {
+          "type": "string"
+        }
+      }
+    },
+    "SnapshotRepositorySearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "totalResults"
+      ],
+      "properties": {
+        "totalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SnapshotRepository"
+          }
+        }
+      }
+    },
+    "SnapshotRepositoryEnvironmentSearchRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "environmentId": {
           "type": "string"
         }
       }
