@@ -23,9 +23,14 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
                     LanguageCode = "en"
                 }).ToArray();
 
-            var inviteProcess = await Client.Users.InviteManyAsync(usersToCreate);
+            var userCreationTasks = usersToCreate.Select(async userRequest =>
+            {
+                var user = await Client.Users.CreateAsync(userRequest);
+                await Client.Users.InviteAsync(user.Id);
+                return user;
+            });
 
-            await WaitOnBusinessProcessAndAssert(inviteProcess);
+            var createdUsers = await Task.WhenAll(userCreationTasks);
 
             var searchRes = await Client.Users.SearchAsync(new UserSearchRequest
             {
@@ -35,17 +40,19 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             searchRes.Results.Select(e => e.EmailAddress).Should()
                 .BeEquivalentTo(usersToCreate.Select(e => e.EmailAddress), "all users should have been invited/created");
 
-            var invitedUserIds = searchRes.Results.Select(u => u.Id).ToArray();
-
-            var reviewProcess = await Client.Users.ReviewManyAsync(new UserReviewRequest
+            foreach (var createdUser in createdUsers)
             {
-                UserIds = invitedUserIds,
-                Reviewed = true
-            });
+                await Client.Users.ReviewAsync(createdUser.Id, new UserReviewRequest
+                {
+                    Reviewed = true
+                });
+            }
 
-            await WaitOnBusinessProcessAndAssert(reviewProcess);
+            var createdUserIds = createdUsers.Select(u => u.Id);
+            var reviewedUsers = (await Client.Users.GetManyAsync(createdUserIds)).ToArray();
 
-            var reviewedUsers = (await Client.Users.GetManyAsync(invitedUserIds)).ToArray();
+            reviewedUsers.Should()
+                .HaveCount(createdUsers.Length, "all previously created users should have been retrieved");
 
             reviewedUsers.Should().OnlyContain(
                 u => u.AuthorizationState == AuthorizationState.Active, "all invited users should be active after review");
@@ -67,8 +74,10 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
         {
             if (!_createdUserIds.IsEmpty)
             {
-                Client.Users.DeleteManyAsync(new UserDeactivateRequest { UserIds = _createdUserIds.ToArray() })
-                    .GetAwaiter().GetResult().Rows.Should().OnlyContain(r => r.Succeeded);
+                foreach (var createdUserId in _createdUserIds)
+                {
+                    Client.Users.DeleteAsync(createdUserId, new UserDeletionRequest()).GetAwaiter().GetResult();
+                }
             }
 
             base.Dispose();

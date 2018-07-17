@@ -6048,400 +6048,6 @@
         ]
       }
     },
-    "/v1/shareAccess/json/{token}": {
-      "get": {
-        "tags": [
-          "ShareAccess"
-        ],
-        "summary": "Get Share json",
-        "operationId": "ShareAccess_GetShareJson",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "token",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The token"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "ShareDetail",
-            "schema": {},
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "description": "Entity not found",
-            "schema": {
-              "$ref": "#/definitions/PictureparkNotFoundException"
-            },
-            "x-nullable": true
-          },
-          "409": {
-            "description": "Version conflict",
-            "schema": {
-              "$ref": "#/definitions/PictureparkConflictException"
-            },
-            "x-nullable": true
-          },
-          "400": {
-            "description": "Validation exception",
-            "schema": {
-              "$ref": "#/definitions/PictureparkValidationException"
-            },
-            "x-nullable": true
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/v1/shareAccess/d/{token}": {
-      "get": {
-        "tags": [
-          "ShareAccess"
-        ],
-        "summary": "Download Shared outputs",
-        "operationId": "ShareAccess_Download",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "token",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The token"
-          },
-          {
-            "type": "integer",
-            "name": "width",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Optional width in pixels to resize image",
-            "format": "int32"
-          },
-          {
-            "type": "integer",
-            "name": "height",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Optional height in pixels to resize image",
-            "format": "int32"
-          },
-          {
-            "type": "string",
-            "name": "range",
-            "in": "header",
-            "x-nullable": true,
-            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "HttpResponseMessage",
-            "schema": {
-              "type": "file"
-            },
-            "x-nullable": false
-          },
-          "206": {
-            "description": "HttpResponseMessage",
-            "schema": {
-              "type": "file"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "description": "Entity not found",
-            "schema": {
-              "$ref": "#/definitions/PictureparkNotFoundException"
-            },
-            "x-nullable": true
-          },
-          "409": {
-            "description": "Version conflict",
-            "schema": {
-              "$ref": "#/definitions/PictureparkConflictException"
-            },
-            "x-nullable": true
-          },
-          "400": {
-            "description": "Validation exception",
-            "schema": {
-              "$ref": "#/definitions/PictureparkValidationException"
-            },
-            "x-nullable": true
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/v1/shareAccess/d/{token}/{contentId}": {
-      "get": {
-        "tags": [
-          "ShareAccess"
-        ],
-        "summary": "Download Shared outputs\n            ",
-        "description": "Download single content in a specific outputformat. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
-        "operationId": "ShareAccess_DownloadWithContentId",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "token",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The token"
-          },
-          {
-            "type": "string",
-            "name": "contentId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The content id"
-          },
-          {
-            "type": "integer",
-            "name": "width",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Optional width in pixels to resize image",
-            "format": "int32"
-          },
-          {
-            "type": "integer",
-            "name": "height",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Optional height in pixels to resize image",
-            "format": "int32"
-          },
-          {
-            "type": "string",
-            "name": "range",
-            "in": "header",
-            "x-nullable": true,
-            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "HttpResponseMessage",
-            "schema": {
-              "type": "file"
-            },
-            "x-nullable": false
-          },
-          "206": {
-            "description": "HttpResponseMessage",
-            "schema": {
-              "type": "file"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "description": "Entity not found",
-            "schema": {
-              "$ref": "#/definitions/PictureparkNotFoundException"
-            },
-            "x-nullable": true
-          },
-          "409": {
-            "description": "Version conflict",
-            "schema": {
-              "$ref": "#/definitions/PictureparkConflictException"
-            },
-            "x-nullable": true
-          },
-          "400": {
-            "description": "Validation exception",
-            "schema": {
-              "$ref": "#/definitions/PictureparkValidationException"
-            },
-            "x-nullable": true
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/v1/shareAccess/d/{token}/{contentId}/{outputFormatId}": {
-      "get": {
-        "tags": [
-          "ShareAccess"
-        ],
-        "summary": "Download Shared outputs\n            ",
-        "description": "Download single content in a specific outputformat. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
-        "operationId": "ShareAccess_DownloadWithOutputFormatId",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "token",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The token"
-          },
-          {
-            "type": "string",
-            "name": "contentId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The content id"
-          },
-          {
-            "type": "string",
-            "name": "outputFormatId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The output format id+"
-          },
-          {
-            "type": "integer",
-            "name": "width",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Optional width in pixels to resize image",
-            "format": "int32"
-          },
-          {
-            "type": "integer",
-            "name": "height",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Optional height in pixels to resize image",
-            "format": "int32"
-          },
-          {
-            "type": "string",
-            "name": "range",
-            "in": "header",
-            "x-nullable": true,
-            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "HttpResponseMessage",
-            "schema": {
-              "type": "file"
-            },
-            "x-nullable": false
-          },
-          "206": {
-            "description": "HttpResponseMessage",
-            "schema": {
-              "type": "file"
-            },
-            "x-nullable": true
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "description": "Entity not found",
-            "schema": {
-              "$ref": "#/definitions/PictureparkNotFoundException"
-            },
-            "x-nullable": true
-          },
-          "409": {
-            "description": "Version conflict",
-            "schema": {
-              "$ref": "#/definitions/PictureparkConflictException"
-            },
-            "x-nullable": true
-          },
-          "400": {
-            "description": "Validation exception",
-            "schema": {
-              "$ref": "#/definitions/PictureparkValidationException"
-            },
-            "x-nullable": true
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
     "/v1/shares/{id}": {
       "get": {
         "tags": [
@@ -8020,6 +7626,79 @@
         ]
       }
     },
+    "/v1/users": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Create a new user (without inviting him)",
+        "operationId": "User_Create",
+        "parameters": [
+          {
+            "name": "request",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserCreateRequest"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserDetail"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/users/{userId}": {
       "get": {
         "tags": [
@@ -8091,12 +7770,12 @@
           }
         ]
       },
-      "delete": {
+      "put": {
         "tags": [
           "User"
         ],
-        "summary": "Deletes a user",
-        "operationId": "User_Delete",
+        "summary": "Updates one or more users",
+        "operationId": "User_Update",
         "parameters": [
           {
             "type": "string",
@@ -8104,6 +7783,15 @@
             "in": "path",
             "required": true,
             "x-nullable": false
+          },
+          {
+            "name": "userUpdatableDetail",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserUpdatableDetail"
+            },
+            "x-nullable": true
           }
         ],
         "responses": {
@@ -8307,8 +7995,8 @@
         ]
       }
     },
-    "/v1/users": {
-      "post": {
+    "/v1/users/many": {
+      "get": {
         "tags": [
           "User"
         ],
@@ -8316,17 +8004,16 @@
         "operationId": "User_GetMany",
         "parameters": [
           {
+            "type": "array",
             "name": "ids",
-            "in": "body",
+            "in": "query",
             "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
             "x-nullable": true,
-            "description": "The user ID's"
+            "collectionFormat": "multi",
+            "description": "The user ID's",
+            "items": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -8460,14 +8147,21 @@
         ]
       }
     },
-    "/v1/users/lock": {
+    "/v1/users/{userId}/lock": {
       "post": {
         "tags": [
           "User"
         ],
         "summary": "Locks or unlocks one or more users",
-        "operationId": "User_LockMany",
+        "operationId": "User_Lock",
         "parameters": [
+          {
+            "type": "string",
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
           {
             "name": "userLockRequest",
             "in": "body",
@@ -8480,11 +8174,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": false
+            "description": ""
           },
           "500": {
             "description": "Internal server error",
@@ -8533,14 +8223,21 @@
         ]
       }
     },
-    "/v1/users/review": {
+    "/v1/users/{userId}/review": {
       "post": {
         "tags": [
           "User"
         ],
         "summary": "Sets one or more users as reviewed or under review",
-        "operationId": "User_ReviewMany",
+        "operationId": "User_Review",
         "parameters": [
+          {
+            "type": "string",
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
           {
             "name": "userReviewRequest",
             "in": "body",
@@ -8553,11 +8250,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": false
+            "description": ""
           },
           "500": {
             "description": "Internal server error",
@@ -8606,186 +8299,25 @@
         ]
       }
     },
-    "/v1/users/update": {
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "summary": "Updates one or more users",
-        "operationId": "User_UpdateMany",
-        "parameters": [
-          {
-            "name": "userUpdatableDetails",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/UserUpdatableDetail"
-              }
-            },
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BulkResponse"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "description": "Entity not found",
-            "schema": {
-              "$ref": "#/definitions/PictureparkNotFoundException"
-            },
-            "x-nullable": true
-          },
-          "409": {
-            "description": "Version conflict",
-            "schema": {
-              "$ref": "#/definitions/PictureparkConflictException"
-            },
-            "x-nullable": true
-          },
-          "400": {
-            "description": "Validation exception",
-            "schema": {
-              "$ref": "#/definitions/PictureparkValidationException"
-            },
-            "x-nullable": true
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "user_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/users/validateUserInvites": {
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "summary": "Validates if the supplied user create requests would pass the unique email validation",
-        "operationId": "User_ValidateUserInvites",
-        "parameters": [
-          {
-            "name": "userCreateRequests",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/UserCreateRequest"
-              }
-            },
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BulkResponse"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "description": "Entity not found",
-            "schema": {
-              "$ref": "#/definitions/PictureparkNotFoundException"
-            },
-            "x-nullable": true
-          },
-          "409": {
-            "description": "Version conflict",
-            "schema": {
-              "$ref": "#/definitions/PictureparkConflictException"
-            },
-            "x-nullable": true
-          },
-          "400": {
-            "description": "Validation exception",
-            "schema": {
-              "$ref": "#/definitions/PictureparkValidationException"
-            },
-            "x-nullable": true
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "user_read"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/users/invite": {
+    "/v1/users/{userId}/invite": {
       "post": {
         "tags": [
           "User"
         ],
         "summary": "Invites (or creates) new users",
-        "operationId": "User_InviteMany",
+        "operationId": "User_Invite",
         "parameters": [
           {
-            "name": "userCreateRequests",
-            "in": "body",
+            "type": "string",
+            "name": "userId",
+            "in": "path",
             "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/UserCreateRequest"
-              }
-            },
-            "x-nullable": true
+            "x-nullable": false
           }
         ],
         "responses": {
           "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BusinessProcess"
-            },
-            "x-nullable": false
+            "description": ""
           },
           "500": {
             "description": "Internal server error",
@@ -8834,31 +8366,34 @@
         ]
       }
     },
-    "/v1/users/delete": {
+    "/v1/users/{userId}/delete": {
       "post": {
         "tags": [
           "User"
         ],
-        "summary": "Deletes multiple users",
-        "operationId": "User_DeleteMany",
+        "summary": "Deletes a user",
+        "operationId": "User_Delete",
         "parameters": [
+          {
+            "type": "string",
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false
+          },
           {
             "name": "userDeactivateRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UserDeactivateRequest"
+              "$ref": "#/definitions/UserDeletionRequest"
             },
             "x-nullable": true
           }
         ],
         "responses": {
           "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BulkResponse"
-            },
-            "x-nullable": false
+            "description": ""
           },
           "500": {
             "description": "Internal server error",
@@ -8925,84 +8460,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/UserDetail"
-            },
-            "x-nullable": false
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "description": "Entity not found",
-            "schema": {
-              "$ref": "#/definitions/PictureparkNotFoundException"
-            },
-            "x-nullable": true
-          },
-          "409": {
-            "description": "Version conflict",
-            "schema": {
-              "$ref": "#/definitions/PictureparkConflictException"
-            },
-            "x-nullable": true
-          },
-          "400": {
-            "description": "Validation exception",
-            "schema": {
-              "$ref": "#/definitions/PictureparkValidationException"
-            },
-            "x-nullable": true
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "user_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/users/restore": {
-      "post": {
-        "tags": [
-          "User"
-        ],
-        "summary": "Restores multiple previously deleted users",
-        "operationId": "User_RestoreMany",
-        "parameters": [
-          {
-            "name": "userReactivateRequest",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/UserReactivateRequest"
-            },
-            "x-nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/BulkResponse"
-            },
-            "x-nullable": false
+            "description": ""
           },
           "500": {
             "description": "Internal server error",
@@ -20097,6 +19555,63 @@
         }
       }
     },
+    "UserCreateRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string"
+        },
+        "languageCode": {
+          "type": "string"
+        },
+        "userRoleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "address": {
+          "$ref": "#/definitions/UserAddress"
+        }
+      }
+    },
+    "UserAddress": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "company": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "alternativeAddress": {
+          "type": "string"
+        },
+        "department": {
+          "type": "string"
+        },
+        "zip": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string"
+        }
+      }
+    },
     "UserDetail": {
       "type": "object",
       "additionalProperties": false,
@@ -20175,36 +19690,6 @@
           "$ref": "#/definitions/User"
         }
       ]
-    },
-    "UserAddress": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "company": {
-          "type": "string"
-        },
-        "address": {
-          "type": "string"
-        },
-        "alternativeAddress": {
-          "type": "string"
-        },
-        "department": {
-          "type": "string"
-        },
-        "zip": {
-          "type": "string"
-        },
-        "city": {
-          "type": "string"
-        },
-        "phone": {
-          "type": "string"
-        },
-        "countryCode": {
-          "type": "string"
-        }
-      }
     },
     "UserSearchRequest": {
       "type": "object",
@@ -20405,12 +19890,6 @@
         "lock"
       ],
       "properties": {
-        "userIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "lock": {
           "type": "boolean"
         }
@@ -20423,69 +19902,15 @@
         "reviewed"
       ],
       "properties": {
-        "userIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "reviewed": {
           "type": "boolean"
         }
       }
     },
-    "UserCreateRequest": {
+    "UserDeletionRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "emailAddress": {
-          "type": "string"
-        },
-        "languageCode": {
-          "type": "string"
-        },
-        "userRoleIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "address": {
-          "$ref": "#/definitions/UserAddress"
-        }
-      }
-    },
-    "UserDeactivateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "userIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "ownerTokenTransferUserId": {
-          "type": "string"
-        }
-      }
-    },
-    "UserReactivateRequest": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "userIds": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "ownerTokenTransferUserId": {
           "type": "string"
         }
