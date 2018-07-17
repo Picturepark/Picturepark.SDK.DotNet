@@ -1157,7 +1157,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            await _client.Schemas.CreateAndWaitForCompletionAsync(contentSchema).ConfigureAwait(false);
+            await _client.Schemas.CreateAsync(contentSchema, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
             var content = new ContentCreateRequest
             {

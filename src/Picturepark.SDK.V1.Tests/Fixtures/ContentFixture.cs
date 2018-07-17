@@ -26,7 +26,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             {
                 if (await Client.Schemas.ExistsAsync(schema.Id).ConfigureAwait(false) == false)
                 {
-                    await Client.Schemas.CreateAndWaitForCompletionAsync(schema, true).ConfigureAwait(false);
+                    await Client.Schemas.CreateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
                 }
             }
         }

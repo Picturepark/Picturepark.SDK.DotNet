@@ -619,7 +619,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Update - single</summary>
         /// <param name="schemaId">The schema id.</param>
         /// <param name="schema">The schema update request.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
+        /// <returns>SchemaUpdateResult containing the updated schema</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="SchemaNotFoundException">Schema with this id could not be found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -630,11 +631,12 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> UpdateAsync(string schemaId, SchemaUpdateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SchemaUpdateResult> UpdateAsync(string schemaId, SchemaUpdateRequest schema, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete - single</summary>
         /// <param name="schemaId">The schema id.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
+        /// <returns>SchemaDeleteResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="SchemaNotFoundException">Schema with this id could not be found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -644,7 +646,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> DeleteAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SchemaDeleteResult> DeleteAsync(string schemaId, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get - many</summary>
         /// <param name="ids">Comma separated list of schema ids</param>
@@ -659,7 +661,8 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Create - single</summary>
         /// <param name="schema">The schema create request.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
+        /// <returns>SchemaCreateResult containing the created schema.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="DuplicateSchemaException">Schema with this name already exists</exception>
         /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
@@ -670,7 +673,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> CreateAsync(SchemaCreateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SchemaCreateResult> CreateAsync(SchemaCreateRequest schema, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Search</summary>
         /// <param name="schemaSearchRequest">The schema search request.</param>
@@ -10527,6 +10530,24 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.63.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SchemaCreateResult 
+    {
+        [Newtonsoft.Json.JsonProperty("schema", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public SchemaDetail Schema { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaCreateResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaCreateResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.63.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SchemaUpdateRequest 
     {
         /// <summary>Language specific schema names.</summary>
@@ -10585,6 +10606,39 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaUpdateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaUpdateRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.63.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SchemaUpdateResult 
+    {
+        [Newtonsoft.Json.JsonProperty("schema", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public SchemaDetail Schema { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaUpdateResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaUpdateResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.63.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SchemaDeleteResult 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaDeleteResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaDeleteResult>(data);
         }
     
     }
