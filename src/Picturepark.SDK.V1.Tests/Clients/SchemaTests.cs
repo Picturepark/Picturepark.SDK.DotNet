@@ -75,7 +75,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             foreach (var schema in schemas)
             {
                 AppendSchemaIdSuffix(schema, schemaSuffix);
-                createdSchemas.Add(await _client.Schemas.CreateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false));
+                var result = await _client.Schemas.CreateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+                createdSchemas.Add(result.Schema);
             }
 
             /// Assert
@@ -95,7 +96,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             foreach (var schema in schemas)
             {
                 AppendSchemaIdSuffix(schema, schemaSuffix);
-                createdSchemas.Add(await _client.Schemas.CreateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false));
+                var result = await _client.Schemas.CreateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+                createdSchemas.Add(result.Schema);
             }
 
             // Add a new text field to each schema
@@ -108,7 +110,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     Names = new TranslatedStringDictionary { { _fixture.DefaultLanguage, fieldName } },
                     Id = fieldName
                 });
-                updatedSchemas.Add(await _client.Schemas.UpdateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false));
+                var result = await _client.Schemas.UpdateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+                updatedSchemas.Add(result.Schema);
             }
 
             /// Assert
@@ -128,10 +131,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var tagSchema = schemas.First();
             tagSchema.Id = "SchemaToDelete" + new Random().Next(0, 999999);
 
-            var schemaDetail = await _client.Schemas.CreateAsync(tagSchema, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            var result = await _client.Schemas.CreateAsync(tagSchema, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
             /// Act
-            await _client.Schemas.DeleteAsync(schemaDetail.Id, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            await _client.Schemas.DeleteAsync(result.Schema.Id, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
             /// Assert
             await Assert.ThrowsAsync<SchemaNotFoundException>(async () => await _client.Schemas.GetAsync(tagSchema.Id).ConfigureAwait(false)).ConfigureAwait(false);
@@ -285,14 +288,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var tagSchema = schemas.First();
             tagSchema.Id = "SchemaToUpdate" + new Random().Next(0, 999999);
 
-            var schemaDetail = await _client.Schemas.CreateAsync(tagSchema, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            var createResult = await _client.Schemas.CreateAsync(tagSchema, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+
+            var schemaDetail = createResult.Schema;
             schemaDetail.Names[language] = schemaTranslation;
 
             /// Act
-            var updatedSchema = await _client.Schemas.UpdateAsync(schemaDetail, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            var updateesult = await _client.Schemas.UpdateAsync(schemaDetail, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
             /// Assert
-            updatedSchema.Names.TryGetValue(language, out string outString);
+            updateesult.Schema.Names.TryGetValue(language, out string outString);
 
             Assert.Equal(schemaTranslation, outString);
         }

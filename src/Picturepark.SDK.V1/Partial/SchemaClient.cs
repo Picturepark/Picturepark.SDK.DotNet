@@ -43,7 +43,7 @@ namespace Picturepark.SDK.V1
         /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The task.</returns>
-        public async Task<SchemaDetail> CreateOrUpdateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ISchemaResult> CreateOrUpdateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (await ExistsAsync(schemaDetail.Id, null, cancellationToken).ConfigureAwait(false))
             {
@@ -61,7 +61,7 @@ namespace Picturepark.SDK.V1
         /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The task.</returns>
-        public async Task<SchemaDetail> CreateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<SchemaCreateResult> CreateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Map schema to binary schemas
             if (enableForBinaryFiles && schemaDetail.Types.Contains(SchemaType.Layer))
@@ -87,7 +87,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The task.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<SchemaDetail> CreateAsync(SchemaDetail schemaDetail, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<SchemaCreateResult> CreateAsync(SchemaDetail schemaDetail, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var createRequest = new SchemaCreateRequest
             {
@@ -116,7 +116,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The task.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<SchemaDetail> UpdateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<SchemaUpdateResult> UpdateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (enableForBinaryFiles && schemaDetail.Types.Contains(SchemaType.Layer))
             {

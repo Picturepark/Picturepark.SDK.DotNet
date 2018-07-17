@@ -153,7 +153,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 DisplayPatterns = new List<DisplayPattern>()
             };
 
-            return await _client.Schemas.CreateAsync(schemaItem, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            var result = await _client.Schemas.CreateAsync(schemaItem, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            return result.Schema;
         }
     }
 }
