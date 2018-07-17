@@ -63,7 +63,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Users")]
-        public async Task ShouldInviteAndReviewUser()
+        public async Task ShouldInviteAndReviewUsers()
         {
             var userCount = 3;
 
@@ -85,17 +85,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 (await _client.Users.GetManyAsync(activeUserIds)).Should().OnlyContain(u => u.AuthorizationState == auth);
 
             // Act
-            var lockProcess = await LockUnlockCall(activeUserIds, true);
+            await LockUnlockCall(activeUserIds, true);
 
             // Assert
-            await _fixture.WaitOnBusinessProcessAndAssert(lockProcess);
             await CheckIfUsersAre(AuthorizationState.Locked);
 
             // Act
-            var unlockProcess = await LockUnlockCall(activeUserIds, false);
+            await LockUnlockCall(activeUserIds, false);
 
             // Assert
-            await _fixture.WaitOnBusinessProcessAndAssert(unlockProcess);
             await CheckIfUsersAre(AuthorizationState.Active);
         }
 
@@ -114,47 +112,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
             user.Address.City = city;
 
             // Act
-            var updateResponse = await _client.Users.UpdateManyAsync(new[] { user });
+            var updatedUserResponse = await _client.Users.UpdateAsync(user.Id, user);
             var updatedUser = await _client.Users.GetAsync(user.Id);
 
             // Assert
-            updateResponse.Rows.Should().ContainSingle(r => r.Succeeded);
+            updatedUserResponse.Comment.Should().Be(
+                comment, "update should have changed the comment field");
+
+            updatedUserResponse.Address.City.Should().Be(
+                city, "update should have changed the address city field");
 
             updatedUser.Comment.Should().Be(
                 comment, "update should have changed the comment field");
 
             updatedUser.Address.City.Should().Be(
                 city, "update should have changed the address city field");
-        }
-
-        [Fact]
-        [Trait("Stack", "Users")]
-        public async Task ShouldFailUserValidationIfTheUserIsAlreadyRegistered()
-        {
-            // Arrange
-            var user = await _fixture.CreateAndActivateUser();
-            var newUserImpostor = new UserCreateRequest
-            {
-                FirstName = "John",
-                LastName = "Impostor",
-                EmailAddress = user.EmailAddress
-            };
-
-            var newUserOk = new UserCreateRequest
-            {
-                FirstName = "John",
-                LastName = "Doe",
-                EmailAddress = $"john.doe.{nameof(ShouldFailUserValidationIfTheUserIsAlreadyRegistered)}@test.picturepark.com"
-            };
-
-            // Act
-            var validated = await _client.Users.ValidateUserInvitesAsync(new[] { newUserImpostor, newUserOk });
-
-            // Assert
-            validated.Rows.Should().HaveCount(2)
-                .And.ContainSingle(r => r.Succeeded)
-                .And.ContainSingle(r => !r.Succeeded)
-                    .Which.Error.Should().Contain(newUserImpostor.EmailAddress);
         }
 
         [Fact]
@@ -171,13 +143,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             retrievedUsers.Should().BeEquivalentTo(users);
         }
 
-        private async Task<BusinessProcess> LockUnlockCall(IEnumerable<string> ids, bool @lock)
+        private async Task LockUnlockCall(IEnumerable<string> ids, bool @lock)
         {
-            return await _client.Users.LockManyAsync(new UserLockRequest
+            var lockRequests = ids.Select(async id =>
             {
-                Lock = @lock,
-                UserIds = ids.ToArray()
+                await _client.Users.LockAsync(id, new UserLockRequest { Lock = @lock });
             });
+
+            await Task.WhenAll(lockRequests);
         }
     }
 }
