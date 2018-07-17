@@ -74,7 +74,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="Picturepark.SDK.V1" Version="0.56.5" />
+    <PackageReference Include="Picturepark.SDK.V1" Version="0.60.55" />
     <PackageReference Include="CommonMark.NET" Version="0.15.1" />
     <PackageReference Include="Serilog.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Serilog.Enrichers.Environment" Version="2.1.2" />

@@ -166,7 +166,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGet()
         {
             /// Arrange
-            var searchRequest = new SchemaSearchRequest { Start = 0, Limit = 100 };
+            var searchRequest = new SchemaSearchRequest { Start = 0, Limit = 2 };
             var searchResult = await _client.Schemas.SearchAsync(searchRequest);
 
             Assert.True(searchResult.Results.Any());
