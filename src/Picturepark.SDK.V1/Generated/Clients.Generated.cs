@@ -9823,7 +9823,8 @@ namespace Picturepark.SDK.V1
         /// <summary>Update - single</summary>
         /// <param name="schemaId">The schema id.</param>
         /// <param name="schema">The schema update request.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
+        /// <returns>SchemaUpdateResult containing the updated schema</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="SchemaNotFoundException">Schema with this id could not be found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -9834,14 +9835,16 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<BusinessProcess> UpdateAsync(string schemaId, SchemaUpdateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SchemaUpdateResult> UpdateAsync(string schemaId, SchemaUpdateRequest schema, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (schemaId == null)
                 throw new System.ArgumentNullException("schemaId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas/{schemaId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas/{schemaId}?");
             urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(ConvertToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Length--;
     
             var client_ = _httpClient;
             try
@@ -9875,10 +9878,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BusinessProcess); 
+                            var result_ = default(SchemaUpdateResult); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcess>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaUpdateResult>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception_) 
@@ -9991,7 +9994,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(BusinessProcess);
+                        return default(SchemaUpdateResult);
                     }
                     finally
                     {
@@ -10007,7 +10010,8 @@ namespace Picturepark.SDK.V1
     
         /// <summary>Delete - single</summary>
         /// <param name="schemaId">The schema id.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
+        /// <returns>SchemaDeleteResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="SchemaNotFoundException">Schema with this id could not be found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -10017,14 +10021,16 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<BusinessProcess> DeleteAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SchemaDeleteResult> DeleteAsync(string schemaId, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (schemaId == null)
                 throw new System.ArgumentNullException("schemaId");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas/{schemaId}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas/{schemaId}?");
             urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(ConvertToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Length--;
     
             var client_ = _httpClient;
             try
@@ -10055,10 +10061,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BusinessProcess); 
+                            var result_ = default(SchemaDeleteResult); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcess>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaDeleteResult>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception_) 
@@ -10171,7 +10177,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(BusinessProcess);
+                        return default(SchemaDeleteResult);
                     }
                     finally
                     {
@@ -10362,7 +10368,8 @@ namespace Picturepark.SDK.V1
     
         /// <summary>Create - single</summary>
         /// <param name="schema">The schema create request.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
+        /// <returns>SchemaCreateResult containing the created schema.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="DuplicateSchemaException">Schema with this name already exists</exception>
         /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
@@ -10373,10 +10380,12 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<BusinessProcess> CreateAsync(SchemaCreateRequest schema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SchemaCreateResult> CreateAsync(SchemaCreateRequest schema, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas?");
+            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Length--;
     
             var client_ = _httpClient;
             try
@@ -10410,10 +10419,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(BusinessProcess); 
+                            var result_ = default(SchemaCreateResult); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcess>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaCreateResult>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception_) 
@@ -10526,7 +10535,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(BusinessProcess);
+                        return default(SchemaCreateResult);
                     }
                     finally
                     {

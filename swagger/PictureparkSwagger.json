@@ -4588,7 +4588,7 @@
           "Schema"
         ],
         "summary": "Update - single",
-        "description": "Updates an existing schema.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "description": "Updates an existing schema.\nThe operation can take a lot of time.",
         "operationId": "Schema_Update",
         "parameters": [
           {
@@ -4608,13 +4608,21 @@
             },
             "x-nullable": true,
             "description": "The schema update request."
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time to wait for the operation to complete.",
+            "format": "time-span"
           }
         ],
         "responses": {
           "200": {
-            "description": "BusinessProcess",
+            "description": "SchemaUpdateResult containing the updated schema",
             "schema": {
-              "$ref": "#/definitions/BusinessProcess"
+              "$ref": "#/definitions/SchemaUpdateResult"
             },
             "x-nullable": false
           },
@@ -4719,13 +4727,21 @@
             "required": true,
             "x-nullable": false,
             "description": "The schema id."
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time to wait for the operation to complete.",
+            "format": "time-span"
           }
         ],
         "responses": {
           "200": {
-            "description": "BusinessProcess",
+            "description": "SchemaDeleteResult",
             "schema": {
-              "$ref": "#/definitions/BusinessProcess"
+              "$ref": "#/definitions/SchemaDeleteResult"
             },
             "x-nullable": false
           },
@@ -4893,7 +4909,7 @@
           "Schema"
         ],
         "summary": "Create - single",
-        "description": "Create a new schema.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "description": "Create a new schema.",
         "operationId": "Schema_Create",
         "parameters": [
           {
@@ -4905,13 +4921,21 @@
             },
             "x-nullable": true,
             "description": "The schema create request."
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time to wait for the operation to complete.",
+            "format": "time-span"
           }
         ],
         "responses": {
           "200": {
-            "description": "BusinessProcess",
+            "description": "SchemaCreateResult containing the created schema.",
             "schema": {
-              "$ref": "#/definitions/BusinessProcess"
+              "$ref": "#/definitions/SchemaCreateResult"
             },
             "x-nullable": false
           },
@@ -17226,6 +17250,15 @@
         }
       }
     },
+    "SchemaCreateResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "$ref": "#/definitions/SchemaDetail"
+        }
+      }
+    },
     "SchemaUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
@@ -17317,6 +17350,19 @@
           }
         }
       }
+    },
+    "SchemaUpdateResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "$ref": "#/definitions/SchemaDetail"
+        }
+      }
+    },
+    "SchemaDeleteResult": {
+      "type": "object",
+      "additionalProperties": false
     },
     "PermissionSetSearchRequest": {
       "type": "object",
