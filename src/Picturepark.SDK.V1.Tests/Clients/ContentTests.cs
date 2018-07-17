@@ -11,7 +11,6 @@ using Picturepark.SDK.V1.Tests.Fixtures;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Picturepark.SDK.V1.Tests.Contracts;
-#pragma warning disable 1587
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -30,13 +29,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldTransferOwnership()
         {
-            /// Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 50);
+            // Arrange
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 50).ConfigureAwait(false);
 
-            /// Act
-            var previousContent = await _client.Contents.GetAsync(contentId);
-            var previousOwner = await _client.Users.GetByOwnerTokenAsync(previousContent.OwnerTokenId);
-            var searchResult = await _client.Users.SearchAsync(new UserSearchRequest { Limit = 10, UserRightsFilter = new List<UserRight> { UserRight.ManageContent } });
+            // Act
+            var previousContent = await _client.Contents.GetAsync(contentId).ConfigureAwait(false);
+            var previousOwner = await _client.Users.GetByOwnerTokenAsync(previousContent.OwnerTokenId).ConfigureAwait(false);
+            var searchResult = await _client.Users.SearchAsync(new UserSearchRequest { Limit = 10, UserRightsFilter = new List<UserRight> { UserRight.ManageContent } }).ConfigureAwait(false);
 
             var newUser = searchResult.Results.First(u => u.Id != previousOwner.Id);
             var request = new ContentOwnershipTransferRequest
@@ -44,12 +43,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ContentId = contentId,
                 TransferUserId = newUser.Id
             };
-            await _client.Contents.TransferOwnershipAsync(contentId, request);
+            await _client.Contents.TransferOwnershipAsync(contentId, request).ConfigureAwait(false);
 
-            var newContent = await _client.Contents.GetAsync(contentId);
-            var newOwner = await _client.Users.GetByOwnerTokenAsync(newContent.OwnerTokenId);
+            var newContent = await _client.Contents.GetAsync(contentId).ConfigureAwait(false);
+            var newOwner = await _client.Users.GetByOwnerTokenAsync(newContent.OwnerTokenId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal(previousContent.Id, newContent.Id);
             Assert.NotEqual(previousContent.OwnerTokenId, newContent.OwnerTokenId);
             Assert.NotEqual(previousOwner.Id, newOwner.Id);
@@ -60,14 +59,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldGetMany()
         {
-            /// Arrange
+            // Arrange
             var randomContents = await _fixture.GetRandomContentsAsync(".jpg", 2).ConfigureAwait(false);
             var contentIds = randomContents.Results.Select(i => i.Id).ToList();
 
-            /// Act
+            // Act
             var contents = await _client.Contents.GetManyAsync(contentIds).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal(2, contents.Count);
             Assert.Equal(contentIds[0], contents.ToList()[0].Id);
             Assert.Equal(contentIds[1], contents.ToList()[1].Id);
@@ -77,11 +76,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldTransferOwnershipMany()
         {
-            /// Arrange
+            // Arrange
             var randomContents = await _fixture.GetRandomContentsAsync(".jpg", 2).ConfigureAwait(false);
             var contentIds = randomContents.Results.Select(i => i.Id).ToList();
 
-            /// Act
+            // Act
             var previousContents = await _client.Contents.GetManyAsync(contentIds).ConfigureAwait(false);
             var previousOwner = await _client.Users.GetByOwnerTokenAsync(previousContents.ToList()[0].OwnerTokenId).ConfigureAwait(false);
 
@@ -108,7 +107,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var newOwner1 = await _client.Users.GetByOwnerTokenAsync(newContents.ToList()[0].OwnerTokenId).ConfigureAwait(false);
             var newOwner2 = await _client.Users.GetByOwnerTokenAsync(newContents.ToList()[1].OwnerTokenId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal(previousContents.ToList()[0].Id, newContents.ToList()[0].Id);
             Assert.Equal(previousContents.ToList()[1].Id, newContents.ToList()[1].Id);
 
@@ -144,14 +143,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             request.Aggregators.Add(numRangeAggregator);
-            await _client.Contents.AggregateAsync(request);
+            await _client.Contents.AggregateAsync(request).ConfigureAwait(false);
         }
 
         [Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldAggregateByChannel()
         {
-            /// Arrange
+            // Arrange
             var channelId = "rootChannel";
             var request = new ContentAggregationRequest
             {
@@ -159,10 +158,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 SearchString = string.Empty
             };
 
-            /// Act
-            var result = await _client.Contents.AggregateOnChannelAsync(request);
+            // Act
+            var result = await _client.Contents.AggregateOnChannelAsync(request).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             var originalWidthResults = result.AggregationResults
                 .SingleOrDefault(i => i.Name == "Original Width");
 
@@ -174,7 +173,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldAggregateByChannelWithTermsAggregator()
         {
-            /// Arrange
+            // Arrange
             var channelId = "rootChannel";
             var request = new ContentAggregationRequest
             {
@@ -186,10 +185,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            /// Act
-            var result = await _client.Contents.AggregateAsync(request);
+            // Act
+            var result = await _client.Contents.AggregateAsync(request).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             var permissionSetResults = result.AggregationResults
                 .SingleOrDefault(i => i.Name == "Permissions");
 
@@ -201,8 +200,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldCreateDownloadLinkForSingleFile()
         {
-            /// Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 50);
+            // Arrange
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 50).ConfigureAwait(false);
             var createDownloadLinkRequest = new ContentDownloadLinkCreateRequest
             {
                 Contents = new List<ContentDownloadRequestItem>
@@ -211,12 +210,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            /// Act
-            var result = await _client.Contents.CreateDownloadLinkAsync(createDownloadLinkRequest);
+            // Act
+            var result = await _client.Contents.CreateDownloadLinkAsync(createDownloadLinkRequest).ConfigureAwait(false);
             Assert.NotNull(result.DownloadUrl);
 
             using (var httpClient = new HttpClient())
-            using (var response = await httpClient.GetAsync(result.DownloadUrl))
+            using (var response = await httpClient.GetAsync(result.DownloadUrl).ConfigureAwait(false))
             {
                 response.EnsureSuccessStatusCode();
 
@@ -225,12 +224,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
                 var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
-                using (var stream = await response.Content.ReadAsStreamAsync())
+                using (var stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false))
                 using (var fileStream = File.Create(filePath))
                 {
-                    stream.CopyTo(fileStream);
+                    await stream.CopyToAsync(fileStream).ConfigureAwait(false);
 
-                    /// Assert
+                    // Assert
                     Assert.True(stream.Length > 10);
                 }
             }
@@ -240,7 +239,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldCreateDownloadLinkForMultipeFiles()
         {
-            /// Arrange
+            // Arrange
             var randomContents = await _fixture.GetRandomContentsAsync(".jpg", 2).ConfigureAwait(false);
             var contentIds = randomContents.Results.Select(i => i.Id).ToList();
 
@@ -253,12 +252,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            /// Act
-            var result = await _client.Contents.CreateDownloadLinkAsync(createDownloadLinkRequest);
+            // Act
+            var result = await _client.Contents.CreateDownloadLinkAsync(createDownloadLinkRequest).ConfigureAwait(false);
             Assert.NotNull(result.DownloadUrl);
 
             using (var httpClient = new HttpClient())
-            using (var response = await httpClient.GetAsync(result.DownloadUrl))
+            using (var response = await httpClient.GetAsync(result.DownloadUrl).ConfigureAwait(false))
             {
                 response.EnsureSuccessStatusCode();
 
@@ -267,12 +266,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
                 var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
-                using (var stream = await response.Content.ReadAsStreamAsync())
+                using (var stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false))
                 using (var fileStream = File.Create(filePath))
                 {
-                    stream.CopyTo(fileStream);
+                    await stream.CopyToAsync(fileStream).ConfigureAwait(false);
 
-                    /// Assert
+                    // Assert
                     Assert.True(stream.Length > 10);
                 }
             }
@@ -282,7 +281,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldCreateContent()
         {
-            /// Arrange
+            // Arrange
             var request = new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""foo"" }"),
@@ -290,10 +289,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Metadata = new DataDictionary()
             };
 
-            /// Act
+            // Act
             var result = await _client.Contents.CreateAsync(request).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(result);
         }
 
@@ -301,7 +300,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldCreateContents()
         {
-            /// Arrange
+            // Arrange
             var request1 = new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""foo"" }"),
@@ -316,14 +315,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Metadata = new DataDictionary()
             };
 
-            /// Act
+            // Act
             var result = await _client.Contents.CreateManyAsync(new ContentCreateManyRequest
             {
                 AllowMissingDependencies = false,
                 Requests = new List<ContentCreateRequest> { request1, request2 }
-            });
-            await _client.BusinessProcesses.WaitForCompletionAsync(result.Id);
-            var detail = await _client.BusinessProcesses.GetDetailsAsync(result.Id);
+            }).ConfigureAwait(false);
+            await _client.BusinessProcesses.WaitForCompletionAsync(result.Id).ConfigureAwait(false);
+            var detail = await _client.BusinessProcesses.GetDetailsAsync(result.Id).ConfigureAwait(false);
             var rows = ((BusinessProcessDetailsDataBatchResponse)detail.Details).Response.Rows;
 
             // Assert
@@ -337,7 +336,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             int maxNumberOfDownloadFiles = 3;
             string searchString = string.Empty;
 
-            ContentSearchResult result = await _fixture.GetRandomContentsAsync(searchString, maxNumberOfDownloadFiles);
+            ContentSearchResult result = await _fixture.GetRandomContentsAsync(searchString, maxNumberOfDownloadFiles).ConfigureAwait(false);
             Assert.True(result.Results.Count > 0);
 
             await _client.Contents.DownloadFilesAsync(
@@ -351,7 +350,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 errorDelegate: (error) =>
                 {
                     Console.WriteLine(error);
-                });
+                }).ConfigureAwait(false);
         }
 
         [Fact]
@@ -383,16 +382,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldDownloadThumbnail()
         {
-            /// Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            // Arrange
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
 
-            /// Act
-            using (var response = await _client.Contents.DownloadThumbnailAsync(contentId, ThumbnailSize.Medium))
+            // Act
+            using (var response = await _client.Contents.DownloadThumbnailAsync(contentId, ThumbnailSize.Medium).ConfigureAwait(false))
             {
                 var stream = new MemoryStream();
-                await response.Stream.CopyToAsync(stream);
+                await response.Stream.CopyToAsync(stream).ConfigureAwait(false);
 
-                /// Assert
+                // Assert
                 Assert.True(stream.Length > 10);
                 Assert.True(stream.CanRead);
             }
@@ -402,7 +401,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldUpdateMetadata()
         {
-            /// Arrange
+            // Arrange
             var expectedName = "test" + new Random().Next(0, 999999);
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
@@ -421,10 +420,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            /// Act
+            // Act
             var response = await _client.Contents.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehaviour.Metadata }).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(response);
             Assert.Equal(expectedName, response.Metadata.Get(nameof(SimpleLayer).ToLowerCamelCase())["name"]);
         }
@@ -433,7 +432,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldUpdateMetadataMany()
         {
-            /// Arrange
+            // Arrange
             var randomContents = await _fixture.GetRandomContentsAsync(".jpg", 2).ConfigureAwait(false);
             var contentIds = randomContents.Results.Select(i => i.Id).ToList();
 
@@ -469,15 +468,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            /// Act
+            // Act
             var waitResult = await _client.Contents.UpdateMetadataManyAsync(new ContentMetadataUpdateManyRequest
             {
                 AllowMissingDependencies = false,
                 Requests = new List<ContentMetadataUpdateRequest> { request1, request2 }
-            });
-            var result = await _client.BusinessProcesses.WaitForCompletionAsync(waitResult.Id);
+            }).ConfigureAwait(false);
+            var result = await _client.BusinessProcesses.WaitForCompletionAsync(waitResult.Id).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal(BusinessProcessLifeCycle.Succeeded, result.BusinessProcess.LifeCycle);
         }
 
@@ -485,7 +484,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldSetLayerAndResolveDisplayValues()
         {
-            /// Arrange
+            // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
@@ -503,10 +502,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            /// Act
+            // Act
             var response = await _client.Contents.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehaviour.Metadata, ContentResolveBehaviour.InnerDisplayValueName }).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal("test description", ((JObject)response.Metadata["personShot"])["displayValue"]["name"].ToString());
         }
 
@@ -514,7 +513,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldMergeLayersOnMetadataUpdate()
         {
-            /// Arrange
+            // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
@@ -551,10 +550,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 LayerSchemasUpdateOptions = UpdateOption.Merge
             };
 
-            /// Act
+            // Act
             var response = await _client.Contents.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehaviour.Metadata }).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal("test description", ((JObject)response.Metadata["personShot"])["description"].ToString());
             Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
         }
@@ -563,7 +562,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldReplaceLayersOnMetadataUpdate()
         {
-            /// Arrange
+            // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
@@ -600,10 +599,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 LayerSchemasUpdateOptions = UpdateOption.Replace
             };
 
-            /// Act
+            // Act
             var response = await _client.Contents.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehaviour.Metadata }).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.DoesNotContain("personShot", response.Metadata.Keys);
             Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
         }
@@ -612,7 +611,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldMergeFieldsOnMetadataUpdate()
         {
-            /// Arrange
+            // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
@@ -649,10 +648,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 SchemaFieldsUpdateOptions = UpdateOption.Merge
             };
 
-            /// Act
+            // Act
             var response = await _client.Contents.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehaviour.Metadata }).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
             Assert.Equal("test string", ((JObject)response.Metadata["allDataTypesContract"])["stringField"].ToString());
         }
@@ -661,7 +660,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldReplaceFieldsOnMetadataUpdate()
         {
-            /// Arrange
+            // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
@@ -698,10 +697,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 SchemaFieldsUpdateOptions = UpdateOption.Replace
             };
 
-            /// Act
+            // Act
             var response = await _client.Contents.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehaviour.Metadata }).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Null(((JObject)response.Metadata["allDataTypesContract"])["integerField"]);
             Assert.Equal("test string", ((JObject)response.Metadata["allDataTypesContract"])["stringField"].ToString());
         }
@@ -710,7 +709,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldBatchUpdateFieldsByFilter()
         {
-            /// Arrange
+            // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentFieldsBatchUpdateFilterRequest
             {
@@ -732,11 +731,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            /// Act
+            // Act
             var businessProcess = await _client.Contents.BatchUpdateFieldsByFilterAsync(request).ConfigureAwait(false);
             var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
         }
 
@@ -744,7 +743,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldBatchUpdateFieldsByIds()
         {
-            /// Arrange
+            // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
 
             var content = await _client.Contents.GetAsync(contentId).ConfigureAwait(false);
@@ -764,11 +763,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            /// Act
+            // Act
             var businessProcess = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
             var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
         }
 
@@ -779,8 +778,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = "foobar.baz";
             await Assert.ThrowsAsync<ContentNotFoundException>(async () =>
             {
-                await _client.Contents.GetAsync(contentId);
-            });
+                await _client.Contents.GetAsync(contentId).ConfigureAwait(false);
+            }).ConfigureAwait(false);
         }
 
         [Fact]
@@ -813,7 +812,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldDownloadSingleThumbnail()
         {
             // Download a resized version of an image file
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             Assert.False(string.IsNullOrEmpty(contentId));
 
             var fileName = new Random().Next(0, 999999) + "-" + contentId + ".jpg";
@@ -822,9 +821,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             if (File.Exists(filePath))
                 File.Delete(filePath);
 
-            using (var response = await _client.Contents.DownloadThumbnailAsync(contentId, ThumbnailSize.Small))
+            using (var response = await _client.Contents.DownloadThumbnailAsync(contentId, ThumbnailSize.Small).ConfigureAwait(false))
             {
-                await response.Stream.WriteToFileAsync(filePath);
+                await response.Stream.WriteToFileAsync(filePath).ConfigureAwait(false);
             }
 
             Assert.True(File.Exists(filePath));
@@ -862,13 +861,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldGetWithResolvedObjects()
         {
-            /// Arrange
+            // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
 
-            /// Act
+            // Act
             var contentDetail = await _client.Contents.GetAsync(contentId, new[] { ContentResolveBehaviour.Metadata, ContentResolveBehaviour.LinkedListItems }).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal(contentId, contentDetail.Id);
             Assert.NotNull(contentDetail); // TODO: Add better asserts
         }
@@ -877,13 +876,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldGetWithoutResolvedObjects()
         {
-            /// Arrange
+            // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
 
-            /// Act
+            // Act
             var contentDetail = await _client.Contents.GetAsync(contentId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal(contentId, contentDetail.Id);
             Assert.NotNull(contentDetail); // TODO: Add better asserts
         }
@@ -892,7 +891,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldSearch()
         {
-            /// Arrange
+            // Arrange
             var channelId = "rootChannel";
             var searchFieldPath =
                 nameof(ContentDetail.Audit).ToLowerCamelCase() + "." +
@@ -913,10 +912,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Start = 0
             };
 
-            /// Act
-            ContentSearchResult result = await _client.Contents.SearchAsync(request);
+            // Act
+            ContentSearchResult result = await _client.Contents.SearchAsync(request).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(result.Results.Count > 0);
         }
 
@@ -941,7 +940,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Limit = 8
             };
 
-            ContentSearchResult result = await _client.Contents.SearchAsync(request);
+            ContentSearchResult result = await _client.Contents.SearchAsync(request).ConfigureAwait(false);
             Assert.True(result.Results.Count > 0);
         }
 
@@ -949,7 +948,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldDeactivateAndReactivateContent()
         {
-            /// Arrange
+            // Arrange
             var request = new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""contentToTrash"" }"),
@@ -957,7 +956,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Metadata = new DataDictionary()
             };
 
-            /// Act
+            // Act
             var content = await _client.Contents.CreateAsync(request).ConfigureAwait(false);
 
             // Deactivate
@@ -965,9 +964,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Contents.GetAsync(content.Id).ConfigureAwait(false)).ConfigureAwait(false);
 
             // Reactivate
-            await _client.Contents.ReactivateAsync(content.Id, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            await _client.Contents.ReactivateAsync(content.Id, timeout: TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(await _client.Contents.GetAsync(content.Id).ConfigureAwait(false));
         }
 
@@ -975,7 +974,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldDeactivateAndReactivateContentMany()
         {
-            /// Arrange
+            // Arrange
             var content1 = await _client.Contents.CreateAsync(new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""contentToTrashMany1"" }"),
@@ -1013,7 +1012,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             businessProcess = await _client.Contents.ReactivateManyAsync(reactivateRequest).ConfigureAwait(false);
             await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(await _client.Contents.GetAsync(contentIds[0]).ConfigureAwait(false));
             Assert.NotNull(await _client.Contents.GetAsync(contentIds[1]).ConfigureAwait(false));
         }
@@ -1022,7 +1021,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldUpdateFile()
         {
-            string contentId = await _fixture.GetRandomContentIdAsync(".jpg -0030_JabLtzJl8bc", 20);
+            string contentId = await _fixture.GetRandomContentIdAsync(".jpg -0030_JabLtzJl8bc", 20).ConfigureAwait(false);
 
             // Create transfer
             var filePaths = new FileLocations[]
@@ -1030,7 +1029,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
             };
             string transferName = nameof(ShouldUpdateFile) + "-" + new Random().Next(1000, 9999);
-            var createTransferResult = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, filePaths);
+            var createTransferResult = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, filePaths).ConfigureAwait(false);
 
             // Upload file
             var uploadOptions = new UploadOptions
@@ -1039,11 +1038,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ErrorDelegate = Console.WriteLine
             };
 
-            await _client.Transfers.UploadFilesAsync(createTransferResult.Transfer, filePaths, uploadOptions);
+            await _client.Transfers.UploadFilesAsync(createTransferResult.Transfer, filePaths, uploadOptions).ConfigureAwait(false);
 
             // Search filetransfers to get id
             var request = new FileTransferSearchRequest() { Limit = 20, SearchString = "*", Filter = new TermFilter { Field = "transferId", Term = createTransferResult.Transfer.Id } };
-            FileTransferSearchResult result = await _client.Transfers.SearchFilesAsync(request);
+            FileTransferSearchResult result = await _client.Transfers.SearchFilesAsync(request).ConfigureAwait(false);
 
             Assert.Equal(1, result.TotalResults);
 
@@ -1053,8 +1052,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 FileTransferId = result.Results.First().Id
             };
 
-            var businessProcess = await _client.Contents.UpdateFileAsync(contentId, updateRequest);
-            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id);
+            var businessProcess = await _client.Contents.UpdateFileAsync(contentId, updateRequest).ConfigureAwait(false);
+            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
             Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
         }
@@ -1116,14 +1115,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            /// Act
+            // Act
             var businessProcess = await _client.Contents.UpdatePermissionsManyAsync(manyRequest).ConfigureAwait(false);
             await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
             var currentContentDetail = await _client.Contents.GetAsync(contentId).ConfigureAwait(false);
             var currentContentPermissionSetIds = currentContentDetail.ContentPermissionSetIds.Select(i => i).ToList();
 
-            /// Assert
+            // Assert
             currentContentPermissionSetIds.Should().BeEquivalentTo(contentPermissionSetIds);
         }
 
@@ -1131,7 +1130,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldUseDisplayLanguageToResolveDisplayPatterns()
         {
-            /// Arrange
+            // Arrange
             var schemaId = $"DisplayLanguageContentSchema{Guid.NewGuid():N}";
             var contentSchema = new SchemaDetail
             {
@@ -1171,14 +1170,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var detail = await _client.Contents.CreateAsync(content).ConfigureAwait(false);
 
-            /// Act
+            // Act
             var englishClient = _fixture.GetLocalizedPictureparkClient("en");
             var englishContent = await englishClient.Contents.GetAsync(detail.Id, new[] { ContentResolveBehaviour.Content }).ConfigureAwait(false);
 
             var germanClient = _fixture.GetLocalizedPictureparkClient("de");
             var germanContent = await germanClient.Contents.GetAsync(detail.Id, new[] { ContentResolveBehaviour.Content }).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             englishContent.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value1");
             germanContent.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value2");
         }

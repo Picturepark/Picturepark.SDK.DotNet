@@ -1104,6 +1104,14 @@
             "description": "the id of the content to deactivate"
           },
           {
+            "type": "boolean",
+            "name": "forceReferenceRemoval",
+            "in": "query",
+            "x-nullable": true,
+            "description": "A value indicating whether references to the content should be removed.",
+            "default": false
+          },
+          {
             "type": "string",
             "name": "timeout",
             "in": "query",
@@ -1270,20 +1278,20 @@
             "description": "The content id."
           },
           {
-            "type": "string",
-            "name": "timeout",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Maximum time to wait for the business process completed state.",
-            "format": "time-span"
-          },
-          {
             "type": "boolean",
             "name": "allowMissingDependencies",
             "in": "query",
             "x-nullable": false,
             "description": "Allow reactivating contents that refer to list items or contents that don't exist in the system.",
             "default": false
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
           }
         ],
         "responses": {
@@ -3793,21 +3801,20 @@
             "description": "the id of the list item to deactivate"
           },
           {
-            "type": "string",
-            "name": "timeout",
-            "in": "query",
-            "required": true,
-            "x-nullable": true,
-            "description": "Maximum time to wait for the business process completed state.",
-            "format": "time-span"
-          },
-          {
             "type": "boolean",
             "name": "forceReferenceRemoval",
             "in": "query",
             "x-nullable": true,
             "description": "A value indicating whether references to the listitem should be removed.",
             "default": false
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
           }
         ],
         "responses": {
@@ -3968,20 +3975,20 @@
             "description": "The list item id."
           },
           {
-            "type": "string",
-            "name": "timeout",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Maximum time to wait for the business process completed state.",
-            "format": "time-span"
-          },
-          {
             "type": "boolean",
             "name": "allowMissingDependencies",
             "in": "query",
             "x-nullable": false,
             "description": "Allow reactivating list items that refer to list items or contents that don't exist in the system.",
             "default": false
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
           }
         ],
         "responses": {

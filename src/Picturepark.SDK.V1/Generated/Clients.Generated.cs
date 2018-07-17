@@ -2182,6 +2182,7 @@ namespace Picturepark.SDK.V1
     
         /// <summary>Deactivate - single</summary>
         /// <param name="contentId">the id of the content to deactivate</param>
+        /// <param name="forceReferenceRemoval">A value indicating whether references to the content should be removed.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
@@ -2190,7 +2191,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task DeactivateAsync(string contentId, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeactivateAsync(string contentId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
                 throw new System.ArgumentNullException("contentId");
@@ -2198,6 +2199,7 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/{contentId}/deactivate?");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(ConvertToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
+            if (forceReferenceRemoval != null) urlBuilder_.Append("forceReferenceRemoval=").Append(System.Uri.EscapeDataString(ConvertToString(forceReferenceRemoval, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
@@ -2526,8 +2528,8 @@ namespace Picturepark.SDK.V1
     
         /// <summary>Reactivate - single</summary>
         /// <param name="contentId">The content id.</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="allowMissingDependencies">Allow reactivating contents that refer to list items or contents that don't exist in the system.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>Void</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
@@ -2536,7 +2538,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task ReactivateAsync(string contentId, System.TimeSpan? timeout = null, bool? allowMissingDependencies = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task ReactivateAsync(string contentId, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
                 throw new System.ArgumentNullException("contentId");
@@ -2544,8 +2546,8 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents/{contentId}/reactivate?");
             urlBuilder_.Replace("{contentId}", System.Uri.EscapeDataString(ConvertToString(contentId, System.Globalization.CultureInfo.InvariantCulture)));
-            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (allowMissingDependencies != null) urlBuilder_.Append("allowMissingDependencies=").Append(System.Uri.EscapeDataString(ConvertToString(allowMissingDependencies, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
             var client_ = _httpClient;
@@ -7956,8 +7958,8 @@ namespace Picturepark.SDK.V1
     
         /// <summary>Deactivate - single</summary>
         /// <param name="listItemId">the id of the list item to deactivate</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="forceReferenceRemoval">A value indicating whether references to the listitem should be removed.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>Void</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
@@ -7966,7 +7968,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task DeactivateAsync(string listItemId, System.TimeSpan? timeout, bool? forceReferenceRemoval = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeactivateAsync(string listItemId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (listItemId == null)
                 throw new System.ArgumentNullException("listItemId");
@@ -7974,8 +7976,8 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/{listItemId}/deactivate?");
             urlBuilder_.Replace("{listItemId}", System.Uri.EscapeDataString(ConvertToString(listItemId, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(timeout != null ? ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture) : "")).Append("&");
             if (forceReferenceRemoval != null) urlBuilder_.Append("forceReferenceRemoval=").Append(System.Uri.EscapeDataString(ConvertToString(forceReferenceRemoval, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
             var client_ = _httpClient;
@@ -8303,8 +8305,8 @@ namespace Picturepark.SDK.V1
     
         /// <summary>Reactivate - single</summary>
         /// <param name="listItemId">The list item id.</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <param name="allowMissingDependencies">Allow reactivating list items that refer to list items or contents that don't exist in the system.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>Void</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
@@ -8313,7 +8315,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task ReactivateAsync(string listItemId, System.TimeSpan? timeout = null, bool? allowMissingDependencies = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task ReactivateAsync(string listItemId, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (listItemId == null)
                 throw new System.ArgumentNullException("listItemId");
@@ -8321,8 +8323,8 @@ namespace Picturepark.SDK.V1
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems/{listItemId}/reactivate?");
             urlBuilder_.Replace("{listItemId}", System.Uri.EscapeDataString(ConvertToString(listItemId, System.Globalization.CultureInfo.InvariantCulture)));
-            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             if (allowMissingDependencies != null) urlBuilder_.Append("allowMissingDependencies=").Append(System.Uri.EscapeDataString(ConvertToString(allowMissingDependencies, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            if (timeout != null) urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
             var client_ = _httpClient;

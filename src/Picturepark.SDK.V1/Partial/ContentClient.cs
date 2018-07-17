@@ -9,16 +9,6 @@ namespace Picturepark.SDK.V1
 {
     public partial class ContentClient
     {
-        /// <summary>Deactivates a content item by ID (i.e. marks the content item as deleted).</summary>
-        /// <param name="contentId">The content ID.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The task.</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task DeactivateAsync(string contentId, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            await DeactivateAsync(contentId, null, cancellationToken).ConfigureAwait(false);
-        }
-
         /// <summary>Downloads multiple files.</summary>
         /// <param name="contents">The files to download.</param>
         /// <param name="exportDirectory">The directory to store the downloaded files.</param>
