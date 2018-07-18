@@ -25,7 +25,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldAggregateObjects()
         {
-            /// Arrange
+            // Arrange
             var fieldName = nameof(Country).ToLowerCamelCase() + "." + nameof(Country.RegionCode).ToLowerCamelCase();
             var request = new ListItemAggregationRequest
             {
@@ -37,11 +37,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            /// Act
-            ObjectAggregationResult result = await _client.ListItems.AggregateAsync(request);
+            // Act
+            ObjectAggregationResult result = await _client.ListItems.AggregateAsync(request).ConfigureAwait(false);
             AggregationResult aggregation = result.GetByName(fieldName);
 
-            /// Assert
+            // Assert
             Assert.NotNull(aggregation);
             Assert.Equal(20, aggregation.AggregationResultItems.Count);
         }
@@ -50,7 +50,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldCreateAndUpdateObject()
         {
-            /// Arrange
+            // Arrange
             var objectName = "ThisObjectD" + new Random().Next(0, 999999);
             var createManyRequest = new ListItemCreateManyRequest()
             {
@@ -68,7 +68,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var results = await _client.ListItems.CreateManyAsync(createManyRequest).ConfigureAwait(false);
             var result = results.First();
 
-            /// Act
+            // Act
             var request = new ListItemUpdateRequest
             {
                 Id = result.Id,
@@ -76,7 +76,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
             await _client.ListItems.UpdateAsync(request).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             var newItem = await _client.ListItems.GetAsync(result.Id, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
             Assert.Equal("Foo", newItem.ConvertTo<Tag>(nameof(Tag)).Name);
         }
@@ -85,7 +85,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldCreate()
         {
-            /// Arrange
+            // Arrange
             var objectName = "ThisObjectB" + new Random().Next(0, 999999);
             var listItem = new ListItemCreateRequest
             {
@@ -93,10 +93,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Content = new Tag { Name = objectName }
             };
 
-            /// Act
-            ListItemDetail result = await _client.ListItems.CreateAsync(listItem);
+            // Act
+            ListItemDetail result = await _client.ListItems.CreateAsync(listItem).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.False(string.IsNullOrEmpty(result.Id));
         }
 
@@ -104,7 +104,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldBatchUpdateFieldsByFilter()
         {
-            /// Arrange
+            // Arrange
             var objectName = "ThisObjectB" + new Random().Next(0, 999999);
             var listItem = new ListItemCreateRequest
             {
@@ -113,7 +113,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
             ListItemDetail listItemDetail = await _client.ListItems.CreateAsync(listItem).ConfigureAwait(false);
 
-            /// Act
+            // Act
             var updateRequest = new ListItemFieldsBatchUpdateFilterRequest
             {
                 ListItemFilterRequest = new ListItemFilterRequest // TODO: ListItemFieldsFilterUpdateRequest.ListItemFilterRequest: Rename property to FilterRequest?
@@ -133,13 +133,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            /// Act
+            // Act
             var businessProcess = await _client.ListItems.BatchUpdateFieldsByFilterAsync(updateRequest).ConfigureAwait(false);
             var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, TimeSpan.FromSeconds(10)).ConfigureAwait(false);
 
             ListItemDetail result = await _client.ListItems.GetAsync(listItemDetail.Id, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal("Foo", result.ConvertTo<Tag>(nameof(Tag)).Name);
         }
 
@@ -147,16 +147,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldCreateWithHelper()
         {
-            /// Arrange
+            // Arrange
             var tag = new Tag
             {
                 Name = "ThisObjectB" + new Random().Next(0, 999999)
             };
 
-            /// Act
-            var createdObjects = await _client.ListItems.CreateFromObjectAsync(tag, nameof(Tag));
+            // Act
+            var createdObjects = await _client.ListItems.CreateFromObjectAsync(tag, nameof(Tag)).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Single(createdObjects);
         }
 
@@ -164,8 +164,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldCreateComplexObjectWithHelper()
         {
-            /// Arrange
-            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client);
+            // Arrange
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client).ConfigureAwait(false);
 
             // Reusable as reference
             var dog = new Dog
@@ -174,7 +174,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 PlaysCatch = true
             };
 
-            /// Act
+            // Act
             // Using Helper method
             var soccerPlayerTree = await _client.ListItems.CreateFromObjectAsync(
                 new SoccerPlayer
@@ -200,7 +200,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         },
                         dog
                     }
-                }, nameof(SoccerPlayer)); // TODO: ListItemClient.CreateFromObjectAsync: We should add an attribute to the class with its schema name instead of passing it as parameter
+                }, nameof(SoccerPlayer)).ConfigureAwait(false); // TODO: ListItemClient.CreateFromObjectAsync: We should add an attribute to the class with its schema name instead of passing it as parameter
 
             var soccerTrainerTree = await _client.ListItems.CreateFromObjectAsync(
                 new SoccerTrainer
@@ -210,7 +210,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     Firstname = "Urxxxxs",
                     LastName = "xxxxxxxx",
                     TrainerSince = new DateTime(2000, 1, 1)
-                }, nameof(SoccerTrainer));
+                }, nameof(SoccerTrainer)).ConfigureAwait(false);
 
             var personTree = await _client.ListItems.CreateFromObjectAsync(
                 new Person
@@ -219,9 +219,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     EmailAddress = "xyyyy@teyyyyyyst.com",
                     Firstname = "Urxxxxs",
                     LastName = "xxxxxxxx"
-                }, nameof(Person));
+                }, nameof(Person)).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(soccerPlayerTree.Any());
             Assert.True(soccerTrainerTree.Any());
             Assert.True(personTree.Any());
@@ -231,7 +231,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldCreateObjectWithoutHelper()
         {
-            /// Arrange
+            // Arrange
             await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client).ConfigureAwait(false);
 
             var originalPlayer = new SoccerPlayer
@@ -242,7 +242,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 LastName = "Brogle"
             };
 
-            /// Act
+            // Act
             var createRequest = new ListItemCreateRequest
             {
                 ContentSchemaId = nameof(SoccerPlayer),
@@ -251,7 +251,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var playerItem = await _client.ListItems.CreateAsync(createRequest, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(playerItem);
 
             var createdPlayer = playerItem.ConvertTo<SoccerPlayer>("SoccerPlayer");
@@ -262,10 +262,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldGetObject()
         {
-            /// Arrange
+            // Arrange
             var objectName = "ThisObjectC" + new Random().Next(0, 999999);
 
-            /// Act
+            // Act
             var createRequest = new ListItemCreateRequest
             {
                 ContentSchemaId = nameof(Tag),
@@ -275,7 +275,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var listItem = await _client.ListItems.CreateAsync(createRequest).ConfigureAwait(false);
             var result = await _client.ListItems.GetAsync(listItem.Id).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(result);
         }
 
@@ -283,7 +283,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldGetObjectResolved()
         {
-            /// Arrange
+            // Arrange
             var request = new SchemaSearchRequest
             {
                 Limit = 100,
@@ -302,10 +302,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 .Select(i => new { schemaId = i.Id, objectId = _fixture.GetRandomObjectIdAsync(i.Id, 20).Result })
                 .First(i => !string.IsNullOrEmpty(i.objectId));
 
-            /// Act
+            // Act
             var listItem = await _client.ListItems.GetAsync(tuple.objectId, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content, ListItemResolveBehaviour.LinkedListItems }).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal(tuple.schemaId, listItem.ContentSchemaId);
         }
 
@@ -384,7 +384,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldSearchListItems()
         {
-            /// Arrange
+            // Arrange
             // ---------------------------------------------------------------------------
             // Get a list of MetadataSchemaIds
             // ---------------------------------------------------------------------------
@@ -395,7 +395,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Filter = FilterBase.FromExpression<Schema>(i => i.Types, SchemaType.List.ToString())
             };
 
-            var searchResultSchema = await _client.Schemas.SearchAsync(searchRequestSchema);
+            var searchResultSchema = await _client.Schemas.SearchAsync(searchRequestSchema).ConfigureAwait(false);
             Assert.True(searchResultSchema.Results.Any());
 
             List<string> metadataSchemaIds = searchResultSchema.Results
@@ -407,7 +407,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var items = new List<ListItem>();
             List<string> failedMetadataSchemaIds = new List<string>();
 
-            /// Act
+            // Act
             // ---------------------------------------------------------------------------
             // Loop over all metadataSchemaIds and make a search for each metadataSchemaId
             // ---------------------------------------------------------------------------
@@ -417,7 +417,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
                 try
                 {
-                    var searchResultObject = await _client.ListItems.SearchAsync(searchRequestObject);
+                    var searchResultObject = await _client.ListItems.SearchAsync(searchRequestObject).ConfigureAwait(false);
                     if (searchResultObject.Results.Any())
                     {
                         items.AddRange(searchResultObject.Results);
@@ -429,7 +429,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             }
 
-            /// Assert
+            // Assert
             Assert.True(!failedMetadataSchemaIds.Any());
             Assert.True(items.Any());
         }
@@ -438,7 +438,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldUpdate()
         {
-            /// Arrange
+            // Arrange
             await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client).ConfigureAwait(false);
 
             // Create object
@@ -461,14 +461,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var playerObjectId = players.Results.First().Id;
             var playerItem = await _client.ListItems.GetAsync(playerObjectId, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
-            /// Act
+            // Act
             var player = playerItem.ConvertTo<SoccerPlayer>(nameof(SoccerPlayer));
             player.Firstname = "xy jviorej ivorejvioe";
 
             await _client.ListItems.UpdateAsync(playerItem.Id, player).ConfigureAwait(false);
             var updatedPlayer = await _client.ListItems.GetAndConvertToAsync<SoccerPlayer>(playerItem.Id, nameof(SoccerPlayer)).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal(player.Firstname, updatedPlayer.Firstname);
         }
 
@@ -476,7 +476,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldUpdateMany()
         {
-            /// Arrange
+            // Arrange
             await SchemaHelper.CreateSchemasIfNotExistentAsync<SoccerPlayer>(_client).ConfigureAwait(false);
 
             var originalPlayer = new SoccerPlayer
@@ -495,7 +495,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var playerItem = await _client.ListItems.CreateAsync(createRequest, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
-            /// Act
+            // Act
             var player = playerItem.ConvertTo<SoccerPlayer>(nameof(SoccerPlayer));
             player.Firstname = "xy jviorej ivorejvioe";
 
@@ -511,7 +511,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
             var updatedPlayer = await _client.ListItems.GetAndConvertToAsync<SoccerPlayer>(playerItem.Id, nameof(SoccerPlayer)).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal(player.Firstname, updatedPlayer.Firstname);
         }
 
@@ -519,7 +519,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldTrashAndUntrashListItem()
         {
-            /// Arrange
+            // Arrange
             var listItem = await _client.ListItems.CreateAsync(new ListItemCreateRequest
             {
                 ContentSchemaId = nameof(Tag),
@@ -530,15 +530,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.False(string.IsNullOrEmpty(listItemId));
             var listItemDetail = await _client.ListItems.GetAsync(listItemId).ConfigureAwait(false);
 
-            /// Act
+            // Act
             // Deactivate
-            await _client.ListItems.DeactivateAsync(listItemId, new TimeSpan(0, 2, 0)).ConfigureAwait(false);
+            await _client.ListItems.DeactivateAsync(listItemId, timeout: new TimeSpan(0, 2, 0)).ConfigureAwait(false);
             await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItemId).ConfigureAwait(false)).ConfigureAwait(false);
 
             // Reactivate
-            await _client.ListItems.ReactivateAsync(listItemId, new TimeSpan(0, 2, 0)).ConfigureAwait(false);
+            await _client.ListItems.ReactivateAsync(listItemId, timeout: new TimeSpan(0, 2, 0)).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(await _client.ListItems.GetAsync(listItemId).ConfigureAwait(false));
         }
 
@@ -546,7 +546,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldTrashAndUntrashListItemMany()
         {
-            /// Arrange
+            // Arrange
             var listItem1 = await _client.ListItems.CreateAsync(new ListItemCreateRequest
             {
                 ContentSchemaId = nameof(Tag),
@@ -563,7 +563,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var listItemDetail2 = await _client.ListItems.GetAsync(listItem2.Id).ConfigureAwait(false);
 
-            /// Act
+            // Act
             // Deactivate
             var deactivateRequest = new ListItemDeactivateRequest
             {
@@ -585,7 +585,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             businessProcess = await _client.ListItems.ReactivateManyAsync(reactivateRequest).ConfigureAwait(false);
             await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(await _client.ListItems.GetAsync(listItem1.Id).ConfigureAwait(false));
             Assert.NotNull(await _client.ListItems.GetAsync(listItem2.Id).ConfigureAwait(false));
         }
@@ -594,7 +594,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldUseDisplayLanguageToResolveDisplayValues()
         {
-            /// Arange
+            // Arange
             var schema = await SchemaHelper.CreateSchemasIfNotExistentAsync<DisplayLanguageTestItems>(_client).ConfigureAwait(false);
 
             var listItem1 = new DisplayLanguageTestItems()
@@ -605,14 +605,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var detail = await _client.ListItems.CreateAsync(new ListItemCreateRequest() { ContentSchemaId = schema.Id, Content = listItem1 }).ConfigureAwait(false);
 
-            /// Act
+            // Act
             var englishClient = _fixture.GetLocalizedPictureparkClient("en");
             var receivedItem1 = await englishClient.ListItems.GetAsync(detail.Id, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
             var germanClient = _fixture.GetLocalizedPictureparkClient("de");
             var receivedItem2 = await germanClient.ListItems.GetAsync(detail.Id, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             receivedItem1.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value2");
             receivedItem2.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value1");
         }
