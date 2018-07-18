@@ -1,1 +1,1 @@
-﻿dotnet Picturepark.Microsite.PressPortal.dll
+dotnet Picturepark.Microsite.PressPortal.dll
