@@ -1388,6 +1388,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("RelationNotFoundException", typeof(RelationNotFoundException))]
     [JsonInheritanceAttribute("RelationTypeNotFoundException", typeof(RelationTypeNotFoundException))]
     [JsonInheritanceAttribute("RelationTypeTargetDocTypeMismatchException", typeof(RelationTypeTargetDocTypeMismatchException))]
+    [JsonInheritanceAttribute("SchemaFieldRelationSchemaSystemSchemaException", typeof(SchemaFieldRelationSchemaSystemSchemaException))]
+    [JsonInheritanceAttribute("SchemaFieldRelationSchemaTypeUnsupportedException", typeof(SchemaFieldRelationSchemaTypeUnsupportedException))]
     [JsonInheritanceAttribute("AggregationNameInvalidException", typeof(AggregationNameInvalidException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
@@ -3632,6 +3634,56 @@ namespace Picturepark.SDK.V1.Contract
         public static RelationTypeTargetDocTypeMismatchException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<RelationTypeTargetDocTypeMismatchException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.63.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldRelationSchemaSystemSchemaException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("relationSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RelationSchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldRelationSchemaSystemSchemaException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldRelationSchemaSystemSchemaException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.63.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldRelationSchemaTypeUnsupportedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("relationSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RelationSchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaFieldRelationSchemaTypeUnsupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldRelationSchemaTypeUnsupportedException>(data);
         }
     
     }

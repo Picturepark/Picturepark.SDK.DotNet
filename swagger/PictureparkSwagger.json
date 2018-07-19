@@ -10813,6 +10813,46 @@
         }
       ]
     },
+    "SchemaFieldRelationSchemaSystemSchemaException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        },
+        "relationSchemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "SchemaFieldRelationSchemaTypeUnsupportedException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "fieldId": {
+          "type": "string"
+        },
+        "relationSchemaId": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "AggregationNameInvalidException": {
       "type": "object",
       "additionalProperties": false,
