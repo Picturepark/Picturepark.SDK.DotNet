@@ -116,7 +116,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var importRequest = new FileTransfer2ContentCreateRequest
             {
-                TransferId = createTransferResult.Transfer.Id,
                 ContentPermissionSetIds = new List<string>(),
                 Metadata = null,
                 LayerSchemaIds = new List<string>()

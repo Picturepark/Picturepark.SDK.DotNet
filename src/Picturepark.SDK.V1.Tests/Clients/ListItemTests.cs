@@ -55,7 +55,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var createManyRequest = new ListItemCreateManyRequest()
             {
                 AllowMissingDependencies = false,
-                Requests = new List<ListItemCreateRequest>
+                Items = new List<ListItemCreateRequest>
                 {
                     new ListItemCreateRequest
                     {
@@ -71,10 +71,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Act
             var request = new ListItemUpdateRequest
             {
-                Id = result.Id,
                 Content = new Tag { Name = "Foo" }
             };
-            await _client.ListItems.UpdateAsync(request).ConfigureAwait(false);
+            await _client.ListItems.UpdateAsync(result.Id, request).ConfigureAwait(false);
 
             // Assert
             var newItem = await _client.ListItems.GetAsync(result.Id, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
@@ -319,7 +318,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var createRequest = new ListItemCreateManyRequest()
             {
-                Requests = new List<ListItemCreateRequest>
+                Items = new List<ListItemCreateRequest>
                 {
                     new ListItemCreateRequest
                     {
@@ -355,7 +354,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var createRequest = new ListItemCreateManyRequest()
             {
-                Requests = new List<ListItemCreateRequest>
+                Items = new List<ListItemCreateRequest>
                 {
                     new ListItemCreateRequest
                     {
@@ -502,9 +501,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var businessProcess = await _client.ListItems.UpdateManyAsync(new ListItemUpdateManyRequest
             {
                 AllowMissingDependencies = false,
-                Requests = new[]
+                Items = new[]
                 {
-                    new ListItemUpdateRequest { Id = playerItem.Id, Content = player }
+                    new ListItemUpdateItem() { Id = playerItem.Id, Content = player }
                 }
             }).ConfigureAwait(false);
 

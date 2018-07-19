@@ -75,7 +75,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // TODO: Simplify (ShareDetail.AsEmbedUpdateRequest()) ?
             var request = new ShareEmbedUpdateRequest
             {
-                Id = createResult.ShareId,
                 Description = "Foo",
                 ExpirationDate = share.ExpirationDate,
                 LayerSchemaIds = share.LayerSchemaIds,
