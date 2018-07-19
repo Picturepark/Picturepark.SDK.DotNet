@@ -23,7 +23,7 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<BatchOperationResult<ListItemDetail>> CreateFromObjectAsync(object content, string schemaId, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemBatchOperationResult> CreateFromObjectAsync(object content, string schemaId, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var createManyRequest = new ListItemCreateManyRequest
             {
@@ -48,11 +48,11 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<BatchOperationResult<ListItemDetail>> CreateManyAsync(ListItemCreateManyRequest createManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemBatchOperationResult> CreateManyAsync(ListItemCreateManyRequest createManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (!createManyRequest.Items.Any())
             {
-                return BatchOperationResult<ListItemDetail>.Empty;
+                return ListItemBatchOperationResult.Empty;
             }
 
             var businessProcess = await CreateManyCoreAsync(createManyRequest, cancellationToken).ConfigureAwait(false);
@@ -60,11 +60,11 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<BatchOperationResult<ListItemDetail>> UpdateManyAsync(ListItemUpdateManyRequest listItemUpdateManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemBatchOperationResult> UpdateManyAsync(ListItemUpdateManyRequest listItemUpdateManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (!listItemUpdateManyRequest.Items.Any())
             {
-                return BatchOperationResult<ListItemDetail>.Empty;
+                return ListItemBatchOperationResult.Empty;
             }
 
             var businessProcess = await UpdateManyCoreAsync(listItemUpdateManyRequest, cancellationToken).ConfigureAwait(false);
@@ -72,14 +72,14 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<BatchOperationResult<ListItemDetail>> BatchUpdateFieldsByFilterAsync(ListItemFieldsBatchUpdateFilterRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemBatchOperationResult> BatchUpdateFieldsByFilterAsync(ListItemFieldsBatchUpdateFilterRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var businessProcess = await BatchUpdateFieldsByFilterCoreAsync(updateRequest, cancellationToken).ConfigureAwait(false);
             return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task<BatchOperationResult<ListItemDetail>> BatchUpdateFieldsByIdsAsync(ListItemFieldsBatchUpdateRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemBatchOperationResult> BatchUpdateFieldsByIdsAsync(ListItemFieldsBatchUpdateRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var businessProcess = await BatchUpdateFieldsByIdsCoreAsync(updateRequest, cancellationToken).ConfigureAwait(false);
             return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
@@ -266,7 +266,7 @@ namespace Picturepark.SDK.V1
             }
         }
 
-        private async Task<BatchOperationResult<ListItemDetail>> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout, CancellationToken cancellationToken)
+        private async Task<ListItemBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout, CancellationToken cancellationToken)
         {
             var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
             if (result.LifeCycleHit == BusinessProcessLifeCycle.Failed)
@@ -274,11 +274,7 @@ namespace Picturepark.SDK.V1
                 throw new Exception("The business process failed to execute.");
             }
 
-            return new BatchOperationResult<ListItemDetail>(
-                businessProcessId,
-                result.LifeCycleHit,
-                async ids => await GetManyAsync(ids, null, cancellationToken),
-                _businessProcessClient);
+            return new ListItemBatchOperationResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
     }
 }
