@@ -40,7 +40,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var newUser = searchResult.Results.First(u => u.Id != previousOwner.Id);
             var request = new ContentOwnershipTransferRequest
             {
-                ContentId = contentId,
                 TransferUserId = newUser.Id
             };
             await _client.Contents.TransferOwnershipAsync(contentId, request).ConfigureAwait(false);
@@ -94,7 +93,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var newUser = searchResult.Results.First(u => u.Id != previousOwner.Id);
             var manyRequest = new ContentOwnershipTransferManyRequest
             {
-                Requests = contentIds.Select(id => new ContentOwnershipTransferRequest
+                Items = contentIds.Select(id => new ContentOwnershipTransferItem
                 {
                     ContentId = id,
                     TransferUserId = newUser.Id
@@ -319,7 +318,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var result = await _client.Contents.CreateManyAsync(new ContentCreateManyRequest
             {
                 AllowMissingDependencies = false,
-                Requests = new List<ContentCreateRequest> { request1, request2 }
+                Items = new List<ContentCreateRequest> { request1, request2 }
             }).ConfigureAwait(false);
             await _client.BusinessProcesses.WaitForCompletionAsync(result.Id).ConfigureAwait(false);
             var detail = await _client.BusinessProcesses.GetDetailsAsync(result.Id).ConfigureAwait(false);
@@ -406,7 +405,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
-                Id = contentId,
                 LayerSchemaIds = new List<string> { nameof(SimpleLayer) },
                 Metadata = new DataDictionary
                 {
@@ -436,7 +434,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var randomContents = await _fixture.GetRandomContentsAsync(".jpg", 2).ConfigureAwait(false);
             var contentIds = randomContents.Results.Select(i => i.Id).ToList();
 
-            var request1 = new ContentMetadataUpdateRequest
+            var request1 = new ContentMetadataUpdateItem
             {
                 Id = contentIds[0],
                 LayerSchemaIds = new List<string> { nameof(SimpleLayer) },
@@ -452,7 +450,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            var request2 = new ContentMetadataUpdateRequest
+            var request2 = new ContentMetadataUpdateItem
             {
                 Id = contentIds[1],
                 LayerSchemaIds = new List<string> { nameof(SimpleLayer) },
@@ -472,7 +470,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var waitResult = await _client.Contents.UpdateMetadataManyAsync(new ContentMetadataUpdateManyRequest
             {
                 AllowMissingDependencies = false,
-                Requests = new List<ContentMetadataUpdateRequest> { request1, request2 }
+                Items = new List<ContentMetadataUpdateItem> { request1, request2 }
             }).ConfigureAwait(false);
             var result = await _client.BusinessProcesses.WaitForCompletionAsync(waitResult.Id).ConfigureAwait(false);
 
@@ -488,7 +486,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
-                Id = contentId,
                 LayerSchemaIds = new List<string> { "PersonShot" },
                 Metadata = new DataDictionary
                 {
@@ -517,7 +514,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
-                Id = contentId,
                 LayerSchemaIds = new List<string> { nameof(PersonShot) },
                 Metadata = new DataDictionary
                 {
@@ -535,7 +531,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             request = new ContentMetadataUpdateRequest
             {
-                Id = contentId,
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
                 Metadata = new DataDictionary
                 {
@@ -566,7 +561,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
-                Id = contentId,
                 LayerSchemaIds = new List<string> { nameof(PersonShot) },
                 Metadata = new DataDictionary
                 {
@@ -584,7 +578,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             request = new ContentMetadataUpdateRequest
             {
-                Id = contentId,
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
                 Metadata = new DataDictionary
                 {
@@ -615,7 +608,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
-                Id = contentId,
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
                 Metadata = new DataDictionary
                 {
@@ -633,7 +625,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             request = new ContentMetadataUpdateRequest
             {
-                Id = contentId,
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
                 Metadata = new DataDictionary
                 {
@@ -664,7 +655,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
-                Id = contentId,
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
                 Metadata = new DataDictionary
                 {
@@ -682,7 +672,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             request = new ContentMetadataUpdateRequest
             {
-                Id = contentId,
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
                 Metadata = new DataDictionary
                 {
@@ -1048,7 +1037,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var updateRequest = new ContentFileUpdateRequest
             {
-                ContentId = contentId,
                 FileTransferId = result.Results.First().Id
             };
 
@@ -1074,7 +1062,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var request = new ContentPermissionsUpdateRequest
             {
-                ContentId = contentDetail.Id,
                 ContentPermissionSetIds = contentPermissionSetIds
             };
 
@@ -1105,9 +1092,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var manyRequest = new ContentPermissionsUpdateManyRequest
             {
-                Requests = new List<ContentPermissionsUpdateRequest>
+                Items = new List<ContentPermissionsUpdateItem>
                 {
-                    new ContentPermissionsUpdateRequest
+                    new ContentPermissionsUpdateItem
                     {
                         ContentId = contentDetail.Id,
                         ContentPermissionSetIds = contentPermissionSetIds

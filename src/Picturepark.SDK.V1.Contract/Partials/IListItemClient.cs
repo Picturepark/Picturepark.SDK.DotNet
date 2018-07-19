@@ -53,12 +53,13 @@ namespace Picturepark.SDK.V1.Contract
         Task<ListItemDetail> UpdateAsync(string listItemId, object content, IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Updates a list item.</summary>
+        /// <param name="listItemId">The list item ID.</param>
         /// <param name="updateRequest">The update request.</param>
         /// <param name="resolveBehaviours">List of enum that control which parts of the list item are resolved and returned.</param>
         /// <param name="allowMissingDependencies">Allow creating <see cref="ListItem"/>s that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The updated <see cref="ListItemDetail"/>.</returns>
-        Task<ListItemDetail> UpdateAsync(ListItemUpdateRequest updateRequest, IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ListItemDetail> UpdateAsync(string listItemId, ListItemUpdateRequest updateRequest, IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

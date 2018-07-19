@@ -32,13 +32,13 @@ namespace Picturepark.SDK.V1
         {
             var createManyRequest = new ListItemCreateManyRequest
             {
-                Requests = new List<ListItemCreateRequest>(),
+                Items = new List<ListItemCreateRequest>(),
                 AllowMissingDependencies = allowMissingDependencies
             };
 
             var referencedObjects = await CreateReferencedObjectsAsync(content, allowMissingDependencies, cancellationToken).ConfigureAwait(false);
 
-            createManyRequest.Requests.Add(new ListItemCreateRequest
+            createManyRequest.Items.Add(new ListItemCreateRequest
             {
                 ContentSchemaId = schemaId,
                 Content = content
@@ -58,7 +58,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">The business process has not been completed.</exception>
         public async Task<ICollection<ListItem>> CreateManyAsync(ListItemCreateManyRequest createManyRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (!createManyRequest.Requests.Any())
+            if (!createManyRequest.Items.Any())
             {
                 return new List<ListItem>();
             }
@@ -135,23 +135,23 @@ namespace Picturepark.SDK.V1
         {
             var updateRequest = new ListItemUpdateRequest()
             {
-                Id = listItemId,
                 Content = content
             };
 
-            return await UpdateAsync(updateRequest, resolveBehaviours, allowMissingDependencies, timeout, cancellationToken).ConfigureAwait(false);
+            return await UpdateAsync(listItemId, updateRequest, resolveBehaviours, allowMissingDependencies, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Updates a list item.</summary>
+        /// <param name="listItemId">ID of the list item.</param>
         /// <param name="updateRequest">The update request.</param>
         /// <param name="resolveBehaviours">List of enum that control which parts of the list item are resolved and returned.</param>
         /// <param name="allowMissingDependencies">Allow creating <see cref="ListItem"/>s that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The updated <see cref="ListItemDetail"/>.</returns>
-        public async Task<ListItemDetail> UpdateAsync(ListItemUpdateRequest updateRequest, IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemDetail> UpdateAsync(string listItemId, ListItemUpdateRequest updateRequest, IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await UpdateCoreAsync(updateRequest.Id, updateRequest, resolveBehaviours, allowMissingDependencies, timeout, cancellationToken).ConfigureAwait(false);
+            return await UpdateCoreAsync(listItemId, updateRequest, resolveBehaviours, allowMissingDependencies, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         private bool IsSimpleType(Type type)
@@ -176,7 +176,7 @@ namespace Picturepark.SDK.V1
             var referencedListItems = new List<ListItemCreateRequest>();
             var createManyRequest = new ListItemCreateManyRequest
             {
-                Requests = referencedListItems,
+                Items = referencedListItems,
                 AllowMissingDependencies = allowMissingDependencies
             };
 
@@ -192,10 +192,9 @@ namespace Picturepark.SDK.V1
 
             foreach (var result in results)
             {
-                var objectToUpdate = referencedListItems.SingleOrDefault(i => i.ListItemId == result.Id);
+                var objectToUpdate = referencedListItems.Single(i => i.ListItemId == result.Id);
 
-                var reference = objectToUpdate.Content as IReferenceObject;
-                if (reference != null)
+                if (objectToUpdate.Content is IReferenceObject reference)
                 {
                     reference.RefId = result.Id;
                 }

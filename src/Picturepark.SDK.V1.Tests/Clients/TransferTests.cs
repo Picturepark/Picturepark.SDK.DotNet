@@ -304,7 +304,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var importRequest = new FileTransfer2ContentCreateRequest // TODO: Rename FileTransfer2ContentCreateRequest (better name?, use "to" instead of "2", e.g. "ImportTransferRequest"?)
             {
-                TransferId = createTransferResult.Transfer.Id,
                 ContentPermissionSetIds = new List<string>(),
                 Metadata = null,
                 LayerSchemaIds = new List<string>()

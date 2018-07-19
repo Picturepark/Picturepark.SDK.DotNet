@@ -13667,9 +13667,6 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "contentId": {
-          "type": "string"
-        },
         "shares": {
           "$ref": "#/definitions/PagingRequest"
         }
@@ -13945,9 +13942,9 @@
           "type": "boolean",
           "description": "Allow storing references to missing list items / contents"
         },
-        "requests": {
+        "items": {
           "type": "array",
-          "description": "Create requests",
+          "description": "Create items",
           "items": {
             "$ref": "#/definitions/ContentCreateRequest"
           }
@@ -14157,9 +14154,6 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "contentId": {
-          "type": "string"
-        },
         "fileTransferId": {
           "type": "string"
         }
@@ -14173,10 +14167,6 @@
         "schemaFieldsUpdateOptions"
       ],
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "The content id."
-        },
         "layerSchemaIds": {
           "type": "array",
           "description": "An id list of schemas with schema type layer.",
@@ -14234,10 +14224,6 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "contentId": {
-          "type": "string",
-          "description": "The content id."
-        },
         "contentPermissionSetIds": {
           "type": "array",
           "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
@@ -14259,36 +14245,62 @@
           "type": "boolean",
           "description": "Allow storing references to missing list items"
         },
-        "requests": {
+        "items": {
           "type": "array",
-          "description": "Update requests",
+          "description": "Update items",
           "items": {
-            "$ref": "#/definitions/ContentMetadataUpdateRequest"
+            "$ref": "#/definitions/ContentMetadataUpdateItem"
           }
         }
       }
+    },
+    "ContentMetadataUpdateItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The content id."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ContentMetadataUpdateRequest"
+        }
+      ]
     },
     "ContentPermissionsUpdateManyRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "requests": {
+        "items": {
           "type": "array",
-          "description": "List of Content Permissions update requests",
+          "description": "List of Content Permissions update items",
           "items": {
-            "$ref": "#/definitions/ContentPermissionsUpdateRequest"
+            "$ref": "#/definitions/ContentPermissionsUpdateItem"
           }
         }
       }
     },
-    "ContentOwnershipTransferRequest": {
+    "ContentPermissionsUpdateItem": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
         "contentId": {
           "type": "string",
           "description": "The content id."
-        },
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ContentPermissionsUpdateRequest"
+        }
+      ]
+    },
+    "ContentOwnershipTransferRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
         "transferUserId": {
           "type": "string",
           "description": "The id of the user to whom the content document has to be transfered to."
@@ -14299,14 +14311,29 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "requests": {
+        "items": {
           "type": "array",
           "description": "List of Content Permissions ownership transfer requests",
           "items": {
-            "$ref": "#/definitions/ContentOwnershipTransferRequest"
+            "$ref": "#/definitions/ContentOwnershipTransferItem"
           }
         }
       }
+    },
+    "ContentOwnershipTransferItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contentId": {
+          "type": "string",
+          "description": "The content id."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ContentOwnershipTransferRequest"
+        }
+      ]
     },
     "ContentFieldsBatchUpdateRequest": {
       "type": "object",
@@ -15484,9 +15511,9 @@
           "type": "boolean",
           "description": "Allow storing references to missing list items / contents"
         },
-        "requests": {
+        "items": {
           "type": "array",
-          "description": "Create requests",
+          "description": "Create items",
           "items": {
             "$ref": "#/definitions/ListItemCreateRequest"
           }
@@ -15500,10 +15527,6 @@
       "properties": {
         "content": {
           "description": "The content data of the list item."
-        },
-        "id": {
-          "type": "string",
-          "description": "The list item id."
         }
       }
     },
@@ -15519,14 +15542,29 @@
           "type": "boolean",
           "description": "Allow storing references to missing list items / contents"
         },
-        "requests": {
+        "items": {
           "type": "array",
-          "description": "Update requests",
+          "description": "Update items",
           "items": {
-            "$ref": "#/definitions/ListItemUpdateRequest"
+            "$ref": "#/definitions/ListItemUpdateItem"
           }
         }
       }
+    },
+    "ListItemUpdateItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The list item id."
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/ListItemUpdateRequest"
+        }
+      ]
     },
     "ListItemDeactivateRequest": {
       "type": "object",
@@ -18462,9 +18500,6 @@
         "kind"
       ],
       "properties": {
-        "id": {
-          "type": "string"
-        },
         "name": {
           "type": "string"
         },
@@ -18542,9 +18577,6 @@
       "additionalProperties": false,
       "properties": {
         "customerId": {
-          "type": "string"
-        },
-        "serviceProviderId": {
           "type": "string"
         },
         "settings": {
@@ -19585,9 +19617,6 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "transferId": {
-          "type": "string"
-        },
         "layerSchemaIds": {
           "type": "array",
           "description": "An optional id list of schemas with type layer.",
@@ -19611,9 +19640,6 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "transferId": {
-          "type": "string"
-        },
         "items": {
           "type": "array",
           "items": {
