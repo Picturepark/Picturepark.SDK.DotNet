@@ -1164,5 +1164,35 @@ namespace Picturepark.SDK.V1.Tests.Clients
             englishContent.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value1");
             germanContent.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value2");
         }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldFetchResultFromCreateMany()
+        {
+            // Arrange
+            var requests = Enumerable.Range(0, 10).Select(
+                x => new ContentCreateRequest
+                {
+                    Content = new
+                    {
+                        name = $"Content #{x}"
+                    },
+                    ContentSchemaId = "ContentItem",
+                    Metadata = new DataDictionary()
+                }).ToList();
+
+            var result = await _client.Contents.CreateManyAsync(
+                new ContentCreateManyRequest
+                {
+                    Items = requests
+                }).ConfigureAwait(false);
+
+            // Act
+            var detail = await result.FetchDetail(new[] { ContentResolveBehaviour.Content }).ConfigureAwait(false);
+
+            // Assert
+            detail.SucceededItems.Should().HaveCount(10);
+            detail.SucceededItems.Select(i => ((dynamic)i.Content).name).ToArray().Distinct().Should().HaveCount(10);
+        }
     }
 }

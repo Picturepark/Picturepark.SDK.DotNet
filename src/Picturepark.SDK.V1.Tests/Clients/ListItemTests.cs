@@ -624,5 +624,34 @@ namespace Picturepark.SDK.V1.Tests.Clients
             receivedItem1.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value2");
             receivedItem2.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value1");
         }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldFetchResultFromCreateMany()
+        {
+            // Arrange
+            var requests = Enumerable.Range(0, 10).Select(
+                x => new ListItemCreateRequest
+                {
+                    Content = new
+                    {
+                        name = $"ListItem #{x}"
+                    },
+                    ContentSchemaId = nameof(Tag)
+                }).ToList();
+
+            var result = await _client.ListItems.CreateManyAsync(
+                new ListItemCreateManyRequest
+                {
+                    Items = requests
+                }).ConfigureAwait(false);
+
+            // Act
+            var detail = await result.FetchDetail(new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+
+            // Assert
+            detail.SucceededItems.Should().HaveCount(10);
+            detail.SucceededItems.Select(i => ((dynamic)i.Content).name).ToArray().Distinct().Should().HaveCount(10);
+        }
     }
 }
