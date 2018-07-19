@@ -76,7 +76,6 @@ namespace Picturepark.SDK.V1
         private void Initialize(IPictureparkClientSettings settings, HttpClient httpClient)
         {
             Outputs = new OutputClient(settings, httpClient);
-            Contents = new ContentClient(settings, httpClient);
             BusinessProcesses = new BusinessProcessClient(settings, httpClient);
             DocumentHistory = new DocumentHistoryClient(settings, httpClient);
             JsonSchemas = new JsonSchemaClient(settings, httpClient);
@@ -90,6 +89,7 @@ namespace Picturepark.SDK.V1
             Schemas = new SchemaClient((BusinessProcessClient)BusinessProcesses, (InfoClient)Info, settings, httpClient);
             Transfers = new TransferClient((BusinessProcessClient)BusinessProcesses, settings, httpClient);
             ListItems = new ListItemClient((BusinessProcessClient)BusinessProcesses, settings, httpClient);
+            Contents = new ContentClient((BusinessProcessClient)BusinessProcesses, settings, httpClient);
             Profile = new ProfileClient(settings, httpClient);
             ServiceProviders = new ServiceProviderClient(settings, httpClient);
             SchemaTransfer = new SchemaTransferClient(settings, httpClient);

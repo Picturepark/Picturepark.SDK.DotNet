@@ -99,8 +99,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     TransferUserId = newUser.Id
                 }).ToList()
             };
-            var businessProcess = await _client.Contents.TransferOwnershipManyAsync(manyRequest).ConfigureAwait(false);
-            await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+
+            await _client.Contents.TransferOwnershipManyAsync(manyRequest).ConfigureAwait(false);
 
             var newContents = await _client.Contents.GetManyAsync(contentIds).ConfigureAwait(false);
             var newOwner1 = await _client.Users.GetByOwnerTokenAsync(newContents.ToList()[0].OwnerTokenId).ConfigureAwait(false);
@@ -320,12 +320,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 AllowMissingDependencies = false,
                 Items = new List<ContentCreateRequest> { request1, request2 }
             }).ConfigureAwait(false);
-            await _client.BusinessProcesses.WaitForCompletionAsync(result.Id).ConfigureAwait(false);
-            var detail = await _client.BusinessProcesses.GetDetailsAsync(result.Id).ConfigureAwait(false);
-            var rows = ((BusinessProcessDetailsDataBatchResponse)detail.Details).Response.Rows;
+
+            var detail = await result.FetchDetail(_client.BusinessProcesses).ConfigureAwait(false);
 
             // Assert
-            rows.Should().OnlyContain(r => r.Succeeded);
+            detail.FailedItems.Should().BeNullOrEmpty();
+            detail.SucceededItems.Should().HaveCount(2);
         }
 
         [Fact]
@@ -467,15 +467,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var waitResult = await _client.Contents.UpdateMetadataManyAsync(new ContentMetadataUpdateManyRequest
+            var result = await _client.Contents.UpdateMetadataManyAsync(new ContentMetadataUpdateManyRequest
             {
                 AllowMissingDependencies = false,
                 Items = new List<ContentMetadataUpdateItem> { request1, request2 }
             }).ConfigureAwait(false);
-            var result = await _client.BusinessProcesses.WaitForCompletionAsync(waitResult.Id).ConfigureAwait(false);
 
             // Assert
-            Assert.Equal(BusinessProcessLifeCycle.Succeeded, result.BusinessProcess.LifeCycle);
+            Assert.Equal(BusinessProcessLifeCycle.Succeeded, result.LifeCycle);
         }
 
         [Fact]
@@ -721,11 +720,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var businessProcess = await _client.Contents.BatchUpdateFieldsByFilterAsync(request).ConfigureAwait(false);
-            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+            var result = await _client.Contents.BatchUpdateFieldsByFilterAsync(request).ConfigureAwait(false);
 
             // Assert
-            Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
+            Assert.True(result.LifeCycle == BusinessProcessLifeCycle.Succeeded);
         }
 
         [Fact]
@@ -753,11 +751,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var businessProcess = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
-            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+            var result = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
 
             // Assert
-            Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
+            Assert.True(result.LifeCycle == BusinessProcessLifeCycle.Succeeded);
         }
 
         [Fact]
@@ -1103,8 +1100,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var businessProcess = await _client.Contents.UpdatePermissionsManyAsync(manyRequest).ConfigureAwait(false);
-            await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+            await _client.Contents.UpdatePermissionsManyAsync(manyRequest).ConfigureAwait(false);
 
             var currentContentDetail = await _client.Contents.GetAsync(contentId).ConfigureAwait(false);
             var currentContentPermissionSetIds = currentContentDetail.ContentPermissionSetIds.Select(i => i).ToList();
