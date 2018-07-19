@@ -7119,7 +7119,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowMissingDependencies { get; set; }
     
-        /// <summary>Create requests</summary>
+        /// <summary>Create items</summary>
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ContentCreateRequest> Items { get; set; }
     
@@ -8806,7 +8806,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowMissingDependencies { get; set; }
     
-        /// <summary>Create requests</summary>
+        /// <summary>Create items</summary>
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ListItemCreateRequest> Items { get; set; }
     
@@ -8850,7 +8850,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowMissingDependencies { get; set; }
     
-        /// <summary>Update requests</summary>
+        /// <summary>Update items</summary>
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ListItemUpdateItem> Items { get; set; }
     

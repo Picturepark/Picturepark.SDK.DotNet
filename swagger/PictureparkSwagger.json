@@ -13904,7 +13904,7 @@
         },
         "items": {
           "type": "array",
-          "description": "Create requests",
+          "description": "Create items",
           "items": {
             "$ref": "#/definitions/ContentCreateRequest"
           }
@@ -15473,7 +15473,7 @@
         },
         "items": {
           "type": "array",
-          "description": "Create requests",
+          "description": "Create items",
           "items": {
             "$ref": "#/definitions/ListItemCreateRequest"
           }
@@ -15504,7 +15504,7 @@
         },
         "items": {
           "type": "array",
-          "description": "Update requests",
+          "description": "Update items",
           "items": {
             "$ref": "#/definitions/ListItemUpdateItem"
           }
