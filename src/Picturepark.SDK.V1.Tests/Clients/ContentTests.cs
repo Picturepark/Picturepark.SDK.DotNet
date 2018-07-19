@@ -321,7 +321,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Items = new List<ContentCreateRequest> { request1, request2 }
             }).ConfigureAwait(false);
 
-            var detail = await result.FetchDetail(_client.BusinessProcesses).ConfigureAwait(false);
+            var detail = await result.FetchDetail().ConfigureAwait(false);
 
             // Assert
             detail.FailedItems.Should().BeNullOrEmpty();

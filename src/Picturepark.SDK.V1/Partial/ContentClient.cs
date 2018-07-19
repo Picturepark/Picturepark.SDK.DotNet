@@ -160,7 +160,8 @@ namespace Picturepark.SDK.V1
             return new BatchOperationResult<ContentDetail>(
                 businessProcessId,
                 result.LifeCycleHit,
-                async ids => await GetManyAsync(ids, null, cancellationToken));
+                async ids => await GetManyAsync(ids, null, cancellationToken),
+                _businessProcessClient);
         }
     }
 }

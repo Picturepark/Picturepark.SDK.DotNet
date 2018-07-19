@@ -66,7 +66,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             var results = await _client.ListItems.CreateManyAsync(createManyRequest).ConfigureAwait(false);
-            var detail = await results.FetchDetail(_client.BusinessProcesses).ConfigureAwait(false);
+            var detail = await results.FetchDetail().ConfigureAwait(false);
 
             var itemId = detail.SucceededIds.First();
 
@@ -154,7 +154,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Act
             var createResult = await _client.ListItems.CreateFromObjectAsync(tag, nameof(Tag)).ConfigureAwait(false);
-            var createDetail = await createResult.FetchDetail(_client.BusinessProcesses).ConfigureAwait(false);
+            var createDetail = await createResult.FetchDetail().ConfigureAwait(false);
 
             // Assert
             Assert.Single(createDetail.SucceededItems);
@@ -202,7 +202,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     }
                 }, nameof(SoccerPlayer)).ConfigureAwait(false); // TODO: ListItemClient.CreateFromObjectAsync: We should add an attribute to the class with its schema name instead of passing it as parameter
 
-            var soccerPlayerDetail = await soccerPlayerResult.FetchDetail(_client.BusinessProcesses).ConfigureAwait(false);
+            var soccerPlayerDetail = await soccerPlayerResult.FetchDetail().ConfigureAwait(false);
 
             var soccerTrainerResult = await _client.ListItems.CreateFromObjectAsync(
                 new SoccerTrainer
@@ -214,7 +214,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     TrainerSince = new DateTime(2000, 1, 1)
                 }, nameof(SoccerTrainer)).ConfigureAwait(false);
 
-            var soccerTrainerDetail = await soccerTrainerResult.FetchDetail(_client.BusinessProcesses).ConfigureAwait(false);
+            var soccerTrainerDetail = await soccerTrainerResult.FetchDetail().ConfigureAwait(false);
 
             var personResult = await _client.ListItems.CreateFromObjectAsync(
                 new Person
@@ -225,7 +225,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     LastName = "xxxxxxxx"
                 }, nameof(Person)).ConfigureAwait(false);
 
-            var personDetail = await personResult.FetchDetail(_client.BusinessProcesses).ConfigureAwait(false);
+            var personDetail = await personResult.FetchDetail().ConfigureAwait(false);
 
             // Assert
             Assert.True(soccerPlayerDetail.SucceededItems.Any());
@@ -341,7 +341,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             var createResult = await _client.ListItems.CreateManyAsync(createRequest).ConfigureAwait(false);
-            var createDetail = await createResult.FetchDetail(_client.BusinessProcesses).ConfigureAwait(false);
+            var createDetail = await createResult.FetchDetail().ConfigureAwait(false);
             var createdListItems = createDetail.SucceededItems.ToArray();
 
             // Act
@@ -379,7 +379,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             var createResult = await _client.ListItems.CreateManyAsync(createRequest).ConfigureAwait(false);
-            var createDetail = await createResult.FetchDetail(_client.BusinessProcesses).ConfigureAwait(false);
+            var createDetail = await createResult.FetchDetail().ConfigureAwait(false);
 
             // Act
             var resultListItems = await _client.ListItems.GetManyAndConvertToAsync<Tag>(createDetail.SucceededIds, nameof(Tag)).ConfigureAwait(false);
