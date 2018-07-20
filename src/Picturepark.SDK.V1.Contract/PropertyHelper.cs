@@ -4,7 +4,6 @@ using System.Text;
 
 namespace Picturepark.SDK.V1.Contract
 {
-    // TODO: Make the class PropertyHelper internal?
     public static class PropertyHelper
     {
         public static string ToLowerCamelCase(this string value)

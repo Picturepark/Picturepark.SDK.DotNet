@@ -117,7 +117,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Act
             var updateRequest = new ListItemFieldsBatchUpdateFilterRequest
             {
-                ListItemFilterRequest = new ListItemFilterRequest // TODO: ListItemFieldsFilterUpdateRequest.ListItemFilterRequest: Rename property to FilterRequest?
+                ListItemFilterRequest = new ListItemFilterRequest
                 {
                     Filter = new TermFilter { Field = "id", Term = listItemDetail.Id }
                 },
@@ -200,7 +200,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         },
                         dog
                     }
-                }, nameof(SoccerPlayer)).ConfigureAwait(false); // TODO: ListItemClient.CreateFromObjectAsync: We should add an attribute to the class with its schema name instead of passing it as parameter
+                }, nameof(SoccerPlayer)).ConfigureAwait(false);
 
             var soccerPlayerDetail = await soccerPlayerResult.FetchDetail().ConfigureAwait(false);
 

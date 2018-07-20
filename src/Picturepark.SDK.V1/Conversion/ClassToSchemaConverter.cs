@@ -288,8 +288,6 @@ namespace Picturepark.SDK.V1.Conversion
                 };
 
                 schemaDetail.DisplayPatterns.Add(displayPattern);
-
-                //// TODO: Implement fallback for not provided patterns?
             }
         }
 
@@ -433,7 +431,7 @@ namespace Picturepark.SDK.V1.Conversion
                     }
                     else
                     {
-                        // TODO: Find better solution for this
+                        // TODO - Check with Rico: Find better solution for this
                         propertyInfo.TypeName = typeof(Type)
                             .GetRuntimeMethod("GetTypeCode", new[] { typeof(Type) })
                             .Invoke(null, new object[] { propertyGenericArg })
@@ -497,9 +495,7 @@ namespace Picturepark.SDK.V1.Conversion
             }
             else if (property.IsEnum)
             {
-                Type enumType = Type.GetType($"{property.FullName}, {property.AssemblyFullName}");
-
-                // TODO: Handle enums
+                throw new NotSupportedException("Enum types are not supported in Class to Schema convertion");
             }
             else if (property.IsSimpleType)
             {

@@ -53,7 +53,7 @@ namespace Picturepark.SDK.V1.Tests
                 SchemaIds = new List<string> { nameof(AnalyzerTestObject) },
                 Filter = new TermFilter
                 {
-                    Field = "analyzerTestObject.simpleField.simple", // TODO: How to support this with SDK
+                    Field = "analyzerTestObject.simpleField.simple",
                     Term = "simple"
                 }
             }).ConfigureAwait(false);
@@ -65,7 +65,7 @@ namespace Picturepark.SDK.V1.Tests
                 SchemaIds = new List<string> { nameof(AnalyzerTestObject) },
                 Filter = new TermFilter
                 {
-                    Field = "analyzerTestObject.pathHierarchyField.pathhierarchy", // TODO: How to support this with SDK
+                    Field = "analyzerTestObject.pathHierarchyField.pathhierarchy",
                     Term = "Path/Hierarchy"
                 }
             }).ConfigureAwait(false);
@@ -78,7 +78,7 @@ namespace Picturepark.SDK.V1.Tests
                 Filter = new TermFilter
                 {
                     Field = "analyzerTestObject.languageField.en.language",
-                    Term = "citi" // TODO: We should use MatchQuery here
+                    Term = "citi"
                 }
             }).ConfigureAwait(false);
 

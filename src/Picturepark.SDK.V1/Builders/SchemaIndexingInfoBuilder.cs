@@ -81,7 +81,6 @@ namespace Picturepark.SDK.V1.Builders
 
         public SchemaIndexingInfoBuilder<T> AddIndexes(Expression<Func<T, object>> expression, int levels, Func<Type, JsonProperty, bool> propertySelector = null)
         {
-            // TODO: Should this method be public (dangerous, may create many indexes!)
             var info = CreateFromExpression(expression, f => f.Index = true);
             var path = GetExpressionPath(expression);
             var type = path.Last().Item2;
@@ -187,7 +186,7 @@ namespace Picturepark.SDK.V1.Builders
 
         private void ApplyPictureparkSchemaIndexingAttribute(JsonProperty property, FieldIndexingInfo field)
         {
-            // TODO: Is ApplyPictureparkSchemaIndexingAttribute needed?
+            // TODO - Check with Rico: Is ApplyPictureparkSchemaIndexingAttribute needed?
             var attribute = (PictureparkSchemaIndexingAttribute)property.AttributeProvider
                 .GetAttributes(typeof(PictureparkSchemaIndexingAttribute), true)
                 .SingleOrDefault();

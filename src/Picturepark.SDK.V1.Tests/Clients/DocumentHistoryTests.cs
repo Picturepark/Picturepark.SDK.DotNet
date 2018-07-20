@@ -69,7 +69,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "DocumentHistory")]
         public async Task ShouldGetDifferenceOfContentChange()
         {
-            /// Arrange
+            // Arrange
             string location = "testlocation" + new Random().Next(0, 999999);
             string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
 
@@ -93,16 +93,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            // TODO: Create ContentHelper to update and wait with one call => UpdateMetadataManyAndWaitForCompletionAsync?
             var result = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
 
             // Refetch content and compare versions
             var updatedHistory = await _client.DocumentHistory.GetAsync(contentId).ConfigureAwait(false);
 
-            /// Act
+            // Act
             var difference = await _client.DocumentHistory.GetDifferenceAsync(contentId, history.DocumentVersion, updatedHistory.DocumentVersion).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(result.LifeCycle == BusinessProcessLifeCycle.Succeeded);
             Assert.NotEqual(0, updatedHistory.DocumentVersion);
             Assert.Contains(@"""name"": """ + location + @"""", difference.NewValues.ToString());

@@ -855,7 +855,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             Assert.Equal(contentId, contentDetail.Id);
-            Assert.NotNull(contentDetail); // TODO: Add better asserts
+            Assert.NotNull(contentDetail);
         }
 
         [Fact]
@@ -870,7 +870,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             Assert.Equal(contentId, contentDetail.Id);
-            Assert.NotNull(contentDetail); // TODO: Add better asserts
+            Assert.NotNull(contentDetail);
         }
 
         [Fact]
