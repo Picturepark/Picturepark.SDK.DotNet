@@ -142,6 +142,24 @@ namespace Picturepark.SDK.V1
             return await UpdateCoreAsync(listItemId, updateRequest, resolveBehaviours, allowMissingDependencies, timeout, cancellationToken).ConfigureAwait(false);
         }
 
+        /// <inheritdoc />
+        public async Task<ListItemBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            BusinessProcessLifeCycle lifeCycle;
+
+            try
+            {
+                var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+                lifeCycle = result.LifeCycleHit;
+            }
+            catch (BusinessProcessLifeCycleNotHitException ex)
+            {
+                lifeCycle = ex.Actual;
+            }
+
+            return new ListItemBatchOperationResult(this, businessProcessId, lifeCycle, _businessProcessClient);
+        }
+
         private bool IsSimpleType(Type type)
         {
             return
@@ -264,17 +282,6 @@ namespace Picturepark.SDK.V1
                     }
                 }
             }
-        }
-
-        private async Task<ListItemBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout, CancellationToken cancellationToken)
-        {
-            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
-            if (result.LifeCycleHit == BusinessProcessLifeCycle.Failed)
-            {
-                throw new Exception("The business process failed to execute.");
-            }
-
-            return new ListItemBatchOperationResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
     }
 }

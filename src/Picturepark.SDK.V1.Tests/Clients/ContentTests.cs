@@ -1170,7 +1170,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldFetchResultFromCreateMany()
         {
             // Arrange
-            var requests = Enumerable.Range(0, 10).Select(
+            var requests = Enumerable.Range(0, 201).Select(
                 x => new ContentCreateRequest
                 {
                     Content = new
@@ -1191,8 +1191,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var detail = await result.FetchDetail(new[] { ContentResolveBehaviour.Content }).ConfigureAwait(false);
 
             // Assert
-            detail.SucceededItems.Should().HaveCount(10);
-            detail.SucceededItems.Select(i => ((dynamic)i.Content).name).ToArray().Distinct().Should().HaveCount(10);
+            detail.SucceededItems.Should().HaveCount(201);
+            detail.SucceededItems.Select(i => ((dynamic)i.Content).name).ToArray().Distinct().Should().HaveCount(201);
         }
     }
 }

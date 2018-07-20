@@ -101,5 +101,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         Task<ContentBatchOperationResult> BatchUpdateFieldsByFilterAsync(ContentFieldsBatchUpdateFilterRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Waits for a business process and returns a <see cref="ContentBatchOperationResult"/>.
+        /// </summary>
+        /// <param name="businessProcessId">The business process id.</param>
+        /// <param name="timeout">The timeout to wait on the business process.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="ContentBatchOperationResult"/>.</returns>
+        Task<ContentBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

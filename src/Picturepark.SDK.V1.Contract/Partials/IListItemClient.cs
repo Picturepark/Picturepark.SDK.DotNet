@@ -100,5 +100,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The updated <see cref="ListItemDetail"/>.</returns>
         Task<ListItemDetail> UpdateAsync(string listItemId, ListItemUpdateRequest updateRequest, IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Waits for a business process and returns a <see cref="ListItemBatchOperationResult"/>.
+        /// </summary>
+        /// <param name="businessProcessId">The business process id.</param>
+        /// <param name="timeout">The timeout to wait on the business process.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="ListItemBatchOperationResult"/>.</returns>
+        Task<ListItemBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
