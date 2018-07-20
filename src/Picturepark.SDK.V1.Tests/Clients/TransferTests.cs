@@ -324,7 +324,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             var transferName = Guid.NewGuid().ToString();
 
-            await Assert.ThrowsAsync<BusinessProcessLifeCycleNotHitException>(
+            await Assert.ThrowsAsync<BusinessProcessStateNotHitException>(
                 async () =>
                     await _client.Transfers.UploadFilesAsync(
                         transferName,
