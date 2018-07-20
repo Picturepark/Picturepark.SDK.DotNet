@@ -95,7 +95,7 @@ namespace Picturepark.SDK.V1
         public async Task<T> GetAndConvertToAsync<T>(string listItemId, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
         {
             var listItem = await GetAsync(listItemId, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content, ListItemResolveBehaviour.LinkedListItems }, cancellationToken).ConfigureAwait(false);
-            return listItem.ConvertTo<T>(schemaId);
+            return listItem.ConvertTo<T>();
         }
 
         /// <summary>Gets a list of existing list items and converts their content to the requested type.</summary>
@@ -108,7 +108,7 @@ namespace Picturepark.SDK.V1
         public async Task<ICollection<T>> GetManyAndConvertToAsync<T>(IEnumerable<string> listItemIds, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
         {
             var listItems = await GetManyAsync(listItemIds, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content, ListItemResolveBehaviour.LinkedListItems }, cancellationToken).ConfigureAwait(false);
-            return listItems.Select(li => li.ConvertTo<T>(schemaId)).ToList();
+            return listItems.Select(li => li.ConvertTo<T>()).ToList();
         }
 
         /// <summary>Updates a list item by providing its content.</summary>

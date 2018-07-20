@@ -79,7 +79,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             var newItem = await _client.ListItems.GetAsync(itemId, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
-            Assert.Equal("Foo", newItem.ConvertTo<Tag>(nameof(Tag)).Name);
+            Assert.Equal("Foo", newItem.ConvertTo<Tag>().Name);
         }
 
         [Fact]
@@ -139,7 +139,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             ListItemDetail result = await _client.ListItems.GetAsync(listItemDetail.Id, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
             // Assert
-            Assert.Equal("Foo", result.ConvertTo<Tag>(nameof(Tag)).Name);
+            Assert.Equal("Foo", result.ConvertTo<Tag>().Name);
         }
 
         [Fact]
@@ -260,7 +260,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             Assert.NotNull(playerItem);
 
-            var createdPlayer = playerItem.ConvertTo<SoccerPlayer>("SoccerPlayer");
+            var createdPlayer = playerItem.ConvertTo<SoccerPlayer>();
             Assert.Equal("Urs", createdPlayer.Firstname);
         }
 
@@ -471,7 +471,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var playerItem = await _client.ListItems.GetAsync(playerObjectId, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
             // Act
-            var player = playerItem.ConvertTo<SoccerPlayer>(nameof(SoccerPlayer));
+            var player = playerItem.ConvertTo<SoccerPlayer>();
             player.Firstname = "xy jviorej ivorejvioe";
 
             await _client.ListItems.UpdateAsync(playerItem.Id, player).ConfigureAwait(false);
@@ -505,7 +505,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var playerItem = await _client.ListItems.CreateAsync(createRequest, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
             // Act
-            var player = playerItem.ConvertTo<SoccerPlayer>(nameof(SoccerPlayer));
+            var player = playerItem.ConvertTo<SoccerPlayer>();
             player.Firstname = "xy jviorej ivorejvioe";
 
             await _client.ListItems.UpdateManyAsync(new ListItemUpdateManyRequest
