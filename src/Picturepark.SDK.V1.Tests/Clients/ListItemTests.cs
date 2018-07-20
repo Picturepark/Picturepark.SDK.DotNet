@@ -66,17 +66,19 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             var results = await _client.ListItems.CreateManyAsync(createManyRequest).ConfigureAwait(false);
-            var result = results.First();
+            var detail = await results.FetchDetail().ConfigureAwait(false);
+
+            var itemId = detail.SucceededIds.First();
 
             // Act
             var request = new ListItemUpdateRequest
             {
                 Content = new Tag { Name = "Foo" }
             };
-            await _client.ListItems.UpdateAsync(result.Id, request).ConfigureAwait(false);
+            await _client.ListItems.UpdateAsync(itemId, request).ConfigureAwait(false);
 
             // Assert
-            var newItem = await _client.ListItems.GetAsync(result.Id, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+            var newItem = await _client.ListItems.GetAsync(itemId, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
             Assert.Equal("Foo", newItem.ConvertTo<Tag>(nameof(Tag)).Name);
         }
 
@@ -133,9 +135,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var businessProcess = await _client.ListItems.BatchUpdateFieldsByFilterAsync(updateRequest).ConfigureAwait(false);
-            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, TimeSpan.FromSeconds(10)).ConfigureAwait(false);
-
+            await _client.ListItems.BatchUpdateFieldsByFilterAsync(updateRequest).ConfigureAwait(false);
             ListItemDetail result = await _client.ListItems.GetAsync(listItemDetail.Id, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
             // Assert
@@ -153,10 +153,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var createdObjects = await _client.ListItems.CreateFromObjectAsync(tag, nameof(Tag)).ConfigureAwait(false);
+            var createResult = await _client.ListItems.CreateFromObjectAsync(tag, nameof(Tag)).ConfigureAwait(false);
+            var createDetail = await createResult.FetchDetail().ConfigureAwait(false);
 
             // Assert
-            Assert.Single(createdObjects);
+            Assert.Single(createDetail.SucceededItems);
         }
 
         [Fact]
@@ -175,7 +176,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Act
             // Using Helper method
-            var soccerPlayerTree = await _client.ListItems.CreateFromObjectAsync(
+            var soccerPlayerResult = await _client.ListItems.CreateFromObjectAsync(
                 new SoccerPlayer
                 {
                     BirthDate = DateTime.Now,
@@ -201,7 +202,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     }
                 }, nameof(SoccerPlayer)).ConfigureAwait(false); // TODO: ListItemClient.CreateFromObjectAsync: We should add an attribute to the class with its schema name instead of passing it as parameter
 
-            var soccerTrainerTree = await _client.ListItems.CreateFromObjectAsync(
+            var soccerPlayerDetail = await soccerPlayerResult.FetchDetail().ConfigureAwait(false);
+
+            var soccerTrainerResult = await _client.ListItems.CreateFromObjectAsync(
                 new SoccerTrainer
                 {
                     BirthDate = DateTime.Now,
@@ -211,7 +214,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     TrainerSince = new DateTime(2000, 1, 1)
                 }, nameof(SoccerTrainer)).ConfigureAwait(false);
 
-            var personTree = await _client.ListItems.CreateFromObjectAsync(
+            var soccerTrainerDetail = await soccerTrainerResult.FetchDetail().ConfigureAwait(false);
+
+            var personResult = await _client.ListItems.CreateFromObjectAsync(
                 new Person
                 {
                     BirthDate = DateTime.Now,
@@ -220,10 +225,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     LastName = "xxxxxxxx"
                 }, nameof(Person)).ConfigureAwait(false);
 
+            var personDetail = await personResult.FetchDetail().ConfigureAwait(false);
+
             // Assert
-            Assert.True(soccerPlayerTree.Any());
-            Assert.True(soccerTrainerTree.Any());
-            Assert.True(personTree.Any());
+            Assert.True(soccerPlayerDetail.SucceededItems.Any());
+            Assert.True(soccerTrainerDetail.SucceededItems.Any());
+            Assert.True(personDetail.SucceededItems.Any());
         }
 
         [Fact]
@@ -333,7 +340,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            var createdListItems = await _client.ListItems.CreateManyAsync(createRequest).ConfigureAwait(false);
+            var createResult = await _client.ListItems.CreateManyAsync(createRequest).ConfigureAwait(false);
+            var createDetail = await createResult.FetchDetail().ConfigureAwait(false);
+            var createdListItems = createDetail.SucceededItems.ToArray();
 
             // Act
             var resultListItems = await _client.ListItems.GetManyAsync(createdListItems.Select(li => li.Id), new List<ListItemResolveBehaviour> { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
@@ -369,10 +378,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            var createdListItems = await _client.ListItems.CreateManyAsync(createRequest).ConfigureAwait(false);
+            var createResult = await _client.ListItems.CreateManyAsync(createRequest).ConfigureAwait(false);
+            var createDetail = await createResult.FetchDetail().ConfigureAwait(false);
 
             // Act
-            var resultListItems = await _client.ListItems.GetManyAndConvertToAsync<Tag>(createdListItems.Select(li => li.Id), nameof(Tag)).ConfigureAwait(false);
+            var resultListItems = await _client.ListItems.GetManyAndConvertToAsync<Tag>(createDetail.SucceededIds, nameof(Tag)).ConfigureAwait(false);
 
             // Assert
             resultListItems.Should().NotBeNull().And.HaveCount(2);
@@ -498,7 +508,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var player = playerItem.ConvertTo<SoccerPlayer>(nameof(SoccerPlayer));
             player.Firstname = "xy jviorej ivorejvioe";
 
-            var businessProcess = await _client.ListItems.UpdateManyAsync(new ListItemUpdateManyRequest
+            await _client.ListItems.UpdateManyAsync(new ListItemUpdateManyRequest
             {
                 AllowMissingDependencies = false,
                 Items = new[]
@@ -507,7 +517,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             }).ConfigureAwait(false);
 
-            await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
             var updatedPlayer = await _client.ListItems.GetAndConvertToAsync<SoccerPlayer>(playerItem.Id, nameof(SoccerPlayer)).ConfigureAwait(false);
 
             // Assert
@@ -614,6 +623,35 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             receivedItem1.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value2");
             receivedItem2.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value1");
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldFetchResultFromCreateMany()
+        {
+            // Arrange
+            var requests = Enumerable.Range(0, 201).Select(
+                x => new ListItemCreateRequest
+                {
+                    Content = new
+                    {
+                        name = $"ListItem #{x}"
+                    },
+                    ContentSchemaId = nameof(Tag)
+                }).ToList();
+
+            var result = await _client.ListItems.CreateManyAsync(
+                new ListItemCreateManyRequest
+                {
+                    Items = requests
+                }).ConfigureAwait(false);
+
+            // Act
+            var detail = await result.FetchDetail(new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+
+            // Assert
+            detail.SucceededItems.Should().HaveCount(201);
+            detail.SucceededItems.Select(i => ((dynamic)i.Content).name).ToArray().Distinct().Should().HaveCount(201);
         }
     }
 }

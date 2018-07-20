@@ -1,14 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
+using Picturepark.SDK.V1.Contract.Results;
 
 namespace Picturepark.SDK.V1
 {
     public partial class ContentClient
     {
+        private readonly IBusinessProcessClient _businessProcessClient;
+
+        public ContentClient(IBusinessProcessClient businessProcessClient, IPictureparkClientSettings settings, HttpClient httpClient)
+            : this(settings, httpClient)
+        {
+            _businessProcessClient = businessProcessClient;
+        }
+
         /// <summary>Downloads multiple files.</summary>
         /// <param name="contents">The files to download.</param>
         /// <param name="exportDirectory">The directory to store the downloaded files.</param>
@@ -95,6 +105,56 @@ namespace Picturepark.SDK.V1
             }
 
             await Task.WhenAll(allTasks).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<ContentBatchOperationResult> CreateManyAsync(ContentCreateManyRequest contentCreateManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var businessProcess = await CreateManyCoreAsync(contentCreateManyRequest, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<ContentBatchOperationResult> UpdateMetadataManyAsync(ContentMetadataUpdateManyRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var businessProcess = await UpdateMetadataManyCoreAsync(updateRequest, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<ContentBatchOperationResult> UpdatePermissionsManyAsync(ContentPermissionsUpdateManyRequest updateManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var businessProcess = await UpdatePermissionsManyCoreAsync(updateManyRequest, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<ContentBatchOperationResult> TransferOwnershipManyAsync(ContentOwnershipTransferManyRequest contentOwnershipTransferManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var businessProcess = await TransferOwnershipManyCoreAsync(contentOwnershipTransferManyRequest, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<ContentBatchOperationResult> BatchUpdateFieldsByIdsAsync(ContentFieldsBatchUpdateRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var businessProcess = await BatchUpdateFieldsByIdsCoreAsync(updateRequest, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<ContentBatchOperationResult> BatchUpdateFieldsByFilterAsync(ContentFieldsBatchUpdateFilterRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var businessProcess = await BatchUpdateFieldsByFilterCoreAsync(updateRequest, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<ContentBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+
+            return new ContentBatchOperationResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
     }
 }

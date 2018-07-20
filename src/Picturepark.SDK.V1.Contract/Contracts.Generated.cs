@@ -37,16 +37,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Collections.Generic.IEnumerable<ContentResolveBehaviour> resolveBehaviours = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Create - many</summary>
-        /// <param name="contentCreateManyRequest">The content create many request.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> CreateManyAsync(ContentCreateManyRequest contentCreateManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
         /// <summary>Search</summary>
         /// <param name="contentSearchRequest">The content search request.</param>
         /// <returns>ContentSearchResult</returns>
@@ -245,29 +235,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string contentId, ContentPermissionsUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehaviour> resolveBehaviours = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Update metadata - many</summary>
-        /// <param name="updateRequest">The metadata update requests.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ContentNotFoundException">Not all provided contents could be found</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> UpdateMetadataManyAsync(ContentMetadataUpdateManyRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Update permissions - many</summary>
-        /// <param name="updateManyRequest">The permissions update many request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> UpdatePermissionsManyAsync(ContentPermissionsUpdateManyRequest updateManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
         /// <summary>Transfer ownership - single</summary>
         /// <param name="contentId">The content id.</param>
         /// <param name="updateRequest">The content ownership transfer request update request.</param>
@@ -281,39 +248,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ContentDetail> TransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Transfer ownership - many</summary>
-        /// <param name="contentOwnershipTransferManyRequest">The content ownership transfer many request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> TransferOwnershipManyAsync(ContentOwnershipTransferManyRequest contentOwnershipTransferManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Batch update fields - by ids</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> BatchUpdateFieldsByIdsAsync(ContentFieldsBatchUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Batch update fields - by filter</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> BatchUpdateFieldsByFilterAsync(ContentFieldsBatchUpdateFilterRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -442,17 +376,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ListItemDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Collections.Generic.IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Update - many</summary>
-        /// <param name="listItemUpdateManyRequest">List item update many request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(ListItemUpdateManyRequest listItemUpdateManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
         /// <summary>Search</summary>
         /// <param name="listItemSearchRequest">The list item search request.</param>
         /// <returns>List item result set.</returns>
@@ -539,28 +462,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<BusinessProcess> ReactivateManyAsync(ListItemReactivateRequest reactivateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Batch update fields - by ids</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> BatchUpdateFieldsByIdsAsync(ListItemFieldsBatchUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Batch update fields - by filter</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> BatchUpdateFieldsByFilterAsync(ListItemFieldsBatchUpdateFilterRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Gets the references to a list item.</summary>
         /// <param name="listItemId">The ID of the list item.</param>

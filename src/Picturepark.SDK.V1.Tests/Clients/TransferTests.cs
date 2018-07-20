@@ -324,13 +324,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             var transferName = Guid.NewGuid().ToString();
 
-            await Assert.ThrowsAsync<TimeoutException>(
+            var ex = await Assert.ThrowsAnyAsync<Exception>(
                 async () =>
                     await _client.Transfers.UploadFilesAsync(
                         transferName,
                         new FileLocations[0],
                         new UploadOptions { WaitForTransferCompletion = true },
                         TimeSpan.FromMilliseconds(1)).ConfigureAwait(false)).ConfigureAwait(false);
+
+            Assert.Contains(ex.GetType(), new[] { typeof(BusinessProcessLifeCycleNotHitException), typeof(BusinessProcessStateNotHitException) });
         }
 
         [Fact]

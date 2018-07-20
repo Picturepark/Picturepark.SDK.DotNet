@@ -82,14 +82,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            var businessProcess = await _client.ListItems.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
-            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, TimeSpan.FromSeconds(10)).ConfigureAwait(false);
+            var result = await _client.ListItems.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
 
             /// Act
-            var details = await _client.BusinessProcesses.GetDetailsAsync(businessProcess.Id).ConfigureAwait(false);
+            var details = await _client.BusinessProcesses.GetDetailsAsync(result.BusinessProcessId).ConfigureAwait(false);
 
             /// Assert
-            Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
+            Assert.True(details.LifeCycle == BusinessProcessLifeCycle.Succeeded);
         }
     }
 }
