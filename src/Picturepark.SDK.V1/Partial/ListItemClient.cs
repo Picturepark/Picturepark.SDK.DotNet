@@ -145,19 +145,9 @@ namespace Picturepark.SDK.V1
         /// <inheritdoc />
         public async Task<ListItemBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            BusinessProcessLifeCycle lifeCycle;
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
 
-            try
-            {
-                var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
-                lifeCycle = result.LifeCycleHit;
-            }
-            catch (BusinessProcessLifeCycleNotHitException ex)
-            {
-                lifeCycle = ex.Actual;
-            }
-
-            return new ListItemBatchOperationResult(this, businessProcessId, lifeCycle, _businessProcessClient);
+            return new ListItemBatchOperationResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
 
         private bool IsSimpleType(Type type)

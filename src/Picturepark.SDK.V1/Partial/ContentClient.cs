@@ -152,19 +152,9 @@ namespace Picturepark.SDK.V1
         /// <inheritdoc />
         public async Task<ContentBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            BusinessProcessLifeCycle lifeCycle;
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
 
-            try
-            {
-                var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
-                lifeCycle = result.LifeCycleHit;
-            }
-            catch (BusinessProcessLifeCycleNotHitException ex)
-            {
-                lifeCycle = ex.Actual;
-            }
-
-            return new ContentBatchOperationResult(this, businessProcessId, lifeCycle, _businessProcessClient);
+            return new ContentBatchOperationResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
     }
 }
