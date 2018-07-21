@@ -75,7 +75,6 @@ namespace Picturepark.SDK.V1
             var throttler = new SemaphoreSlim(uploadOptions.ConcurrentUploads);
             var filteredFileNames = FilterFilesByBlacklist(files);
 
-            // TODO: File by file uploads
             var tasks = filteredFileNames
                 .Select(file => Task.Run(async () =>
                 {
@@ -232,7 +231,7 @@ namespace Picturepark.SDK.V1
                 if (_fileNameBlacklist != null)
                     return _fileNameBlacklist;
 
-                var blacklist = Task.Run(() => GetBlacklistAsync()).GetAwaiter().GetResult(); // TODO: GetCachedBlacklist: Use async version
+                var blacklist = Task.Run(() => GetBlacklistAsync()).GetAwaiter().GetResult();
                 _fileNameBlacklist = new HashSet<string>(blacklist.Items.Select(i => i.Match.ToLowerInvariant()));
             }
 

@@ -72,7 +72,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var share = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
             // Act
-            // TODO: Simplify (ShareDetail.AsEmbedUpdateRequest()) ?
             var request = new ShareEmbedUpdateRequest
             {
                 Description = "Foo",

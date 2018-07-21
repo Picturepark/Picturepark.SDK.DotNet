@@ -112,7 +112,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             /// Assert
             var currentTransfer = await _client.Transfers.GetAsync(result.Transfer.Id);
 
-            Assert.Equal(TransferState.Created, originalTransfer.State); // TODO: ShouldCancelTransfer: Check asserts; they are probably incorrect!
+            Assert.Equal(TransferState.Created, originalTransfer.State);
             Assert.Equal(TransferState.TransferReady, currentTransfer.State);
         }
 
@@ -185,15 +185,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetFile()
         {
             /// Arrange
-            // var result = await CreateTransferAsync(); // TODO: Fix null pointer exception in backend
-            var transferId = await _fixture.GetRandomFileTransferIdAsync(20);
+            // var result = await CreateTransferAsync();
+            var fileTransferId = await _fixture.GetRandomFileTransferIdAsync(20);
 
             /// Act
-            var transfer = await _client.Transfers.GetFileAsync(transferId);
+            var transfer = await _client.Transfers.GetFileAsync(fileTransferId);
 
             /// Assert
             Assert.NotNull(transfer);
-            Assert.Equal(transferId, transfer.Id);
+            Assert.Equal(fileTransferId, transfer.Id);
         }
 
         [Fact]
@@ -302,7 +302,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
             var createTransferResult = await _client.Transfers.UploadFilesAsync(transferName, importFilePaths, uploadOptions);
 
-            var importRequest = new FileTransfer2ContentCreateRequest // TODO: Rename FileTransfer2ContentCreateRequest (better name?, use "to" instead of "2", e.g. "ImportTransferRequest"?)
+            var importRequest = new FileTransfer2ContentCreateRequest
             {
                 ContentPermissionSetIds = new List<string>(),
                 Metadata = null,

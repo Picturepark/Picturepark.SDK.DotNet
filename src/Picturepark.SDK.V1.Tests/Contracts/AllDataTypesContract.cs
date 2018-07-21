@@ -24,7 +24,6 @@ namespace Picturepark.SDK.V1.Tests.Contracts
         [PictureparkNameTranslation("Yes or no")]
         public bool BooleanField { get; set; }
 
-        // TODO: How to limit to date?
         public DateTime DateField { get; set; }
 
         public DateTime DateTimeField { get; set; }
