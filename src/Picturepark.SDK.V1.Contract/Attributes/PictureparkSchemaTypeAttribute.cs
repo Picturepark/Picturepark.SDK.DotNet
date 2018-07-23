@@ -2,7 +2,7 @@
 
 namespace Picturepark.SDK.V1.Contract.Attributes
 {
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
+    [AttributeUsage(AttributeTargets.Class)]
     public class PictureparkSchemaTypeAttribute : Attribute, IPictureparkAttribute
     {
         public PictureparkSchemaTypeAttribute(SchemaType metadataType)

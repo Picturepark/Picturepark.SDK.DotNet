@@ -6,10 +6,7 @@ using System.Collections.Generic;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
 {
-    [PictureparkSchemaType(SchemaType.Content)]
     [PictureparkSchemaType(SchemaType.Layer)]
-    [PictureparkSchemaType(SchemaType.List)]
-    [PictureparkSchemaType(SchemaType.Struct)]
     [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}")]
     [PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}")]
     [PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}: {{data.allDataTypesContract.integerField}}")]
