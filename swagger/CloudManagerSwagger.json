@@ -8358,6 +8358,26 @@
         }
       ]
     },
+    "SchemaMultipleTypesException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "schemaTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
     "DeleteContentsWithRelationsException": {
       "type": "object",
       "additionalProperties": false,

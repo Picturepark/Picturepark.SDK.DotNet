@@ -1327,6 +1327,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SystemSchemaInvalidModificationException", typeof(SystemSchemaInvalidModificationException))]
     [JsonInheritanceAttribute("SchemaFieldRelationSchemaSystemSchemaException", typeof(SchemaFieldRelationSchemaSystemSchemaException))]
     [JsonInheritanceAttribute("SchemaFieldRelationSchemaTypeUnsupportedException", typeof(SchemaFieldRelationSchemaTypeUnsupportedException))]
+    [JsonInheritanceAttribute("SchemaMultipleTypesException", typeof(SchemaMultipleTypesException))]
     [JsonInheritanceAttribute("DeleteContentsWithRelationsException", typeof(DeleteContentsWithRelationsException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentLayerInvalidException", typeof(ContentLayerInvalidException))]
@@ -4498,6 +4499,28 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaFieldRelationSchemaTypeUnsupportedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldRelationSchemaTypeUnsupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.63.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaMultipleTypesException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("schemaTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SchemaTypes { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaMultipleTypesException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaMultipleTypesException>(data);
         }
     
     }

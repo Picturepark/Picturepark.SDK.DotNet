@@ -77,11 +77,6 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             return await RandomHelper.GetRandomContentPermissionSetIdAsync(_client, limit);
         }
 
-        public async Task<string> GetRandomTransferIdAsync(TransferState? transferState, int limit)
-        {
-            return await RandomHelper.GetRandomTransferIdAsync(_client, transferState, limit);
-        }
-
         public async Task<string> GetRandomFileTransferIdAsync(int limit)
         {
             return await RandomHelper.GetRandomFileTransferIdAsync(_client, limit);
@@ -100,11 +95,6 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
         public async Task<string> GetRandomObjectIdAsync(string metadataSchemaId, int limit)
         {
             return await RandomHelper.GetRandomObjectIdAsync(_client, metadataSchemaId, limit);
-        }
-
-        public async Task<string> GetRandomShareIdAsync(ShareType shareType, int limit)
-        {
-            return await RandomHelper.GetRandomShareIdAsync(_client, shareType, limit);
         }
 
         public virtual void Dispose()
