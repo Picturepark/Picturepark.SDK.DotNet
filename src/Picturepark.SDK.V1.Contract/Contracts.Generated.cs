@@ -13508,6 +13508,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("termsConsentExpired", Required = Newtonsoft.Json.Required.Always)]
+        public bool TermsConsentExpired { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
