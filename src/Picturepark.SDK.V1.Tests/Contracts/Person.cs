@@ -13,7 +13,6 @@ namespace Picturepark.SDK.V1.Tests.Contracts
     [KnownType(typeof(SoccerPlayer))]
     [KnownType(typeof(SoccerTrainer))]
     [PictureparkSchemaType(SchemaType.List)]
-    [PictureparkSchemaType(SchemaType.Struct)]
     [JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.person.firstname}} {{data.person.lastName}}")]
     [PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.person.firstname}} {{data.person.lastName}}, {{data.person.emailAddress}}")]

@@ -52,7 +52,6 @@ namespace Picturepark.SDK.V1.Tests.Conversion
 
         [PictureparkReference]
         [PictureparkSchemaType(SchemaType.List)]
-        [PictureparkSchemaType(SchemaType.Struct)]
         [JsonConverter(typeof(JsonInheritanceConverter), "kind")]
         public class Person
         {
