@@ -20051,7 +20051,8 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "authorizationState"
+        "authorizationState",
+        "termsConsentExpired"
       ],
       "properties": {
         "id": {
@@ -20086,6 +20087,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "termsConsentExpired": {
+          "type": "boolean"
         }
       }
     },
