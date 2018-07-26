@@ -13190,6 +13190,14 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AuthorizationState AuthorizationState { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public LifeCycle LifeCycle { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isSupportUser", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsSupportUser { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -13239,6 +13247,23 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = "Invited")]
         Invited = 3,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.63.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum LifeCycle
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Draft")]
+        Draft = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Active")]
+        Active = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Inactive")]
+        Inactive = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Deleted")]
+        Deleted = 3,
     
     }
     
@@ -13379,6 +13404,14 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AuthorizationState AuthorizationState { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public LifeCycle LifeCycle { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isSupportUser", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsSupportUser { get; set; }
     
         public string ToJson() 
         {
