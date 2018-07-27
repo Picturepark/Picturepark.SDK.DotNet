@@ -540,11 +540,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Act
             // Deactivate
-            await _client.ListItems.DeactivateAsync(listItemId, timeout: new TimeSpan(0, 2, 0)).ConfigureAwait(false);
+            await _client.ListItems.DeleteAsync(listItemId, timeout: new TimeSpan(0, 2, 0)).ConfigureAwait(false);
             await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItemId).ConfigureAwait(false)).ConfigureAwait(false);
 
             // Reactivate
-            await _client.ListItems.ReactivateAsync(listItemId, timeout: new TimeSpan(0, 2, 0)).ConfigureAwait(false);
+            await _client.ListItems.RestoreAsync(listItemId, timeout: new TimeSpan(0, 2, 0)).ConfigureAwait(false);
 
             // Assert
             Assert.NotNull(await _client.ListItems.GetAsync(listItemId).ConfigureAwait(false));
@@ -573,24 +573,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Act
             // Deactivate
-            var deactivateRequest = new ListItemDeactivateRequest
+            var deactivateRequest = new ListItemDeleteManyRequest()
             {
                 ListItemIds = new List<string> { listItem1.Id, listItem2.Id }
             };
 
-            var businessProcess = await _client.ListItems.DeactivateManyAsync(deactivateRequest).ConfigureAwait(false);
+            var businessProcess = await _client.ListItems.DeleteManyAsync(deactivateRequest).ConfigureAwait(false);
             await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
             await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItem1.Id).ConfigureAwait(false)).ConfigureAwait(false);
             await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItems.GetAsync(listItem2.Id).ConfigureAwait(false)).ConfigureAwait(false);
 
             // Reactivate
-            var reactivateRequest = new ListItemReactivateRequest
+            var reactivateRequest = new ListItemRestoreManyRequest()
             {
                 ListItemIds = new List<string> { listItem1.Id, listItem2.Id }
             };
 
-            businessProcess = await _client.ListItems.ReactivateManyAsync(reactivateRequest).ConfigureAwait(false);
+            businessProcess = await _client.ListItems.RestoreManyAsync(reactivateRequest).ConfigureAwait(false);
             await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
             // Assert

@@ -37,6 +37,20 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Collections.Generic.IEnumerable<ContentResolveBehaviour> resolveBehaviours = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Create - single</summary>
+        /// <param name="contentCreateRequest">The content create request.</param>
+        /// <param name="resolveBehaviours">List of enum that control which parts of the content are resolved and returned</param>
+        /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<ContentDetail> CreateAsync(ContentCreateRequest contentCreateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehaviour> resolveBehaviours = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
         /// <summary>Search</summary>
         /// <param name="contentSearchRequest">The content search request.</param>
         /// <returns>ContentSearchResult</returns>
@@ -130,22 +144,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<FileResponse> DownloadThumbnailAsync(string contentId, ThumbnailSize size, int? width = null, int? height = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Create - single</summary>
-        /// <param name="contentCreateRequest">The content create request.</param>
-        /// <param name="resolveBehaviours">List of enum that control which parts of the content are resolved and returned</param>
-        /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> CreateAsync(ContentCreateRequest contentCreateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehaviour> resolveBehaviours = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Deactivate - single</summary>
-        /// <param name="contentId">the id of the content to deactivate</param>
+        /// <summary>Delete - single</summary>
+        /// <param name="contentId">the id of the content to delete</param>
         /// <param name="forceReferenceRemoval">A value indicating whether references to the content should be removed.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -155,10 +155,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task DeactivateAsync(string contentId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteAsync(string contentId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Deactivate - many</summary>
-        /// <param name="deactivateRequest">The deactivate request</param>
+        /// <summary>Delete - many</summary>
+        /// <param name="deleteManyRequest">The delete many request</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -166,11 +166,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> DeactivateManyAsync(ContentDeactivateRequest deactivateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(ContentDeleteManyRequest deleteManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Reactivate - single</summary>
+        /// <summary>Restore - single</summary>
         /// <param name="contentId">The content id.</param>
-        /// <param name="allowMissingDependencies">Allow reactivating contents that refer to list items or contents that don't exist in the system.</param>
+        /// <param name="allowMissingDependencies">Allow restoring contents that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>Void</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -180,10 +180,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task ReactivateAsync(string contentId, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task RestoreAsync(string contentId, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Reactivate - many</summary>
-        /// <param name="reactivateRequest">The content reactivate request.</param>
+        /// <summary>Restore - many</summary>
+        /// <param name="restoreManyRequest">The content restore many request.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -191,7 +191,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> ReactivateManyAsync(ContentReactivateRequest reactivateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcess> RestoreManyAsync(ContentRestoreManyRequest restoreManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update file - single</summary>
         /// <param name="contentId">The id of the content to replace</param>
@@ -376,6 +376,21 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ListItemDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Collections.Generic.IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Create - single</summary>
+        /// <param name="listItemCreateRequest">List item create request.</param>
+        /// <param name="resolveBehaviours">List of enum that control which parts of the list item are resolved and returned</param>
+        /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
+        /// <returns>ListItemDetail</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItemCreateRequest, System.Collections.Generic.IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
         /// <summary>Search</summary>
         /// <param name="listItemSearchRequest">The list item search request.</param>
         /// <returns>List item result set.</returns>
@@ -398,23 +413,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ListItemAggregationRequest listItemAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Create - single</summary>
-        /// <param name="listItemCreateRequest">List item create request.</param>
-        /// <param name="resolveBehaviours">List of enum that control which parts of the list item are resolved and returned</param>
-        /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <returns>ListItemDetail</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItemCreateRequest, System.Collections.Generic.IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Deactivate - single</summary>
-        /// <param name="listItemId">the id of the list item to deactivate</param>
+        /// <summary>Delete - single</summary>
+        /// <param name="listItemId">The id of the list item to delete</param>
         /// <param name="forceReferenceRemoval">A value indicating whether references to the listitem should be removed.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>Void</returns>
@@ -425,10 +425,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task DeactivateAsync(string listItemId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteAsync(string listItemId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Deactivate - many</summary>
-        /// <param name="deactivateRequest">The list items deactivate request</param>
+        /// <summary>Delete - many</summary>
+        /// <param name="deleteManyRequest">The list items delete many request</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -436,11 +436,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> DeactivateManyAsync(ListItemDeactivateRequest deactivateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(ListItemDeleteManyRequest deleteManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Reactivate - single</summary>
+        /// <summary>Restore - single</summary>
         /// <param name="listItemId">The list item id.</param>
-        /// <param name="allowMissingDependencies">Allow reactivating list items that refer to list items or contents that don't exist in the system.</param>
+        /// <param name="allowMissingDependencies">Allow restoring list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>Void</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -450,10 +450,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task ReactivateAsync(string listItemId, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task RestoreAsync(string listItemId, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Reactivate - many</summary>
-        /// <param name="reactivateRequest">The list items reactivate request.</param>
+        /// <summary>Restore - many</summary>
+        /// <param name="restoreManyRequest">The list items restore many request.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -461,7 +461,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BusinessProcess> ReactivateManyAsync(ListItemReactivateRequest reactivateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcess> RestoreManyAsync(ListItemRestoreManyRequest restoreManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Gets the references to a list item.</summary>
         /// <param name="listItemId">The ID of the list item.</param>
@@ -597,7 +597,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IndexField>> GetIndexFieldsAsync(GetIndexFieldsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IndexField>> GetIndexFieldsAsync(IndexFieldsSearchBySchemaIdsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -7301,7 +7301,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.63.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentDeactivateRequest 
+    public partial class ContentDeleteManyRequest 
     {
         [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
@@ -7314,15 +7314,15 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ContentDeactivateRequest FromJson(string data)
+        public static ContentDeleteManyRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDeactivateRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDeleteManyRequest>(data);
         }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.63.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentReactivateRequest 
+    public partial class ContentRestoreManyRequest 
     {
         [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
@@ -7335,9 +7335,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ContentReactivateRequest FromJson(string data)
+        public static ContentRestoreManyRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentReactivateRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentRestoreManyRequest>(data);
         }
     
     }
@@ -8862,7 +8862,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.63.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ListItemDeactivateRequest 
+    public partial class ListItemDeleteManyRequest 
     {
         [Newtonsoft.Json.JsonProperty("listItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ListItemIds { get; set; }
@@ -8875,15 +8875,15 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ListItemDeactivateRequest FromJson(string data)
+        public static ListItemDeleteManyRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemDeactivateRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemDeleteManyRequest>(data);
         }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.63.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ListItemReactivateRequest 
+    public partial class ListItemRestoreManyRequest 
     {
         [Newtonsoft.Json.JsonProperty("listItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ListItemIds { get; set; }
@@ -8896,9 +8896,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ListItemReactivateRequest FromJson(string data)
+        public static ListItemRestoreManyRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemReactivateRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemRestoreManyRequest>(data);
         }
     
     }
@@ -10400,7 +10400,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.63.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class GetIndexFieldsRequest 
+    public partial class IndexFieldsSearchBySchemaIdsRequest 
     {
         [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
@@ -10410,9 +10410,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static GetIndexFieldsRequest FromJson(string data)
+        public static IndexFieldsSearchBySchemaIdsRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<GetIndexFieldsRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexFieldsSearchBySchemaIdsRequest>(data);
         }
     
     }
