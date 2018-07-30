@@ -19755,7 +19755,9 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "authorizationState"
+        "authorizationState",
+        "lifeCycle",
+        "isSupportUser"
       ],
       "properties": {
         "ownerTokens": {
@@ -19766,6 +19768,12 @@
         },
         "authorizationState": {
           "$ref": "#/definitions/AuthorizationState"
+        },
+        "lifeCycle": {
+          "$ref": "#/definitions/LifeCycle"
+        },
+        "isSupportUser": {
+          "type": "boolean"
         }
       },
       "allOf": [
@@ -19802,6 +19810,22 @@
         "Review",
         "Locked",
         "Invited"
+      ]
+    },
+    "LifeCycle": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "Active",
+        "Inactive",
+        "Deleted"
+      ],
+      "enum": [
+        "Draft",
+        "Active",
+        "Inactive",
+        "Deleted"
       ]
     },
     "UserUpdatableDetail": {
@@ -19954,7 +19978,9 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "authorizationState"
+        "authorizationState",
+        "lifeCycle",
+        "isSupportUser"
       ],
       "properties": {
         "userRoleIds": {
@@ -19977,6 +20003,12 @@
         },
         "authorizationState": {
           "$ref": "#/definitions/AuthorizationState"
+        },
+        "lifeCycle": {
+          "$ref": "#/definitions/LifeCycle"
+        },
+        "isSupportUser": {
+          "type": "boolean"
         }
       }
     },
