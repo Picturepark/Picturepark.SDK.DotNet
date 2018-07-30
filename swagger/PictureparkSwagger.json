@@ -6507,8 +6507,8 @@
         ]
       }
     },
-    "/v1/shares/many": {
-      "delete": {
+    "/v1/shares/many/delete": {
+      "post": {
         "tags": [
           "Share"
         ],
@@ -6517,16 +6517,14 @@
         "operationId": "Share_DeleteMany",
         "parameters": [
           {
-            "type": "array",
-            "name": "ids",
-            "in": "query",
+            "name": "deleteManyRequest",
+            "in": "body",
             "required": true,
+            "schema": {
+              "$ref": "#/definitions/ShareDeleteManyRequest"
+            },
             "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "A list of shareIds to delete.",
-            "items": {
-              "type": "string"
-            }
+            "description": "A delete many request containing the ids of the shares to delete."
           }
         ],
         "responses": {
@@ -18571,6 +18569,18 @@
         }
       ]
     },
+    "ShareDeleteManyRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "CustomerServiceProviderConfiguration": {
       "type": "object",
       "additionalProperties": false,
@@ -19755,7 +19765,9 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "authorizationState"
+        "authorizationState",
+        "lifeCycle",
+        "isSupportUser"
       ],
       "properties": {
         "ownerTokens": {
@@ -19766,6 +19778,12 @@
         },
         "authorizationState": {
           "$ref": "#/definitions/AuthorizationState"
+        },
+        "lifeCycle": {
+          "$ref": "#/definitions/LifeCycle"
+        },
+        "isSupportUser": {
+          "type": "boolean"
         }
       },
       "allOf": [
@@ -19802,6 +19820,22 @@
         "Review",
         "Locked",
         "Invited"
+      ]
+    },
+    "LifeCycle": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Draft",
+        "Active",
+        "Inactive",
+        "Deleted"
+      ],
+      "enum": [
+        "Draft",
+        "Active",
+        "Inactive",
+        "Deleted"
       ]
     },
     "UserUpdatableDetail": {
@@ -19954,7 +19988,9 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "authorizationState"
+        "authorizationState",
+        "lifeCycle",
+        "isSupportUser"
       ],
       "properties": {
         "userRoleIds": {
@@ -19977,6 +20013,12 @@
         },
         "authorizationState": {
           "$ref": "#/definitions/AuthorizationState"
+        },
+        "lifeCycle": {
+          "$ref": "#/definitions/LifeCycle"
+        },
+        "isSupportUser": {
+          "type": "boolean"
         }
       }
     },

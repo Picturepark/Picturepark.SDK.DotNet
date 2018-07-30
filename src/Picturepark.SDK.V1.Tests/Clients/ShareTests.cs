@@ -114,8 +114,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             createResult.ShareId.Should().Be(share.Id);
 
             // Act
-            var shareIds = new List<string> { createResult.ShareId };
-            var bulkResponse = await _client.Shares.DeleteManyAsync(shareIds).ConfigureAwait(false);
+            var deleteManyRequest = new ShareDeleteManyRequest
+            {
+                Ids = new List<string> { createResult.ShareId }
+            };
+            var bulkResponse = await _client.Shares.DeleteManyAsync(deleteManyRequest).ConfigureAwait(false);
 
             // Assert
             bulkResponse.Rows.Should().OnlyContain(i => i.Succeeded);

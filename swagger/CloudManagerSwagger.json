@@ -4335,6 +4335,12 @@
         "storagePath": {
           "type": "string"
         },
+        "watermarkPath": {
+          "type": "string"
+        },
+        "logoPath": {
+          "type": "string"
+        },
         "customerHosts": {
           "type": "array",
           "items": {
@@ -5698,6 +5704,9 @@
           "type": "string"
         },
         "watermarkPath": {
+          "type": "string"
+        },
+        "logoPath": {
           "type": "string"
         },
         "storagePath": {
@@ -8904,6 +8913,12 @@
         "baseUrl": {
           "type": "string"
         },
+        "watermarkPath": {
+          "type": "string"
+        },
+        "logoPath": {
+          "type": "string"
+        },
         "supportContactEmailAddress": {
           "type": "string"
         },
@@ -8995,6 +9010,9 @@
           "type": "string"
         },
         "watermarkPath": {
+          "type": "string"
+        },
+        "logoPath": {
           "type": "string"
         },
         "lifeCycle": {
