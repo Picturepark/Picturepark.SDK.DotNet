@@ -932,7 +932,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
-        public async Task ShouldDeactivateAndReactivateContent()
+        public async Task ShouldDeleteAndRestoreContent()
         {
             // Arrange
             var request = new ContentCreateRequest
@@ -946,11 +946,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var content = await _client.Contents.CreateAsync(request).ConfigureAwait(false);
 
             // Deactivate
-            await _client.Contents.DeactivateAsync(content.Id).ConfigureAwait(false);
+            await _client.Contents.DeleteAsync(content.Id).ConfigureAwait(false);
             await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Contents.GetAsync(content.Id).ConfigureAwait(false)).ConfigureAwait(false);
 
             // Reactivate
-            await _client.Contents.ReactivateAsync(content.Id, timeout: TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            await _client.Contents.RestoreAsync(content.Id, timeout: TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
             // Assert
             Assert.NotNull(await _client.Contents.GetAsync(content.Id).ConfigureAwait(false));
@@ -958,7 +958,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
-        public async Task ShouldDeactivateAndReactivateContentMany()
+        public async Task ShouldDeleteAndRestoreContentMany()
         {
             // Arrange
             var content1 = await _client.Contents.CreateAsync(new ContentCreateRequest
@@ -978,24 +978,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentIds = new List<string> { content1.Id, content2.Id };
 
             // Deactivate
-            var deactivationRequest = new ContentDeactivateRequest
+            var deactivationRequest = new ContentDeleteManyRequest()
             {
                 ContentIds = contentIds
             };
 
-            var businessProcess = await _client.Contents.DeactivateManyAsync(deactivationRequest).ConfigureAwait(false);
+            var businessProcess = await _client.Contents.DeleteManyAsync(deactivationRequest).ConfigureAwait(false);
             await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
             await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Contents.GetAsync(contentIds[0]).ConfigureAwait(false)).ConfigureAwait(false);
             await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Contents.GetAsync(contentIds[1]).ConfigureAwait(false)).ConfigureAwait(false);
 
             // Reactivate
-            var reactivateRequest = new ContentReactivateRequest
+            var reactivateRequest = new ContentRestoreManyRequest()
             {
                 ContentIds = contentIds
             };
 
-            businessProcess = await _client.Contents.ReactivateManyAsync(reactivateRequest).ConfigureAwait(false);
+            businessProcess = await _client.Contents.RestoreManyAsync(reactivateRequest).ConfigureAwait(false);
             await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
             // Assert

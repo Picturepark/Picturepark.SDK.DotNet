@@ -4335,6 +4335,12 @@
         "storagePath": {
           "type": "string"
         },
+        "watermarkPath": {
+          "type": "string"
+        },
+        "logoPath": {
+          "type": "string"
+        },
         "customerHosts": {
           "type": "array",
           "items": {
@@ -5700,6 +5706,9 @@
         "watermarkPath": {
           "type": "string"
         },
+        "logoPath": {
+          "type": "string"
+        },
         "storagePath": {
           "type": "string"
         },
@@ -6263,6 +6272,20 @@
         "retries": {
           "type": "integer",
           "format": "int64"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
+    "ShareExpiredException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "token": {
+          "type": "string"
         }
       },
       "allOf": [
@@ -8904,6 +8927,12 @@
         "baseUrl": {
           "type": "string"
         },
+        "watermarkPath": {
+          "type": "string"
+        },
+        "logoPath": {
+          "type": "string"
+        },
         "supportContactEmailAddress": {
           "type": "string"
         },
@@ -8995,6 +9024,9 @@
           "type": "string"
         },
         "watermarkPath": {
+          "type": "string"
+        },
+        "logoPath": {
           "type": "string"
         },
         "lifeCycle": {
