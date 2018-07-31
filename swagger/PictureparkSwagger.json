@@ -9513,6 +9513,20 @@
         }
       ]
     },
+    "ShareExpiredException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "OutputIdNotFoundException": {
       "type": "object",
       "additionalProperties": false,
@@ -17811,6 +17825,7 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "expired",
         "outputAccess",
         "shareType"
       ],
@@ -17851,6 +17866,9 @@
         "expirationDate": {
           "type": "string",
           "format": "date-time"
+        },
+        "expired": {
+          "type": "boolean"
         },
         "template": {
           "$ref": "#/definitions/TemplateBase"

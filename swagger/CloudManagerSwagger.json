@@ -6280,6 +6280,20 @@
         }
       ]
     },
+    "ShareExpiredException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkBusinessException"
+        }
+      ]
+    },
     "OutputIdNotFoundException": {
       "type": "object",
       "additionalProperties": false,
