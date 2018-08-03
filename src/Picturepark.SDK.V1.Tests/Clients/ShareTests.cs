@@ -72,21 +72,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var share = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
             // Act
-            var request = new ShareEmbedUpdateRequest
-            {
-                Description = "Foo",
-                ExpirationDate = share.ExpirationDate,
-                LayerSchemaIds = share.LayerSchemaIds,
-                Name = share.Name,
-                OutputAccess = share.OutputAccess,
-                ShareContentItems = share.ContentSelections.Select(i =>
-                    new ShareContent
-                    {
-                        ContentId = i.Id,
-                        OutputFormatIds = i.Outputs.Select(output => output.OutputFormatId).ToList()
-                    }).ToList(),
-                Template = share.Template
-            };
+            var request = share.AsEmbedUpdateRequest(r => r.Description = "Foo");
 
             await _client.Shares.UpdateAsync(createResult.ShareId, request).ConfigureAwait(false);
 

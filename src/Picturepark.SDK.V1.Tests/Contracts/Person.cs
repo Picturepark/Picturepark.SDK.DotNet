@@ -12,7 +12,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
     [PictureparkReference]
     [KnownType(typeof(SoccerPlayer))]
     [KnownType(typeof(SoccerTrainer))]
-    [PictureparkSchemaType(SchemaType.List)]
+    [PictureparkSchema(SchemaType.List)]
     [JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.person.firstname}} {{data.person.lastName}}")]
     [PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.person.firstname}} {{data.person.lastName}}, {{data.person.emailAddress}}")]
@@ -62,7 +62,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
         public List<Club> PreviousClubs { get; set; }
     }
 
-    [PictureparkSchemaType(SchemaType.Struct)]
+    [PictureparkSchema(SchemaType.Struct)]
     public class Addresses
     {
         [PictureparkRequired]
@@ -72,7 +72,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
     }
 
     [PictureparkReference]
-    [PictureparkSchemaType(SchemaType.List)]
+    [PictureparkSchema(SchemaType.List)]
     public class Club : ReferenceObject
     {
         [MaxLength(10)]
@@ -85,7 +85,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
     [KnownType(typeof(Dog))]
     [KnownType(typeof(Cat))]
     [JsonConverter(typeof(JsonInheritanceConverter), "kind")]
-    [PictureparkSchemaType(SchemaType.List)]
+    [PictureparkSchema(SchemaType.List)]
     public class Pet : ReferenceObject
     {
         public string Name { get; set; }

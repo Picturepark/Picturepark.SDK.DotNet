@@ -98,15 +98,14 @@ namespace Picturepark.SDK.V1.Conversion
             }
 
             var typeAttributes = contractType.GetTypeInfo()
-                .GetCustomAttributes(typeof(PictureparkSchemaTypeAttribute), true)
-                .OfType<PictureparkSchemaTypeAttribute>()
+                .GetCustomAttributes<PictureparkSchemaAttribute>(true)
                 .ToList();
 
             if (!typeAttributes.Any())
                 throw new Exception("No PictureparkSchemaTypeAttribute set on class: " + contractType.Name);
 
             var types = typeAttributes
-                .Select(typeAttribute => typeAttribute.SchemaType)
+                .Select(typeAttribute => typeAttribute.Type)
                 .ToList();
 
             var schemaItem = new SchemaDetail

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
 {
-    [PictureparkSchemaType(SchemaType.Layer)]
+    [PictureparkSchema(SchemaType.Layer)]
     [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}")]
     [PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}")]
     [PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}: {{data.allDataTypesContract.integerField}}")]
@@ -69,7 +69,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
     }
 
     [PictureparkReference]
-    [PictureparkSchemaType(SchemaType.List)]
+    [PictureparkSchema(SchemaType.List)]
     [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.simpleReferenceObject.nameField}}")]
     [PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.simpleReferenceObject.nameField}}")]
     public class SimpleReferenceObject : ReferenceObject
@@ -79,7 +79,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
     [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.simpleObject.name}}")]
     [PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.simpleObject.name}}")]
-    [PictureparkSchemaType(SchemaType.Struct)]
+    [PictureparkSchema(SchemaType.Struct)]
     public class SimpleObject
     {
         public string Name { get; set; }
@@ -89,13 +89,13 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
     [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.nestedSimpleObject.name}}")]
     [PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.nestedSimpleObject.name}}")]
-    [PictureparkSchemaType(SchemaType.Struct)]
+    [PictureparkSchema(SchemaType.Struct)]
     public class NestedSimpleObject
     {
         public string Name { get; set; }
     }
 
-    [PictureparkSchemaType(SchemaType.Struct)]
+    [PictureparkSchema(SchemaType.Struct)]
     public class SimpleRelation : Relation
     {
         public string RelationInfo { get; set; }

@@ -9853,6 +9853,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.65.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class EdgeNGramAnalyzer : AnalyzerBase
     {
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public Analyzer Type { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("fieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldSuffix { get; set; }
     
@@ -9868,11 +9873,39 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.65.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum Analyzer
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "None")]
+        None = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Simple")]
+        Simple = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Language")]
+        Language = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "PathHierarchy")]
+        PathHierarchy = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "EdgeNGram")]
+        EdgeNGram = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "NGram")]
+        NGram = 5,
+    
+    }
+    
     /// <summary>An analyzer using a language analyzer. Restricted to the languages supported by elastic search.
     /// https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lang-analyzer.html</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.65.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class LanguageAnalyzer : AnalyzerBase
     {
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public Analyzer Type { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("fieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldSuffix { get; set; }
     
@@ -9893,6 +9926,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.65.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class NGramAnalyzer : AnalyzerBase
     {
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public Analyzer Type { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("fieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldSuffix { get; set; }
     
@@ -9913,6 +9951,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.65.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PathHierarchyAnalyzer : AnalyzerBase
     {
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public Analyzer Type { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("fieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldSuffix { get; set; }
     
@@ -9933,6 +9976,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.65.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SimpleAnalyzer : AnalyzerBase
     {
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public Analyzer Type { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("fieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldSuffix { get; set; }
     
