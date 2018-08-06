@@ -44,7 +44,7 @@ namespace Picturepark.SDK.V1.Tests
                     SimpleField = "Simple12Field"
                 };
 
-                await _client.ListItems.CreateFromObjectAsync(analyzerValue, nameof(AnalyzerTestObject)).ConfigureAwait(false);
+                await _client.ListItems.CreateFromObjectAsync(analyzerValue).ConfigureAwait(false);
             }
 
             var requestSchemaIds = new[] { nameof(AnalyzerTestObject) };

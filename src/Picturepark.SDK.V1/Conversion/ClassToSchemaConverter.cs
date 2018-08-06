@@ -32,6 +32,12 @@ namespace Picturepark.SDK.V1.Conversion
             _contractResolver = contractResolver;
         }
 
+        public static string ResolveSchemaName(Type contract)
+        {
+            return contract.GetTypeInfo().GetCustomAttribute<PictureparkSchemaAttribute>()?.Name ??
+                   contract.Name;
+        }
+
         /// <summary>Converts a .NET type and its dependencies to a list of Picturepark schema definitions.</summary>
         /// <param name="type">The type to generate definitions for.</param>
         /// <param name="generateRelatedSchemas">Generates related schemas as well. E.g. referenced pocos in lists.</param>
@@ -83,7 +89,7 @@ namespace Picturepark.SDK.V1.Conversion
 
         private SchemaDetail CreateSchemas(Type contractType, List<ContractPropertyInfo> properties, string parentSchemaId, List<SchemaDetail> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
         {
-            var schemaId = contractType.Name;
+            var schemaId = ResolveSchemaName(contractType);
             if (schemaList.Any(s => s.Id == schemaId))
                 return null;
 

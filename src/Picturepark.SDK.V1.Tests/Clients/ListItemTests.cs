@@ -153,7 +153,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var createResult = await _client.ListItems.CreateFromObjectAsync(tag, nameof(Tag)).ConfigureAwait(false);
+            var createResult = await _client.ListItems.CreateFromObjectAsync(tag).ConfigureAwait(false);
             var createDetail = await createResult.FetchDetail().ConfigureAwait(false);
 
             // Assert
@@ -200,7 +200,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         },
                         dog
                     }
-                }, nameof(SoccerPlayer)).ConfigureAwait(false);
+                }).ConfigureAwait(false);
 
             var soccerPlayerDetail = await soccerPlayerResult.FetchDetail().ConfigureAwait(false);
 
@@ -212,7 +212,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     Firstname = "Urxxxxs",
                     LastName = "xxxxxxxx",
                     TrainerSince = new DateTime(2000, 1, 1)
-                }, nameof(SoccerTrainer)).ConfigureAwait(false);
+                }).ConfigureAwait(false);
 
             var soccerTrainerDetail = await soccerTrainerResult.FetchDetail().ConfigureAwait(false);
 
@@ -223,14 +223,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     EmailAddress = "xyyyy@teyyyyyyst.com",
                     Firstname = "Urxxxxs",
                     LastName = "xxxxxxxx"
-                }, nameof(Person)).ConfigureAwait(false);
+                }).ConfigureAwait(false);
 
             var personDetail = await personResult.FetchDetail().ConfigureAwait(false);
 
             // Assert
-            Assert.True(soccerPlayerDetail.SucceededItems.Any());
-            Assert.True(soccerTrainerDetail.SucceededItems.Any());
-            Assert.True(personDetail.SucceededItems.Any());
+            soccerPlayerDetail.SucceededItems.Should().NotBeEmpty();
+            soccerTrainerDetail.SucceededItems.Should().NotBeEmpty();
+            personDetail.SucceededItems.Should().NotBeEmpty();
         }
 
         [Fact]
