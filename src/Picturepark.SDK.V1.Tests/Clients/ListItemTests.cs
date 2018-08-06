@@ -653,5 +653,27 @@ namespace Picturepark.SDK.V1.Tests.Clients
             detail.SucceededItems.Should().HaveCount(201);
             detail.SucceededItems.Select(i => ((dynamic)i.Content).name).ToArray().Distinct().Should().HaveCount(201);
         }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldProperlyResolveSchemaName()
+        {
+            // Arrange
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Vehicle>(_client).ConfigureAwait(false);
+
+            var carResult = await _client.ListItems.CreateFromObjectAsync(
+                new Car
+                {
+                    NumberOfWheels = 4,
+                    HorsePower = 142,
+                    BootSize = 490,
+                    Model = "Civic"
+                }).ConfigureAwait(false);
+
+            var carResultDetail = await carResult.FetchDetail().ConfigureAwait(false);
+
+            carResultDetail.FailedItems.Should().BeEmpty();
+            carResultDetail.SucceededItems.Should().NotBeEmpty();
+        }
     }
 }
