@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Contract.Attributes.Analyzer;
@@ -44,7 +45,9 @@ namespace Picturepark.SDK.V1.Tests
                     SimpleField = "Simple12Field"
                 };
 
-                await _client.ListItems.CreateFromObjectAsync(analyzerValue).ConfigureAwait(false);
+                var res = await _client.ListItems.CreateFromObjectAsync(analyzerValue).ConfigureAwait(false);
+                var resDetail = await res.FetchDetail().ConfigureAwait(false);
+                resDetail.SucceededItems.Should().NotBeEmpty();
             }
 
             var requestSchemaIds = new[] { nameof(AnalyzerTestObject) };

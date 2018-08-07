@@ -2,7 +2,7 @@
 {
     public class PictureparkDateAttribute : PictureparkDateTypeAttribute
     {
-        public PictureparkDateAttribute(string pattern = null) : base(pattern)
+        public PictureparkDateAttribute(string format = null) : base(format)
         {
         }
     }

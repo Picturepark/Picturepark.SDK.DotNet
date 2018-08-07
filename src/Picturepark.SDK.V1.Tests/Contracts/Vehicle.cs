@@ -21,10 +21,10 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
         public int BootSize { get; set; }
 
-        [PictureparkDate]
+        [PictureparkDate("YYYY-MM-DD")]
         public DateTime Introduced { get; set; }
 
-        [PictureparkDateTime("yyyy-MM-dd hh:mm:ss")]
+        [PictureparkDateTime("YYYY-MM-DD hh:mm:ss")]
         public DateTime FirstPieceManufactured { get; set; }
     }
 }

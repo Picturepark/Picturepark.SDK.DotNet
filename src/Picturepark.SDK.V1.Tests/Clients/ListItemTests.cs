@@ -667,7 +667,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     NumberOfWheels = 4,
                     HorsePower = 142,
                     BootSize = 490,
-                    Model = "Civic"
+                    Model = "Civic",
+                    Introduced = new DateTime(2013, 1, 1)
                 }).ConfigureAwait(false);
 
             var carResultDetail = await carResult.FetchDetail().ConfigureAwait(false);

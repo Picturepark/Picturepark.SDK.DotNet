@@ -795,24 +795,12 @@ namespace Picturepark.SDK.V1.Conversion
         {
             var dateAttribute =
                 property.PictureparkAttributes.OfType<PictureparkDateTypeAttribute>().FirstOrDefault();
-            var pattern = dateAttribute?.Pattern;
+            var format = dateAttribute?.Format;
 
             if (dateAttribute == null || dateAttribute.ContainsTimePortion)
-            {
-                return new FieldDateTime
-                {
-                    Index = true,
-                    Format = pattern
-                };
-            }
+                return new FieldDateTime { Index = true, Format = format };
             else
-            {
-                return new FieldDate
-                {
-                    Index = true,
-                    Format = pattern
-                };
-            }
+                return new FieldDate { Index = true, Format = format };
         }
 
         private bool IsSimpleType(Type type)

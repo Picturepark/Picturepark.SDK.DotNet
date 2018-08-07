@@ -5,12 +5,12 @@ namespace Picturepark.SDK.V1.Contract.Attributes
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
     public abstract class PictureparkDateTypeAttribute : Attribute, IPictureparkAttribute
     {
-        protected PictureparkDateTypeAttribute(string pattern = null)
+        protected PictureparkDateTypeAttribute(string format = null)
         {
-            Pattern = pattern;
+            Format = format;
         }
 
-        public string Pattern { get; set; }
+        public string Format { get; set; }
 
         public bool ContainsTimePortion => this is PictureparkDateTimeAttribute;
     }
