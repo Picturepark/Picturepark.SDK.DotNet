@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
 
@@ -19,5 +20,11 @@ namespace Picturepark.SDK.V1.Tests.Contracts
         public string Model { get; set; }
 
         public int BootSize { get; set; }
+
+        [PictureparkDate]
+        public DateTime Introduced { get; set; }
+
+        [PictureparkDateTime("yyyy-MM-dd hh:mm:ss")]
+        public DateTime FirstPieceManufactured { get; set; }
     }
 }

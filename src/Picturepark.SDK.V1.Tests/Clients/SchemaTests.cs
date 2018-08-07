@@ -11,12 +11,12 @@ using Newtonsoft.Json;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
-    public class SchemaTests : IClassFixture<ClientFixture>
+    public class SchemaTests : IClassFixture<SchemaFixture>
     {
-        private readonly ClientFixture _fixture;
+        private readonly SchemaFixture _fixture;
         private readonly PictureparkClient _client;
 
-        public SchemaTests(ClientFixture fixture)
+        public SchemaTests(SchemaFixture fixture)
         {
             _fixture = fixture;
             _client = _fixture.Client;
@@ -296,53 +296,28 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.Equal(schemaTranslation, outString);
         }
 
-        private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldGenerateAndCreateSchemasWithDateTypeFields()
         {
-            var systemSchemaIds = new[] { "Country" };
-            if (!systemSchemaIds.Contains(schema.Id))
-            {
-                schema.Id = schema.Id + schemaSuffix;
+            // Act
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Vehicle)).ConfigureAwait(false);
 
-                foreach (var key in schema.Names.Keys.ToList())
-                {
-                    schema.Names[key] = schema.Names[key] + " " + schemaSuffix;
-                }
-            }
+            var createdSchemas = await _fixture.RandomizeSchemaIdsAndCreate(schemas);
 
-            if (!string.IsNullOrEmpty(schema.ParentSchemaId) && !systemSchemaIds.Contains(schema.ParentSchemaId))
-            {
-                schema.ParentSchemaId = schema.ParentSchemaId + schemaSuffix;
-            }
+            // Assert
+            createdSchemas.Should().HaveSameCount(schemas);
+            createdSchemas.Select(s => s.Id).Should().BeEquivalentTo(schemas.Select(s => s.Id));
 
-            foreach (var field in schema.Fields.OfType<FieldSingleTagbox>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
-
-            foreach (var field in schema.Fields.OfType<FieldMultiTagbox>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
-
-            foreach (var field in schema.Fields.OfType<FieldSingleFieldset>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
-
-            foreach (var field in schema.Fields.OfType<FieldMultiFieldset>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
-
-            foreach (var field in schema.Fields.OfType<FieldSingleRelation>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
-
-            foreach (var field in schema.Fields.OfType<FieldMultiRelation>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
+            var autoSchema = createdSchemas.Should().ContainSingle(s => s.Id.StartsWith("Automobile")).Subject;
+            autoSchema.Fields.Should().ContainSingle(f => f.Id == nameof(Car.Introduced).ToLowerCamelCase())
+                .Which.Should().BeOfType<FieldDate>();
+            autoSchema.Fields.Should().ContainSingle(f => f.Id == nameof(Car.FirstPieceManufactured).ToLowerCamelCase())
+                .Which.Should().BeOfType<FieldDateTime>()
+                .Which.Format.Should().Be("yyyy-MM-dd hh:mm:ss");
         }
+
+        private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
+            => _fixture.AppendSchemaIdSuffix(schema, schemaSuffix);
     }
 }

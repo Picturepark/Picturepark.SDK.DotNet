@@ -57,6 +57,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
     public class SoccerTrainer : Person
     {
+        [PictureparkDate]
         public DateTime TrainerSince { get; set; }
 
         public List<Club> PreviousClubs { get; set; }

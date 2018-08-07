@@ -19,7 +19,7 @@ namespace Picturepark.SDK.V1.Conversion
     {
         private readonly string _defaultLanguage;
         private readonly IContractResolver _contractResolver;
-        private readonly List<string> _ignoredProperties = new List<string> { "_refId", "_relationType", "_targetDocType", "_targetId" };
+        private readonly HashSet<string> _ignoredProperties = new HashSet<string> { "_refId", "_relationType", "_targetDocType", "_targetId" };
 
         public ClassToSchemaConverter(string defaultLanguage)
             : this(new CamelCasePropertyNamesContractResolver())
@@ -183,7 +183,7 @@ namespace Picturepark.SDK.V1.Conversion
                     schemaList.Add(schemaItem);
             }
 
-            // Create schemas for all known types
+            // Create schemas for all related known types
             foreach (var knownType in contractType.GetKnownTypes())
                 CreateSchemas(knownType, GetProperties(knownType), schemaId, schemaList);
 
@@ -396,13 +396,11 @@ namespace Picturepark.SDK.V1.Conversion
                         }
                     }
 
-                    var searchAttributes = property.AttributeProvider
+                    propertyInfo.PictureparkAttributes = property.AttributeProvider
                         .GetAttributes(true)
-                        .Where(i => i.GetType().GetTypeInfo().ImplementedInterfaces.Any(j => j == typeof(IPictureparkAttribute)))
                         .Select(i => i as IPictureparkAttribute)
+                        .Where(i => i != null)
                         .ToList();
-
-                    propertyInfo.PictureparkAttributes = searchAttributes;
 
                     contactPropertiesInfo.Add(propertyInfo);
                 }
@@ -567,10 +565,8 @@ namespace Picturepark.SDK.V1.Conversion
                             };
                             break;
                         case TypeCode.DateTime:
-                            field = new FieldDateTime
-                            {
-                                Index = true
-                            };
+                            field = CreateDateTypeField(property);
+
                             break;
                         case TypeCode.Boolean:
                             field = new FieldBoolean
@@ -795,12 +791,36 @@ namespace Picturepark.SDK.V1.Conversion
             return field;
         }
 
+        private FieldBase CreateDateTypeField(ContractPropertyInfo property)
+        {
+            var dateAttribute =
+                property.PictureparkAttributes.OfType<PictureparkDateTypeAttribute>().FirstOrDefault();
+            var pattern = dateAttribute?.Pattern;
+
+            if (dateAttribute == null || dateAttribute.ContainsTimePortion)
+            {
+                return new FieldDateTime
+                {
+                    Index = true,
+                    Format = pattern
+                };
+            }
+            else
+            {
+                return new FieldDate
+                {
+                    Index = true,
+                    Format = pattern
+                };
+            }
+        }
+
         private bool IsSimpleType(Type type)
         {
             return
                 type.GetTypeInfo().IsValueType ||
                 type.GetTypeInfo().IsPrimitive ||
-                new Type[]
+                new[]
                 {
                     typeof(string),
                     typeof(decimal),
