@@ -270,12 +270,10 @@ namespace Picturepark.SDK.V1.Conversion
             }
         }
 
-        private void ApplyDisplayPatternAttributes(SchemaDetail schemaDetail, Type type)
+        private void ApplyDisplayPatternAttributes(SchemaDetail schemaDetail, Type contractType)
         {
-            var displayPatternAttributes = type.GetTypeInfo()
-                .GetCustomAttributes(typeof(PictureparkDisplayPatternAttribute), true)
-                .Select(i => i as PictureparkDisplayPatternAttribute)
-                .ToList();
+            var displayPatternAttributes = contractType.GetTypeInfo()
+                .GetCustomAttributes<PictureparkDisplayPatternAttribute>(true);
 
             foreach (var displayPatternAttribute in displayPatternAttributes.GroupBy(g => new { g.Type, g.TemplateEngine }))
             {
@@ -284,15 +282,20 @@ namespace Picturepark.SDK.V1.Conversion
                     throw new InvalidOperationException("Multiple display patterns for the same language are defined.");
                 }
 
-                var displayPattern = new DisplayPattern
-                {
-                    DisplayPatternType = displayPatternAttribute.Key.Type,
-                    TemplateEngine = displayPatternAttribute.Key.TemplateEngine,
-                    Templates = new TranslatedStringDictionary(
-                        displayPatternAttribute.ToDictionary(x => string.IsNullOrEmpty(x.Language) ? _defaultLanguage : x.Language, x => x.DisplayPattern))
-                };
+                // If no type is specified, set for all the types.
+                var types = displayPatternAttribute.Key.Type.HasValue
+                    ? new[] { displayPatternAttribute.Key.Type.Value }
+                    : Enum.GetValues(typeof(DisplayPatternType)).OfType<DisplayPatternType>();
 
-                schemaDetail.DisplayPatterns.Add(displayPattern);
+                foreach (var type in types)
+                {
+                    schemaDetail.DisplayPatterns.Add(new DisplayPattern
+                    {
+                        DisplayPatternType = type,
+                        TemplateEngine = displayPatternAttribute.Key.TemplateEngine,
+                        Templates = new TranslatedStringDictionary(displayPatternAttribute.ToDictionary(x => string.IsNullOrEmpty(x.Language) ? _defaultLanguage : x.Language, x => x.DisplayPattern))
+                    });
+                }
             }
         }
 
