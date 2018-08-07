@@ -21,8 +21,10 @@ namespace Picturepark.SDK.V1.Tests.Contracts
         [PictureparkNameTranslation("Yes or no")]
         public bool BooleanField { get; set; }
 
+        [PictureparkDate]
         public DateTime DateField { get; set; }
 
+        [PictureparkDateTime]
         public DateTime DateTimeField { get; set; }
 
         //// public List<DateTime> DateTimeArrayField { get; set; }
