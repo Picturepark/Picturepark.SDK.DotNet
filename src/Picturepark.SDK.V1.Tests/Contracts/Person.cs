@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
+using Picturepark.SDK.V1.Conversion;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
 {
@@ -58,6 +59,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
     public class SoccerTrainer : Person
     {
         [PictureparkDate]
+        [JsonConverter(typeof(DateFieldConverter))]
         public DateTime TrainerSince { get; set; }
 
         public List<Club> PreviousClubs { get; set; }

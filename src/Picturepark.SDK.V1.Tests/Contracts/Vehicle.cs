@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
+using Picturepark.SDK.V1.Conversion;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
 {
@@ -21,7 +23,8 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
         public int BootSize { get; set; }
 
-        [PictureparkDate("YYYY-MM-DD")]
+        [PictureparkDate("YYYY-MMM-DD")]
+        [JsonConverter(typeof(DateFieldConverter))]
         public DateTime Introduced { get; set; }
 
         [PictureparkDateTime("YYYY-MM-DD hh:mm:ss")]

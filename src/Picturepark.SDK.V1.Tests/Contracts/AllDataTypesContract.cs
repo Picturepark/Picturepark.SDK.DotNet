@@ -3,6 +3,8 @@ using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Contract.SystemTypes;
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
+using Picturepark.SDK.V1.Conversion;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
 {
@@ -22,6 +24,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
         public bool BooleanField { get; set; }
 
         [PictureparkDate]
+        [JsonConverter(typeof(DateFieldConverter))]
         public DateTime DateField { get; set; }
 
         [PictureparkDateTime]
