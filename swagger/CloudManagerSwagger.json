@@ -8117,10 +8117,10 @@
         "fieldId": {
           "type": "string"
         },
-        "oldType": {
+        "oldTypeName": {
           "type": "string"
         },
-        "newType": {
+        "newTypeName": {
           "type": "string"
         }
       },
@@ -8399,6 +8399,42 @@
         {
           "$ref": "#/definitions/PictureparkValidationException"
         }
+      ]
+    },
+    "MissingDisplayPatternForCustomerDefaultLanguageException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "missingTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DisplayPatternType"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "DisplayPatternType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Thumbnail",
+        "List",
+        "Detail",
+        "Name"
+      ],
+      "enum": [
+        "Thumbnail",
+        "List",
+        "Detail",
+        "Name"
       ]
     },
     "DeleteContentsWithRelationsException": {
