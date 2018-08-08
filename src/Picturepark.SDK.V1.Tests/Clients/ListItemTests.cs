@@ -674,7 +674,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var carResultDetail = await carResult.FetchDetail().ConfigureAwait(false);
 
             carResultDetail.FailedItems.Should().BeEmpty();
-            carResultDetail.SucceededItems.Should().NotBeEmpty();
+            carResultDetail.SucceededItems.Should().NotBeEmpty()
+                .And.Subject.First().ContentSchemaId.Should().Be("Automobile");
         }
     }
 }

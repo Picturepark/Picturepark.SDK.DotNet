@@ -314,7 +314,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 .Which.Should().BeOfType<FieldDate>();
             autoSchema.Fields.Should().ContainSingle(f => f.Id == nameof(Car.FirstPieceManufactured).ToLowerCamelCase())
                 .Which.Should().BeOfType<FieldDateTime>()
-                .Which.Format.Should().Be("yyyy-MM-dd hh:mm:ss");
+                .Which.Format.Should().Be("YYYY-MM-DD hh:mm:ss");
         }
 
         private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
