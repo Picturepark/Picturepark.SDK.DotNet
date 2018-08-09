@@ -19855,7 +19855,8 @@
       "required": [
         "authorizationState",
         "lifeCycle",
-        "isSupportUser"
+        "isSupportUser",
+        "isReadOnly"
       ],
       "properties": {
         "ownerTokens": {
@@ -19871,6 +19872,9 @@
           "$ref": "#/definitions/LifeCycle"
         },
         "isSupportUser": {
+          "type": "boolean"
+        },
+        "isReadOnly": {
           "type": "boolean"
         }
       },
@@ -20078,7 +20082,8 @@
       "required": [
         "authorizationState",
         "lifeCycle",
-        "isSupportUser"
+        "isSupportUser",
+        "isReadOnly"
       ],
       "properties": {
         "userRoleIds": {
@@ -20106,6 +20111,9 @@
           "$ref": "#/definitions/LifeCycle"
         },
         "isSupportUser": {
+          "type": "boolean"
+        },
+        "isReadOnly": {
           "type": "boolean"
         }
       }
@@ -20295,6 +20303,9 @@
       "additionalProperties": false,
       "properties": {
         "customerId": {
+          "type": "string"
+        },
+        "name": {
           "type": "string"
         },
         "customerAlias": {
