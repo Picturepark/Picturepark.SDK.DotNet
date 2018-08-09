@@ -78,42 +78,6 @@ namespace Picturepark.SDK.V1.Tests
             return permissionSetId;
         }
 
-        public static async Task<string> GetRandomSchemaIdAsync(PictureparkClient client, int limit)
-        {
-            string schemaId = string.Empty;
-            var request = new SchemaSearchRequest { Limit = limit };
-            SchemaSearchResult result = await client.Schemas.SearchAsync(request);
-
-            if (result.Results.Count > 0)
-            {
-                int randomNumber = new Random().Next(0, result.Results.Count);
-                schemaId = result.Results.Skip(randomNumber).First().Id;
-            }
-
-            return schemaId;
-        }
-
-        public static async Task<string> GetRandomObjectIdAsync(PictureparkClient client, string schemaId, int limit)
-        {
-            string objectId = string.Empty;
-
-            ListItemSearchRequest request = new ListItemSearchRequest()
-            {
-                Limit = limit,
-                SchemaIds = new List<string> { schemaId }
-            };
-
-            var result = await client.ListItems.SearchAsync(request);
-
-            if (result.Results.Count > 0)
-            {
-                int randomNumber = new Random().Next(0, result.Results.Count);
-                objectId = result.Results.Skip(randomNumber).First().Id;
-            }
-
-            return objectId;
-        }
-
         public static async Task<string> GetRandomShareIdAsync(PictureparkClient client, ShareType shareType, int limit)
         {
             var shareId = string.Empty;

@@ -138,13 +138,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Schema")]
         public async Task ShouldExist()
         {
-            string schemaId = await _fixture.GetRandomSchemaIdAsync(20);
+            var schemaId = SchemaFixture.SystemSchemaIds.First();
 
             // Act
-            bool schemaExists = await _client.Schemas.ExistsAsync(schemaId);
+            var schemaExists = await _client.Schemas.ExistsAsync(schemaId);
 
             // Assert
-            Assert.True(schemaExists);
+            schemaExists.Should().BeTrue();
         }
 
         [Fact]
@@ -199,7 +199,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetJsonValidationSchema()
         {
             // Arrange
-            var schemaId = await _fixture.GetRandomSchemaIdAsync(20);
+            var schemaId = SchemaFixture.SystemSchemaIds.First();
 
             // Act
             var result = await _client.JsonSchemas.GetAsync(schemaId);

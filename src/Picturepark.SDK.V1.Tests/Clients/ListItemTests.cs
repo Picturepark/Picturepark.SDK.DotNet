@@ -290,29 +290,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetObjectResolved()
         {
             // Arrange
-            var request = new SchemaSearchRequest
+            var countrySchemaId = SchemaFixture.CountrySchemaId;
+
+            var chSearch = await _client.ListItems.SearchAsync(new ListItemSearchRequest
             {
-                Limit = 100,
-                Filter = new TermFilter
-                {
-                    Field = "types",
-                    Term = SchemaType.List.ToString()
-                }
-            };
+                Filter = FilterBase.FromExpression<Country>(c => c.Name, "Switzerland"),
+                SchemaIds = new[] { countrySchemaId }
+            });
 
-            var result = await _client.Schemas.SearchAsync(request).ConfigureAwait(false);
-            Assert.True(result.Results.Any());
-
-            // For debugging: .Where(i => i.Id == "Esselabore1"))
-            var tuple = result.Results
-                .Select(i => new { schemaId = i.Id, objectId = _fixture.GetRandomObjectIdAsync(i.Id, 20).Result })
-                .First(i => !string.IsNullOrEmpty(i.objectId));
+            chSearch.Results.Should().NotBeEmpty("Switzerland should exist");
 
             // Act
-            var listItem = await _client.ListItems.GetAsync(tuple.objectId, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content, ListItemResolveBehaviour.LinkedListItems }).ConfigureAwait(false);
+            var listItem = await _client.ListItems.GetAsync(chSearch.Results.First().Id, new[] { ListItemResolveBehaviour.Content, ListItemResolveBehaviour.LinkedListItems }).ConfigureAwait(false);
 
             // Assert
-            Assert.Equal(tuple.schemaId, listItem.ContentSchemaId);
+            listItem.ContentSchemaId.Should().Be(countrySchemaId);
+
+            var region = ((Newtonsoft.Json.Linq.JObject)listItem.Content)["regions"].First();
+            region["name"].Should().NotBeNull("the regions should be resolved");
         }
 
         [Fact]

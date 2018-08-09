@@ -61,9 +61,10 @@ namespace Picturepark.SDK.V1.Contract
         private static string BuildFieldPath<TObject, TResult>(Expression<Func<TObject, TResult>> propertyExpression, Analyzer analyzer = Analyzer.None)
         {
             var schemaAttr = typeof(TObject).GetTypeInfo().GetCustomAttribute<PictureparkSchemaAttribute>();
+            var systemSchemaAttr = typeof(TObject).GetTypeInfo().GetCustomAttribute<PictureparkSystemSchemaAttribute>();
 
             var maybeSchemaName =
-                schemaAttr != null ? (schemaAttr.Name ?? typeof(TObject).Name).ToLowerCamelCase() : null;
+                schemaAttr != null || systemSchemaAttr != null ? (schemaAttr?.Name ?? typeof(TObject).Name).ToLowerCamelCase() : null;
 
             var nameAndMaybeSchema = (maybeSchemaName, PropertyHelper.GetLowerCamelCasePropertyPath(propertyExpression)).JoinByDot();
 
