@@ -57,7 +57,7 @@ namespace Picturepark.SDK.V1
                 {
                     try
                     {
-                        var contentDetail = await GetAsync(content.Id, new ContentResolveBehaviour[] { ContentResolveBehaviour.Content },  cancellationToken).ConfigureAwait(false);
+                        var contentDetail = await GetAsync(content.Id, new[] { ContentResolveBehaviour.Content },  cancellationToken).ConfigureAwait(false);
                         var metadata = contentDetail.GetFileMetadata();
                         string fileNameOriginal = metadata.FileName;
 

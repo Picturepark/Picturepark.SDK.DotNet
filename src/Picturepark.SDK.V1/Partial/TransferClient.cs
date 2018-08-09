@@ -39,7 +39,7 @@ namespace Picturepark.SDK.V1
                 }
             };
 
-            return await SearchFilesAsync(request);
+            return await SearchFilesAsync(request).ConfigureAwait(false);
         }
 
         /// <summary>Uploads multiple files from the filesystem.</summary>
@@ -73,7 +73,7 @@ namespace Picturepark.SDK.V1
 
             // Limits concurrent uploads
             var throttler = new SemaphoreSlim(uploadOptions.ConcurrentUploads);
-            var filteredFileNames = await FilterFilesByBlacklist(files);
+            var filteredFileNames = await FilterFilesByBlacklist(files).ConfigureAwait(false);
 
             var tasks = filteredFileNames
                 .Select(file => Task.Run(async () =>
@@ -136,7 +136,7 @@ namespace Picturepark.SDK.V1
         /// <returns>The transfer.</returns>
         public async Task<CreateTransferResult> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<FileLocations> files, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var filteredFileNames = await FilterFilesByBlacklist(files);
+            var filteredFileNames = await FilterFilesByBlacklist(files).ConfigureAwait(false);
 
             var request = new CreateTransferRequest
             {
@@ -226,7 +226,7 @@ namespace Picturepark.SDK.V1
             if (_fileNameBlacklist != null)
                 return _fileNameBlacklist;
 
-            await BlacklistCacheSemaphore.WaitAsync();
+            await BlacklistCacheSemaphore.WaitAsync().ConfigureAwait(false);
             try
             {
                 if (_fileNameBlacklist != null)

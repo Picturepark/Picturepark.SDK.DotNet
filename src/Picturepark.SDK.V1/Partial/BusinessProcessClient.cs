@@ -34,7 +34,7 @@ namespace Picturepark.SDK.V1
                 }
 
                 return waitResult;
-            });
+            }).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
@@ -61,7 +61,7 @@ namespace Picturepark.SDK.V1
                 }
 
                 return waitResult;
-            });
+            }).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
@@ -91,7 +91,7 @@ namespace Picturepark.SDK.V1
                 }
 
                 return waitResult;
-            });
+            }).ConfigureAwait(false);
         }
     }
 }
