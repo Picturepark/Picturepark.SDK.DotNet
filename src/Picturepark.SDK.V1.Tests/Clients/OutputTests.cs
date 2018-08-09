@@ -22,7 +22,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Outputs")]
         public async Task ShouldGet()
         {
-            /// Arrange
+            // Arrange
             string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             Assert.False(string.IsNullOrEmpty(contentId));
 
@@ -33,10 +33,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var outputId = contentDetail.Outputs.FirstOrDefault()?.Id;
             Assert.False(string.IsNullOrEmpty(outputId));
 
-            /// Act
+            // Act
             OutputDetail result = await _client.Outputs.GetAsync(outputId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(result.ContentId == contentId);
         }
 
@@ -44,17 +44,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Outputs")]
         public async Task ShouldGetByContentIds()
         {
-            /// Arrange
+            // Arrange
             string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
             var request = new ContentsByIdsRequest
             {
                 ContentIds = new List<string> { contentId }
             };
 
-            /// Act
+            // Act
             var result = await _client.Outputs.GetByContentIdsAsync(request);
 
-            /// Assert
+            // Assert
             Assert.True(result.ToList()[0].ContentId == contentId);
         }
     }

@@ -23,10 +23,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Users")]
         public async Task ShouldSearch()
         {
-            /// Act
+            // Act
             var searchResult = await _client.Users.SearchAsync(new UserSearchRequest { Limit = 10 });
 
-            /// Assert
+            // Assert
             Assert.True(searchResult.Results.Any());
         }
 
@@ -34,15 +34,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Users")]
         public async Task ShouldGetUser()
         {
-            /// Arrange
+            // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 50);
             var content = await _client.Contents.GetAsync(contentId);
             var owner = await _client.Users.GetByOwnerTokenAsync(content.OwnerTokenId);
 
-            /// Act
+            // Act
             var user = await _client.Users.GetAsync(owner.Id);
 
-            /// Assert
+            // Assert
             Assert.Equal(owner.Id, user.Id);
         }
 
@@ -50,14 +50,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Users")]
         public async Task ShouldGetByOwnerToken()
         {
-            /// Arrange
+            // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 50);
             var content = await _client.Contents.GetAsync(contentId);
 
-            /// Act
+            // Act
             var owner = await _client.Users.GetByOwnerTokenAsync(content.OwnerTokenId);
 
-            /// Assert
+            // Assert
             Assert.NotNull(owner);
         }
 

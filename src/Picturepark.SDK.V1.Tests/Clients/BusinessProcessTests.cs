@@ -23,17 +23,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "BusinessProcesses")]
         public async Task ShouldSearchBusinessProcesses()
         {
-            /// Arrange
+            // Arrange
             var request = new BusinessProcessSearchRequest
             {
                 Start = 0,
                 Limit = 20
             };
 
-            /// Act
+            // Act
             var results = await _client.BusinessProcesses.SearchAsync(request);
 
-            /// Assert
+            // Assert
             Assert.NotNull(results);
             Assert.True(results.Results.Any());
         }
@@ -42,7 +42,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "BusinessProcesses")]
         public async Task ShouldGetBusinessProcessDetails()
         {
-            /// Arrange
+            // Arrange
 
             // 1. Create or update schema
             var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(BusinessProcessTest)).ConfigureAwait(false);
@@ -84,10 +84,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var result = await _client.ListItems.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
 
-            /// Act
+            // Act
             var details = await _client.BusinessProcesses.GetDetailsAsync(result.BusinessProcessId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(details.LifeCycle == BusinessProcessLifeCycle.Succeeded);
         }
     }

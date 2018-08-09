@@ -23,10 +23,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "PublicAccess")]
         public async Task ShouldGetVersion()
         {
-            /// Act
+            // Act
             var version = await _client.PublicAccess.GetVersionAsync();
 
-            /// Assert
+            // Assert
             Assert.NotNull(version.ContractVersion);
             Assert.NotNull(version.FileProductVersion);
             Assert.NotNull(version.FileVersion);
@@ -37,7 +37,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "PublicAccess")]
         public async Task ShouldGetShareByToken()
         {
-            /// Arrange
+            // Arrange
             var outputFormatIds = new List<string> { "Original", "Preview" };
             var shareContentItems = new List<ShareContent>
             {
@@ -56,10 +56,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var createResult = await _client.Shares.CreateAsync(request);
             var embedDetail = await _client.Shares.GetAsync(createResult.ShareId);
 
-            /// Act
+            // Act
             var result = await _client.PublicAccess.GetShareAsync(((ShareDataEmbed)embedDetail.Data).Token);
 
-            /// Assert
+            // Assert
             Assert.NotNull(result);
         }
     }

@@ -23,16 +23,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "DocumentHistory")]
         public async Task ShouldSearch()
         {
-            /// Arrange
+            // Arrange
             var request = new DocumentHistorySearchRequest
             {
                 Limit = 10,
             };
 
-            /// Act
+            // Act
             var result = await _client.DocumentHistory.SearchAsync(request);
 
-            /// Assert
+            // Assert
             Assert.True(result.Results.Any());
         }
 
@@ -40,13 +40,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "DocumentHistory")]
         public async Task ShouldGet()
         {
-            /// Arrange
+            // Arrange
             var documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
 
-            /// Act
+            // Act
             var result = await _client.DocumentHistory.GetAsync(documentId);
 
-            /// Assert
+            // Assert
             Assert.True(result.DocumentId == documentId);
         }
 
@@ -54,14 +54,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "DocumentHistory")]
         public async Task ShouldGetVersion()
         {
-            /// Arrange
+            // Arrange
             string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
             string versionId = "1";
 
-            /// Act
+            // Act
             var result = await _client.DocumentHistory.GetVersionAsync(documentId, versionId);
 
-            /// Assert
+            // Assert
             Assert.Equal(versionId, result.DocumentVersion.ToString());
         }
 
@@ -111,14 +111,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "DocumentHistory")]
         public async Task ShouldGetDifferenceWithLatestVersion()
         {
-            /// Arrange
+            // Arrange
             string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
             long oldVersionId = 1;
 
-            /// Act
+            // Act
             var difference = await _client.DocumentHistory.GetDifferenceLatestAsync(documentId, oldVersionId);
 
-            /// Assert
+            // Assert
             Assert.True(difference.OldDocumentVersion <= difference.NewDocumentVersion);
         }
 

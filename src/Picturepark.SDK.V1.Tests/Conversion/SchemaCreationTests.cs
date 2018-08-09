@@ -31,10 +31,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "Schema")]
         public async Task ShouldInvokeFilterProvider()
         {
-            /// Act
+            // Act
             var allTypes = await _client.Schemas.GenerateSchemasAsync(typeof(ClassWithSimpleRelationAndFilterProvider));
 
-            /// Assert
+            // Assert
             var type = allTypes.Single(t => t.Id == nameof(ClassWithSimpleRelationAndFilterProvider));
             var field = (FieldSingleRelation)type.Fields.Single(f => f.Id == "relationField");
             var filter = (TermFilter)field.RelationTypes.First().Filter;
@@ -62,10 +62,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "Schema")]
         public async Task ShouldInvokeSchemaIndexingInfoProvider()
         {
-            /// Act
+            // Act
             var allTypes = await _client.Schemas.GenerateSchemasAsync(typeof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider));
 
-            /// Assert
+            // Assert
             var type = allTypes.Single(t => t.Id == nameof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider));
             var field = (FieldSingleRelation)type.Fields.Single(f => f.Id == "relationField");
             var indexingInfo = field.SchemaIndexingInfo;
@@ -95,10 +95,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldIgnoreJsonProperty()
         {
-            /// Act
+            // Act
             var jsonTransformSchemas = await _client.Schemas.GenerateSchemasAsync(typeof(JsonTransform));
 
-            /// Assert
+            // Assert
             var jsonTransformSchema = jsonTransformSchemas.First();
 
             Assert.DoesNotContain(jsonTransformSchema.Fields, i => i.Id == nameof(JsonTransform.IgnoredString));
@@ -115,10 +115,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldUseRenamedJsonProperty()
         {
-            /// Act
+            // Act
             var jsonTransformSchemas = await _client.Schemas.GenerateSchemasAsync(typeof(JsonTransform));
 
-            /// Assert
+            // Assert
             var jsonTransformSchema = jsonTransformSchemas.First(i => i.Id == nameof(JsonTransform));
 
             Assert.DoesNotContain(jsonTransformSchema.Fields, i => i.Id == nameof(JsonTransform.OldName).ToLowerCamelCase());

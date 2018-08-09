@@ -24,10 +24,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "Schema")]
         public async Task ShouldOverwriteField()
         {
-            /// Act
+            // Act
             var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Teacher));
 
-            /// Assert
+            // Assert
             Assert.Equal(2, schemas.Count);
 
             // check person

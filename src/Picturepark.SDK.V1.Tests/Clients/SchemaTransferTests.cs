@@ -24,10 +24,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "SchemaTransfer")]
         public async Task ShouldThrowFileTransferNotFoundException()
         {
-            /// Assert
+            // Assert
             await Assert.ThrowsAsync<FileTransferNotFoundException>(async () =>
             {
-                /// Act
+                // Act
                 var request = new SchemaImportRequest()
                 {
                     FileTransferId = Guid.NewGuid().ToString(),
@@ -43,7 +43,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "SchemaTransfer")]
         public async Task ShouldImportPlanetSchema()
         {
-            /// Arrange
+            // Arrange
             const string schemaId = "Planet";
 
             var transferName = new Random().Next(1000, 9999).ToString();
@@ -65,7 +65,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ImportListItems = false
             };
 
-            /// Act
+            // Act
             // import schema
             var transfer = await _client.SchemaTransfer.ImportAsync(request).ConfigureAwait(false);
 
@@ -74,7 +74,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var schema = await _client.Schemas.GetAsync(schemaId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal(schema.Id, schemaId);
 
             /// Tear down
