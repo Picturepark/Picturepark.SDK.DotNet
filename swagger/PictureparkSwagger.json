@@ -5263,9 +5263,9 @@
         "tags": [
           "ContentPermissionSet"
         ],
-        "summary": "Search Content Permission Sets",
+        "summary": "Search",
         "description": "Searches content permission sets as specified in the search request.",
-        "operationId": "ContentPermissionSet_SearchContentPermissionSets",
+        "operationId": "ContentPermissionSet_Search",
         "parameters": [
           {
             "name": "request",
@@ -5338,9 +5338,9 @@
         "tags": [
           "ContentPermissionSet"
         ],
-        "summary": "Get Content Permission Set - single",
+        "summary": "Get detail - single",
         "description": "Gets the content permission set detail information by the content permission set id.",
-        "operationId": "ContentPermissionSet_GetContentPermissionSet",
+        "operationId": "ContentPermissionSet_Get",
         "parameters": [
           {
             "type": "string",
@@ -5411,9 +5411,9 @@
         "tags": [
           "SchemaPermissionSet"
         ],
-        "summary": "Search Schema Permission Sets",
+        "summary": "Search",
         "description": "Searches schema permission sets as specified in the search request.",
-        "operationId": "SchemaPermissionSet_SearchSchemaPermissionSets",
+        "operationId": "SchemaPermissionSet_Search",
         "parameters": [
           {
             "name": "request",
@@ -5486,9 +5486,9 @@
         "tags": [
           "SchemaPermissionSet"
         ],
-        "summary": "Get Schema Permission Sets - single",
+        "summary": "Get detail - single",
         "description": "Gets the schema permission set detail information by the schema permission set id.",
-        "operationId": "SchemaPermissionSet_GetSchemaPermissionSet",
+        "operationId": "SchemaPermissionSet_Get",
         "parameters": [
           {
             "type": "string",
@@ -17686,15 +17686,16 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "trashed"
+        "exclusive"
       ],
       "properties": {
         "id": {
           "type": "string",
           "description": "The permission set id."
         },
-        "trashed": {
-          "type": "boolean"
+        "exclusive": {
+          "type": "boolean",
+          "description": "When true this permission set will derogate all other configured permission sets."
         },
         "names": {
           "description": "Language specific permission set names.",
