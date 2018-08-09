@@ -43,7 +43,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             Assert.Equal("Bitmap", filter.Term);
         }
 
-        [PictureparkSchemaType(SchemaType.Content)]
+        [PictureparkSchema(SchemaType.Content)]
         public class ClassWithSimpleRelationAndFilterProvider
         {
             [PictureparkContentRelation("RelationName", typeof(RelationFieldFilterProvider))]
@@ -74,7 +74,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             Assert.Equal(11, indexingInfo.Fields.First().Boost);
         }
 
-        [PictureparkSchemaType(SchemaType.Content)]
+        [PictureparkSchema(SchemaType.Content)]
         public class ClassWithSimpleRelationAndSchemaIndexingInfoProvider
         {
             [PictureparkContentRelation("RelationName", "{ 'kind': 'TermFilter', 'field': 'contentType', term: 'Bitmap' }")]
@@ -125,7 +125,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             Assert.Contains(jsonTransformSchema.Fields, i => i.Id == "_newName");
         }
 
-        [PictureparkSchemaType(SchemaType.Struct)]
+        [PictureparkSchema(SchemaType.Struct)]
         public class JsonTransform
         {
             [JsonIgnore]
@@ -148,7 +148,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             await Assert.ThrowsAsync<InvalidOperationException>(async() => await _client.Schemas.GenerateSchemasAsync(typeof(ClassSortableRelation)));
         }
 
-        [PictureparkSchemaType(SchemaType.List)]
+        [PictureparkSchema(SchemaType.List)]
         public class ClassSortableRelation
         {
             [PictureparkContentRelation(
@@ -166,7 +166,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             await Assert.ThrowsAsync<InvalidOperationException>(async () => await _client.Schemas.GenerateSchemasAsync(typeof(ClassSortableGeopoint)));
         }
 
-        [PictureparkSchemaType(SchemaType.List)]
+        [PictureparkSchema(SchemaType.List)]
         public class ClassSortableGeopoint
         {
             [PictureparkSort]
@@ -181,7 +181,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             Assert.True(schema.First().Fields.First().Sortable);
         }
 
-        [PictureparkSchemaType(SchemaType.List)]
+        [PictureparkSchema(SchemaType.List)]
         public class ClassSortableString
         {
             [PictureparkSort]
@@ -195,7 +195,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             await Assert.ThrowsAsync<InvalidOperationException>(async () => await _client.Schemas.GenerateSchemasAsync(typeof(ClassAnalyzerWithoutIndexAndSearch)));
         }
 
-        [PictureparkSchemaType(SchemaType.List)]
+        [PictureparkSchema(SchemaType.List)]
         public class ClassAnalyzerWithoutIndexAndSearch
         {
             [PictureparkSimpleAnalyzer(Index = false, SimpleSearch = false)]
@@ -210,7 +210,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
                 async () => await _client.Schemas.GenerateSchemasAsync(typeof(ClassWithMultipleDisplayPatternsForEnglishName)));
         }
 
-        [PictureparkSchemaType(SchemaType.List)]
+        [PictureparkSchema(SchemaType.List)]
         [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{pattern}}", "en")]
         [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{pattern}}", "en")]
         public class ClassWithMultipleDisplayPatternsForEnglishName

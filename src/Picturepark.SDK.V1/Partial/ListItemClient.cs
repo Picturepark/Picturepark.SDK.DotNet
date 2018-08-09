@@ -9,6 +9,7 @@ using Picturepark.SDK.V1.Contract;
 using System.Net.Http;
 using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Contract.Results;
+using Picturepark.SDK.V1.Conversion;
 
 namespace Picturepark.SDK.V1
 {
@@ -23,7 +24,7 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<ListItemBatchOperationResult> CreateFromObjectAsync(object content, string schemaId, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemBatchOperationResult> CreateFromObjectAsync(object content, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var createManyRequest = new ListItemCreateManyRequest
             {
@@ -36,6 +37,8 @@ namespace Picturepark.SDK.V1
             {
                 createManyRequest.Items.Add(listItemCreateRequest);
             }
+
+            var schemaId = ClassToSchemaConverter.ResolveSchemaName(content.GetType());
 
             createManyRequest.Items.Add(new ListItemCreateRequest
             {

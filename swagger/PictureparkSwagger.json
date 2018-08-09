@@ -11350,10 +11350,10 @@
         "fieldId": {
           "type": "string"
         },
-        "oldType": {
+        "oldTypeName": {
           "type": "string"
         },
-        "newType": {
+        "newTypeName": {
           "type": "string"
         }
       },
@@ -11632,6 +11632,42 @@
         {
           "$ref": "#/definitions/PictureparkValidationException"
         }
+      ]
+    },
+    "MissingDisplayPatternForCustomerDefaultLanguageException": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schemaId": {
+          "type": "string"
+        },
+        "missingTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DisplayPatternType"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/PictureparkValidationException"
+        }
+      ]
+    },
+    "DisplayPatternType": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Thumbnail",
+        "List",
+        "Detail",
+        "Name"
+      ],
+      "enum": [
+        "Thumbnail",
+        "List",
+        "Detail",
+        "Name"
       ]
     },
     "DeleteContentsWithRelationsException": {
@@ -16020,22 +16056,6 @@
         "DotLiquid"
       ]
     },
-    "DisplayPatternType": {
-      "type": "string",
-      "description": "",
-      "x-enumNames": [
-        "Thumbnail",
-        "List",
-        "Detail",
-        "Name"
-      ],
-      "enum": [
-        "Thumbnail",
-        "List",
-        "Detail",
-        "Name"
-      ]
-    },
     "FieldBase": {
       "type": "object",
       "discriminator": "kind",
@@ -16604,7 +16624,13 @@
       "type": "object",
       "description": "An analyzer using the EdgeNGram tokenizer.\nhttps://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-edgengram-tokenizer.html",
       "additionalProperties": false,
+      "required": [
+        "type"
+      ],
       "properties": {
+        "type": {
+          "$ref": "#/definitions/Analyzer"
+        },
         "fieldSuffix": {
           "type": "string"
         }
@@ -16615,11 +16641,37 @@
         }
       ]
     },
+    "Analyzer": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "None",
+        "Simple",
+        "Language",
+        "PathHierarchy",
+        "EdgeNGram",
+        "NGram"
+      ],
+      "enum": [
+        "None",
+        "Simple",
+        "Language",
+        "PathHierarchy",
+        "EdgeNGram",
+        "NGram"
+      ]
+    },
     "LanguageAnalyzer": {
       "type": "object",
       "description": "An analyzer using a language analyzer. Restricted to the languages supported by elastic search.\nhttps://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-lang-analyzer.html",
       "additionalProperties": false,
+      "required": [
+        "type"
+      ],
       "properties": {
+        "type": {
+          "$ref": "#/definitions/Analyzer"
+        },
         "fieldSuffix": {
           "type": "string"
         }
@@ -16634,7 +16686,13 @@
       "type": "object",
       "description": "An analyzer using the NGram tokenizer.\nhttps://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-ngram-tokenizer.html",
       "additionalProperties": false,
+      "required": [
+        "type"
+      ],
       "properties": {
+        "type": {
+          "$ref": "#/definitions/Analyzer"
+        },
         "fieldSuffix": {
           "type": "string"
         }
@@ -16649,7 +16707,13 @@
       "type": "object",
       "description": "An analyzer using the path hierarchy tokenizer.\nhttps://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pathhierarchy-tokenizer.html",
       "additionalProperties": false,
+      "required": [
+        "type"
+      ],
       "properties": {
+        "type": {
+          "$ref": "#/definitions/Analyzer"
+        },
         "fieldSuffix": {
           "type": "string"
         }
@@ -16664,7 +16728,13 @@
       "type": "object",
       "description": "An analyzer using a custom pattern tokenizer.\nhttps://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-pattern-tokenizer.html",
       "additionalProperties": false,
+      "required": [
+        "type"
+      ],
       "properties": {
+        "type": {
+          "$ref": "#/definitions/Analyzer"
+        },
         "fieldSuffix": {
           "type": "string"
         }

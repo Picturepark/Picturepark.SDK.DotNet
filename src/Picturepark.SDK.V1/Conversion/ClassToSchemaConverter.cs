@@ -19,7 +19,7 @@ namespace Picturepark.SDK.V1.Conversion
     {
         private readonly string _defaultLanguage;
         private readonly IContractResolver _contractResolver;
-        private readonly List<string> _ignoredProperties = new List<string> { "_refId", "_relationType", "_targetDocType", "_targetId" };
+        private readonly HashSet<string> _ignoredProperties = new HashSet<string> { "_refId", "_relationType", "_targetDocType", "_targetId" };
 
         public ClassToSchemaConverter(string defaultLanguage)
             : this(new CamelCasePropertyNamesContractResolver())
@@ -30,6 +30,12 @@ namespace Picturepark.SDK.V1.Conversion
         public ClassToSchemaConverter(IContractResolver contractResolver)
         {
             _contractResolver = contractResolver;
+        }
+
+        public static string ResolveSchemaName(Type contract)
+        {
+            return contract.GetTypeInfo().GetCustomAttribute<PictureparkSchemaAttribute>()?.Name ??
+                   contract.Name;
         }
 
         /// <summary>Converts a .NET type and its dependencies to a list of Picturepark schema definitions.</summary>
@@ -83,7 +89,7 @@ namespace Picturepark.SDK.V1.Conversion
 
         private SchemaDetail CreateSchemas(Type contractType, List<ContractPropertyInfo> properties, string parentSchemaId, List<SchemaDetail> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
         {
-            var schemaId = contractType.Name;
+            var schemaId = ResolveSchemaName(contractType);
             if (schemaList.Any(s => s.Id == schemaId))
                 return null;
 
@@ -98,15 +104,14 @@ namespace Picturepark.SDK.V1.Conversion
             }
 
             var typeAttributes = contractType.GetTypeInfo()
-                .GetCustomAttributes(typeof(PictureparkSchemaTypeAttribute), true)
-                .OfType<PictureparkSchemaTypeAttribute>()
+                .GetCustomAttributes<PictureparkSchemaAttribute>(true)
                 .ToList();
 
             if (!typeAttributes.Any())
                 throw new Exception("No PictureparkSchemaTypeAttribute set on class: " + contractType.Name);
 
             var types = typeAttributes
-                .Select(typeAttribute => typeAttribute.SchemaType)
+                .Select(typeAttribute => typeAttribute.Type)
                 .ToList();
 
             var schemaItem = new SchemaDetail
@@ -178,7 +183,7 @@ namespace Picturepark.SDK.V1.Conversion
                     schemaList.Add(schemaItem);
             }
 
-            // Create schemas for all known types
+            // Create schemas for all related known types
             foreach (var knownType in contractType.GetKnownTypes())
                 CreateSchemas(knownType, GetProperties(knownType), schemaId, schemaList);
 
@@ -265,12 +270,10 @@ namespace Picturepark.SDK.V1.Conversion
             }
         }
 
-        private void ApplyDisplayPatternAttributes(SchemaDetail schemaDetail, Type type)
+        private void ApplyDisplayPatternAttributes(SchemaDetail schemaDetail, Type contractType)
         {
-            var displayPatternAttributes = type.GetTypeInfo()
-                .GetCustomAttributes(typeof(PictureparkDisplayPatternAttribute), true)
-                .Select(i => i as PictureparkDisplayPatternAttribute)
-                .ToList();
+            var displayPatternAttributes = contractType.GetTypeInfo()
+                .GetCustomAttributes<PictureparkDisplayPatternAttribute>(true);
 
             foreach (var displayPatternAttribute in displayPatternAttributes.GroupBy(g => new { g.Type, g.TemplateEngine }))
             {
@@ -279,15 +282,20 @@ namespace Picturepark.SDK.V1.Conversion
                     throw new InvalidOperationException("Multiple display patterns for the same language are defined.");
                 }
 
-                var displayPattern = new DisplayPattern
-                {
-                    DisplayPatternType = displayPatternAttribute.Key.Type,
-                    TemplateEngine = displayPatternAttribute.Key.TemplateEngine,
-                    Templates = new TranslatedStringDictionary(
-                        displayPatternAttribute.ToDictionary(x => string.IsNullOrEmpty(x.Language) ? _defaultLanguage : x.Language, x => x.DisplayPattern))
-                };
+                // If no type is specified, set for all the types.
+                var types = displayPatternAttribute.Key.Type.HasValue
+                    ? new[] { displayPatternAttribute.Key.Type.Value }
+                    : Enum.GetValues(typeof(DisplayPatternType)).OfType<DisplayPatternType>();
 
-                schemaDetail.DisplayPatterns.Add(displayPattern);
+                foreach (var type in types)
+                {
+                    schemaDetail.DisplayPatterns.Add(new DisplayPattern
+                    {
+                        DisplayPatternType = type,
+                        TemplateEngine = displayPatternAttribute.Key.TemplateEngine,
+                        Templates = new TranslatedStringDictionary(displayPatternAttribute.ToDictionary(x => string.IsNullOrEmpty(x.Language) ? _defaultLanguage : x.Language, x => x.DisplayPattern))
+                    });
+                }
             }
         }
 
@@ -388,13 +396,11 @@ namespace Picturepark.SDK.V1.Conversion
                         }
                     }
 
-                    var searchAttributes = property.AttributeProvider
+                    propertyInfo.PictureparkAttributes = property.AttributeProvider
                         .GetAttributes(true)
-                        .Where(i => i.GetType().GetTypeInfo().ImplementedInterfaces.Any(j => j == typeof(IPictureparkAttribute)))
                         .Select(i => i as IPictureparkAttribute)
+                        .Where(i => i != null)
                         .ToList();
-
-                    propertyInfo.PictureparkAttributes = searchAttributes;
 
                     contactPropertiesInfo.Add(propertyInfo);
                 }
@@ -559,10 +565,8 @@ namespace Picturepark.SDK.V1.Conversion
                             };
                             break;
                         case TypeCode.DateTime:
-                            field = new FieldDateTime
-                            {
-                                Index = true
-                            };
+                            field = CreateDateTypeField(property);
+
                             break;
                         case TypeCode.Boolean:
                             field = new FieldBoolean
@@ -787,12 +791,24 @@ namespace Picturepark.SDK.V1.Conversion
             return field;
         }
 
+        private FieldBase CreateDateTypeField(ContractPropertyInfo property)
+        {
+            var dateAttribute =
+                property.PictureparkAttributes.OfType<PictureparkDateTypeAttribute>().FirstOrDefault();
+            var format = dateAttribute?.Format;
+
+            if (dateAttribute == null || dateAttribute.ContainsTimePortion)
+                return new FieldDateTime { Index = true, Format = format };
+            else
+                return new FieldDate { Index = true, Format = format };
+        }
+
         private bool IsSimpleType(Type type)
         {
             return
                 type.GetTypeInfo().IsValueType ||
                 type.GetTypeInfo().IsPrimitive ||
-                new Type[]
+                new[]
                 {
                     typeof(string),
                     typeof(decimal),

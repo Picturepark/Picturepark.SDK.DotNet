@@ -137,7 +137,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             public string Bar { get; set; }
         }
 
-        [PictureparkSchemaType(SchemaType.Struct)]
+        [PictureparkSchema(SchemaType.Struct)]
         public class Child : Relation
         {
             [PictureparkSearch(Index = true, Boost = 1.2, SimpleSearch = true)]

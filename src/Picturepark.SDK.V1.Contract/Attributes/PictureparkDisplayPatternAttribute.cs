@@ -13,7 +13,14 @@ namespace Picturepark.SDK.V1.Contract.Attributes
             Language = language;
         }
 
-        public DisplayPatternType Type { get; }
+        public PictureparkDisplayPatternAttribute(TemplateEngine templateEngine, string displayPattern, string language = null)
+        {
+            DisplayPattern = displayPattern;
+            TemplateEngine = templateEngine;
+            Language = language;
+        }
+
+        public DisplayPatternType? Type { get; }
 
         public TemplateEngine TemplateEngine { get; }
 

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
 {
-    [PictureparkSchemaType(SchemaType.Layer)]
+    [PictureparkSchema(SchemaType.Layer)]
     [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.personShot.description}}")]
     public class PersonShot
     {
