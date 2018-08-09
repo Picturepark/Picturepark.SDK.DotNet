@@ -48,37 +48,6 @@ namespace Picturepark.SDK.V1.Tests
             return permissionSetId;
         }
 
-        public static async Task<string> GetRandomTransferIdAsync(PictureparkClient client, TransferState? transferState, int limit)
-        {
-            var transferId = string.Empty;
-
-            var request = new TransferSearchRequest { Limit = limit };
-            if (transferState.HasValue)
-            {
-                request.Filter = new ChildFilter
-                {
-                    ChildType = "TransferInfo",
-                    Filter = new TermFilter
-                    {
-                        Field = "state",
-                        Term = transferState.ToString()
-                    }
-                };
-            }
-
-            var result = await client.Transfers.SearchAsync(request);
-
-            var transfers = result.Results;
-
-            if (transfers.Count <= 0)
-                return transferId;
-
-            var randomNumber = new Random().Next(0, transfers.Count);
-            transferId = transfers.Skip(randomNumber).First().Id;
-
-            return transferId;
-        }
-
         public static async Task<string> GetRandomFileTransferIdAsync(PictureparkClient client, int limit)
         {
             string fileTransferId = string.Empty;

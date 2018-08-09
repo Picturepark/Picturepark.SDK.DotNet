@@ -11,7 +11,7 @@ namespace Picturepark.SDK.V1
 {
     public partial class TransferClient
     {
-        private static readonly object s_lock = new object();
+        private static readonly SemaphoreSlim BlacklistCacheSemaphore = new SemaphoreSlim(1, 1);
 
         private readonly BusinessProcessClient _businessProcessClient;
         private volatile ISet<string> _fileNameBlacklist;
@@ -73,7 +73,7 @@ namespace Picturepark.SDK.V1
 
             // Limits concurrent uploads
             var throttler = new SemaphoreSlim(uploadOptions.ConcurrentUploads);
-            var filteredFileNames = FilterFilesByBlacklist(files);
+            var filteredFileNames = await FilterFilesByBlacklist(files);
 
             var tasks = filteredFileNames
                 .Select(file => Task.Run(async () =>
@@ -136,7 +136,7 @@ namespace Picturepark.SDK.V1
         /// <returns>The transfer.</returns>
         public async Task<CreateTransferResult> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<FileLocations> files, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var filteredFileNames = FilterFilesByBlacklist(files);
+            var filteredFileNames = await FilterFilesByBlacklist(files);
 
             var request = new CreateTransferRequest
             {
@@ -215,24 +215,29 @@ namespace Picturepark.SDK.V1
             await Task.WhenAll(uploadTasks).ConfigureAwait(false);
         }
 
-        private IEnumerable<FileLocations> FilterFilesByBlacklist(IEnumerable<FileLocations> files)
+        private async Task<IEnumerable<FileLocations>> FilterFilesByBlacklist(IEnumerable<FileLocations> files)
         {
-            var blacklist = GetCachedBlacklist();
+            var blacklist = await GetCachedBlacklist().ConfigureAwait(false);
             return files.Where(i => !blacklist.Contains(Path.GetFileName(i.AbsoluteSourcePath)?.ToLowerInvariant()));
         }
 
-        private ISet<string> GetCachedBlacklist()
+        private async Task<ISet<string>> GetCachedBlacklist()
         {
             if (_fileNameBlacklist != null)
                 return _fileNameBlacklist;
 
-            lock (s_lock)
+            await BlacklistCacheSemaphore.WaitAsync();
+            try
             {
                 if (_fileNameBlacklist != null)
                     return _fileNameBlacklist;
 
-                var blacklist = Task.Run(() => GetBlacklistAsync()).GetAwaiter().GetResult();
+                var blacklist = await GetBlacklistAsync().ConfigureAwait(false);
                 _fileNameBlacklist = new HashSet<string>(blacklist.Items.Select(i => i.Match.ToLowerInvariant()));
+            }
+            finally
+            {
+                BlacklistCacheSemaphore.Release();
             }
 
             return _fileNameBlacklist;
