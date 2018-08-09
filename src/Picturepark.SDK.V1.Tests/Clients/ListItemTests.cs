@@ -153,7 +153,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var createResult = await _client.ListItems.CreateFromObjectAsync(tag, nameof(Tag)).ConfigureAwait(false);
+            var createResult = await _client.ListItems.CreateFromObjectAsync(tag).ConfigureAwait(false);
             var createDetail = await createResult.FetchDetail().ConfigureAwait(false);
 
             // Assert
@@ -200,7 +200,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         },
                         dog
                     }
-                }, nameof(SoccerPlayer)).ConfigureAwait(false);
+                }).ConfigureAwait(false);
 
             var soccerPlayerDetail = await soccerPlayerResult.FetchDetail().ConfigureAwait(false);
 
@@ -212,7 +212,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     Firstname = "Urxxxxs",
                     LastName = "xxxxxxxx",
                     TrainerSince = new DateTime(2000, 1, 1)
-                }, nameof(SoccerTrainer)).ConfigureAwait(false);
+                }).ConfigureAwait(false);
 
             var soccerTrainerDetail = await soccerTrainerResult.FetchDetail().ConfigureAwait(false);
 
@@ -223,14 +223,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     EmailAddress = "xyyyy@teyyyyyyst.com",
                     Firstname = "Urxxxxs",
                     LastName = "xxxxxxxx"
-                }, nameof(Person)).ConfigureAwait(false);
+                }).ConfigureAwait(false);
 
             var personDetail = await personResult.FetchDetail().ConfigureAwait(false);
 
             // Assert
-            Assert.True(soccerPlayerDetail.SucceededItems.Any());
-            Assert.True(soccerTrainerDetail.SucceededItems.Any());
-            Assert.True(personDetail.SucceededItems.Any());
+            soccerPlayerDetail.SucceededItems.Should().NotBeEmpty();
+            soccerTrainerDetail.SucceededItems.Should().NotBeEmpty();
+            personDetail.SucceededItems.Should().NotBeEmpty();
         }
 
         [Fact]
@@ -652,6 +652,30 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             detail.SucceededItems.Should().HaveCount(201);
             detail.SucceededItems.Select(i => ((dynamic)i.Content).name).ToArray().Distinct().Should().HaveCount(201);
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldProperlyResolveSchemaName()
+        {
+            // Arrange
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Vehicle>(_client).ConfigureAwait(false);
+
+            var carResult = await _client.ListItems.CreateFromObjectAsync(
+                new Car
+                {
+                    NumberOfWheels = 4,
+                    HorsePower = 142,
+                    BootSize = 490,
+                    Model = "Civic",
+                    Introduced = new DateTime(2013, 1, 1)
+                }).ConfigureAwait(false);
+
+            var carResultDetail = await carResult.FetchDetail().ConfigureAwait(false);
+
+            carResultDetail.FailedItems.Should().BeEmpty();
+            carResultDetail.SucceededItems.Should().NotBeEmpty()
+                .And.Subject.First().ContentSchemaId.Should().Be("Automobile");
         }
     }
 }

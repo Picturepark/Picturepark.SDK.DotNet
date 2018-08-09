@@ -27,7 +27,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         }
 
         [KnownType(typeof(SpecialChild))]
-        [PictureparkSchemaType(SchemaType.Struct)]
+        [PictureparkSchema(SchemaType.Struct)]
         public class Child : Relation
         {
             [PictureparkSearch(Index = true, Boost = 1.2, SimpleSearch = true)]

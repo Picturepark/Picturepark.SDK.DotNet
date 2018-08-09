@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Contract.Attributes.Analyzer;
@@ -45,71 +45,55 @@ namespace Picturepark.SDK.V1.Tests
                     SimpleField = "Simple12Field"
                 };
 
-                await _client.ListItems.CreateFromObjectAsync(analyzerValue, nameof(AnalyzerTestObject)).ConfigureAwait(false);
+                var res = await _client.ListItems.CreateFromObjectAsync(analyzerValue).ConfigureAwait(false);
+                var resDetail = await res.FetchDetail().ConfigureAwait(false);
+                resDetail.SucceededItems.Should().NotBeEmpty();
             }
+
+            var requestSchemaIds = new[] { nameof(AnalyzerTestObject) };
 
             var simpleResults = await _client.ListItems.SearchAsync(new ListItemSearchRequest
             {
-                SchemaIds = new List<string> { nameof(AnalyzerTestObject) },
-                Filter = new TermFilter
-                {
-                    Field = "analyzerTestObject.simpleField.simple",
-                    Term = "simple"
-                }
+                SchemaIds = requestSchemaIds,
+                Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.SimpleField, "simple", Analyzer.Simple)
             }).ConfigureAwait(false);
 
             Assert.True(simpleResults.TotalResults > 0);
 
             var pathResults = await _client.ListItems.SearchAsync(new ListItemSearchRequest
             {
-                SchemaIds = new List<string> { nameof(AnalyzerTestObject) },
-                Filter = new TermFilter
-                {
-                    Field = "analyzerTestObject.pathHierarchyField.pathhierarchy",
-                    Term = "Path/Hierarchy"
-                }
+                SchemaIds = requestSchemaIds,
+                Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.PathHierarchyField, "Path/Hierarchy", Analyzer.PathHierarchy)
             }).ConfigureAwait(false);
 
             Assert.True(pathResults.TotalResults > 0);
 
             var languageResults = await _client.ListItems.SearchAsync(new ListItemSearchRequest
             {
-                SchemaIds = new List<string> { nameof(AnalyzerTestObject) },
-                Filter = new TermFilter
-                {
-                    Field = "analyzerTestObject.languageField.en.language",
-                    Term = "citi"
-                }
+                SchemaIds = requestSchemaIds,
+                Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.LanguageField, "citi", language: "en", useAnalyzer: true)
             }).ConfigureAwait(false);
 
             Assert.True(languageResults.TotalResults > 0);
 
             var edgeNgramResults = await _client.ListItems.SearchAsync(new ListItemSearchRequest
             {
-                SchemaIds = new List<string> { nameof(AnalyzerTestObject) },
-                Filter = new TermFilter
-                {
-                    Field = "analyzerTestObject.edgeNGramField.edgengram",
-                    Term = "edg"
-                }
+                SchemaIds = requestSchemaIds,
+                Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.EdgeNGramField, "edg", Analyzer.EdgeNGram)
             }).ConfigureAwait(false);
 
             Assert.True(edgeNgramResults.TotalResults > 0);
 
             var ngramResults = await _client.ListItems.SearchAsync(new ListItemSearchRequest
             {
-                SchemaIds = new List<string> { nameof(AnalyzerTestObject) },
-                Filter = new TermFilter
-                {
-                    Field = "analyzerTestObject.nGramField.ngram",
-                    Term = "mfield"
-                }
+                SchemaIds = requestSchemaIds,
+                Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.NGramField, "mfield", Analyzer.NGram)
             }).ConfigureAwait(false);
 
             Assert.True(ngramResults.TotalResults > 0);
         }
 
-        [PictureparkSchemaType(SchemaType.List)]
+        [PictureparkSchema(SchemaType.List)]
         public class AnalyzerTestObject
         {
             [PictureparkEdgeNGramAnalyzer(Index = true)]
