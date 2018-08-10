@@ -7,8 +7,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 {
     public class ContentPermissionSetTests : IClassFixture<ClientFixture>
     {
-        private ClientFixture _fixture;
-        private PictureparkClient _client;
+        private readonly ClientFixture _fixture;
+        private readonly PictureparkClient _client;
 
         public ContentPermissionSetTests(ClientFixture fixture)
         {
@@ -20,14 +20,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ContentPermissionSets")]
         public async Task ShouldGetContentPermissionSet()
         {
-            /// Arrange
+            // Arrange
             string permissionSetId = await _fixture.GetRandomContentPermissionSetIdAsync(20).ConfigureAwait(false);
             Assert.False(string.IsNullOrEmpty(permissionSetId));
 
-            /// Act
-            ContentPermissionSetDetail result = await _client.ContentPermissionSets.GetContentPermissionSetAsync(permissionSetId).ConfigureAwait(false);
+            // Act
+            ContentPermissionSetDetail result = await _client.ContentPermissionSets.GetAsync(permissionSetId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.False(string.IsNullOrEmpty(result.Id));
         }
 
@@ -35,13 +35,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ContentPermissionSets")]
         public async Task ShouldSearchContentPermissionSets()
         {
-            /// Arrange
+            // Arrange
             var request = new PermissionSetSearchRequest { Limit = 20 };
 
-            /// Act
-            PermissionSetSearchResult result = await _client.ContentPermissionSets.SearchContentPermissionSetsAsync(request).ConfigureAwait(false);
+            // Act
+            PermissionSetSearchResult result = await _client.ContentPermissionSets.SearchAsync(request).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(result.Results.Count > 0);
         }
     }
