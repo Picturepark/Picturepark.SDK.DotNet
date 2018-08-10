@@ -115,6 +115,23 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Schema")]
+        public async Task ShouldGenerateSchemasWithCorrectInheritance()
+        {
+            // Act
+            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Person)).ConfigureAwait(false);
+
+            // Assert
+            var pet = schemas.Single(s => s.Id == "Pet");
+            var cat = schemas.Single(s => s.Id == "Cat");
+            var dog = schemas.Single(s => s.Id == "Dog");
+
+            Assert.Equal(string.Empty, pet.ParentSchemaId);
+            Assert.Equal(pet.Id, cat.ParentSchemaId);
+            Assert.Equal(pet.Id, dog.ParentSchemaId);
+        }
+
+        [Fact]
+        [Trait("Stack", "Schema")]
         public async Task ShouldDelete()
         {
             // Arrange

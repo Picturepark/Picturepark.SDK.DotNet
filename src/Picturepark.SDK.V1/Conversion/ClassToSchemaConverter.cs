@@ -57,7 +57,7 @@ namespace Picturepark.SDK.V1.Conversion
             var properties = GetProperties(type);
 
             var schemaList = schemaDetails.ToList();
-            CreateSchemas(type, properties, string.Empty, schemaList, 0, generateRelatedSchemas);
+            CreateSchemas(type, properties, schemaList, 0, generateRelatedSchemas);
 
             var sortedList = new List<SchemaDetail>();
             foreach (var schemaItem in schemaList)
@@ -87,20 +87,22 @@ namespace Picturepark.SDK.V1.Conversion
             return Task.FromResult((ICollection<SchemaDetail>)sortedList);
         }
 
-        private SchemaDetail CreateSchemas(Type contractType, List<ContractPropertyInfo> properties, string parentSchemaId, List<SchemaDetail> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
+        private SchemaDetail CreateSchemas(Type contractType, List<ContractPropertyInfo> properties, List<SchemaDetail> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
         {
             var schemaId = ResolveSchemaName(contractType);
             if (schemaList.Any(s => s.Id == schemaId))
                 return null;
 
             // Create schema for base class
+            var parentSchemaId = string.Empty;
             var baseType = contractType.GetTypeInfo().BaseType;
             if (baseType != null &&
                 baseType != typeof(object) &&
                 baseType != typeof(Relation) &&
                 baseType != typeof(ReferenceObject))
             {
-                CreateSchemas(baseType, GetProperties(baseType), schemaId, schemaList);
+                CreateSchemas(baseType, GetProperties(baseType), schemaList);
+                parentSchemaId = ResolveSchemaName(baseType);
             }
 
             var typeAttributes = contractType.GetTypeInfo()
@@ -149,7 +151,7 @@ namespace Picturepark.SDK.V1.Conversion
                     if (isSystemSchema == false)
                     {
                         var subLevelOfcall = levelOfCall + 1;
-                        var dependencySchema = CreateSchemas(type, customType.TypeProperties, string.Empty, schemaList, subLevelOfcall, generateDependencySchema);
+                        var dependencySchema = CreateSchemas(type, customType.TypeProperties, schemaList, subLevelOfcall, generateDependencySchema);
 
                         // the schema can be alredy added as dependency
                         if (schemaItem.Dependencies.Any(d => d.Id == referencedSchemaId) == false)
@@ -185,7 +187,7 @@ namespace Picturepark.SDK.V1.Conversion
 
             // Create schemas for all related known types
             foreach (var knownType in contractType.GetKnownTypes())
-                CreateSchemas(knownType, GetProperties(knownType), schemaId, schemaList);
+                CreateSchemas(knownType, GetProperties(knownType), schemaList);
 
             return schemaItem;
         }
