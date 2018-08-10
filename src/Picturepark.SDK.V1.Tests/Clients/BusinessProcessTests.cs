@@ -31,7 +31,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var results = await _client.BusinessProcesses.SearchAsync(request);
+            var results = await _client.BusinessProcesses.SearchAsync(request).ConfigureAwait(false);
 
             // Assert
             Assert.NotNull(results);

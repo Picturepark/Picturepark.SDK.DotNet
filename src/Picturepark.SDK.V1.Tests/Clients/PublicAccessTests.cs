@@ -24,7 +24,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetVersion()
         {
             // Act
-            var version = await _client.PublicAccess.GetVersionAsync();
+            var version = await _client.PublicAccess.GetVersionAsync().ConfigureAwait(false);
 
             // Assert
             Assert.NotNull(version.ContractVersion);
@@ -41,8 +41,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var outputFormatIds = new List<string> { "Original", "Preview" };
             var shareContentItems = new List<ShareContent>
             {
-                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds },
-                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30), OutputFormatIds = outputFormatIds }
+                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30).ConfigureAwait(false), OutputFormatIds = outputFormatIds },
+                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30).ConfigureAwait(false), OutputFormatIds = outputFormatIds }
             };
 
             var request = new ShareEmbedCreateRequest
@@ -53,11 +53,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Name = "Embed share"
             };
 
-            var createResult = await _client.Shares.CreateAsync(request);
-            var embedDetail = await _client.Shares.GetAsync(createResult.ShareId);
+            var createResult = await _client.Shares.CreateAsync(request).ConfigureAwait(false);
+            var embedDetail = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
             // Act
-            var result = await _client.PublicAccess.GetShareAsync(((ShareDataEmbed)embedDetail.Data).Token);
+            var result = await _client.PublicAccess.GetShareAsync(((ShareDataEmbed)embedDetail.Data).Token).ConfigureAwait(false);
 
             // Assert
             Assert.NotNull(result);

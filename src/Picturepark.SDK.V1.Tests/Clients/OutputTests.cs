@@ -45,14 +45,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetByContentIds()
         {
             // Arrange
-            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentsByIdsRequest
             {
                 ContentIds = new List<string> { contentId }
             };
 
             // Act
-            var result = await _client.Outputs.GetByContentIdsAsync(request);
+            var result = await _client.Outputs.GetByContentIdsAsync(request).ConfigureAwait(false);
 
             // Assert
             Assert.True(result.ToList()[0].ContentId == contentId);

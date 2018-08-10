@@ -296,7 +296,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Filter = FilterBase.FromExpression<Country>(c => c.Name, "Switzerland"),
                 SchemaIds = new[] { countrySchemaId }
-            });
+            }).ConfigureAwait(false);
 
             chSearch.Results.Should().NotBeEmpty("Switzerland should exist");
 

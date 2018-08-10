@@ -30,7 +30,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var result = await _client.DocumentHistory.SearchAsync(request);
+            var result = await _client.DocumentHistory.SearchAsync(request).ConfigureAwait(false);
 
             // Assert
             Assert.True(result.Results.Any());
@@ -41,10 +41,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGet()
         {
             // Arrange
-            var documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            var documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
 
             // Act
-            var result = await _client.DocumentHistory.GetAsync(documentId);
+            var result = await _client.DocumentHistory.GetAsync(documentId).ConfigureAwait(false);
 
             // Assert
             Assert.True(result.DocumentId == documentId);
@@ -55,11 +55,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetVersion()
         {
             // Arrange
-            string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             string versionId = "1";
 
             // Act
-            var result = await _client.DocumentHistory.GetVersionAsync(documentId, versionId);
+            var result = await _client.DocumentHistory.GetVersionAsync(documentId, versionId).ConfigureAwait(false);
 
             // Assert
             Assert.Equal(versionId, result.DocumentVersion.ToString());
@@ -112,11 +112,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetDifferenceWithLatestVersion()
         {
             // Arrange
-            string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             long oldVersionId = 1;
 
             // Act
-            var difference = await _client.DocumentHistory.GetDifferenceLatestAsync(documentId, oldVersionId);
+            var difference = await _client.DocumentHistory.GetDifferenceLatestAsync(documentId, oldVersionId).ConfigureAwait(false);
 
             // Assert
             Assert.True(difference.OldDocumentVersion <= difference.NewDocumentVersion);
