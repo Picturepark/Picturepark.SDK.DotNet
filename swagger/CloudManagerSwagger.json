@@ -10699,6 +10699,9 @@
         "sampleRootPath": {
           "type": "string"
         },
+        "superUserEmailAddress": {
+          "type": "string"
+        },
         "usersAndRoles": {
           "$ref": "#/definitions/DataGenerationUsersAndUserRoles"
         },
