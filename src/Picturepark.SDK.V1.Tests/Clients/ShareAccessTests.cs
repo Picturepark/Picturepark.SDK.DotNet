@@ -114,7 +114,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
             var createTransferResult = await _client.Transfers.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
 
-            var importRequest = new FileTransfer2ContentCreateRequest
+            var importRequest = new ImportTransferRequest
             {
                 ContentPermissionSetIds = new List<string>(),
                 Metadata = null,

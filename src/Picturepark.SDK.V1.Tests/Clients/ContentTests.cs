@@ -699,7 +699,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentFieldsBatchUpdateFilterRequest
             {
-                ContentFilterRequest = new ContentFilterRequest
+                FilterRequest = new ContentFilterRequest
                 {
                     ChannelId = "rootChannel",
                     Filter = new TermFilter { Field = "id", Term = contentId }

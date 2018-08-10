@@ -117,7 +117,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Act
             var updateRequest = new ListItemFieldsBatchUpdateFilterRequest
             {
-                ListItemFilterRequest = new ListItemFilterRequest
+                FilterRequest = new ListItemFilterRequest
                 {
                     Filter = new TermFilter { Field = "id", Term = listItemDetail.Id }
                 },
