@@ -49,15 +49,15 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "Schema")]
         public void ShouldAddIndexOnPropertyPathWithInheritance()
         {
-            //// Arrange
+            /// Arrange
             var builder = new SchemaIndexingInfoBuilder<Parent>();
 
-            //// Act
+            /// Act
             var info = builder
                 .AddIndex(p => ((SpecialChild)p.Child).Speciality)
                 .Build();
 
-            //// Assert
+            /// Assert
             Assert.Contains(info.Fields.Single(f => f.Id == "child").RelatedSchemaIndexing.Fields, f => f.Id == "speciality");
         }
 
@@ -65,15 +65,15 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "Schema")]
         public void ShouldAddIndexOnCollectionPathWithInheritance()
         {
-            //// Arrange
+            /// Arrange
             var builder = new SchemaIndexingInfoBuilder<Parent>();
 
-            //// Act
+            /// Act
             var info = builder
                 .AddIndex(p => p.Children.OfType<SpecialChild>().Select(c => c.Speciality))
                 .Build();
 
-            //// Assert
+            /// Assert
             Assert.Contains(info.Fields.Single(f => f.Id == "children").RelatedSchemaIndexing.Fields, f => f.Id == "speciality");
 
             Assert.Null(info.Fields.Single(f => f.Id == "children")
@@ -85,15 +85,15 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "Schema")]
         public void ShouldAddDefaultIndexesWithInheritance()
         {
-            //// Arrange
+            /// Arrange
             var builder = new SchemaIndexingInfoBuilder<Parent>();
 
-            //// Act
+            /// Act
             var info = builder
                 .AddDefaultIndexes(p => p.Child, 1)
                 .Build();
 
-            //// Assert
+            /// Assert
             Assert.Contains(info.Fields.Single(f => f.Id == "child").RelatedSchemaIndexing.Fields, f => f.Id == "speciality");
         }
     }

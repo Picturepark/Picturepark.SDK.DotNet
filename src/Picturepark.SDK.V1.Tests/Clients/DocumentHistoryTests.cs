@@ -23,16 +23,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "DocumentHistory")]
         public async Task ShouldSearch()
         {
-            /// Arrange
+            // Arrange
             var request = new DocumentHistorySearchRequest
             {
                 Limit = 10,
             };
 
-            /// Act
-            var result = await _client.DocumentHistory.SearchAsync(request);
+            // Act
+            var result = await _client.DocumentHistory.SearchAsync(request).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(result.Results.Any());
         }
 
@@ -40,13 +40,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "DocumentHistory")]
         public async Task ShouldGet()
         {
-            /// Arrange
-            var documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            // Arrange
+            var documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
 
-            /// Act
-            var result = await _client.DocumentHistory.GetAsync(documentId);
+            // Act
+            var result = await _client.DocumentHistory.GetAsync(documentId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(result.DocumentId == documentId);
         }
 
@@ -54,14 +54,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "DocumentHistory")]
         public async Task ShouldGetVersion()
         {
-            /// Arrange
-            string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            // Arrange
+            string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             string versionId = "1";
 
-            /// Act
-            var result = await _client.DocumentHistory.GetVersionAsync(documentId, versionId);
+            // Act
+            var result = await _client.DocumentHistory.GetVersionAsync(documentId, versionId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal(versionId, result.DocumentVersion.ToString());
         }
 
@@ -111,14 +111,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "DocumentHistory")]
         public async Task ShouldGetDifferenceWithLatestVersion()
         {
-            /// Arrange
-            string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            // Arrange
+            string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             long oldVersionId = 1;
 
-            /// Act
-            var difference = await _client.DocumentHistory.GetDifferenceLatestAsync(documentId, oldVersionId);
+            // Act
+            var difference = await _client.DocumentHistory.GetDifferenceLatestAsync(documentId, oldVersionId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(difference.OldDocumentVersion <= difference.NewDocumentVersion);
         }
 

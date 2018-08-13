@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
@@ -346,10 +347,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     Console.WriteLine(content.GetFileMetadata().FileName);
                 },
-                errorDelegate: (error) =>
-                {
-                    Console.WriteLine(error);
-                }).ConfigureAwait(false);
+                errorDelegate: Console.WriteLine).ConfigureAwait(false);
         }
 
         [Fact]
@@ -701,7 +699,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var request = new ContentFieldsBatchUpdateFilterRequest
             {
-                ContentFilterRequest = new ContentFilterRequest
+                FilterRequest = new ContentFilterRequest
                 {
                     ChannelId = "rootChannel",
                     Filter = new TermFilter { Field = "id", Term = contentId }
@@ -847,30 +845,22 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldGetWithResolvedObjects()
         {
-            // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
-
-            // Act
-            var contentDetail = await _client.Contents.GetAsync(contentId, new[] { ContentResolveBehaviour.Metadata, ContentResolveBehaviour.LinkedListItems }).ConfigureAwait(false);
+            var contentDetail = await CreateContentReferencingSwitzerland(ContentResolveBehaviour.Content, ContentResolveBehaviour.LinkedListItems);
 
             // Assert
-            Assert.Equal(contentId, contentDetail.Id);
-            Assert.NotNull(contentDetail);
+            var contentContent = (JObject)contentDetail.Content;
+            ((string)contentContent["object"]?["name"]?["en"]).Should().Be("Switzerland");
         }
 
         [Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldGetWithoutResolvedObjects()
         {
-            // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
-
-            // Act
-            var contentDetail = await _client.Contents.GetAsync(contentId).ConfigureAwait(false);
+            var contentDetail = await CreateContentReferencingSwitzerland(ContentResolveBehaviour.Content);
 
             // Assert
-            Assert.Equal(contentId, contentDetail.Id);
-            Assert.NotNull(contentDetail);
+            var contentContent = (JObject)contentDetail.Content;
+            contentContent["object"]["name"].Should().BeNull();
         }
 
         [Fact]
@@ -1193,6 +1183,46 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             detail.SucceededItems.Should().HaveCount(201);
             detail.SucceededItems.Select(i => ((dynamic)i.Content).name).ToArray().Distinct().Should().HaveCount(201);
+        }
+
+        private async Task<ContentDetail> CreateContentReferencingSwitzerland(params ContentResolveBehaviour[] behaviours)
+        {
+            // Arrange
+            var countrySchemaId = SchemaFixture.CountrySchemaId;
+
+            var chSearch = await _client.ListItems.SearchAsync(new ListItemSearchRequest
+            {
+                Filter = FilterBase.FromExpression<Country>(c => c.Name, "Switzerland"),
+                SchemaIds = new[] { countrySchemaId }
+            });
+
+            var contentSchema = await SchemaHelper.CreateSchemasIfNotExistentAsync<ContentItemWithTagBox>(_client).ConfigureAwait(false);
+
+            var content = await _client.Contents.CreateAsync(new ContentCreateRequest
+            {
+                ContentSchemaId = contentSchema.Id,
+                Content = new ContentItemWithTagBox
+                {
+                    Name = "Jozef",
+                    Object = new SimpleReferenceObject
+                    {
+                        NameField = "Another Jozef",
+                        RefId = chSearch.Results.First().Id
+                    }
+                },
+                Metadata = new DataDictionary()
+            }).ConfigureAwait(false);
+
+            // Act
+            var contentDetail = await _client.Contents
+                .GetAsync(content.Id, behaviours)
+                .ConfigureAwait(false);
+
+            contentDetail.Id.Should().Be(content.Id);
+            contentDetail.Should().NotBeNull();
+            contentDetail.Content.Should().NotBeNull();
+
+            return contentDetail;
         }
     }
 }

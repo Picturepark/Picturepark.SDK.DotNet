@@ -9,6 +9,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 {
     public class SchemaFixture : ClientFixture
     {
+        internal static readonly string CountrySchemaId = "Country";
+        internal static readonly IReadOnlyList<string> SystemSchemaIds = new[] { CountrySchemaId };
+
         private readonly ConcurrentQueue<string> _createdSchemaIds = new ConcurrentQueue<string>();
 
         public async Task<IReadOnlyList<SchemaDetail>> RandomizeSchemaIdsAndCreate(IEnumerable<SchemaDetail> schemas)
@@ -44,8 +47,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         internal void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
         {
-            var systemSchemaIds = new[] { "Country" };
-            if (!systemSchemaIds.Contains(schema.Id))
+            if (!SystemSchemaIds.Contains(schema.Id))
             {
                 schema.Id = schema.Id + schemaSuffix;
 
@@ -55,37 +57,37 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
                 }
             }
 
-            if (!string.IsNullOrEmpty(schema.ParentSchemaId) && !systemSchemaIds.Contains(schema.ParentSchemaId))
+            if (!string.IsNullOrEmpty(schema.ParentSchemaId) && !SystemSchemaIds.Contains(schema.ParentSchemaId))
             {
                 schema.ParentSchemaId = schema.ParentSchemaId + schemaSuffix;
             }
 
-            foreach (var field in schema.Fields.OfType<FieldSingleTagbox>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            foreach (var field in schema.Fields.OfType<FieldSingleTagbox>().Where(f => !SystemSchemaIds.Contains(f.SchemaId)))
             {
                 field.SchemaId = field.SchemaId + schemaSuffix;
             }
 
-            foreach (var field in schema.Fields.OfType<FieldMultiTagbox>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            foreach (var field in schema.Fields.OfType<FieldMultiTagbox>().Where(f => !SystemSchemaIds.Contains(f.SchemaId)))
             {
                 field.SchemaId = field.SchemaId + schemaSuffix;
             }
 
-            foreach (var field in schema.Fields.OfType<FieldSingleFieldset>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            foreach (var field in schema.Fields.OfType<FieldSingleFieldset>().Where(f => !SystemSchemaIds.Contains(f.SchemaId)))
             {
                 field.SchemaId = field.SchemaId + schemaSuffix;
             }
 
-            foreach (var field in schema.Fields.OfType<FieldMultiFieldset>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            foreach (var field in schema.Fields.OfType<FieldMultiFieldset>().Where(f => !SystemSchemaIds.Contains(f.SchemaId)))
             {
                 field.SchemaId = field.SchemaId + schemaSuffix;
             }
 
-            foreach (var field in schema.Fields.OfType<FieldSingleRelation>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            foreach (var field in schema.Fields.OfType<FieldSingleRelation>().Where(f => !SystemSchemaIds.Contains(f.SchemaId)))
             {
                 field.SchemaId = field.SchemaId + schemaSuffix;
             }
 
-            foreach (var field in schema.Fields.OfType<FieldMultiRelation>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
+            foreach (var field in schema.Fields.OfType<FieldMultiRelation>().Where(f => !SystemSchemaIds.Contains(f.SchemaId)))
             {
                 field.SchemaId = field.SchemaId + schemaSuffix;
             }

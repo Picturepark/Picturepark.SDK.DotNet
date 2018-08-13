@@ -9,4 +9,13 @@ namespace Picturepark.SDK.V1.Tests.Contracts
     {
         public string Name { get; set; }
     }
+
+    [PictureparkSchema(SchemaType.Content)]
+    [PictureparkDisplayPattern(TemplateEngine.DotLiquid, "{{data.contentItemWithTagBox.name}}")]
+    public class ContentItemWithTagBox
+    {
+        public string Name { get; set; }
+
+        public SimpleReferenceObject Object { get; set; }
+    }
 }

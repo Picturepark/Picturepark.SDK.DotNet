@@ -17,17 +17,17 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "Schema")]
         public void ShouldAddIndexOnPropertyPath()
         {
-            //// Arrange
+            /// Arrange
             var builder = new SchemaIndexingInfoBuilder<Parent>();
 
-            //// Act
+            /// Act
             var info = builder
                 .AddIndex(p => p.Child.FirstName)
                 .Build();
 
             var json = JsonConvert.SerializeObject(info, Formatting.Indented);
 
-            //// Assert
+            /// Assert
             Assert.Contains(info.Fields.Single(f => f.Id == "child").RelatedSchemaIndexing.Fields, f => f.Id == "firstName");
         }
 
@@ -35,17 +35,17 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "Schema")]
         public void ShouldAddIndexOnCollectionPath()
         {
-            //// Arrange
+            /// Arrange
             var builder = new SchemaIndexingInfoBuilder<Parent>();
 
-            //// Act
+            /// Act
             var info = builder
                 .AddIndex(p => p.Children.Select(c => c.FirstName))
                 .Build();
 
             var json = JsonConvert.SerializeObject(info, Formatting.Indented);
 
-            //// Assert
+            /// Assert
             Assert.Contains(info.Fields.Single(f => f.Id == "children").RelatedSchemaIndexing.Fields, f => f.Id == "firstName");
 
             Assert.Null(info.Fields.Single(f => f.Id == "children")
@@ -57,10 +57,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "Schema")]
         public void ShouldAddMultipleIndexes()
         {
-            //// Arrange
+            /// Arrange
             var builder = new SchemaIndexingInfoBuilder<Parent>();
 
-            //// Act
+            /// Act
             var info = builder
                 .AddIndex(p => p.Foo)
                 .AddIndex(p => p.Bar)
@@ -68,7 +68,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
 
             var json = JsonConvert.SerializeObject(info, Formatting.Indented);
 
-            //// Assert
+            /// Assert
             Assert.Contains(info.Fields, f => f.Id == "foo");
             Assert.Contains(info.Fields, f => f.Id == "bar");
 
@@ -80,17 +80,17 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "Schema")]
         public void ShouldAddDefaultIndexes()
         {
-            //// Arrange
+            /// Arrange
             var builder = new SchemaIndexingInfoBuilder<Parent>();
 
-            //// Act
+            /// Act
             var info = builder
                 .AddDefaultIndexes(p => p.Child, 1)
                 .Build();
 
             var json = JsonConvert.SerializeObject(info, Formatting.Indented);
 
-            //// Assert
+            /// Assert
             Assert.Contains(info.Fields.Single(f => f.Id == "child").RelatedSchemaIndexing.Fields, f => f.Id == "firstName");
 
             Assert.Contains(info.Fields.Single(f => f.Id == "child").RelatedSchemaIndexing.Fields, f => f.Id == "lastName");
@@ -106,17 +106,17 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "Schema")]
         public void ShouldAddDefaultIndexesOfRootType()
         {
-            //// Arrange
+            /// Arrange
             var builder = new SchemaIndexingInfoBuilder<Child>();
 
-            //// Act
+            /// Act
             var info = builder
                 .AddDefaultIndexes(1)
                 .Build();
 
             var json = JsonConvert.SerializeObject(info, Formatting.Indented);
 
-            //// Assert
+            /// Assert
             Assert.Contains(info.Fields, f => f.Id == "firstName");
             Assert.Contains(info.Fields, f => f.Id == "lastName");
             Assert.DoesNotContain(info.Fields, f => f.Id == "dateOfBirth");
