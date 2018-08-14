@@ -2338,14 +2338,14 @@
         ]
       }
     },
-    "/v1/businessProcesses/{processId}/wait": {
+    "/v1/businessProcesses/{processId}/waitLifeCycles": {
       "get": {
         "tags": [
           "BusinessProcess"
         ],
-        "summary": "Wait",
-        "description": "Wait for given process state or lifeCycle. LifeCycles are the same over all business processes. States depend on specific states of the business process.",
-        "operationId": "BusinessProcess_Wait",
+        "summary": "Wait for lifeCycles",
+        "description": "Wait for given process lifeCycle.",
+        "operationId": "BusinessProcess_WaitForLifeCycles",
         "parameters": [
           {
             "type": "string",
@@ -2354,17 +2354,6 @@
             "required": true,
             "x-nullable": false,
             "description": "The process id"
-          },
-          {
-            "type": "array",
-            "name": "states",
-            "in": "query",
-            "x-nullable": true,
-            "collectionFormat": "multi",
-            "description": "The states to wait for",
-            "items": {
-              "type": "string"
-            }
           },
           {
             "type": "array",
@@ -2388,9 +2377,101 @@
         ],
         "responses": {
           "200": {
+            "description": "BusinessProcessWaitForLifeCycleResult",
+            "schema": {
+              "$ref": "#/definitions/BusinessProcessWaitForLifeCycleResult"
+            },
+            "x-nullable": false
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "400": {
+            "description": "Validation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/businessProcesses/{processId}/waitStates": {
+      "get": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Wait for states",
+        "description": "Wait for given process state.",
+        "operationId": "BusinessProcess_WaitForStates",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The process id"
+          },
+          {
+            "type": "array",
+            "name": "states",
+            "in": "query",
+            "x-nullable": true,
+            "collectionFormat": "multi",
+            "description": "Business process states to wait for",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "The timeout to wait for completion.",
+            "format": "time-span"
+          }
+        ],
+        "responses": {
+          "200": {
             "description": "BusinessProcessWaitResult",
             "schema": {
-              "$ref": "#/definitions/BusinessProcessWaitResult"
+              "$ref": "#/definitions/BusinessProcessWaitForStateResult"
             },
             "x-nullable": false
           },
@@ -2471,7 +2552,7 @@
           "200": {
             "description": "BusinessProcessWaitResult",
             "schema": {
-              "$ref": "#/definitions/BusinessProcessWaitResult"
+              "$ref": "#/definitions/BusinessProcessWaitForLifeCycleResult"
             },
             "x-nullable": false
           },
@@ -14800,18 +14881,27 @@
         }
       }
     },
-    "BusinessProcessWaitResult": {
+    "BusinessProcessWaitForLifeCycleResult": {
       "type": "object",
       "additionalProperties": false,
       "required": [
         "lifeCycleHit"
       ],
       "properties": {
-        "stateHit": {
-          "type": "string"
-        },
         "lifeCycleHit": {
           "$ref": "#/definitions/BusinessProcessLifeCycle"
+        },
+        "businessProcess": {
+          "$ref": "#/definitions/BusinessProcess"
+        }
+      }
+    },
+    "BusinessProcessWaitForStateResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stateHit": {
+          "type": "string"
         },
         "businessProcess": {
           "$ref": "#/definitions/BusinessProcess"

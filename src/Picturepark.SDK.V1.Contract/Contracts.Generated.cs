@@ -8030,11 +8030,8 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.67.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class BusinessProcessWaitResult 
+    public partial class BusinessProcessWaitForLifeCycleResult 
     {
-        [Newtonsoft.Json.JsonProperty("stateHit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string StateHit { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("lifeCycleHit", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -8048,9 +8045,30 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static BusinessProcessWaitResult FromJson(string data)
+        public static BusinessProcessWaitForLifeCycleResult FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitResult>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitForLifeCycleResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.67.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BusinessProcessWaitForStateResult 
+    {
+        [Newtonsoft.Json.JsonProperty("stateHit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StateHit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("businessProcess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BusinessProcess BusinessProcess { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessWaitForStateResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitForStateResult>(data);
         }
     
     }
