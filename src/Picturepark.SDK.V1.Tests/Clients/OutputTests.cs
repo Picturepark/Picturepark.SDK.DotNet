@@ -46,16 +46,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
-            var request = new ContentsByIdsRequest
+            var request = new OutputSearchRequest
             {
                 ContentIds = new List<string> { contentId }
             };
 
             // Act
-            var result = await _client.Outputs.GetByContentIdsAsync(request).ConfigureAwait(false);
+            var result = await _client.Outputs.SearchAsync(request).ConfigureAwait(false);
 
             // Assert
-            Assert.True(result.ToList()[0].ContentId == contentId);
+            Assert.True(result.Results.ToList()[0].ContentId == contentId);
         }
     }
 }

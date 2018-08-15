@@ -8634,34 +8634,31 @@
         ]
       }
     },
-    "/v1/outputs": {
+    "/v1/outputs/search": {
       "post": {
         "tags": [
           "Output"
         ],
-        "summary": "Get outputs by contentIds",
-        "description": "Gets output documents related for given content ids",
-        "operationId": "Output_GetByContentIds",
+        "summary": "Search output documents",
+        "description": "ContentIds must be mandatory filled.",
+        "operationId": "Output_Search",
         "parameters": [
           {
-            "name": "contentsByIdsRequest",
+            "name": "outputSearchRequest",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/ContentsByIdsRequest"
+              "$ref": "#/definitions/OutputSearchRequest"
             },
             "x-nullable": true,
-            "description": "Contains the list of contentIds for which the outputs are requested"
+            "description": "The output search request."
           }
         ],
         "responses": {
           "200": {
-            "description": "The Result containing a list of OutputDetail's",
+            "description": "Output result set.",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/OutputDetail"
-              }
+              "$ref": "#/definitions/OutputSearchResult"
             },
             "x-nullable": false
           },
@@ -20299,15 +20296,87 @@
         }
       }
     },
-    "ContentsByIdsRequest": {
+    "OutputSearchRequest": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "start",
+        "limit"
+      ],
       "properties": {
+        "start": {
+          "type": "integer",
+          "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+          "format": "int32",
+          "default": 0
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Limits the document count of the result set. Defaults to 30.",
+          "format": "int32",
+          "default": 30
+        },
         "contentIds": {
           "type": "array",
+          "description": "List of Content ids you want to use to fetch the outputs.",
           "items": {
             "type": "string"
           }
+        },
+        "renderingStates": {
+          "type": "array",
+          "description": "The allowed rendering states of the outputs you want to fetch.",
+          "items": {
+            "$ref": "#/definitions/OutputRenderingState"
+          }
+        },
+        "fileExtensions": {
+          "type": "array",
+          "description": "The file extension of the outputs you want to fetch.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "outputFormatIds": {
+          "type": "array",
+          "description": "The output format id of the outputs you want to fetch.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "OutputSearchResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "$ref": "#/definitions/BaseResultOfOutput"
+        }
+      ]
+    },
+    "BaseResultOfOutput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "totalResults"
+      ],
+      "properties": {
+        "totalResults": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Output"
+          }
+        },
+        "pageToken": {
+          "type": "string"
+        },
+        "queryDebugInformation": {
+          "$ref": "#/definitions/QueryDebugInformation"
         }
       }
     },
@@ -20316,7 +20385,8 @@
       "additionalProperties": false,
       "required": [
         "authorizationState",
-        "termsConsentExpired"
+        "termsConsentExpired",
+        "isDeveloper"
       ],
       "properties": {
         "id": {
@@ -20354,8 +20424,27 @@
         },
         "termsConsentExpired": {
           "type": "boolean"
+        },
+        "systemUserRoles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SystemUserRole"
+          }
+        },
+        "isDeveloper": {
+          "type": "boolean"
         }
       }
+    },
+    "SystemUserRole": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Administrator"
+      ],
+      "enum": [
+        "Administrator"
+      ]
     },
     "UserProfileUpdateRequest": {
       "type": "object",
@@ -20407,6 +20496,9 @@
     "CustomerInfo": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "enableQueryDetails"
+      ],
       "properties": {
         "customerId": {
           "type": "string"
@@ -20419,6 +20511,9 @@
         },
         "identityServerUrl": {
           "type": "string"
+        },
+        "enableQueryDetails": {
+          "type": "boolean"
         },
         "languageConfiguration": {
           "$ref": "#/definitions/LanguageConfiguration"
