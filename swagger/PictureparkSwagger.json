@@ -20316,7 +20316,8 @@
       "additionalProperties": false,
       "required": [
         "authorizationState",
-        "termsConsentExpired"
+        "termsConsentExpired",
+        "isDeveloper"
       ],
       "properties": {
         "id": {
@@ -20354,8 +20355,27 @@
         },
         "termsConsentExpired": {
           "type": "boolean"
+        },
+        "systemUserRoles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SystemUserRole"
+          }
+        },
+        "isDeveloper": {
+          "type": "boolean"
         }
       }
+    },
+    "SystemUserRole": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Administrator"
+      ],
+      "enum": [
+        "Administrator"
+      ]
     },
     "UserProfileUpdateRequest": {
       "type": "object",
@@ -20407,6 +20427,9 @@
     "CustomerInfo": {
       "type": "object",
       "additionalProperties": false,
+      "required": [
+        "enableQueryDetails"
+      ],
       "properties": {
         "customerId": {
           "type": "string"
@@ -20419,6 +20442,9 @@
         },
         "identityServerUrl": {
           "type": "string"
+        },
+        "enableQueryDetails": {
+          "type": "boolean"
         },
         "languageConfiguration": {
           "$ref": "#/definitions/LanguageConfiguration"
