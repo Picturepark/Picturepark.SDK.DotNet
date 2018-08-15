@@ -14881,9 +14881,6 @@
     "BusinessProcessWaitForLifeCycleResult": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "lifeCycleHit"
-      ],
       "properties": {
         "lifeCycleHit": {
           "$ref": "#/definitions/BusinessProcessLifeCycle"
