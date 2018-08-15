@@ -7914,7 +7914,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UserUpdatableDetail"
+              "$ref": "#/definitions/UserUpdateRequest"
             },
             "x-nullable": true
           }
@@ -19980,7 +19980,7 @@
       },
       "allOf": [
         {
-          "$ref": "#/definitions/UserUpdatableDetail"
+          "$ref": "#/definitions/UserUpdateRequest"
         }
       ]
     },
@@ -20030,7 +20030,7 @@
         "Deleted"
       ]
     },
-    "UserUpdatableDetail": {
+    "UserUpdateRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
