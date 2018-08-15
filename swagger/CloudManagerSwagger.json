@@ -4305,6 +4305,7 @@
       "additionalProperties": false,
       "required": [
         "useSsl",
+        "enableQueryDetails",
         "elasticSearchNumberOfShards",
         "elasticSearchNumberOfReplicas",
         "rootContentSearchIndexNumberOfShards",
@@ -4348,6 +4349,9 @@
           }
         },
         "useSsl": {
+          "type": "boolean"
+        },
+        "enableQueryDetails": {
           "type": "boolean"
         },
         "cdnConfiguration": {
@@ -5611,6 +5615,7 @@
       "additionalProperties": false,
       "required": [
         "useSsl",
+        "enableQueryDetails",
         "elasticSearchNumberOfShards",
         "elasticSearchNumberOfReplicas",
         "elasticSearchNumberOfRoutingShards",
@@ -5722,6 +5727,9 @@
           }
         },
         "useSsl": {
+          "type": "boolean"
+        },
+        "enableQueryDetails": {
           "type": "boolean"
         },
         "serviceProviders": {
@@ -8914,7 +8922,8 @@
         "listItemRetentionTime",
         "snapshotRetentionTime",
         "snapshotFullbackupScheduleTime",
-        "useSsl"
+        "useSsl",
+        "enableQueryDetails"
       ],
       "properties": {
         "id": {
@@ -8955,6 +8964,9 @@
           "format": "time-span"
         },
         "useSsl": {
+          "type": "boolean"
+        },
+        "enableQueryDetails": {
           "type": "boolean"
         },
         "cdnConfiguration": {
