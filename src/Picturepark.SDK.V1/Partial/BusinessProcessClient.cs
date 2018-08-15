@@ -11,11 +11,11 @@ namespace Picturepark.SDK.V1
     public partial class BusinessProcessClient
     {
         /// <inheritdoc />
-        public async Task<BusinessProcessWaitResult> WaitForLifeCyclesAsync(string processId, IEnumerable<BusinessProcessLifeCycle> lifeCycleIds, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<BusinessProcessWaitForLifeCycleResult> WaitForLifeCyclesAsync(string processId, IEnumerable<BusinessProcessLifeCycle> lifeCycleIds, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return await _httpClient.Poll(timeout, cancellationToken, async () =>
             {
-                var waitResult = await WaitCoreAsync(processId, null, lifeCycleIds, timeout, cancellationToken).ConfigureAwait(false);
+                var waitResult = await WaitForLifeCyclesCoreAsync(processId, lifeCycleIds, timeout, cancellationToken).ConfigureAwait(false);
 
                 var errors = waitResult.BusinessProcess.StateHistory?
                     .Where(i => i.Error != null)
@@ -38,11 +38,11 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<BusinessProcessWaitResult> WaitForStatesAsync(string processId, IEnumerable<string> states, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<BusinessProcessWaitForStateResult> WaitForStatesAsync(string processId, IEnumerable<string> states, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return await _httpClient.Poll(timeout, cancellationToken, async () =>
             {
-                var waitResult = await WaitCoreAsync(processId, states, null, timeout, cancellationToken).ConfigureAwait(false);
+                var waitResult = await WaitForStatesCoreAsync(processId, states, timeout, cancellationToken).ConfigureAwait(false);
 
                 var errors = waitResult.BusinessProcess.StateHistory?
                     .Where(i => i.Error != null)
@@ -65,7 +65,7 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<BusinessProcessWaitResult> WaitForCompletionAsync(string processId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<BusinessProcessWaitForLifeCycleResult> WaitForCompletionAsync(string processId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return await _httpClient.Poll(timeout, cancellationToken, async () =>
             {
