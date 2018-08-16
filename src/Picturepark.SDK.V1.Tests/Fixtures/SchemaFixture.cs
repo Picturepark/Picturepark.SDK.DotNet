@@ -14,6 +14,8 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         private readonly ConcurrentQueue<string> _createdSchemaIds = new ConcurrentQueue<string>();
 
+        private object _disposeSync = new object();
+
         public async Task<IReadOnlyList<SchemaDetail>> RandomizeSchemaIdsAndCreate(IEnumerable<SchemaDetail> schemas)
         {
             var schemaSuffix = new Random().Next(0, 1000000);
@@ -35,11 +37,14 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         public override void Dispose()
         {
-            while (_createdSchemaIds.TryDequeue(out var id))
+            lock (_disposeSync)
             {
-                var exists = Client.Schemas.ExistsAsync(id).GetAwaiter().GetResult();
-                if (exists)
-                    Client.Schemas.DeleteAsync(id, TimeSpan.FromMinutes(1)).GetAwaiter().GetResult();
+                while (_createdSchemaIds.TryDequeue(out var id))
+                {
+                    var exists = Client.Schemas.ExistsAsync(id).GetAwaiter().GetResult();
+                    if (exists)
+                        Client.Schemas.DeleteAsync(id, TimeSpan.FromMinutes(1)).GetAwaiter().GetResult();
+                }
             }
 
             base.Dispose();
