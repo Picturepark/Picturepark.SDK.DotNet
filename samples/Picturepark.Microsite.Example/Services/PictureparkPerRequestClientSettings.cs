@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
@@ -27,7 +28,8 @@ namespace Picturepark.Microsite.Example.Services
 			BaseUrl = config.Value.BaseUrl;
 			CustomerAlias = config.Value.CustomerAlias;
 			HttpTimeout = TimeSpan.FromMinutes(10);
-		}
+		    DisplayLanguage = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+        }
 
 		public string BaseUrl { get; }
 
@@ -36,5 +38,7 @@ namespace Picturepark.Microsite.Example.Services
 		public IAuthClient AuthClient { get; }
 
 		public string CustomerAlias { get; }
+
+	    public string DisplayLanguage { get; }
 	}
 }

@@ -6,8 +6,7 @@ using System.Collections.Generic;
 
 namespace Picturepark.Microsite.Example.Contracts
 {
-	[PictureparkSchemaType(SchemaType.Content)]
-	[PictureparkSchemaType(SchemaType.List)]
+	[PictureparkSchema(SchemaType.Content)]
 	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.pressRelease.headline | translate: language }}")]
 	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.pressRelease.headline | translate: language}}")]
 	[PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "<table width='90%' > <tbody> <tr> <td> {{data.pressRelease.teaser | translate: language}}</td> </tr> <tr> <td><br /></td> </tr> <tr> <td>{{data.pressRelease.text | translate: language}}</td> </tr> </tbody> </table>")]
