@@ -119,6 +119,103 @@
             ]
           }
         ]
+      },
+      "delete": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Delete - single",
+        "description": "Delete a single content. The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the content and all files will be hard deleted.",
+        "operationId": "Content_Delete",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "contentId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "the id of the content to delete"
+          },
+          {
+            "type": "boolean",
+            "name": "forceReferenceRemoval",
+            "in": "query",
+            "x-nullable": true,
+            "description": "A value indicating whether references to the content should be removed.",
+            "default": false
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "400": {
+            "description": "The specified wait timeout exceeded\nor\nValidation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true,
+            "x-expectedSchemas": [
+              {
+                "description": "The specified wait timeout exceeded",
+                "schema": {
+                  "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "$ref": "#/definitions/PictureparkValidationException"
+                }
+              }
+            ]
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
       }
     },
     "/v1/contents": {
@@ -1012,105 +1109,6 @@
           {
             "Bearer": [
               "content_read"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/contents/{contentId}/delete": {
-      "post": {
-        "tags": [
-          "Content"
-        ],
-        "summary": "Delete - single",
-        "description": "Delete a single content. The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the content and all files will be hard deleted.",
-        "operationId": "Content_Delete",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "contentId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "the id of the content to delete"
-          },
-          {
-            "type": "boolean",
-            "name": "forceReferenceRemoval",
-            "in": "query",
-            "x-nullable": true,
-            "description": "A value indicating whether references to the content should be removed.",
-            "default": false
-          },
-          {
-            "type": "string",
-            "name": "timeout",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Maximum time to wait for the business process completed state.",
-            "format": "time-span"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "400": {
-            "description": "The specified wait timeout exceeded\nor\nValidation exception",
-            "schema": {
-              "$ref": "#/definitions/PictureparkValidationException"
-            },
-            "x-nullable": true,
-            "x-expectedSchemas": [
-              {
-                "description": "The specified wait timeout exceeded",
-                "schema": {
-                  "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
-                }
-              },
-              {
-                "description": "Validation exception",
-                "schema": {
-                  "$ref": "#/definitions/PictureparkValidationException"
-                }
-              }
-            ]
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "description": "Entity not found",
-            "schema": {
-              "$ref": "#/definitions/PictureparkNotFoundException"
-            },
-            "x-nullable": true
-          },
-          "409": {
-            "description": "Version conflict",
-            "schema": {
-              "$ref": "#/definitions/PictureparkConflictException"
-            },
-            "x-nullable": true
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "content_write"
             ]
           }
         ]
@@ -3352,6 +3350,103 @@
             ]
           }
         ]
+      },
+      "delete": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Delete - single",
+        "description": "Delete a single listitem. The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the list item and all files will be deleted.",
+        "operationId": "ListItem_Delete",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "listItemId",
+            "in": "path",
+            "required": true,
+            "x-nullable": false,
+            "description": "The id of the list item to delete"
+          },
+          {
+            "type": "boolean",
+            "name": "forceReferenceRemoval",
+            "in": "query",
+            "x-nullable": true,
+            "description": "A value indicating whether references to the listitem should be removed.",
+            "default": false
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "x-nullable": true,
+            "description": "Maximum time to wait for the business process completed state.",
+            "format": "time-span"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Void"
+          },
+          "400": {
+            "description": "The specified wait timeout exceeded\nor\nValidation exception",
+            "schema": {
+              "$ref": "#/definitions/PictureparkValidationException"
+            },
+            "x-nullable": true,
+            "x-expectedSchemas": [
+              {
+                "description": "The specified wait timeout exceeded",
+                "schema": {
+                  "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "$ref": "#/definitions/PictureparkValidationException"
+                }
+              }
+            ]
+          },
+          "500": {
+            "description": "Internal server error",
+            "schema": {
+              "$ref": "#/definitions/PictureparkException"
+            },
+            "x-nullable": true
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "schema": {
+              "$ref": "#/definitions/PictureparkNotFoundException"
+            },
+            "x-nullable": true
+          },
+          "409": {
+            "description": "Version conflict",
+            "schema": {
+              "$ref": "#/definitions/PictureparkConflictException"
+            },
+            "x-nullable": true
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
       }
     },
     "/v1/listItems": {
@@ -3854,105 +3949,6 @@
             "description": "Validation exception",
             "schema": {
               "$ref": "#/definitions/PictureparkValidationException"
-            },
-            "x-nullable": true
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "listitem_write"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/listItems/{listItemId}/delete": {
-      "post": {
-        "tags": [
-          "ListItem"
-        ],
-        "summary": "Delete - single",
-        "description": "Delete a single listitem. The lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the list item and all files will be deleted.",
-        "operationId": "ListItem_Delete",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "listItemId",
-            "in": "path",
-            "required": true,
-            "x-nullable": false,
-            "description": "The id of the list item to delete"
-          },
-          {
-            "type": "boolean",
-            "name": "forceReferenceRemoval",
-            "in": "query",
-            "x-nullable": true,
-            "description": "A value indicating whether references to the listitem should be removed.",
-            "default": false
-          },
-          {
-            "type": "string",
-            "name": "timeout",
-            "in": "query",
-            "x-nullable": true,
-            "description": "Maximum time to wait for the business process completed state.",
-            "format": "time-span"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Void"
-          },
-          "400": {
-            "description": "The specified wait timeout exceeded\nor\nValidation exception",
-            "schema": {
-              "$ref": "#/definitions/PictureparkValidationException"
-            },
-            "x-nullable": true,
-            "x-expectedSchemas": [
-              {
-                "description": "The specified wait timeout exceeded",
-                "schema": {
-                  "$ref": "#/definitions/BusinessProcessWaitTimeoutException"
-                }
-              },
-              {
-                "description": "Validation exception",
-                "schema": {
-                  "$ref": "#/definitions/PictureparkValidationException"
-                }
-              }
-            ]
-          },
-          "500": {
-            "description": "Internal server error",
-            "schema": {
-              "$ref": "#/definitions/PictureparkException"
-            },
-            "x-nullable": true
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "description": "Entity not found",
-            "schema": {
-              "$ref": "#/definitions/PictureparkNotFoundException"
-            },
-            "x-nullable": true
-          },
-          "409": {
-            "description": "Version conflict",
-            "schema": {
-              "$ref": "#/definitions/PictureparkConflictException"
             },
             "x-nullable": true
           },
@@ -6917,7 +6913,7 @@
           }
         ],
         "responses": {
-          "204": {
+          "200": {
             "description": "Transfer"
           },
           "500": {
@@ -7058,7 +7054,7 @@
           }
         ],
         "responses": {
-          "204": {
+          "200": {
             "description": ""
           },
           "500": {
@@ -7412,9 +7408,6 @@
         ],
         "responses": {
           "200": {
-            "description": ""
-          },
-          "204": {
             "description": ""
           },
           "500": {
@@ -8511,7 +8504,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/UserDeletionRequest"
+              "$ref": "#/definitions/UserDeleteRequest"
             },
             "x-nullable": true
           }
@@ -20284,7 +20277,7 @@
         }
       }
     },
-    "UserDeletionRequest": {
+    "UserDeleteRequest": {
       "type": "object",
       "additionalProperties": false,
       "properties": {

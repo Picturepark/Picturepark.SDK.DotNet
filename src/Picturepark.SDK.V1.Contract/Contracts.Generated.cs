@@ -24,6 +24,19 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ContentDetail> GetAsync(string contentId, System.Collections.Generic.IEnumerable<ContentResolveBehaviour> resolveBehaviours = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Delete - single</summary>
+        /// <param name="contentId">the id of the content to delete</param>
+        /// <param name="forceReferenceRemoval">A value indicating whether references to the content should be removed.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task DeleteAsync(string contentId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
         /// <summary>Get detail - many</summary>
         /// <param name="ids">List of contentIds</param>
         /// <param name="resolveBehaviours">List of enum that control which parts of the content are resolved and returned</param>
@@ -143,19 +156,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<FileResponse> DownloadThumbnailAsync(string contentId, ThumbnailSize size, int? width = null, int? height = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Delete - single</summary>
-        /// <param name="contentId">the id of the content to delete</param>
-        /// <param name="forceReferenceRemoval">A value indicating whether references to the content should be removed.</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task DeleteAsync(string contentId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete - many</summary>
         /// <param name="deleteManyRequest">The delete many request</param>
@@ -363,6 +363,20 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ListItemDetail> GetAsync(string listItemId, System.Collections.Generic.IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Delete - single</summary>
+        /// <param name="listItemId">The id of the list item to delete</param>
+        /// <param name="forceReferenceRemoval">A value indicating whether references to the listitem should be removed.</param>
+        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
+        /// <returns>Void</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task DeleteAsync(string listItemId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
         /// <summary>Get detail - many</summary>
         /// <param name="ids">List of list item ids</param>
         /// <param name="resolveBehaviours">List of enum that control which parts of the list items are resolved and returned</param>
@@ -412,20 +426,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ListItemAggregationRequest listItemAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Delete - single</summary>
-        /// <param name="listItemId">The id of the list item to delete</param>
-        /// <param name="forceReferenceRemoval">A value indicating whether references to the listitem should be removed.</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <returns>Void</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task DeleteAsync(string listItemId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete - many</summary>
         /// <param name="deleteManyRequest">The list items delete many request</param>
@@ -1042,7 +1042,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task DeleteAsync(string userId, UserDeletionRequest userDeactivateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteAsync(string userId, UserDeleteRequest userDeactivateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Restores a previously deleted user</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -13633,7 +13633,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.67.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class UserDeletionRequest 
+    public partial class UserDeleteRequest 
     {
         [Newtonsoft.Json.JsonProperty("ownerTokenTransferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OwnerTokenTransferUserId { get; set; }
@@ -13643,9 +13643,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static UserDeletionRequest FromJson(string data)
+        public static UserDeleteRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserDeletionRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserDeleteRequest>(data);
         }
     
     }
