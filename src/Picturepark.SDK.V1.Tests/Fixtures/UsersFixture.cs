@@ -76,7 +76,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             {
                 foreach (var createdUserId in _createdUserIds)
                 {
-                    Client.Users.DeleteAsync(createdUserId, new UserDeletionRequest()).GetAwaiter().GetResult();
+                    Client.Users.DeleteAsync(createdUserId, new UserDeleteRequest()).GetAwaiter().GetResult();
                 }
             }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using Picturepark.SDK.V1.Contract.Attributes;
@@ -52,6 +53,20 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The terms filter.</returns>
         public static TermsFilter FromExpression<TObject>(Expression<Func<TObject, object>> property, Analyzer analyzer, params string[] terms)
             => new TermsFilter { Field = BuildFieldPath(property, analyzer), Terms = terms };
+
+        /// <summary>Creates a new <see cref="TermsFilter"/> whose property name is retrieved from an expression.</summary>
+        /// <typeparam name="TObject">The object type.</typeparam>
+        /// <param name="property">The property expression.</param>
+        /// <param name="terms">The search terms.</param>
+        /// <param name="language">Specify the language to query inside the TranslatedStringDictionary</param>
+        /// <returns>The terms filter.</returns>
+        public static TermsFilter FromExpression<TObject>(
+            Expression<Func<TObject, TranslatedStringDictionary>> property, string language, IEnumerable<string> terms)
+        {
+            var name = BuildFieldPath(property);
+            var fieldPath = (name, language).JoinByDot();
+            return new TermsFilter { Field = fieldPath, Terms = terms.ToArray() };
+        }
 
         private static string AnalyzerToSuffix(Analyzer analyzer)
             => AnalyzerToSuffixMappingOverride.TryGetValue(analyzer, out var suffix)

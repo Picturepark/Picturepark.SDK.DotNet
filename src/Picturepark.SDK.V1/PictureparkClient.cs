@@ -52,6 +52,8 @@ namespace Picturepark.SDK.V1
 
         public IUserClient Users { get; private set; }
 
+        public IUserRoleClient UserRoles { get; private set; }
+
         public IProfileClient Profile { get; private set; }
 
         public ISchemaTransferClient SchemaTransfer { get; private set; }
@@ -85,6 +87,7 @@ namespace Picturepark.SDK.V1
             Shares = new ShareClient(settings, httpClient);
             ShareAccess = new ShareAccessClient(settings, httpClient);
             Users = new UserClient(settings, httpClient);
+            UserRoles = new UserRoleClient(settings, httpClient);
             Info = new InfoClient(settings, httpClient);
             Schemas = new SchemaClient((BusinessProcessClient)BusinessProcesses, (InfoClient)Info, settings, httpClient);
             Transfers = new TransferClient((BusinessProcessClient)BusinessProcesses, settings, httpClient);
