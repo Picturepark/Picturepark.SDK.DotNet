@@ -94,7 +94,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await LockUnlockCall(activeUserIds, false).ConfigureAwait(false);
 
             // Assert
-            await CheckIfUsersAre(AuthorizationState.Active).ConfigureAwait(false);
+            await CheckIfUsersAre(AuthorizationState.Reviewed).ConfigureAwait(false);
         }
 
         [Fact]
