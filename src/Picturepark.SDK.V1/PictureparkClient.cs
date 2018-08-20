@@ -12,8 +12,7 @@ namespace Picturepark.SDK.V1
         /// <param name="settings">The client settings.</param>
         public PictureparkClient(IPictureparkClientSettings settings)
         {
-            _httpClient = new HttpClient();
-            _httpClient.Timeout = settings.HttpTimeout;
+            _httpClient = new HttpClient { Timeout = settings.HttpTimeout };
 
             Initialize(settings, _httpClient);
         }
@@ -39,6 +38,8 @@ namespace Picturepark.SDK.V1
         public IJsonSchemaClient JsonSchemas { get; private set; }
 
         public IListItemClient ListItems { get; private set; }
+
+        public ILiveStreamClient LiveStream { get; private set; }
 
         public IContentPermissionSetClient ContentPermissionSets { get; private set; }
 
@@ -92,6 +93,7 @@ namespace Picturepark.SDK.V1
             Schemas = new SchemaClient((BusinessProcessClient)BusinessProcesses, (InfoClient)Info, settings, httpClient);
             Transfers = new TransferClient((BusinessProcessClient)BusinessProcesses, settings, httpClient);
             ListItems = new ListItemClient((BusinessProcessClient)BusinessProcesses, settings, httpClient);
+            LiveStream = new LiveStreamClient(settings, httpClient);
             Contents = new ContentClient((BusinessProcessClient)BusinessProcesses, settings, httpClient);
             Profile = new ProfileClient(settings, httpClient);
             ServiceProviders = new ServiceProviderClient(settings, httpClient);

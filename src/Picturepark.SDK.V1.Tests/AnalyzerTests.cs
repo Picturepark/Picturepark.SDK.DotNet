@@ -12,7 +12,7 @@ namespace Picturepark.SDK.V1.Tests
     public class AnalyzerTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkClient _client;
 
         public AnalyzerTests(ClientFixture fixture)
         {

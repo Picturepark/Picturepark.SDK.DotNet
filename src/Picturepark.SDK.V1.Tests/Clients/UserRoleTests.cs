@@ -13,7 +13,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         private const string JamesBond = "James Bond";
         private const string PeterGriffin = "Peter Griffin";
 
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkClient _client;
 
         public UserRoleTests(ClientFixture fixture)
         {

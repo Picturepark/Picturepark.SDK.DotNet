@@ -11,7 +11,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 {
     public class ClientFixture : IDisposable
     {
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkClient _client;
         private readonly TestConfiguration _configuration;
 
         public ClientFixture()
@@ -55,7 +55,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         public TestConfiguration Configuration => _configuration;
 
-        public PictureparkClient Client => _client;
+        public IPictureparkClient Client => _client;
 
         public Lazy<CustomerInfo> CustomerInfo =>
             new Lazy<CustomerInfo>(() => _client.Info.GetAsync().GetAwaiter().GetResult());

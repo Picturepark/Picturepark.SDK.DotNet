@@ -11,7 +11,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
     public class DocumentHistoryTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkClient _client;
 
         public DocumentHistoryTests(ClientFixture fixture)
         {

@@ -12,7 +12,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
     public class ShareAccessTests : IClassFixture<ShareFixture>
     {
         private readonly ShareFixture _fixture;
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkClient _client;
 
         public ShareAccessTests(ShareFixture fixture)
         {

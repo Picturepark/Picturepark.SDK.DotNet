@@ -13,7 +13,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
     public class ListItemTests : IClassFixture<ListItemFixture>
     {
         private readonly ClientFixture _fixture;
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkClient _client;
 
         public ListItemTests(ListItemFixture fixture)
         {

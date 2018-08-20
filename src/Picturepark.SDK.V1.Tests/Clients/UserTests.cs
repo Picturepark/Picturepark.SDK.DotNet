@@ -11,7 +11,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
     public class UserTests : IClassFixture<UsersFixture>
     {
         private readonly UsersFixture _fixture;
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkClient _client;
 
         public UserTests(UsersFixture fixture)
         {

@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Picturepark.SDK.V1.Contract;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Fixtures;
 
@@ -6,7 +7,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 {
     public class ChannelTests : IClassFixture<ClientFixture>
     {
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkClient _client;
 
         public ChannelTests(ClientFixture fixture)
         {
