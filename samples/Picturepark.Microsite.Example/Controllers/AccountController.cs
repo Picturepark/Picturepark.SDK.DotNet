@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Picturepark.Microsite.Example.Services;
@@ -14,7 +15,8 @@ namespace Picturepark.Microsite.Example.Controllers
 
 			var props = new AuthenticationProperties
 			{
-				RedirectUri = returnUrl
+				RedirectUri = returnUrl,
+                Items = { { "localUrl", $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}" } }
 			};
 
 			return Challenge(props, "oidc");

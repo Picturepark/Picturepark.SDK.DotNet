@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,7 +8,9 @@ using Microsoft.Extensions.Options;
 using Picturepark.Microsite.Example.Helpers;
 using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using System.Web;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -16,12 +19,15 @@ using Newtonsoft.Json;
 using Picturepark.Microsite.Example.Repository;
 using Picturepark.Microsite.Example.Contracts;
 using Picturepark.Microsite.Example.Services;
+using Remotion.Linq.Parsing.Structure;
 
 namespace Picturepark.Microsite.Example
 {
 	public class Startup
 	{
-		public Startup(IConfiguration configuration)
+	    private static readonly string LoginPath = "/account/login";
+
+	    public Startup(IConfiguration configuration)
 		{
 			Configuration = configuration;
 
@@ -32,8 +38,9 @@ namespace Picturepark.Microsite.Example
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-			// Configure Picturepark
-			services.Configure<PictureparkConfiguration>(Configuration.GetSection("Picturepark"));
+		    var cpConfig = new PictureparkConfiguration();
+		    Configuration.GetSection("Picturepark").Bind(cpConfig);
+            services.AddSingleton(cpConfig);
 
 		    services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -59,7 +66,7 @@ namespace Picturepark.Microsite.Example
 			services.AddAuthentication("Cookies")
 				.AddCookie("Cookies", options =>
 				{
-					options.LoginPath = "/account/login";
+					options.LoginPath = LoginPath;
 					options.AccessDeniedPath = "/account/denied";
 				})
 				.AddOpenIdConnect("oidc", options =>
@@ -85,7 +92,13 @@ namespace Picturepark.Microsite.Example
 					{
 						var tenant = new {id = authConfig.CustomerId, alias = authConfig.CustomerAlias};
 						context.ProtocolMessage.SetParameter("acr_values", "tenant:" + JsonConvert.SerializeObject(tenant) );
-						return Task.FromResult(0);
+
+					    var localUrl = context.Properties.Items["localUrl"];
+					    context.ProtocolMessage.SetParameter("cp_base_uri", cpConfig.FrontendBaseUrl);
+					    context.ProtocolMessage.SetParameter("register_uri", BuildRegisterRedirectUri(localUrl));
+					    context.ProtocolMessage.SetParameter("terms_uri", BuildTermsOfServiceUri(cpConfig));
+
+                        return Task.FromResult(0);
 					};
 
 					options.Scope.Clear();
@@ -114,7 +127,18 @@ namespace Picturepark.Microsite.Example
 			});
 		}
 
-		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+	    private static string BuildTermsOfServiceUri(PictureparkConfiguration cpConfig)
+	        => new Uri(new Uri(cpConfig.ApplicationBaseUrl), "/service/terms/newest").AbsoluteUri;
+
+	    private static string BuildRegisterRedirectUri(string localUrl)
+	    {
+	        var query = HttpUtility.ParseQueryString(string.Empty);
+	        query["redirect"] = $"{localUrl}{LoginPath}";
+
+	        return $"/terms?{query}";
+	    }
+
+	    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
 			var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
 			app.UseRequestLocalization(locOptions.Value);

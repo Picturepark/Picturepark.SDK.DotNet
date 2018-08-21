@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Options;
 using Picturepark.Microsite.Example.Configuration;
 using Picturepark.SDK.V1.Authentication;
-using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.Microsite.Example.Services
@@ -17,16 +12,16 @@ namespace Picturepark.Microsite.Example.Services
 	{
 		private IHttpContextAccessor _contextAccessor;
 
-		public PictureparkPerRequestClientSettings(IOptions<PictureparkConfiguration> config, IHttpContextAccessor httpContextAccessor)
+		public PictureparkPerRequestClientSettings(PictureparkConfiguration config, IHttpContextAccessor httpContextAccessor)
 		{
 			_contextAccessor = httpContextAccessor;
 
 			var accessToken = httpContextAccessor.HttpContext.GetTokenAsync("access_token").Result;
 
-			var auth = new AccessTokenAuthClient(config.Value.BaseUrl, accessToken, config.Value.CustomerAlias);
+			var auth = new AccessTokenAuthClient(config.ApiBaseUrl, accessToken, config.CustomerAlias);
 			AuthClient = auth;
-			BaseUrl = config.Value.BaseUrl;
-			CustomerAlias = config.Value.CustomerAlias;
+			BaseUrl = config.ApiBaseUrl;
+			CustomerAlias = config.CustomerAlias;
 			HttpTimeout = TimeSpan.FromMinutes(10);
 		    DisplayLanguage = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
         }

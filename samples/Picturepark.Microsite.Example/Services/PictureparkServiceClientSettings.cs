@@ -1,24 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Options;
 using Picturepark.Microsite.Example.Configuration;
 using Picturepark.SDK.V1.Authentication;
-using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.Microsite.Example.Services
 {
 	public class PictureparkServiceClientSettings: IPictureparkServiceClientSettings
 	{
-		public PictureparkServiceClientSettings(IOptions<PictureparkConfiguration> config)
+		public PictureparkServiceClientSettings(PictureparkConfiguration config)
 		{
-			var auth = new AccessTokenAuthClient(config.Value.BaseUrl, config.Value.AccessToken, config.Value.CustomerAlias);
+			var auth = new AccessTokenAuthClient(config.ApiBaseUrl, config.AccessToken, config.CustomerAlias);
 			AuthClient = auth;
-			BaseUrl = config.Value.BaseUrl;
-			CustomerAlias = config.Value.CustomerAlias;
+			BaseUrl = config.ApiBaseUrl;
+			CustomerAlias = config.CustomerAlias;
 			HttpTimeout = TimeSpan.FromMinutes(10);
 		    DisplayLanguage = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
 		}
