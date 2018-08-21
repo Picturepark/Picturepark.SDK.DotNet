@@ -13446,11 +13446,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.67.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum AuthorizationState
     {
-        [System.Runtime.Serialization.EnumMember(Value = "Active")]
-        Active = 0,
+        [System.Runtime.Serialization.EnumMember(Value = "Reviewed")]
+        Reviewed = 0,
     
-        [System.Runtime.Serialization.EnumMember(Value = "Review")]
-        Review = 1,
+        [System.Runtime.Serialization.EnumMember(Value = "ToBeReviewed")]
+        ToBeReviewed = 1,
     
         [System.Runtime.Serialization.EnumMember(Value = "Locked")]
         Locked = 2,

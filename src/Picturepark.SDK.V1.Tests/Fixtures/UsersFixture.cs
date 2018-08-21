@@ -55,7 +55,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
                 .HaveCount(createdUsers.Length, "all previously created users should have been retrieved");
 
             reviewedUsers.Should().OnlyContain(
-                u => u.AuthorizationState == AuthorizationState.Active, "all invited users should be active after review");
+                u => u.AuthorizationState == AuthorizationState.Reviewed, "all invited users should be reviewed after review");
 
             foreach (var reviewedUser in reviewedUsers)
             {

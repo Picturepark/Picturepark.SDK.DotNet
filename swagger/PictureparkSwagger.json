@@ -20499,14 +20499,14 @@
       "type": "string",
       "description": "",
       "x-enumNames": [
-        "Active",
-        "Review",
+        "Reviewed",
+        "ToBeReviewed",
         "Locked",
         "Invited"
       ],
       "enum": [
-        "Active",
-        "Review",
+        "Reviewed",
+        "ToBeReviewed",
         "Locked",
         "Invited"
       ]
