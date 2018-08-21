@@ -6,7 +6,7 @@ namespace Picturepark.SDK.V1.Tests
 {
     public static class SchemaHelper
     {
-        public static async Task<SchemaDetail> CreateSchemasIfNotExistentAsync<T>(PictureparkClient client)
+        public static async Task<SchemaDetail> CreateSchemasIfNotExistentAsync<T>(IPictureparkClient client)
             where T : class
         {
             var childSchemas = await client.Schemas.GenerateSchemasAsync(typeof(T)).ConfigureAwait(false);

@@ -1,6 +1,8 @@
+using System;
+
 namespace Picturepark.SDK.V1.Contract
 {
-    public interface IPictureparkClient
+    public interface IPictureparkClient : IDisposable
     {
         ISchemaClient Schemas { get; }
 
@@ -12,13 +14,19 @@ namespace Picturepark.SDK.V1.Contract
 
         IDocumentHistoryClient DocumentHistory { get; }
 
+        IInfoClient Info { get; }
+
         IJsonSchemaClient JsonSchemas { get; }
 
         IListItemClient ListItems { get; }
 
+        ILiveStreamClient LiveStream { get; }
+
         IContentPermissionSetClient ContentPermissionSets { get; }
 
         ISchemaPermissionSetClient SchemaPermissionSets { get; }
+
+        ISchemaTransferClient SchemaTransfer { get; }
 
         IPublicAccessClient PublicAccess { get; }
 
@@ -27,6 +35,8 @@ namespace Picturepark.SDK.V1.Contract
         ITransferClient Transfers { get; }
 
         IUserClient Users { get; }
+
+        IUserRoleClient UserRoles { get; }
 
         IProfileClient Profile { get; }
 

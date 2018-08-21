@@ -8,7 +8,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 {
     public class ProfileTests : IClassFixture<ClientFixture>
     {
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkClient _client;
 
         public ProfileTests(ClientFixture fixture)
         {

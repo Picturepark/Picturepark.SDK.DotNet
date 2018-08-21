@@ -13,7 +13,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
     public class TransferTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkClient _client;
 
         public TransferTests(ClientFixture fixture)
         {

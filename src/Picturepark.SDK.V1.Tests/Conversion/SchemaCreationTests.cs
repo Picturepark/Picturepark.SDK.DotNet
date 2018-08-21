@@ -19,7 +19,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
     public class SchemaCreationTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkClient _client;
 
         public SchemaCreationTests(ClientFixture fixture)
         {

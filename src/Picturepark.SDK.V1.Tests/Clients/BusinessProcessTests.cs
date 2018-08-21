@@ -12,7 +12,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 {
     public class BusinessProcessTests : IClassFixture<ClientFixture>
     {
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkClient _client;
 
         public BusinessProcessTests(ClientFixture fixture)
         {

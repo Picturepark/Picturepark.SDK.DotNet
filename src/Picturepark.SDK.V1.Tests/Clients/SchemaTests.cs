@@ -14,7 +14,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
     public class SchemaTests : IClassFixture<SchemaFixture>
     {
         private readonly SchemaFixture _fixture;
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkClient _client;
 
         public SchemaTests(SchemaFixture fixture)
         {
