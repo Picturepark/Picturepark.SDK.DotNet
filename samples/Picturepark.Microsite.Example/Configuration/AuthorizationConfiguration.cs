@@ -4,6 +4,6 @@ namespace Picturepark.Microsite.Example.Configuration
 {
     public class AuthorizationConfiguration
     {
-        public string[] AutoAssignUserRoles { get; set; }
+        public string[] AutoAssignUserRoleIds { get; set; }
     }
 }

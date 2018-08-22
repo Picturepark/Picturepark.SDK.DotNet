@@ -110,7 +110,7 @@ namespace Picturepark.Microsite.Example
 
         private async Task<IReadOnlyList<string>> GetAutoUserRoleIds()
         {
-            var userRoles = _authorizationConfig.AutoAssignUserRoles;
+            var userRoles = _authorizationConfig.AutoAssignUserRoleIds;
 
             var checkRoleTasks = userRoles.Select(async r =>
             {
