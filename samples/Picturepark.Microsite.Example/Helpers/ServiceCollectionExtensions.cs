@@ -6,7 +6,7 @@ namespace Picturepark.Microsite.Example.Helpers
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddConfiguration<T>(this IServiceCollection services, IConfiguration configuration)
+        public static T AddConfiguration<T>(this IServiceCollection services, IConfiguration configuration)
             where T : class, new()
         {
             var className = typeof(T).Name;
@@ -16,7 +16,8 @@ namespace Picturepark.Microsite.Example.Helpers
 
             var config = new T();
             configuration.GetSection(sectionName).Bind(config);
-            return services.AddSingleton(config);
+            services.AddSingleton(config);
+            return config;
         }
     }
 }

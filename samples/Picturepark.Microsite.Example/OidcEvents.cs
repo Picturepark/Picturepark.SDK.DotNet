@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Picturepark.Microsite.Example.Configuration;
 using Picturepark.Microsite.Example.Controllers;
@@ -20,14 +19,19 @@ namespace Picturepark.Microsite.Example
         private readonly AuthenticationConfiguration _authConfig;
         private readonly AuthorizationConfiguration _authorizationConfig;
 
-        public OidcEvents(IPictureparkServiceClient cpClient, IOptions<AuthenticationConfiguration> authConfig, PictureparkConfiguration cpConfig, AuthorizationConfiguration authorizationConfig)
+        public OidcEvents(IPictureparkServiceClient cpClient, AuthenticationConfiguration authConfig, PictureparkConfiguration cpConfig, AuthorizationConfiguration authorizationConfig)
         {
             _cpClient = cpClient;
             _cpConfig = cpConfig;
-            _authConfig = authConfig.Value;
+            _authConfig = authConfig;
             _authorizationConfig = authorizationConfig;
         }
 
+        /// <summary>
+        /// Adds all the information needed for communication with IdentityServer
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override Task RedirectToIdentityProvider(RedirectContext context)
         {
             var tenant = new { id = _authConfig.CustomerId, alias = _authConfig.CustomerAlias };
@@ -52,6 +56,11 @@ namespace Picturepark.Microsite.Example
             return $"/terms?{query}";
         }
 
+        /// <summary>
+        /// Checks if the user is reviewed and assigns the automatic user roles
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override async Task TokenValidated(TokenValidatedContext context)
         {
             var user = await GetUserDetails(context);
@@ -107,7 +116,7 @@ namespace Picturepark.Microsite.Example
             {
                 var role = await _cpClient.UserRoles.GetAsync(r);
                 if (role == null)
-                    throw new Exception($"Unable to find user role with id {r}");
+                    throw new Exception($"Unable to find user role with id '{r}'");
             });
 
             await Task.WhenAll(checkRoleTasks);

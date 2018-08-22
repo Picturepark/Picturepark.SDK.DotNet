@@ -34,6 +34,7 @@ namespace Picturepark.Microsite.Example
 		public void ConfigureServices(IServiceCollection services)
 		{
 		    services.AddConfiguration<PictureparkConfiguration>(Configuration);
+		    var authConfig = services.AddConfiguration<AuthenticationConfiguration>(Configuration);
 		    services.AddConfiguration<AuthorizationConfiguration>(Configuration);
 
 		    services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -65,10 +66,6 @@ namespace Picturepark.Microsite.Example
 				})
 				.AddOpenIdConnect("oidc", options =>
 				{
-					// Read the authentication settings
-					var authConfig = new AuthenticationConfiguration();
-					Configuration.GetSection("Authentication").Bind(authConfig);
-
 					options.SignInScheme = "Cookies";
 
 					options.Authority = authConfig.Authority;
