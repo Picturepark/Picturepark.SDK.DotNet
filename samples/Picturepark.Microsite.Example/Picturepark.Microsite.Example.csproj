@@ -10,9 +10,10 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
+		<PackageReference Include="Microsoft.Owin" Version="4.0.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
 		<PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-		<PackageReference Include="Picturepark.SDK.V1" Version="0.62.21" />
+		<PackageReference Include="Picturepark.SDK.V1" Version="0.62.30" />
 		<PackageReference Include="CommonMark.NET" Version="0.15.1" />
 		<PackageReference Include="Serilog.AspNetCore" Version="2.1.1" />
 		<PackageReference Include="Serilog.Enrichers.Environment" Version="2.1.2" />

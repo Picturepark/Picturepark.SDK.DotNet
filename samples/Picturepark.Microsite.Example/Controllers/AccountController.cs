@@ -8,7 +8,9 @@ namespace Picturepark.Microsite.Example.Controllers
 {
 	public class AccountController : Controller
 	{
-		[HttpGet]
+	    internal static readonly string LoginPath = "/account/login";
+
+	    [HttpGet]
 		public IActionResult Login(string returnUrl = null)
 		{
 			if (!Url.IsLocalUrl(returnUrl)) returnUrl = "/";
