@@ -26,11 +26,11 @@ namespace Picturepark.Microsite.Example.Helpers
 				if (!updateSchema)
 				{
 					if (await _client.Schemas.ExistsAsync(schema.Id) == false)
-						await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true);
+						await _client.Schemas.CreateAsync(schema, true);
 				}
 				else
 				{
-					await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
+					await _client.Schemas.CreateOrUpdateAsync(schema, true);
 				}
 			}
 		}

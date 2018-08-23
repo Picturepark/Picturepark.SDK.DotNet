@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Picturepark.Microsite.Example.Services;
@@ -7,14 +8,17 @@ namespace Picturepark.Microsite.Example.Controllers
 {
 	public class AccountController : Controller
 	{
-		[HttpGet]
+	    internal static readonly string LoginPath = "/account/login";
+
+	    [HttpGet]
 		public IActionResult Login(string returnUrl = null)
 		{
 			if (!Url.IsLocalUrl(returnUrl)) returnUrl = "/";
 
 			var props = new AuthenticationProperties
 			{
-				RedirectUri = returnUrl
+				RedirectUri = returnUrl,
+                Items = { { "localUrl", $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}" } }
 			};
 
 			return Challenge(props, "oidc");

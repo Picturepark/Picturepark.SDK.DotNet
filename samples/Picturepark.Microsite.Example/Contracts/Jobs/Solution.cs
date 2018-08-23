@@ -4,8 +4,7 @@ using Picturepark.SDK.V1.Contract.Attributes;
 
 namespace Picturepark.Microsite.Example.Contracts.Jobs
 {
-	[PictureparkSchemaType(SchemaType.List)]
-	[PictureparkSchemaType(SchemaType.Struct)]
+	[PictureparkSchema(SchemaType.List)]
 	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.solution.name}}")]
 	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.solution.name}}")]
 	[PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{data.solution.name}}")]

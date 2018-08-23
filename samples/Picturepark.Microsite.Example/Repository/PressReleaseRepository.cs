@@ -54,7 +54,13 @@ namespace Picturepark.Microsite.Example.Repository
 			});
 
 			// Fetch details
-			var contents = searchResult.Results.Any() ? await _client.Contents.GetManyAsync(searchResult.Results.Select(i => i.Id), true) : new List<ContentDetail>();
+			var contents = searchResult.Results.Any()
+			    ? await _client.Contents.GetManyAsync(searchResult.Results.Select(i => i.Id),
+			        new[]
+			        {
+			            ContentResolveBehaviour.Content
+			        })
+			    : new List<ContentDetail>();
 
 			// Convert to C# poco
 			var pressPortals = contents.AsContentItems<PressRelease>().ToList();
@@ -64,7 +70,7 @@ namespace Picturepark.Microsite.Example.Repository
 
 		public async Task<ContentItem<PressRelease>> Get(string id)
 		{
-			var content = await _client.Contents.GetAsync(id, resolve: true);
+			var content = await _client.Contents.GetAsync(id, new[] { ContentResolveBehaviour.Content });
 
 			var detail = ((JObject)content.Content).ToObject<PressRelease>();
 

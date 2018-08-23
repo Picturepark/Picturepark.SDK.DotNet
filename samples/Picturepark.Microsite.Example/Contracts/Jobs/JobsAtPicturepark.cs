@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Picturepark.Microsite.Example.Contracts.Jobs
 {
-	[PictureparkSchemaType(SchemaType.Content)]
+	[PictureparkSchema(SchemaType.Content)]
 	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.jobsAtPicturepark.headline.x-default}}")]
 	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.jobsAtPicturepark.headline.x-default}}")]
 	[PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{data.jobsAtPicturepark.headline.x-default}}")]

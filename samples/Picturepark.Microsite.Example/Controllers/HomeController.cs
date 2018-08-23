@@ -19,9 +19,9 @@ namespace Picturepark.Microsite.Example.Controllers
 	{
 		private readonly IPictureparkServiceClient _client;
 		private readonly IPressReleaseRepository _pressReleaseRepository;
-		private readonly IOptions<PictureparkConfiguration> _configuration;
+		private readonly PictureparkConfiguration _configuration;
 
-		public HomeController(IPictureparkServiceClient client, IPressReleaseRepository pressReleaseRepository, IOptions<PictureparkConfiguration> configuration)
+		public HomeController(IPictureparkServiceClient client, IPressReleaseRepository pressReleaseRepository, PictureparkConfiguration configuration)
 		{
 			_client = client;
 			_pressReleaseRepository = pressReleaseRepository;
@@ -43,7 +43,7 @@ namespace Picturepark.Microsite.Example.Controllers
 
 		public RedirectResult Backend()
 		{
-			return Redirect(_configuration.Value.BaseUrl);
+			return Redirect(_configuration.ApiBaseUrl);
 		}
 
 		[ResponseCache(VaryByHeader = "User-Agent", Duration = 30)]
