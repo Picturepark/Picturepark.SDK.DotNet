@@ -1,4 +1,3 @@
-using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -8,8 +7,8 @@ using Microsoft.Extensions.Options;
 using Picturepark.Microsite.Example.Helpers;
 using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
-using System.Web;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.IdentityModel.Tokens;
@@ -109,17 +108,6 @@ namespace Picturepark.Microsite.Example
 		    services.AddTransient<OidcEvents>();
 		}
 
-	    private static string BuildTermsOfServiceUri(PictureparkConfiguration cpConfig)
-	        => new Uri(new Uri(cpConfig.ApplicationBaseUrl), "/service/terms/newest").AbsoluteUri;
-
-	    private static string BuildRegisterRedirectUri(string localUrl)
-	    {
-	        var query = HttpUtility.ParseQueryString(string.Empty);
-	        query["redirect"] = $"{localUrl}{AccountController.LoginPath}";
-
-	        return $"/terms?{query}";
-	    }
-
 	    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
 			var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
@@ -135,7 +123,12 @@ namespace Picturepark.Microsite.Example
 				app.UseExceptionHandler("/Error");
 			}
 
-			app.UseStaticFiles();
+		    app.UseForwardedHeaders(new ForwardedHeadersOptions
+		    {
+		        ForwardedHeaders = ForwardedHeaders.XForwardedProto
+		    });
+
+            app.UseStaticFiles();
 
 			app.UseAuthentication();
 
