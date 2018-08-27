@@ -11,16 +11,16 @@ namespace Picturepark.Microsite.Example.Repository
 {
 	public class PressReleaseRepository : IPressReleaseRepository
 	{
-		private readonly IPictureparkServiceClient _client;
+		private readonly IPictureparkAccessTokenService _client;
 
-		public PressReleaseRepository(IPictureparkServiceClient client)
+		public PressReleaseRepository(IPictureparkAccessTokenService client)
 		{
 			_client = client;
 		}
 
 		public async Task<List<ContentItem<PressRelease>>> List(int start, int limit, string searchString)
 		{
-			var searchResult = await _client.Contents.SearchAsync(new ContentSearchRequest
+			var searchResult = await _client.Content.SearchAsync(new ContentSearchRequest
 			{
 				Start = start,
 				Limit = limit,
@@ -29,12 +29,8 @@ namespace Picturepark.Microsite.Example.Repository
 				{
 					Filters = new List<FilterBase>
 					{
-						// Limit to PressRelease content
-						new TermFilter
-						{
-							Field = "contentSchemaId",
-							Term = "PressRelease"
-						},
+                        // Limit to PressRelease content
+                        FilterBase.FromExpression<Content>(i => i.ContentSchemaId, nameof(PressRelease)),
 
 						// Filter out future publications
 						new DateRangeFilter
@@ -55,7 +51,7 @@ namespace Picturepark.Microsite.Example.Repository
 
 			// Fetch details
 			var contents = searchResult.Results.Any()
-			    ? await _client.Contents.GetManyAsync(searchResult.Results.Select(i => i.Id),
+			    ? await _client.Content.GetManyAsync(searchResult.Results.Select(i => i.Id),
 			        new[]
 			        {
 			            ContentResolveBehaviour.Content
@@ -70,11 +66,9 @@ namespace Picturepark.Microsite.Example.Repository
 
 		public async Task<ContentItem<PressRelease>> Get(string id)
 		{
-			var content = await _client.Contents.GetAsync(id, new[] { ContentResolveBehaviour.Content });
+			var content = await _client.Content.GetAsync(id, new[] { ContentResolveBehaviour.Content });
 
-			var detail = ((JObject)content.Content).ToObject<PressRelease>();
-
-			return new ContentItem<PressRelease> { Id = content.Id, Audit = content.Audit, Content = detail };
+			return content.AsContentItem<PressRelease>();
 		}
 
 		public async Task<List<SearchResult>> Search(int start, int limit, string searchString)
