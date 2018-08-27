@@ -8,14 +8,14 @@ Install the Picturepark SDK NuGet package in your .NET project (supports .NET 4.
 
     Install-Package Picturepark.SDK.V1
     
-Create a new `PictureparkClient` instance and access remote Picturepark server as follows: 
+Create a new `PictureparkService` instance and access remote Picturepark server as follows: 
 
 ```csharp
 var authClient = new AccessTokenAuthClient("https://api.mypcpserver.com", "AccessToken", "CustomerAlias");
-var settings = new PictureparkClientSettings(authClient);
-using (var client = new PictureparkClient(settings))
+var settings = new PictureparkServiceSettings(authClient);
+using (var client = new PictureparkService(settings))
 {
-    var content = await client.Contents.GetAsync("myContentId");
+    var content = await client.Content.GetAsync("myContentId");
 }
 ```
 
@@ -29,22 +29,22 @@ public void ConfigureServices(IServiceCollection services)
     services.AddApplicationInsightsTelemetry(Configuration);
     services.AddMvc();
 
-    services.AddScoped<IPictureparkClient, PictureparkClient>();
-    services.AddSingleton<IPictureparkClientSettings>(new PictureparkClientSettings(
+    services.AddScoped<IPictureparkService, PictureparkService>();
+    services.AddSingleton<IPictureparkServiceSettings>(new PictureparkServiceSettings(
         new AccessTokenAuthClient("https://api.server.com", "MyAccessToken", "MyCustomerAlias")));
 }
 ```
 
-Inject `IPictureparkClient` into your controller: 
+Inject `IPictureparkService` into your controller: 
 
 ```csharp
 public class MyController : Controller
 {
-    private readonly IPictureparkClient _pictureparkClient;
+    private readonly IPictureparkService _pictureparkService;
 
-    public MyController(IPictureparkClient pictureparkClient)
+    public MyController(IPictureparkService pictureparkService)
     {
-        _pictureparkClient = pictureparkClient;
+        _pictureparkService = pictureparkService;
     }
     
     ...
