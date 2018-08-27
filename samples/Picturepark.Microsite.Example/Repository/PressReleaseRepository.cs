@@ -72,9 +72,7 @@ namespace Picturepark.Microsite.Example.Repository
 		{
 			var content = await _client.Content.GetAsync(id, new[] { ContentResolveBehaviour.Content });
 
-			var detail = ((JObject)content.Content).ToObject<PressRelease>();
-
-			return new ContentItem<PressRelease> { Id = content.Id, Audit = content.Audit, Content = detail };
+			return content.AsContentItem<PressRelease>();
 		}
 
 		public async Task<List<SearchResult>> Search(int start, int limit, string searchString)
