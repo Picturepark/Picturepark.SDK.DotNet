@@ -5459,7 +5459,7 @@
       "BusinessProcess": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "BusinessProcessBulkResponse": {
               "$ref": "#/components/schemas/BusinessProcessBulkResponse"
@@ -5474,7 +5474,7 @@
           "startDate",
           "endDate",
           "finished",
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "id": {
@@ -5521,7 +5521,7 @@
           "processDefinitionName": {
             "type": "string"
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -5651,7 +5651,7 @@
       "PictureparkException": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "PictureparkBusinessException": {
               "$ref": "#/components/schemas/PictureparkBusinessException"
@@ -6154,7 +6154,7 @@
         "required": [
           "traceLevel",
           "httpStatusCode",
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "traceLevel": {
@@ -6170,7 +6170,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         },
@@ -10085,7 +10085,7 @@
       "CdnConfigurationBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "FastlyCdnConfiguration": {
               "$ref": "#/components/schemas/FastlyCdnConfiguration"
@@ -10095,13 +10095,13 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "url": {
             "type": "string"
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -10297,7 +10297,7 @@
       "FormatBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "ImageFormatBase": {
               "$ref": "#/components/schemas/ImageFormatBase"
@@ -10358,10 +10358,10 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "discriminator"
+          "kind"
         ],
         "properties": {
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -10554,7 +10554,7 @@
       "ImageActionBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "AlphaHandlingAction": {
               "$ref": "#/components/schemas/AlphaHandlingAction"
@@ -10573,10 +10573,10 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "discriminator"
+          "kind"
         ],
         "properties": {
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -11729,7 +11729,7 @@
       "FilterBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "AndFilter": {
               "$ref": "#/components/schemas/AndFilter"
@@ -11781,10 +11781,10 @@
         "description": "The FilterBase is the base class for all filters.",
         "additionalProperties": false,
         "required": [
-          "discriminator"
+          "kind"
         ],
         "properties": {
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -12417,7 +12417,7 @@
       "EnvironmentProcessDataViewItemBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "EnvironmentProcessAddMetadataLanguageData": {
               "$ref": "#/components/schemas/EnvironmentProcessAddMetadataLanguageData"
@@ -12433,10 +12433,10 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "discriminator"
+          "kind"
         ],
         "properties": {
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }

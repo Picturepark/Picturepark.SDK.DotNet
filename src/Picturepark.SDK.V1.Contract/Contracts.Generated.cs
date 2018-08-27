@@ -1273,7 +1273,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     /// <summary>The FilterBase is the base class for all filters.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("AndFilter", typeof(AndFilter))]
     [JsonInheritanceAttribute("OrFilter", typeof(OrFilter))]
     [JsonInheritanceAttribute("NotFilter", typeof(NotFilter))]
@@ -1829,7 +1829,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("BusinessProcessBulkResponse", typeof(BusinessProcessBulkResponse))]
     [JsonInheritanceAttribute("BusinessProcessDetails", typeof(BusinessProcessDetails))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -2071,7 +2071,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("PictureparkBusinessException", typeof(PictureparkBusinessException))]
     [JsonInheritanceAttribute("PictureparkValidationException", typeof(PictureparkValidationException))]
     [JsonInheritanceAttribute("PictureparkConflictException", typeof(PictureparkConflictException))]
@@ -6103,7 +6103,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("BusinessProcessDetailsDataBatchResponse", typeof(BusinessProcessDetailsDataBatchResponse))]
     [JsonInheritanceAttribute("BusinessProcessDetailsDataSchemaImport", typeof(BusinessProcessDetailsDataSchemaImport))]
     [JsonInheritanceAttribute("BusinessProcessDetailsDataCdnPurge", typeof(BusinessProcessDetailsDataCdnPurge))]
@@ -6309,7 +6309,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("CdnPurgeJobByTag", typeof(CdnPurgeJobByTag))]
     [JsonInheritanceAttribute("CdnPurgeJobByUri", typeof(CdnPurgeJobByUri))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -6514,7 +6514,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     /// <summary>The AggregatorBase is the base class for all aggregators.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("DateRangeAggregator", typeof(DateRangeAggregator))]
     [JsonInheritanceAttribute("GeoDistanceAggregator", typeof(GeoDistanceAggregator))]
     [JsonInheritanceAttribute("NestedAggregator", typeof(NestedAggregator))]
@@ -6983,7 +6983,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("OutputDetail", typeof(OutputDetail))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class Output 
@@ -7037,7 +7037,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("OutputDataImage", typeof(OutputDataImage))]
     [JsonInheritanceAttribute("OutputDataAudio", typeof(OutputDataAudio))]
     [JsonInheritanceAttribute("OutputDataVideo", typeof(OutputDataVideo))]
@@ -8281,7 +8281,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ContentFieldsBatchUpdateRequest", typeof(ContentFieldsBatchUpdateRequest))]
     [JsonInheritanceAttribute("ContentFieldsBatchUpdateFilterRequest", typeof(ContentFieldsBatchUpdateFilterRequest))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -8331,7 +8331,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     /// <summary>The base class for metadata value change commands.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("MetadataValuesSchemaUpdateCommand", typeof(MetadataValuesSchemaUpdateCommand))]
     [JsonInheritanceAttribute("MetadataValuesSchemaUpsertCommand", typeof(MetadataValuesSchemaUpsertCommand))]
     [JsonInheritanceAttribute("MetadataValuesSchemaRemoveCommand", typeof(MetadataValuesSchemaRemoveCommand))]
@@ -10192,7 +10192,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ShareOutputBasic", typeof(ShareOutputBasic))]
     [JsonInheritanceAttribute("ShareOutputEmbed", typeof(ShareOutputEmbed))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -10256,7 +10256,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ShareDataEmbed", typeof(ShareDataEmbed))]
     [JsonInheritanceAttribute("ShareDataBasic", typeof(ShareDataBasic))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -10418,7 +10418,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("CardTemplate", typeof(CardTemplate))]
     [JsonInheritanceAttribute("ListTemplate", typeof(ListTemplate))]
     [JsonInheritanceAttribute("BasicTemplate", typeof(BasicTemplate))]
@@ -10644,7 +10644,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     /// <summary>The field base class.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("FieldBoolean", typeof(FieldBoolean))]
     [JsonInheritanceAttribute("FieldDate", typeof(FieldDate))]
     [JsonInheritanceAttribute("FieldDateTime", typeof(FieldDateTime))]
@@ -11183,7 +11183,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     /// <summary>The analyzer base class.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("EdgeNGramAnalyzer", typeof(EdgeNGramAnalyzer))]
     [JsonInheritanceAttribute("LanguageAnalyzer", typeof(LanguageAnalyzer))]
     [JsonInheritanceAttribute("NGramAnalyzer", typeof(NGramAnalyzer))]
@@ -11521,7 +11521,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     /// <summary>Base class for overwritten information on a field.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("FieldOverwriteSingleTagbox", typeof(FieldOverwriteSingleTagbox))]
     [JsonInheritanceAttribute("FieldOverwriteMultiTagbox", typeof(FieldOverwriteMultiTagbox))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -12542,7 +12542,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ShareBasicCreateRequest", typeof(ShareBasicCreateRequest))]
     [JsonInheritanceAttribute("ShareEmbedCreateRequest", typeof(ShareEmbedCreateRequest))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -12697,7 +12697,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ShareBasicUpdateRequest", typeof(ShareBasicUpdateRequest))]
     [JsonInheritanceAttribute("ShareEmbedUpdateRequest", typeof(ShareEmbedUpdateRequest))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -13114,7 +13114,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("AudioMetadata", typeof(AudioMetadata))]
     [JsonInheritanceAttribute("DocumentMetadata", typeof(DocumentMetadata))]
     [JsonInheritanceAttribute("ImageMetadata", typeof(ImageMetadata))]

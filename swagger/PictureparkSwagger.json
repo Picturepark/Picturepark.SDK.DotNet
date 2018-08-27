@@ -12042,7 +12042,7 @@
       "FilterBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "AndFilter": {
               "$ref": "#/components/schemas/AndFilter"
@@ -12094,10 +12094,10 @@
         "description": "The FilterBase is the base class for all filters.",
         "additionalProperties": false,
         "required": [
-          "discriminator"
+          "kind"
         ],
         "properties": {
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -12608,7 +12608,7 @@
       "BusinessProcess": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "BusinessProcessBulkResponse": {
               "$ref": "#/components/schemas/BusinessProcessBulkResponse"
@@ -12626,7 +12626,7 @@
           "startDate",
           "endDate",
           "finished",
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "id": {
@@ -12673,7 +12673,7 @@
           "processDefinitionName": {
             "type": "string"
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -12817,7 +12817,7 @@
       "PictureparkException": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "PictureparkBusinessException": {
               "$ref": "#/components/schemas/PictureparkBusinessException"
@@ -13320,7 +13320,7 @@
         "required": [
           "traceLevel",
           "httpStatusCode",
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "traceLevel": {
@@ -13336,7 +13336,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         },
@@ -16380,7 +16380,7 @@
       "BusinessProcessDetailsDataBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "BusinessProcessDetailsDataBatchResponse": {
               "$ref": "#/components/schemas/BusinessProcessDetailsDataBatchResponse"
@@ -16399,10 +16399,10 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "discriminator"
+          "kind"
         ],
         "properties": {
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -16597,7 +16597,7 @@
       "CdnPurgeJobBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "CdnPurgeJobByTag": {
               "$ref": "#/components/schemas/CdnPurgeJobByTag"
@@ -16611,7 +16611,7 @@
         "required": [
           "success",
           "retriesLeft",
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "success": {
@@ -16621,7 +16621,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -16812,7 +16812,7 @@
       "AggregatorBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "DateRangeAggregator": {
               "$ref": "#/components/schemas/DateRangeAggregator"
@@ -16841,7 +16841,7 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "name": {
@@ -16863,7 +16863,7 @@
               "$ref": "#/components/schemas/AggregatorBase"
             }
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -17291,7 +17291,7 @@
       "Output": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "OutputDetail": {
               "$ref": "#/components/schemas/OutputDetail"
@@ -17301,7 +17301,7 @@
         "additionalProperties": false,
         "required": [
           "renderingState",
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "id": {
@@ -17323,7 +17323,7 @@
             "type": "string",
             "format": "date-time"
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -17347,7 +17347,7 @@
       "OutputDataBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "OutputDataImage": {
               "$ref": "#/components/schemas/OutputDataImage"
@@ -17369,7 +17369,7 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "fileExtension": {
@@ -17388,7 +17388,7 @@
           "sha1Hash": {
             "type": "string"
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -18530,7 +18530,7 @@
       "MetadataValuesChangeRequestBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "ContentFieldsBatchUpdateFilterRequest": {
               "$ref": "#/components/schemas/ContentFieldsBatchUpdateFilterRequest"
@@ -18545,7 +18545,7 @@
         "required": [
           "allowMissingDependencies",
           "notifyProgress",
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "changeCommands": {
@@ -18563,7 +18563,7 @@
             "type": "boolean",
             "description": "Create notification and notify on progress"
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -18571,7 +18571,7 @@
       "MetadataValuesChangeCommandBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "MetadataValuesSchemaUpdateCommand": {
               "$ref": "#/components/schemas/MetadataValuesSchemaUpdateCommand"
@@ -18600,14 +18600,14 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "schemaId": {
             "type": "string",
             "description": "The id of the schema to which the operation scope is addressed."
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -20356,7 +20356,7 @@
       "ShareOutputBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "ShareOutputBasic": {
               "$ref": "#/components/schemas/ShareOutputBasic"
@@ -20369,7 +20369,7 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "contentId": {
@@ -20385,7 +20385,7 @@
           "detail": {
             "$ref": "#/components/schemas/OutputDataBase"
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -20416,7 +20416,7 @@
       "ShareDataBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "ShareDataEmbed": {
               "$ref": "#/components/schemas/ShareDataEmbed"
@@ -20429,13 +20429,13 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "url": {
             "type": "string"
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -20546,7 +20546,7 @@
       "TemplateBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "CardTemplate": {
               "$ref": "#/components/schemas/CardTemplate"
@@ -20562,7 +20562,7 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "width": {
@@ -20573,7 +20573,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -20813,7 +20813,7 @@
       "FieldBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "FieldBoolean": {
               "$ref": "#/components/schemas/FieldBoolean"
@@ -20883,7 +20883,7 @@
           "index",
           "simpleSearch",
           "sortable",
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "id": {
@@ -20934,7 +20934,7 @@
             "type": "boolean",
             "description": "Field is stored for sorting."
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -21423,7 +21423,7 @@
       "AnalyzerBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "EdgeNGramAnalyzer": {
               "$ref": "#/components/schemas/EdgeNGramAnalyzer"
@@ -21446,10 +21446,10 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "discriminator"
+          "kind"
         ],
         "properties": {
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -21765,7 +21765,7 @@
       "FieldOverwriteBase": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "FieldOverwriteSingleTagbox": {
               "$ref": "#/components/schemas/FieldOverwriteSingleTagbox"
@@ -21781,7 +21781,7 @@
         "required": [
           "required",
           "overwriteRequired",
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "id": {
@@ -21796,7 +21796,7 @@
             "type": "boolean",
             "description": "Defines if the required property of the field is overwritten"
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -22823,7 +22823,7 @@
       "ShareBaseCreateRequest": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "ShareBasicCreateRequest": {
               "$ref": "#/components/schemas/ShareBasicCreateRequest"
@@ -22837,7 +22837,7 @@
         "additionalProperties": false,
         "required": [
           "outputAccess",
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "name": {
@@ -22868,7 +22868,7 @@
           "outputAccess": {
             "$ref": "#/components/schemas/OutputAccess"
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -22975,7 +22975,7 @@
       "ShareBaseUpdateRequest": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "ShareBasicUpdateRequest": {
               "$ref": "#/components/schemas/ShareBasicUpdateRequest"
@@ -22989,7 +22989,7 @@
         "additionalProperties": false,
         "required": [
           "outputAccess",
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "name": {
@@ -23020,7 +23020,7 @@
           "outputAccess": {
             "$ref": "#/components/schemas/OutputAccess"
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }
@@ -23366,7 +23366,7 @@
       "FileMetadata": {
         "type": "object",
         "discriminator": {
-          "propertyName": "discriminator",
+          "propertyName": "kind",
           "mapping": {
             "AudioMetadata": {
               "$ref": "#/components/schemas/AudioMetadata"
@@ -23384,7 +23384,7 @@
         },
         "additionalProperties": false,
         "required": [
-          "discriminator"
+          "kind"
         ],
         "properties": {
           "names": {
@@ -23414,7 +23414,7 @@
           "language": {
             "type": "string"
           },
-          "discriminator": {
+          "kind": {
             "type": "string"
           }
         }

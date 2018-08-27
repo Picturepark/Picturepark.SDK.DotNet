@@ -572,7 +572,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     
 
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("BusinessProcessBulkResponse", typeof(BusinessProcessBulkResponse))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcess 
@@ -786,7 +786,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("PictureparkBusinessException", typeof(PictureparkBusinessException))]
     [JsonInheritanceAttribute("PictureparkValidationException", typeof(PictureparkValidationException))]
     [JsonInheritanceAttribute("PictureparkConflictException", typeof(PictureparkConflictException))]
@@ -5806,7 +5806,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("FastlyCdnConfiguration", typeof(FastlyCdnConfiguration))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class CdnConfigurationBase 
@@ -6058,7 +6058,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ImageFormatBase", typeof(ImageFormatBase))]
     [JsonInheritanceAttribute("OriginalFormat", typeof(OriginalFormat))]
     [JsonInheritanceAttribute("JpegFormat", typeof(JpegFormat))]
@@ -6302,7 +6302,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("AlphaHandlingAction", typeof(AlphaHandlingAction))]
     [JsonInheritanceAttribute("CropAction", typeof(CropAction))]
     [JsonInheritanceAttribute("UnsharpenMaskAction", typeof(UnsharpenMaskAction))]
@@ -7426,7 +7426,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     /// <summary>The FilterBase is the base class for all filters.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("AndFilter", typeof(AndFilter))]
     [JsonInheritanceAttribute("OrFilter", typeof(OrFilter))]
     [JsonInheritanceAttribute("NotFilter", typeof(NotFilter))]
@@ -8147,7 +8147,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("EnvironmentProcessAddMetadataLanguageData", typeof(EnvironmentProcessAddMetadataLanguageData))]
     [JsonInheritanceAttribute("EnvironmentProcessCustomerUpdateData", typeof(EnvironmentProcessCustomerUpdateData))]
     [JsonInheritanceAttribute("EnvironmentProcessEnvironmentUpdateData", typeof(EnvironmentProcessEnvironmentUpdateData))]
