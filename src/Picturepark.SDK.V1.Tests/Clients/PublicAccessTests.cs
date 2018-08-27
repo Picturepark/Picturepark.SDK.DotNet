@@ -11,7 +11,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
     public class PublicAccessTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
-        private readonly IPictureparkClient _client;
+        private readonly IPictureparkService _client;
 
         public PublicAccessTests(ClientFixture fixture)
         {
@@ -53,8 +53,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Name = "Embed share"
             };
 
-            var createResult = await _client.Shares.CreateAsync(request).ConfigureAwait(false);
-            var embedDetail = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
+            var createResult = await _client.Share.CreateAsync(request).ConfigureAwait(false);
+            var embedDetail = await _client.Share.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
             // Act
             var result = await _client.PublicAccess.GetShareAsync(((ShareDataEmbed)embedDetail.Data).Token).ConfigureAwait(false);

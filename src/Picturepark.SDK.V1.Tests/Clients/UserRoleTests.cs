@@ -13,7 +13,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         private const string JamesBond = "James Bond";
         private const string PeterGriffin = "Peter Griffin";
 
-        private readonly IPictureparkClient _client;
+        private readonly IPictureparkService _client;
 
         public UserRoleTests(ClientFixture fixture)
         {
@@ -29,7 +29,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             try
             {
                 // Act
-                var res = await _client.UserRoles.SearchAsync(new UserRoleSearchRequest
+                var res = await _client.UserRole.SearchAsync(new UserRoleSearchRequest
                 {
                     Filter = FilterBase.FromExpression<UserRole>(r => r.Names, "en", new[] { JamesBond, PeterGriffin })
                 }).ConfigureAwait(false);
@@ -50,7 +50,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         private async Task Delete(IEnumerable<UserRole> roles)
         {
-            await _client.UserRoles.DeleteManyAsync(new UserRoleDeleteManyRequest
+            await _client.UserRole.DeleteManyAsync(new UserRoleDeleteManyRequest
             {
                 Ids = roles.Select(r => r.Id).ToArray()
             });
@@ -58,7 +58,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         private async Task<UserRole[]> CreateRoles()
         {
-            var role1 = await _client.UserRoles.CreateAsync(new UserRoleCreateRequest
+            var role1 = await _client.UserRole.CreateAsync(new UserRoleCreateRequest
             {
                 Names = new TranslatedStringDictionary(new Dictionary<string, string>
                 {
@@ -67,7 +67,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 UserRights = new[] { UserRight.ManageTransfer }
             }).ConfigureAwait(false);
 
-            var role2 = await _client.UserRoles.CreateAsync(new UserRoleCreateRequest
+            var role2 = await _client.UserRole.CreateAsync(new UserRoleCreateRequest
             {
                 Names = new TranslatedStringDictionary(new Dictionary<string, string>
                 {

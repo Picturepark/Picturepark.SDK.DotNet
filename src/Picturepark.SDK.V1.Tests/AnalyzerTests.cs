@@ -12,7 +12,7 @@ namespace Picturepark.SDK.V1.Tests
     public class AnalyzerTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
-        private readonly IPictureparkClient _client;
+        private readonly IPictureparkService _client;
 
         public AnalyzerTests(ClientFixture fixture)
         {
@@ -25,12 +25,12 @@ namespace Picturepark.SDK.V1.Tests
         public async Task ShouldSearchAnalyzedFields()
         {
             // Arrange
-            if (await _client.Schemas.ExistsAsync(nameof(AnalyzerTestObject)).ConfigureAwait(false) == false)
+            if (await _client.Schema.ExistsAsync(nameof(AnalyzerTestObject)).ConfigureAwait(false) == false)
             {
-                var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(AnalyzerTestObject)).ConfigureAwait(false);
+                var schemas = await _client.Schema.GenerateSchemasAsync(typeof(AnalyzerTestObject)).ConfigureAwait(false);
                 foreach (var schema in schemas)
                 {
-                    await _client.Schemas.CreateOrUpdateAsync(schema, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+                    await _client.Schema.CreateOrUpdateAsync(schema, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
                 }
 
                 var analyzerValue = new AnalyzerTestObject
@@ -45,14 +45,14 @@ namespace Picturepark.SDK.V1.Tests
                     SimpleField = "Simple12Field"
                 };
 
-                var res = await _client.ListItems.CreateFromObjectAsync(analyzerValue).ConfigureAwait(false);
+                var res = await _client.ListItem.CreateFromObjectAsync(analyzerValue).ConfigureAwait(false);
                 var resDetail = await res.FetchDetail().ConfigureAwait(false);
                 resDetail.SucceededItems.Should().NotBeEmpty();
             }
 
             var requestSchemaIds = new[] { nameof(AnalyzerTestObject) };
 
-            var simpleResults = await _client.ListItems.SearchAsync(new ListItemSearchRequest
+            var simpleResults = await _client.ListItem.SearchAsync(new ListItemSearchRequest
             {
                 SchemaIds = requestSchemaIds,
                 Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.SimpleField, "simple", Analyzer.Simple)
@@ -60,7 +60,7 @@ namespace Picturepark.SDK.V1.Tests
 
             Assert.True(simpleResults.TotalResults > 0);
 
-            var pathResults = await _client.ListItems.SearchAsync(new ListItemSearchRequest
+            var pathResults = await _client.ListItem.SearchAsync(new ListItemSearchRequest
             {
                 SchemaIds = requestSchemaIds,
                 Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.PathHierarchyField, "Path/Hierarchy", Analyzer.PathHierarchy)
@@ -68,7 +68,7 @@ namespace Picturepark.SDK.V1.Tests
 
             Assert.True(pathResults.TotalResults > 0);
 
-            var languageResults = await _client.ListItems.SearchAsync(new ListItemSearchRequest
+            var languageResults = await _client.ListItem.SearchAsync(new ListItemSearchRequest
             {
                 SchemaIds = requestSchemaIds,
                 Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.LanguageField, "citi", language: "en", useAnalyzer: true)
@@ -76,7 +76,7 @@ namespace Picturepark.SDK.V1.Tests
 
             Assert.True(languageResults.TotalResults > 0);
 
-            var edgeNgramResults = await _client.ListItems.SearchAsync(new ListItemSearchRequest
+            var edgeNgramResults = await _client.ListItem.SearchAsync(new ListItemSearchRequest
             {
                 SchemaIds = requestSchemaIds,
                 Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.EdgeNGramField, "edg", Analyzer.EdgeNGram)
@@ -84,7 +84,7 @@ namespace Picturepark.SDK.V1.Tests
 
             Assert.True(edgeNgramResults.TotalResults > 0);
 
-            var ngramResults = await _client.ListItems.SearchAsync(new ListItemSearchRequest
+            var ngramResults = await _client.ListItem.SearchAsync(new ListItemSearchRequest
             {
                 SchemaIds = requestSchemaIds,
                 Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.NGramField, "mfield", Analyzer.NGram)

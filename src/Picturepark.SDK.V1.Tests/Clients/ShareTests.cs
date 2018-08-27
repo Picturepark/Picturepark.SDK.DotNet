@@ -12,7 +12,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
     public class ShareTests : IClassFixture<ShareFixture>
     {
         private readonly ShareFixture _fixture;
-        private readonly IPictureparkClient _client;
+        private readonly IPictureparkService _client;
 
         public ShareTests(ShareFixture fixture)
         {
@@ -48,7 +48,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            var result = await _client.Shares.AggregateAsync(request).ConfigureAwait(false);
+            var result = await _client.Share.AggregateAsync(request).ConfigureAwait(false);
 
             // Assert
             var aggregation = result.GetByName("ShareType");
@@ -69,15 +69,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Name = "Embed share bbb"
             }).ConfigureAwait(false);
 
-            var share = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
+            var share = await _client.Share.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
             // Act
             var request = share.AsEmbedUpdateRequest(r => r.Description = "Foo");
 
-            await _client.Shares.UpdateAsync(createResult.ShareId, request).ConfigureAwait(false);
+            await _client.Share.UpdateAsync(createResult.ShareId, request).ConfigureAwait(false);
 
             // Assert
-            var updatedShare = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
+            var updatedShare = await _client.Share.GetAsync(createResult.ShareId).ConfigureAwait(false);
             updatedShare.Description.Should().Be("Foo");
         }
 
@@ -96,7 +96,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             _fixture.CreatedShareIds.Enqueue(createResult.ShareId);
 
-            var share = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
+            var share = await _client.Share.GetAsync(createResult.ShareId).ConfigureAwait(false);
             createResult.ShareId.Should().Be(share.Id);
 
             // Act
@@ -104,13 +104,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Ids = new List<string> { createResult.ShareId }
             };
-            var bulkResponse = await _client.Shares.DeleteManyAsync(deleteManyRequest).ConfigureAwait(false);
+            var bulkResponse = await _client.Share.DeleteManyAsync(deleteManyRequest).ConfigureAwait(false);
 
             // Assert
             bulkResponse.Rows.Should().OnlyContain(i => i.Succeeded);
             await Assert.ThrowsAsync<ShareNotFoundException>(async () =>
             {
-                await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
+                await _client.Share.GetAsync(createResult.ShareId).ConfigureAwait(false);
             }).ConfigureAwait(false);
         }
 
@@ -164,7 +164,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Act and Assert
             await Assert.ThrowsAsync<ContentNotFoundException>(async () =>
             {
-                await _client.Shares.CreateAsync(request).ConfigureAwait(false);
+                await _client.Share.CreateAsync(request).ConfigureAwait(false);
             }).ConfigureAwait(false);
         }
 
@@ -183,7 +183,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }).ConfigureAwait(false);
 
             // Assert
-            var share = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
+            var share = await _client.Share.GetAsync(createResult.ShareId).ConfigureAwait(false);
             share.Id.Should().Be(createResult.ShareId);
         }
 
@@ -239,7 +239,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var result = await _client.Shares.SearchAsync(request).ConfigureAwait(false);
+            var result = await _client.Share.SearchAsync(request).ConfigureAwait(false);
 
             // Assert
             result.TotalResults.Should().Be(1);
@@ -263,7 +263,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         private async Task<CreateShareResult> CreateShare(ShareBaseCreateRequest createRequest)
         {
-            var createResult = await _client.Shares.CreateAsync(createRequest).ConfigureAwait(false);
+            var createResult = await _client.Share.CreateAsync(createRequest).ConfigureAwait(false);
             _fixture.CreatedShareIds.Enqueue(createResult.ShareId);
             return createResult;
         }

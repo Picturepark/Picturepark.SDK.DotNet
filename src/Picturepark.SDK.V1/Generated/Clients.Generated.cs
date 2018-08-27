@@ -16,7 +16,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public BusinessProcessClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public BusinessProcessClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -985,7 +985,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public ChannelClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public ChannelClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -1213,7 +1213,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public ContentClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public ContentClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -5799,7 +5799,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public ContentPermissionSetClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public ContentPermissionSetClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -6209,7 +6209,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public DocumentHistoryClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public DocumentHistoryClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -7170,7 +7170,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public InfoClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public InfoClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -7399,7 +7399,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public JsonSchemaClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public JsonSchemaClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -7633,7 +7633,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public ListItemClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public ListItemClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -10558,7 +10558,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public LiveStreamClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public LiveStreamClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -10791,7 +10791,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public OutputClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public OutputClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -11202,7 +11202,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public ProfileClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public ProfileClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -11606,7 +11606,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public PublicAccessClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public PublicAccessClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -12012,7 +12012,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public SchemaClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public SchemaClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -13523,7 +13523,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public SchemaPermissionSetClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public SchemaPermissionSetClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -13933,7 +13933,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public SchemaTransferClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public SchemaTransferClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -14168,7 +14168,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public ServiceProviderClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public ServiceProviderClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -14578,7 +14578,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public ShareAccessClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public ShareAccessClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -15421,7 +15421,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public ShareClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public ShareClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -16564,7 +16564,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public TransferClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public TransferClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -18728,7 +18728,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public UserClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public UserClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -20837,7 +20837,7 @@ namespace Picturepark.SDK.V1
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public UserRoleClient(Picturepark.SDK.V1.Contract.IPictureparkClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public UserRoleClient(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 

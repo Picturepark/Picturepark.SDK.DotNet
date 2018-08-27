@@ -25,14 +25,14 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
             var userCreationTasks = usersToCreate.Select(async userRequest =>
             {
-                var user = await Client.Users.CreateAsync(userRequest);
-                await Client.Users.InviteAsync(user.Id);
+                var user = await Client.User.CreateAsync(userRequest);
+                await Client.User.InviteAsync(user.Id);
                 return user;
             });
 
             var createdUsers = await Task.WhenAll(userCreationTasks);
 
-            var searchRes = await Client.Users.SearchAsync(new UserSearchRequest
+            var searchRes = await Client.User.SearchAsync(new UserSearchRequest
             {
                 Filter = FilterBase.FromExpression<User>(u => u.EmailAddress, usersToCreate.Select(u => u.EmailAddress).ToArray())
             });
@@ -42,14 +42,14 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
             foreach (var createdUser in createdUsers)
             {
-                await Client.Users.ReviewAsync(createdUser.Id, new UserReviewRequest
+                await Client.User.ReviewAsync(createdUser.Id, new UserReviewRequest
                 {
                     Reviewed = true
                 });
             }
 
             var createdUserIds = createdUsers.Select(u => u.Id);
-            var reviewedUsers = (await Client.Users.GetManyAsync(createdUserIds)).ToArray();
+            var reviewedUsers = (await Client.User.GetManyAsync(createdUserIds)).ToArray();
 
             reviewedUsers.Should()
                 .HaveCount(createdUsers.Length, "all previously created users should have been retrieved");
@@ -76,7 +76,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             {
                 foreach (var createdUserId in _createdUserIds)
                 {
-                    Client.Users.DeleteAsync(createdUserId, new UserDeleteRequest()).GetAwaiter().GetResult();
+                    Client.User.DeleteAsync(createdUserId, new UserDeleteRequest()).GetAwaiter().GetResult();
                 }
             }
 
@@ -87,7 +87,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
         {
             businessProcess.BusinessProcessScope.Should().Be(BusinessProcessScope.User);
 
-            var waitResult = await Client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, TimeSpan.FromSeconds(10));
+            var waitResult = await Client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id, TimeSpan.FromSeconds(10));
 
             waitResult.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
         }

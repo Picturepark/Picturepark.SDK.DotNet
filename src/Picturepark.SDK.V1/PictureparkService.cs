@@ -1,0 +1,104 @@
+﻿using System;
+using Picturepark.SDK.V1.Contract;
+using System.Net.Http;
+
+namespace Picturepark.SDK.V1
+{
+    public class PictureparkService : IDisposable, IPictureparkService
+    {
+        private HttpClient _httpClient;
+
+        /// <summary>Initializes a new instance of the <see cref="PictureparkService"/> class and uses the <see cref="IPictureparkServiceSettings.BaseUrl"/> of the <paramref name="settings"/> as Picturepark server URL.</summary>
+        /// <param name="settings">The service settings.</param>
+        public PictureparkService(IPictureparkServiceSettings settings)
+        {
+            _httpClient = new HttpClient { Timeout = settings.HttpTimeout };
+
+            Initialize(settings, _httpClient);
+        }
+
+        /// <summary>Initializes a new instance of the <see cref="PictureparkService"/> class and uses the <see cref="IPictureparkServiceSettings.BaseUrl"/> of the <paramref name="settings"/> as Picturepark server URL.</summary>
+        /// <param name="settings">The service settings.</param>
+        /// <param name="httpClient">The HTTP client.</param>
+        public PictureparkService(IPictureparkServiceSettings settings, HttpClient httpClient)
+        {
+            Initialize(settings, httpClient);
+        }
+
+        public ISchemaClient Schema { get; private set; }
+
+        public IContentClient Content { get; private set; }
+
+        public IOutputClient Output { get; private set; }
+
+        public IBusinessProcessClient BusinessProcess { get; private set; }
+
+        public IDocumentHistoryClient DocumentHistory { get; private set; }
+
+        public IJsonSchemaClient JsonSchema { get; private set; }
+
+        public IListItemClient ListItem { get; private set; }
+
+        public ILiveStreamClient LiveStream { get; private set; }
+
+        public IContentPermissionSetClient ContentPermissionSet { get; private set; }
+
+        public ISchemaPermissionSetClient SchemaPermissionSet { get; private set; }
+
+        public IPublicAccessClient PublicAccess { get; private set; }
+
+        public IShareClient Share { get; private set; }
+
+        public ITransferClient Transfer { get; private set; }
+
+        public IUserClient User { get; private set; }
+
+        public IUserRoleClient UserRole { get; private set; }
+
+        public IProfileClient Profile { get; private set; }
+
+        public ISchemaTransferClient SchemaTransfer { get; private set; }
+
+        public IServiceProviderClient ServiceProvider { get; private set; }
+
+        public IInfoClient Info { get; private set; }
+
+        public IChannelClient Channel { get; private set; }
+
+        public IShareAccessClient ShareAccess { get; private set; }
+
+        public void Dispose()
+        {
+            if (_httpClient != null)
+            {
+                _httpClient.Dispose();
+                _httpClient = null;
+            }
+        }
+
+        private void Initialize(IPictureparkServiceSettings settings, HttpClient httpClient)
+        {
+            Output = new OutputClient(settings, httpClient);
+            BusinessProcess = new BusinessProcessClient(settings, httpClient);
+            DocumentHistory = new DocumentHistoryClient(settings, httpClient);
+            JsonSchema = new JsonSchemaClient(settings, httpClient);
+            ContentPermissionSet = new ContentPermissionSetClient(settings, httpClient);
+            SchemaPermissionSet = new SchemaPermissionSetClient(settings, httpClient);
+            PublicAccess = new PublicAccessClient(settings, httpClient);
+            Share = new ShareClient(settings, httpClient);
+            ShareAccess = new ShareAccessClient(settings, httpClient);
+            User = new UserClient(settings, httpClient);
+            UserRole = new UserRoleClient(settings, httpClient);
+            Info = new InfoClient(settings, httpClient);
+            Schema = new SchemaClient((BusinessProcessClient)BusinessProcess, (InfoClient)Info, settings, httpClient);
+            Transfer = new TransferClient((BusinessProcessClient)BusinessProcess, settings, httpClient);
+            ListItem = new ListItemClient((BusinessProcessClient)BusinessProcess, settings, httpClient);
+            LiveStream = new LiveStreamClient(settings, httpClient);
+            Content = new ContentClient((BusinessProcessClient)BusinessProcess, settings, httpClient);
+            Profile = new ProfileClient(settings, httpClient);
+            ServiceProvider = new ServiceProviderClient(settings, httpClient);
+            SchemaTransfer = new SchemaTransferClient(settings, httpClient);
+            Channel = new ChannelClient(settings, httpClient);
+        }
+    }
+}

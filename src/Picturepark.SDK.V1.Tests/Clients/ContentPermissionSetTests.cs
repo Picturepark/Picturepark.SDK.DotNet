@@ -8,7 +8,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
     public class ContentPermissionSetTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
-        private readonly IPictureparkClient _client;
+        private readonly IPictureparkService _client;
 
         public ContentPermissionSetTests(ClientFixture fixture)
         {
@@ -25,7 +25,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.False(string.IsNullOrEmpty(permissionSetId));
 
             // Act
-            ContentPermissionSetDetail result = await _client.ContentPermissionSets.GetAsync(permissionSetId).ConfigureAwait(false);
+            ContentPermissionSetDetail result = await _client.ContentPermissionSet.GetAsync(permissionSetId).ConfigureAwait(false);
 
             // Assert
             Assert.False(string.IsNullOrEmpty(result.Id));
@@ -39,7 +39,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new PermissionSetSearchRequest { Limit = 20 };
 
             // Act
-            PermissionSetSearchResult result = await _client.ContentPermissionSets.SearchAsync(request).ConfigureAwait(false);
+            PermissionSetSearchResult result = await _client.ContentPermissionSet.SearchAsync(request).ConfigureAwait(false);
 
             // Assert
             Assert.True(result.Results.Count > 0);
