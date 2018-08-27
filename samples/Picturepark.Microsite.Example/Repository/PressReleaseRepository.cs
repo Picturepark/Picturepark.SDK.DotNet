@@ -29,12 +29,8 @@ namespace Picturepark.Microsite.Example.Repository
 				{
 					Filters = new List<FilterBase>
 					{
-						// Limit to PressRelease content
-						new TermFilter
-						{
-							Field = "contentSchemaId",
-							Term = "PressRelease"
-						},
+                        // Limit to PressRelease content
+                        FilterBase.FromExpression<Content>(i => i.ContentSchemaId, nameof(PressRelease)),
 
 						// Filter out future publications
 						new DateRangeFilter
