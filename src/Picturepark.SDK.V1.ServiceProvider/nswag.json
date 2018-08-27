@@ -9,7 +9,7 @@
   "codeGenerators": {
     "swaggerToCSharpClient": {
       "clientBaseClass": "ClientBase",
-      "configurationClass": "Picturepark.SDK.V1.Contract.IPictureparkClientSettings",
+      "configurationClass": "Picturepark.SDK.V1.Contract.IPictureparkServiceSettings",
       "generateClientClasses": true,
       "generateClientInterfaces": true,
       "generateDtoTypes": true,
