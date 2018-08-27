@@ -14,10 +14,10 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         public async Task Setup()
         {
-            if (await Client.Schemas.ExistsAsync(nameof(BusinessProcessTest)).ConfigureAwait(false) == false)
+            if (await Client.Schema.ExistsAsync(nameof(BusinessProcessTest)).ConfigureAwait(false) == false)
             {
-                var schema = await Client.Schemas.GenerateSchemasAsync(typeof(BusinessProcessTest)).ConfigureAwait(false);
-                await Client.Schemas.CreateAsync(schema.First(), true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+                var schema = await Client.Schema.GenerateSchemasAsync(typeof(BusinessProcessTest)).ConfigureAwait(false);
+                await Client.Schema.CreateAsync(schema.First(), true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
             }
         }
     }

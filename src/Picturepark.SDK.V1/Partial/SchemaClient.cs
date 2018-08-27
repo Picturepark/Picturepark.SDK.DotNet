@@ -13,7 +13,7 @@ namespace Picturepark.SDK.V1
         private readonly BusinessProcessClient _businessProcessClient;
         private readonly InfoClient _infoClient;
 
-        public SchemaClient(BusinessProcessClient businessProcessesClient, InfoClient infoClient, IPictureparkClientSettings settings, HttpClient httpClient)
+        public SchemaClient(BusinessProcessClient businessProcessesClient, InfoClient infoClient, IPictureparkServiceSettings settings, HttpClient httpClient)
             : this(settings, httpClient)
         {
             _businessProcessClient = businessProcessesClient;

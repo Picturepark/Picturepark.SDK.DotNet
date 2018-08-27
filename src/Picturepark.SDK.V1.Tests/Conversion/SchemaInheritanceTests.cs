@@ -12,7 +12,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
     public class SchemaInheritanceTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
-        private readonly IPictureparkClient _client;
+        private readonly IPictureparkService _client;
 
         public SchemaInheritanceTests(ClientFixture fixture)
         {
@@ -25,7 +25,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         public async Task ShouldOverwriteField()
         {
             // Act
-            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Teacher)).ConfigureAwait(false);
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Teacher)).ConfigureAwait(false);
 
             // Assert
             Assert.Equal(2, schemas.Count);

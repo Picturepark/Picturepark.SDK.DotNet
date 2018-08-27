@@ -17,7 +17,7 @@ namespace Picturepark.SDK.V1
     {
         private readonly IBusinessProcessClient _businessProcessClient;
 
-        public ListItemClient(IBusinessProcessClient businessProcessClient, IPictureparkClientSettings settings, HttpClient httpClient)
+        public ListItemClient(IBusinessProcessClient businessProcessClient, IPictureparkServiceSettings settings, HttpClient httpClient)
             : this(settings, httpClient)
         {
             _businessProcessClient = businessProcessClient;
