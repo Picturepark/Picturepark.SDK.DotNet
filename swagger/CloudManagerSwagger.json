@@ -11289,18 +11289,26 @@
       "User": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "emailAddress"
+        ],
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "User's Picturepark ID."
           },
           "firstName": {
-            "type": "string"
+            "type": "string",
+            "description": "User's first name."
           },
           "lastName": {
-            "type": "string"
+            "type": "string",
+            "description": "User's last name."
           },
           "emailAddress": {
-            "type": "string"
+            "type": "string",
+            "description": "Email address of the user (doubles as username).",
+            "minLength": 1
           }
         }
       },
@@ -12129,7 +12137,7 @@
       },
       "AggregationFilter": {
         "type": "object",
-        "description": "An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition.",
+        "description": "An AggregationFilter is provided with each aggregated value.\nWhen selecting the aggregated value the aggregation filter is added to the search query and returns documents meeting the aggregation condition.",
         "additionalProperties": false,
         "properties": {
           "aggregationName": {

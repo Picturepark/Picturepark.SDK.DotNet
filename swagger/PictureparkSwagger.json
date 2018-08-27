@@ -10253,10 +10253,12 @@
         "tags": [
           "User"
         ],
-        "summary": "Create a new user (without inviting him)",
+        "summary": "Create user",
+        "description": "User will not be invited.",
         "operationId": "User_Create",
         "requestBody": {
           "x-name": "request",
+          "description": "Requested user information.",
           "content": {
             "application/json": {
               "schema": {
@@ -10269,7 +10271,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "",
+            "description": "Newly created user",
             "content": {
               "application/json": {
                 "schema": {
@@ -10346,7 +10348,7 @@
         "tags": [
           "User"
         ],
-        "summary": "Get by id",
+        "summary": "Get user",
         "operationId": "User_Get",
         "parameters": [
           {
@@ -10354,14 +10356,14 @@
             "name": "userId",
             "in": "path",
             "required": true,
-            "description": "The user id",
+            "description": "User ID to search for.",
             "nullable": false
           }
         ],
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "UserDetail",
+            "description": "Requested user details",
             "content": {
               "application/json": {
                 "schema": {
@@ -10436,7 +10438,7 @@
         "tags": [
           "User"
         ],
-        "summary": "Updates one or more users",
+        "summary": "Update user",
         "operationId": "User_Update",
         "parameters": [
           {
@@ -10444,11 +10446,13 @@
             "name": "userId",
             "in": "path",
             "required": true,
+            "description": "User ID to action on.",
             "nullable": false
           }
         ],
         "requestBody": {
-          "x-name": "userUpdatableDetail",
+          "x-name": "request",
+          "description": "New user information.",
           "content": {
             "application/json": {
               "schema": {
@@ -10461,7 +10465,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "",
+            "description": "User details after the update of the user",
             "content": {
               "application/json": {
                 "schema": {
@@ -10538,11 +10542,11 @@
         "tags": [
           "User"
         ],
-        "summary": "Search for users",
+        "summary": "Search users",
         "operationId": "User_Search",
         "requestBody": {
           "x-name": "searchRequest",
-          "description": "The user search request",
+          "description": "User search request.",
           "content": {
             "application/json": {
               "schema": {
@@ -10555,7 +10559,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "UserSearchResult",
+            "description": "Result of the user search",
             "content": {
               "application/json": {
                 "schema": {
@@ -10632,7 +10636,7 @@
         "tags": [
           "User"
         ],
-        "summary": "Get by owner token",
+        "summary": "Get user by owner token",
         "operationId": "User_GetByOwnerToken",
         "parameters": [
           {
@@ -10640,14 +10644,14 @@
             "name": "tokenId",
             "in": "path",
             "required": true,
-            "description": "The token id",
+            "description": "ID of the owner token.",
             "nullable": false
           }
         ],
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "UserDetail",
+            "description": "User details of the user referenced by the owner token",
             "content": {
               "application/json": {
                 "schema": {
@@ -10724,7 +10728,8 @@
         "tags": [
           "User"
         ],
-        "summary": "Get multiple user details by supplying their ID's",
+        "summary": "Get multiple users",
+        "description": "Retrieves multiple users. IDs which are not found are ignored.",
         "operationId": "User_GetMany",
         "parameters": [
           {
@@ -10732,7 +10737,7 @@
             "name": "ids",
             "in": "query",
             "required": true,
-            "description": "The user ID's",
+            "description": "User IDs.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
@@ -10743,7 +10748,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "IEnumerable&lt;UserDetail&gt;",
+            "description": "Details of all the users who were found",
             "content": {
               "application/json": {
                 "schema": {
@@ -10823,10 +10828,11 @@
         "tags": [
           "User"
         ],
-        "summary": "Searches and aggregates users by different attributes",
+        "summary": "Aggregate users",
         "operationId": "User_Aggregate",
         "requestBody": {
-          "x-name": "userAggregationRequest",
+          "x-name": "request",
+          "description": "User aggregation request.",
           "content": {
             "application/json": {
               "schema": {
@@ -10839,7 +10845,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "",
+            "description": "Aggregation based on the request",
             "content": {
               "application/json": {
                 "schema": {
@@ -10916,7 +10922,7 @@
         "tags": [
           "User"
         ],
-        "summary": "Locks or unlocks one or more users",
+        "summary": "Lock / unlock user",
         "operationId": "User_Lock",
         "parameters": [
           {
@@ -10924,11 +10930,13 @@
             "name": "userId",
             "in": "path",
             "required": true,
+            "description": "User ID to action on.",
             "nullable": false
           }
         ],
         "requestBody": {
-          "x-name": "userLockRequest",
+          "x-name": "request",
+          "description": "Request detailing if the user should be locked or unlocked.",
           "content": {
             "application/json": {
               "schema": {
@@ -10940,7 +10948,7 @@
         },
         "responses": {
           "200": {
-            "description": ""
+            "description": "OK"
           },
           "500": {
             "x-nullable": true,
@@ -11010,7 +11018,7 @@
         "tags": [
           "User"
         ],
-        "summary": "Sets one or more users as reviewed or under review",
+        "summary": "Change user's review state",
         "operationId": "User_Review",
         "parameters": [
           {
@@ -11018,11 +11026,13 @@
             "name": "userId",
             "in": "path",
             "required": true,
+            "description": "User ID to action on.",
             "nullable": false
           }
         ],
         "requestBody": {
-          "x-name": "userReviewRequest",
+          "x-name": "request",
+          "description": "Request detailing if the user should be set as _reviewed_ or _to be reviewed_.",
           "content": {
             "application/json": {
               "schema": {
@@ -11034,7 +11044,7 @@
         },
         "responses": {
           "200": {
-            "description": ""
+            "description": "OK"
           },
           "500": {
             "x-nullable": true,
@@ -11104,7 +11114,8 @@
         "tags": [
           "User"
         ],
-        "summary": "Invites (or creates) new users",
+        "summary": "Invite user",
+        "description": "Formally invites a user, e.g. sends an invitation email.",
         "operationId": "User_Invite",
         "parameters": [
           {
@@ -11112,12 +11123,13 @@
             "name": "userId",
             "in": "path",
             "required": true,
+            "description": "User ID to action on.",
             "nullable": false
           }
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "OK"
           },
           "500": {
             "x-nullable": true,
@@ -11187,7 +11199,7 @@
         "tags": [
           "User"
         ],
-        "summary": "Deletes a user",
+        "summary": "Delete user",
         "operationId": "User_Delete",
         "parameters": [
           {
@@ -11195,11 +11207,13 @@
             "name": "userId",
             "in": "path",
             "required": true,
+            "description": "User ID to action on.",
             "nullable": false
           }
         ],
         "requestBody": {
-          "x-name": "userDeactivateRequest",
+          "x-name": "request",
+          "description": "Request with details regarding the deletion.",
           "content": {
             "application/json": {
               "schema": {
@@ -11211,7 +11225,7 @@
         },
         "responses": {
           "200": {
-            "description": ""
+            "description": "OK"
           },
           "500": {
             "x-nullable": true,
@@ -11281,7 +11295,8 @@
         "tags": [
           "User"
         ],
-        "summary": "Restores a previously deleted user",
+        "summary": "Restore user",
+        "description": "Restores previously deleted user, who was not cleaned up yet.",
         "operationId": "User_Restore",
         "parameters": [
           {
@@ -11289,12 +11304,13 @@
             "name": "userId",
             "in": "path",
             "required": true,
+            "description": "User ID to action on.",
             "nullable": false
           }
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "OK"
           },
           "500": {
             "x-nullable": true,
@@ -11364,12 +11380,12 @@
         "tags": [
           "UserRole"
         ],
-        "summary": "Get all roles",
+        "summary": "Get all user roles",
         "operationId": "UserRole_GetAll",
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "UserDetail",
+            "description": "List of all the user roles in the system",
             "content": {
               "application/json": {
                 "schema": {
@@ -11447,11 +11463,11 @@
         "tags": [
           "UserRole"
         ],
-        "summary": "Create a new user role",
+        "summary": "Create user role",
         "operationId": "UserRole_Create",
         "requestBody": {
           "x-name": "request",
-          "description": "Create request",
+          "description": "User role creation request.",
           "content": {
             "application/json": {
               "schema": {
@@ -11464,7 +11480,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "",
+            "description": "Newly created user role",
             "content": {
               "application/json": {
                 "schema": {
@@ -11541,7 +11557,7 @@
         "tags": [
           "UserRole"
         ],
-        "summary": "Get by id",
+        "summary": "Get user role",
         "operationId": "UserRole_Get",
         "parameters": [
           {
@@ -11549,14 +11565,14 @@
             "name": "userRoleId",
             "in": "path",
             "required": true,
-            "description": "The user role id",
+            "description": "The user role ID",
             "nullable": false
           }
         ],
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "UserDetail",
+            "description": "User role or null if not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -11633,11 +11649,11 @@
         "tags": [
           "UserRole"
         ],
-        "summary": "Search for user roles",
+        "summary": "Search user roles",
         "operationId": "UserRole_Search",
         "requestBody": {
           "x-name": "searchRequest",
-          "description": "The user role search request",
+          "description": "User role search request.",
           "content": {
             "application/json": {
               "schema": {
@@ -11650,7 +11666,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "UserRoleSearchResult",
+            "description": "Result of the user role search",
             "content": {
               "application/json": {
                 "schema": {
@@ -11727,11 +11743,11 @@
         "tags": [
           "UserRole"
         ],
-        "summary": "Create multiple new user roles",
+        "summary": "Create multiple user roles",
         "operationId": "UserRole_CreateMany",
         "requestBody": {
           "x-name": "request",
-          "description": "Create request",
+          "description": "Multiple user role creation request.",
           "content": {
             "application/json": {
               "schema": {
@@ -11744,7 +11760,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "",
+            "description": "Bulk response",
             "content": {
               "application/json": {
                 "schema": {
@@ -11823,7 +11839,7 @@
         "operationId": "UserRole_UpdateMany",
         "requestBody": {
           "x-name": "request",
-          "description": "Update request",
+          "description": "Multiple user role update request.",
           "content": {
             "application/json": {
               "schema": {
@@ -11836,7 +11852,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "",
+            "description": "Bulk response",
             "content": {
               "application/json": {
                 "schema": {
@@ -11913,11 +11929,11 @@
         "tags": [
           "UserRole"
         ],
-        "summary": "Deletes multiple user roles",
+        "summary": "Delete multiple user roles",
         "operationId": "UserRole_DeleteMany",
         "requestBody": {
           "x-name": "request",
-          "description": "Delete request",
+          "description": "Multiple user role deletion request.",
           "content": {
             "application/json": {
               "schema": {
@@ -11930,7 +11946,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "",
+            "description": "Bulk request",
             "content": {
               "application/json": {
                 "schema": {
@@ -12455,7 +12471,7 @@
       },
       "AggregationFilter": {
         "type": "object",
-        "description": "An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition.",
+        "description": "An AggregationFilter is provided with each aggregated value.\nWhen selecting the aggregated value the aggregation filter is added to the search query and returns documents meeting the aggregation condition.",
         "additionalProperties": false,
         "properties": {
           "aggregationName": {
@@ -16788,7 +16804,7 @@
             "description": "The elastic search index field to sort on."
           },
           "direction": {
-            "description": "The sort direction (Asc/Desc).",
+            "description": "The sort direction (ascending/descending).",
             "allOf": [
               {
                 "$ref": "#/components/schemas/SortDirection"
@@ -17927,22 +17943,26 @@
         "additionalProperties": false,
         "required": [
           "elapsedMilliseconds",
+          "aggregationResults",
           "isSearchStringRewritten"
         ],
         "properties": {
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "How long did the search and aggregation take.",
             "format": "int64"
           },
           "aggregationResults": {
             "type": "array",
+            "description": "Results of the aggregation.",
+            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/AggregationResult"
             }
           },
           "searchString": {
             "type": "string",
-            "description": "The search string used to query the data"
+            "description": "Search string used to query the data"
           },
           "isSearchStringRewritten": {
             "type": "boolean",
@@ -20131,31 +20151,40 @@
       },
       "UserAddress": {
         "type": "object",
+        "description": "User's address",
         "additionalProperties": false,
         "properties": {
           "company": {
-            "type": "string"
-          },
-          "address": {
-            "type": "string"
-          },
-          "alternativeAddress": {
-            "type": "string"
+            "type": "string",
+            "description": "Company address line"
           },
           "department": {
-            "type": "string"
+            "type": "string",
+            "description": "Company department."
+          },
+          "address": {
+            "type": "string",
+            "description": "Street and house number."
+          },
+          "alternativeAddress": {
+            "type": "string",
+            "description": "Additional address line."
           },
           "zip": {
-            "type": "string"
+            "type": "string",
+            "description": "ZIP code."
           },
           "city": {
-            "type": "string"
+            "type": "string",
+            "description": "City or town."
           },
           "phone": {
-            "type": "string"
+            "type": "string",
+            "description": "Phone number."
           },
           "countryCode": {
-            "type": "string"
+            "type": "string",
+            "description": "Country code."
           }
         }
       },
@@ -20528,18 +20557,26 @@
       "User": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "emailAddress"
+        ],
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "User's Picturepark ID."
           },
           "firstName": {
-            "type": "string"
+            "type": "string",
+            "description": "User's first name."
           },
           "lastName": {
-            "type": "string"
+            "type": "string",
+            "description": "User's last name."
           },
           "emailAddress": {
-            "type": "string"
+            "type": "string",
+            "description": "Email address of the user (doubles as username).",
+            "minLength": 1
           }
         }
       },
@@ -22929,6 +22966,7 @@
       },
       "UserRole": {
         "type": "object",
+        "description": "Represents a user role, which associates users with user rights.",
         "additionalProperties": false,
         "required": [
           "trashed"
@@ -22936,10 +22974,11 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The user role id."
+            "description": "User role ID."
           },
           "trashed": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Signals whether the user role was deleted or not."
           },
           "names": {
             "description": "Language specific user role names.",
@@ -24163,33 +24202,49 @@
       },
       "UserCreateRequest": {
         "type": "object",
+        "description": "Holds information needed for user creation.",
         "additionalProperties": false,
+        "required": [
+          "emailAddress"
+        ],
         "properties": {
           "firstName": {
-            "type": "string"
+            "type": "string",
+            "description": "User's first name."
           },
           "lastName": {
-            "type": "string"
+            "type": "string",
+            "description": "User's last name."
           },
           "emailAddress": {
-            "type": "string"
+            "type": "string",
+            "description": "Email address of the user (doubles as username).",
+            "minLength": 1
           },
           "languageCode": {
-            "type": "string"
+            "type": "string",
+            "description": "Preferred language, e.g. for correspondence."
           },
           "userRoleIds": {
             "type": "array",
+            "description": "IDs of user roles the user is assigned to.",
             "items": {
               "type": "string"
             }
           },
           "address": {
-            "$ref": "#/components/schemas/UserAddress"
+            "description": "User address.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UserAddress"
+              }
+            ]
           }
         }
       },
       "UserDetail": {
         "type": "object",
+        "description": "Detail information about a user.",
         "additionalProperties": false,
         "required": [
           "authorizationState",
@@ -24200,21 +24255,34 @@
         "properties": {
           "ownerTokens": {
             "type": "array",
+            "description": "Owner tokens referencing the user.",
             "items": {
               "$ref": "#/components/schemas/OwnerToken"
             }
           },
           "authorizationState": {
-            "$ref": "#/components/schemas/AuthorizationState"
+            "description": "Authorization state the user is currently in.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AuthorizationState"
+              }
+            ]
           },
           "lifeCycle": {
-            "$ref": "#/components/schemas/LifeCycle"
+            "description": "Life cycle state the user is currently in.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LifeCycle"
+              }
+            ]
           },
           "isSupportUser": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "The support user is a user created for Picturepark support personnel."
           },
           "isReadOnly": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Read-only users can't be removed from the system, e.g. service user."
           }
         },
         "allOf": [
@@ -24255,22 +24323,31 @@
       },
       "UserUpdateRequest": {
         "type": "object",
+        "description": "Represents the updateable fields of the user.",
         "additionalProperties": false,
         "properties": {
           "userRoles": {
             "type": "array",
+            "description": "User roles the user should be assigned to. Overwrites the original user roles.",
             "items": {
               "$ref": "#/components/schemas/UserRole"
             }
           },
           "comment": {
-            "type": "string"
+            "type": "string",
+            "description": "Comment saved for the user."
           },
           "languageCode": {
-            "type": "string"
+            "type": "string",
+            "description": "Preferred language, e.g. for correspondence."
           },
           "address": {
-            "$ref": "#/components/schemas/UserAddress"
+            "description": "User's address.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UserAddress"
+              }
+            ]
           }
         },
         "allOf": [
@@ -24281,6 +24358,7 @@
       },
       "UserSearchRequest": {
         "type": "object",
+        "description": "Represents user search request.",
         "additionalProperties": false,
         "required": [
           "start",
@@ -24295,13 +24373,14 @@
           },
           "searchBehaviours": {
             "type": "array",
-            "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
             "items": {
               "$ref": "#/components/schemas/SearchBehaviour"
             }
           },
           "sort": {
             "type": "array",
+            "description": "Fields and respective directions requested to sort the search results.",
             "items": {
               "$ref": "#/components/schemas/SortInfo"
             }
@@ -24319,25 +24398,37 @@
             "default": 30
           },
           "filter": {
-            "$ref": "#/components/schemas/FilterBase"
+            "description": "Filter applied to users.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
           },
           "lifeCycleFilter": {
-            "$ref": "#/components/schemas/LifeCycleFilter"
+            "description": "Return only users in certain life cycle state(s).",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LifeCycleFilter"
+              }
+            ]
           },
           "userRightsFilter": {
             "type": "array",
+            "description": "Return only users with certain user rights.",
             "items": {
               "$ref": "#/components/schemas/UserRight"
             }
           },
           "debugMode": {
             "type": "boolean",
-            "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
+            "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance."
           }
         }
       },
       "UserSearchResult": {
         "type": "object",
+        "description": "Holds results of the user search.",
         "additionalProperties": false,
         "required": [
           "elapsedMilliseconds"
@@ -24345,6 +24436,7 @@
         "properties": {
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "How long did the search take.",
             "format": "int64"
           }
         },
@@ -24403,8 +24495,10 @@
       },
       "UserWithRoles": {
         "type": "object",
+        "description": "User information retrieved via search",
         "additionalProperties": false,
         "required": [
+          "emailAddress",
           "authorizationState",
           "lifeCycle",
           "isSupportUser",
@@ -24413,52 +24507,73 @@
         "properties": {
           "userRoleIds": {
             "type": "array",
+            "description": "IDs of user roles user is assigned to",
             "items": {
               "type": "string"
             }
           },
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "User's Picturepark ID."
           },
           "firstName": {
-            "type": "string"
+            "type": "string",
+            "description": "User's first name."
           },
           "lastName": {
-            "type": "string"
+            "type": "string",
+            "description": "User's last name."
           },
           "emailAddress": {
-            "type": "string"
+            "type": "string",
+            "description": "Email address of the user (doubles as username).",
+            "minLength": 1
           },
           "authorizationState": {
-            "$ref": "#/components/schemas/AuthorizationState"
+            "description": "Authorization state the user is currently in.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AuthorizationState"
+              }
+            ]
           },
           "lifeCycle": {
-            "$ref": "#/components/schemas/LifeCycle"
+            "description": "Life cycle state the user is currently in.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LifeCycle"
+              }
+            ]
           },
           "isSupportUser": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "The support user is a user created for Picturepark support personnel."
           },
           "isReadOnly": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Read-only users can't be removed from the system, e.g. service user."
           }
         }
       },
       "UserAggregationRequest": {
         "type": "object",
+        "description": "Represents an aggregation request over users.",
         "additionalProperties": false,
         "properties": {
           "searchString": {
-            "type": "string"
+            "type": "string",
+            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
           },
           "searchBehaviours": {
             "type": "array",
-            "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
             "items": {
               "$ref": "#/components/schemas/SearchBehaviour"
             }
           },
           "sort": {
             "type": "array",
+            "description": "Fields and respective directions requested to sort the search results.",
             "items": {
               "$ref": "#/components/schemas/SortInfo"
             }
@@ -24473,12 +24588,14 @@
           },
           "aggregationFilters": {
             "type": "array",
+            "description": "List of aggregation filters, which are added to the search query and return documents meeting the aggregation condition.",
             "items": {
               "$ref": "#/components/schemas/AggregationFilter"
             }
           },
           "aggregators": {
             "type": "array",
+            "description": "List of aggregators used while evaluating the request.",
             "items": {
               "$ref": "#/components/schemas/AggregatorBase"
             }
@@ -24493,28 +24610,33 @@
         ],
         "properties": {
           "lock": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates the requested lock state of the user.\nIf _true_ was specified, the user will be _locked_. _False_ will unlock the previously _locked_ user."
           }
         }
       },
       "UserReviewRequest": {
         "type": "object",
+        "description": "Holds additional information for user review.",
         "additionalProperties": false,
         "required": [
           "reviewed"
         ],
         "properties": {
           "reviewed": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates the requested review state of the user.\nIf _true_ is specified, user will be transitioned into _reviewed_ state. _False_ will put the user back into _to be reviewed_ state."
           }
         }
       },
       "UserDeleteRequest": {
         "type": "object",
+        "description": "Details of the user deletion.",
         "additionalProperties": false,
         "properties": {
           "ownerTokenTransferUserId": {
-            "type": "string"
+            "type": "string",
+            "description": "User ID of user who will take over the ownership of the content currently owned by the deleted user."
           }
         }
       },
@@ -24533,13 +24655,14 @@
           },
           "searchBehaviours": {
             "type": "array",
-            "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
             "items": {
               "$ref": "#/components/schemas/SearchBehaviour"
             }
           },
           "sort": {
             "type": "array",
+            "description": "Fields and respective directions requested to sort the search results.",
             "items": {
               "$ref": "#/components/schemas/SortInfo"
             }
@@ -24557,7 +24680,12 @@
             "default": 30
           },
           "filter": {
-            "$ref": "#/components/schemas/FilterBase"
+            "description": "Filter applied to user roles.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
           },
           "debugMode": {
             "type": "boolean",
@@ -24565,6 +24693,7 @@
           },
           "searchLanguages": {
             "type": "array",
+            "description": "Which languages to search against when using the search string.",
             "items": {
               "type": "string"
             }
@@ -24573,6 +24702,7 @@
       },
       "UserRoleSearchResult": {
         "type": "object",
+        "description": "Holds results of the user role search.",
         "additionalProperties": false,
         "required": [
           "elapsedMilliseconds"
@@ -24580,6 +24710,7 @@
         "properties": {
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "How long did the search take.",
             "format": "int64"
           }
         },
@@ -24638,13 +24769,26 @@
       },
       "UserRoleCreateRequest": {
         "type": "object",
+        "description": "Holds information needed for user role creation.",
         "additionalProperties": false,
+        "required": [
+          "names",
+          "userRights"
+        ],
         "properties": {
           "names": {
-            "$ref": "#/components/schemas/TranslatedStringDictionary"
+            "description": "Language specific user role names.",
+            "minLength": 1,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           },
           "userRights": {
             "type": "array",
+            "description": "All user rights for this user role.",
+            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/UserRight"
             }
@@ -24653,10 +24797,16 @@
       },
       "UserRoleCreateManyRequest": {
         "type": "object",
+        "description": "Holds information needed to create multiple user roles.",
         "additionalProperties": false,
+        "required": [
+          "items"
+        ],
         "properties": {
           "items": {
             "type": "array",
+            "description": "Multiple user creation requests.",
+            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/UserRoleCreateRequest"
             }
@@ -24665,10 +24815,16 @@
       },
       "UserRoleUpdateManyRequest": {
         "type": "object",
+        "description": "Holds information about which user roles and how are requested to be updated.",
         "additionalProperties": false,
+        "required": [
+          "items"
+        ],
         "properties": {
           "items": {
             "type": "array",
+            "description": "New value for user roles with specified IDs.",
+            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/UserRoleDetail"
             }
@@ -24708,10 +24864,16 @@
       },
       "UserRoleDeleteManyRequest": {
         "type": "object",
+        "description": "Holds information about which user roles are requested to be deleted.",
         "additionalProperties": false,
+        "required": [
+          "ids"
+        ],
         "properties": {
           "ids": {
             "type": "array",
+            "description": "IDs of the user roles to delete.",
+            "minLength": 1,
             "items": {
               "type": "string"
             }
@@ -24840,11 +25002,11 @@
     },
     {
       "name": "User",
-      "description": "Endpoints to work with users.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/UserTests.cs)\r\n"
+      "description": "Endpoints for user retrieval and manipulation.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/UserTests.cs)\r\n"
     },
     {
       "name": "UserRole",
-      "description": "Endpoints to work with user roles.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/UserRoleTests.cs)\r\n"
+      "description": "Endpoints for user role retrieval and manipulation.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/UserRoleTests.cs)\r\n"
     }
   ]
 }

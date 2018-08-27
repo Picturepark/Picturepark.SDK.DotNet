@@ -7000,16 +7000,21 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class User 
     {
+        /// <summary>User's Picturepark ID.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
+        /// <summary>User's first name.</summary>
         [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FirstName { get; set; }
     
+        /// <summary>User's last name.</summary>
         [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LastName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Email address of the user (doubles as username).</summary>
+        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string EmailAddress { get; set; }
     
         public string ToJson() 
@@ -7813,7 +7818,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition.</summary>
+    /// <summary>An AggregationFilter is provided with each aggregated value.
+    /// When selecting the aggregated value the aggregation filter is added to the search query and returns documents meeting the aggregation condition.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class AggregationFilter : FilterBase
     {
