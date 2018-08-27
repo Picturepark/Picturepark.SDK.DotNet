@@ -9731,7 +9731,7 @@
           "Transfer"
         ],
         "summary": "Get blacklist",
-        "description": "The blacklist is a list of patterns that a filename must not match.\nA filename matching an item on the blacklist will be skipped during uploading.",
+        "description": "The blacklist is a list of patterns that a filename must not match.\nA filename matching an item on the blacklist will be skipped during uploading.\n            \nThe client is responsibly for matching uploaded files against the blacklist\nwhen creating the transfer. Otherwise, during transfer creation some items might get skipped\ncausing issues when uploading later on.",
         "operationId": "Transfer_GetBlacklist",
         "responses": {
           "200": {
@@ -10005,7 +10005,7 @@
           "Transfer"
         ],
         "summary": "Import transfer partially",
-        "description": "This triggers the import of selected items in a Transfer, creating contents. All imported items will be enqueued for rendering.$\n\nWait for TransferReady, ImportCompleted states on the Business process ID that is returned to wait for partial import completion.\n\nIf no files remain to be imported in the Transfer it will be marked as ImportCompleted.",
+        "description": "This triggers the import of selected items in a Transfer, creating contents. All imported items will be enqueued for rendering.\n\nWait for TransferReady, ImportCompleted states on the Business process ID that is returned to wait for partial import completion.\n\nIf no files remain to be imported in the Transfer it will be marked as ImportCompleted.",
         "operationId": "Transfer_PartialImport",
         "parameters": [
           {
@@ -22510,6 +22510,8 @@
         "description": "Represents a transfer.",
         "additionalProperties": false,
         "required": [
+          "id",
+          "name",
           "state",
           "transferType",
           "fileTransferCount"
@@ -22517,11 +22519,13 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "ID of transfer."
+            "description": "ID of transfer.",
+            "minLength": 1
           },
           "name": {
             "type": "string",
-            "description": "Name of transfer."
+            "description": "Name of transfer.",
+            "minLength": 1
           },
           "state": {
             "description": "State of transfer.",
@@ -23060,6 +23064,7 @@
         "description": "Represents a transfer and includes detailed information.",
         "additionalProperties": false,
         "required": [
+          "audit",
           "itemProgress",
           "itemCount",
           "fileUploadInProgressCount",
@@ -23072,6 +23077,7 @@
         "properties": {
           "audit": {
             "description": "Audit information.",
+            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/UserAudit"
@@ -23332,9 +23338,13 @@
         "type": "object",
         "description": "Detailed representation of file transfer.",
         "additionalProperties": false,
+        "required": [
+          "audit"
+        ],
         "properties": {
           "audit": {
             "description": "Audit information.",
+            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/UserAudit"
@@ -23848,24 +23858,32 @@
         "description": "Representation of a file transfer.",
         "additionalProperties": false,
         "required": [
+          "id",
+          "name",
+          "identifier",
+          "transferId",
           "state"
         ],
         "properties": {
           "id": {
             "type": "string",
-            "description": "ID of file transfer."
+            "description": "ID of file transfer.",
+            "minLength": 1
           },
           "name": {
             "type": "string",
-            "description": "Name of file transfer."
+            "description": "Name of file transfer.",
+            "minLength": 1
           },
           "identifier": {
             "type": "string",
-            "description": "Client provided identifier."
+            "description": "Client provided identifier.",
+            "minLength": 1
           },
           "transferId": {
             "type": "string",
-            "description": "ID of transfer."
+            "description": "ID of transfer.",
+            "minLength": 1
           },
           "state": {
             "description": "State of file transfer.",
@@ -24023,10 +24041,14 @@
         "type": "object",
         "description": "Blacklist containing file name patterns skipped when uploading.",
         "additionalProperties": false,
+        "required": [
+          "items"
+        ],
         "properties": {
           "items": {
             "type": "array",
             "description": "Blacklist entries.",
+            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/BlacklistItem"
             }
@@ -24037,14 +24059,20 @@
         "type": "object",
         "description": "Entry in the Blacklist.",
         "additionalProperties": false,
+        "required": [
+          "name",
+          "match"
+        ],
         "properties": {
           "name": {
             "type": "string",
-            "description": "Friendly name of item."
+            "description": "Friendly name of item.",
+            "minLength": 1
           },
           "match": {
             "type": "string",
-            "description": "Pattern a file name must match to be excluded from the transfer."
+            "description": "Pattern a file name must match to be excluded from the transfer.",
+            "minLength": 1
           }
         }
       },

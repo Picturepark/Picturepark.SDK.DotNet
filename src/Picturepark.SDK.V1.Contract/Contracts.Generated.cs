@@ -12221,11 +12221,13 @@ namespace Picturepark.SDK.V1.Contract
     public partial class Transfer 
     {
         /// <summary>ID of transfer.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
         /// <summary>Name of transfer.</summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Name { get; set; }
     
         /// <summary>State of transfer.</summary>
@@ -12791,8 +12793,9 @@ namespace Picturepark.SDK.V1.Contract
     public partial class TransferDetail : Transfer
     {
         /// <summary>Audit information.</summary>
-        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserAudit Audit { get; set; }
+        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public UserAudit Audit { get; set; } = new UserAudit();
     
         /// <summary>Number of items processed.</summary>
         [Newtonsoft.Json.JsonProperty("itemProgress", Required = Newtonsoft.Json.Required.Always)]
@@ -13049,19 +13052,23 @@ namespace Picturepark.SDK.V1.Contract
     public partial class FileTransfer 
     {
         /// <summary>ID of file transfer.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
         /// <summary>Name of file transfer.</summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Name { get; set; }
     
         /// <summary>Client provided identifier.</summary>
-        [Newtonsoft.Json.JsonProperty("identifier", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("identifier", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Identifier { get; set; }
     
         /// <summary>ID of transfer.</summary>
-        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string TransferId { get; set; }
     
         /// <summary>State of file transfer.</summary>
@@ -13091,8 +13098,9 @@ namespace Picturepark.SDK.V1.Contract
     public partial class FileTransferDetail : FileTransfer
     {
         /// <summary>Audit information.</summary>
-        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserAudit Audit { get; set; }
+        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public UserAudit Audit { get; set; } = new UserAudit();
     
         /// <summary>Metadata extracted for file.</summary>
         [Newtonsoft.Json.JsonProperty("fileMetadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -13695,8 +13703,9 @@ namespace Picturepark.SDK.V1.Contract
     public partial class Blacklist 
     {
         /// <summary>Blacklist entries.</summary>
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<BlacklistItem> Items { get; set; }
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<BlacklistItem> Items { get; set; } = new System.Collections.Generic.List<BlacklistItem>();
     
         public string ToJson() 
         {
@@ -13715,11 +13724,13 @@ namespace Picturepark.SDK.V1.Contract
     public partial class BlacklistItem 
     {
         /// <summary>Friendly name of item.</summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Name { get; set; }
     
         /// <summary>Pattern a file name must match to be excluded from the transfer.</summary>
-        [Newtonsoft.Json.JsonProperty("match", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("match", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Match { get; set; }
     
         public string ToJson() 
