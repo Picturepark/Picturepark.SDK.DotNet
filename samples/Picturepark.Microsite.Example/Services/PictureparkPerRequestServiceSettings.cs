@@ -8,11 +8,11 @@ using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.Microsite.Example.Services
 {
-	public class PictureparkPerRequestClientSettings: IPictureparkPerRequestClientSettings
+	public class PictureparkPerRequestServiceSettings: IPictureparkPerRequestServiceSettings
 	{
 		private IHttpContextAccessor _contextAccessor;
 
-		public PictureparkPerRequestClientSettings(PictureparkConfiguration config, IHttpContextAccessor httpContextAccessor)
+		public PictureparkPerRequestServiceSettings(PictureparkConfiguration config, IHttpContextAccessor httpContextAccessor)
 		{
 			_contextAccessor = httpContextAccessor;
 

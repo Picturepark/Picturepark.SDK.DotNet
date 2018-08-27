@@ -11,16 +11,16 @@ namespace Picturepark.Microsite.Example.Repository
 {
 	public class PressReleaseRepository : IPressReleaseRepository
 	{
-		private readonly IPictureparkServiceClient _client;
+		private readonly IPictureparkAccessTokenService _client;
 
-		public PressReleaseRepository(IPictureparkServiceClient client)
+		public PressReleaseRepository(IPictureparkAccessTokenService client)
 		{
 			_client = client;
 		}
 
 		public async Task<List<ContentItem<PressRelease>>> List(int start, int limit, string searchString)
 		{
-			var searchResult = await _client.Contents.SearchAsync(new ContentSearchRequest
+			var searchResult = await _client.Content.SearchAsync(new ContentSearchRequest
 			{
 				Start = start,
 				Limit = limit,
@@ -55,7 +55,7 @@ namespace Picturepark.Microsite.Example.Repository
 
 			// Fetch details
 			var contents = searchResult.Results.Any()
-			    ? await _client.Contents.GetManyAsync(searchResult.Results.Select(i => i.Id),
+			    ? await _client.Content.GetManyAsync(searchResult.Results.Select(i => i.Id),
 			        new[]
 			        {
 			            ContentResolveBehaviour.Content
@@ -70,7 +70,7 @@ namespace Picturepark.Microsite.Example.Repository
 
 		public async Task<ContentItem<PressRelease>> Get(string id)
 		{
-			var content = await _client.Contents.GetAsync(id, new[] { ContentResolveBehaviour.Content });
+			var content = await _client.Content.GetAsync(id, new[] { ContentResolveBehaviour.Content });
 
 			var detail = ((JObject)content.Content).ToObject<PressRelease>();
 

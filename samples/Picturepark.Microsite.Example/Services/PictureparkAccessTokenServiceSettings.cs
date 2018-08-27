@@ -6,9 +6,9 @@ using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.Microsite.Example.Services
 {
-	public class PictureparkServiceClientSettings: IPictureparkServiceClientSettings
+	public class PictureparkAccessTokenServiceSettings: IPictureparkAccessTokenServiceSettings
 	{
-		public PictureparkServiceClientSettings(PictureparkConfiguration config)
+		public PictureparkAccessTokenServiceSettings(PictureparkConfiguration config)
 		{
 			var auth = new AccessTokenAuthClient(config.ApiBaseUrl, config.AccessToken, config.CustomerAlias);
 			AuthClient = auth;

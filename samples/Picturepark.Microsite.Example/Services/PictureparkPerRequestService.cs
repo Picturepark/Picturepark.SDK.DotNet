@@ -7,9 +7,9 @@ using Picturepark.SDK.V1.Contract;
 
 namespace Picturepark.Microsite.Example.Services
 {
-	public class PictureparkPerRequestClient : PictureparkClient, IPictureparkPerRequestClient
+	public class PictureparkPerRequestService : PictureparkService, IPictureparkPerRequestService
 	{
-		public PictureparkPerRequestClient(IPictureparkPerRequestClientSettings settings) : base(settings)
+		public PictureparkPerRequestService(IPictureparkPerRequestServiceSettings settings) : base(settings)
 		{
 		}
 	}
