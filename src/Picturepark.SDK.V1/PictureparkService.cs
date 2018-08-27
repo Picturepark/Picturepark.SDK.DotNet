@@ -9,7 +9,7 @@ namespace Picturepark.SDK.V1
         private HttpClient _httpClient;
 
         /// <summary>Initializes a new instance of the <see cref="PictureparkService"/> class and uses the <see cref="IPictureparkServiceSettings.BaseUrl"/> of the <paramref name="settings"/> as Picturepark server URL.</summary>
-        /// <param name="settings">The client settings.</param>
+        /// <param name="settings">The service settings.</param>
         public PictureparkService(IPictureparkServiceSettings settings)
         {
             _httpClient = new HttpClient { Timeout = settings.HttpTimeout };
@@ -18,7 +18,7 @@ namespace Picturepark.SDK.V1
         }
 
         /// <summary>Initializes a new instance of the <see cref="PictureparkService"/> class and uses the <see cref="IPictureparkServiceSettings.BaseUrl"/> of the <paramref name="settings"/> as Picturepark server URL.</summary>
-        /// <param name="settings">The client settings.</param>
+        /// <param name="settings">The service settings.</param>
         /// <param name="httpClient">The HTTP client.</param>
         public PictureparkService(IPictureparkServiceSettings settings, HttpClient httpClient)
         {

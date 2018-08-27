@@ -3,7 +3,7 @@ using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1.Contract
 {
-    /// <summary>The Picturepark client settings interface.</summary>
+    /// <summary>The Picturepark service settings interface.</summary>
     public interface IPictureparkServiceSettings
     {
         /// <summary>Gets the server URL of the Picturepark authentication server.</summary>

@@ -3,7 +3,7 @@ using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1.Contract
 {
-    /// <summary>The Picturepark client settings.</summary>
+    /// <summary>The Picturepark service settings.</summary>
     public class PictureparkServiceSettings : IPictureparkServiceSettings
     {
         /// <summary>Initializes a new instance of the <see cref="PictureparkServiceSettings"/> class.</summary>
