@@ -609,10 +609,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var detail = await _client.ListItem.CreateAsync(new ListItemCreateRequest() { ContentSchemaId = schema.Id, Content = listItem1 }).ConfigureAwait(false);
 
             // Act
-            var englishClient = _fixture.GetLocalizedPictureparkClient("en");
+            var englishClient = _fixture.GetLocalizedPictureparkService("en");
             var receivedItem1 = await englishClient.ListItem.GetAsync(detail.Id, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
-            var germanClient = _fixture.GetLocalizedPictureparkClient("de");
+            var germanClient = _fixture.GetLocalizedPictureparkService("de");
             var receivedItem2 = await germanClient.ListItem.GetAsync(detail.Id, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
             // Assert

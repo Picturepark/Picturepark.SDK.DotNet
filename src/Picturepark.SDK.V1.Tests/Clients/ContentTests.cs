@@ -1144,10 +1144,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var detail = await _client.Content.CreateAsync(content).ConfigureAwait(false);
 
             // Act
-            var englishClient = _fixture.GetLocalizedPictureparkClient("en");
+            var englishClient = _fixture.GetLocalizedPictureparkService("en");
             var englishContent = await englishClient.Content.GetAsync(detail.Id, new[] { ContentResolveBehaviour.Content }).ConfigureAwait(false);
 
-            var germanClient = _fixture.GetLocalizedPictureparkClient("de");
+            var germanClient = _fixture.GetLocalizedPictureparkService("de");
             var germanContent = await germanClient.Content.GetAsync(detail.Id, new[] { ContentResolveBehaviour.Content }).ConfigureAwait(false);
 
             // Assert
