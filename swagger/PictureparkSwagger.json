@@ -9097,7 +9097,7 @@
         "tags": [
           "Transfer"
         ],
-        "summary": "Get Transferdetail",
+        "summary": "Get transfer details",
         "operationId": "Transfer_Get",
         "parameters": [
           {
@@ -9105,7 +9105,7 @@
             "name": "transferId",
             "in": "path",
             "required": true,
-            "description": "The tranfer id",
+            "description": "ID of transfer.",
             "nullable": false
           }
         ],
@@ -9187,7 +9187,7 @@
         "tags": [
           "Transfer"
         ],
-        "summary": "Delete Transfer",
+        "summary": "Delete transfer",
         "operationId": "Transfer_Delete",
         "parameters": [
           {
@@ -9195,13 +9195,13 @@
             "name": "transferId",
             "in": "path",
             "required": true,
-            "description": "The tranfer id",
+            "description": "ID of transfer.",
             "nullable": false
           }
         ],
         "responses": {
           "200": {
-            "description": "Transfer"
+            "description": "OK"
           },
           "500": {
             "x-nullable": true,
@@ -9271,7 +9271,7 @@
         "tags": [
           "Transfer"
         ],
-        "summary": "Search ",
+        "summary": "Search",
         "operationId": "Transfer_Search",
         "requestBody": {
           "x-name": "request",
@@ -9365,7 +9365,8 @@
         "tags": [
           "Transfer"
         ],
-        "summary": "Cancels a transfer.",
+        "summary": "Cancel transfer",
+        "description": "Requests cancellation of transfer.",
         "operationId": "Transfer_CancelTransfer",
         "parameters": [
           {
@@ -9373,12 +9374,13 @@
             "name": "transferId",
             "in": "path",
             "required": true,
+            "description": "ID of transfer.",
             "nullable": false
           }
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "OK"
           },
           "500": {
             "x-nullable": true,
@@ -9448,7 +9450,7 @@
         "tags": [
           "Transfer"
         ],
-        "summary": "Create Transfer",
+        "summary": "Create transfer",
         "operationId": "Transfer_Create",
         "requestBody": {
           "x-name": "request",
@@ -9542,7 +9544,7 @@
         "tags": [
           "Transfer"
         ],
-        "summary": "Get File",
+        "summary": "Get file",
         "operationId": "Transfer_GetFile",
         "parameters": [
           {
@@ -9550,7 +9552,7 @@
             "name": "fileTransferId",
             "in": "path",
             "required": true,
-            "description": "The filetransfer id",
+            "description": "ID of filetransfer.",
             "nullable": false
           }
         ],
@@ -9638,7 +9640,7 @@
         "operationId": "Transfer_SearchFiles",
         "requestBody": {
           "x-name": "request",
-          "description": "The file transfer search request",
+          "description": "The filetransfer search request",
           "content": {
             "application/json": {
               "schema": {
@@ -9728,7 +9730,8 @@
         "tags": [
           "Transfer"
         ],
-        "summary": "Get Blacklist",
+        "summary": "Get blacklist",
+        "description": "The blacklist is a list of patterns that a filename must not match.\nA filename matching an item on the blacklist will be skipped during uploading.\n            \nThe client is responsibly for matching uploaded files against the blacklist\nwhen creating the transfer. Otherwise, during transfer creation some items might get skipped\ncausing issues when uploading later on.",
         "operationId": "Transfer_GetBlacklist",
         "responses": {
           "200": {
@@ -9810,7 +9813,7 @@
         "tags": [
           "Transfer"
         ],
-        "summary": "Delete Files",
+        "summary": "Delete files",
         "operationId": "Transfer_DeleteFiles",
         "requestBody": {
           "x-name": "request",
@@ -9897,6 +9900,7 @@
           "Transfer"
         ],
         "summary": "Import transfer",
+        "description": "This triggers the import of a Transfer, creating Contents. All items in the Transfer will be enqueued for rendering.\n\nWait for completion on the Business process ID that is returned to wait for import completion.",
         "operationId": "Transfer_ImportTransfer",
         "parameters": [
           {
@@ -9904,13 +9908,13 @@
             "name": "transferId",
             "in": "path",
             "required": true,
-            "description": "The tranfer id",
+            "description": "ID of transfer.",
             "nullable": false
           }
         ],
         "requestBody": {
           "x-name": "request",
-          "description": "The filetransfer to content create request",
+          "description": "The ImportTransfer request.",
           "content": {
             "application/json": {
               "schema": {
@@ -10000,7 +10004,8 @@
         "tags": [
           "Transfer"
         ],
-        "summary": "Create a partial import",
+        "summary": "Import transfer partially",
+        "description": "This triggers the import of selected items in a Transfer, creating contents. All imported items will be enqueued for rendering.\n\nWait for TransferReady, ImportCompleted states on the Business process ID that is returned to wait for partial import completion.\n\nIf no files remain to be imported in the Transfer it will be marked as ImportCompleted.",
         "operationId": "Transfer_PartialImport",
         "parameters": [
           {
@@ -10008,13 +10013,13 @@
             "name": "transferId",
             "in": "path",
             "required": true,
-            "description": "The transfer id",
+            "description": "ID of transfer.",
             "nullable": false
           }
         ],
         "requestBody": {
           "x-name": "request",
-          "description": "The filetransfer partial to content create request",
+          "description": "The ImportTransferPartial request.",
           "content": {
             "application/json": {
               "schema": {
@@ -10027,7 +10032,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "",
+            "description": "Transfer",
             "content": {
               "application/json": {
                 "schema": {
@@ -10105,6 +10110,7 @@
           "Transfer"
         ],
         "summary": "Upload file",
+        "description": "Uploads the specified chunk data.\n\nUse `Content-Type: multipart/form-data` for uploading chunk data.",
         "operationId": "Transfer_UploadFile",
         "parameters": [
           {
@@ -10118,14 +10124,16 @@
             "type": "string",
             "name": "relativePath",
             "in": "query",
-            "description": "Relative path of the uploading file",
+            "required": true,
+            "description": "Relative path of the uploading file.",
             "nullable": true
           },
           {
             "type": "integer",
             "name": "chunkNumber",
             "in": "query",
-            "description": "Current chunk number. starts with 1",
+            "required": true,
+            "description": "Current chunk number. Starts at 1.",
             "format": "int64",
             "nullable": false
           },
@@ -10133,7 +10141,8 @@
             "type": "integer",
             "name": "currentChunkSize",
             "in": "query",
-            "description": "Size in bytes of the current chunk",
+            "required": true,
+            "description": "Size in bytes of the current chunk.",
             "format": "int64",
             "nullable": false
           },
@@ -10141,7 +10150,8 @@
             "type": "integer",
             "name": "totalSize",
             "in": "query",
-            "description": "Total size in bytes of the uploading file",
+            "required": true,
+            "description": "Total size in bytes of the uploading file.",
             "format": "int64",
             "nullable": false
           },
@@ -10149,7 +10159,8 @@
             "type": "integer",
             "name": "totalChunks",
             "in": "query",
-            "description": "Total chunks of the uploading file",
+            "required": true,
+            "description": "Total chunks of the uploading file.",
             "format": "int64",
             "nullable": false
           },
@@ -10158,6 +10169,7 @@
             "name": "transferId",
             "in": "path",
             "required": true,
+            "description": "ID of transfer.",
             "nullable": false
           },
           {
@@ -10165,12 +10177,13 @@
             "name": "identifier",
             "in": "path",
             "required": true,
+            "description": "Identifier of file.",
             "nullable": false
           }
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "OK"
           },
           "500": {
             "x-nullable": true,
@@ -22494,34 +22507,54 @@
       },
       "Transfer": {
         "type": "object",
+        "description": "Represents a transfer.",
         "additionalProperties": false,
         "required": [
+          "id",
+          "name",
           "state",
           "transferType",
           "fileTransferCount"
         ],
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of transfer.",
+            "minLength": 1
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of transfer.",
+            "minLength": 1
           },
           "state": {
-            "$ref": "#/components/schemas/TransferState"
+            "description": "State of transfer.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TransferState"
+              }
+            ]
           },
           "transferType": {
-            "$ref": "#/components/schemas/TransferType"
+            "description": "Type of transfer.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TransferType"
+              }
+            ]
           },
           "businessProcessId": {
-            "type": "string"
+            "type": "string",
+            "description": "Associated business process ID."
           },
           "fileTransferCount": {
             "type": "integer",
+            "description": "Number of files in transfer.",
             "format": "int64"
           },
           "collectionId": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of collection created from transfer."
           }
         }
       },
@@ -23028,10 +23061,10 @@
       },
       "TransferDetail": {
         "type": "object",
+        "description": "Represents a transfer and includes detailed information.",
         "additionalProperties": false,
         "required": [
-          "state",
-          "transferType",
+          "audit",
           "itemProgress",
           "itemCount",
           "fileUploadInProgressCount",
@@ -23039,74 +23072,68 @@
           "itemsFailed",
           "itemsCancelled",
           "lastDataExtractionProgressStamp",
-          "lastFileUploadProgressStamp",
-          "fileTransferCount"
+          "lastFileUploadProgressStamp"
         ],
         "properties": {
-          "id": {
-            "type": "string"
-          },
-          "rev": {
-            "type": "string"
-          },
           "audit": {
-            "$ref": "#/components/schemas/UserAudit"
-          },
-          "name": {
-            "type": "string"
-          },
-          "state": {
-            "$ref": "#/components/schemas/TransferState"
-          },
-          "businessProcessId": {
-            "type": "string"
-          },
-          "transferType": {
-            "$ref": "#/components/schemas/TransferType"
+            "description": "Audit information.",
+            "minLength": 1,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UserAudit"
+              }
+            ]
           },
           "itemProgress": {
             "type": "integer",
+            "description": "Number of items processed.",
             "format": "int64"
           },
           "itemCount": {
             "type": "integer",
+            "description": "Total number of items.",
             "format": "int64"
           },
           "fileUploadInProgressCount": {
             "type": "integer",
+            "description": "Number of items currently being uploaded.",
             "format": "int64"
           },
           "dataExtractionInProgressCount": {
             "type": "integer",
+            "description": "Number of items currently being processed in data extraction.",
             "format": "int64"
           },
           "itemsFailed": {
             "type": "integer",
+            "description": "Number of items failed.",
             "format": "int64"
           },
           "itemsCancelled": {
             "type": "integer",
+            "description": "Number of items cancelled.",
             "format": "int64"
           },
           "lastDataExtractionProgressStamp": {
             "type": "integer",
+            "description": "Time stamp of last progress update from data extraction.",
             "format": "int64"
           },
           "lastFileUploadProgressStamp": {
             "type": "integer",
+            "description": "LastTime stamp of last progress update from upload.",
             "format": "int64"
-          },
-          "fileTransferCount": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "collectionId": {
-            "type": "string"
           }
-        }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Transfer"
+          }
+        ]
       },
       "TransferSearchRequest": {
         "type": "object",
+        "description": "Request to search for transfers.",
         "additionalProperties": false,
         "required": [
           "start",
@@ -23114,8 +23141,7 @@
         ],
         "properties": {
           "searchString": {
-            "type": "string",
-            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
+            "type": "string"
           },
           "searchBehaviours": {
             "type": "array",
@@ -23125,13 +23151,11 @@
           },
           "start": {
             "type": "integer",
-            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
             "format": "int32",
             "default": 0
           },
           "limit": {
             "type": "integer",
-            "description": "Limits the document count of the result set. Defaults to 30.",
             "format": "int32",
             "default": 30
           },
@@ -23142,6 +23166,7 @@
       },
       "TransferSearchResult": {
         "type": "object",
+        "description": "Result from a search for transfers.",
         "additionalProperties": false,
         "required": [
           "elapsedMilliseconds"
@@ -23149,6 +23174,7 @@
         "properties": {
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "Time in milliseconds query took to execute.",
             "format": "int64"
           }
         },
@@ -23207,44 +23233,63 @@
       },
       "CreateTransferRequest": {
         "type": "object",
+        "description": "Creates a transfer.",
         "additionalProperties": false,
         "required": [
+          "name",
           "transferType",
           "createCollection"
         ],
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of transfer.",
+            "minLength": 1
           },
           "transferType": {
-            "$ref": "#/components/schemas/TransferType"
+            "description": "Type of transfer.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TransferType"
+              }
+            ]
           },
           "files": {
             "type": "array",
+            "description": "Files uploaded in transfer.",
             "items": {
               "$ref": "#/components/schemas/TransferUploadFile"
             }
           },
           "webLinks": {
             "type": "array",
+            "description": "Weblinks downloaded in transfer.",
             "items": {
               "$ref": "#/components/schemas/TransferWebLink"
             }
           },
           "collectionName": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of collection created after transfer."
           },
           "createCollection": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "A value indicating whether to create a Collection after importing the transfer."
           }
         }
       },
       "TransferUploadFile": {
         "type": "object",
+        "description": "Represents a file being uploaded in a transfer.",
         "additionalProperties": false,
+        "required": [
+          "fileName"
+        ],
         "properties": {
           "fileName": {
-            "type": "string"
+            "type": "string",
+            "description": "Target filename of file.",
+            "minLength": 1
           }
         },
         "allOf": [
@@ -23255,20 +23300,32 @@
       },
       "TransferFile": {
         "type": "object",
+        "description": "Represents the base class for transfer items.",
         "x-abstract": true,
         "additionalProperties": false,
+        "required": [
+          "identifier"
+        ],
         "properties": {
           "identifier": {
-            "type": "string"
+            "type": "string",
+            "description": "Client generated identifier of the item.",
+            "minLength": 1
           }
         }
       },
       "TransferWebLink": {
         "type": "object",
+        "description": "Represents an item being downloaded by URL in a transfer.",
         "additionalProperties": false,
+        "required": [
+          "url"
+        ],
         "properties": {
           "url": {
-            "type": "string"
+            "type": "string",
+            "description": "URL of the item.",
+            "minLength": 1
           }
         },
         "allOf": [
@@ -23279,82 +23336,41 @@
       },
       "FileTransferDetail": {
         "type": "object",
+        "description": "Detailed representation of file transfer.",
         "additionalProperties": false,
         "required": [
-          "state"
+          "audit"
         ],
         "properties": {
-          "id": {
-            "type": "string"
-          },
-          "rev": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "identifier": {
-            "type": "string"
-          },
           "audit": {
-            "$ref": "#/components/schemas/UserAudit"
-          },
-          "transferId": {
-            "type": "string"
-          },
-          "state": {
-            "$ref": "#/components/schemas/FileTransferState"
+            "description": "Audit information.",
+            "minLength": 1,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UserAudit"
+              }
+            ]
           },
           "fileMetadata": {
-            "$ref": "#/components/schemas/FileMetadata"
+            "description": "Metadata extracted for file.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FileMetadata"
+              }
+            ]
           },
           "outputItems": {
             "type": "array",
+            "description": "Outputs being rendered for file.",
             "items": {
               "$ref": "#/components/schemas/FileTransferOutput"
             }
-          },
-          "contentId": {
-            "type": "string"
           }
-        }
-      },
-      "FileTransferState": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Draft",
-          "UploadInProgress",
-          "UploadCompleted",
-          "DataExtractionInProgress",
-          "DataExtractionDone",
-          "ImportInProgress",
-          "ImportCompleted",
-          "UploadCancelled",
-          "ImportCancelled",
-          "UploadFailed",
-          "ImportFailed",
-          "DeleteInProgress",
-          "Deleted",
-          "CleanupInProgress",
-          "CleanupCompleted"
-        ],
-        "enum": [
-          "Draft",
-          "UploadInProgress",
-          "UploadCompleted",
-          "DataExtractionInProgress",
-          "DataExtractionDone",
-          "ImportInProgress",
-          "ImportCompleted",
-          "UploadCancelled",
-          "ImportCancelled",
-          "UploadFailed",
-          "ImportFailed",
-          "DeleteInProgress",
-          "Deleted",
-          "CleanupInProgress",
-          "CleanupCompleted"
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FileTransfer"
+          }
         ]
       },
       "FileMetadata": {
@@ -23837,8 +23853,93 @@
           "Embedded"
         ]
       },
+      "FileTransfer": {
+        "type": "object",
+        "description": "Representation of a file transfer.",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "identifier",
+          "transferId",
+          "state"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of file transfer.",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of file transfer.",
+            "minLength": 1
+          },
+          "identifier": {
+            "type": "string",
+            "description": "Client provided identifier.",
+            "minLength": 1
+          },
+          "transferId": {
+            "type": "string",
+            "description": "ID of transfer.",
+            "minLength": 1
+          },
+          "state": {
+            "description": "State of file transfer.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FileTransferState"
+              }
+            ]
+          },
+          "contentId": {
+            "type": "string",
+            "description": "ID of Content created for file."
+          }
+        }
+      },
+      "FileTransferState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Draft",
+          "UploadInProgress",
+          "UploadCompleted",
+          "DataExtractionInProgress",
+          "DataExtractionDone",
+          "ImportInProgress",
+          "ImportCompleted",
+          "UploadCancelled",
+          "ImportCancelled",
+          "UploadFailed",
+          "ImportFailed",
+          "DeleteInProgress",
+          "Deleted",
+          "CleanupInProgress",
+          "CleanupCompleted"
+        ],
+        "enum": [
+          "Draft",
+          "UploadInProgress",
+          "UploadCompleted",
+          "DataExtractionInProgress",
+          "DataExtractionDone",
+          "ImportInProgress",
+          "ImportCompleted",
+          "UploadCancelled",
+          "ImportCancelled",
+          "UploadFailed",
+          "ImportFailed",
+          "DeleteInProgress",
+          "Deleted",
+          "CleanupInProgress",
+          "CleanupCompleted"
+        ]
+      },
       "FileTransferSearchRequest": {
         "type": "object",
+        "description": "Request to search for file transfers.",
         "additionalProperties": false,
         "required": [
           "start",
@@ -23856,13 +23957,11 @@
           },
           "start": {
             "type": "integer",
-            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
             "format": "int32",
             "default": 0
           },
           "limit": {
             "type": "integer",
-            "description": "Limits the document count of the result set. Defaults to 30.",
             "format": "int32",
             "default": 30
           },
@@ -23873,6 +23972,7 @@
       },
       "FileTransferSearchResult": {
         "type": "object",
+        "description": "Result from a search for file transfers.",
         "additionalProperties": false,
         "required": [
           "elapsedMilliseconds"
@@ -23880,6 +23980,7 @@
         "properties": {
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "Time in milliseconds query took to execute.",
             "format": "int64"
           }
         },
@@ -23936,39 +24037,18 @@
           }
         }
       },
-      "FileTransfer": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "state"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "identifier": {
-            "type": "string"
-          },
-          "transferId": {
-            "type": "string"
-          },
-          "state": {
-            "$ref": "#/components/schemas/FileTransferState"
-          },
-          "contentId": {
-            "type": "string"
-          }
-        }
-      },
       "Blacklist": {
         "type": "object",
+        "description": "Blacklist containing file name patterns skipped when uploading.",
         "additionalProperties": false,
+        "required": [
+          "items"
+        ],
         "properties": {
           "items": {
             "type": "array",
+            "description": "Blacklist entries.",
+            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/BlacklistItem"
             }
@@ -23977,25 +24057,43 @@
       },
       "BlacklistItem": {
         "type": "object",
+        "description": "Entry in the Blacklist.",
         "additionalProperties": false,
+        "required": [
+          "name",
+          "match"
+        ],
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Friendly name of item.",
+            "minLength": 1
           },
           "match": {
-            "type": "string"
+            "type": "string",
+            "description": "Pattern a file name must match to be excluded from the transfer.",
+            "minLength": 1
           }
         }
       },
       "FileTransferDeleteRequest": {
         "type": "object",
+        "description": "Deletes files from transfer.",
         "additionalProperties": false,
+        "required": [
+          "transferId",
+          "fileTransferIds"
+        ],
         "properties": {
           "transferId": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of transfer.",
+            "minLength": 1
           },
           "fileTransferIds": {
             "type": "array",
+            "description": "List of IDs of file transfers to delete.",
+            "minLength": 1,
             "items": {
               "type": "string"
             }

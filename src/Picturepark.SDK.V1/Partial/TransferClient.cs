@@ -193,14 +193,14 @@ namespace Picturepark.SDK.V1
                             using (var memoryStream = new MemoryStream(buffer))
                             {
                                 await UploadFileAsync(
-                                    transferId,
-                                    identifier,
-                                    new FileParameter(memoryStream, sourceFileName),
                                     targetFileName,
                                     number,
                                     currentChunkSize,
                                     fileSize,
                                     totalChunks,
+                                    transferId,
+                                    identifier,
+                                    new FileParameter(memoryStream, sourceFileName),
                                     cancellationToken).ConfigureAwait(false);
                             }
                         }
