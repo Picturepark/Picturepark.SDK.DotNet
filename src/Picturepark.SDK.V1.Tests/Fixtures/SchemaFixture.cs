@@ -22,7 +22,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             var createSchemaTasks = schemas.Select(async s =>
             {
                 AppendSchemaIdSuffix(s, schemaSuffix);
-                return await Client.Schemas.CreateAsync(s, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+                return await Client.Schema.CreateAsync(s, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
             });
 
             var createdSchemas = (await Task.WhenAll(createSchemaTasks)).Select(r => r.Schema).ToArray();
@@ -41,9 +41,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             {
                 while (_createdSchemaIds.TryDequeue(out var id))
                 {
-                    var exists = Client.Schemas.ExistsAsync(id).GetAwaiter().GetResult();
+                    var exists = Client.Schema.ExistsAsync(id).GetAwaiter().GetResult();
                     if (exists)
-                        Client.Schemas.DeleteAsync(id, TimeSpan.FromMinutes(1)).GetAwaiter().GetResult();
+                        Client.Schema.DeleteAsync(id, TimeSpan.FromMinutes(1)).GetAwaiter().GetResult();
                 }
             }
 

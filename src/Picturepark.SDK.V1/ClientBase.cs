@@ -10,11 +10,11 @@ namespace Picturepark.SDK.V1
     /// <summary>The base class for all clients.</summary>
     public abstract class ClientBase
     {
-        private readonly IPictureparkClientSettings _settings;
+        private readonly IPictureparkServiceSettings _settings;
 
         /// <summary>Initializes a new instance of the <see cref="ClientBase" /> class.</summary>
         /// <param name="settings">The client settings.</param>
-        protected ClientBase(IPictureparkClientSettings settings)
+        protected ClientBase(IPictureparkServiceSettings settings)
         {
             _settings = settings;
         }

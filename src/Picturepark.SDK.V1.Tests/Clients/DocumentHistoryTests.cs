@@ -11,7 +11,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
     public class DocumentHistoryTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
-        private readonly IPictureparkClient _client;
+        private readonly IPictureparkService _client;
 
         public DocumentHistoryTests(ClientFixture fixture)
         {
@@ -74,7 +74,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
 
             var schema = await CreateTestSchemaAsync().ConfigureAwait(false);
-            var content = await _client.Contents.GetAsync(contentId).ConfigureAwait(false);
+            var content = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
             var history = await _client.DocumentHistory.GetAsync(contentId).ConfigureAwait(false);
 
             var updateRequest = new ContentFieldsBatchUpdateRequest
@@ -93,7 +93,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            var result = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
+            var result = await _client.Content.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
 
             // Refetch content and compare versions
             var updatedHistory = await _client.DocumentHistory.GetAsync(contentId).ConfigureAwait(false);
@@ -151,7 +151,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 DisplayPatterns = new List<DisplayPattern>()
             };
 
-            var result = await _client.Schemas.CreateAsync(schemaItem, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            var result = await _client.Schema.CreateAsync(schemaItem, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
             return result.Schema;
         }
     }

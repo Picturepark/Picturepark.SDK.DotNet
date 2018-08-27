@@ -10,7 +10,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
     public class OutputTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
-        private readonly IPictureparkClient _client;
+        private readonly IPictureparkService _client;
 
         public OutputTests(ClientFixture fixture)
         {
@@ -26,7 +26,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             Assert.False(string.IsNullOrEmpty(contentId));
 
-            ContentDetail contentDetail = await _client.Contents.GetAsync(contentId, new[] { ContentResolveBehaviour.Outputs }).ConfigureAwait(false);
+            ContentDetail contentDetail = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehaviour.Outputs }).ConfigureAwait(false);
             Assert.True(contentId == contentDetail.Id, "Delivery goes wrong. We never ordered such pizza.");
 
             Assert.True(contentDetail.Outputs.Any());
@@ -34,7 +34,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.False(string.IsNullOrEmpty(outputId));
 
             // Act
-            OutputDetail result = await _client.Outputs.GetAsync(outputId).ConfigureAwait(false);
+            OutputDetail result = await _client.Output.GetAsync(outputId).ConfigureAwait(false);
 
             // Assert
             Assert.True(result.ContentId == contentId);
@@ -52,7 +52,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var result = await _client.Outputs.SearchAsync(request).ConfigureAwait(false);
+            var result = await _client.Output.SearchAsync(request).ConfigureAwait(false);
 
             // Assert
             Assert.True(result.Results.ToList()[0].ContentId == contentId);

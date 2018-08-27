@@ -9,7 +9,7 @@ namespace Picturepark.SDK.V1.CloudManager
     {
         private HttpClient _httpClient;
 
-        /// <summary>Initializes a new instance of the <see cref="CloudManagerClient"/> class and uses the <see cref="IPictureparkClientSettings.BaseUrl"/> of the <paramref name="settings"/> as Picturepark server URL.</summary>
+        /// <summary>Initializes a new instance of the <see cref="CloudManagerClient"/> class and uses the <see cref="IPictureparkServiceSettings.BaseUrl"/> of the <paramref name="settings"/> as Picturepark server URL.</summary>
         /// <param name="settings">The client settings.</param>
         public CloudManagerClient(ICloudManagerClientSettings settings)
         {
@@ -19,7 +19,7 @@ namespace Picturepark.SDK.V1.CloudManager
             Initialize(settings, _httpClient);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="CloudManagerClient"/> class and uses the <see cref="IPictureparkClientSettings.BaseUrl"/> of the <paramref name="settings"/> as Picturepark server URL.</summary>
+        /// <summary>Initializes a new instance of the <see cref="CloudManagerClient"/> class and uses the <see cref="IPictureparkServiceSettings.BaseUrl"/> of the <paramref name="settings"/> as Picturepark server URL.</summary>
         /// <param name="settings">The client settings.</param>
         /// <param name="httpClient">The HTTP client.</param>
         public CloudManagerClient(ICloudManagerClientSettings settings, HttpClient httpClient)

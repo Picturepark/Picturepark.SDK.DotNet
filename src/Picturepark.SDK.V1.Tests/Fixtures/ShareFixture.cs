@@ -12,7 +12,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
         {
             if (!CreatedShareIds.IsEmpty)
             {
-                var deleteResult = Client.Shares.DeleteManyAsync(new ShareDeleteManyRequest { Ids = CreatedShareIds.ToArray() }).GetAwaiter().GetResult();
+                var deleteResult = Client.Share.DeleteManyAsync(new ShareDeleteManyRequest { Ids = CreatedShareIds.ToArray() }).GetAwaiter().GetResult();
                 deleteResult.Rows.Should().OnlyContain(r => r.Succeeded);
             }
 

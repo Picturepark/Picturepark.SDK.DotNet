@@ -3,32 +3,32 @@ using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1.Contract
 {
-    /// <summary>The Picturepark client settings.</summary>
-    public class PictureparkClientSettings : IPictureparkClientSettings
+    /// <summary>The Picturepark service settings.</summary>
+    public class PictureparkServiceSettings : IPictureparkServiceSettings
     {
-        /// <summary>Initializes a new instance of the <see cref="PictureparkClientSettings"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="PictureparkServiceSettings"/> class.</summary>
         /// <param name="baseUrl">The base URL.</param>
         /// <param name="customerAlias">The customaer alias.</param>
-        public PictureparkClientSettings(string baseUrl, string customerAlias)
+        public PictureparkServiceSettings(string baseUrl, string customerAlias)
         {
             BaseUrl = baseUrl;
             HttpTimeout = TimeSpan.FromMinutes(1);
             CustomerAlias = customerAlias;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="PictureparkClientSettings"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="PictureparkServiceSettings"/> class.</summary>
         /// <param name="authClient">The authentication client.</param>
-        public PictureparkClientSettings(IAuthClient authClient)
+        public PictureparkServiceSettings(IAuthClient authClient)
             : this(authClient.BaseUrl, authClient.CustomerAlias)
         {
             AuthClient = authClient;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="PictureparkClientSettings" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="PictureparkServiceSettings" /> class.</summary>
         /// <param name="baseUrl">The base URL.</param>
         /// <param name="authClient">The authentication client.</param>
         /// <param name="customerAlias">The customer alias.</param>
-        public PictureparkClientSettings(string baseUrl, IAuthClient authClient, string customerAlias)
+        public PictureparkServiceSettings(string baseUrl, IAuthClient authClient, string customerAlias)
             : this(baseUrl, customerAlias)
         {
             AuthClient = authClient;

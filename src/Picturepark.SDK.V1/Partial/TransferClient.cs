@@ -16,7 +16,7 @@ namespace Picturepark.SDK.V1
         private readonly BusinessProcessClient _businessProcessClient;
         private volatile ISet<string> _fileNameBlacklist;
 
-        public TransferClient(BusinessProcessClient businessProcessClient, IPictureparkClientSettings settings, HttpClient httpClient)
+        public TransferClient(BusinessProcessClient businessProcessClient, IPictureparkServiceSettings settings, HttpClient httpClient)
             : this(settings, httpClient)
         {
             _businessProcessClient = businessProcessClient;
