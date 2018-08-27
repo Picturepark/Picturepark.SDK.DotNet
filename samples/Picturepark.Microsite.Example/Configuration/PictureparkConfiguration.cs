@@ -7,7 +7,11 @@ namespace Picturepark.Microsite.Example.Configuration
 {
 	public class PictureparkConfiguration
 	{
-		public string BaseUrl { get; set; }
+		public string ApiBaseUrl { get; set; }
+
+		public string ApplicationBaseUrl { get; set; }
+
+		public string FrontendBaseUrl { get; set; }
 
 		public string AccessToken { get; set; }
 

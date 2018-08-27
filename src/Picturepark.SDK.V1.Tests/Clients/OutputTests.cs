@@ -10,7 +10,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
     public class OutputTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkService _client;
 
         public OutputTests(ClientFixture fixture)
         {
@@ -22,21 +22,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Outputs")]
         public async Task ShouldGet()
         {
-            /// Arrange
+            // Arrange
             string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             Assert.False(string.IsNullOrEmpty(contentId));
 
-            ContentDetail contentDetail = await _client.Contents.GetAsync(contentId, new[] { ContentResolveBehaviour.Outputs }).ConfigureAwait(false);
+            ContentDetail contentDetail = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehaviour.Outputs }).ConfigureAwait(false);
             Assert.True(contentId == contentDetail.Id, "Delivery goes wrong. We never ordered such pizza.");
 
             Assert.True(contentDetail.Outputs.Any());
             var outputId = contentDetail.Outputs.FirstOrDefault()?.Id;
             Assert.False(string.IsNullOrEmpty(outputId));
 
-            /// Act
-            OutputDetail result = await _client.Outputs.GetAsync(outputId).ConfigureAwait(false);
+            // Act
+            OutputDetail result = await _client.Output.GetAsync(outputId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(result.ContentId == contentId);
         }
 
@@ -44,18 +44,18 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Outputs")]
         public async Task ShouldGetByContentIds()
         {
-            /// Arrange
-            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
-            var request = new ContentsByIdsRequest
+            // Arrange
+            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var request = new OutputSearchRequest
             {
                 ContentIds = new List<string> { contentId }
             };
 
-            /// Act
-            var result = await _client.Outputs.GetByContentIdsAsync(request);
+            // Act
+            var result = await _client.Output.SearchAsync(request).ConfigureAwait(false);
 
-            /// Assert
-            Assert.True(result.ToList()[0].ContentId == contentId);
+            // Assert
+            Assert.True(result.Results.ToList()[0].ContentId == contentId);
         }
     }
 }

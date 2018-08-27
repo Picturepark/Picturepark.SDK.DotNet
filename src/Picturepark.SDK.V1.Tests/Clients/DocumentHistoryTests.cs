@@ -11,7 +11,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
     public class DocumentHistoryTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkService _client;
 
         public DocumentHistoryTests(ClientFixture fixture)
         {
@@ -23,16 +23,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "DocumentHistory")]
         public async Task ShouldSearch()
         {
-            /// Arrange
+            // Arrange
             var request = new DocumentHistorySearchRequest
             {
                 Limit = 10,
             };
 
-            /// Act
-            var result = await _client.DocumentHistory.SearchAsync(request);
+            // Act
+            var result = await _client.DocumentHistory.SearchAsync(request).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(result.Results.Any());
         }
 
@@ -40,13 +40,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "DocumentHistory")]
         public async Task ShouldGet()
         {
-            /// Arrange
-            var documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            // Arrange
+            var documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
 
-            /// Act
-            var result = await _client.DocumentHistory.GetAsync(documentId);
+            // Act
+            var result = await _client.DocumentHistory.GetAsync(documentId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(result.DocumentId == documentId);
         }
 
@@ -54,14 +54,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "DocumentHistory")]
         public async Task ShouldGetVersion()
         {
-            /// Arrange
-            string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            // Arrange
+            string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             string versionId = "1";
 
-            /// Act
-            var result = await _client.DocumentHistory.GetVersionAsync(documentId, versionId);
+            // Act
+            var result = await _client.DocumentHistory.GetVersionAsync(documentId, versionId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal(versionId, result.DocumentVersion.ToString());
         }
 
@@ -69,12 +69,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "DocumentHistory")]
         public async Task ShouldGetDifferenceOfContentChange()
         {
-            /// Arrange
+            // Arrange
             string location = "testlocation" + new Random().Next(0, 999999);
             string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
 
             var schema = await CreateTestSchemaAsync().ConfigureAwait(false);
-            var content = await _client.Contents.GetAsync(contentId).ConfigureAwait(false);
+            var content = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
             var history = await _client.DocumentHistory.GetAsync(contentId).ConfigureAwait(false);
 
             var updateRequest = new ContentFieldsBatchUpdateRequest
@@ -93,18 +93,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            // TODO: Create ContentHelper to update and wait with one call => UpdateMetadataManyAndWaitForCompletionAsync?
-            var businessProcess = await _client.Contents.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
-            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+            var result = await _client.Content.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
 
             // Refetch content and compare versions
             var updatedHistory = await _client.DocumentHistory.GetAsync(contentId).ConfigureAwait(false);
 
-            /// Act
+            // Act
             var difference = await _client.DocumentHistory.GetDifferenceAsync(contentId, history.DocumentVersion, updatedHistory.DocumentVersion).ConfigureAwait(false);
 
-            /// Assert
-            Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
+            // Assert
+            Assert.True(result.LifeCycle == BusinessProcessLifeCycle.Succeeded);
             Assert.NotEqual(0, updatedHistory.DocumentVersion);
             Assert.Contains(@"""name"": """ + location + @"""", difference.NewValues.ToString());
         }
@@ -113,14 +111,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "DocumentHistory")]
         public async Task ShouldGetDifferenceWithLatestVersion()
         {
-            /// Arrange
-            string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20);
+            // Arrange
+            string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             long oldVersionId = 1;
 
-            /// Act
-            var difference = await _client.DocumentHistory.GetDifferenceLatestAsync(documentId, oldVersionId);
+            // Act
+            var difference = await _client.DocumentHistory.GetDifferenceLatestAsync(documentId, oldVersionId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(difference.OldDocumentVersion <= difference.NewDocumentVersion);
         }
 
@@ -153,8 +151,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 DisplayPatterns = new List<DisplayPattern>()
             };
 
-            await _client.Schemas.CreateAndWaitForCompletionAsync(schemaItem, false);
-            return schemaItem;
+            var result = await _client.Schema.CreateAsync(schemaItem, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            return result.Schema;
         }
     }
 }

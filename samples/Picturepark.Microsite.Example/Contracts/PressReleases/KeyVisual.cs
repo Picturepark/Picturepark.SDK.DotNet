@@ -5,7 +5,7 @@ using Picturepark.SDK.V1.Contract.SystemTypes;
 
 namespace Picturepark.Microsite.Example.Contracts
 {
-	[PictureparkSchemaType(SchemaType.Struct)]
+	[PictureparkSchema(SchemaType.Struct)]
 	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.keyVisual.usage | translate: language}}")]
 	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.keyVisual.usage | translate: language}}")]
 	[PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{data.keyVisual.usage | translate: language}}")]

@@ -7,21 +7,21 @@ using Microsoft.Extensions.Options;
 using Picturepark.Microsite.Example.Helpers;
 using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
 using Picturepark.Microsite.Example.Repository;
 using Picturepark.Microsite.Example.Contracts;
+using Picturepark.Microsite.Example.Controllers;
 using Picturepark.Microsite.Example.Services;
 
 namespace Picturepark.Microsite.Example
 {
 	public class Startup
 	{
-		public Startup(IConfiguration configuration)
+	    public Startup(IConfiguration configuration)
 		{
 			Configuration = configuration;
 
@@ -32,18 +32,19 @@ namespace Picturepark.Microsite.Example
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-			// Configure Picturepark
-			services.Configure<PictureparkConfiguration>(Configuration.GetSection("Picturepark"));
+		    services.AddConfiguration<PictureparkConfiguration>(Configuration);
+		    var authConfig = services.AddConfiguration<AuthenticationConfiguration>(Configuration);
+		    services.AddConfiguration<AuthorizationConfiguration>(Configuration);
 
 		    services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            // Register PictureparkServiceClient as singleton
-            services.AddSingleton<IPictureparkServiceClientSettings, PictureparkServiceClientSettings>();
-			services.AddSingleton<IPictureparkServiceClient, PictureparkServiceClient>();
+            // Register PictureparkAccessTokenService as singleton
+            services.AddSingleton<IPictureparkAccessTokenServiceSettings, PictureparkAccessTokenServiceSettings>();
+			services.AddSingleton<IPictureparkAccessTokenService, PictureparkAccessTokenService>();
 
-			// Register PictureparkPerRequestClient as transient
-			services.AddTransient<IPictureparkPerRequestClientSettings, PictureparkPerRequestClientSettings>();
-			services.AddTransient<IPictureparkPerRequestClient, PictureparkPerRequestClient>();
+			// Register PictureparkPerRequestService as transient
+			services.AddTransient<IPictureparkPerRequestServiceSettings, PictureparkPerRequestServiceSettings>();
+			services.AddTransient<IPictureparkPerRequestService, PictureparkPerRequestService>();
 
 			services.AddSingleton<IServiceHelper, ServiceHelper>();
 			services.AddSingleton<IPressReleaseRepository, PressReleaseRepository>();
@@ -55,19 +56,15 @@ namespace Picturepark.Microsite.Example
 				.AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
 				.AddDataAnnotationsLocalization();
 
-			// Configure authentication
-			services.AddAuthentication("Cookies")
+		    // Configure authentication
+            services.AddAuthentication("Cookies")
 				.AddCookie("Cookies", options =>
 				{
-					options.LoginPath = "/account/login";
+					options.LoginPath = AccountController.LoginPath;
 					options.AccessDeniedPath = "/account/denied";
 				})
 				.AddOpenIdConnect("oidc", options =>
 				{
-					// Read the authentication settings
-					var authConfig = new AuthenticationConfiguration();
-					Configuration.GetSection("Authentication").Bind(authConfig);
-
 					options.SignInScheme = "Cookies";
 
 					options.Authority = authConfig.Authority;
@@ -81,12 +78,7 @@ namespace Picturepark.Microsite.Example
 					options.SaveTokens = true;
 					options.GetClaimsFromUserInfoEndpoint = true;
 
-					options.Events.OnRedirectToIdentityProvider = context =>
-					{
-						var tenant = new {id = authConfig.CustomerId, alias = authConfig.CustomerAlias};
-						context.ProtocolMessage.SetParameter("acr_values", "tenant:" + JsonConvert.SerializeObject(tenant) );
-						return Task.FromResult(0);
-					};
+				    options.EventsType = typeof(OidcEvents);
 
 					options.Scope.Clear();
 					foreach (var scope in authConfig.Scopes) {
@@ -112,9 +104,11 @@ namespace Picturepark.Microsite.Example
 				options.SupportedCultures = supportedCultures;
 				options.SupportedUICultures = supportedCultures;
 			});
+
+		    services.AddTransient<OidcEvents>();
 		}
 
-		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+	    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
 			var locOptions = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
 			app.UseRequestLocalization(locOptions.Value);
@@ -129,7 +123,12 @@ namespace Picturepark.Microsite.Example
 				app.UseExceptionHandler("/Error");
 			}
 
-			app.UseStaticFiles();
+		    app.UseForwardedHeaders(new ForwardedHeadersOptions
+		    {
+		        ForwardedHeaders = ForwardedHeaders.XForwardedProto
+		    });
+
+            app.UseStaticFiles();
 
 			app.UseAuthentication();
 

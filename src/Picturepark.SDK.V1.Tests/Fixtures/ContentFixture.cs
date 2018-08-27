@@ -21,12 +21,12 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         private async Task SetupSchema(Type type)
         {
-            var schemas = await Client.Schemas.GenerateSchemasAsync(type).ConfigureAwait(false);
+            var schemas = await Client.Schema.GenerateSchemasAsync(type).ConfigureAwait(false);
             foreach (var schema in schemas)
             {
-                if (await Client.Schemas.ExistsAsync(schema.Id).ConfigureAwait(false) == false)
+                if (await Client.Schema.ExistsAsync(schema.Id).ConfigureAwait(false) == false)
                 {
-                    await Client.Schemas.CreateAndWaitForCompletionAsync(schema, true).ConfigureAwait(false);
+                    await Client.Schema.CreateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
                 }
             }
         }

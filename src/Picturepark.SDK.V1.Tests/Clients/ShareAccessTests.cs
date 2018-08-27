@@ -12,7 +12,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
     public class ShareAccessTests : IClassFixture<ShareFixture>
     {
         private readonly ShareFixture _fixture;
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkService _client;
 
         public ShareAccessTests(ShareFixture fixture)
         {
@@ -34,7 +34,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Name = "Embed share"
             }).ConfigureAwait(false);
 
-            var embedDetail = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
+            var embedDetail = await _client.Share.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
             // Act
             using (var result = await _client.ShareAccess.DownloadAsync(((ShareDataEmbed)embedDetail.Data).Token)
@@ -58,7 +58,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Embed share"
             }).ConfigureAwait(false);
-            var embedDetail = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
+            var embedDetail = await _client.Share.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
             var shareOutput = (ShareOutputEmbed)embedDetail.ContentSelections.First().Outputs.First();
 
@@ -82,7 +82,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Embed share"
             }).ConfigureAwait(false);
-            var embedDetail = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
+            var embedDetail = await _client.Share.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
             // Act
             using (var result = await _client.ShareAccess
@@ -112,20 +112,19 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 SuccessDelegate = Console.WriteLine,
                 ErrorDelegate = Console.WriteLine
             };
-            var createTransferResult = await _client.Transfers.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
+            var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
 
-            var importRequest = new FileTransfer2ContentCreateRequest
+            var importRequest = new ImportTransferRequest
             {
-                TransferId = createTransferResult.Transfer.Id,
                 ContentPermissionSetIds = new List<string>(),
                 Metadata = null,
                 LayerSchemaIds = new List<string>()
             };
 
-            await _client.Transfers.ImportAndWaitForCompletionAsync(createTransferResult.Transfer, importRequest, timeout).ConfigureAwait(false);
+            await _client.Transfer.ImportAndWaitForCompletionAsync(createTransferResult.Transfer, importRequest, timeout).ConfigureAwait(false);
 
             // Assert
-            var transferResult = await _client.Transfers.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
+            var transferResult = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
             var contentIds = transferResult.Results.Select(r => r.ContentId).ToList();
 
             Assert.Equal(importFilePaths.Count, contentIds.Count);
@@ -146,8 +145,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Name = "Embed share"
             };
 
-            var createResult = await _client.Shares.CreateAsync(request).ConfigureAwait(false);
-            var embedDetail = await _client.Shares.GetAsync(createResult.ShareId).ConfigureAwait(false);
+            var createResult = await _client.Share.CreateAsync(request).ConfigureAwait(false);
+            var embedDetail = await _client.Share.GetAsync(createResult.ShareId).ConfigureAwait(false);
 
             var shareOutput = (ShareOutputEmbed)embedDetail.ContentSelections.Single().Outputs.First();
 
@@ -176,7 +175,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         private async Task<CreateShareResult> CreateShare(ShareBaseCreateRequest createRequest)
         {
-            var createResult = await _client.Shares.CreateAsync(createRequest).ConfigureAwait(false);
+            var createResult = await _client.Share.CreateAsync(createRequest).ConfigureAwait(false);
             _fixture.CreatedShareIds.Enqueue(createResult.ShareId);
             return createResult;
         }

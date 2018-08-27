@@ -15,6 +15,7 @@
     "baseUrl": "{baseurl}",
     "storagePath": "{storagepath}",
     "customerHosts": [],
+    "enableQueryDetails": false, 
     "supportContactEmailAddress": "support@picturepark.com",
     "useSsl": false,
     "noReplyEmailAddress": "no-reply@picturepark.com",

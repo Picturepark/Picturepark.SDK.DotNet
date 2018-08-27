@@ -19,7 +19,7 @@ namespace Picturepark.SDK.V1.Conversion
     {
         private readonly string _defaultLanguage;
         private readonly IContractResolver _contractResolver;
-        private readonly List<string> _ignoredProperties = new List<string> { "_refId", "_relationType", "_targetDocType", "_targetId" };
+        private readonly HashSet<string> _ignoredProperties = new HashSet<string> { "_refId", "_relationType", "_targetDocType", "_targetId" };
 
         public ClassToSchemaConverter(string defaultLanguage)
             : this(new CamelCasePropertyNamesContractResolver())
@@ -30,6 +30,12 @@ namespace Picturepark.SDK.V1.Conversion
         public ClassToSchemaConverter(IContractResolver contractResolver)
         {
             _contractResolver = contractResolver;
+        }
+
+        public static string ResolveSchemaName(Type contract)
+        {
+            return contract.GetTypeInfo().GetCustomAttribute<PictureparkSchemaAttribute>()?.Name ??
+                   contract.Name;
         }
 
         /// <summary>Converts a .NET type and its dependencies to a list of Picturepark schema definitions.</summary>
@@ -51,7 +57,7 @@ namespace Picturepark.SDK.V1.Conversion
             var properties = GetProperties(type);
 
             var schemaList = schemaDetails.ToList();
-            CreateSchemas(type, properties, string.Empty, schemaList, 0, generateRelatedSchemas);
+            CreateSchemas(type, properties, schemaList, 0, generateRelatedSchemas);
 
             var sortedList = new List<SchemaDetail>();
             foreach (var schemaItem in schemaList)
@@ -81,32 +87,33 @@ namespace Picturepark.SDK.V1.Conversion
             return Task.FromResult((ICollection<SchemaDetail>)sortedList);
         }
 
-        private SchemaDetail CreateSchemas(Type contractType, List<ContractPropertyInfo> properties, string parentSchemaId, List<SchemaDetail> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
+        private SchemaDetail CreateSchemas(Type contractType, List<ContractPropertyInfo> properties, List<SchemaDetail> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
         {
-            var schemaId = contractType.Name;
+            var schemaId = ResolveSchemaName(contractType);
             if (schemaList.Any(s => s.Id == schemaId))
                 return null;
 
             // Create schema for base class
+            var parentSchemaId = string.Empty;
             var baseType = contractType.GetTypeInfo().BaseType;
             if (baseType != null &&
                 baseType != typeof(object) &&
                 baseType != typeof(Relation) &&
                 baseType != typeof(ReferenceObject))
             {
-                CreateSchemas(baseType, GetProperties(baseType), schemaId, schemaList);
+                CreateSchemas(baseType, GetProperties(baseType), schemaList);
+                parentSchemaId = ResolveSchemaName(baseType);
             }
 
             var typeAttributes = contractType.GetTypeInfo()
-                .GetCustomAttributes(typeof(PictureparkSchemaTypeAttribute), true)
-                .OfType<PictureparkSchemaTypeAttribute>()
+                .GetCustomAttributes<PictureparkSchemaAttribute>(true)
                 .ToList();
 
             if (!typeAttributes.Any())
                 throw new Exception("No PictureparkSchemaTypeAttribute set on class: " + contractType.Name);
 
             var types = typeAttributes
-                .Select(typeAttribute => typeAttribute.SchemaType)
+                .Select(typeAttribute => typeAttribute.Type)
                 .ToList();
 
             var schemaItem = new SchemaDetail
@@ -144,7 +151,7 @@ namespace Picturepark.SDK.V1.Conversion
                     if (isSystemSchema == false)
                     {
                         var subLevelOfcall = levelOfCall + 1;
-                        var dependencySchema = CreateSchemas(type, customType.TypeProperties, string.Empty, schemaList, subLevelOfcall, generateDependencySchema);
+                        var dependencySchema = CreateSchemas(type, customType.TypeProperties, schemaList, subLevelOfcall, generateDependencySchema);
 
                         // the schema can be alredy added as dependency
                         if (schemaItem.Dependencies.Any(d => d.Id == referencedSchemaId) == false)
@@ -178,9 +185,9 @@ namespace Picturepark.SDK.V1.Conversion
                     schemaList.Add(schemaItem);
             }
 
-            // Create schemas for all known types
+            // Create schemas for all related known types
             foreach (var knownType in contractType.GetKnownTypes())
-                CreateSchemas(knownType, GetProperties(knownType), schemaId, schemaList);
+                CreateSchemas(knownType, GetProperties(knownType), schemaList);
 
             return schemaItem;
         }
@@ -265,12 +272,10 @@ namespace Picturepark.SDK.V1.Conversion
             }
         }
 
-        private void ApplyDisplayPatternAttributes(SchemaDetail schemaDetail, Type type)
+        private void ApplyDisplayPatternAttributes(SchemaDetail schemaDetail, Type contractType)
         {
-            var displayPatternAttributes = type.GetTypeInfo()
-                .GetCustomAttributes(typeof(PictureparkDisplayPatternAttribute), true)
-                .Select(i => i as PictureparkDisplayPatternAttribute)
-                .ToList();
+            var displayPatternAttributes = contractType.GetTypeInfo()
+                .GetCustomAttributes<PictureparkDisplayPatternAttribute>(true);
 
             foreach (var displayPatternAttribute in displayPatternAttributes.GroupBy(g => new { g.Type, g.TemplateEngine }))
             {
@@ -279,17 +284,20 @@ namespace Picturepark.SDK.V1.Conversion
                     throw new InvalidOperationException("Multiple display patterns for the same language are defined.");
                 }
 
-                var displayPattern = new DisplayPattern
+                // If no type is specified, set for all the types.
+                var types = displayPatternAttribute.Key.Type.HasValue
+                    ? new[] { displayPatternAttribute.Key.Type.Value }
+                    : Enum.GetValues(typeof(DisplayPatternType)).OfType<DisplayPatternType>();
+
+                foreach (var type in types)
                 {
-                    DisplayPatternType = displayPatternAttribute.Key.Type,
-                    TemplateEngine = displayPatternAttribute.Key.TemplateEngine,
-                    Templates = new TranslatedStringDictionary(
-                        displayPatternAttribute.ToDictionary(x => string.IsNullOrEmpty(x.Language) ? _defaultLanguage : x.Language, x => x.DisplayPattern))
-                };
-
-                schemaDetail.DisplayPatterns.Add(displayPattern);
-
-                //// TODO: Implement fallback for not provided patterns?
+                    schemaDetail.DisplayPatterns.Add(new DisplayPattern
+                    {
+                        DisplayPatternType = type,
+                        TemplateEngine = displayPatternAttribute.Key.TemplateEngine,
+                        Templates = new TranslatedStringDictionary(displayPatternAttribute.ToDictionary(x => string.IsNullOrEmpty(x.Language) ? _defaultLanguage : x.Language, x => x.DisplayPattern))
+                    });
+                }
             }
         }
 
@@ -390,13 +398,11 @@ namespace Picturepark.SDK.V1.Conversion
                         }
                     }
 
-                    var searchAttributes = property.AttributeProvider
+                    propertyInfo.PictureparkAttributes = property.AttributeProvider
                         .GetAttributes(true)
-                        .Where(i => i.GetType().GetTypeInfo().ImplementedInterfaces.Any(j => j == typeof(IPictureparkAttribute)))
                         .Select(i => i as IPictureparkAttribute)
+                        .Where(i => i != null)
                         .ToList();
-
-                    propertyInfo.PictureparkAttributes = searchAttributes;
 
                     contactPropertiesInfo.Add(propertyInfo);
                 }
@@ -433,7 +439,7 @@ namespace Picturepark.SDK.V1.Conversion
                     }
                     else
                     {
-                        // TODO: Find better solution for this
+                        // TODO - Check with Rico: Find better solution for this
                         propertyInfo.TypeName = typeof(Type)
                             .GetRuntimeMethod("GetTypeCode", new[] { typeof(Type) })
                             .Invoke(null, new object[] { propertyGenericArg })
@@ -497,9 +503,7 @@ namespace Picturepark.SDK.V1.Conversion
             }
             else if (property.IsEnum)
             {
-                Type enumType = Type.GetType($"{property.FullName}, {property.AssemblyFullName}");
-
-                // TODO: Handle enums
+                throw new NotSupportedException("Enum types are not supported in Class to Schema convertion");
             }
             else if (property.IsSimpleType)
             {
@@ -563,10 +567,8 @@ namespace Picturepark.SDK.V1.Conversion
                             };
                             break;
                         case TypeCode.DateTime:
-                            field = new FieldDateTime
-                            {
-                                Index = true
-                            };
+                            field = CreateDateTypeField(property);
+
                             break;
                         case TypeCode.Boolean:
                             field = new FieldBoolean
@@ -791,12 +793,24 @@ namespace Picturepark.SDK.V1.Conversion
             return field;
         }
 
+        private FieldBase CreateDateTypeField(ContractPropertyInfo property)
+        {
+            var dateAttribute =
+                property.PictureparkAttributes.OfType<PictureparkDateTypeAttribute>().FirstOrDefault();
+            var format = dateAttribute?.Format;
+
+            if (dateAttribute == null || dateAttribute.ContainsTimePortion)
+                return new FieldDateTime { Index = true, Format = format };
+            else
+                return new FieldDate { Index = true, Format = format };
+        }
+
         private bool IsSimpleType(Type type)
         {
             return
                 type.GetTypeInfo().IsValueType ||
                 type.GetTypeInfo().IsPrimitive ||
-                new Type[]
+                new[]
                 {
                     typeof(string),
                     typeof(decimal),

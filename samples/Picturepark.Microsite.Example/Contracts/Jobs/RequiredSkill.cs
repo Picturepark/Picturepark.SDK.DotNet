@@ -5,8 +5,7 @@ using System.Collections.Generic;
 
 namespace Picturepark.Microsite.Example.Contracts.Jobs
 {
-	[PictureparkSchemaType(SchemaType.List)]
-	[PictureparkSchemaType(SchemaType.Struct)]
+	[PictureparkSchema(SchemaType.List)]
 	[PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.requiredSkill.name.x-default}}")]
 	[PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.requiredSkill.name.x-default}}")]
 	[PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{data.requiredSkill.name.x-default}}")]

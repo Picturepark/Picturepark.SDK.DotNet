@@ -12,7 +12,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
     public class SchemaInheritanceTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkService _client;
 
         public SchemaInheritanceTests(ClientFixture fixture)
         {
@@ -24,10 +24,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "Schema")]
         public async Task ShouldOverwriteField()
         {
-            /// Act
-            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Teacher));
+            // Act
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Teacher)).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal(2, schemas.Count);
 
             // check person
@@ -51,8 +51,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         }
 
         [PictureparkReference]
-        [PictureparkSchemaType(SchemaType.List)]
-        [PictureparkSchemaType(SchemaType.Struct)]
+        [PictureparkSchema(SchemaType.List)]
         [JsonConverter(typeof(JsonInheritanceConverter), "kind")]
         public class Person
         {

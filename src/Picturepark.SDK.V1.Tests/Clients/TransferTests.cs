@@ -13,7 +13,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
     public class TransferTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkService _client;
 
         public TransferTests(ClientFixture fixture)
         {
@@ -25,35 +25,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Transfers")]
         public async Task ShouldGetBlacklist()
         {
-            /// Act
-            var blacklist = await _client.Transfers.GetBlacklistAsync();
+            // Act
+            var blacklist = await _client.Transfer.GetBlacklistAsync().ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(blacklist?.Items);
         }
 
         [Fact]
         [Trait("Stack", "Transfers")]
         public async Task ShouldCreateTransferFromFiles()
-        {
-            /// Arrange
-            var transferName = new Random().Next(1000, 9999).ToString();
-            var files = new FileLocations[]
-            {
-                Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
-            };
-
-            /// Act
-            var result = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, files);
-
-            /// Assert
-            Assert.NotNull(result);
-            Assert.Equal(TransferState.Draft, result.Transfer.State);
-        }
-
-        [Fact(Skip = "TransferClient.GetAsync: Should correctly throw FileTransferNotFoundException")]
-        [Trait("Stack", "Transfers")]
-        public async Task ShouldDeleteFiles()
         {
             // Arrange
             var transferName = new Random().Next(1000, 9999).ToString();
@@ -62,17 +43,20 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
             };
 
-            var createTransferResult = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, files).ConfigureAwait(false);
-            await _client.Transfers.UploadFilesAsync(createTransferResult.Transfer, files, new UploadOptions()).ConfigureAwait(false);
+            // Act
+            var result = await _client.Transfer.CreateAndWaitForCompletionAsync(transferName, files).ConfigureAwait(false);
 
-            var searchRequest = new FileTransferSearchRequest
-            {
-                Limit = 20,
-                SearchString = "*",
-                Filter = FilterBase.FromExpression<FileTransfer>(i => i.TransferId, createTransferResult.Transfer.Id)
-            };
-            var searchResult = await _client.Transfers.SearchFilesAsync(searchRequest).ConfigureAwait(false);
-            var fileId = searchResult.Results.ToList()[0].Id;
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(TransferState.Draft, result.Transfer.State);
+        }
+
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldDeleteFiles()
+        {
+            // Arrange
+            var (createTransferResult, fileId) = await CreateFileTransferAsync().ConfigureAwait(false);
 
             // Act
             var request = new FileTransferDeleteRequest
@@ -81,14 +65,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 FileTransferIds = new List<string> { fileId }
             };
 
-            await _client.Transfers.GetFileAsync(fileId).ConfigureAwait(false);
+            await _client.Transfer.GetFileAsync(fileId).ConfigureAwait(false);
 
-            await _client.Transfers.DeleteFilesAsync(request).ConfigureAwait(false);
+            await _client.Transfer.DeleteFilesAsync(request).ConfigureAwait(false);
 
             // Assert
             await Assert.ThrowsAsync<FileTransferNotFoundException>(async () =>
             {
-                await _client.Transfers.GetFileAsync(fileId).ConfigureAwait(false);
+                await _client.Transfer.GetFileAsync(fileId).ConfigureAwait(false);
             }).ConfigureAwait(false);
         }
 
@@ -96,23 +80,23 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Transfers")]
         public async Task ShouldCancelTransfer()
         {
-            /// Arrange
+            // Arrange
             var transferName = new Random().Next(1000, 9999).ToString();
             var files = new FileLocations[]
             {
                 Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
             };
 
-            var result = await _client.Transfers.CreateAndWaitForCompletionAsync(transferName, files);
-            var originalTransfer = await _client.Transfers.GetAsync(result.Transfer.Id);
+            var result = await _client.Transfer.CreateAndWaitForCompletionAsync(transferName, files).ConfigureAwait(false);
+            var originalTransfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
 
-            /// Act
-            await _client.Transfers.CancelTransferAsync(result.Transfer.Id);
+            // Act
+            await _client.Transfer.CancelTransferAsync(result.Transfer.Id).ConfigureAwait(false);
 
-            /// Assert
-            var currentTransfer = await _client.Transfers.GetAsync(result.Transfer.Id);
+            // Assert
+            var currentTransfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
 
-            Assert.Equal(TransferState.Created, originalTransfer.State); // TODO: ShouldCancelTransfer: Check asserts; they are probably incorrect!
+            Assert.Equal(TransferState.Created, originalTransfer.State);
             Assert.Equal(TransferState.TransferReady, currentTransfer.State);
         }
 
@@ -120,7 +104,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Transfers")]
         public async Task ShouldCreateTransferFromWebUrls()
         {
-            /// Arrange
+            // Arrange
             var transferName = "UrlImport " + new Random().Next(1000, 9999);
             var urls = new List<string>
             {
@@ -129,7 +113,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 "http://cdn3.spiegel.de/images/image-1046236-700_poster_16x9-ymle-1046236.jpg"
             };
 
-            /// Act
+            // Act
             var request = new CreateTransferRequest
             {
                 Name = transferName,
@@ -141,9 +125,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }).ToList()
             };
 
-            var result = await _client.Transfers.CreateAndWaitForCompletionAsync(request);
+            var result = await _client.Transfer.CreateAndWaitForCompletionAsync(request).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(result.Transfer);
         }
 
@@ -151,31 +135,31 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Transfers")]
         public async Task ShouldDelete()
         {
-            /// Arrange
-            var result = await CreateTransferAsync();
+            // Arrange
+            var result = await CreateWebTransferAsync().ConfigureAwait(false);
 
-            /// Act
+            // Act
             var transferId = result.Transfer.Id;
-            var transfer = await _client.Transfers.GetAsync(result.Transfer.Id);
+            var transfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
 
-            await _client.Transfers.DeleteAsync(transferId);
+            await _client.Transfer.DeleteAsync(transferId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(transfer);
-            await Assert.ThrowsAsync<TransferNotFoundException>(async () => await _client.Transfers.GetAsync(transferId));
+            await Assert.ThrowsAsync<TransferNotFoundException>(async () => await _client.Transfer.GetAsync(transferId).ConfigureAwait(false));
         }
 
         [Fact]
         [Trait("Stack", "Transfers")]
         public async Task ShouldGet()
         {
-            /// Arrange
-            var result = await CreateTransferAsync();
+            // Arrange
+            var result = await CreateWebTransferAsync().ConfigureAwait(false);
 
-            /// Act
-            TransferDetail transfer = await _client.Transfers.GetAsync(result.Transfer.Id);
+            // Act
+            TransferDetail transfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(result);
             Assert.Equal(result.Transfer.Id, transfer.Id);
         }
@@ -184,29 +168,29 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Transfers")]
         public async Task ShouldGetFile()
         {
-            /// Arrange
-            // var result = await CreateTransferAsync(); // TODO: Fix null pointer exception in backend
-            var transferId = await _fixture.GetRandomFileTransferIdAsync(20);
+            // Arrange
+            var (createdTransfer, fileId) = await CreateFileTransferAsync().ConfigureAwait(false);
 
-            /// Act
-            var transfer = await _client.Transfers.GetFileAsync(transferId);
+            // Act
+            var transfer = await _client.Transfer.GetFileAsync(fileId).ConfigureAwait(false);
 
-            /// Assert
-            Assert.NotNull(transfer);
-            Assert.Equal(transferId, transfer.Id);
+            // Assert
+            transfer.Should().NotBeNull();
+            transfer.TransferId.Should().Be(createdTransfer.Transfer.Id);
+            transfer.Id.Should().Be(fileId);
         }
 
         [Fact]
         [Trait("Stack", "Transfers")]
         public async Task ShouldSearch()
         {
-            /// Arrange
+            // Arrange
             var request = new TransferSearchRequest { Limit = 1, SearchString = "*" };
 
-            /// Act
-            TransferSearchResult result = await _client.Transfers.SearchAsync(request);
+            // Act
+            TransferSearchResult result = await _client.Transfer.SearchAsync(request).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(result);
             Assert.Equal(1, result.Results.Count);
         }
@@ -215,13 +199,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Transfers")]
         public async Task ShouldSearchFiles()
         {
-            /// Arrange
+            // Arrange
             var request = new FileTransferSearchRequest { Limit = 20, SearchString = "*" };
 
-            /// Act
-            FileTransferSearchResult result = await _client.Transfers.SearchFilesAsync(request);
+            // Act
+            FileTransferSearchResult result = await _client.Transfer.SearchFilesAsync(request).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(result);
             Assert.True(result.Results.Count >= 1);
         }
@@ -230,7 +214,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Transfers")]
         public async Task ShouldPartialImport()
         {
-            /// Arrange
+            // Arrange
             const int desiredUploadFiles = 4;
 
             var transferName = nameof(ShouldUploadAndImportFiles) + "-" + new Random().Next(1000, 9999);
@@ -245,7 +229,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 .Take(numberOfUploadFiles)
                 .Select(path => new FileLocations(path)).ToList();
 
-            /// Act
+            // Act
             var uploadOptions = new UploadOptions
             {
                 ConcurrentUploads = 4,
@@ -254,8 +238,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ErrorDelegate = Console.WriteLine
             };
 
-            var createTransferResult = await _client.Transfers.UploadFilesAsync(transferName, importFilePaths, uploadOptions);
-            var transfer = await _client.Transfers.PartialImportAsync(createTransferResult.Transfer.Id, new FileTransferPartial2ContentCreateRequest
+            var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
+            var transfer = await _client.Transfer.PartialImportAsync(createTransferResult.Transfer.Id, new ImportTransferPartialRequest
             {
                 Items = new List<FileTransferCreateItem>
                 {
@@ -264,10 +248,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         FileId = createTransferResult.FileUploads.First().Identifier
                     }
                 }
-            });
+            }).ConfigureAwait(false);
 
-            /// Assert
-            var result = await _client.Transfers.SearchFilesByTransferIdAsync(transfer.Id);
+            // Assert
+            var result = await _client.Transfer.SearchFilesByTransferIdAsync(transfer.Id).ConfigureAwait(false);
             Assert.Equal(importFilePaths.Count, result.Results.Count);
         }
 
@@ -275,7 +259,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Transfers")]
         public async Task ShouldUploadAndImportFiles()
         {
-            /// Arrange
+            // Arrange
             const int desiredUploadFiles = 10;
             var timeout = TimeSpan.FromMinutes(2);
 
@@ -290,9 +274,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var importFilePaths = filesInDirectory
                 .Skip(randomNumber)
                 .Take(numberOfUploadFiles)
-                .Select(fn => new FileLocations(fn, $"{Path.GetFileNameWithoutExtension(fn)}_1{Path.GetExtension(fn)}"));
+                .Select(fn => new FileLocations(fn, $"{Path.GetFileNameWithoutExtension(fn)}_1{Path.GetExtension(fn)}"))
+                .ToList();
 
-            /// Act
+            // Act
             var uploadOptions = new UploadOptions
             {
                 ConcurrentUploads = 4,
@@ -300,20 +285,19 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 SuccessDelegate = Console.WriteLine,
                 ErrorDelegate = Console.WriteLine
             };
-            var createTransferResult = await _client.Transfers.UploadFilesAsync(transferName, importFilePaths, uploadOptions);
+            var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
 
-            var importRequest = new FileTransfer2ContentCreateRequest // TODO: Rename FileTransfer2ContentCreateRequest (better name?, use "to" instead of "2", e.g. "ImportTransferRequest"?)
+            var importRequest = new ImportTransferRequest
             {
-                TransferId = createTransferResult.Transfer.Id,
                 ContentPermissionSetIds = new List<string>(),
                 Metadata = null,
                 LayerSchemaIds = new List<string>()
             };
 
-            await _client.Transfers.ImportAndWaitForCompletionAsync(createTransferResult.Transfer, importRequest, timeout);
+            await _client.Transfer.ImportAndWaitForCompletionAsync(createTransferResult.Transfer, importRequest, timeout).ConfigureAwait(false);
 
-            /// Assert
-            var result = await _client.Transfers.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id);
+            // Assert
+            var result = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
             var contentIds = result.Results.Select(r => r.ContentId);
 
             Assert.Equal(importFilePaths.Count(), contentIds.Count());
@@ -325,13 +309,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             var transferName = Guid.NewGuid().ToString();
 
-            await Assert.ThrowsAsync<TimeoutException>(
+            var ex = await Assert.ThrowsAnyAsync<Exception>(
                 async () =>
-                    await _client.Transfers.UploadFilesAsync(
+                    await _client.Transfer.UploadFilesAsync(
                         transferName,
                         new FileLocations[0],
                         new UploadOptions { WaitForTransferCompletion = true },
                         TimeSpan.FromMilliseconds(1)).ConfigureAwait(false)).ConfigureAwait(false);
+
+            Assert.Contains(ex.GetType(), new[] { typeof(BusinessProcessLifeCycleNotHitException), typeof(BusinessProcessStateNotHitException) });
         }
 
         [Fact]
@@ -347,7 +333,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var files = Enumerable.Range(0, 2).Select(x => new FileLocations(file));
 
             // Act
-            var result = await _client.Transfers.UploadFilesAsync(
+            var result = await _client.Transfer.UploadFilesAsync(
                 transferName,
                 files,
                 new UploadOptions()
@@ -361,7 +347,30 @@ namespace Picturepark.SDK.V1.Tests.Clients
             result.FileUploads.Should().HaveCount(2);
         }
 
-        private async Task<CreateTransferResult> CreateTransferAsync()
+        private async Task<(CreateTransferResult, string fileId)> CreateFileTransferAsync()
+        {
+            var transferName = new Random().Next(1000, 9999).ToString();
+            var files = new FileLocations[]
+            {
+                Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
+            };
+
+            var createTransferResult = await _client.Transfer.CreateAndWaitForCompletionAsync(transferName, files).ConfigureAwait(false);
+            await _client.Transfer.UploadFilesAsync(createTransferResult.Transfer, files, new UploadOptions()).ConfigureAwait(false);
+
+            var searchRequest = new FileTransferSearchRequest
+            {
+                Limit = 1,
+                SearchString = "*",
+                Filter = FilterBase.FromExpression<FileTransfer>(i => i.TransferId, createTransferResult.Transfer.Id)
+            };
+            var searchResult = await _client.Transfer.SearchFilesAsync(searchRequest).ConfigureAwait(false);
+            var fileId = searchResult.Results.ToList()[0].Id;
+
+            return (createTransferResult, fileId);
+        }
+
+        private async Task<CreateTransferResult> CreateWebTransferAsync()
         {
             var transferName = "UrlImport " + new Random().Next(1000, 9999);
             var urls = new List<string>
@@ -382,7 +391,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }).ToList()
             };
 
-            return await _client.Transfers.CreateAndWaitForCompletionAsync(request);
+            return await _client.Transfer.CreateAndWaitForCompletionAsync(request).ConfigureAwait(false);
         }
     }
 }

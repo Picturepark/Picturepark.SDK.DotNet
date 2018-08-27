@@ -11,7 +11,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 {
     public class ClientFixture : IDisposable
     {
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkService _client;
         private readonly TestConfiguration _configuration;
 
         public ClientFixture()
@@ -42,7 +42,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             var configurationJson = File.ReadAllText(ProjectDirectory + "Configuration.json");
             _configuration = JsonConvert.DeserializeObject<TestConfiguration>(configurationJson);
 
-            _client = GetLocalizedPictureparkClient("en");
+            _client = GetLocalizedPictureparkService("en");
         }
 
         public string ProjectDirectory { get; }
@@ -55,7 +55,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         public TestConfiguration Configuration => _configuration;
 
-        public PictureparkClient Client => _client;
+        public IPictureparkService Client => _client;
 
         public Lazy<CustomerInfo> CustomerInfo =>
             new Lazy<CustomerInfo>(() => _client.Info.GetAsync().GetAwaiter().GetResult());
@@ -77,34 +77,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             return await RandomHelper.GetRandomContentPermissionSetIdAsync(_client, limit);
         }
 
-        public async Task<string> GetRandomTransferIdAsync(TransferState? transferState, int limit)
-        {
-            return await RandomHelper.GetRandomTransferIdAsync(_client, transferState, limit);
-        }
-
-        public async Task<string> GetRandomFileTransferIdAsync(int limit)
-        {
-            return await RandomHelper.GetRandomFileTransferIdAsync(_client, limit);
-        }
-
         public async Task<string> GetRandomSchemaPermissionSetIdAsync(int limit)
         {
             return await RandomHelper.GetRandomSchemaPermissionSetIdAsync(_client, limit);
-        }
-
-        public async Task<string> GetRandomSchemaIdAsync(int limit)
-        {
-            return await RandomHelper.GetRandomSchemaIdAsync(_client, limit);
-        }
-
-        public async Task<string> GetRandomObjectIdAsync(string metadataSchemaId, int limit)
-        {
-            return await RandomHelper.GetRandomObjectIdAsync(_client, metadataSchemaId, limit);
-        }
-
-        public async Task<string> GetRandomShareIdAsync(ShareType shareType, int limit)
-        {
-            return await RandomHelper.GetRandomShareIdAsync(_client, shareType, limit);
         }
 
         public virtual void Dispose()
@@ -112,10 +87,10 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             _client.Dispose();
         }
 
-        public PictureparkClient GetLocalizedPictureparkClient(string language)
+        public PictureparkService GetLocalizedPictureparkService(string language)
         {
             var authClient = new AccessTokenAuthClient(_configuration.Server, _configuration.AccessToken, _configuration.CustomerAlias);
-            return new PictureparkClient(new PictureparkClientSettings(authClient)
+            return new PictureparkService(new PictureparkServiceSettings(authClient)
             {
                 DisplayLanguage = language
             });

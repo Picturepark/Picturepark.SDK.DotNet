@@ -9,7 +9,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The aggregation result or null.</returns>
         public AggregationResult GetByName(string name)
         {
-            // TODO: Rename to TryGetByName because it may return null?
             return AggregationResults.SingleOrDefault(i => i.Name == name);
         }
     }

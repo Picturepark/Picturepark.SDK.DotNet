@@ -11,7 +11,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
     public class UserTests : IClassFixture<UsersFixture>
     {
         private readonly UsersFixture _fixture;
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkService _client;
 
         public UserTests(UsersFixture fixture)
         {
@@ -23,10 +23,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Users")]
         public async Task ShouldSearch()
         {
-            /// Act
-            var searchResult = await _client.Users.SearchAsync(new UserSearchRequest { Limit = 10 });
+            // Act
+            var searchResult = await _client.User.SearchAsync(new UserSearchRequest { Limit = 10 }).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(searchResult.Results.Any());
         }
 
@@ -34,15 +34,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Users")]
         public async Task ShouldGetUser()
         {
-            /// Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 50);
-            var content = await _client.Contents.GetAsync(contentId);
-            var owner = await _client.Users.GetByOwnerTokenAsync(content.OwnerTokenId);
+            // Arrange
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 50).ConfigureAwait(false);
+            var content = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
+            var owner = await _client.User.GetByOwnerTokenAsync(content.OwnerTokenId).ConfigureAwait(false);
 
-            /// Act
-            var user = await _client.Users.GetAsync(owner.Id);
+            // Act
+            var user = await _client.User.GetAsync(owner.Id).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal(owner.Id, user.Id);
         }
 
@@ -50,24 +50,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Users")]
         public async Task ShouldGetByOwnerToken()
         {
-            /// Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 50);
-            var content = await _client.Contents.GetAsync(contentId);
+            // Arrange
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 50).ConfigureAwait(false);
+            var content = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
 
-            /// Act
-            var owner = await _client.Users.GetByOwnerTokenAsync(content.OwnerTokenId);
+            // Act
+            var owner = await _client.User.GetByOwnerTokenAsync(content.OwnerTokenId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(owner);
         }
 
         [Fact]
         [Trait("Stack", "Users")]
-        public async Task ShouldInviteAndReviewUser()
+        public async Task ShouldInviteAndReviewUsers()
         {
             var userCount = 3;
 
-            await _fixture.CreateAndActivateUsers(userCount);
+            await _fixture.CreateAndActivateUsers(userCount).ConfigureAwait(false);
         }
 
         [Theory,
@@ -78,25 +78,23 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldLockAndUnlockUsers(int count)
         {
             // Arrange
-            var activeUsers = await _fixture.CreateAndActivateUsers(count);
+            var activeUsers = await _fixture.CreateAndActivateUsers(count).ConfigureAwait(false);
             var activeUserIds = activeUsers.Select(u => u.Id).ToArray();
 
             async Task CheckIfUsersAre(AuthorizationState auth) =>
-                (await _client.Users.GetManyAsync(activeUserIds)).Should().OnlyContain(u => u.AuthorizationState == auth);
+                (await _client.User.GetManyAsync(activeUserIds).ConfigureAwait(false)).Should().OnlyContain(u => u.AuthorizationState == auth);
 
             // Act
-            var lockProcess = await LockUnlockCall(activeUserIds, true);
+            await LockUnlockCall(activeUserIds, true).ConfigureAwait(false);
 
             // Assert
-            await _fixture.WaitOnBusinessProcessAndAssert(lockProcess);
-            await CheckIfUsersAre(AuthorizationState.Locked);
+            await CheckIfUsersAre(AuthorizationState.Locked).ConfigureAwait(false);
 
             // Act
-            var unlockProcess = await LockUnlockCall(activeUserIds, false);
+            await LockUnlockCall(activeUserIds, false).ConfigureAwait(false);
 
             // Assert
-            await _fixture.WaitOnBusinessProcessAndAssert(unlockProcess);
-            await CheckIfUsersAre(AuthorizationState.Active);
+            await CheckIfUsersAre(AuthorizationState.Reviewed).ConfigureAwait(false);
         }
 
         [Fact]
@@ -107,18 +105,22 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var city = "Aarray";
 
             // Arrange
-            var user = await _fixture.CreateAndActivateUser();
+            var user = await _fixture.CreateAndActivateUser().ConfigureAwait(false);
 
             user.Comment = comment;
             user.Address = user.Address ?? new UserAddress();
             user.Address.City = city;
 
             // Act
-            var updateResponse = await _client.Users.UpdateManyAsync(new[] { user });
-            var updatedUser = await _client.Users.GetAsync(user.Id);
+            var updatedUserResponse = await _client.User.UpdateAsync(user.Id, user).ConfigureAwait(false);
+            var updatedUser = await _client.User.GetAsync(user.Id).ConfigureAwait(false);
 
             // Assert
-            updateResponse.Rows.Should().ContainSingle(r => r.Succeeded);
+            updatedUserResponse.Comment.Should().Be(
+                comment, "update should have changed the comment field");
+
+            updatedUserResponse.Address.City.Should().Be(
+                city, "update should have changed the address city field");
 
             updatedUser.Comment.Should().Be(
                 comment, "update should have changed the comment field");
@@ -129,55 +131,26 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Users")]
-        public async Task ShouldFailUserValidationIfTheUserIsAlreadyRegistered()
-        {
-            // Arrange
-            var user = await _fixture.CreateAndActivateUser();
-            var newUserImpostor = new UserCreateRequest
-            {
-                FirstName = "John",
-                LastName = "Impostor",
-                EmailAddress = user.EmailAddress
-            };
-
-            var newUserOk = new UserCreateRequest
-            {
-                FirstName = "John",
-                LastName = "Doe",
-                EmailAddress = $"john.doe.{nameof(ShouldFailUserValidationIfTheUserIsAlreadyRegistered)}@test.picturepark.com"
-            };
-
-            // Act
-            var validated = await _client.Users.ValidateUserInvitesAsync(new[] { newUserImpostor, newUserOk });
-
-            // Assert
-            validated.Rows.Should().HaveCount(2)
-                .And.ContainSingle(r => r.Succeeded)
-                .And.ContainSingle(r => !r.Succeeded)
-                    .Which.Error.Should().Contain(newUserImpostor.EmailAddress);
-        }
-
-        [Fact]
-        [Trait("Stack", "Users")]
         public async Task ShouldReturnMultipleUsersCorrectly()
         {
             // Arrange
-            var users = await _fixture.CreateAndActivateUsers(5);
+            var users = await _fixture.CreateAndActivateUsers(5).ConfigureAwait(false);
 
             // Act
-            var retrievedUsers = await _client.Users.GetManyAsync(users.Select(u => u.Id));
+            var retrievedUsers = await _client.User.GetManyAsync(users.Select(u => u.Id)).ConfigureAwait(false);
 
             // Assert
             retrievedUsers.Should().BeEquivalentTo(users);
         }
 
-        private async Task<BusinessProcess> LockUnlockCall(IEnumerable<string> ids, bool @lock)
+        private async Task LockUnlockCall(IEnumerable<string> ids, bool @lock)
         {
-            return await _client.Users.LockManyAsync(new UserLockRequest
+            var lockRequests = ids.Select(async id =>
             {
-                Lock = @lock,
-                UserIds = ids.ToArray()
+                await _client.User.LockAsync(id, new UserLockRequest { Lock = @lock }).ConfigureAwait(false);
             });
+
+            await Task.WhenAll(lockRequests).ConfigureAwait(false);
         }
     }
 }

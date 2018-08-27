@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
 using System.Net.Http;
 using Picturepark.SDK.V1.Contract.Attributes;
+using Picturepark.SDK.V1.Contract.Results;
+using Picturepark.SDK.V1.Conversion;
 
 namespace Picturepark.SDK.V1
 {
@@ -15,86 +17,75 @@ namespace Picturepark.SDK.V1
     {
         private readonly IBusinessProcessClient _businessProcessClient;
 
-        public ListItemClient(IBusinessProcessClient businessProcessClient, IPictureparkClientSettings settings, HttpClient httpClient)
+        public ListItemClient(IBusinessProcessClient businessProcessClient, IPictureparkServiceSettings settings, HttpClient httpClient)
             : this(settings, httpClient)
         {
             _businessProcessClient = businessProcessClient;
         }
 
-        /// <summary>Creates a <see cref="ListItem"/>s based on an object and its references.</summary>
-        /// <param name="content">The object to create <see cref="ListItem"/>s from.</param>
-        /// <param name="schemaId">The schema ID of the object.</param>
-        /// <param name="allowMissingDependencies">Allow creating <see cref="ListItem"/>s that refer to list items or contents that don't exist in the system.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The created <see cref="ListItem"/>s.</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<ICollection<ListItem>> CreateFromObjectAsync(object content, string schemaId, bool allowMissingDependencies = false, CancellationToken cancellationToken = default(CancellationToken))
+        /// <inheritdoc />
+        public async Task<ListItemBatchOperationResult> CreateFromObjectAsync(object content, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var createManyRequest = new ListItemCreateManyRequest
             {
-                Requests = new List<ListItemCreateRequest>(),
+                Items = new List<ListItemCreateRequest>(),
                 AllowMissingDependencies = allowMissingDependencies
             };
 
-            var referencedObjects = await CreateReferencedObjectsAsync(content, allowMissingDependencies, cancellationToken).ConfigureAwait(false);
+            var referencedObjects = CreateReferencedObjectsAsync(content);
+            foreach (var listItemCreateRequest in referencedObjects)
+            {
+                createManyRequest.Items.Add(listItemCreateRequest);
+            }
 
-            createManyRequest.Requests.Add(new ListItemCreateRequest
+            var schemaId = ClassToSchemaConverter.ResolveSchemaName(content.GetType());
+
+            createManyRequest.Items.Add(new ListItemCreateRequest
             {
                 ContentSchemaId = schemaId,
                 Content = content
             });
 
-            var objectResult = await CreateManyAsync(createManyRequest, cancellationToken).ConfigureAwait(false);
-
-            var allResults = objectResult.Concat(referencedObjects).ToList();
-            return allResults;
+            var objectResult = await CreateManyAsync(createManyRequest, timeout, cancellationToken).ConfigureAwait(false);
+            return objectResult;
         }
 
-        /// <summary>Creates multiple <see cref="ListItem"/>s.</summary>
-        /// <param name="createManyRequest">The create many request.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The created <see cref="ListItem"/>s.</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">The business process has not been completed.</exception>
-        public async Task<ICollection<ListItem>> CreateManyAsync(ListItemCreateManyRequest createManyRequest, CancellationToken cancellationToken = default(CancellationToken))
+        /// <inheritdoc />
+        public async Task<ListItemBatchOperationResult> CreateManyAsync(ListItemCreateManyRequest createManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (!createManyRequest.Requests.Any())
+            if (!createManyRequest.Items.Any())
             {
-                return new List<ListItem>();
+                return ListItemBatchOperationResult.Empty;
             }
 
             var businessProcess = await CreateManyCoreAsync(createManyRequest, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+        }
 
-            await _businessProcessClient.WaitForCompletionAsync(businessProcess.Id, null, cancellationToken).ConfigureAwait(false);
-
-            var details = await _businessProcessClient.GetDetailsAsync(businessProcess.Id, cancellationToken).ConfigureAwait(false);
-            if (details.LifeCycle == BusinessProcessLifeCycle.Failed)
+        /// <inheritdoc />
+        public async Task<ListItemBatchOperationResult> UpdateManyAsync(ListItemUpdateManyRequest listItemUpdateManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (!listItemUpdateManyRequest.Items.Any())
             {
-                // TODO: ListItemClient.CreateManyAsync: Should we check for Succeeded here?
-                throw new Exception("The business process failed to execute.");
+                return ListItemBatchOperationResult.Empty;
             }
 
-            var bulkResult = (BusinessProcessDetailsDataBatchResponse)details.Details;
-            if (bulkResult.Response.Rows.Any(i => i.Succeeded == false))
-            {
-                // TODO: ListItemClient.CreateManyAsync: Use better exception classes in this method.
-                throw new Exception("Could not save all objects.");
-            }
+            var businessProcess = await UpdateManyCoreAsync(listItemUpdateManyRequest, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+        }
 
-            // Fetch created objects
-            var searchRequest = new ListItemSearchRequest
-            {
-                Start = 0,
-                Limit = 1000,
-                Filter = new TermsFilter
-                {
-                    Field = "id",
-                    Terms = bulkResult.Response.Rows.Select(i => i.Id).ToList()
-                }
-            };
+        /// <inheritdoc />
+        public async Task<ListItemBatchOperationResult> BatchUpdateFieldsByFilterAsync(ListItemFieldsBatchUpdateFilterRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var businessProcess = await BatchUpdateFieldsByFilterCoreAsync(updateRequest, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+        }
 
-            var searchResult = await SearchAsync(searchRequest, cancellationToken).ConfigureAwait(false);
-            return searchResult.Results;
+        /// <inheritdoc />
+        public async Task<ListItemBatchOperationResult> BatchUpdateFieldsByIdsAsync(ListItemFieldsBatchUpdateRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var businessProcess = await BatchUpdateFieldsByIdsCoreAsync(updateRequest, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Gets an existing list item and converts its content to the requested type.</summary>
@@ -107,7 +98,7 @@ namespace Picturepark.SDK.V1
         public async Task<T> GetAndConvertToAsync<T>(string listItemId, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
         {
             var listItem = await GetAsync(listItemId, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content, ListItemResolveBehaviour.LinkedListItems }, cancellationToken).ConfigureAwait(false);
-            return listItem.ConvertTo<T>(schemaId);
+            return listItem.ConvertTo<T>();
         }
 
         /// <summary>Gets a list of existing list items and converts their content to the requested type.</summary>
@@ -120,7 +111,7 @@ namespace Picturepark.SDK.V1
         public async Task<ICollection<T>> GetManyAndConvertToAsync<T>(IEnumerable<string> listItemIds, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
         {
             var listItems = await GetManyAsync(listItemIds, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content, ListItemResolveBehaviour.LinkedListItems }, cancellationToken).ConfigureAwait(false);
-            return listItems.Select(li => li.ConvertTo<T>(schemaId)).ToList();
+            return listItems.Select(li => li.ConvertTo<T>()).ToList();
         }
 
         /// <summary>Updates a list item by providing its content.</summary>
@@ -135,23 +126,31 @@ namespace Picturepark.SDK.V1
         {
             var updateRequest = new ListItemUpdateRequest()
             {
-                Id = listItemId,
                 Content = content
             };
 
-            return await UpdateAsync(updateRequest, resolveBehaviours, allowMissingDependencies, timeout, cancellationToken).ConfigureAwait(false);
+            return await UpdateAsync(listItemId, updateRequest, resolveBehaviours, allowMissingDependencies, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Updates a list item.</summary>
+        /// <param name="listItemId">ID of the list item.</param>
         /// <param name="updateRequest">The update request.</param>
         /// <param name="resolveBehaviours">List of enum that control which parts of the list item are resolved and returned.</param>
         /// <param name="allowMissingDependencies">Allow creating <see cref="ListItem"/>s that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The updated <see cref="ListItemDetail"/>.</returns>
-        public async Task<ListItemDetail> UpdateAsync(ListItemUpdateRequest updateRequest, IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemDetail> UpdateAsync(string listItemId, ListItemUpdateRequest updateRequest, IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await UpdateCoreAsync(updateRequest.Id, updateRequest, resolveBehaviours, allowMissingDependencies, timeout, cancellationToken).ConfigureAwait(false);
+            return await UpdateCoreAsync(listItemId, updateRequest, resolveBehaviours, allowMissingDependencies, timeout, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<ListItemBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+
+            return new ListItemBatchOperationResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
 
         private bool IsSimpleType(Type type)
@@ -171,14 +170,9 @@ namespace Picturepark.SDK.V1
                 Convert.GetTypeCode(type) != TypeCode.Object;
         }
 
-        private async Task<ICollection<ListItem>> CreateReferencedObjectsAsync(object obj, bool allowMissingDependencies, CancellationToken cancellationToken = default(CancellationToken))
+        private IList<ListItemCreateRequest> CreateReferencedObjectsAsync(object obj)
         {
             var referencedListItems = new List<ListItemCreateRequest>();
-            var createManyRequest = new ListItemCreateManyRequest
-            {
-                Requests = referencedListItems,
-                AllowMissingDependencies = allowMissingDependencies
-            };
 
             BuildReferencedListItems(obj, referencedListItems);
 
@@ -188,26 +182,7 @@ namespace Picturepark.SDK.V1
                 referencedObject.ListItemId = Guid.NewGuid().ToString("N");
             }
 
-            var results = await CreateManyAsync(createManyRequest, cancellationToken).ConfigureAwait(false);
-
-            foreach (var result in results)
-            {
-                var objectToUpdate = referencedListItems.SingleOrDefault(i => i.ListItemId == result.Id);
-
-                var reference = objectToUpdate.Content as IReferenceObject;
-                if (reference != null)
-                {
-                    reference.RefId = result.Id;
-                }
-                else
-                {
-                    throw new InvalidOperationException("The referenced class '" +
-                        objectToUpdate.Content.GetType().FullName +
-                        "' does not implement IReferenceObject or inherit from ReferenceObject.");
-                }
-            }
-
-            return results;
+            return referencedListItems;
         }
 
         private void BuildReferencedListItems(object obj, List<ListItemCreateRequest> referencedListItems)

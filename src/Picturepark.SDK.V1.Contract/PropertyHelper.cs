@@ -4,7 +4,6 @@ using System.Text;
 
 namespace Picturepark.SDK.V1.Contract
 {
-    // TODO: Make the class PropertyHelper internal?
     public static class PropertyHelper
     {
         public static string ToLowerCamelCase(this string value)
@@ -14,17 +13,12 @@ namespace Picturepark.SDK.V1.Contract
             return char.ToLowerInvariant(value[0]) + value.Substring(1);
         }
 
-        public static string GetLowerCamelCasePropertyPath<TObject>(Expression<Func<TObject, object>> propertyRefExpr)
-        {
-            return GetLowerCamelCasePropertyPath((Expression)propertyRefExpr);
-        }
-
         public static string GetPropertyName(Expression expr)
         {
             return GetMemberExpression(expr).Member.Name;
         }
 
-        private static string GetLowerCamelCasePropertyPath(Expression expr)
+        public static string GetLowerCamelCasePropertyPath(Expression expr)
         {
             var path = new StringBuilder();
             var memberExpression = GetMemberExpression(expr);

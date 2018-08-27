@@ -17,11 +17,11 @@ namespace Picturepark.Microsite.Example.Controllers
 {
 	public class HomeController : Controller
 	{
-		private readonly IPictureparkServiceClient _client;
+		private readonly IPictureparkAccessTokenService _client;
 		private readonly IPressReleaseRepository _pressReleaseRepository;
-		private readonly IOptions<PictureparkConfiguration> _configuration;
+		private readonly PictureparkConfiguration _configuration;
 
-		public HomeController(IPictureparkServiceClient client, IPressReleaseRepository pressReleaseRepository, IOptions<PictureparkConfiguration> configuration)
+		public HomeController(IPictureparkAccessTokenService client, IPressReleaseRepository pressReleaseRepository, PictureparkConfiguration configuration)
 		{
 			_client = client;
 			_pressReleaseRepository = pressReleaseRepository;
@@ -43,27 +43,27 @@ namespace Picturepark.Microsite.Example.Controllers
 
 		public RedirectResult Backend()
 		{
-			return Redirect(_configuration.Value.BaseUrl);
+			return Redirect(_configuration.ApiBaseUrl);
 		}
 
 		[ResponseCache(VaryByHeader = "User-Agent", Duration = 30)]
 		public async Task<FileResult> Thumbnail(string id)
 		{
-			var thumbnailResponse = await _client.Contents.DownloadThumbnailAsync(id, ThumbnailSize.Medium);
+			var thumbnailResponse = await _client.Content.DownloadThumbnailAsync(id, ThumbnailSize.Medium);
 			return File(thumbnailResponse.Stream, "image/jpeg");
 		}
 
 		[ResponseCache(VaryByHeader = "User-Agent", Duration = 30)]
 		public async Task<FileResult> ImageResized(string id, [FromQuery] int width, [FromQuery] int height)
 		{
-			var fileResponse = await _client.Contents.DownloadAsync(id, "Preview", width, height);
+			var fileResponse = await _client.Content.DownloadAsync(id, "Preview", width, height);
 			return File(fileResponse.Stream, "image/jpeg");
 		}
 
 		[ResponseCache(VaryByHeader = "User-Agent", Duration = 30)]
 		public async Task<FileResult> Download(string id)
 		{
-			var download = await _client.Contents.DownloadAsync(id, "Original");
+			var download = await _client.Content.DownloadAsync(id, "Original");
 			var fileName = GetFileName(download);
 			return File(download.Stream, "application/octet-stream", fileName);
 		}
@@ -71,7 +71,7 @@ namespace Picturepark.Microsite.Example.Controllers
 		[ResponseCache(VaryByHeader = "User-Agent", Duration = 30)]
 		public async Task<FileResult> Embed(string id)
 		{
-			var download = await _client.Contents.DownloadAsync(id, "Original");
+			var download = await _client.Content.DownloadAsync(id, "Original");
 			var fileName = GetFileName(download);
 			return File(download.Stream, "application/octet-stream", fileName);
 		}

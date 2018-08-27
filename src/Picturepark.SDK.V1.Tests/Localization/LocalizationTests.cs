@@ -10,14 +10,14 @@ namespace Picturepark.SDK.V1.Tests.Localization
         [Trait("Stack", "Localization")]
         public void ShouldLocalizeException()
         {
-            /// Arrange
+            // Arrange
             var exception = new CustomerNotFoundException { CustomerId = "TestCustomerId" };
 
-            /// Act
+            // Act
             var textEn = exception.GetLocalizedErrorCode("en");
             var textDe = exception.GetLocalizedErrorCode("de");
 
-            /// Assert
+            // Assert
             Assert.False(string.IsNullOrEmpty(textEn));
             Assert.False(string.IsNullOrEmpty(textDe));
         }
@@ -26,10 +26,10 @@ namespace Picturepark.SDK.V1.Tests.Localization
         [Trait("Stack", "Localization")]
         public void ShouldLocalizeTextFromStringCode()
         {
-            /// Act
+            // Act
             var text = LocalizationService.GetLocalizedText("CustomerNotFoundException", "en");
 
-            /// Assert
+            // Assert
             Assert.False(string.IsNullOrEmpty(text));
         }
 
@@ -37,10 +37,10 @@ namespace Picturepark.SDK.V1.Tests.Localization
         [Trait("Stack", "Localization")]
         public void ShouldLocalizeTextFromIntegerCode()
         {
-            /// Act
+            // Act
             var text = LocalizationService.GetLocalizedText(100304, "en");
 
-            /// Assert
+            // Assert
             Assert.False(string.IsNullOrEmpty(text));
         }
     }

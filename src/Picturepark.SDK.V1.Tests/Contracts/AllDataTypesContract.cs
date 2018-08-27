@@ -3,13 +3,12 @@ using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Contract.SystemTypes;
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
+using Picturepark.SDK.V1.Conversion;
 
 namespace Picturepark.SDK.V1.Tests.Contracts
 {
-    [PictureparkSchemaType(SchemaType.Content)]
-    [PictureparkSchemaType(SchemaType.Layer)]
-    [PictureparkSchemaType(SchemaType.List)]
-    [PictureparkSchemaType(SchemaType.Struct)]
+    [PictureparkSchema(SchemaType.Layer)]
     [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}")]
     [PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}")]
     [PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{data.allDataTypesContract.stringField}}: {{data.allDataTypesContract.integerField}}")]
@@ -24,9 +23,11 @@ namespace Picturepark.SDK.V1.Tests.Contracts
         [PictureparkNameTranslation("Yes or no")]
         public bool BooleanField { get; set; }
 
-        // TODO: How to limit to date?
+        [PictureparkDate]
+        [JsonConverter(typeof(DateFieldConverter))]
         public DateTime DateField { get; set; }
 
+        [PictureparkDateTime]
         public DateTime DateTimeField { get; set; }
 
         //// public List<DateTime> DateTimeArrayField { get; set; }
@@ -73,7 +74,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
     }
 
     [PictureparkReference]
-    [PictureparkSchemaType(SchemaType.List)]
+    [PictureparkSchema(SchemaType.List)]
     [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.simpleReferenceObject.nameField}}")]
     [PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.simpleReferenceObject.nameField}}")]
     public class SimpleReferenceObject : ReferenceObject
@@ -83,7 +84,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
     [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.simpleObject.name}}")]
     [PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.simpleObject.name}}")]
-    [PictureparkSchemaType(SchemaType.Struct)]
+    [PictureparkSchema(SchemaType.Struct)]
     public class SimpleObject
     {
         public string Name { get; set; }
@@ -93,13 +94,13 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
     [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.nestedSimpleObject.name}}")]
     [PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.nestedSimpleObject.name}}")]
-    [PictureparkSchemaType(SchemaType.Struct)]
+    [PictureparkSchema(SchemaType.Struct)]
     public class NestedSimpleObject
     {
         public string Name { get; set; }
     }
 
-    [PictureparkSchemaType(SchemaType.Struct)]
+    [PictureparkSchema(SchemaType.Struct)]
     public class SimpleRelation : Relation
     {
         public string RelationInfo { get; set; }

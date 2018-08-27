@@ -6,12 +6,13 @@ using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Xunit;
 using System.Linq;
+#pragma warning disable 1587
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
     public class BusinessProcessTests : IClassFixture<ClientFixture>
     {
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkService _client;
 
         public BusinessProcessTests(ClientFixture fixture)
         {
@@ -22,17 +23,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "BusinessProcesses")]
         public async Task ShouldSearchBusinessProcesses()
         {
-            /// Arrange
+            // Arrange
             var request = new BusinessProcessSearchRequest
             {
                 Start = 0,
                 Limit = 20
             };
 
-            /// Act
-            var results = await _client.BusinessProcesses.SearchAsync(request);
+            // Act
+            var results = await _client.BusinessProcess.SearchAsync(request).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(results);
             Assert.True(results.Results.Any());
         }
@@ -41,20 +42,20 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "BusinessProcesses")]
         public async Task ShouldGetBusinessProcessDetails()
         {
-            /// Arrange
+            // Arrange
 
             // 1. Create or update schema
-            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(BusinessProcessTest)).ConfigureAwait(false);
-            await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schemas.First(), false).ConfigureAwait(false);
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(BusinessProcessTest)).ConfigureAwait(false);
+            await _client.Schema.CreateOrUpdateAsync(schemas.First(), false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
             // 2. Create list items
-            var listItemDetail1 = await _client.ListItems.CreateAsync(new ListItemCreateRequest
+            var listItemDetail1 = await _client.ListItem.CreateAsync(new ListItemCreateRequest
             {
                 Content = new BusinessProcessTest { Name = "Test1" },
                 ContentSchemaId = nameof(BusinessProcessTest)
             }).ConfigureAwait(false);
 
-            var listItemDetail2 = await _client.ListItems.CreateAsync(new ListItemCreateRequest
+            var listItemDetail2 = await _client.ListItem.CreateAsync(new ListItemCreateRequest
             {
                 Content = new BusinessProcessTest { Name = "Test2" },
                 ContentSchemaId = nameof(BusinessProcessTest)
@@ -81,14 +82,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            var businessProcess = await _client.ListItems.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
-            var waitResult = await _client.BusinessProcesses.WaitForCompletionAsync(businessProcess.Id, TimeSpan.FromSeconds(10)).ConfigureAwait(false);
+            var result = await _client.ListItem.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
 
-            /// Act
-            var details = await _client.BusinessProcesses.GetDetailsAsync(businessProcess.Id).ConfigureAwait(false);
+            // Act
+            var details = await _client.BusinessProcess.GetDetailsAsync(result.BusinessProcessId).ConfigureAwait(false);
 
-            /// Assert
-            Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
+            // Assert
+            Assert.True(details.LifeCycle == BusinessProcessLifeCycle.Succeeded);
         }
     }
 }

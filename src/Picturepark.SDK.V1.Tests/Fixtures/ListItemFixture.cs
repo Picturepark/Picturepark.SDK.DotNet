@@ -1,6 +1,5 @@
-﻿using Picturepark.SDK.V1.Contract;
+﻿using System;
 using Picturepark.SDK.V1.Tests.Contracts;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,10 +14,10 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         public async Task Setup()
         {
-            if (await Client.Schemas.ExistsAsync(nameof(Tag)) == false)
+            if (await Client.Schema.ExistsAsync(nameof(Tag)).ConfigureAwait(false) == false)
             {
-                var schema = await Client.Schemas.GenerateSchemasAsync(typeof(Tag));
-                await Client.Schemas.CreateAndWaitForCompletionAsync(schema.First(), true);
+                var schema = await Client.Schema.GenerateSchemasAsync(typeof(Tag)).ConfigureAwait(false);
+                await Client.Schema.CreateAsync(schema.First(), true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
             }
         }
     }

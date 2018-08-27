@@ -12,9 +12,9 @@ namespace Picturepark.Microsite.Example.Controllers
 {
 	public class JobsController : Controller
 	{
-		private readonly IPictureparkServiceClient _client;
+		private readonly IPictureparkAccessTokenService _client;
 
-		public JobsController(IPictureparkServiceClient client)
+		public JobsController(IPictureparkAccessTokenService client)
 		{
 			_client = client;
 		}
@@ -22,7 +22,7 @@ namespace Picturepark.Microsite.Example.Controllers
 		public async Task<IActionResult> Jobs()
 		{
 			// JobsAtPicturepark
-			var searchResult = await _client.Contents.SearchAsync(new ContentSearchRequest
+			var searchResult = await _client.Content.SearchAsync(new ContentSearchRequest
 			{
 				Start = 0,
 				Limit = 10,
@@ -34,7 +34,7 @@ namespace Picturepark.Microsite.Example.Controllers
 			});
 
 			// Fetch details
-			var jobsData = await _client.Contents.GetManyAsync(searchResult.Results.Select(i => i.Id), true);
+			var jobsData = await _client.Content.GetManyAsync(searchResult.Results.Select(i => i.Id), new[] { ContentResolveBehaviour.Content });
 
 			// Convert to C# poco
 			var jobsAtPicturepark = jobsData.AsContentItems<JobsAtPicturepark>().FirstOrDefault();
@@ -44,7 +44,7 @@ namespace Picturepark.Microsite.Example.Controllers
 
 		public async Task<IActionResult> JobDetail(string id)
 		{
-			var objectDetail = await _client.ListItems.GetAndConvertToAsync<JobPosition>(id, nameof(JobPosition));
+			var objectDetail = await _client.ListItem.GetAndConvertToAsync<JobPosition>(id, nameof(JobPosition));
 
 			return View(objectDetail);
 		}

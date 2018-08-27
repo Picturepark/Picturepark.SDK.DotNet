@@ -6,8 +6,7 @@
 			"dependencies": [],
 			"schemaNamespace": "Planet",
 			"types": [
-				"List",
-				"Struct"
+				"List"
 			],
 			"names": {
 				"en": "Planet"

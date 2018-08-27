@@ -19,7 +19,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
     public class SchemaCreationTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
-        private readonly PictureparkClient _client;
+        private readonly IPictureparkService _client;
 
         public SchemaCreationTests(ClientFixture fixture)
         {
@@ -31,10 +31,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "Schema")]
         public async Task ShouldInvokeFilterProvider()
         {
-            /// Act
-            var allTypes = await _client.Schemas.GenerateSchemasAsync(typeof(ClassWithSimpleRelationAndFilterProvider));
+            // Act
+            var allTypes = await _client.Schema.GenerateSchemasAsync(typeof(ClassWithSimpleRelationAndFilterProvider)).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             var type = allTypes.Single(t => t.Id == nameof(ClassWithSimpleRelationAndFilterProvider));
             var field = (FieldSingleRelation)type.Fields.Single(f => f.Id == "relationField");
             var filter = (TermFilter)field.RelationTypes.First().Filter;
@@ -43,7 +43,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             Assert.Equal("Bitmap", filter.Term);
         }
 
-        [PictureparkSchemaType(SchemaType.Content)]
+        [PictureparkSchema(SchemaType.Content)]
         public class ClassWithSimpleRelationAndFilterProvider
         {
             [PictureparkContentRelation("RelationName", typeof(RelationFieldFilterProvider))]
@@ -62,10 +62,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "Schema")]
         public async Task ShouldInvokeSchemaIndexingInfoProvider()
         {
-            /// Act
-            var allTypes = await _client.Schemas.GenerateSchemasAsync(typeof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider));
+            // Act
+            var allTypes = await _client.Schema.GenerateSchemasAsync(typeof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider)).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             var type = allTypes.Single(t => t.Id == nameof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider));
             var field = (FieldSingleRelation)type.Fields.Single(f => f.Id == "relationField");
             var indexingInfo = field.SchemaIndexingInfo;
@@ -74,7 +74,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             Assert.Equal(11, indexingInfo.Fields.First().Boost);
         }
 
-        [PictureparkSchemaType(SchemaType.Content)]
+        [PictureparkSchema(SchemaType.Content)]
         public class ClassWithSimpleRelationAndSchemaIndexingInfoProvider
         {
             [PictureparkContentRelation("RelationName", "{ 'kind': 'TermFilter', 'field': 'contentType', term: 'Bitmap' }")]
@@ -95,10 +95,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldIgnoreJsonProperty()
         {
-            /// Act
-            var jsonTransformSchemas = await _client.Schemas.GenerateSchemasAsync(typeof(JsonTransform));
+            // Act
+            var jsonTransformSchemas = await _client.Schema.GenerateSchemasAsync(typeof(JsonTransform)).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             var jsonTransformSchema = jsonTransformSchemas.First();
 
             Assert.DoesNotContain(jsonTransformSchema.Fields, i => i.Id == nameof(JsonTransform.IgnoredString));
@@ -115,17 +115,17 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldUseRenamedJsonProperty()
         {
-            /// Act
-            var jsonTransformSchemas = await _client.Schemas.GenerateSchemasAsync(typeof(JsonTransform));
+            // Act
+            var jsonTransformSchemas = await _client.Schema.GenerateSchemasAsync(typeof(JsonTransform)).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             var jsonTransformSchema = jsonTransformSchemas.First(i => i.Id == nameof(JsonTransform));
 
             Assert.DoesNotContain(jsonTransformSchema.Fields, i => i.Id == nameof(JsonTransform.OldName).ToLowerCamelCase());
             Assert.Contains(jsonTransformSchema.Fields, i => i.Id == "_newName");
         }
 
-        [PictureparkSchemaType(SchemaType.Struct)]
+        [PictureparkSchema(SchemaType.Struct)]
         public class JsonTransform
         {
             [JsonIgnore]
@@ -145,10 +145,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldNotAllowRelationsMarkedAsSortable()
         {
-            await Assert.ThrowsAsync<InvalidOperationException>(async() => await _client.Schemas.GenerateSchemasAsync(typeof(ClassSortableRelation)));
+            await Assert.ThrowsAsync<InvalidOperationException>(async() => await _client.Schema.GenerateSchemasAsync(typeof(ClassSortableRelation)).ConfigureAwait(false)).ConfigureAwait(false);
         }
 
-        [PictureparkSchemaType(SchemaType.List)]
+        [PictureparkSchema(SchemaType.List)]
         public class ClassSortableRelation
         {
             [PictureparkContentRelation(
@@ -163,10 +163,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldNotAllowGeopointsMarkedAsSortable()
         {
-            await Assert.ThrowsAsync<InvalidOperationException>(async () => await _client.Schemas.GenerateSchemasAsync(typeof(ClassSortableGeopoint)));
+            await Assert.ThrowsAsync<InvalidOperationException>(async () => await _client.Schema.GenerateSchemasAsync(typeof(ClassSortableGeopoint)).ConfigureAwait(false)).ConfigureAwait(false);
         }
 
-        [PictureparkSchemaType(SchemaType.List)]
+        [PictureparkSchema(SchemaType.List)]
         public class ClassSortableGeopoint
         {
             [PictureparkSort]
@@ -177,11 +177,11 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldMarkFieldAsSortableWhenMarkedWithSortAttribute()
         {
-            var schema = await _client.Schemas.GenerateSchemasAsync(typeof(ClassSortableString));
+            var schema = await _client.Schema.GenerateSchemasAsync(typeof(ClassSortableString)).ConfigureAwait(false);
             Assert.True(schema.First().Fields.First().Sortable);
         }
 
-        [PictureparkSchemaType(SchemaType.List)]
+        [PictureparkSchema(SchemaType.List)]
         public class ClassSortableString
         {
             [PictureparkSort]
@@ -192,10 +192,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [Trait("Stack", "SchemaCreation")]
         public async Task ShouldNotAllowAnalyzerWithoutIndexOrSearch()
         {
-            await Assert.ThrowsAsync<InvalidOperationException>(async () => await _client.Schemas.GenerateSchemasAsync(typeof(ClassAnalyzerWithoutIndexAndSearch)));
+            await Assert.ThrowsAsync<InvalidOperationException>(async () => await _client.Schema.GenerateSchemasAsync(typeof(ClassAnalyzerWithoutIndexAndSearch)));
         }
 
-        [PictureparkSchemaType(SchemaType.List)]
+        [PictureparkSchema(SchemaType.List)]
         public class ClassAnalyzerWithoutIndexAndSearch
         {
             [PictureparkSimpleAnalyzer(Index = false, SimpleSearch = false)]
@@ -207,10 +207,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         public async Task ShouldNotAllowMultipleDisplayPatternsOfSameTypeAndLanguage()
         {
             await Assert.ThrowsAsync<InvalidOperationException>(
-                async () => await _client.Schemas.GenerateSchemasAsync(typeof(ClassWithMultipleDisplayPatternsForEnglishName)));
+                async () => await _client.Schema.GenerateSchemasAsync(typeof(ClassWithMultipleDisplayPatternsForEnglishName)).ConfigureAwait(false)).ConfigureAwait(false);
         }
 
-        [PictureparkSchemaType(SchemaType.List)]
+        [PictureparkSchema(SchemaType.List)]
         [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{pattern}}", "en")]
         [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{pattern}}", "en")]
         public class ClassWithMultipleDisplayPatternsForEnglishName

@@ -11,12 +11,12 @@ namespace Picturepark.SDK.V1
 {
     public partial class TransferClient
     {
-        private static readonly object s_lock = new object();
+        private static readonly SemaphoreSlim BlacklistCacheSemaphore = new SemaphoreSlim(1, 1);
 
         private readonly BusinessProcessClient _businessProcessClient;
         private volatile ISet<string> _fileNameBlacklist;
 
-        public TransferClient(BusinessProcessClient businessProcessClient, IPictureparkClientSettings settings, HttpClient httpClient)
+        public TransferClient(BusinessProcessClient businessProcessClient, IPictureparkServiceSettings settings, HttpClient httpClient)
             : this(settings, httpClient)
         {
             _businessProcessClient = businessProcessClient;
@@ -39,7 +39,7 @@ namespace Picturepark.SDK.V1
                 }
             };
 
-            return await SearchFilesAsync(request);
+            return await SearchFilesAsync(request).ConfigureAwait(false);
         }
 
         /// <summary>Uploads multiple files from the filesystem.</summary>
@@ -73,9 +73,8 @@ namespace Picturepark.SDK.V1
 
             // Limits concurrent uploads
             var throttler = new SemaphoreSlim(uploadOptions.ConcurrentUploads);
-            var filteredFileNames = FilterFilesByBlacklist(files);
+            var filteredFileNames = await FilterFilesByBlacklist(files).ConfigureAwait(false);
 
-            // TODO: File by file uploads
             var tasks = filteredFileNames
                 .Select(file => Task.Run(async () =>
                 {
@@ -110,7 +109,7 @@ namespace Picturepark.SDK.V1
         /// <param name="timeout">The timeout to wait for completion.</param>
         /// <param name="cancellationToken">The cancellcation token.</param>
         /// <returns>The task.</returns>
-        public async Task ImportAndWaitForCompletionAsync(Transfer transfer, FileTransfer2ContentCreateRequest createRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task ImportAndWaitForCompletionAsync(Transfer transfer, ImportTransferRequest createRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var importedTransfer = await ImportTransferAsync(transfer.Id, createRequest, cancellationToken).ConfigureAwait(false);
             await _businessProcessClient.WaitForCompletionAsync(importedTransfer.BusinessProcessId, timeout, cancellationToken).ConfigureAwait(false);
@@ -137,7 +136,7 @@ namespace Picturepark.SDK.V1
         /// <returns>The transfer.</returns>
         public async Task<CreateTransferResult> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<FileLocations> files, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var filteredFileNames = FilterFilesByBlacklist(files);
+            var filteredFileNames = await FilterFilesByBlacklist(files).ConfigureAwait(false);
 
             var request = new CreateTransferRequest
             {
@@ -194,14 +193,14 @@ namespace Picturepark.SDK.V1
                             using (var memoryStream = new MemoryStream(buffer))
                             {
                                 await UploadFileAsync(
-                                    transferId,
-                                    identifier,
-                                    new FileParameter(memoryStream, sourceFileName),
                                     targetFileName,
                                     number,
                                     currentChunkSize,
                                     fileSize,
                                     totalChunks,
+                                    transferId,
+                                    identifier,
+                                    new FileParameter(memoryStream, sourceFileName),
                                     cancellationToken).ConfigureAwait(false);
                             }
                         }
@@ -216,24 +215,29 @@ namespace Picturepark.SDK.V1
             await Task.WhenAll(uploadTasks).ConfigureAwait(false);
         }
 
-        private IEnumerable<FileLocations> FilterFilesByBlacklist(IEnumerable<FileLocations> files)
+        private async Task<IEnumerable<FileLocations>> FilterFilesByBlacklist(IEnumerable<FileLocations> files)
         {
-            var blacklist = GetCachedBlacklist();
+            var blacklist = await GetCachedBlacklist().ConfigureAwait(false);
             return files.Where(i => !blacklist.Contains(Path.GetFileName(i.AbsoluteSourcePath)?.ToLowerInvariant()));
         }
 
-        private ISet<string> GetCachedBlacklist()
+        private async Task<ISet<string>> GetCachedBlacklist()
         {
             if (_fileNameBlacklist != null)
                 return _fileNameBlacklist;
 
-            lock (s_lock)
+            await BlacklistCacheSemaphore.WaitAsync().ConfigureAwait(false);
+            try
             {
                 if (_fileNameBlacklist != null)
                     return _fileNameBlacklist;
 
-                var blacklist = Task.Run(() => GetBlacklistAsync()).GetAwaiter().GetResult(); // TODO: GetCachedBlacklist: Use async version
+                var blacklist = await GetBlacklistAsync().ConfigureAwait(false);
                 _fileNameBlacklist = new HashSet<string>(blacklist.Items.Select(i => i.Match.ToLowerInvariant()));
+            }
+            finally
+            {
+                BlacklistCacheSemaphore.Release();
             }
 
             return _fileNameBlacklist;

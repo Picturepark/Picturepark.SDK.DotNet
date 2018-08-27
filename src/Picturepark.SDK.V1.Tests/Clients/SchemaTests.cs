@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Contract;
@@ -10,12 +11,12 @@ using Newtonsoft.Json;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
-    public class SchemaTests : IClassFixture<ClientFixture>
+    public class SchemaTests : IClassFixture<SchemaFixture>
     {
-        private readonly ClientFixture _fixture;
-        private readonly PictureparkClient _client;
+        private readonly SchemaFixture _fixture;
+        private readonly IPictureparkService _client;
 
-        public SchemaTests(ClientFixture fixture)
+        public SchemaTests(SchemaFixture fixture)
         {
             _fixture = fixture;
             _client = _fixture.Client;
@@ -25,11 +26,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Schema")]
         public async Task ShouldCreateAllTypesSchemaFromClass()
         {
-            /// Act
-            var allTypes = await _client.Schemas.GenerateSchemasAsync(typeof(AllDataTypesContract));
+            // Act
+            var allTypes = await _client.Schema.GenerateSchemasAsync(typeof(AllDataTypesContract)).ConfigureAwait(false);
             foreach (var schema in allTypes)
             {
-                await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true);
+                await _client.Schema.CreateOrUpdateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
             }
         }
 
@@ -37,28 +38,28 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Schema")]
         public async Task ShouldCorrectlyDeserializeExceptions()
         {
-            /// Arrange
-            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
+            // Arrange
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Person)).ConfigureAwait(false);
 
-            /// Act & Assert
+            // Act & Assert
             await Assert.ThrowsAsync<SchemaValidationException>(async () =>
             {
                 foreach (var schema in schemas)
                 {
                     schema.Id = "000";
-                    await _client.Schemas.CreateOrUpdateAndWaitForCompletionAsync(schema, true); // throws exception
+                    await _client.Schema.CreateOrUpdateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false); // throws exception
                 }
-            });
+            }).ConfigureAwait(false);
         }
 
         [Fact]
         [Trait("Stack", "Schema")]
         public async Task ShouldGenerateSchemas()
         {
-            /// Act
-            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
+            // Act
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Person)).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Equal(8, schemas.Count);
         }
 
@@ -66,95 +67,111 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Schema")]
         public async Task ShouldGenerateAndCreateSchemas()
         {
-            /// Act
+            // Act
             var schemaSuffix = new Random().Next(0, 999999);
-            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(PersonShot));
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(PersonShot)).ConfigureAwait(false);
+            IList<SchemaDetail> createdSchemas = new List<SchemaDetail>();
             foreach (var schema in schemas)
             {
                 AppendSchemaIdSuffix(schema, schemaSuffix);
-                await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true);
+                var result = await _client.Schema.CreateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+                createdSchemas.Add(result.Schema);
             }
 
-            /// Assert
-            Assert.True(await _client.Schemas.ExistsAsync(schemas.First().Id));
-            Assert.Equal(9, schemas.Count);
+            // Assert
+            createdSchemas.Should().HaveSameCount(schemas);
+            createdSchemas.Select(s => s.Id).Should().BeEquivalentTo(schemas.Select(s => s.Id));
         }
 
         [Fact]
         [Trait("Stack", "Schema")]
         public async Task ShouldGenerateAndCreateAndUpdateSchemas()
         {
-            /// Act
+            // Act
             var schemaSuffix = new Random().Next(0, 999999);
-            var schemaId = nameof(Person) + schemaSuffix;
-            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Person));
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Person)).ConfigureAwait(false);
+
+            IList<SchemaDetail> createdSchemas = new List<SchemaDetail>();
             foreach (var schema in schemas)
             {
                 AppendSchemaIdSuffix(schema, schemaSuffix);
-                await _client.Schemas.CreateAndWaitForCompletionAsync(schema, true);
+                var result = await _client.Schema.CreateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+                createdSchemas.Add(result.Schema);
             }
 
-            // Add a new text field to each schema
-            foreach (var schema in schemas.Where(i => i.Id == schemaId))
+            // Add a new text field to the first created schema
+            var createdSchema = createdSchemas.First();
+            var fieldName = "newField" + createdSchema.Id;
+            createdSchema.Fields.Add(new FieldString
             {
-                var fieldName = "newField" + schema.Id;
-                schema.Fields.Add(new FieldString
-                {
-                    Names = new TranslatedStringDictionary { { _fixture.DefaultLanguage, fieldName } },
-                    Id = fieldName
-                });
-                await _client.Schemas.UpdateAndWaitForCompletionAsync(schema, true);
-            }
+                Names = new TranslatedStringDictionary { { _fixture.DefaultLanguage, fieldName } },
+                Id = fieldName
+            });
+            var updateResult = await _client.Schema.UpdateAsync(createdSchema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
-            var newSchema = await _client.Schemas.GetAsync(schemaId);
+            // Assert
+            updateResult.Schema.Fields.Should().Contain(f => f.Id == $"newField{updateResult.Schema.Id}");
+        }
 
-            /// Assert
-            Assert.Contains(newSchema.Fields, i => i.Id.Contains("newField"));
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldGenerateSchemasWithCorrectInheritance()
+        {
+            // Act
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Person)).ConfigureAwait(false);
+
+            // Assert
+            var pet = schemas.Single(s => s.Id == "Pet");
+            var cat = schemas.Single(s => s.Id == "Cat");
+            var dog = schemas.Single(s => s.Id == "Dog");
+
+            Assert.Equal(string.Empty, pet.ParentSchemaId);
+            Assert.Equal(pet.Id, cat.ParentSchemaId);
+            Assert.Equal(pet.Id, dog.ParentSchemaId);
         }
 
         [Fact]
         [Trait("Stack", "Schema")]
         public async Task ShouldDelete()
         {
-            /// Arrange
-            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Tag));
+            // Arrange
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Tag)).ConfigureAwait(false);
             Assert.Equal(1, schemas.Count);
 
             // modify schema ID before submit
             var tagSchema = schemas.First();
             tagSchema.Id = "SchemaToDelete" + new Random().Next(0, 999999);
 
-            await _client.Schemas.CreateAndWaitForCompletionAsync(tagSchema, false);
-            var schemaDetail = await _client.Schemas.GetAsync(tagSchema.Id);
+            var result = await _client.Schema.CreateAsync(tagSchema, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
-            /// Act
-            await _client.Schemas.DeleteAndWaitForCompletionAsync(schemaDetail.Id);
+            // Act
+            await _client.Schema.DeleteAsync(result.Schema.Id, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
-            /// Assert
-            await Assert.ThrowsAsync<SchemaNotFoundException>(async () => await _client.Schemas.GetAsync(tagSchema.Id));
+            // Assert
+            await Assert.ThrowsAsync<SchemaNotFoundException>(async () => await _client.Schema.GetAsync(tagSchema.Id).ConfigureAwait(false)).ConfigureAwait(false);
         }
 
         [Fact]
         [Trait("Stack", "Schema")]
         public async Task ShouldExist()
         {
-            string schemaId = await _fixture.GetRandomSchemaIdAsync(20);
+            var schemaId = SchemaFixture.SystemSchemaIds.First();
 
-            /// Act
-            bool schemaExists = await _client.Schemas.ExistsAsync(schemaId);
+            // Act
+            var schemaExists = await _client.Schema.ExistsAsync(schemaId).ConfigureAwait(false);
 
-            /// Assert
-            Assert.True(schemaExists);
+            // Assert
+            schemaExists.Should().BeTrue();
         }
 
         [Fact]
         [Trait("Stack", "Schema")]
         public async Task ShouldNotExist()
         {
-            /// Act
-            var schemaExists = await _client.Schemas.ExistsAsync("abcabcabcabc");
+            // Act
+            var schemaExists = await _client.Schema.ExistsAsync("abcabcabcabc").ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.False(schemaExists);
         }
 
@@ -162,9 +179,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Schema")]
         public async Task ShouldGet()
         {
-            /// Arrange
+            // Arrange
             var searchRequest = new SchemaSearchRequest { Start = 0, Limit = 2 };
-            var searchResult = await _client.Schemas.SearchAsync(searchRequest);
+            var searchResult = await _client.Schema.SearchAsync(searchRequest).ConfigureAwait(false);
 
             Assert.True(searchResult.Results.Any());
 
@@ -173,14 +190,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 .OrderBy(i => i)
                 .ToList();
 
-            /// Act
+            // Act
             var schemaIdsOk = new List<string>();
             var schemaIdsNotOk = new List<string>();
             foreach (var schemaId in schemaIds)
             {
                 try
                 {
-                    var schema = await _client.Schemas.GetAsync(schemaId);
+                    var schema = await _client.Schema.GetAsync(schemaId).ConfigureAwait(false);
                     schemaIdsOk.Add(schema.Id);
                 }
                 catch
@@ -189,7 +206,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             }
 
-            /// Assert
+            // Assert
             Assert.False(schemaIdsNotOk.Count > 0);
             Assert.True(schemaIdsOk.Count > 0);
         }
@@ -198,13 +215,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Schema")]
         public async Task ShouldGetJsonValidationSchema()
         {
-            /// Arrange
-            var schemaId = await _fixture.GetRandomSchemaIdAsync(20);
+            // Arrange
+            var schemaId = SchemaFixture.SystemSchemaIds.First();
 
-            /// Act
-            var result = await _client.JsonSchemas.GetAsync(schemaId);
+            // Act
+            var result = await _client.JsonSchema.GetAsync(schemaId).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.NotNull(result.Property("definitions"));
             Assert.NotNull(result.ToString(Formatting.Indented));
         }
@@ -213,15 +230,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Schema")]
         public async Task ShouldCreateSchemaAndValidateFilter()
         {
-            /// Arrange
-            await SchemaHelper.CreateSchemasIfNotExistentAsync<SoccerPlayer>(_client);
+            // Arrange
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<SoccerPlayer>(_client).ConfigureAwait(false);
             var expectedFilterString = "{\"kind\":\"TermFilter\",\"field\":\"contentType\",\"term\":\"FC Aarau\"}";
 
-            /// Act
-            var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("SoccerPlayer");
+            // Act
+            var generatedSoccerPlayerSchema = await _client.Schema.GetAsync("SoccerPlayer").ConfigureAwait(false);
             var jsonConvertedField = generatedSoccerPlayerSchema.Fields.Single(i => i.Id == "club");
 
-            /// Assert
+            // Assert
             Assert.Contains(expectedFilterString, JsonConvert.SerializeObject(jsonConvertedField));
         }
 
@@ -229,15 +246,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Schema")]
         public async Task ShouldCreateSchemaAndValidateMultiline()
         {
-            /// Arrange
-            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client);
+            // Arrange
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client).ConfigureAwait(false);
             string expectedMultilineString = "\"multiLine\":true";
 
-            /// Act
-            var generatedSoccerPlayerSchema = await _client.Schemas.GetAsync("Person");
+            // Act
+            var generatedSoccerPlayerSchema = await _client.Schema.GetAsync("Person").ConfigureAwait(false);
             var jsonConvertedField = generatedSoccerPlayerSchema.Fields.ToList()[0];
 
-            /// Assert
+            // Assert
             Assert.Contains(expectedMultilineString, JsonConvert.SerializeObject(jsonConvertedField));
         }
 
@@ -245,10 +262,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Schema")]
         public async Task ShouldCreateSchemaAndValidateMaxRecursion()
         {
-            /// Act
-            var schema = await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client);
+            // Act
+            var schema = await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.Contains(schema.Types, i => i == SchemaType.List || i == SchemaType.Struct);
         }
 
@@ -256,16 +273,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Schema")]
         public async Task ShouldSearch()
         {
-            /// Act
+            // Act
             var searchRequest = new SchemaSearchRequest
             {
                 Limit = 12,
                 SearchString = "D*"
             };
 
-            var result = await _client.Schemas.SearchAsync(searchRequest);
+            var result = await _client.Schema.SearchAsync(searchRequest).ConfigureAwait(false);
 
-            /// Assert
+            // Assert
             Assert.True(result.Results.Any());
         }
 
@@ -273,78 +290,51 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Schema")]
         public async Task ShouldUpdate()
         {
-            /// Arrange
+            // Arrange
             var schemaTranslation = "SchemaTranslation" + new Random().Next(0, 999999);
             var language = "de";
 
             // Create simple schema
-            var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(Tag));
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Tag)).ConfigureAwait(false);
             var tagSchema = schemas.First();
             tagSchema.Id = "SchemaToUpdate" + new Random().Next(0, 999999);
 
-            await _client.Schemas.CreateAndWaitForCompletionAsync(tagSchema, false);
-            var schemaDetail = await _client.Schemas.GetAsync(tagSchema.Id);
+            var createResult = await _client.Schema.CreateAsync(tagSchema, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
+            var schemaDetail = createResult.Schema;
             schemaDetail.Names[language] = schemaTranslation;
 
-            /// Act
-            await _client.Schemas.UpdateAndWaitForCompletionAsync(schemaDetail, false);
+            // Act
+            var updateResult = await _client.Schema.UpdateAsync(schemaDetail, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
-            /// Assert
-            SchemaDetail updatedSchema = await _client.Schemas.GetAsync(schemaDetail.Id);
-            updatedSchema.Names.TryGetValue(language, out string outString);
+            // Assert
+            updateResult.Schema.Names.TryGetValue(language, out string outString);
 
             Assert.Equal(schemaTranslation, outString);
         }
 
-        private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldGenerateAndCreateSchemasWithDateTypeFields()
         {
-            // TODO: Remove this and use custom schemaIdGenerator
-            var systemSchemaIds = new[] { "Country" };
-            if (!systemSchemaIds.Contains(schema.Id))
-            {
-                schema.Id = schema.Id + schemaSuffix;
+            // Act
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Vehicle)).ConfigureAwait(false);
 
-                foreach (var key in schema.Names.Keys.ToList())
-                {
-                    schema.Names[key] = schema.Names[key] + " " + schemaSuffix;
-                }
-            }
+            var createdSchemas = await _fixture.RandomizeSchemaIdsAndCreate(schemas).ConfigureAwait(false);
 
-            if (!string.IsNullOrEmpty(schema.ParentSchemaId) && !systemSchemaIds.Contains(schema.ParentSchemaId))
-            {
-                schema.ParentSchemaId = schema.ParentSchemaId + schemaSuffix;
-            }
+            // Assert
+            createdSchemas.Should().HaveSameCount(schemas);
+            createdSchemas.Select(s => s.Id).Should().BeEquivalentTo(schemas.Select(s => s.Id));
 
-            foreach (var field in schema.Fields.OfType<FieldSingleTagbox>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
-
-            foreach (var field in schema.Fields.OfType<FieldMultiTagbox>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
-
-            foreach (var field in schema.Fields.OfType<FieldSingleFieldset>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
-
-            foreach (var field in schema.Fields.OfType<FieldMultiFieldset>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
-
-            foreach (var field in schema.Fields.OfType<FieldSingleRelation>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
-
-            foreach (var field in schema.Fields.OfType<FieldMultiRelation>().Where(f => !systemSchemaIds.Contains(f.SchemaId)))
-            {
-                field.SchemaId = field.SchemaId + schemaSuffix;
-            }
+            var autoSchema = createdSchemas.Should().ContainSingle(s => s.Id.StartsWith("Automobile")).Subject;
+            autoSchema.Fields.Should().ContainSingle(f => f.Id == nameof(Car.Introduced).ToLowerCamelCase())
+                .Which.Should().BeOfType<FieldDate>();
+            autoSchema.Fields.Should().ContainSingle(f => f.Id == nameof(Car.FirstPieceManufactured).ToLowerCamelCase())
+                .Which.Should().BeOfType<FieldDateTime>()
+                .Which.Format.Should().Be("YYYY-MM-DD hh:mm:ss");
         }
+
+        private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
+            => _fixture.AppendSchemaIdSuffix(schema, schemaSuffix);
     }
 }
