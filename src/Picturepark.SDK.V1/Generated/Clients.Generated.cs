@@ -16582,8 +16582,8 @@ namespace Picturepark.SDK.V1
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
-        /// <summary>Get Transferdetail</summary>
-        /// <param name="transferId">The tranfer id</param>
+        /// <summary>Get transfer details</summary>
+        /// <param name="transferId">ID of transfer.</param>
         /// <returns>TransferDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -16759,9 +16759,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Delete Transfer</summary>
-        /// <param name="transferId">The tranfer id</param>
-        /// <returns>Transfer</returns>
+        /// <summary>Delete transfer</summary>
+        /// <param name="transferId">ID of transfer.</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -17099,7 +17099,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Cancels a transfer.</summary>
+        /// <summary>Cancel transfer</summary>
+        /// <param name="transferId">ID of transfer.</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -17262,7 +17264,7 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Create Transfer</summary>
+        /// <summary>Create transfer</summary>
         /// <param name="request">The create transfer request</param>
         /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -17438,8 +17440,8 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Get File</summary>
-        /// <param name="fileTransferId">The filetransfer id</param>
+        /// <summary>Get file</summary>
+        /// <param name="fileTransferId">ID of filetransfer.</param>
         /// <returns>FileTransferDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -17616,7 +17618,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Search for files</summary>
-        /// <param name="request">The file transfer search request</param>
+        /// <param name="request">The filetransfer search request</param>
         /// <returns>FileTransferSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -17791,7 +17793,7 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Get Blacklist</summary>
+        /// <summary>Get blacklist</summary>
         /// <returns>Blacklist</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -17963,7 +17965,7 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Delete Files</summary>
+        /// <summary>Delete files</summary>
         /// <param name="request">The filetransfer delete request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -18126,8 +18128,8 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Import transfer</summary>
-        /// <param name="transferId">The tranfer id</param>
-        /// <param name="request">The filetransfer to content create request</param>
+        /// <param name="transferId">ID of transfer.</param>
+        /// <param name="request">The ImportTransfer request.</param>
         /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -18306,9 +18308,10 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Create a partial import</summary>
-        /// <param name="transferId">The transfer id</param>
-        /// <param name="request">The filetransfer partial to content create request</param>
+        /// <summary>Import transfer partially</summary>
+        /// <param name="transferId">ID of transfer.</param>
+        /// <param name="request">The ImportTransferPartial request.</param>
+        /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -18487,19 +18490,22 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Upload file</summary>
+        /// <param name="relativePath">Relative path of the uploading file.</param>
+        /// <param name="chunkNumber">Current chunk number. Starts at 1.</param>
+        /// <param name="currentChunkSize">Size in bytes of the current chunk.</param>
+        /// <param name="totalSize">Total size in bytes of the uploading file.</param>
+        /// <param name="totalChunks">Total chunks of the uploading file.</param>
+        /// <param name="transferId">ID of transfer.</param>
+        /// <param name="identifier">Identifier of file.</param>
         /// <param name="formFile">Gets or sets the form file.</param>
-        /// <param name="relativePath">Relative path of the uploading file</param>
-        /// <param name="chunkNumber">Current chunk number. starts with 1</param>
-        /// <param name="currentChunkSize">Size in bytes of the current chunk</param>
-        /// <param name="totalSize">Total size in bytes of the uploading file</param>
-        /// <param name="totalChunks">Total chunks of the uploading file</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task UploadFileAsync(string transferId, string identifier, FileParameter formFile = null, string relativePath = null, long? chunkNumber = null, long? currentChunkSize = null, long? totalSize = null, long? totalChunks = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UploadFileAsync(string relativePath, long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string identifier, FileParameter formFile = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (transferId == null)
                 throw new System.ArgumentNullException("transferId");
@@ -18507,30 +18513,27 @@ namespace Picturepark.SDK.V1
             if (identifier == null)
                 throw new System.ArgumentNullException("identifier");
     
+            if (chunkNumber == null)
+                throw new System.ArgumentNullException("chunkNumber");
+    
+            if (currentChunkSize == null)
+                throw new System.ArgumentNullException("currentChunkSize");
+    
+            if (totalSize == null)
+                throw new System.ArgumentNullException("totalSize");
+    
+            if (totalChunks == null)
+                throw new System.ArgumentNullException("totalChunks");
+    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/transfers/{transferId}/files/{identifier}/upload?");
             urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(ConvertToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{identifier}", System.Uri.EscapeDataString(ConvertToString(identifier, System.Globalization.CultureInfo.InvariantCulture)));
-            if (relativePath != null) 
-            {
-                urlBuilder_.Append("relativePath=").Append(System.Uri.EscapeDataString(ConvertToString(relativePath, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            if (chunkNumber != null) 
-            {
-                urlBuilder_.Append("chunkNumber=").Append(System.Uri.EscapeDataString(ConvertToString(chunkNumber, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            if (currentChunkSize != null) 
-            {
-                urlBuilder_.Append("currentChunkSize=").Append(System.Uri.EscapeDataString(ConvertToString(currentChunkSize, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            if (totalSize != null) 
-            {
-                urlBuilder_.Append("totalSize=").Append(System.Uri.EscapeDataString(ConvertToString(totalSize, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            if (totalChunks != null) 
-            {
-                urlBuilder_.Append("totalChunks=").Append(System.Uri.EscapeDataString(ConvertToString(totalChunks, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
+            urlBuilder_.Append("relativePath=").Append(System.Uri.EscapeDataString(relativePath != null ? ConvertToString(relativePath, System.Globalization.CultureInfo.InvariantCulture) : "")).Append("&");
+            urlBuilder_.Append("chunkNumber=").Append(System.Uri.EscapeDataString(ConvertToString(chunkNumber, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Append("currentChunkSize=").Append(System.Uri.EscapeDataString(ConvertToString(currentChunkSize, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Append("totalSize=").Append(System.Uri.EscapeDataString(ConvertToString(totalSize, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Append("totalChunks=").Append(System.Uri.EscapeDataString(ConvertToString(totalChunks, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
             var client_ = _httpClient;

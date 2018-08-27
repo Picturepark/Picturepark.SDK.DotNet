@@ -899,8 +899,8 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.18.7.0 (NJsonSchema v9.10.70.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial interface ITransferClient
     {
-        /// <summary>Get Transferdetail</summary>
-        /// <param name="transferId">The tranfer id</param>
+        /// <summary>Get transfer details</summary>
+        /// <param name="transferId">ID of transfer.</param>
         /// <returns>TransferDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -910,9 +910,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<TransferDetail> GetAsync(string transferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Delete Transfer</summary>
-        /// <param name="transferId">The tranfer id</param>
-        /// <returns>Transfer</returns>
+        /// <summary>Delete transfer</summary>
+        /// <param name="transferId">ID of transfer.</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -932,7 +932,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<TransferSearchResult> SearchAsync(TransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Cancels a transfer.</summary>
+        /// <summary>Cancel transfer</summary>
+        /// <param name="transferId">ID of transfer.</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -941,7 +943,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task CancelTransferAsync(string transferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Create Transfer</summary>
+        /// <summary>Create transfer</summary>
         /// <param name="request">The create transfer request</param>
         /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -952,8 +954,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<Transfer> CreateAsync(CreateTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Get File</summary>
-        /// <param name="fileTransferId">The filetransfer id</param>
+        /// <summary>Get file</summary>
+        /// <param name="fileTransferId">ID of filetransfer.</param>
         /// <returns>FileTransferDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -964,7 +966,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<FileTransferDetail> GetFileAsync(string fileTransferId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Search for files</summary>
-        /// <param name="request">The file transfer search request</param>
+        /// <param name="request">The filetransfer search request</param>
         /// <returns>FileTransferSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -974,7 +976,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<FileTransferSearchResult> SearchFilesAsync(FileTransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Get Blacklist</summary>
+        /// <summary>Get blacklist</summary>
         /// <returns>Blacklist</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -984,7 +986,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<Blacklist> GetBlacklistAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Delete Files</summary>
+        /// <summary>Delete files</summary>
         /// <param name="request">The filetransfer delete request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -995,8 +997,8 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task DeleteFilesAsync(FileTransferDeleteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Import transfer</summary>
-        /// <param name="transferId">The tranfer id</param>
-        /// <param name="request">The filetransfer to content create request</param>
+        /// <param name="transferId">ID of transfer.</param>
+        /// <param name="request">The ImportTransfer request.</param>
         /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1006,9 +1008,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<Transfer> ImportTransferAsync(string transferId, ImportTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Create a partial import</summary>
-        /// <param name="transferId">The transfer id</param>
-        /// <param name="request">The filetransfer partial to content create request</param>
+        /// <summary>Import transfer partially</summary>
+        /// <param name="transferId">ID of transfer.</param>
+        /// <param name="request">The ImportTransferPartial request.</param>
+        /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1018,19 +1021,22 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<Transfer> PartialImportAsync(string transferId, ImportTransferPartialRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Upload file</summary>
+        /// <param name="relativePath">Relative path of the uploading file.</param>
+        /// <param name="chunkNumber">Current chunk number. Starts at 1.</param>
+        /// <param name="currentChunkSize">Size in bytes of the current chunk.</param>
+        /// <param name="totalSize">Total size in bytes of the uploading file.</param>
+        /// <param name="totalChunks">Total chunks of the uploading file.</param>
+        /// <param name="transferId">ID of transfer.</param>
+        /// <param name="identifier">Identifier of file.</param>
         /// <param name="formFile">Gets or sets the form file.</param>
-        /// <param name="relativePath">Relative path of the uploading file</param>
-        /// <param name="chunkNumber">Current chunk number. starts with 1</param>
-        /// <param name="currentChunkSize">Size in bytes of the current chunk</param>
-        /// <param name="totalSize">Total size in bytes of the uploading file</param>
-        /// <param name="totalChunks">Total chunks of the uploading file</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task UploadFileAsync(string transferId, string identifier, FileParameter formFile = null, string relativePath = null, long? chunkNumber = null, long? currentChunkSize = null, long? totalSize = null, long? totalChunks = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task UploadFileAsync(string relativePath, long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string identifier, FileParameter formFile = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -1267,7 +1273,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     /// <summary>The FilterBase is the base class for all filters.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("AndFilter", typeof(AndFilter))]
     [JsonInheritanceAttribute("OrFilter", typeof(OrFilter))]
     [JsonInheritanceAttribute("NotFilter", typeof(NotFilter))]
@@ -1823,7 +1829,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("BusinessProcessBulkResponse", typeof(BusinessProcessBulkResponse))]
     [JsonInheritanceAttribute("BusinessProcessDetails", typeof(BusinessProcessDetails))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -2065,7 +2071,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("PictureparkBusinessException", typeof(PictureparkBusinessException))]
     [JsonInheritanceAttribute("PictureparkValidationException", typeof(PictureparkValidationException))]
     [JsonInheritanceAttribute("PictureparkConflictException", typeof(PictureparkConflictException))]
@@ -6097,7 +6103,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("BusinessProcessDetailsDataBatchResponse", typeof(BusinessProcessDetailsDataBatchResponse))]
     [JsonInheritanceAttribute("BusinessProcessDetailsDataSchemaImport", typeof(BusinessProcessDetailsDataSchemaImport))]
     [JsonInheritanceAttribute("BusinessProcessDetailsDataCdnPurge", typeof(BusinessProcessDetailsDataCdnPurge))]
@@ -6303,7 +6309,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("CdnPurgeJobByTag", typeof(CdnPurgeJobByTag))]
     [JsonInheritanceAttribute("CdnPurgeJobByUri", typeof(CdnPurgeJobByUri))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -6508,7 +6514,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     /// <summary>The AggregatorBase is the base class for all aggregators.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("DateRangeAggregator", typeof(DateRangeAggregator))]
     [JsonInheritanceAttribute("GeoDistanceAggregator", typeof(GeoDistanceAggregator))]
     [JsonInheritanceAttribute("NestedAggregator", typeof(NestedAggregator))]
@@ -6977,7 +6983,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("OutputDetail", typeof(OutputDetail))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class Output 
@@ -7031,7 +7037,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("OutputDataImage", typeof(OutputDataImage))]
     [JsonInheritanceAttribute("OutputDataAudio", typeof(OutputDataAudio))]
     [JsonInheritanceAttribute("OutputDataVideo", typeof(OutputDataVideo))]
@@ -8275,7 +8281,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("ContentFieldsBatchUpdateRequest", typeof(ContentFieldsBatchUpdateRequest))]
     [JsonInheritanceAttribute("ContentFieldsBatchUpdateFilterRequest", typeof(ContentFieldsBatchUpdateFilterRequest))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -8325,7 +8331,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     /// <summary>The base class for metadata value change commands.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("MetadataValuesSchemaUpdateCommand", typeof(MetadataValuesSchemaUpdateCommand))]
     [JsonInheritanceAttribute("MetadataValuesSchemaUpsertCommand", typeof(MetadataValuesSchemaUpsertCommand))]
     [JsonInheritanceAttribute("MetadataValuesSchemaRemoveCommand", typeof(MetadataValuesSchemaRemoveCommand))]
@@ -10186,7 +10192,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("ShareOutputBasic", typeof(ShareOutputBasic))]
     [JsonInheritanceAttribute("ShareOutputEmbed", typeof(ShareOutputEmbed))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -10250,7 +10256,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("ShareDataEmbed", typeof(ShareDataEmbed))]
     [JsonInheritanceAttribute("ShareDataBasic", typeof(ShareDataBasic))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -10412,7 +10418,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("CardTemplate", typeof(CardTemplate))]
     [JsonInheritanceAttribute("ListTemplate", typeof(ListTemplate))]
     [JsonInheritanceAttribute("BasicTemplate", typeof(BasicTemplate))]
@@ -10638,7 +10644,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     /// <summary>The field base class.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("FieldBoolean", typeof(FieldBoolean))]
     [JsonInheritanceAttribute("FieldDate", typeof(FieldDate))]
     [JsonInheritanceAttribute("FieldDateTime", typeof(FieldDateTime))]
@@ -11177,7 +11183,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     /// <summary>The analyzer base class.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("EdgeNGramAnalyzer", typeof(EdgeNGramAnalyzer))]
     [JsonInheritanceAttribute("LanguageAnalyzer", typeof(LanguageAnalyzer))]
     [JsonInheritanceAttribute("NGramAnalyzer", typeof(NGramAnalyzer))]
@@ -11515,7 +11521,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     /// <summary>Base class for overwritten information on a field.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("FieldOverwriteSingleTagbox", typeof(FieldOverwriteSingleTagbox))]
     [JsonInheritanceAttribute("FieldOverwriteMultiTagbox", typeof(FieldOverwriteMultiTagbox))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -12210,31 +12216,39 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Represents a transfer.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class Transfer 
     {
+        /// <summary>ID of transfer.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
+        /// <summary>Name of transfer.</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
+        /// <summary>State of transfer.</summary>
         [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TransferState State { get; set; }
     
+        /// <summary>Type of transfer.</summary>
         [Newtonsoft.Json.JsonProperty("transferType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TransferType TransferType { get; set; }
     
+        /// <summary>Associated business process ID.</summary>
         [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BusinessProcessId { get; set; }
     
+        /// <summary>Number of files in transfer.</summary>
         [Newtonsoft.Json.JsonProperty("fileTransferCount", Required = Newtonsoft.Json.Required.Always)]
         public long FileTransferCount { get; set; }
     
+        /// <summary>ID of collection created from transfer.</summary>
         [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CollectionId { get; set; }
     
@@ -12528,7 +12542,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("ShareBasicCreateRequest", typeof(ShareBasicCreateRequest))]
     [JsonInheritanceAttribute("ShareEmbedCreateRequest", typeof(ShareEmbedCreateRequest))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -12683,7 +12697,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("ShareBasicUpdateRequest", typeof(ShareBasicUpdateRequest))]
     [JsonInheritanceAttribute("ShareEmbedUpdateRequest", typeof(ShareEmbedUpdateRequest))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -12772,63 +12786,45 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Represents a transfer and includes detailed information.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class TransferDetail 
+    public partial class TransferDetail : Transfer
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("rev", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Rev { get; set; }
-    
+        /// <summary>Audit information.</summary>
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserAudit Audit { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferState State { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BusinessProcessId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("transferType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferType TransferType { get; set; }
-    
+        /// <summary>Number of items processed.</summary>
         [Newtonsoft.Json.JsonProperty("itemProgress", Required = Newtonsoft.Json.Required.Always)]
         public long ItemProgress { get; set; }
     
+        /// <summary>Total number of items.</summary>
         [Newtonsoft.Json.JsonProperty("itemCount", Required = Newtonsoft.Json.Required.Always)]
         public long ItemCount { get; set; }
     
+        /// <summary>Number of items currently being uploaded.</summary>
         [Newtonsoft.Json.JsonProperty("fileUploadInProgressCount", Required = Newtonsoft.Json.Required.Always)]
         public long FileUploadInProgressCount { get; set; }
     
+        /// <summary>Number of items currently being processed in data extraction.</summary>
         [Newtonsoft.Json.JsonProperty("dataExtractionInProgressCount", Required = Newtonsoft.Json.Required.Always)]
         public long DataExtractionInProgressCount { get; set; }
     
+        /// <summary>Number of items failed.</summary>
         [Newtonsoft.Json.JsonProperty("itemsFailed", Required = Newtonsoft.Json.Required.Always)]
         public long ItemsFailed { get; set; }
     
+        /// <summary>Number of items cancelled.</summary>
         [Newtonsoft.Json.JsonProperty("itemsCancelled", Required = Newtonsoft.Json.Required.Always)]
         public long ItemsCancelled { get; set; }
     
+        /// <summary>Time stamp of last progress update from data extraction.</summary>
         [Newtonsoft.Json.JsonProperty("lastDataExtractionProgressStamp", Required = Newtonsoft.Json.Required.Always)]
         public long LastDataExtractionProgressStamp { get; set; }
     
+        /// <summary>LastTime stamp of last progress update from upload.</summary>
         [Newtonsoft.Json.JsonProperty("lastFileUploadProgressStamp", Required = Newtonsoft.Json.Required.Always)]
         public long LastFileUploadProgressStamp { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("fileTransferCount", Required = Newtonsoft.Json.Required.Always)]
-        public long FileTransferCount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CollectionId { get; set; }
     
         public string ToJson() 
         {
@@ -12842,21 +12838,19 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Request to search for transfers.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TransferSearchRequest 
     {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
         [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
     
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
@@ -12924,9 +12918,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Result from a search for transfers.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TransferSearchResult : SearchBehaviourBaseResultOfTransfer
     {
+        /// <summary>Time in milliseconds query took to execute.</summary>
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
@@ -12942,26 +12938,34 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Creates a transfer.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CreateTransferRequest 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Name of transfer.</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Name { get; set; }
     
+        /// <summary>Type of transfer.</summary>
         [Newtonsoft.Json.JsonProperty("transferType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TransferType TransferType { get; set; }
     
+        /// <summary>Files uploaded in transfer.</summary>
         [Newtonsoft.Json.JsonProperty("files", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<TransferUploadFile> Files { get; set; }
     
+        /// <summary>Weblinks downloaded in transfer.</summary>
         [Newtonsoft.Json.JsonProperty("webLinks", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<TransferWebLink> WebLinks { get; set; }
     
+        /// <summary>Name of collection created after transfer.</summary>
         [Newtonsoft.Json.JsonProperty("collectionName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CollectionName { get; set; }
     
+        /// <summary>A value indicating whether to create a Collection after importing the transfer.</summary>
         [Newtonsoft.Json.JsonProperty("createCollection", Required = Newtonsoft.Json.Required.Always)]
         public bool CreateCollection { get; set; }
     
@@ -12977,10 +12981,13 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Represents the base class for transfer items.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class TransferFile 
     {
-        [Newtonsoft.Json.JsonProperty("identifier", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Client generated identifier of the item.</summary>
+        [Newtonsoft.Json.JsonProperty("identifier", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Identifier { get; set; }
     
         public string ToJson() 
@@ -12995,10 +13002,13 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Represents a file being uploaded in a transfer.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TransferUploadFile : TransferFile
     {
-        [Newtonsoft.Json.JsonProperty("fileName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Target filename of file.</summary>
+        [Newtonsoft.Json.JsonProperty("fileName", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string FileName { get; set; }
     
         public string ToJson() 
@@ -13013,10 +13023,13 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Represents an item being downloaded by URL in a transfer.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TransferWebLink : TransferFile
     {
-        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>URL of the item.</summary>
+        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Url { get; set; }
     
         public string ToJson() 
@@ -13031,40 +13044,63 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Representation of a file transfer.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class FileTransferDetail 
+    public partial class FileTransfer 
     {
+        /// <summary>ID of file transfer.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("rev", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Rev { get; set; }
-    
+        /// <summary>Name of file transfer.</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
+        /// <summary>Client provided identifier.</summary>
         [Newtonsoft.Json.JsonProperty("identifier", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Identifier { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserAudit Audit { get; set; }
-    
+        /// <summary>ID of transfer.</summary>
         [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TransferId { get; set; }
     
+        /// <summary>State of file transfer.</summary>
         [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public FileTransferState State { get; set; }
     
+        /// <summary>ID of Content created for file.</summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FileTransfer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileTransfer>(data);
+        }
+    
+    }
+    
+    /// <summary>Detailed representation of file transfer.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class FileTransferDetail : FileTransfer
+    {
+        /// <summary>Audit information.</summary>
+        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserAudit Audit { get; set; }
+    
+        /// <summary>Metadata extracted for file.</summary>
         [Newtonsoft.Json.JsonProperty("fileMetadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FileMetadata FileMetadata { get; set; }
     
+        /// <summary>Outputs being rendered for file.</summary>
         [Newtonsoft.Json.JsonProperty("outputItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FileTransferOutput> OutputItems { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
     
         public string ToJson() 
         {
@@ -13078,57 +13114,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum FileTransferState
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Draft")]
-        Draft = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "UploadInProgress")]
-        UploadInProgress = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "UploadCompleted")]
-        UploadCompleted = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "DataExtractionInProgress")]
-        DataExtractionInProgress = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "DataExtractionDone")]
-        DataExtractionDone = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "ImportInProgress")]
-        ImportInProgress = 5,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "ImportCompleted")]
-        ImportCompleted = 6,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "UploadCancelled")]
-        UploadCancelled = 7,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "ImportCancelled")]
-        ImportCancelled = 8,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "UploadFailed")]
-        UploadFailed = 9,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "ImportFailed")]
-        ImportFailed = 10,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "DeleteInProgress")]
-        DeleteInProgress = 11,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Deleted")]
-        Deleted = 12,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "CleanupInProgress")]
-        CleanupInProgress = 13,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "CleanupCompleted")]
-        CleanupCompleted = 14,
-    
-    }
-    
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
     [JsonInheritanceAttribute("AudioMetadata", typeof(AudioMetadata))]
     [JsonInheritanceAttribute("DocumentMetadata", typeof(DocumentMetadata))]
     [JsonInheritanceAttribute("ImageMetadata", typeof(ImageMetadata))]
@@ -13555,6 +13541,57 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum FileTransferState
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Draft")]
+        Draft = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "UploadInProgress")]
+        UploadInProgress = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "UploadCompleted")]
+        UploadCompleted = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "DataExtractionInProgress")]
+        DataExtractionInProgress = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "DataExtractionDone")]
+        DataExtractionDone = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ImportInProgress")]
+        ImportInProgress = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ImportCompleted")]
+        ImportCompleted = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "UploadCancelled")]
+        UploadCancelled = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ImportCancelled")]
+        ImportCancelled = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "UploadFailed")]
+        UploadFailed = 9,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ImportFailed")]
+        ImportFailed = 10,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "DeleteInProgress")]
+        DeleteInProgress = 11,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Deleted")]
+        Deleted = 12,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "CleanupInProgress")]
+        CleanupInProgress = 13,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "CleanupCompleted")]
+        CleanupCompleted = 14,
+    
+    }
+    
+    /// <summary>Request to search for file transfers.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FileTransferSearchRequest 
     {
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -13563,11 +13600,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
     
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
@@ -13635,9 +13670,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Result from a search for file transfers.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FileTransferSearchResult : SearchBehaviourBaseResultOfFileTransfer
     {
+        /// <summary>Time in milliseconds query took to execute.</summary>
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
@@ -13653,44 +13690,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class FileTransfer 
-    {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("identifier", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Identifier { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TransferId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public FileTransferState State { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FileTransfer FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileTransfer>(data);
-        }
-    
-    }
-    
+    /// <summary>Blacklist containing file name patterns skipped when uploading.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class Blacklist 
     {
+        /// <summary>Blacklist entries.</summary>
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BlacklistItem> Items { get; set; }
     
@@ -13706,12 +13710,15 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Entry in the Blacklist.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BlacklistItem 
     {
+        /// <summary>Friendly name of item.</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
+        /// <summary>Pattern a file name must match to be excluded from the transfer.</summary>
         [Newtonsoft.Json.JsonProperty("match", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Match { get; set; }
     
@@ -13727,14 +13734,19 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Deletes files from transfer.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FileTransferDeleteRequest 
     {
-        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>ID of transfer.</summary>
+        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string TransferId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("fileTransferIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> FileTransferIds { get; set; }
+        /// <summary>List of IDs of file transfers to delete.</summary>
+        [Newtonsoft.Json.JsonProperty("fileTransferIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> FileTransferIds { get; set; } = new System.Collections.Generic.List<string>();
     
         public string ToJson() 
         {
