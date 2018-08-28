@@ -1043,7 +1043,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.18.7.0 (NJsonSchema v9.10.70.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial interface IUserClient
     {
-        /// <summary>Create a new user (without inviting him)</summary>
+        /// <summary>Create user</summary>
+        /// <param name="request">Requested user information.</param>
+        /// <returns>Newly created user</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1052,9 +1054,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<UserDetail> CreateAsync(UserCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Get by id</summary>
-        /// <param name="userId">The user id</param>
-        /// <returns>UserDetail</returns>
+        /// <summary>Get user</summary>
+        /// <param name="userId">User ID to search for.</param>
+        /// <returns>Requested user details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1063,18 +1065,21 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<UserDetail> GetAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Updates one or more users</summary>
+        /// <summary>Update user</summary>
+        /// <param name="userId">User ID to action on.</param>
+        /// <param name="request">New user information.</param>
+        /// <returns>User details after the update of the user</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<UserDetail> UpdateAsync(string userId, UserUpdateRequest userUpdatableDetail, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<UserDetail> UpdateAsync(string userId, UserUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Search for users</summary>
-        /// <param name="searchRequest">The user search request</param>
-        /// <returns>UserSearchResult</returns>
+        /// <summary>Search users</summary>
+        /// <param name="searchRequest">User search request.</param>
+        /// <returns>Result of the user search</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1083,9 +1088,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<UserSearchResult> SearchAsync(UserSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Get by owner token</summary>
-        /// <param name="tokenId">The token id</param>
-        /// <returns>UserDetail</returns>
+        /// <summary>Get user by owner token</summary>
+        /// <param name="tokenId">ID of the owner token.</param>
+        /// <returns>User details of the user referenced by the owner token</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1094,9 +1099,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<UserDetail> GetByOwnerTokenAsync(string tokenId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Get multiple user details by supplying their ID's</summary>
-        /// <param name="ids">The user ID's</param>
-        /// <returns>IEnumerable&lt;UserDetail&gt;</returns>
+        /// <summary>Get multiple users</summary>
+        /// <param name="ids">User IDs.</param>
+        /// <returns>Details of all the users who were found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1105,34 +1110,44 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UserDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Searches and aggregates users by different attributes</summary>
+        /// <summary>Aggregate users</summary>
+        /// <param name="request">User aggregation request.</param>
+        /// <returns>Aggregation based on the request</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(UserAggregationRequest userAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(UserAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Locks or unlocks one or more users</summary>
+        /// <summary>Lock / unlock user</summary>
+        /// <param name="userId">User ID to action on.</param>
+        /// <param name="request">Request detailing if the user should be locked or unlocked.</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task LockAsync(string userId, UserLockRequest userLockRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task LockAsync(string userId, UserLockRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Sets one or more users as reviewed or under review</summary>
+        /// <summary>Change user's review state</summary>
+        /// <param name="userId">User ID to action on.</param>
+        /// <param name="request">Request detailing if the user should be set as _reviewed_ or _to be reviewed_.</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task ReviewAsync(string userId, UserReviewRequest userReviewRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task ReviewAsync(string userId, UserReviewRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Invites (or creates) new users</summary>
+        /// <summary>Invite user</summary>
+        /// <param name="userId">User ID to action on.</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1141,16 +1156,21 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task InviteAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Deletes a user</summary>
+        /// <summary>Delete user</summary>
+        /// <param name="userId">User ID to action on.</param>
+        /// <param name="request">Request with details regarding the deletion.</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task DeleteAsync(string userId, UserDeleteRequest userDeactivateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteAsync(string userId, UserDeleteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Restores a previously deleted user</summary>
+        /// <summary>Restore user</summary>
+        /// <param name="userId">User ID to action on.</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1164,8 +1184,8 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.18.7.0 (NJsonSchema v9.10.70.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial interface IUserRoleClient
     {
-        /// <summary>Get all roles</summary>
-        /// <returns>UserDetail</returns>
+        /// <summary>Get all user roles</summary>
+        /// <returns>List of all the user roles in the system</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1174,8 +1194,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UserRole>> GetAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Create a new user role</summary>
-        /// <param name="request">Create request</param>
+        /// <summary>Create user role</summary>
+        /// <param name="request">User role creation request.</param>
+        /// <returns>Newly created user role</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1184,9 +1205,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<UserRole> CreateAsync(UserRoleCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Get by id</summary>
-        /// <param name="userRoleId">The user role id</param>
-        /// <returns>UserDetail</returns>
+        /// <summary>Get user role</summary>
+        /// <param name="userRoleId">The user role ID</param>
+        /// <returns>User role or null if not found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1195,9 +1216,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<UserRole> GetAsync(string userRoleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Search for user roles</summary>
-        /// <param name="searchRequest">The user role search request</param>
-        /// <returns>UserRoleSearchResult</returns>
+        /// <summary>Search user roles</summary>
+        /// <param name="searchRequest">User role search request.</param>
+        /// <returns>Result of the user role search</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1206,8 +1227,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<UserRoleSearchResult> SearchAsync(UserRoleSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Create multiple new user roles</summary>
-        /// <param name="request">Create request</param>
+        /// <summary>Create multiple user roles</summary>
+        /// <param name="request">Multiple user role creation request.</param>
+        /// <returns>Bulk response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1217,7 +1239,8 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<BulkResponse> CreateManyAsync(UserRoleCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update multiple user roles</summary>
-        /// <param name="request">Update request</param>
+        /// <param name="request">Multiple user role update request.</param>
+        /// <returns>Bulk response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1226,8 +1249,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<BulkResponse> UpdateManyAsync(UserRoleUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Deletes multiple user roles</summary>
-        /// <param name="request">Delete request</param>
+        /// <summary>Delete multiple user roles</summary>
+        /// <param name="request">Multiple user role deletion request.</param>
+        /// <returns>Bulk request</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1676,7 +1700,8 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition.</summary>
+    /// <summary>An AggregationFilter is provided with each aggregated value.
+    /// When selecting the aggregated value the aggregation filter is added to the search query and returns documents meeting the aggregation condition.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class AggregationFilter : FilterBase
     {
@@ -6484,7 +6509,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Field { get; set; }
     
-        /// <summary>The sort direction (Asc/Desc).</summary>
+        /// <summary>The sort direction (ascending/descending).</summary>
         [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -7566,13 +7591,16 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ObjectAggregationResult 
     {
+        /// <summary>How long did the search and aggregation take.</summary>
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AggregationResult> AggregationResults { get; set; }
+        /// <summary>Results of the aggregation.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<AggregationResult> AggregationResults { get; set; } = new System.Collections.Generic.List<AggregationResult>();
     
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>Search string used to query the data</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
@@ -9934,30 +9962,39 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>User's address</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserAddress 
     {
+        /// <summary>Company address line</summary>
         [Newtonsoft.Json.JsonProperty("company", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Company { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Address { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("alternativeAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AlternativeAddress { get; set; }
-    
+        /// <summary>Company department.</summary>
         [Newtonsoft.Json.JsonProperty("department", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Department { get; set; }
     
+        /// <summary>Street and house number.</summary>
+        [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Address { get; set; }
+    
+        /// <summary>Additional address line.</summary>
+        [Newtonsoft.Json.JsonProperty("alternativeAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AlternativeAddress { get; set; }
+    
+        /// <summary>ZIP code.</summary>
         [Newtonsoft.Json.JsonProperty("zip", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Zip { get; set; }
     
+        /// <summary>City or town.</summary>
         [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string City { get; set; }
     
+        /// <summary>Phone number.</summary>
         [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Phone { get; set; }
     
+        /// <summary>Country code.</summary>
         [Newtonsoft.Json.JsonProperty("countryCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CountryCode { get; set; }
     
@@ -10394,16 +10431,21 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class User 
     {
+        /// <summary>User's Picturepark ID.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
+        /// <summary>User's first name.</summary>
         [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FirstName { get; set; }
     
+        /// <summary>User's last name.</summary>
         [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LastName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Email address of the user (doubles as username).</summary>
+        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string EmailAddress { get; set; }
     
         public string ToJson() 
@@ -12636,13 +12678,15 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Represents a user role, which associates users with user rights.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserRole 
     {
-        /// <summary>The user role id.</summary>
+        /// <summary>User role ID.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
+        /// <summary>Signals whether the user role was deleted or not.</summary>
         [Newtonsoft.Json.JsonProperty("trashed", Required = Newtonsoft.Json.Required.Always)]
         public bool Trashed { get; set; }
     
@@ -13844,24 +13888,32 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Holds information needed for user creation.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserCreateRequest 
     {
+        /// <summary>User's first name.</summary>
         [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FirstName { get; set; }
     
+        /// <summary>User's last name.</summary>
         [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LastName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Email address of the user (doubles as username).</summary>
+        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string EmailAddress { get; set; }
     
+        /// <summary>Preferred language, e.g. for correspondence.</summary>
         [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LanguageCode { get; set; }
     
+        /// <summary>IDs of user roles the user is assigned to.</summary>
         [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
     
+        /// <summary>User address.</summary>
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserAddress Address { get; set; }
     
@@ -13877,18 +13929,23 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Represents the updateable fields of the user.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserUpdateRequest : User
     {
+        /// <summary>User roles the user should be assigned to. Overwrites the original user roles.</summary>
         [Newtonsoft.Json.JsonProperty("userRoles", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserRole> UserRoles { get; set; }
     
+        /// <summary>Comment saved for the user.</summary>
         [Newtonsoft.Json.JsonProperty("comment", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Comment { get; set; }
     
+        /// <summary>Preferred language, e.g. for correspondence.</summary>
         [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LanguageCode { get; set; }
     
+        /// <summary>User's address.</summary>
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserAddress Address { get; set; }
     
@@ -13904,25 +13961,31 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Detail information about a user.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserDetail : UserUpdateRequest
     {
+        /// <summary>Owner tokens referencing the user.</summary>
         [Newtonsoft.Json.JsonProperty("ownerTokens", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<OwnerToken> OwnerTokens { get; set; }
     
+        /// <summary>Authorization state the user is currently in.</summary>
         [Newtonsoft.Json.JsonProperty("authorizationState", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AuthorizationState AuthorizationState { get; set; }
     
+        /// <summary>Life cycle state the user is currently in.</summary>
         [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycle LifeCycle { get; set; }
     
+        /// <summary>The support user is a user created for Picturepark support personnel.</summary>
         [Newtonsoft.Json.JsonProperty("isSupportUser", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSupportUser { get; set; }
     
+        /// <summary>Read-only users can't be removed from the system, e.g. service user.</summary>
         [Newtonsoft.Json.JsonProperty("isReadOnly", Required = Newtonsoft.Json.Required.Always)]
         public bool IsReadOnly { get; set; }
     
@@ -13978,6 +14041,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Represents user search request.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserSearchRequest 
     {
@@ -13985,10 +14049,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
+        /// <summary>An optional list of search behaviors. All the passed behaviors will be applied.</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
     
+        /// <summary>Fields and respective directions requested to sort the search results.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
@@ -14000,18 +14065,21 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
+        /// <summary>Filter applied to users.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
+        /// <summary>Return only users in certain life cycle state(s).</summary>
         [Newtonsoft.Json.JsonProperty("lifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleFilter LifeCycleFilter { get; set; }
     
+        /// <summary>Return only users with certain user rights.</summary>
         [Newtonsoft.Json.JsonProperty("userRightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<UserRight> UserRightsFilter { get; set; }
     
-        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
+        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
     
@@ -14076,9 +14144,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Holds results of the user search.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserSearchResult : SearchBehaviourBaseResultOfUserWithRoles
     {
+        /// <summary>How long did the search take.</summary>
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
@@ -14094,37 +14164,48 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>User information retrieved via search</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserWithRoles 
     {
+        /// <summary>IDs of user roles user is assigned to</summary>
         [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
     
+        /// <summary>User's Picturepark ID.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
+        /// <summary>User's first name.</summary>
         [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FirstName { get; set; }
     
+        /// <summary>User's last name.</summary>
         [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LastName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Email address of the user (doubles as username).</summary>
+        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string EmailAddress { get; set; }
     
+        /// <summary>Authorization state the user is currently in.</summary>
         [Newtonsoft.Json.JsonProperty("authorizationState", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AuthorizationState AuthorizationState { get; set; }
     
+        /// <summary>Life cycle state the user is currently in.</summary>
         [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycle LifeCycle { get; set; }
     
+        /// <summary>The support user is a user created for Picturepark support personnel.</summary>
         [Newtonsoft.Json.JsonProperty("isSupportUser", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSupportUser { get; set; }
     
+        /// <summary>Read-only users can't be removed from the system, e.g. service user.</summary>
         [Newtonsoft.Json.JsonProperty("isReadOnly", Required = Newtonsoft.Json.Required.Always)]
         public bool IsReadOnly { get; set; }
     
@@ -14140,16 +14221,19 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Represents an aggregation request over users.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserAggregationRequest 
     {
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
+        /// <summary>An optional list of search behaviors. All the passed behaviors will be applied.</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
     
+        /// <summary>Fields and respective directions requested to sort the search results.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
@@ -14157,9 +14241,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
+        /// <summary>List of aggregation filters, which are added to the search query and return documents meeting the aggregation condition.</summary>
         [Newtonsoft.Json.JsonProperty("aggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregationFilter> AggregationFilters { get; set; }
     
+        /// <summary>List of aggregators used while evaluating the request.</summary>
         [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
     
@@ -14178,6 +14264,8 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserLockRequest 
     {
+        /// <summary>Indicates the requested lock state of the user.
+        /// If _true_ was specified, the user will be _locked_. _False_ will unlock the previously _locked_ user.</summary>
         [Newtonsoft.Json.JsonProperty("lock", Required = Newtonsoft.Json.Required.Always)]
         public bool Lock { get; set; }
     
@@ -14193,9 +14281,12 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Holds additional information for user review.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserReviewRequest 
     {
+        /// <summary>Indicates the requested review state of the user.
+        /// If _true_ is specified, user will be transitioned into _reviewed_ state. _False_ will put the user back into _to be reviewed_ state.</summary>
         [Newtonsoft.Json.JsonProperty("reviewed", Required = Newtonsoft.Json.Required.Always)]
         public bool Reviewed { get; set; }
     
@@ -14211,9 +14302,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Details of the user deletion.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserDeleteRequest 
     {
+        /// <summary>User ID of user who will take over the ownership of the content currently owned by the deleted user.</summary>
         [Newtonsoft.Json.JsonProperty("ownerTokenTransferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OwnerTokenTransferUserId { get; set; }
     
@@ -14236,10 +14329,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
+        /// <summary>An optional list of search behaviors. All the passed behaviors will be applied.</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
     
+        /// <summary>Fields and respective directions requested to sort the search results.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
@@ -14251,6 +14345,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
+        /// <summary>Filter applied to user roles.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
@@ -14258,6 +14353,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
     
+        /// <summary>Which languages to search against when using the search string.</summary>
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
     
@@ -14322,9 +14418,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Holds results of the user role search.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserRoleSearchResult : SearchBehaviourBaseResultOfUserRole
     {
+        /// <summary>How long did the search take.</summary>
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
@@ -14340,14 +14438,19 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Holds information needed for user role creation.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserRoleCreateRequest 
     {
-        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
+        /// <summary>Language specific user role names.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
     
-        [Newtonsoft.Json.JsonProperty("userRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<UserRight> UserRights { get; set; }
+        /// <summary>All user rights for this user role.</summary>
+        [Newtonsoft.Json.JsonProperty("userRights", Required = Newtonsoft.Json.Required.Always, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<UserRight> UserRights { get; set; } = new System.Collections.Generic.List<UserRight>();
     
         public string ToJson() 
         {
@@ -14361,11 +14464,14 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Holds information needed to create multiple user roles.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserRoleCreateManyRequest 
     {
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<UserRoleCreateRequest> Items { get; set; }
+        /// <summary>Multiple user creation requests.</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<UserRoleCreateRequest> Items { get; set; } = new System.Collections.Generic.List<UserRoleCreateRequest>();
     
         public string ToJson() 
         {
@@ -14379,11 +14485,14 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Holds information about which user roles and how are requested to be updated.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserRoleUpdateManyRequest 
     {
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<UserRoleDetail> Items { get; set; }
+        /// <summary>New value for user roles with specified IDs.</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<UserRoleDetail> Items { get; set; } = new System.Collections.Generic.List<UserRoleDetail>();
     
         public string ToJson() 
         {
@@ -14427,11 +14536,14 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Holds information about which user roles are requested to be deleted.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserRoleDeleteManyRequest 
     {
-        [Newtonsoft.Json.JsonProperty("ids", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Ids { get; set; }
+        /// <summary>IDs of the user roles to delete.</summary>
+        [Newtonsoft.Json.JsonProperty("ids", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> Ids { get; set; } = new System.Collections.Generic.List<string>();
     
         public string ToJson() 
         {

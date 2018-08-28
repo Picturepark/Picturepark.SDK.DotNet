@@ -18746,7 +18746,9 @@ namespace Picturepark.SDK.V1
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
-        /// <summary>Create a new user (without inviting him)</summary>
+        /// <summary>Create user</summary>
+        /// <param name="request">Requested user information.</param>
+        /// <returns>Newly created user</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -18920,9 +18922,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Get by id</summary>
-        /// <param name="userId">The user id</param>
-        /// <returns>UserDetail</returns>
+        /// <summary>Get user</summary>
+        /// <param name="userId">User ID to search for.</param>
+        /// <returns>Requested user details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -19097,14 +19099,17 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Updates one or more users</summary>
+        /// <summary>Update user</summary>
+        /// <param name="userId">User ID to action on.</param>
+        /// <param name="request">New user information.</param>
+        /// <returns>User details after the update of the user</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<UserDetail> UpdateAsync(string userId, UserUpdateRequest userUpdatableDetail, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UserDetail> UpdateAsync(string userId, UserUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (userId == null)
                 throw new System.ArgumentNullException("userId");
@@ -19118,7 +19123,7 @@ namespace Picturepark.SDK.V1
             {
                 using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(userUpdatableDetail, _settings.Value));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("PUT");
@@ -19275,9 +19280,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Search for users</summary>
-        /// <param name="searchRequest">The user search request</param>
-        /// <returns>UserSearchResult</returns>
+        /// <summary>Search users</summary>
+        /// <param name="searchRequest">User search request.</param>
+        /// <returns>Result of the user search</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -19451,9 +19456,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Get by owner token</summary>
-        /// <param name="tokenId">The token id</param>
-        /// <returns>UserDetail</returns>
+        /// <summary>Get user by owner token</summary>
+        /// <param name="tokenId">ID of the owner token.</param>
+        /// <returns>User details of the user referenced by the owner token</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -19628,9 +19633,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Get multiple user details by supplying their ID's</summary>
-        /// <param name="ids">The user ID's</param>
-        /// <returns>IEnumerable&lt;UserDetail&gt;</returns>
+        /// <summary>Get multiple users</summary>
+        /// <param name="ids">User IDs.</param>
+        /// <returns>Details of all the users who were found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -19803,14 +19808,16 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Searches and aggregates users by different attributes</summary>
+        /// <summary>Aggregate users</summary>
+        /// <param name="request">User aggregation request.</param>
+        /// <returns>Aggregation based on the request</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(UserAggregationRequest userAggregationRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(UserAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/users/aggregate");
@@ -19820,7 +19827,7 @@ namespace Picturepark.SDK.V1
             {
                 using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(userAggregationRequest, _settings.Value));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -19977,14 +19984,17 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Locks or unlocks one or more users</summary>
+        /// <summary>Lock / unlock user</summary>
+        /// <param name="userId">User ID to action on.</param>
+        /// <param name="request">Request detailing if the user should be locked or unlocked.</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task LockAsync(string userId, UserLockRequest userLockRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task LockAsync(string userId, UserLockRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (userId == null)
                 throw new System.ArgumentNullException("userId");
@@ -19998,7 +20008,7 @@ namespace Picturepark.SDK.V1
             {
                 using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(userLockRequest, _settings.Value));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -20142,14 +20152,17 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Sets one or more users as reviewed or under review</summary>
+        /// <summary>Change user's review state</summary>
+        /// <param name="userId">User ID to action on.</param>
+        /// <param name="request">Request detailing if the user should be set as _reviewed_ or _to be reviewed_.</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task ReviewAsync(string userId, UserReviewRequest userReviewRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task ReviewAsync(string userId, UserReviewRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (userId == null)
                 throw new System.ArgumentNullException("userId");
@@ -20163,7 +20176,7 @@ namespace Picturepark.SDK.V1
             {
                 using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(userReviewRequest, _settings.Value));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -20307,7 +20320,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Invites (or creates) new users</summary>
+        /// <summary>Invite user</summary>
+        /// <param name="userId">User ID to action on.</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -20470,14 +20485,17 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Deletes a user</summary>
+        /// <summary>Delete user</summary>
+        /// <param name="userId">User ID to action on.</param>
+        /// <param name="request">Request with details regarding the deletion.</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task DeleteAsync(string userId, UserDeleteRequest userDeactivateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteAsync(string userId, UserDeleteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (userId == null)
                 throw new System.ArgumentNullException("userId");
@@ -20491,7 +20509,7 @@ namespace Picturepark.SDK.V1
             {
                 using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(userDeactivateRequest, _settings.Value));
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
@@ -20635,7 +20653,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Restores a previously deleted user</summary>
+        /// <summary>Restore user</summary>
+        /// <param name="userId">User ID to action on.</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -20855,8 +20875,8 @@ namespace Picturepark.SDK.V1
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
-        /// <summary>Get all roles</summary>
-        /// <returns>UserDetail</returns>
+        /// <summary>Get all user roles</summary>
+        /// <returns>List of all the user roles in the system</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -21027,8 +21047,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Create a new user role</summary>
-        /// <param name="request">Create request</param>
+        /// <summary>Create user role</summary>
+        /// <param name="request">User role creation request.</param>
+        /// <returns>Newly created user role</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -21202,9 +21223,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Get by id</summary>
-        /// <param name="userRoleId">The user role id</param>
-        /// <returns>UserDetail</returns>
+        /// <summary>Get user role</summary>
+        /// <param name="userRoleId">The user role ID</param>
+        /// <returns>User role or null if not found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -21379,9 +21400,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Search for user roles</summary>
-        /// <param name="searchRequest">The user role search request</param>
-        /// <returns>UserRoleSearchResult</returns>
+        /// <summary>Search user roles</summary>
+        /// <param name="searchRequest">User role search request.</param>
+        /// <returns>Result of the user role search</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -21555,8 +21576,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Create multiple new user roles</summary>
-        /// <param name="request">Create request</param>
+        /// <summary>Create multiple user roles</summary>
+        /// <param name="request">Multiple user role creation request.</param>
+        /// <returns>Bulk response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -21731,7 +21753,8 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Update multiple user roles</summary>
-        /// <param name="request">Update request</param>
+        /// <param name="request">Multiple user role update request.</param>
+        /// <returns>Bulk response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -21905,8 +21928,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Deletes multiple user roles</summary>
-        /// <param name="request">Delete request</param>
+        /// <summary>Delete multiple user roles</summary>
+        /// <param name="request">Multiple user role deletion request.</param>
+        /// <returns>Bulk request</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
