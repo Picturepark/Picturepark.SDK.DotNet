@@ -6004,6 +6004,85 @@
         ]
       }
     },
+    "/v1/liveStream/message": {
+      "get": {
+        "tags": [
+          "LiveStream"
+        ],
+        "operationId": "LiveStream_GetMessage",
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiveStreamMessage"
+                }
+              }
+            }
+          },
+          "500": {
+            "x-nullable": true,
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "x-nullable": true,
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "x-nullable": true,
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "x-nullable": true,
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
     "/v1/outputs/search": {
       "post": {
         "tags": [
@@ -20007,6 +20086,548 @@
           }
         }
       },
+      "LiveStreamMessage": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "timestamp"
+        ],
+        "properties": {
+          "customerId": {
+            "type": "string"
+          },
+          "customerAlias": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "documentChange": {
+            "$ref": "#/components/schemas/DocumentChange"
+          },
+          "applicationEvent": {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Message"
+          }
+        ]
+      },
+      "DocumentChange": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "version",
+          "timeStamp"
+        ],
+        "properties": {
+          "documentName": {
+            "type": "string"
+          },
+          "documentId": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "action": {
+            "type": "string"
+          },
+          "timeStamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "ApplicationEvent": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "TransferEvent": {
+              "$ref": "#/components/schemas/TransferEvent"
+            },
+            "ReindexEvent": {
+              "$ref": "#/components/schemas/ReindexEvent"
+            },
+            "OutputBackupEvent": {
+              "$ref": "#/components/schemas/OutputBackupEvent"
+            },
+            "OutputBackupMissingEvent": {
+              "$ref": "#/components/schemas/OutputBackupMissingEvent"
+            },
+            "OutputBackupRemoveEvent": {
+              "$ref": "#/components/schemas/OutputBackupRemoveEvent"
+            },
+            "ContentBackupRecoveryEvent": {
+              "$ref": "#/components/schemas/ContentBackupRecoveryEvent"
+            },
+            "ContentDetailViewEvent": {
+              "$ref": "#/components/schemas/ContentDetailViewEvent"
+            },
+            "ContentDownloadEvent": {
+              "$ref": "#/components/schemas/ContentDownloadEvent"
+            },
+            "SessionRenewalEvent": {
+              "$ref": "#/components/schemas/SessionRenewalEvent"
+            },
+            "SharePageViewEvent": {
+              "$ref": "#/components/schemas/SharePageViewEvent"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "timestamp",
+          "kind"
+        ],
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "TransferEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "state"
+        ],
+        "properties": {
+          "transferId": {
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/TransferState"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          }
+        ]
+      },
+      "TransferState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Draft",
+          "UploadInProgress",
+          "UploadCompleted",
+          "ImportInProgress",
+          "ImportCompleted",
+          "UploadCancelled",
+          "ImportCancelled",
+          "ImportFailed",
+          "Created",
+          "Deleted",
+          "TransferReady",
+          "FileDeleteInProgress",
+          "TransferCleanup",
+          "ImportCompletedWithErrors"
+        ],
+        "enum": [
+          "Draft",
+          "UploadInProgress",
+          "UploadCompleted",
+          "ImportInProgress",
+          "ImportCompleted",
+          "UploadCancelled",
+          "ImportCancelled",
+          "ImportFailed",
+          "Created",
+          "Deleted",
+          "TransferReady",
+          "FileDeleteInProgress",
+          "TransferCleanup",
+          "ImportCompletedWithErrors"
+        ]
+      },
+      "ReindexEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "state"
+        ],
+        "properties": {
+          "indexId": {
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/IndexState"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          }
+        ]
+      },
+      "IndexState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Draft",
+          "Create",
+          "Inactive",
+          "Active",
+          "Closed",
+          "ReindexInProgress",
+          "Cancelled"
+        ],
+        "enum": [
+          "Draft",
+          "Create",
+          "Inactive",
+          "Active",
+          "Closed",
+          "ReindexInProgress",
+          "Cancelled"
+        ]
+      },
+      "OutputBackupEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "outputId": {
+            "type": "string"
+          },
+          "contentId": {
+            "type": "string"
+          },
+          "outputFormatId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          }
+        ]
+      },
+      "OutputBackupMissingEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "outputId": {
+            "type": "string"
+          },
+          "contentId": {
+            "type": "string"
+          },
+          "outputFormatId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          }
+        ]
+      },
+      "OutputBackupRemoveEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "filePaths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          }
+        ]
+      },
+      "ContentBackupRecoveryEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contentId": {
+            "type": "string"
+          },
+          "businessProcessId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          }
+        ]
+      },
+      "ContentDetailViewEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contentIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          }
+        ]
+      },
+      "ContentDownloadEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "fileSize"
+        ],
+        "properties": {
+          "downloadInfos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DownloadTrackingInfo"
+            }
+          },
+          "fileSize": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "shareToken": {
+            "type": "string"
+          },
+          "range": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          }
+        ]
+      },
+      "DownloadTrackingInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "contentDisposition"
+        ],
+        "properties": {
+          "contentId": {
+            "type": "string"
+          },
+          "outputFormatId": {
+            "type": "string"
+          },
+          "width": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contentDisposition": {
+            "$ref": "#/components/schemas/ContentDisposition"
+          }
+        }
+      },
+      "ContentDisposition": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Attachment",
+          "Inline"
+        ],
+        "enum": [
+          "Attachment",
+          "Inline"
+        ]
+      },
+      "SessionRenewalEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "authorizationState"
+        ],
+        "properties": {
+          "authorizationState": {
+            "$ref": "#/components/schemas/AuthorizationState"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          }
+        ]
+      },
+      "AuthorizationState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Reviewed",
+          "ToBeReviewed",
+          "Locked",
+          "Invited"
+        ],
+        "enum": [
+          "Reviewed",
+          "ToBeReviewed",
+          "Locked",
+          "Invited"
+        ]
+      },
+      "SharePageViewEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "shareToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          }
+        ]
+      },
+      "Message": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "ConsoleMessage": {
+              "$ref": "#/components/schemas/ConsoleMessage"
+            },
+            "NodeInfoMessage": {
+              "$ref": "#/components/schemas/NodeInfoMessage"
+            },
+            "LiveStreamMessage": {
+              "$ref": "#/components/schemas/LiveStreamMessage"
+            }
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "maximumRetryCount",
+          "retries",
+          "priority",
+          "deduplicate",
+          "kind"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "contractVersion": {
+            "type": "string"
+          },
+          "maximumRetryCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "retries": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "deduplicate": {
+            "type": "boolean"
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "ConsoleMessage": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "command": {
+            "type": "string"
+          },
+          "arguments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TupleOfStringAndString"
+            }
+          },
+          "targetQueue": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Message"
+          }
+        ]
+      },
+      "TupleOfStringAndString": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "item1": {
+            "type": "string"
+          },
+          "item2": {
+            "type": "string"
+          }
+        }
+      },
+      "NodeInfoMessage": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "lastResponseTime"
+        ],
+        "properties": {
+          "nodeId": {
+            "type": "string"
+          },
+          "hostName": {
+            "type": "string"
+          },
+          "lastResponseTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "serviceName": {
+            "type": "string"
+          },
+          "fileVersion": {
+            "type": "string"
+          },
+          "productVersion": {
+            "type": "string"
+          },
+          "release": {
+            "type": "string"
+          },
+          "logLevel": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Message"
+          }
+        ]
+      },
       "OutputSearchRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -20187,22 +20808,6 @@
             "description": "Country code."
           }
         }
-      },
-      "AuthorizationState": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Reviewed",
-          "ToBeReviewed",
-          "Locked",
-          "Invited"
-        ],
-        "enum": [
-          "Reviewed",
-          "ToBeReviewed",
-          "Locked",
-          "Invited"
-        ]
       },
       "SystemUserRole": {
         "type": "string",
@@ -22594,42 +23199,6 @@
             "description": "ID of collection created from transfer."
           }
         }
-      },
-      "TransferState": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Draft",
-          "UploadInProgress",
-          "UploadCompleted",
-          "ImportInProgress",
-          "ImportCompleted",
-          "UploadCancelled",
-          "ImportCancelled",
-          "ImportFailed",
-          "Created",
-          "Deleted",
-          "TransferReady",
-          "FileDeleteInProgress",
-          "TransferCleanup",
-          "ImportCompletedWithErrors"
-        ],
-        "enum": [
-          "Draft",
-          "UploadInProgress",
-          "UploadCompleted",
-          "ImportInProgress",
-          "ImportCompleted",
-          "UploadCancelled",
-          "ImportCancelled",
-          "ImportFailed",
-          "Created",
-          "Deleted",
-          "TransferReady",
-          "FileDeleteInProgress",
-          "TransferCleanup",
-          "ImportCompletedWithErrors"
-        ]
       },
       "CustomerServiceProviderConfiguration": {
         "type": "object",
