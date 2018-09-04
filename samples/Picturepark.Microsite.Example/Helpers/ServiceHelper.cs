@@ -7,9 +7,9 @@ namespace Picturepark.Microsite.Example.Helpers
 {
 	public class ServiceHelper : IServiceHelper
 	{
-		private readonly IPictureparkServiceClient _client;
+		private readonly IPictureparkAccessTokenService _client;
 
-		public ServiceHelper(IPictureparkServiceClient client)
+		public ServiceHelper(IPictureparkAccessTokenService client)
 		{
 			_client = client;
 		}
@@ -17,7 +17,7 @@ namespace Picturepark.Microsite.Example.Helpers
 		public async Task EnsureSchemaExists<T>(Action<SchemaDetail> beforeCreateOrUpdateAction, bool updateSchema)
 		{
 			// Ensure that schema exists in PCP
-			var schemas = await _client.Schemas.GenerateSchemasAsync(typeof(T));
+			var schemas = await _client.Schema.GenerateSchemasAsync(typeof(T));
 
 			foreach (var schema in schemas)
 			{
@@ -25,12 +25,12 @@ namespace Picturepark.Microsite.Example.Helpers
 
 				if (!updateSchema)
 				{
-					if (await _client.Schemas.ExistsAsync(schema.Id) == false)
-						await _client.Schemas.CreateAsync(schema, true);
+					if (await _client.Schema.ExistsAsync(schema.Id) == false)
+						await _client.Schema.CreateAsync(schema, true);
 				}
 				else
 				{
-					await _client.Schemas.CreateOrUpdateAsync(schema, true);
+					await _client.Schema.CreateOrUpdateAsync(schema, true);
 				}
 			}
 		}

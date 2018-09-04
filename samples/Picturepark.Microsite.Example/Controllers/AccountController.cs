@@ -29,11 +29,11 @@ namespace Picturepark.Microsite.Example.Controllers
 			return View();
 		}
 
-		public async Task<IActionResult> Info([FromServices]IPictureparkPerRequestClient client)
+		public async Task<IActionResult> Info([FromServices]IPictureparkPerRequestService service)
 		{
 			if (User.Identity.IsAuthenticated)
 			{
-				var profile = await client.Profile.GetAsync();
+				var profile = await service.Profile.GetAsync();
 				return View(profile);
 			}
 

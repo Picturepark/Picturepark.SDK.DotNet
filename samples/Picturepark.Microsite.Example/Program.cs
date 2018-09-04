@@ -10,10 +10,10 @@ namespace Picturepark.Microsite.Example
 	{
 		public static void Main(string[] args)
 		{
-			BuildWebHost(args).Run();
-		}
+		    CreateWebHostBuilder(args).Build().Run();
+        }
 
-		public static IWebHost BuildWebHost(string[] args)
+	    public static IWebHostBuilder CreateWebHostBuilder(string[] args) 
 		{
 			var configuration = new ConfigurationBuilder()
 				.SetBasePath(Directory.GetCurrentDirectory())
@@ -32,8 +32,7 @@ namespace Picturepark.Microsite.Example
 			var host = WebHost.CreateDefaultBuilder(args)
 				.UseConfiguration(configuration)
 				.UseSerilog(logger, dispose: true)
-				.UseStartup<Startup>()
-				.Build();
+				.UseStartup<Startup>();
 
 			return host;
 		}
