@@ -10752,11 +10752,14 @@ namespace Picturepark.SDK.V1
             }
         }
     
+        /// <summary>This endpoint cannot be used. It is kept to generate LiveStream message contracts</summary>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        [System.Obsolete]
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         protected async System.Threading.Tasks.Task<LiveStreamMessage> GetMessageCoreAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
