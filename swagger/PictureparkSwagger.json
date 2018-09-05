@@ -6009,11 +6009,12 @@
         "tags": [
           "LiveStream"
         ],
+        "summary": "This endpoint cannot be used. It is kept to generate LiveStream message contracts",
         "operationId": "LiveStream_GetMessage",
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "",
+            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -6076,6 +6077,7 @@
             "description": "Too many requests"
           }
         },
+        "deprecated": true,
         "security": [
           {
             "Bearer": []
@@ -17284,7 +17286,7 @@
         "additionalProperties": false,
         "required": [
           "contentType",
-          "trashed"
+          "lifeCycle"
         ],
         "properties": {
           "audit": {
@@ -17355,9 +17357,13 @@
             "type": "string",
             "description": "The id of a owner token. Defines the content owner."
           },
-          "trashed": {
-            "type": "boolean",
-            "description": "The trashed flag."
+          "lifeCycle": {
+            "description": "The lifecycle of the content.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LifeCycle"
+              }
+            ]
           }
         }
       },
@@ -17634,6 +17640,22 @@
           }
         ]
       },
+      "LifeCycle": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Draft",
+          "Active",
+          "Inactive",
+          "Deleted"
+        ],
+        "enum": [
+          "Draft",
+          "Active",
+          "Inactive",
+          "Deleted"
+        ]
+      },
       "ContentSearchRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -17782,7 +17804,7 @@
           "Edit",
           "Update",
           "Manage",
-          "Trash"
+          "Delete"
         ],
         "enum": [
           "View",
@@ -17790,7 +17812,7 @@
           "Edit",
           "Update",
           "Manage",
-          "Trash"
+          "Delete"
         ]
       },
       "ContentSearchType": {
@@ -23361,7 +23383,8 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "shareType"
+          "shareType",
+          "isReadOnly"
         ],
         "properties": {
           "name": {
@@ -23385,6 +23408,9 @@
           },
           "shareType": {
             "$ref": "#/components/schemas/ShareType"
+          },
+          "isReadOnly": {
+            "type": "boolean"
           }
         }
       },
@@ -24874,22 +24900,6 @@
           }
         }
       },
-      "LifeCycle": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Draft",
-          "Active",
-          "Inactive",
-          "Deleted"
-        ],
-        "enum": [
-          "Draft",
-          "Active",
-          "Inactive",
-          "Deleted"
-        ]
-      },
       "UserUpdateRequest": {
         "type": "object",
         "description": "Represents the updateable fields of the user.",
@@ -24933,7 +24943,8 @@
           "start",
           "limit",
           "lifeCycleFilter",
-          "debugMode"
+          "debugMode",
+          "includeServiceUser"
         ],
         "properties": {
           "searchString": {
@@ -24992,6 +25003,9 @@
           "debugMode": {
             "type": "boolean",
             "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance."
+          },
+          "includeServiceUser": {
+            "type": "boolean"
           }
         }
       },
@@ -25215,7 +25229,8 @@
         "required": [
           "start",
           "limit",
-          "debugMode"
+          "debugMode",
+          "includeAdministratorSystemUserRole"
         ],
         "properties": {
           "searchString": {
@@ -25266,6 +25281,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "includeAdministratorSystemUserRole": {
+            "type": "boolean",
+            "description": "Defines if the user roles with system user role Administrator is returned."
           }
         }
       },
