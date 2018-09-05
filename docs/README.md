@@ -19,6 +19,18 @@ using (var client = new PictureparkService(settings))
 }
 ```
 
+Note: The default constructor adds a retry handler for the HTTP 429 status code (Too many requests) 
+and will automatically retry up to 3 times when the client gets throttled.
+
+To change this behavior, create the client as follows:
+```csharp
+var handler = new PictureparkRetryHandler(new HttpClientHandler()));
+var httpClient = new HttpClient(handler) { Timeout = settings.HttpTimeout };
+using (var client = new PictureparkService(settings, httpClient))
+{
+}
+```
+
 ### Usage in ASP.NET Core
 
 Register the Picturepark .NET service classes in the ASP.NET Core dependency injection system (`Startup.cs`): 
@@ -49,6 +61,9 @@ public class MyController : Controller
     
     ...
 ```
+
+To add handling for HTTP 429 (Too many requests) responses, it is recommended to use the `HttpClientFactory` available since ASP.NET Core 2.1. 
+See [this article](https://www.stevejgordon.co.uk/introduction-to-httpclientfactory-aspnetcore) for an introduction.
 
 ### Usage with .NET 4.5.x framework
 
