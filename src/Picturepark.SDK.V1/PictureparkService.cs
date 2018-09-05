@@ -11,7 +11,7 @@ namespace Picturepark.SDK.V1
         /// <param name="settings">The service settings.</param>
         public PictureparkService(IPictureparkServiceSettings settings)
         {
-            _httpClient = new HttpClient(new PictureparkRetryHandler(new HttpClientHandler())) { Timeout = settings.HttpTimeout };
+            _httpClient = new HttpClient(new PictureparkRetryHandler()) { Timeout = settings.HttpTimeout };
 
             Initialize(settings, _httpClient);
         }

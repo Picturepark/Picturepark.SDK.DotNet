@@ -24,7 +24,7 @@ and will automatically retry up to 3 times when the client gets throttled.
 
 To change this behavior, create the client as follows:
 ```csharp
-var handler = new PictureparkRetryHandler(new HttpClientHandler()));
+var handler = new PictureparkRetryHandler();
 var httpClient = new HttpClient(handler) { Timeout = settings.HttpTimeout };
 using (var client = new PictureparkService(settings, httpClient))
 {
@@ -62,8 +62,21 @@ public class MyController : Controller
     ...
 ```
 
-To add handling for HTTP 429 (Too many requests) responses, it is recommended to use the `HttpClientFactory` available since ASP.NET Core 2.1. 
-See [this article](https://www.stevejgordon.co.uk/introduction-to-httpclientfactory-aspnetcore) for an introduction.
+To add handling for HTTP 429 (Too many requests) responses, it is recommended to use the `HttpClientFactory` available since ASP.NET Core 2.1: 
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddScoped<IPictureparkService, PictureparkService>();
+    services.AddSingleton<IPictureparkServiceSettings>(new PictureparkServiceSettings(
+        new AccessTokenAuthClient("https://api.server.com", "MyAccessToken", "MyCustomerAlias")));
+
+    services.AddHttpClient<IPictureparkService, PictureparkService>()
+        .ConfigurePrimaryHttpMessageHandler(() => new PictureparkRetryHandler());
+}
+```
+
+See [this article](https://www.stevejgordon.co.uk/introduction-to-httpclientfactory-aspnetcore) for more information.
 
 ### Usage with .NET 4.5.x framework
 
