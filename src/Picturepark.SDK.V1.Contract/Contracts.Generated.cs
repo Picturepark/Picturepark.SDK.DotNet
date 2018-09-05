@@ -6962,9 +6962,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("ownerTokenId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OwnerTokenId { get; set; }
     
-        /// <summary>The trashed flag.</summary>
-        [Newtonsoft.Json.JsonProperty("trashed", Required = Newtonsoft.Json.Required.Always)]
-        public bool Trashed { get; set; }
+        /// <summary>The lifecycle of the content.</summary>
+        [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public LifeCycle LifeCycle { get; set; }
     
         public string ToJson() 
         {
@@ -7248,6 +7250,23 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum LifeCycle
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Draft")]
+        Draft = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Active")]
+        Active = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Inactive")]
+        Inactive = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Deleted")]
+        Deleted = 3,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentSearchRequest 
     {
         /// <summary>Limits the simple search fields to the fields available in the specified channel.</summary>
@@ -7377,8 +7396,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "Manage")]
         Manage = 4,
     
-        [System.Runtime.Serialization.EnumMember(Value = "Trash")]
-        Trash = 5,
+        [System.Runtime.Serialization.EnumMember(Value = "Delete")]
+        Delete = 5,
     
     }
     
@@ -13041,6 +13060,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ShareType ShareType { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("isReadOnly", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsReadOnly { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -14526,23 +14548,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum LifeCycle
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Draft")]
-        Draft = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Active")]
-        Active = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Inactive")]
-        Inactive = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Deleted")]
-        Deleted = 3,
-    
-    }
-    
     /// <summary>Represents user search request.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.70.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserSearchRequest 
@@ -14584,6 +14589,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("includeServiceUser", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeServiceUser { get; set; }
     
         public string ToJson() 
         {
@@ -14858,6 +14866,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Which languages to search against when using the search string.</summary>
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
+    
+        /// <summary>Defines if the user roles with system user role Administrator is returned.</summary>
+        [Newtonsoft.Json.JsonProperty("includeAdministratorSystemUserRole", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeAdministratorSystemUserRole { get; set; }
     
         public string ToJson() 
         {
