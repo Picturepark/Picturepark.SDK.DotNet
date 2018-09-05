@@ -28,10 +28,10 @@ namespace Picturepark.SDK.V1
                 }
 
                 var delay = TimeSpan.FromSeconds(Math.Pow(2, i));
-                if (int.TryParse(msg.ReasonPhrase, out int waitSeconds))
-                {
-                    delay = delay.Add(TimeSpan.FromSeconds(waitSeconds));
-                }
+                if (msg.Headers.RetryAfter.Delta != null)
+                    delay = delay.Add(msg.Headers.RetryAfter.Delta.Value);
+                else if (msg.Headers.RetryAfter.Date != null)
+                    delay = msg.Headers.RetryAfter.Date.Value - DateTime.Now;
 
                 await Task.Delay(delay, cancellationToken).ConfigureAwait(false);
             }
