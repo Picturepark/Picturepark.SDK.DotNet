@@ -14,12 +14,12 @@ namespace Picturepark.Microsite.Example
 {
     public class OidcEvents : OpenIdConnectEvents
     {
-        private readonly IPictureparkServiceClient _cpClient;
+        private readonly IPictureparkAccessTokenService _cpClient;
         private readonly PictureparkConfiguration _cpConfig;
         private readonly AuthenticationConfiguration _authConfig;
         private readonly AuthorizationConfiguration _authorizationConfig;
 
-        public OidcEvents(IPictureparkServiceClient cpClient, AuthenticationConfiguration authConfig, PictureparkConfiguration cpConfig, AuthorizationConfiguration authorizationConfig)
+        public OidcEvents(IPictureparkAccessTokenService cpClient, AuthenticationConfiguration authConfig, PictureparkConfiguration cpConfig, AuthorizationConfiguration authorizationConfig)
         {
             _cpClient = cpClient;
             _cpConfig = cpConfig;
@@ -82,20 +82,20 @@ namespace Picturepark.Microsite.Example
                     user.UserRoles.Add(userRole);
             }
 
-            await _cpClient.Users.UpdateAsync(user.Id, user);
+            await _cpClient.User.UpdateAsync(user.Id, user);
         }
 
         private async Task EnsureUserIsReviewed(UserDetail user)
         {
             if (user.AuthorizationState == AuthorizationState.ToBeReviewed)
-                await _cpClient.Users.ReviewAsync(user.Id, new UserReviewRequest {Reviewed = true});
+                await _cpClient.User.ReviewAsync(user.Id, new UserReviewRequest {Reviewed = true});
         }
 
         private async Task<UserDetail> GetUserDetails(TokenValidatedContext context)
         {
             var email = context.Principal.Identity.Name;
 
-            var results = await _cpClient.Users.SearchAsync(new UserSearchRequest
+            var results = await _cpClient.User.SearchAsync(new UserSearchRequest
             {
                 Filter = FilterBase.FromExpression<User>(u => u.EmailAddress, email)
             });
@@ -105,7 +105,7 @@ namespace Picturepark.Microsite.Example
 
             var userId = results.Results.Single().Id;
 
-            return await _cpClient.Users.GetAsync(userId);
+            return await _cpClient.User.GetAsync(userId);
         }
 
         private async Task<IReadOnlyList<string>> GetAutoUserRoleIds()
@@ -114,7 +114,7 @@ namespace Picturepark.Microsite.Example
 
             var checkRoleTasks = userRoles.Select(async r =>
             {
-                var role = await _cpClient.UserRoles.GetAsync(r);
+                var role = await _cpClient.UserRole.GetAsync(r);
                 if (role == null)
                     throw new Exception($"Unable to find user role with id '{r}'");
             });

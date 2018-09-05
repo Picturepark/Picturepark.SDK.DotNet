@@ -38,13 +38,13 @@ namespace Picturepark.Microsite.Example
 
 		    services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            // Register PictureparkServiceClient as singleton
-            services.AddSingleton<IPictureparkServiceClientSettings, PictureparkServiceClientSettings>();
-			services.AddSingleton<IPictureparkServiceClient, PictureparkServiceClient>();
+            // Register PictureparkAccessTokenService as singleton
+            services.AddSingleton<IPictureparkAccessTokenServiceSettings, PictureparkAccessTokenServiceSettings>();
+			services.AddSingleton<IPictureparkAccessTokenService, PictureparkAccessTokenService>();
 
-			// Register PictureparkPerRequestClient as transient
-			services.AddTransient<IPictureparkPerRequestClientSettings, PictureparkPerRequestClientSettings>();
-			services.AddTransient<IPictureparkPerRequestClient, PictureparkPerRequestClient>();
+			// Register PictureparkPerRequestService as transient
+			services.AddTransient<IPictureparkPerRequestServiceSettings, PictureparkPerRequestServiceSettings>();
+			services.AddTransient<IPictureparkPerRequestService, PictureparkPerRequestService>();
 
 			services.AddSingleton<IServiceHelper, ServiceHelper>();
 			services.AddSingleton<IPressReleaseRepository, PressReleaseRepository>();
@@ -116,7 +116,6 @@ namespace Picturepark.Microsite.Example
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
-				app.UseBrowserLink();
 			}
 			else
 			{
