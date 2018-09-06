@@ -1,10 +1,9 @@
-﻿using System;
-using Picturepark.SDK.V1.Contract;
+﻿using Picturepark.SDK.V1.Contract;
 using System.Net.Http;
 
 namespace Picturepark.SDK.V1
 {
-    public class PictureparkService : IDisposable, IPictureparkService
+    public class PictureparkService : IPictureparkService
     {
         private HttpClient _httpClient;
 
@@ -12,7 +11,7 @@ namespace Picturepark.SDK.V1
         /// <param name="settings">The service settings.</param>
         public PictureparkService(IPictureparkServiceSettings settings)
         {
-            _httpClient = new HttpClient { Timeout = settings.HttpTimeout };
+            _httpClient = new HttpClient(new PictureparkRetryHandler()) { Timeout = settings.HttpTimeout };
 
             Initialize(settings, _httpClient);
         }
