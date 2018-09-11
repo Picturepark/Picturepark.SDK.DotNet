@@ -11275,6 +11275,91 @@
         ]
       }
     },
+    "/v1/users/{userId}/reinvite": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Reinvite user",
+        "description": "Formally re-invites a user, e.g. sends an invitation email.",
+        "operationId": "User_Reinvite",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "description": "User ID to action on.",
+            "nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "x-nullable": true,
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "x-nullable": true,
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "x-nullable": true,
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "x-nullable": true,
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/users/{userId}/delete": {
       "post": {
         "tags": [
@@ -12946,6 +13031,9 @@
             "TermsOfServiceNotNewestException": {
               "$ref": "#/components/schemas/TermsOfServiceNotNewestException"
             },
+            "UnableToReinviteNotInvitedUserException": {
+              "$ref": "#/components/schemas/UnableToReinviteNotInvitedUserException"
+            },
             "RenderingException": {
               "$ref": "#/components/schemas/RenderingException"
             },
@@ -13598,6 +13686,15 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
+          }
+        ]
+      },
+      "UnableToReinviteNotInvitedUserException": {
+        "type": "object",
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           }
         ]
       },
@@ -19122,7 +19219,6 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "trashed",
           "exclusive"
         ],
         "properties": {
@@ -19131,9 +19227,6 @@
           },
           "names": {
             "$ref": "#/components/schemas/TranslatedStringDictionary"
-          },
-          "trashed": {
-            "type": "boolean"
           },
           "userRolesRights": {
             "type": "array",
@@ -20202,6 +20295,9 @@
             },
             "SharePageViewEvent": {
               "$ref": "#/components/schemas/SharePageViewEvent"
+            },
+            "ApiStatisticsEvent": {
+              "$ref": "#/components/schemas/ApiStatisticsEvent"
             }
           }
         },
@@ -20516,6 +20612,24 @@
         "properties": {
           "shareToken": {
             "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          }
+        ]
+      },
+      "ApiStatisticsEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "requestsPerClient": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         },
         "allOf": [
@@ -23081,7 +23195,6 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "trashed",
           "exclusive"
         ],
         "properties": {
@@ -23090,9 +23203,6 @@
           },
           "names": {
             "$ref": "#/components/schemas/TranslatedStringDictionary"
-          },
-          "trashed": {
-            "type": "boolean"
           },
           "userRolesRights": {
             "type": "array",
@@ -23563,17 +23673,10 @@
         "type": "object",
         "description": "Represents a user role, which associates users with user rights.",
         "additionalProperties": false,
-        "required": [
-          "trashed"
-        ],
         "properties": {
           "id": {
             "type": "string",
             "description": "User role ID."
-          },
-          "trashed": {
-            "type": "boolean",
-            "description": "Signals whether the user role was deleted or not."
           },
           "names": {
             "description": "Language specific user role names.",
@@ -25422,16 +25525,10 @@
       "UserRoleDetail": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "trashed"
-        ],
         "properties": {
           "id": {
             "type": "string",
             "description": "The user role id."
-          },
-          "trashed": {
-            "type": "boolean"
           },
           "names": {
             "description": "Language specific user role names.",

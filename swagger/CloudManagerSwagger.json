@@ -5683,6 +5683,9 @@
             "TermsOfServiceNotNewestException": {
               "$ref": "#/components/schemas/TermsOfServiceNotNewestException"
             },
+            "UnableToReinviteNotInvitedUserException": {
+              "$ref": "#/components/schemas/UnableToReinviteNotInvitedUserException"
+            },
             "RenderingException": {
               "$ref": "#/components/schemas/RenderingException"
             },
@@ -6335,6 +6338,15 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
+          }
+        ]
+      },
+      "UnableToReinviteNotInvitedUserException": {
+        "type": "object",
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           }
         ]
       },
@@ -9945,7 +9957,8 @@
           "listItemRetentionTime",
           "snapshotRetentionTime",
           "snapshotFullbackupScheduleTime",
-          "contentBackupState"
+          "contentBackupState",
+          "apiCallsPerMinute"
         ],
         "properties": {
           "alias": {
@@ -10079,6 +10092,10 @@
           },
           "contentBackupState": {
             "$ref": "#/components/schemas/ContentBackupState"
+          },
+          "apiCallsPerMinute": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },
@@ -11349,7 +11366,8 @@
           "listItemRetentionTime",
           "snapshotRetentionTime",
           "snapshotFullbackupScheduleTime",
-          "contentBackupState"
+          "contentBackupState",
+          "apiCallsPerMinute"
         ],
         "properties": {
           "id": {
@@ -11559,6 +11577,10 @@
           },
           "contentBackupState": {
             "$ref": "#/components/schemas/ContentBackupState"
+          },
+          "apiCallsPerMinute": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },
@@ -11594,7 +11616,8 @@
           "snapshotRetentionTime",
           "snapshotFullbackupScheduleTime",
           "useSsl",
-          "enableQueryDetails"
+          "enableQueryDetails",
+          "apiCallsPerMinute"
         ],
         "properties": {
           "id": {
@@ -11669,6 +11692,10 @@
             "format": "int32"
           },
           "sortableFieldThreshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "apiCallsPerMinute": {
             "type": "integer",
             "format": "int32"
           }
