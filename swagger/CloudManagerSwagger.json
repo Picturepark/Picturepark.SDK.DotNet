@@ -6097,9 +6097,6 @@
             "ContentBackupFailedException": {
               "$ref": "#/components/schemas/ContentBackupFailedException"
             },
-            "BusinessProcessWaitTimeoutException": {
-              "$ref": "#/components/schemas/BusinessProcessWaitTimeoutException"
-            },
             "BusinessProcessEngineRequestException": {
               "$ref": "#/components/schemas/BusinessProcessEngineRequestException"
             },
@@ -8893,20 +8890,6 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
-          }
-        ]
-      },
-      "BusinessProcessWaitTimeoutException": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "businessProcessId": {
-            "type": "string"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkTimeoutException"
           }
         ]
       },
