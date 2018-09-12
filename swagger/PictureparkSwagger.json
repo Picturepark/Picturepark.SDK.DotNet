@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.18.7.0 (NJsonSchema v9.10.70.0 (Newtonsoft.Json v9.0.0.0))",
+  "x-generator": "NSwag v11.19.1.0 (NJsonSchema v9.10.72.0 (Newtonsoft.Json v9.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark API V1",
@@ -12187,541 +12187,6 @@
   },
   "components": {
     "schemas": {
-      "BusinessProcessSearchRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "start",
-          "limit"
-        ],
-        "properties": {
-          "start": {
-            "type": "integer",
-            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-            "format": "int32",
-            "default": 0
-          },
-          "limit": {
-            "type": "integer",
-            "description": "Limits the document count of the result set. Defaults to 30.",
-            "format": "int32",
-            "default": 30
-          },
-          "filter": {
-            "$ref": "#/components/schemas/FilterBase"
-          },
-          "searchString": {
-            "type": "string"
-          },
-          "searchBehaviours": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SearchBehaviour"
-            }
-          }
-        }
-      },
-      "FilterBase": {
-        "type": "object",
-        "discriminator": {
-          "propertyName": "kind",
-          "mapping": {
-            "AndFilter": {
-              "$ref": "#/components/schemas/AndFilter"
-            },
-            "OrFilter": {
-              "$ref": "#/components/schemas/OrFilter"
-            },
-            "NotFilter": {
-              "$ref": "#/components/schemas/NotFilter"
-            },
-            "DateRangeFilter": {
-              "$ref": "#/components/schemas/DateRangeFilter"
-            },
-            "ExistsFilter": {
-              "$ref": "#/components/schemas/ExistsFilter"
-            },
-            "GeoBoundingBoxFilter": {
-              "$ref": "#/components/schemas/GeoBoundingBoxFilter"
-            },
-            "GeoDistanceFilter": {
-              "$ref": "#/components/schemas/GeoDistanceFilter"
-            },
-            "NestedFilter": {
-              "$ref": "#/components/schemas/NestedFilter"
-            },
-            "NumericRangeFilter": {
-              "$ref": "#/components/schemas/NumericRangeFilter"
-            },
-            "PrefixFilter": {
-              "$ref": "#/components/schemas/PrefixFilter"
-            },
-            "TermFilter": {
-              "$ref": "#/components/schemas/TermFilter"
-            },
-            "TermsFilter": {
-              "$ref": "#/components/schemas/TermsFilter"
-            },
-            "AggregationFilter": {
-              "$ref": "#/components/schemas/AggregationFilter"
-            },
-            "ChildFilter": {
-              "$ref": "#/components/schemas/ChildFilter"
-            },
-            "ParentFilter": {
-              "$ref": "#/components/schemas/ParentFilter"
-            }
-          }
-        },
-        "description": "The FilterBase is the base class for all filters.",
-        "additionalProperties": false,
-        "required": [
-          "kind"
-        ],
-        "properties": {
-          "kind": {
-            "type": "string"
-          }
-        }
-      },
-      "AndFilter": {
-        "type": "object",
-        "description": "The AndFilter&gt; is a compound filter and returns documents that match all of the specified filters.",
-        "additionalProperties": false,
-        "properties": {
-          "filters": {
-            "type": "array",
-            "description": "Accepts all filters.",
-            "items": {
-              "$ref": "#/components/schemas/FilterBase"
-            }
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        ]
-      },
-      "OrFilter": {
-        "type": "object",
-        "description": "The OrFilter is a compound filter and returns documents that match any of the specified filters.",
-        "additionalProperties": false,
-        "properties": {
-          "filters": {
-            "type": "array",
-            "description": "Accepts all filters.",
-            "items": {
-              "$ref": "#/components/schemas/FilterBase"
-            }
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        ]
-      },
-      "NotFilter": {
-        "type": "object",
-        "description": "The NotFilter is a compound filter and returns documents that do not match the specified filter.",
-        "additionalProperties": false,
-        "properties": {
-          "filter": {
-            "description": "Limits the result set.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/FilterBase"
-              }
-            ]
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        ]
-      },
-      "DateRangeFilter": {
-        "type": "object",
-        "description": "The DateRangeFilter returns documents with fields that have date values within a certain range.",
-        "additionalProperties": false,
-        "properties": {
-          "field": {
-            "type": "string",
-            "description": "The elastic search index field to execute the filter on."
-          },
-          "range": {
-            "description": "The date range. Supported pattern: now(+-)(int)(YMDHm).",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/DateRange"
-              }
-            ]
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        ]
-      },
-      "DateRange": {
-        "type": "object",
-        "description": "The date range class used in aggregators and filters.",
-        "additionalProperties": false,
-        "properties": {
-          "names": {
-            "description": "Tranlsated range names.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
-          },
-          "from": {
-            "type": "string",
-            "description": "The from value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
-          },
-          "to": {
-            "type": "string",
-            "description": "The to value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
-          }
-        }
-      },
-      "TranslatedStringDictionary": {
-        "type": "object",
-        "description": "A custom dictionary type to distinguish language specific class properties.",
-        "additionalProperties": false,
-        "allOf": [
-          {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          }
-        ]
-      },
-      "ExistsFilter": {
-        "type": "object",
-        "description": "The ExistsFilter returns documents that have at least one non-null value in the original field.",
-        "additionalProperties": false,
-        "properties": {
-          "field": {
-            "type": "string",
-            "description": "The elastic search index field to execute the filter on."
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        ]
-      },
-      "GeoBoundingBoxFilter": {
-        "type": "object",
-        "description": "The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.",
-        "additionalProperties": false,
-        "properties": {
-          "field": {
-            "type": "string",
-            "description": "The elastic search index field to execute the filter on."
-          },
-          "topLeft": {
-            "description": "The top left longitude/latitude configuration.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/GeoLocation"
-              }
-            ]
-          },
-          "bottomRight": {
-            "description": "The bottom right longitude/latitude configuration.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/GeoLocation"
-              }
-            ]
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        ]
-      },
-      "GeoLocation": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "lat",
-          "lon"
-        ],
-        "properties": {
-          "lat": {
-            "type": "number",
-            "format": "double"
-          },
-          "lon": {
-            "type": "number",
-            "format": "double"
-          }
-        }
-      },
-      "GeoDistanceFilter": {
-        "type": "object",
-        "description": "The GeoDistanceFilter returns documents that include only hits that exists within a specific distance from a geo point.",
-        "additionalProperties": false,
-        "required": [
-          "distance"
-        ],
-        "properties": {
-          "field": {
-            "type": "string",
-            "description": "The elastic search index field to execute the filter on."
-          },
-          "location": {
-            "description": "The longitude/latitude configuration for the point of origin.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/GeoLocation"
-              }
-            ]
-          },
-          "distance": {
-            "type": "number",
-            "description": "The range distance in meters.",
-            "format": "double"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        ]
-      },
-      "NestedFilter": {
-        "type": "object",
-        "description": "The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.",
-        "additionalProperties": false,
-        "properties": {
-          "path": {
-            "type": "string",
-            "description": "The path pointing to the nested object."
-          },
-          "filter": {
-            "description": "Limits the result set.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/FilterBase"
-              }
-            ]
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        ]
-      },
-      "NumericRangeFilter": {
-        "type": "object",
-        "description": "The NumericRangeFilter returns documents with fields that have numeric values within a certain range.",
-        "additionalProperties": false,
-        "properties": {
-          "field": {
-            "type": "string",
-            "description": "The elastic search index field to execute the filter on."
-          },
-          "range": {
-            "description": "The numeric range with from and to properties.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/NumericRange"
-              }
-            ]
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        ]
-      },
-      "NumericRange": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "names": {
-            "description": "Tranlsated range names.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
-          },
-          "from": {
-            "type": "number",
-            "description": "The from value.",
-            "format": "double"
-          },
-          "to": {
-            "type": "number",
-            "description": "The to value.",
-            "format": "double"
-          }
-        }
-      },
-      "PrefixFilter": {
-        "type": "object",
-        "description": "The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).",
-        "additionalProperties": false,
-        "properties": {
-          "field": {
-            "type": "string",
-            "description": "The elastic search index field to execute the filter on."
-          },
-          "prefix": {
-            "type": "string",
-            "description": "The prefix term to filter on."
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        ]
-      },
-      "TermFilter": {
-        "type": "object",
-        "description": "The TermFilter returns documents that contain the exact term specified in the inverted index.",
-        "additionalProperties": false,
-        "properties": {
-          "field": {
-            "type": "string",
-            "description": "The elastic search index field to execute the filter on."
-          },
-          "term": {
-            "type": "string",
-            "description": "The term to filter on."
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        ]
-      },
-      "TermsFilter": {
-        "type": "object",
-        "description": "The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).",
-        "additionalProperties": false,
-        "properties": {
-          "field": {
-            "type": "string",
-            "description": "The elastic search index field to execute the filter on."
-          },
-          "terms": {
-            "type": "array",
-            "description": "A list of OR combined terms.",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        ]
-      },
-      "AggregationFilter": {
-        "type": "object",
-        "description": "An AggregationFilter is provided with each aggregated value.\nWhen selecting the aggregated value the aggregation filter is added to the search query and returns documents meeting the aggregation condition.",
-        "additionalProperties": false,
-        "properties": {
-          "aggregationName": {
-            "type": "string",
-            "description": "The name of the aggregation this filter is connected to."
-          },
-          "filter": {
-            "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter, GeoDistanceFilter and NestedFilter.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/FilterBase"
-              }
-            ]
-          },
-          "temporaryAggregatorRequestId": {
-            "type": "string"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        ]
-      },
-      "ChildFilter": {
-        "type": "object",
-        "description": "The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.",
-        "additionalProperties": false,
-        "properties": {
-          "childType": {
-            "type": "string",
-            "description": "The elastic search index type to filter as a child."
-          },
-          "filter": {
-            "description": "The filter to apply on the child entity. It accepts all filters.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/FilterBase"
-              }
-            ]
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        ]
-      },
-      "ParentFilter": {
-        "type": "object",
-        "description": "The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.",
-        "additionalProperties": false,
-        "properties": {
-          "parentType": {
-            "type": "string",
-            "description": "The elastic search index type to filter as a parent."
-          },
-          "filter": {
-            "description": "The filter to apply on the child entity. It accepts all filters.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/FilterBase"
-              }
-            ]
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        ]
-      },
-      "SearchBehaviour": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "DropInvalidCharactersOnFailure",
-          "WildcardOnSingleTerm"
-        ],
-        "enum": [
-          "DropInvalidCharactersOnFailure",
-          "WildcardOnSingleTerm"
-        ]
-      },
       "BusinessProcessSearchResult": {
         "type": "object",
         "additionalProperties": false,
@@ -12774,7 +12239,6 @@
           },
           "results": {
             "type": "array",
-            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/BusinessProcess"
             }
@@ -13441,6 +12905,9 @@
             },
             "ContentFileReplaceTypeMismatchException": {
               "$ref": "#/components/schemas/ContentFileReplaceTypeMismatchException"
+            },
+            "ContentBackupFailedException": {
+              "$ref": "#/components/schemas/ContentBackupFailedException"
             },
             "BusinessProcessWaitTimeoutException": {
               "$ref": "#/components/schemas/BusinessProcessWaitTimeoutException"
@@ -16221,6 +15688,26 @@
           "ContentItem"
         ]
       },
+      "ContentBackupFailedException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contentId": {
+            "type": "string"
+          },
+          "outputFormatId": {
+            "type": "string"
+          },
+          "outputId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          }
+        ]
+      },
       "BusinessProcessWaitTimeoutException": {
         "type": "object",
         "additionalProperties": false,
@@ -16531,6 +16018,541 @@
           {
             "$ref": "#/components/schemas/PictureparkTimeoutException"
           }
+        ]
+      },
+      "BusinessProcessSearchRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "start",
+          "limit"
+        ],
+        "properties": {
+          "start": {
+            "type": "integer",
+            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+            "format": "int32",
+            "default": 0
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limits the document count of the result set. Defaults to 30.",
+            "format": "int32",
+            "default": 30
+          },
+          "filter": {
+            "$ref": "#/components/schemas/FilterBase"
+          },
+          "searchString": {
+            "type": "string"
+          },
+          "searchBehaviours": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchBehaviour"
+            }
+          }
+        }
+      },
+      "FilterBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "AndFilter": {
+              "$ref": "#/components/schemas/AndFilter"
+            },
+            "OrFilter": {
+              "$ref": "#/components/schemas/OrFilter"
+            },
+            "NotFilter": {
+              "$ref": "#/components/schemas/NotFilter"
+            },
+            "DateRangeFilter": {
+              "$ref": "#/components/schemas/DateRangeFilter"
+            },
+            "ExistsFilter": {
+              "$ref": "#/components/schemas/ExistsFilter"
+            },
+            "GeoBoundingBoxFilter": {
+              "$ref": "#/components/schemas/GeoBoundingBoxFilter"
+            },
+            "GeoDistanceFilter": {
+              "$ref": "#/components/schemas/GeoDistanceFilter"
+            },
+            "NestedFilter": {
+              "$ref": "#/components/schemas/NestedFilter"
+            },
+            "NumericRangeFilter": {
+              "$ref": "#/components/schemas/NumericRangeFilter"
+            },
+            "PrefixFilter": {
+              "$ref": "#/components/schemas/PrefixFilter"
+            },
+            "TermFilter": {
+              "$ref": "#/components/schemas/TermFilter"
+            },
+            "TermsFilter": {
+              "$ref": "#/components/schemas/TermsFilter"
+            },
+            "AggregationFilter": {
+              "$ref": "#/components/schemas/AggregationFilter"
+            },
+            "ChildFilter": {
+              "$ref": "#/components/schemas/ChildFilter"
+            },
+            "ParentFilter": {
+              "$ref": "#/components/schemas/ParentFilter"
+            }
+          }
+        },
+        "description": "The FilterBase is the base class for all filters.",
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "AndFilter": {
+        "type": "object",
+        "description": "The AndFilter&gt; is a compound filter and returns documents that match all of the specified filters.",
+        "additionalProperties": false,
+        "properties": {
+          "filters": {
+            "type": "array",
+            "description": "Accepts all filters.",
+            "items": {
+              "$ref": "#/components/schemas/FilterBase"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          }
+        ]
+      },
+      "OrFilter": {
+        "type": "object",
+        "description": "The OrFilter is a compound filter and returns documents that match any of the specified filters.",
+        "additionalProperties": false,
+        "properties": {
+          "filters": {
+            "type": "array",
+            "description": "Accepts all filters.",
+            "items": {
+              "$ref": "#/components/schemas/FilterBase"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          }
+        ]
+      },
+      "NotFilter": {
+        "type": "object",
+        "description": "The NotFilter is a compound filter and returns documents that do not match the specified filter.",
+        "additionalProperties": false,
+        "properties": {
+          "filter": {
+            "description": "Limits the result set.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          }
+        ]
+      },
+      "DateRangeFilter": {
+        "type": "object",
+        "description": "The DateRangeFilter returns documents with fields that have date values within a certain range.",
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "The elastic search index field to execute the filter on."
+          },
+          "range": {
+            "description": "The date range. Supported pattern: now(+-)(int)(YMDHm).",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DateRange"
+              }
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          }
+        ]
+      },
+      "DateRange": {
+        "type": "object",
+        "description": "The date range class used in aggregators and filters.",
+        "additionalProperties": false,
+        "properties": {
+          "names": {
+            "description": "Tranlsated range names.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "from": {
+            "type": "string",
+            "description": "The from value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
+          },
+          "to": {
+            "type": "string",
+            "description": "The to value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
+          }
+        }
+      },
+      "TranslatedStringDictionary": {
+        "type": "object",
+        "description": "A custom dictionary type to distinguish language specific class properties.",
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "ExistsFilter": {
+        "type": "object",
+        "description": "The ExistsFilter returns documents that have at least one non-null value in the original field.",
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "The elastic search index field to execute the filter on."
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          }
+        ]
+      },
+      "GeoBoundingBoxFilter": {
+        "type": "object",
+        "description": "The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.",
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "The elastic search index field to execute the filter on."
+          },
+          "topLeft": {
+            "description": "The top left longitude/latitude configuration.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GeoLocation"
+              }
+            ]
+          },
+          "bottomRight": {
+            "description": "The bottom right longitude/latitude configuration.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GeoLocation"
+              }
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          }
+        ]
+      },
+      "GeoLocation": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lon"
+        ],
+        "properties": {
+          "lat": {
+            "type": "number",
+            "format": "double"
+          },
+          "lon": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "GeoDistanceFilter": {
+        "type": "object",
+        "description": "The GeoDistanceFilter returns documents that include only hits that exists within a specific distance from a geo point.",
+        "additionalProperties": false,
+        "required": [
+          "distance"
+        ],
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "The elastic search index field to execute the filter on."
+          },
+          "location": {
+            "description": "The longitude/latitude configuration for the point of origin.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GeoLocation"
+              }
+            ]
+          },
+          "distance": {
+            "type": "number",
+            "description": "The range distance in meters.",
+            "format": "double"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          }
+        ]
+      },
+      "NestedFilter": {
+        "type": "object",
+        "description": "The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.",
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "The path pointing to the nested object."
+          },
+          "filter": {
+            "description": "Limits the result set.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          }
+        ]
+      },
+      "NumericRangeFilter": {
+        "type": "object",
+        "description": "The NumericRangeFilter returns documents with fields that have numeric values within a certain range.",
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "The elastic search index field to execute the filter on."
+          },
+          "range": {
+            "description": "The numeric range with from and to properties.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NumericRange"
+              }
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          }
+        ]
+      },
+      "NumericRange": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "names": {
+            "description": "Tranlsated range names.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "from": {
+            "type": "number",
+            "description": "The from value.",
+            "format": "double"
+          },
+          "to": {
+            "type": "number",
+            "description": "The to value.",
+            "format": "double"
+          }
+        }
+      },
+      "PrefixFilter": {
+        "type": "object",
+        "description": "The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).",
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "The elastic search index field to execute the filter on."
+          },
+          "prefix": {
+            "type": "string",
+            "description": "The prefix term to filter on."
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          }
+        ]
+      },
+      "TermFilter": {
+        "type": "object",
+        "description": "The TermFilter returns documents that contain the exact term specified in the inverted index.",
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "The elastic search index field to execute the filter on."
+          },
+          "term": {
+            "type": "string",
+            "description": "The term to filter on."
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          }
+        ]
+      },
+      "TermsFilter": {
+        "type": "object",
+        "description": "The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).",
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "The elastic search index field to execute the filter on."
+          },
+          "terms": {
+            "type": "array",
+            "description": "A list of OR combined terms.",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          }
+        ]
+      },
+      "AggregationFilter": {
+        "type": "object",
+        "description": "An AggregationFilter is provided with each aggregated value.\nWhen selecting the aggregated value the aggregation filter is added to the search query and returns documents meeting the aggregation condition.",
+        "additionalProperties": false,
+        "properties": {
+          "aggregationName": {
+            "type": "string",
+            "description": "The name of the aggregation this filter is connected to."
+          },
+          "filter": {
+            "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter, GeoDistanceFilter and NestedFilter.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          },
+          "temporaryAggregatorRequestId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          }
+        ]
+      },
+      "ChildFilter": {
+        "type": "object",
+        "description": "The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.",
+        "additionalProperties": false,
+        "properties": {
+          "childType": {
+            "type": "string",
+            "description": "The elastic search index type to filter as a child."
+          },
+          "filter": {
+            "description": "The filter to apply on the child entity. It accepts all filters.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          }
+        ]
+      },
+      "ParentFilter": {
+        "type": "object",
+        "description": "The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.",
+        "additionalProperties": false,
+        "properties": {
+          "parentType": {
+            "type": "string",
+            "description": "The elastic search index type to filter as a parent."
+          },
+          "filter": {
+            "description": "The filter to apply on the child entity. It accepts all filters.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FilterBase"
+          }
+        ]
+      },
+      "SearchBehaviour": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "DropInvalidCharactersOnFailure",
+          "WildcardOnSingleTerm"
+        ],
+        "enum": [
+          "DropInvalidCharactersOnFailure",
+          "WildcardOnSingleTerm"
         ]
       },
       "BusinessProcessWaitForLifeCycleResult": {
@@ -17353,30 +17375,6 @@
           }
         }
       },
-      "ContentResolveBehaviour": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Content",
-          "LinkedListItems",
-          "Metadata",
-          "Outputs",
-          "InnerDisplayValueThumbnail",
-          "InnerDisplayValueList",
-          "InnerDisplayValueDetail",
-          "InnerDisplayValueName"
-        ],
-        "enum": [
-          "Content",
-          "LinkedListItems",
-          "Metadata",
-          "Outputs",
-          "InnerDisplayValueThumbnail",
-          "InnerDisplayValueList",
-          "InnerDisplayValueDetail",
-          "InnerDisplayValueName"
-        ]
-      },
       "ContentDetail": {
         "type": "object",
         "description": "A content detail.",
@@ -17753,6 +17751,145 @@
           "Deleted"
         ]
       },
+      "ContentResolveBehaviour": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Content",
+          "LinkedListItems",
+          "Metadata",
+          "Outputs",
+          "InnerDisplayValueThumbnail",
+          "InnerDisplayValueList",
+          "InnerDisplayValueDetail",
+          "InnerDisplayValueName"
+        ],
+        "enum": [
+          "Content",
+          "LinkedListItems",
+          "Metadata",
+          "Outputs",
+          "InnerDisplayValueThumbnail",
+          "InnerDisplayValueList",
+          "InnerDisplayValueDetail",
+          "InnerDisplayValueName"
+        ]
+      },
+      "ContentSearchResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "elapsedMilliseconds"
+        ],
+        "properties": {
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchBehaviourBaseResultOfContent"
+          }
+        ]
+      },
+      "SearchBehaviourBaseResultOfContent": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "isSearchStringRewritten"
+        ],
+        "properties": {
+          "searchString": {
+            "type": "string"
+          },
+          "isSearchStringRewritten": {
+            "type": "boolean"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfContent"
+          }
+        ]
+      },
+      "BaseResultOfContent": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "totalResults",
+          "results"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Content"
+            }
+          },
+          "pageToken": {
+            "type": "string"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
+          }
+        }
+      },
+      "Content": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "audit": {
+            "$ref": "#/components/schemas/UserAudit"
+          },
+          "contentSchemaId": {
+            "type": "string",
+            "description": "The id of the schema with schema type content."
+          },
+          "layerSchemaIds": {
+            "type": "array",
+            "description": "An optional id list of schemas with schema type layer.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "displayValues": {
+            "type": "object",
+            "description": "Contains display values of the specified language, rendered according to the content schema's display pattern configuration.",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "id": {
+            "type": "string"
+          },
+          "brokenReferenceIds": {
+            "type": "array",
+            "description": "All the ids of the broken references (tagboxes)",
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenIndirectReferenceIds": {
+            "type": "array",
+            "description": "All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)",
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenRelationTargetIds": {
+            "type": "array",
+            "description": "All the target ids of the broken relations",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "ContentSearchRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -17926,118 +18063,81 @@
           "MetadataAndFullText"
         ]
       },
-      "ContentSearchResult": {
+      "ObjectAggregationResult": {
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "elapsedMilliseconds"
+          "elapsedMilliseconds",
+          "aggregationResults",
+          "isSearchStringRewritten"
         ],
         "properties": {
           "elapsedMilliseconds": {
             "type": "integer",
-            "format": "int64"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/SearchBehaviourBaseResultOfContent"
-          }
-        ]
-      },
-      "SearchBehaviourBaseResultOfContent": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "isSearchStringRewritten"
-        ],
-        "properties": {
-          "searchString": {
-            "type": "string"
-          },
-          "isSearchStringRewritten": {
-            "type": "boolean"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BaseResultOfContent"
-          }
-        ]
-      },
-      "BaseResultOfContent": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "totalResults",
-          "results"
-        ],
-        "properties": {
-          "totalResults": {
-            "type": "integer",
+            "description": "How long did the search and aggregation take.",
             "format": "int64"
           },
-          "results": {
+          "aggregationResults": {
             "type": "array",
-            "minLength": 1,
+            "description": "Results of the aggregation.",
             "items": {
-              "$ref": "#/components/schemas/Content"
+              "$ref": "#/components/schemas/AggregationResult"
             }
           },
-          "pageToken": {
-            "type": "string"
+          "searchString": {
+            "type": "string",
+            "description": "Search string used to query the data"
           },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "isSearchStringRewritten": {
+            "type": "boolean",
+            "description": "Flag to notify if the SearchString was modified compared to the original requested one"
           }
         }
       },
-      "Content": {
+      "AggregationResult": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "audit": {
-            "$ref": "#/components/schemas/UserAudit"
-          },
-          "contentSchemaId": {
-            "type": "string",
-            "description": "The id of the schema with schema type content."
-          },
-          "layerSchemaIds": {
-            "type": "array",
-            "description": "An optional id list of schemas with schema type layer.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "displayValues": {
-            "type": "object",
-            "description": "Contains display values of the specified language, rendered according to the content schema's display pattern configuration.",
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "id": {
+          "name": {
             "type": "string"
           },
-          "brokenReferenceIds": {
-            "type": "array",
-            "description": "All the ids of the broken references (tagboxes)",
-            "items": {
-              "type": "string"
-            }
+          "sumOtherDocCount": {
+            "type": "integer",
+            "format": "int64"
           },
-          "brokenIndirectReferenceIds": {
+          "aggregationResultItems": {
             "type": "array",
-            "description": "All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)",
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/AggregationResultItem"
             }
+          }
+        }
+      },
+      "AggregationResultItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "count",
+          "active"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
           },
-          "brokenRelationTargetIds": {
+          "count": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "filter": {
+            "$ref": "#/components/schemas/AggregationFilter"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "aggregationResults": {
             "type": "array",
-            "description": "All the target ids of the broken relations",
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/AggregationResult"
             }
           }
         }
@@ -18136,113 +18236,6 @@
           }
         }
       },
-      "ObjectAggregationResult": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds",
-          "aggregationResults",
-          "isSearchStringRewritten"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "How long did the search and aggregation take.",
-            "format": "int64"
-          },
-          "aggregationResults": {
-            "type": "array",
-            "description": "Results of the aggregation.",
-            "minLength": 1,
-            "items": {
-              "$ref": "#/components/schemas/AggregationResult"
-            }
-          },
-          "searchString": {
-            "type": "string",
-            "description": "Search string used to query the data"
-          },
-          "isSearchStringRewritten": {
-            "type": "boolean",
-            "description": "Flag to notify if the SearchString was modified compared to the original requested one"
-          }
-        }
-      },
-      "AggregationResult": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "sumOtherDocCount": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "aggregationResultItems": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AggregationResultItem"
-            }
-          }
-        }
-      },
-      "AggregationResultItem": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "count",
-          "active"
-        ],
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "count": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "filter": {
-            "$ref": "#/components/schemas/AggregationFilter"
-          },
-          "active": {
-            "type": "boolean"
-          },
-          "aggregationResults": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AggregationResult"
-            }
-          }
-        }
-      },
-      "ContentReferencesRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "shares": {
-            "$ref": "#/components/schemas/PagingRequest"
-          }
-        }
-      },
-      "PagingRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "start",
-          "limit"
-        ],
-        "properties": {
-          "start": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "limit": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
       "ContentReferencesResult": {
         "type": "object",
         "additionalProperties": false,
@@ -18335,7 +18328,6 @@
           },
           "results": {
             "type": "array",
-            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/ContentShareReference"
             }
@@ -18384,6 +18376,33 @@
           "Embed"
         ]
       },
+      "ContentReferencesRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "shares": {
+            "$ref": "#/components/schemas/PagingRequest"
+          }
+        }
+      },
+      "PagingRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "start",
+          "limit"
+        ],
+        "properties": {
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
       "ContentManyReferencesRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -18396,6 +18415,18 @@
           },
           "shares": {
             "$ref": "#/components/schemas/PagingRequest"
+          }
+        }
+      },
+      "DownloadLink": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "downloadToken": {
+            "type": "string"
+          },
+          "downloadUrl": {
+            "type": "string"
           }
         }
       },
@@ -18419,18 +18450,6 @@
             "type": "string"
           },
           "outputFormatId": {
-            "type": "string"
-          }
-        }
-      },
-      "DownloadLink": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "downloadToken": {
-            "type": "string"
-          },
-          "downloadUrl": {
             "type": "string"
           }
         }
@@ -19047,6 +19066,95 @@
           }
         }
       },
+      "PermissionSetSearchResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "elapsedMilliseconds"
+        ],
+        "properties": {
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchBehaviourBaseResultOfPermissionSet"
+          }
+        ]
+      },
+      "SearchBehaviourBaseResultOfPermissionSet": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "isSearchStringRewritten"
+        ],
+        "properties": {
+          "searchString": {
+            "type": "string"
+          },
+          "isSearchStringRewritten": {
+            "type": "boolean"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfPermissionSet"
+          }
+        ]
+      },
+      "BaseResultOfPermissionSet": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "totalResults",
+          "results"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PermissionSet"
+            }
+          },
+          "pageToken": {
+            "type": "string"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
+          }
+        }
+      },
+      "PermissionSet": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "exclusive"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The permission set id."
+          },
+          "exclusive": {
+            "type": "boolean",
+            "description": "When true this permission set will derogate all other configured permission sets."
+          },
+          "names": {
+            "description": "Language specific permission set names.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          }
+        }
+      },
       "PermissionSetSearchRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -19114,96 +19222,6 @@
           "Apply",
           "Manage"
         ]
-      },
-      "PermissionSetSearchResult": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/SearchBehaviourBaseResultOfPermissionSet"
-          }
-        ]
-      },
-      "SearchBehaviourBaseResultOfPermissionSet": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "isSearchStringRewritten"
-        ],
-        "properties": {
-          "searchString": {
-            "type": "string"
-          },
-          "isSearchStringRewritten": {
-            "type": "boolean"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BaseResultOfPermissionSet"
-          }
-        ]
-      },
-      "BaseResultOfPermissionSet": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "totalResults",
-          "results"
-        ],
-        "properties": {
-          "totalResults": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "results": {
-            "type": "array",
-            "minLength": 1,
-            "items": {
-              "$ref": "#/components/schemas/PermissionSet"
-            }
-          },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
-          }
-        }
-      },
-      "PermissionSet": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "exclusive"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The permission set id."
-          },
-          "exclusive": {
-            "type": "boolean",
-            "description": "When true this permission set will derogate all other configured permission sets."
-          },
-          "names": {
-            "description": "Language specific permission set names.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
-          }
-        }
       },
       "ContentPermissionSetDetail": {
         "type": "object",
@@ -19281,60 +19299,6 @@
             "items": {
               "$ref": "#/components/schemas/PermissionSetRight"
             }
-          }
-        }
-      },
-      "DocumentHistorySearchRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "from",
-          "to",
-          "limit",
-          "documentVersion"
-        ],
-        "properties": {
-          "from": {
-            "type": "string",
-            "description": "Limits the start date of the search request. Default to last 1 year.",
-            "format": "date-time"
-          },
-          "to": {
-            "type": "string",
-            "description": "Limits the end date of the search request. Default to now.",
-            "format": "date-time"
-          },
-          "limit": {
-            "type": "integer",
-            "description": "Limits the document count of the result set. Defaults to 30.",
-            "format": "int32",
-            "default": 30
-          },
-          "pageToken": {
-            "type": "string",
-            "description": "To get a large amount of data, page token returned from the response can be used to get all data."
-          },
-          "documentId": {
-            "type": "string",
-            "description": "Limits the search to a specific document id. E.g. ContentId"
-          },
-          "documentVersion": {
-            "type": "integer",
-            "description": "The document version to search. Default to -1 to not limit to a specific document version.",
-            "format": "int64",
-            "default": -1
-          },
-          "documentType": {
-            "type": "string",
-            "description": "Limits the search to a specifc document type."
-          },
-          "sort": {
-            "description": "Sorts the search results. Sorting on a not indexed field will throw an exception.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/SortInfo"
-              }
-            ]
           }
         }
       },
@@ -19447,6 +19411,60 @@
           "Activate",
           "Deactivate"
         ]
+      },
+      "DocumentHistorySearchRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to",
+          "limit",
+          "documentVersion"
+        ],
+        "properties": {
+          "from": {
+            "type": "string",
+            "description": "Limits the start date of the search request. Default to last 1 year.",
+            "format": "date-time"
+          },
+          "to": {
+            "type": "string",
+            "description": "Limits the end date of the search request. Default to now.",
+            "format": "date-time"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limits the document count of the result set. Defaults to 30.",
+            "format": "int32",
+            "default": 30
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "To get a large amount of data, page token returned from the response can be used to get all data."
+          },
+          "documentId": {
+            "type": "string",
+            "description": "Limits the search to a specific document id. E.g. ContentId"
+          },
+          "documentVersion": {
+            "type": "integer",
+            "description": "The document version to search. Default to -1 to not limit to a specific document version.",
+            "format": "int64",
+            "default": -1
+          },
+          "documentType": {
+            "type": "string",
+            "description": "Limits the search to a specifc document type."
+          },
+          "sort": {
+            "description": "Sorts the search results. Sorting on a not indexed field will throw an exception.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SortInfo"
+              }
+            ]
+          }
+        }
       },
       "DocumentHistoryDifference": {
         "type": "object",
@@ -19567,6 +19585,32 @@
           }
         }
       },
+      "ListItemDetail": {
+        "type": "object",
+        "description": "The detail view item for the list item.",
+        "additionalProperties": false,
+        "properties": {
+          "content": {
+            "description": "The content data of the list item."
+          },
+          "contentSchemaId": {
+            "type": "string",
+            "description": "The id of the schema with schema type list."
+          },
+          "displayValues": {
+            "description": "Contains language specific display values, rendered according to the list schema's display pattern configuration.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DisplayValueDictionary"
+              }
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The list item id."
+          }
+        }
+      },
       "ListItemResolveBehaviour": {
         "type": "string",
         "description": "",
@@ -19587,9 +19631,45 @@
           "InnerDisplayValueName"
         ]
       },
-      "ListItemDetail": {
+      "ListItemSearchResult": {
         "type": "object",
-        "description": "The detail view item for the list item.",
+        "description": "Encapsulates the result of a list item search.",
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfListItem"
+          }
+        ]
+      },
+      "BaseResultOfListItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "totalResults",
+          "results"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ListItem"
+            }
+          },
+          "pageToken": {
+            "type": "string"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
+          }
+        }
+      },
+      "ListItem": {
+        "type": "object",
+        "description": "A document stored in the elastic search metadata index, with fields corresponding to the the schemantics of its underlying list schema.",
         "additionalProperties": false,
         "properties": {
           "content": {
@@ -19719,69 +19799,6 @@
                 "$ref": "#/components/schemas/LifeCycleFilter"
               }
             ]
-          }
-        }
-      },
-      "ListItemSearchResult": {
-        "type": "object",
-        "description": "Encapsulates the result of a list item search.",
-        "additionalProperties": false,
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BaseResultOfListItem"
-          }
-        ]
-      },
-      "BaseResultOfListItem": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "totalResults",
-          "results"
-        ],
-        "properties": {
-          "totalResults": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "results": {
-            "type": "array",
-            "minLength": 1,
-            "items": {
-              "$ref": "#/components/schemas/ListItem"
-            }
-          },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
-          }
-        }
-      },
-      "ListItem": {
-        "type": "object",
-        "description": "A document stored in the elastic search metadata index, with fields corresponding to the the schemantics of its underlying list schema.",
-        "additionalProperties": false,
-        "properties": {
-          "content": {
-            "description": "The content data of the list item."
-          },
-          "contentSchemaId": {
-            "type": "string",
-            "description": "The id of the schema with schema type list."
-          },
-          "displayValues": {
-            "description": "Contains language specific display values, rendered according to the list schema's display pattern configuration.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/DisplayValueDictionary"
-              }
-            ]
-          },
-          "id": {
-            "type": "string",
-            "description": "The list item id."
           }
         }
       },
@@ -20107,37 +20124,6 @@
           }
         ]
       },
-      "LiveStreamSearchRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "from",
-          "to",
-          "limit"
-        ],
-        "properties": {
-          "from": {
-            "type": "string",
-            "description": "Limits the start date of the search request.",
-            "format": "date-time"
-          },
-          "to": {
-            "type": "string",
-            "description": "Limits the end date of the search request.",
-            "format": "date-time"
-          },
-          "limit": {
-            "type": "integer",
-            "description": "Limits the document count of the result set. Defaults to 30.",
-            "format": "int32",
-            "default": 30
-          },
-          "pageToken": {
-            "type": "string",
-            "description": "To get a large amount of data, page token returned from the response can be used to get all data."
-          }
-        }
-      },
       "ObjectSearchResult": {
         "type": "object",
         "additionalProperties": false,
@@ -20190,7 +20176,6 @@
           },
           "results": {
             "type": "array",
-            "minLength": 1,
             "items": {}
           },
           "pageToken": {
@@ -20198,6 +20183,37 @@
           },
           "queryDebugInformation": {
             "$ref": "#/components/schemas/QueryDebugInformation"
+          }
+        }
+      },
+      "LiveStreamSearchRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to",
+          "limit"
+        ],
+        "properties": {
+          "from": {
+            "type": "string",
+            "description": "Limits the start date of the search request.",
+            "format": "date-time"
+          },
+          "to": {
+            "type": "string",
+            "description": "Limits the end date of the search request.",
+            "format": "date-time"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limits the document count of the result set. Defaults to 30.",
+            "format": "int32",
+            "default": 30
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "To get a large amount of data, page token returned from the response can be used to get all data."
           }
         }
       },
@@ -20764,6 +20780,41 @@
           }
         ]
       },
+      "OutputSearchResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfOutput"
+          }
+        ]
+      },
+      "BaseResultOfOutput": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "totalResults",
+          "results"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Output"
+            }
+          },
+          "pageToken": {
+            "type": "string"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
+          }
+        }
+      },
       "OutputSearchRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -20811,42 +20862,6 @@
             "items": {
               "type": "string"
             }
-          }
-        }
-      },
-      "OutputSearchResult": {
-        "type": "object",
-        "additionalProperties": false,
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BaseResultOfOutput"
-          }
-        ]
-      },
-      "BaseResultOfOutput": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "totalResults",
-          "results"
-        ],
-        "properties": {
-          "totalResults": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "results": {
-            "type": "array",
-            "minLength": 1,
-            "items": {
-              "$ref": "#/components/schemas/Output"
-            }
-          },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         }
       },
@@ -22698,65 +22713,6 @@
           }
         }
       },
-      "SchemaSearchRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "start",
-          "limit",
-          "debugMode"
-        ],
-        "properties": {
-          "searchString": {
-            "type": "string",
-            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
-          },
-          "searchBehaviours": {
-            "type": "array",
-            "description": "An optional list of search behaviours. All the passed behaviours will be applied",
-            "items": {
-              "$ref": "#/components/schemas/SearchBehaviour"
-            }
-          },
-          "sort": {
-            "type": "array",
-            "description": "Sorts the search results. Sorting on a not indexed field will throw an exception.",
-            "items": {
-              "$ref": "#/components/schemas/SortInfo"
-            }
-          },
-          "start": {
-            "type": "integer",
-            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-            "format": "int32",
-            "default": 0
-          },
-          "limit": {
-            "type": "integer",
-            "description": "Limits the document count of the result set. Defaults to 30.",
-            "format": "int32",
-            "default": 30
-          },
-          "filter": {
-            "description": "An optional search filter. Limits the schema result set.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/FilterBase"
-              }
-            ]
-          },
-          "debugMode": {
-            "type": "boolean",
-            "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
-          },
-          "searchLanguages": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
       "SchemaSearchResult": {
         "type": "object",
         "additionalProperties": false,
@@ -22800,7 +22756,6 @@
           },
           "results": {
             "type": "array",
-            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/Schema"
             }
@@ -22882,11 +22837,58 @@
           }
         }
       },
-      "IndexFieldsSearchBySchemaIdsRequest": {
+      "SchemaSearchRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "start",
+          "limit",
+          "debugMode"
+        ],
         "properties": {
-          "schemaIds": {
+          "searchString": {
+            "type": "string",
+            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
+          },
+          "searchBehaviours": {
+            "type": "array",
+            "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+            "items": {
+              "$ref": "#/components/schemas/SearchBehaviour"
+            }
+          },
+          "sort": {
+            "type": "array",
+            "description": "Sorts the search results. Sorting on a not indexed field will throw an exception.",
+            "items": {
+              "$ref": "#/components/schemas/SortInfo"
+            }
+          },
+          "start": {
+            "type": "integer",
+            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+            "format": "int32",
+            "default": 0
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limits the document count of the result set. Defaults to 30.",
+            "format": "int32",
+            "default": 30
+          },
+          "filter": {
+            "description": "An optional search filter. Limits the schema result set.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          },
+          "debugMode": {
+            "type": "boolean",
+            "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
+          },
+          "searchLanguages": {
             "type": "array",
             "items": {
               "type": "string"
@@ -22953,6 +22955,18 @@
           }
         }
       },
+      "IndexFieldsSearchBySchemaIdsRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "schemaIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "ExistsResponse": {
         "type": "object",
         "description": "Response that tells if exists",
@@ -22964,6 +22978,15 @@
           "exists": {
             "type": "boolean",
             "description": "Gets or sets a value indicating whether it exists"
+          }
+        }
+      },
+      "SchemaCreateResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "schema": {
+            "$ref": "#/components/schemas/SchemaDetail"
           }
         }
       },
@@ -23067,7 +23090,7 @@
           }
         }
       },
-      "SchemaCreateResult": {
+      "SchemaUpdateResult": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -23168,15 +23191,6 @@
           }
         }
       },
-      "SchemaUpdateResult": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "schema": {
-            "$ref": "#/components/schemas/SchemaDetail"
-          }
-        }
-      },
       "SchemaDeleteResult": {
         "type": "object",
         "additionalProperties": false
@@ -23256,29 +23270,6 @@
           "Manage"
         ]
       },
-      "SchemaImportRequest": {
-        "type": "object",
-        "description": "Schema import request",
-        "additionalProperties": false,
-        "required": [
-          "allowMissingDependencies",
-          "importListItems"
-        ],
-        "properties": {
-          "fileTransferId": {
-            "type": "string",
-            "description": "Id of the previously uploaded file transfer"
-          },
-          "allowMissingDependencies": {
-            "type": "boolean",
-            "description": "Allow creating list items that refer to list items or contents that don't exist in the system."
-          },
-          "importListItems": {
-            "type": "boolean",
-            "description": "Import the list items for the schema."
-          }
-        }
-      },
       "Transfer": {
         "type": "object",
         "description": "Represents a transfer.",
@@ -23332,6 +23323,29 @@
           }
         }
       },
+      "SchemaImportRequest": {
+        "type": "object",
+        "description": "Schema import request",
+        "additionalProperties": false,
+        "required": [
+          "allowMissingDependencies",
+          "importListItems"
+        ],
+        "properties": {
+          "fileTransferId": {
+            "type": "string",
+            "description": "Id of the previously uploaded file transfer"
+          },
+          "allowMissingDependencies": {
+            "type": "boolean",
+            "description": "Allow creating list items that refer to list items or contents that don't exist in the system."
+          },
+          "importListItems": {
+            "type": "boolean",
+            "description": "Import the list items for the schema."
+          }
+        }
+      },
       "CustomerServiceProviderConfiguration": {
         "type": "object",
         "additionalProperties": false,
@@ -23368,6 +23382,105 @@
             "items": {
               "type": "string"
             }
+          }
+        }
+      },
+      "ShareSearchResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "elapsedMilliseconds"
+        ],
+        "properties": {
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchBehaviourBaseResultOfShare"
+          }
+        ]
+      },
+      "SearchBehaviourBaseResultOfShare": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "isSearchStringRewritten"
+        ],
+        "properties": {
+          "searchString": {
+            "type": "string"
+          },
+          "isSearchStringRewritten": {
+            "type": "boolean"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfShare"
+          }
+        ]
+      },
+      "BaseResultOfShare": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "totalResults",
+          "results"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Share"
+            }
+          },
+          "pageToken": {
+            "type": "string"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
+          }
+        }
+      },
+      "Share": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "shareType",
+          "isReadOnly"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "contentIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "id": {
+            "type": "string"
+          },
+          "audit": {
+            "$ref": "#/components/schemas/UserAudit"
+          },
+          "expirationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "shareType": {
+            "$ref": "#/components/schemas/ShareType"
+          },
+          "isReadOnly": {
+            "type": "boolean"
           }
         }
       },
@@ -23424,106 +23537,6 @@
           }
         }
       },
-      "ShareSearchResult": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/SearchBehaviourBaseResultOfShare"
-          }
-        ]
-      },
-      "SearchBehaviourBaseResultOfShare": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "isSearchStringRewritten"
-        ],
-        "properties": {
-          "searchString": {
-            "type": "string"
-          },
-          "isSearchStringRewritten": {
-            "type": "boolean"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BaseResultOfShare"
-          }
-        ]
-      },
-      "BaseResultOfShare": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "totalResults",
-          "results"
-        ],
-        "properties": {
-          "totalResults": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "results": {
-            "type": "array",
-            "minLength": 1,
-            "items": {
-              "$ref": "#/components/schemas/Share"
-            }
-          },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
-          }
-        }
-      },
-      "Share": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "shareType",
-          "isReadOnly"
-        ],
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "contentIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "id": {
-            "type": "string"
-          },
-          "audit": {
-            "$ref": "#/components/schemas/UserAudit"
-          },
-          "expirationDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "shareType": {
-            "$ref": "#/components/schemas/ShareType"
-          },
-          "isReadOnly": {
-            "type": "boolean"
-          }
-        }
-      },
       "ShareAggregationRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -23563,6 +23576,15 @@
             "items": {
               "$ref": "#/components/schemas/AggregatorBase"
             }
+          }
+        }
+      },
+      "CreateShareResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "shareId": {
+            "type": "string"
           }
         }
       },
@@ -23704,15 +23726,6 @@
           }
         ]
       },
-      "CreateShareResult": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "shareId": {
-            "type": "string"
-          }
-        }
-      },
       "ShareBaseUpdateRequest": {
         "type": "object",
         "discriminator": {
@@ -23814,7 +23827,6 @@
         "properties": {
           "audit": {
             "description": "Audit information.",
-            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/UserAudit"
@@ -23867,39 +23879,6 @@
             "$ref": "#/components/schemas/Transfer"
           }
         ]
-      },
-      "TransferSearchRequest": {
-        "type": "object",
-        "description": "Request to search for transfers.",
-        "additionalProperties": false,
-        "required": [
-          "start",
-          "limit"
-        ],
-        "properties": {
-          "searchString": {
-            "type": "string"
-          },
-          "searchBehaviours": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SearchBehaviour"
-            }
-          },
-          "start": {
-            "type": "integer",
-            "format": "int32",
-            "default": 0
-          },
-          "limit": {
-            "type": "integer",
-            "format": "int32",
-            "default": 30
-          },
-          "filter": {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        }
       },
       "TransferSearchResult": {
         "type": "object",
@@ -23955,7 +23934,6 @@
           },
           "results": {
             "type": "array",
-            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/Transfer"
             }
@@ -23965,6 +23943,39 @@
           },
           "queryDebugInformation": {
             "$ref": "#/components/schemas/QueryDebugInformation"
+          }
+        }
+      },
+      "TransferSearchRequest": {
+        "type": "object",
+        "description": "Request to search for transfers.",
+        "additionalProperties": false,
+        "required": [
+          "start",
+          "limit"
+        ],
+        "properties": {
+          "searchString": {
+            "type": "string"
+          },
+          "searchBehaviours": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchBehaviour"
+            }
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "default": 30
+          },
+          "filter": {
+            "$ref": "#/components/schemas/FilterBase"
           }
         }
       },
@@ -24081,7 +24092,6 @@
         "properties": {
           "audit": {
             "description": "Audit information.",
-            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/UserAudit"
@@ -24674,39 +24684,6 @@
           "CleanupCompleted"
         ]
       },
-      "FileTransferSearchRequest": {
-        "type": "object",
-        "description": "Request to search for file transfers.",
-        "additionalProperties": false,
-        "required": [
-          "start",
-          "limit"
-        ],
-        "properties": {
-          "searchString": {
-            "type": "string"
-          },
-          "searchBehaviours": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SearchBehaviour"
-            }
-          },
-          "start": {
-            "type": "integer",
-            "format": "int32",
-            "default": 0
-          },
-          "limit": {
-            "type": "integer",
-            "format": "int32",
-            "default": 30
-          },
-          "filter": {
-            "$ref": "#/components/schemas/FilterBase"
-          }
-        }
-      },
       "FileTransferSearchResult": {
         "type": "object",
         "description": "Result from a search for file transfers.",
@@ -24761,7 +24738,6 @@
           },
           "results": {
             "type": "array",
-            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/FileTransfer"
             }
@@ -24771,6 +24747,39 @@
           },
           "queryDebugInformation": {
             "$ref": "#/components/schemas/QueryDebugInformation"
+          }
+        }
+      },
+      "FileTransferSearchRequest": {
+        "type": "object",
+        "description": "Request to search for file transfers.",
+        "additionalProperties": false,
+        "required": [
+          "start",
+          "limit"
+        ],
+        "properties": {
+          "searchString": {
+            "type": "string"
+          },
+          "searchBehaviours": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchBehaviour"
+            }
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32",
+            "default": 30
+          },
+          "filter": {
+            "$ref": "#/components/schemas/FilterBase"
           }
         }
       },
@@ -24785,7 +24794,6 @@
           "items": {
             "type": "array",
             "description": "Blacklist entries.",
-            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/BlacklistItem"
             }
@@ -24830,7 +24838,6 @@
           "fileTransferIds": {
             "type": "array",
             "description": "List of IDs of file transfers to delete.",
-            "minLength": 1,
             "items": {
               "type": "string"
             }
@@ -24895,48 +24902,6 @@
             "items": {
               "type": "string"
             }
-          }
-        }
-      },
-      "UserCreateRequest": {
-        "type": "object",
-        "description": "Holds information needed for user creation.",
-        "additionalProperties": false,
-        "required": [
-          "emailAddress"
-        ],
-        "properties": {
-          "firstName": {
-            "type": "string",
-            "description": "User's first name."
-          },
-          "lastName": {
-            "type": "string",
-            "description": "User's last name."
-          },
-          "emailAddress": {
-            "type": "string",
-            "description": "Email address of the user (doubles as username).",
-            "minLength": 1
-          },
-          "languageCode": {
-            "type": "string",
-            "description": "Preferred language, e.g. for correspondence."
-          },
-          "userRoleIds": {
-            "type": "array",
-            "description": "IDs of user roles the user is assigned to.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "address": {
-            "description": "User address.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/UserAddress"
-              }
-            ]
           }
         }
       },
@@ -25038,77 +25003,45 @@
           }
         ]
       },
-      "UserSearchRequest": {
+      "UserCreateRequest": {
         "type": "object",
-        "description": "Represents user search request.",
+        "description": "Holds information needed for user creation.",
         "additionalProperties": false,
         "required": [
-          "start",
-          "limit",
-          "lifeCycleFilter",
-          "debugMode",
-          "includeServiceUser"
+          "emailAddress"
         ],
         "properties": {
-          "searchString": {
+          "firstName": {
             "type": "string",
-            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
+            "description": "User's first name."
           },
-          "searchBehaviours": {
+          "lastName": {
+            "type": "string",
+            "description": "User's last name."
+          },
+          "emailAddress": {
+            "type": "string",
+            "description": "Email address of the user (doubles as username).",
+            "minLength": 1
+          },
+          "languageCode": {
+            "type": "string",
+            "description": "Preferred language, e.g. for correspondence."
+          },
+          "userRoleIds": {
             "type": "array",
-            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
+            "description": "IDs of user roles the user is assigned to.",
             "items": {
-              "$ref": "#/components/schemas/SearchBehaviour"
+              "type": "string"
             }
           },
-          "sort": {
-            "type": "array",
-            "description": "Fields and respective directions requested to sort the search results.",
-            "items": {
-              "$ref": "#/components/schemas/SortInfo"
-            }
-          },
-          "start": {
-            "type": "integer",
-            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-            "format": "int32",
-            "default": 0
-          },
-          "limit": {
-            "type": "integer",
-            "description": "Limits the document count of the result set. Defaults to 30.",
-            "format": "int32",
-            "default": 30
-          },
-          "filter": {
-            "description": "Filter applied to users.",
+          "address": {
+            "description": "User address.",
             "allOf": [
               {
-                "$ref": "#/components/schemas/FilterBase"
+                "$ref": "#/components/schemas/UserAddress"
               }
             ]
-          },
-          "lifeCycleFilter": {
-            "description": "Return only users in certain life cycle state(s).",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LifeCycleFilter"
-              }
-            ]
-          },
-          "userRightsFilter": {
-            "type": "array",
-            "description": "Return only users with certain user rights.",
-            "items": {
-              "$ref": "#/components/schemas/UserRight"
-            }
-          },
-          "debugMode": {
-            "type": "boolean",
-            "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance."
-          },
-          "includeServiceUser": {
-            "type": "boolean"
           }
         }
       },
@@ -25166,7 +25099,6 @@
           },
           "results": {
             "type": "array",
-            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/UserWithRoles"
             }
@@ -25238,6 +25170,80 @@
           "isReadOnly": {
             "type": "boolean",
             "description": "Read-only users can't be removed from the system, e.g. service user."
+          }
+        }
+      },
+      "UserSearchRequest": {
+        "type": "object",
+        "description": "Represents user search request.",
+        "additionalProperties": false,
+        "required": [
+          "start",
+          "limit",
+          "lifeCycleFilter",
+          "debugMode",
+          "includeServiceUser"
+        ],
+        "properties": {
+          "searchString": {
+            "type": "string",
+            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
+          },
+          "searchBehaviours": {
+            "type": "array",
+            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
+            "items": {
+              "$ref": "#/components/schemas/SearchBehaviour"
+            }
+          },
+          "sort": {
+            "type": "array",
+            "description": "Fields and respective directions requested to sort the search results.",
+            "items": {
+              "$ref": "#/components/schemas/SortInfo"
+            }
+          },
+          "start": {
+            "type": "integer",
+            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
+            "format": "int32",
+            "default": 0
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limits the document count of the result set. Defaults to 30.",
+            "format": "int32",
+            "default": 30
+          },
+          "filter": {
+            "description": "Filter applied to users.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          },
+          "lifeCycleFilter": {
+            "description": "Return only users in certain life cycle state(s).",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LifeCycleFilter"
+              }
+            ]
+          },
+          "userRightsFilter": {
+            "type": "array",
+            "description": "Return only users with certain user rights.",
+            "items": {
+              "$ref": "#/components/schemas/UserRight"
+            }
+          },
+          "debugMode": {
+            "type": "boolean",
+            "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance."
+          },
+          "includeServiceUser": {
+            "type": "boolean"
           }
         }
       },
@@ -25326,6 +25332,72 @@
           }
         }
       },
+      "UserRoleSearchResult": {
+        "type": "object",
+        "description": "Holds results of the user role search.",
+        "additionalProperties": false,
+        "required": [
+          "elapsedMilliseconds"
+        ],
+        "properties": {
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "description": "How long did the search take.",
+            "format": "int64"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchBehaviourBaseResultOfUserRole"
+          }
+        ]
+      },
+      "SearchBehaviourBaseResultOfUserRole": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "isSearchStringRewritten"
+        ],
+        "properties": {
+          "searchString": {
+            "type": "string"
+          },
+          "isSearchStringRewritten": {
+            "type": "boolean"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfUserRole"
+          }
+        ]
+      },
+      "BaseResultOfUserRole": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "totalResults",
+          "results"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserRole"
+            }
+          },
+          "pageToken": {
+            "type": "string"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
+          }
+        }
+      },
       "UserRoleSearchRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -25391,73 +25463,6 @@
           }
         }
       },
-      "UserRoleSearchResult": {
-        "type": "object",
-        "description": "Holds results of the user role search.",
-        "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "How long did the search take.",
-            "format": "int64"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/SearchBehaviourBaseResultOfUserRole"
-          }
-        ]
-      },
-      "SearchBehaviourBaseResultOfUserRole": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "isSearchStringRewritten"
-        ],
-        "properties": {
-          "searchString": {
-            "type": "string"
-          },
-          "isSearchStringRewritten": {
-            "type": "boolean"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BaseResultOfUserRole"
-          }
-        ]
-      },
-      "BaseResultOfUserRole": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "totalResults",
-          "results"
-        ],
-        "properties": {
-          "totalResults": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "results": {
-            "type": "array",
-            "minLength": 1,
-            "items": {
-              "$ref": "#/components/schemas/UserRole"
-            }
-          },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
-          }
-        }
-      },
       "UserRoleCreateRequest": {
         "type": "object",
         "description": "Holds information needed for user role creation.",
@@ -25469,7 +25474,6 @@
         "properties": {
           "names": {
             "description": "Language specific user role names.",
-            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
@@ -25479,7 +25483,6 @@
           "userRights": {
             "type": "array",
             "description": "All user rights for this user role.",
-            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/UserRight"
             }
@@ -25497,7 +25500,6 @@
           "items": {
             "type": "array",
             "description": "Multiple user creation requests.",
-            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/UserRoleCreateRequest"
             }
@@ -25515,7 +25517,6 @@
           "items": {
             "type": "array",
             "description": "New value for user roles with specified IDs.",
-            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/UserRoleDetail"
             }
@@ -25558,7 +25559,6 @@
           "ids": {
             "type": "array",
             "description": "IDs of the user roles to delete.",
-            "minLength": 1,
             "items": {
               "type": "string"
             }
