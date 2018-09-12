@@ -934,6 +934,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
     [JsonInheritanceAttribute("ContentLayerInvalidException", typeof(ContentLayerInvalidException))]
     [JsonInheritanceAttribute("ContentFileReplaceTypeMismatchException", typeof(ContentFileReplaceTypeMismatchException))]
+    [JsonInheritanceAttribute("ContentBackupFailedException", typeof(ContentBackupFailedException))]
     [JsonInheritanceAttribute("BusinessProcessWaitTimeoutException", typeof(BusinessProcessWaitTimeoutException))]
     [JsonInheritanceAttribute("BusinessProcessEngineRequestException", typeof(BusinessProcessEngineRequestException))]
     [JsonInheritanceAttribute("BusinessProcessNotFoundException", typeof(BusinessProcessNotFoundException))]
@@ -4370,6 +4371,31 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ContentBackupFailedException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("outputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentBackupFailedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupFailedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class BusinessProcessWaitTimeoutException : PictureparkTimeoutException
     {
         [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -4775,6 +4801,49 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SnapshotRepository 
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("entityId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string EntityId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("entityType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BackupEntityType EntityType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isArchived", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsArchived { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SnapshotRepository FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRepository>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum BackupEntityType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Enviroment")]
+        Enviroment = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Customer")]
+        Customer = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class SnapshotRepositoryBaseCreateRequest 
     {
         [Newtonsoft.Json.JsonProperty("repositoryName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -4815,45 +4884,20 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SnapshotRepository 
+    public partial class SnapshotEnqueueResult 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("entityId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string EntityId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("entityType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BackupEntityType EntityType { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("isArchived", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsArchived { get; set; }
+        [Newtonsoft.Json.JsonProperty("tokenId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TokenId { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static SnapshotRepository FromJson(string data)
+        public static SnapshotEnqueueResult FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRepository>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotEnqueueResult>(data);
         }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum BackupEntityType
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Enviroment")]
-        Enviroment = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Customer")]
-        Customer = 1,
     
     }
     
@@ -4937,19 +4981,29 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SnapshotEnqueueResult 
+    public partial class SnapshotRestore 
     {
-        [Newtonsoft.Json.JsonProperty("tokenId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TokenId { get; set; }
+        [Newtonsoft.Json.JsonProperty("restoreDate", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime RestoreDate { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("repositoryName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RepositoryName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("snapshotName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SnapshotName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("indices", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Indices { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static SnapshotEnqueueResult FromJson(string data)
+        public static SnapshotRestore FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotEnqueueResult>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRestore>(data);
         }
     
     }
@@ -5000,34 +5054,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SnapshotRestore 
-    {
-        [Newtonsoft.Json.JsonProperty("restoreDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTime RestoreDate { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("repositoryName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string RepositoryName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("snapshotName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SnapshotName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("indices", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Indices { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static SnapshotRestore FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRestore>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SnapshotRepositoryEnvironmentCreateRequest : SnapshotRepositoryBaseCreateRequest
     {
         public string ToJson() 
@@ -5068,39 +5094,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SnapshotEnvironmentRestoreRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotEnvironmentRestoreRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SnapshotCustomerSearchRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("repositoryNames", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> RepositoryNames { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("customerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerAlias { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static SnapshotCustomerSearchRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotCustomerSearchRequest>(data);
         }
     
     }
@@ -5292,22 +5285,34 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SnapshotRepositoryCustomerSearchRequest 
+    public partial class SnapshotCustomerSearchRequest 
     {
-        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerId { get; set; }
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("repositoryNames", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> RepositoryNames { get; set; }
     
         [Newtonsoft.Json.JsonProperty("customerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomerAlias { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerId { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static SnapshotRepositoryCustomerSearchRequest FromJson(string data)
+        public static SnapshotCustomerSearchRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRepositoryCustomerSearchRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotCustomerSearchRequest>(data);
         }
     
     }
@@ -5334,6 +5339,27 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SnapshotRepositoryCustomerSearchRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("customerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerAlias { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SnapshotRepositoryCustomerSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRepositoryCustomerSearchRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SnapshotRepositoryEnvironmentSearchRequest 
     {
         [Newtonsoft.Json.JsonProperty("environmentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -5347,51 +5373,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SnapshotRepositoryEnvironmentSearchRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRepositoryEnvironmentSearchRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SnapshotCustomerCloneRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("snapshotName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SnapshotName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("repositoryName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string RepositoryName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("sourceCustomerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SourceCustomerAlias { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("customerName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("customerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerAlias { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("customerHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> CustomerHosts { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("corsAllowedHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> CorsAllowedHosts { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("storagePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string StoragePath { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BaseUrl { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("redirectUri", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string RedirectUri { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static SnapshotCustomerCloneRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotCustomerCloneRequest>(data);
         }
     
     }
@@ -5464,6 +5445,51 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SnapshotCustomerCloneRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("snapshotName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SnapshotName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("repositoryName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RepositoryName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("sourceCustomerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SourceCustomerAlias { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("customerName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("customerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerAlias { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("customerHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> CustomerHosts { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("corsAllowedHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> CorsAllowedHosts { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("storagePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StoragePath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BaseUrl { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("redirectUri", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RedirectUri { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SnapshotCustomerCloneRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotCustomerCloneRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class SnapshotsCleanupResult 
     {
         [Newtonsoft.Json.JsonProperty("repositories", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -5481,27 +5507,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SnapshotsCleanupResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotsCleanupResult>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class CustomerExportRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("customerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerAlias { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("keepRepository", Required = Newtonsoft.Json.Required.Always)]
-        public bool KeepRepository { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static CustomerExportRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerExportRequest>(data);
         }
     
     }
@@ -5526,6 +5531,27 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static CustomerExportResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerExportResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CustomerExportRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("customerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerAlias { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("keepRepository", Required = Newtonsoft.Json.Required.Always)]
+        public bool KeepRepository { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CustomerExportRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerExportRequest>(data);
         }
     
     }
@@ -5559,6 +5585,30 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentBackupSearchResult 
+    {
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Results { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentBackupSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupSearchResult>(data);
+        }
+    
+    }
+    
     /// <summary>Request to search aggregation values for Contents</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentBackupSearchRequest 
@@ -5587,30 +5637,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static ContentBackupSearchRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupSearchRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentBackupSearchResult 
-    {
-        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
-        public long TotalResults { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Results { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ContentBackupSearchResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupSearchResult>(data);
         }
     
     }
@@ -5694,6 +5720,347 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupForceCompleteRecoveryRequest>(data);
         }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CustomerConfiguration 
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("lifelineId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LifelineId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("namespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Namespace { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("alias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Alias { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("mainCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MainCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("userCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string UserCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("mailCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MailCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("transferCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("shareCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ShareCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("outputCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("outputFormatCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("channelCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ChannelCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("notificationCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NotificationCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("businessProcessCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BusinessProcessCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("listItemCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ListItemCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("displayValueCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DisplayValueCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("tokenCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TokenCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("documentHistoryCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DocumentHistoryCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("liveStreamCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LiveStreamCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cacheCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CacheCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("schemaCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("referenceCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ReferenceCatalog { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("watermarkPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string WatermarkPath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("logoPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LogoPath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("storagePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StoragePath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contractVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContractVersion { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("customerHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> CustomerHosts { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Always)]
+        public bool UseSsl { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("enableQueryDetails", Required = Newtonsoft.Json.Required.Always)]
+        public bool EnableQueryDetails { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("serviceProviders", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<CustomerServiceProviderConfiguration> ServiceProviders { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("supportContactEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SupportContactEmailAddress { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BaseUrl { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cdnConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CdnConfigurationBase CdnConfiguration { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("elasticSearchNumberOfShards", Required = Newtonsoft.Json.Required.Always)]
+        public int ElasticSearchNumberOfShards { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("elasticSearchNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
+        public int ElasticSearchNumberOfReplicas { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("elasticSearchNumberOfRoutingShards", Required = Newtonsoft.Json.Required.Always)]
+        public int ElasticSearchNumberOfRoutingShards { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rootContentSearchIndexNumberOfShards", Required = Newtonsoft.Json.Required.Always)]
+        public int RootContentSearchIndexNumberOfShards { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rootContentSearchIndexNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
+        public int RootContentSearchIndexNumberOfReplicas { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rootContentSearchIndexNumberOfRoutingShards", Required = Newtonsoft.Json.Required.Always)]
+        public int RootContentSearchIndexNumberOfRoutingShards { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rootListItemSearchIndexNumberOfShards", Required = Newtonsoft.Json.Required.Always)]
+        public int RootListItemSearchIndexNumberOfShards { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rootListItemSearchIndexNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
+        public int RootListItemSearchIndexNumberOfReplicas { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rootListItemSearchIndexNumberOfRoutingShards", Required = Newtonsoft.Json.Required.Always)]
+        public int RootListItemSearchIndexNumberOfRoutingShards { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("indexedFieldThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public int IndexedFieldThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("sortableFieldThreshold", Required = Newtonsoft.Json.Required.Always)]
+        public int SortableFieldThreshold { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("corsAllowedHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> CorsAllowedHosts { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("noReplyEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NoReplyEmailAddress { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("languageConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public LanguageConfiguration LanguageConfiguration { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("businessProcessEngineConnectionString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BusinessProcessEngineConnectionString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("createTransferBusinessProcess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CreateTransferBusinessProcess { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("redisDatabaseIndex", Required = Newtonsoft.Json.Required.Always)]
+        public int RedisDatabaseIndex { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public LifeCycle LifeCycle { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan ContentRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("listItemRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan ListItemRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("snapshotRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan SnapshotRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("userRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan UserRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("snapshotFullbackupScheduleTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan SnapshotFullbackupScheduleTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("deactivationMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary DeactivationMessage { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("superAdminUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SuperAdminUserId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("serviceAdminUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ServiceAdminUserId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentBackupState", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ContentBackupState ContentBackupState { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("apiCallsPerMinute", Required = Newtonsoft.Json.Required.Always)]
+        public int ApiCallsPerMinute { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentBackupStoragePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentBackupStoragePath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CustomerConfiguration FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerConfiguration>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CustomerServiceProviderConfiguration 
+    {
+        [Newtonsoft.Json.JsonProperty("serviceProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ServiceProviderId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("settings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Settings { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CustomerServiceProviderConfiguration FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderConfiguration>(data);
+        }
+    
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("FastlyCdnConfiguration", typeof(FastlyCdnConfiguration))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public abstract partial class CdnConfigurationBase 
+    {
+        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Url { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CdnConfigurationBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CdnConfigurationBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class FastlyCdnConfiguration : CdnConfigurationBase
+    {
+        [Newtonsoft.Json.JsonProperty("apiToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ApiToken { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("serviceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ServiceId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FastlyCdnConfiguration FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FastlyCdnConfiguration>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class LanguageConfiguration 
+    {
+        /// <summary>A list of languages serving as system languages.</summary>
+        [Newtonsoft.Json.JsonProperty("systemLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SystemLanguages { get; set; }
+    
+        /// <summary>A list of languages serving as metadata languages.</summary>
+        [Newtonsoft.Json.JsonProperty("metadataLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> MetadataLanguages { get; set; }
+    
+        /// <summary>The default language. Not the be confused with the metadata fallback language x-default.</summary>
+        [Newtonsoft.Json.JsonProperty("defaultLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DefaultLanguage { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static LanguageConfiguration FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LanguageConfiguration>(data);
+        }
+    
+    }
+    
+    /// <summary>A custom dictionary type to distinguish language specific class properties.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class TranslatedStringDictionary : System.Collections.Generic.Dictionary<string, string>
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TranslatedStringDictionary FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TranslatedStringDictionary>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ContentBackupState
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Disabled")]
+        Disabled = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Recovery")]
+        Recovery = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Enabled")]
+        Enabled = 2,
     
     }
     
@@ -5793,6 +6160,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan SnapshotRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("userRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan UserRetentionTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("snapshotFullbackupScheduleTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan SnapshotFullbackupScheduleTime { get; set; }
@@ -5814,6 +6185,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("apiCallsPerMinute", Required = Newtonsoft.Json.Required.Always)]
         public int ApiCallsPerMinute { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("contentBackupStoragePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentBackupStoragePath { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -5822,47 +6196,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static CustomerCreateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerCreateRequest>(data);
-        }
-    
-    }
-    
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
-    [JsonInheritanceAttribute("FastlyCdnConfiguration", typeof(FastlyCdnConfiguration))]
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public abstract partial class CdnConfigurationBase 
-    {
-        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Url { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static CdnConfigurationBase FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CdnConfigurationBase>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class FastlyCdnConfiguration : CdnConfigurationBase
-    {
-        [Newtonsoft.Json.JsonProperty("apiToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ApiToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("serviceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ServiceId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FastlyCdnConfiguration FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FastlyCdnConfiguration>(data);
         }
     
     }
@@ -5964,33 +6297,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class LanguageConfiguration 
-    {
-        /// <summary>A list of languages serving as system languages.</summary>
-        [Newtonsoft.Json.JsonProperty("systemLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SystemLanguages { get; set; }
-    
-        /// <summary>A list of languages serving as metadata languages.</summary>
-        [Newtonsoft.Json.JsonProperty("metadataLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> MetadataLanguages { get; set; }
-    
-        /// <summary>The default language. Not the be confused with the metadata fallback language x-default.</summary>
-        [Newtonsoft.Json.JsonProperty("defaultLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DefaultLanguage { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static LanguageConfiguration FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<LanguageConfiguration>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class OutputFormat 
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -6031,22 +6337,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static OutputFormat FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormat>(data);
-        }
-    
-    }
-    
-    /// <summary>A custom dictionary type to distinguish language specific class properties.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class TranslatedStringDictionary : System.Collections.Generic.Dictionary<string, string>
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static TranslatedStringDictionary FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TranslatedStringDictionary>(data);
         }
     
     }
@@ -7050,256 +7340,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum ContentBackupState
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Disabled")]
-        Disabled = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Recovery")]
-        Recovery = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Enabled")]
-        Enabled = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class CustomerConfiguration 
-    {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("lifelineId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LifelineId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("namespace", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Namespace { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("alias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Alias { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("mainCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MainCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("userCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string UserCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("mailCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MailCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("transferCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TransferCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("shareCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ShareCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("outputCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("outputFormatCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputFormatCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("channelCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ChannelCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("notificationCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string NotificationCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("businessProcessCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BusinessProcessCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("listItemCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ListItemCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("contentCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("displayValueCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DisplayValueCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("tokenCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TokenCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("documentHistoryCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DocumentHistoryCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("liveStreamCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LiveStreamCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("cacheCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CacheCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("schemaCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SchemaCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("referenceCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ReferenceCatalog { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("watermarkPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string WatermarkPath { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("logoPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LogoPath { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("storagePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string StoragePath { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("contractVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContractVersion { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("customerHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> CustomerHosts { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Always)]
-        public bool UseSsl { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("enableQueryDetails", Required = Newtonsoft.Json.Required.Always)]
-        public bool EnableQueryDetails { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("serviceProviders", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<CustomerServiceProviderConfiguration> ServiceProviders { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("supportContactEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SupportContactEmailAddress { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BaseUrl { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("cdnConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public CdnConfigurationBase CdnConfiguration { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("elasticSearchNumberOfShards", Required = Newtonsoft.Json.Required.Always)]
-        public int ElasticSearchNumberOfShards { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("elasticSearchNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
-        public int ElasticSearchNumberOfReplicas { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("elasticSearchNumberOfRoutingShards", Required = Newtonsoft.Json.Required.Always)]
-        public int ElasticSearchNumberOfRoutingShards { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("rootContentSearchIndexNumberOfShards", Required = Newtonsoft.Json.Required.Always)]
-        public int RootContentSearchIndexNumberOfShards { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("rootContentSearchIndexNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
-        public int RootContentSearchIndexNumberOfReplicas { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("rootContentSearchIndexNumberOfRoutingShards", Required = Newtonsoft.Json.Required.Always)]
-        public int RootContentSearchIndexNumberOfRoutingShards { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("rootListItemSearchIndexNumberOfShards", Required = Newtonsoft.Json.Required.Always)]
-        public int RootListItemSearchIndexNumberOfShards { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("rootListItemSearchIndexNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
-        public int RootListItemSearchIndexNumberOfReplicas { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("rootListItemSearchIndexNumberOfRoutingShards", Required = Newtonsoft.Json.Required.Always)]
-        public int RootListItemSearchIndexNumberOfRoutingShards { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("indexedFieldThreshold", Required = Newtonsoft.Json.Required.Always)]
-        public int IndexedFieldThreshold { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("sortableFieldThreshold", Required = Newtonsoft.Json.Required.Always)]
-        public int SortableFieldThreshold { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("corsAllowedHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> CorsAllowedHosts { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("noReplyEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string NoReplyEmailAddress { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("languageConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LanguageConfiguration LanguageConfiguration { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("businessProcessEngineConnectionString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BusinessProcessEngineConnectionString { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("createTransferBusinessProcess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CreateTransferBusinessProcess { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("redisDatabaseIndex", Required = Newtonsoft.Json.Required.Always)]
-        public int RedisDatabaseIndex { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public LifeCycle LifeCycle { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("contentRetentionTime", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.TimeSpan ContentRetentionTime { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("listItemRetentionTime", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.TimeSpan ListItemRetentionTime { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("snapshotRetentionTime", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.TimeSpan SnapshotRetentionTime { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("snapshotFullbackupScheduleTime", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.TimeSpan SnapshotFullbackupScheduleTime { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("deactivationMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary DeactivationMessage { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("superAdminUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SuperAdminUserId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("serviceAdminUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ServiceAdminUserId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("contentBackupState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ContentBackupState ContentBackupState { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("apiCallsPerMinute", Required = Newtonsoft.Json.Required.Always)]
-        public int ApiCallsPerMinute { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static CustomerConfiguration FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerConfiguration>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class CustomerServiceProviderConfiguration 
-    {
-        [Newtonsoft.Json.JsonProperty("serviceProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ServiceProviderId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("settings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Settings { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static CustomerServiceProviderConfiguration FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderConfiguration>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CustomerUpdateRequest 
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -7334,6 +7374,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan SnapshotRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("userRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan UserRetentionTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("snapshotFullbackupScheduleTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan SnapshotFullbackupScheduleTime { get; set; }
@@ -7355,6 +7399,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("logoPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LogoPath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentBackupStoragePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentBackupStoragePath { get; set; }
     
         [Newtonsoft.Json.JsonProperty("supportContactEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SupportContactEmailAddress { get; set; }
@@ -7921,33 +7968,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SearchIndexReindexRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("searchIndexId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchIndexId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("numberOfShards", Required = Newtonsoft.Json.Required.Always)]
-        public int NumberOfShards { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("numberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
-        public int NumberOfReplicas { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("numberOfRoutingShards", Required = Newtonsoft.Json.Required.Always)]
-        public int NumberOfRoutingShards { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static SearchIndexReindexRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchIndexReindexRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class Index 
     {
         [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -8091,19 +8111,28 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class CustomerMetadataLanguageCreateRequest 
+    public partial class SearchIndexReindexRequest 
     {
-        [Newtonsoft.Json.JsonProperty("language", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Language { get; set; }
+        [Newtonsoft.Json.JsonProperty("searchIndexId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchIndexId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfShards", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfShards { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfReplicas { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfRoutingShards", Required = Newtonsoft.Json.Required.Always)]
+        public int NumberOfRoutingShards { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static CustomerMetadataLanguageCreateRequest FromJson(string data)
+        public static SearchIndexReindexRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerMetadataLanguageCreateRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchIndexReindexRequest>(data);
         }
     
     }
@@ -8386,6 +8415,24 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CustomerMetadataLanguageCreateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("language", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Language { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CustomerMetadataLanguageCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerMetadataLanguageCreateRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CustomerServiceProviderCreateRequest 
     {
         [Newtonsoft.Json.JsonProperty("customerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -8497,6 +8544,27 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class EnvironmentProcessSearchResult 
+    {
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<EnvironmentProcess> Results { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static EnvironmentProcessSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EnvironmentProcessSearchResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class EnvironmentProcessSearchRequest 
     {
         /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
@@ -8518,27 +8586,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static EnvironmentProcessSearchRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<EnvironmentProcessSearchRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class EnvironmentProcessSearchResult 
-    {
-        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
-        public long TotalResults { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<EnvironmentProcess> Results { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static EnvironmentProcessSearchResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<EnvironmentProcessSearchResult>(data);
         }
     
     }
@@ -8866,39 +8913,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ServiceProviderCreateRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("externalId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ExternalId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("applicationKey", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ApplicationKey { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("messageQueueUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MessageQueueUser { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("messageQueuePassword", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MessageQueuePassword { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BaseUrl { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ServiceProviderCreateRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ServiceProviderCreateRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ServiceProvider 
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -8927,6 +8941,39 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static ServiceProvider FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ServiceProvider>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ServiceProviderCreateRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("externalId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExternalId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("applicationKey", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ApplicationKey { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("messageQueueUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MessageQueueUser { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("messageQueuePassword", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MessageQueuePassword { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BaseUrl { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ServiceProviderCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ServiceProviderCreateRequest>(data);
         }
     
     }
