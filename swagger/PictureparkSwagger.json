@@ -17825,6 +17825,9 @@
       "Content": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "contentType"
+        ],
         "properties": {
           "audit": {
             "$ref": "#/components/schemas/UserAudit"
@@ -17832,6 +17835,14 @@
           "contentSchemaId": {
             "type": "string",
             "description": "The id of the schema with schema type content."
+          },
+          "contentType": {
+            "description": "The content type of this content. All except ContentItem are binary files.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ContentType"
+              }
+            ]
           },
           "layerSchemaIds": {
             "type": "array",
