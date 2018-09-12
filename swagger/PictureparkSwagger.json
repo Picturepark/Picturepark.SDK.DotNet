@@ -794,7 +794,7 @@
               {
                 "description": "The specified wait timeout exceeded",
                 "schema": {
-                  "$ref": "#/components/schemas/BusinessProcessWaitTimeoutException"
+                  "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
                 }
               },
               {
@@ -1055,7 +1055,7 @@
               {
                 "description": "The specified wait timeout exceeded",
                 "schema": {
-                  "$ref": "#/components/schemas/BusinessProcessWaitTimeoutException"
+                  "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
                 }
               },
               {
@@ -2203,7 +2203,7 @@
               {
                 "description": "The specified wait timeout exceeded",
                 "schema": {
-                  "$ref": "#/components/schemas/BusinessProcessWaitTimeoutException"
+                  "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
                 }
               },
               {
@@ -2549,7 +2549,7 @@
               {
                 "description": "The specified wait timeout exceeded",
                 "schema": {
-                  "$ref": "#/components/schemas/BusinessProcessWaitTimeoutException"
+                  "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
                 }
               },
               {
@@ -2676,7 +2676,7 @@
               {
                 "description": "The specified wait timeout exceeded",
                 "schema": {
-                  "$ref": "#/components/schemas/BusinessProcessWaitTimeoutException"
+                  "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
                 }
               },
               {
@@ -3018,7 +3018,7 @@
               {
                 "description": "The specified wait timeout exceeded",
                 "schema": {
-                  "$ref": "#/components/schemas/BusinessProcessWaitTimeoutException"
+                  "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
                 }
               },
               {
@@ -4525,7 +4525,7 @@
               {
                 "description": "The specified wait timeout exceeded",
                 "schema": {
-                  "$ref": "#/components/schemas/BusinessProcessWaitTimeoutException"
+                  "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
                 }
               },
               {
@@ -4785,7 +4785,7 @@
               {
                 "description": "",
                 "schema": {
-                  "$ref": "#/components/schemas/BusinessProcessWaitTimeoutException"
+                  "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
                 }
               },
               {
@@ -5373,7 +5373,7 @@
               {
                 "description": "The specified wait timeout exceeded",
                 "schema": {
-                  "$ref": "#/components/schemas/BusinessProcessWaitTimeoutException"
+                  "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
                 }
               },
               {
@@ -8705,7 +8705,7 @@
               {
                 "description": "",
                 "schema": {
-                  "$ref": "#/components/schemas/BusinessProcessWaitTimeoutException"
+                  "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
                 }
               },
               {
@@ -12909,9 +12909,6 @@
             "ContentBackupFailedException": {
               "$ref": "#/components/schemas/ContentBackupFailedException"
             },
-            "BusinessProcessWaitTimeoutException": {
-              "$ref": "#/components/schemas/BusinessProcessWaitTimeoutException"
-            },
             "BusinessProcessEngineRequestException": {
               "$ref": "#/components/schemas/BusinessProcessEngineRequestException"
             },
@@ -15705,20 +15702,6 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
-          }
-        ]
-      },
-      "BusinessProcessWaitTimeoutException": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "businessProcessId": {
-            "type": "string"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkTimeoutException"
           }
         ]
       },
@@ -20314,6 +20297,9 @@
             },
             "ApiStatisticsEvent": {
               "$ref": "#/components/schemas/ApiStatisticsEvent"
+            },
+            "BusinessProcessEvent": {
+              "$ref": "#/components/schemas/BusinessProcessEvent"
             }
           }
         },
@@ -20646,6 +20632,26 @@
               "type": "integer",
               "format": "int32"
             }
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          }
+        ]
+      },
+      "BusinessProcessEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "businessProcessId": {
+            "type": "string"
+          },
+          "lifeCycle": {
+            "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+          },
+          "state": {
+            "type": "string"
           }
         },
         "allOf": [

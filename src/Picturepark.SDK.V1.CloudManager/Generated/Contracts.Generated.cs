@@ -935,7 +935,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("ContentLayerInvalidException", typeof(ContentLayerInvalidException))]
     [JsonInheritanceAttribute("ContentFileReplaceTypeMismatchException", typeof(ContentFileReplaceTypeMismatchException))]
     [JsonInheritanceAttribute("ContentBackupFailedException", typeof(ContentBackupFailedException))]
-    [JsonInheritanceAttribute("BusinessProcessWaitTimeoutException", typeof(BusinessProcessWaitTimeoutException))]
     [JsonInheritanceAttribute("BusinessProcessEngineRequestException", typeof(BusinessProcessEngineRequestException))]
     [JsonInheritanceAttribute("BusinessProcessNotFoundException", typeof(BusinessProcessNotFoundException))]
     [JsonInheritanceAttribute("BusinessProcessDefinitionNotFoundException", typeof(BusinessProcessDefinitionNotFoundException))]
@@ -4390,25 +4389,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static ContentBackupFailedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupFailedException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class BusinessProcessWaitTimeoutException : PictureparkTimeoutException
-    {
-        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BusinessProcessId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BusinessProcessWaitTimeoutException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitTimeoutException>(data);
         }
     
     }
