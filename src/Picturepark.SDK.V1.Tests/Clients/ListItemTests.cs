@@ -78,7 +78,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await _client.ListItem.UpdateAsync(itemId, request).ConfigureAwait(false);
 
             // Assert
-            var newItem = await _client.ListItem.GetAsync(itemId, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+            var newItem = await _client.ListItem.GetAsync(itemId, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
             Assert.Equal("Foo", newItem.ConvertTo<Tag>().Name);
         }
 
@@ -136,7 +136,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Act
             await _client.ListItem.BatchUpdateFieldsByFilterAsync(updateRequest).ConfigureAwait(false);
-            ListItemDetail result = await _client.ListItem.GetAsync(listItemDetail.Id, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+            ListItemDetail result = await _client.ListItem.GetAsync(listItemDetail.Id, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
             // Assert
             Assert.Equal("Foo", result.ConvertTo<Tag>().Name);
@@ -255,7 +255,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Content = originalPlayer
             };
 
-            var playerItem = await _client.ListItem.CreateAsync(createRequest, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+            var playerItem = await _client.ListItem.CreateAsync(createRequest, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
             // Assert
             Assert.NotNull(playerItem);
@@ -452,7 +452,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ContentSchemaId = nameof(SoccerPlayer),
                 Content = new SoccerPlayer { Firstname = objectName, LastName = "Foo", EmailAddress = "abc@def.ch" }
             };
-            var x = await _client.ListItem.CreateAsync(listItem).ConfigureAwait(false);
+            await _client.ListItem.CreateAsync(listItem).ConfigureAwait(false);
 
             // Search object
             var players = await _client.ListItem.SearchAsync(new ListItemSearchRequest
@@ -463,7 +463,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }).ConfigureAwait(false);
 
             var playerObjectId = players.Results.First().Id;
-            var playerItem = await _client.ListItem.GetAsync(playerObjectId, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+            var playerItem = await _client.ListItem.GetAsync(playerObjectId, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
             // Act
             var player = playerItem.ConvertTo<SoccerPlayer>();
@@ -497,7 +497,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Content = originalPlayer
             };
 
-            var playerItem = await _client.ListItem.CreateAsync(createRequest, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+            var playerItem = await _client.ListItem.CreateAsync(createRequest, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
 
             // Act
             var player = playerItem.ConvertTo<SoccerPlayer>();
@@ -520,18 +520,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ListItem")]
-        public async Task ShouldTrashAndUntrashListItem()
+        public async Task ShouldDeleteAndRestoreListItem()
         {
             // Arrange
             var listItem = await _client.ListItem.CreateAsync(new ListItemCreateRequest
             {
                 ContentSchemaId = nameof(Tag),
-                Content = new Tag { Name = "ShouldTrashAndUntrashListItem" }
+                Content = new Tag { Name = "ShouldDeleteAndRestoreListItem" }
             }).ConfigureAwait(false);
             var listItemId = listItem.Id;
 
             Assert.False(string.IsNullOrEmpty(listItemId));
-            var listItemDetail = await _client.ListItem.GetAsync(listItemId).ConfigureAwait(false);
 
             // Act
             // Deactivate
@@ -547,24 +546,20 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ListItem")]
-        public async Task ShouldTrashAndUntrashListItemMany()
+        public async Task ShouldDeleteAndRestoreListItemMany()
         {
             // Arrange
             var listItem1 = await _client.ListItem.CreateAsync(new ListItemCreateRequest
             {
                 ContentSchemaId = nameof(Tag),
-                Content = new Tag { Name = "ShouldTrashAndUntrashListItemMany1" }
+                Content = new Tag { Name = "ShouldDeleteAndRestoreListItemMany1" }
             }).ConfigureAwait(false);
 
             var listItem2 = await _client.ListItem.CreateAsync(new ListItemCreateRequest
             {
                 ContentSchemaId = nameof(Tag),
-                Content = new Tag { Name = "ShouldTrashAndUntrashListItemMany2" }
+                Content = new Tag { Name = "ShouldDeleteAndRestoreListItemMany2" }
             }).ConfigureAwait(false);
-
-            var listItemDetail1 = await _client.ListItem.GetAsync(listItem1.Id).ConfigureAwait(false);
-
-            var listItemDetail2 = await _client.ListItem.GetAsync(listItem2.Id).ConfigureAwait(false);
 
             // Act
             // Deactivate
