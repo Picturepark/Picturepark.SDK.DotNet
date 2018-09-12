@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.18.7.0 (NJsonSchema v9.10.70.0 (Newtonsoft.Json v9.0.0.0))",
+  "x-generator": "NSwag v11.19.1.0 (NJsonSchema v9.10.72.0 (Newtonsoft.Json v9.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark CloudManager API V1",
@@ -6094,6 +6094,9 @@
             "ContentFileReplaceTypeMismatchException": {
               "$ref": "#/components/schemas/ContentFileReplaceTypeMismatchException"
             },
+            "ContentBackupFailedException": {
+              "$ref": "#/components/schemas/ContentBackupFailedException"
+            },
             "BusinessProcessWaitTimeoutException": {
               "$ref": "#/components/schemas/BusinessProcessWaitTimeoutException"
             },
@@ -8873,6 +8876,26 @@
           "ContentItem"
         ]
       },
+      "ContentBackupFailedException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contentId": {
+            "type": "string"
+          },
+          "outputFormatId": {
+            "type": "string"
+          },
+          "outputId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          }
+        ]
+      },
       "BusinessProcessWaitTimeoutException": {
         "type": "object",
         "additionalProperties": false,
@@ -9185,37 +9208,6 @@
           }
         ]
       },
-      "SnapshotRepositoryCustomerCreateRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "customerAlias": {
-            "type": "string"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/SnapshotRepositoryBaseCreateRequest"
-          }
-        ]
-      },
-      "SnapshotRepositoryBaseCreateRequest": {
-        "type": "object",
-        "x-abstract": true,
-        "additionalProperties": false,
-        "required": [
-          "startTime"
-        ],
-        "properties": {
-          "repositoryName": {
-            "type": "string"
-          },
-          "startTime": {
-            "type": "string",
-            "format": "date-time"
-          }
-        }
-      },
       "SnapshotRepository": {
         "type": "object",
         "additionalProperties": false,
@@ -9252,6 +9244,46 @@
           "Enviroment",
           "Customer"
         ]
+      },
+      "SnapshotRepositoryCustomerCreateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "customerAlias": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SnapshotRepositoryBaseCreateRequest"
+          }
+        ]
+      },
+      "SnapshotRepositoryBaseCreateRequest": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "startTime"
+        ],
+        "properties": {
+          "repositoryName": {
+            "type": "string"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "SnapshotEnqueueResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "tokenId": {
+            "type": "string"
+          }
+        }
       },
       "SnapshotCustomerCreateRequest": {
         "type": "object",
@@ -9328,12 +9360,28 @@
           "Deletion"
         ]
       },
-      "SnapshotEnqueueResult": {
+      "SnapshotRestore": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "restoreDate"
+        ],
         "properties": {
-          "tokenId": {
+          "restoreDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "repositoryName": {
             "type": "string"
+          },
+          "snapshotName": {
+            "type": "string"
+          },
+          "indices": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -9373,31 +9421,6 @@
           }
         }
       },
-      "SnapshotRestore": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "restoreDate"
-        ],
-        "properties": {
-          "restoreDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "repositoryName": {
-            "type": "string"
-          },
-          "snapshotName": {
-            "type": "string"
-          },
-          "indices": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
       "SnapshotRepositoryEnvironmentCreateRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -9424,39 +9447,6 @@
             "$ref": "#/components/schemas/SnapshotBaseRestoreRequest"
           }
         ]
-      },
-      "SnapshotCustomerSearchRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "start",
-          "limit"
-        ],
-        "properties": {
-          "searchString": {
-            "type": "string"
-          },
-          "start": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "limit": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "repositoryNames": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "customerAlias": {
-            "type": "string"
-          },
-          "customerId": {
-            "type": "string"
-          }
-        }
       },
       "SnapshotCustomerSearchResult": {
         "type": "object",
@@ -9490,7 +9480,6 @@
           },
           "results": {
             "type": "array",
-            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/Snapshot"
             }
@@ -9630,14 +9619,35 @@
           "response": {}
         }
       },
-      "SnapshotRepositoryCustomerSearchRequest": {
+      "SnapshotCustomerSearchRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "start",
+          "limit"
+        ],
         "properties": {
-          "customerId": {
+          "searchString": {
             "type": "string"
           },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "repositoryNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "customerAlias": {
+            "type": "string"
+          },
+          "customerId": {
             "type": "string"
           }
         }
@@ -9661,53 +9671,23 @@
           }
         }
       },
+      "SnapshotRepositoryCustomerSearchRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "customerId": {
+            "type": "string"
+          },
+          "customerAlias": {
+            "type": "string"
+          }
+        }
+      },
       "SnapshotRepositoryEnvironmentSearchRequest": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "environmentId": {
-            "type": "string"
-          }
-        }
-      },
-      "SnapshotCustomerCloneRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "snapshotName": {
-            "type": "string"
-          },
-          "repositoryName": {
-            "type": "string"
-          },
-          "sourceCustomerAlias": {
-            "type": "string"
-          },
-          "customerName": {
-            "type": "string"
-          },
-          "customerAlias": {
-            "type": "string"
-          },
-          "customerHosts": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "corsAllowedHosts": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "storagePath": {
-            "type": "string"
-          },
-          "baseUrl": {
-            "type": "string"
-          },
-          "redirectUri": {
             "type": "string"
           }
         }
@@ -9773,6 +9753,48 @@
           "Deleted"
         ]
       },
+      "SnapshotCustomerCloneRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "snapshotName": {
+            "type": "string"
+          },
+          "repositoryName": {
+            "type": "string"
+          },
+          "sourceCustomerAlias": {
+            "type": "string"
+          },
+          "customerName": {
+            "type": "string"
+          },
+          "customerAlias": {
+            "type": "string"
+          },
+          "customerHosts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "corsAllowedHosts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "storagePath": {
+            "type": "string"
+          },
+          "baseUrl": {
+            "type": "string"
+          },
+          "redirectUri": {
+            "type": "string"
+          }
+        }
+      },
       "SnapshotsCleanupResult": {
         "type": "object",
         "additionalProperties": false,
@@ -9792,21 +9814,6 @@
           }
         }
       },
-      "CustomerExportRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "keepRepository"
-        ],
-        "properties": {
-          "customerAlias": {
-            "type": "string"
-          },
-          "keepRepository": {
-            "type": "boolean"
-          }
-        }
-      },
       "CustomerExportResult": {
         "type": "object",
         "additionalProperties": false,
@@ -9819,6 +9826,21 @@
           },
           "snapshotName": {
             "type": "string"
+          }
+        }
+      },
+      "CustomerExportRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "keepRepository"
+        ],
+        "properties": {
+          "customerAlias": {
+            "type": "string"
+          },
+          "keepRepository": {
+            "type": "boolean"
           }
         }
       },
@@ -9839,6 +9861,28 @@
           "businessProcessId": {
             "type": "string",
             "description": "Id of the business process tracking the output, if any (i.e. in case of ContentBackupRecovery mode)"
+          }
+        }
+      },
+      "ContentBackupSearchResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "totalResults"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "pageToken": {
+            "type": "string"
           }
         }
       },
@@ -9868,28 +9912,6 @@
           "pageToken": {
             "type": "string",
             "description": "To get a large amount of data, page token returned from the response can be used to get all data."
-          }
-        }
-      },
-      "ContentBackupSearchResult": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "totalResults"
-        ],
-        "properties": {
-          "totalResults": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "results": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "pageToken": {
-            "type": "string"
           }
         }
       },
@@ -9939,6 +9961,368 @@
           }
         }
       },
+      "CustomerConfiguration": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "useSsl",
+          "enableQueryDetails",
+          "elasticSearchNumberOfShards",
+          "elasticSearchNumberOfReplicas",
+          "elasticSearchNumberOfRoutingShards",
+          "rootContentSearchIndexNumberOfShards",
+          "rootContentSearchIndexNumberOfReplicas",
+          "rootContentSearchIndexNumberOfRoutingShards",
+          "rootListItemSearchIndexNumberOfShards",
+          "rootListItemSearchIndexNumberOfReplicas",
+          "rootListItemSearchIndexNumberOfRoutingShards",
+          "indexedFieldThreshold",
+          "sortableFieldThreshold",
+          "redisDatabaseIndex",
+          "lifeCycle",
+          "contentRetentionTime",
+          "listItemRetentionTime",
+          "snapshotRetentionTime",
+          "userRetentionTime",
+          "snapshotFullbackupScheduleTime",
+          "contentBackupState",
+          "apiCallsPerMinute"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "lifelineId": {
+            "type": "string"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "alias": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "mainCatalog": {
+            "type": "string"
+          },
+          "userCatalog": {
+            "type": "string"
+          },
+          "mailCatalog": {
+            "type": "string"
+          },
+          "transferCatalog": {
+            "type": "string"
+          },
+          "shareCatalog": {
+            "type": "string"
+          },
+          "outputCatalog": {
+            "type": "string"
+          },
+          "outputFormatCatalog": {
+            "type": "string"
+          },
+          "channelCatalog": {
+            "type": "string"
+          },
+          "notificationCatalog": {
+            "type": "string"
+          },
+          "businessProcessCatalog": {
+            "type": "string"
+          },
+          "listItemCatalog": {
+            "type": "string"
+          },
+          "contentCatalog": {
+            "type": "string"
+          },
+          "displayValueCatalog": {
+            "type": "string"
+          },
+          "tokenCatalog": {
+            "type": "string"
+          },
+          "documentHistoryCatalog": {
+            "type": "string"
+          },
+          "liveStreamCatalog": {
+            "type": "string"
+          },
+          "cacheCatalog": {
+            "type": "string"
+          },
+          "schemaCatalog": {
+            "type": "string"
+          },
+          "referenceCatalog": {
+            "type": "string"
+          },
+          "watermarkPath": {
+            "type": "string"
+          },
+          "logoPath": {
+            "type": "string"
+          },
+          "storagePath": {
+            "type": "string"
+          },
+          "contractVersion": {
+            "type": "string"
+          },
+          "customerHosts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "useSsl": {
+            "type": "boolean"
+          },
+          "enableQueryDetails": {
+            "type": "boolean"
+          },
+          "serviceProviders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerServiceProviderConfiguration"
+            }
+          },
+          "supportContactEmailAddress": {
+            "type": "string"
+          },
+          "baseUrl": {
+            "type": "string"
+          },
+          "cdnConfiguration": {
+            "$ref": "#/components/schemas/CdnConfigurationBase"
+          },
+          "elasticSearchNumberOfShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "elasticSearchNumberOfReplicas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "elasticSearchNumberOfRoutingShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootContentSearchIndexNumberOfShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootContentSearchIndexNumberOfReplicas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootContentSearchIndexNumberOfRoutingShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootListItemSearchIndexNumberOfShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootListItemSearchIndexNumberOfReplicas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootListItemSearchIndexNumberOfRoutingShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "indexedFieldThreshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sortableFieldThreshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "corsAllowedHosts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "noReplyEmailAddress": {
+            "type": "string"
+          },
+          "languageConfiguration": {
+            "$ref": "#/components/schemas/LanguageConfiguration"
+          },
+          "businessProcessEngineConnectionString": {
+            "type": "string"
+          },
+          "createTransferBusinessProcess": {
+            "type": "string"
+          },
+          "redisDatabaseIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lifeCycle": {
+            "$ref": "#/components/schemas/LifeCycle"
+          },
+          "contentRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "listItemRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "snapshotRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "userRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "snapshotFullbackupScheduleTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "deactivationMessage": {
+            "$ref": "#/components/schemas/TranslatedStringDictionary"
+          },
+          "superAdminUserId": {
+            "type": "string"
+          },
+          "serviceAdminUserId": {
+            "type": "string"
+          },
+          "contentBackupState": {
+            "$ref": "#/components/schemas/ContentBackupState"
+          },
+          "apiCallsPerMinute": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contentBackupStoragePath": {
+            "type": "string"
+          }
+        }
+      },
+      "CustomerServiceProviderConfiguration": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "serviceProviderId": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string"
+          },
+          "userRoleIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "settings": {
+            "type": "string"
+          }
+        }
+      },
+      "CdnConfigurationBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "FastlyCdnConfiguration": {
+              "$ref": "#/components/schemas/FastlyCdnConfiguration"
+            }
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "FastlyCdnConfiguration": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "apiToken": {
+            "type": "string"
+          },
+          "serviceId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CdnConfigurationBase"
+          }
+        ]
+      },
+      "LanguageConfiguration": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "systemLanguages": {
+            "type": "array",
+            "description": "A list of languages serving as system languages.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "metadataLanguages": {
+            "type": "array",
+            "description": "A list of languages serving as metadata languages.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "defaultLanguage": {
+            "type": "string",
+            "description": "The default language. Not the be confused with the metadata fallback language x-default."
+          }
+        }
+      },
+      "TranslatedStringDictionary": {
+        "type": "object",
+        "description": "A custom dictionary type to distinguish language specific class properties.",
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "ContentBackupState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Disabled",
+          "Recovery",
+          "Enabled"
+        ],
+        "enum": [
+          "Disabled",
+          "Recovery",
+          "Enabled"
+        ]
+      },
       "CustomerCreateRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -9956,6 +10340,7 @@
           "contentRetentionTime",
           "listItemRetentionTime",
           "snapshotRetentionTime",
+          "userRetentionTime",
           "snapshotFullbackupScheduleTime",
           "contentBackupState",
           "apiCallsPerMinute"
@@ -10077,6 +10462,10 @@
             "type": "string",
             "format": "time-span"
           },
+          "userRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
           "snapshotFullbackupScheduleTime": {
             "type": "string",
             "format": "time-span"
@@ -10096,49 +10485,11 @@
           "apiCallsPerMinute": {
             "type": "integer",
             "format": "int32"
-          }
-        }
-      },
-      "CdnConfigurationBase": {
-        "type": "object",
-        "discriminator": {
-          "propertyName": "kind",
-          "mapping": {
-            "FastlyCdnConfiguration": {
-              "$ref": "#/components/schemas/FastlyCdnConfiguration"
-            }
-          }
-        },
-        "x-abstract": true,
-        "additionalProperties": false,
-        "required": [
-          "kind"
-        ],
-        "properties": {
-          "url": {
-            "type": "string"
           },
-          "kind": {
+          "contentBackupStoragePath": {
             "type": "string"
           }
         }
-      },
-      "FastlyCdnConfiguration": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "apiToken": {
-            "type": "string"
-          },
-          "serviceId": {
-            "type": "string"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/CdnConfigurationBase"
-          }
-        ]
       },
       "IdentityServerProvider": {
         "type": "object",
@@ -10212,30 +10563,6 @@
           }
         }
       },
-      "LanguageConfiguration": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "systemLanguages": {
-            "type": "array",
-            "description": "A list of languages serving as system languages.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "metadataLanguages": {
-            "type": "array",
-            "description": "A list of languages serving as metadata languages.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "defaultLanguage": {
-            "type": "string",
-            "description": "The default language. Not the be confused with the metadata fallback language x-default."
-          }
-        }
-      },
       "OutputFormat": {
         "type": "object",
         "additionalProperties": false,
@@ -10279,19 +10606,6 @@
             "$ref": "#/components/schemas/FormatBase"
           }
         }
-      },
-      "TranslatedStringDictionary": {
-        "type": "object",
-        "description": "A custom dictionary type to distinguish language specific class properties.",
-        "additionalProperties": false,
-        "allOf": [
-          {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          }
-        ]
       },
       "SourceOutputFormats": {
         "type": "object",
@@ -11329,282 +11643,6 @@
           }
         }
       },
-      "ContentBackupState": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Disabled",
-          "Recovery",
-          "Enabled"
-        ],
-        "enum": [
-          "Disabled",
-          "Recovery",
-          "Enabled"
-        ]
-      },
-      "CustomerConfiguration": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "useSsl",
-          "enableQueryDetails",
-          "elasticSearchNumberOfShards",
-          "elasticSearchNumberOfReplicas",
-          "elasticSearchNumberOfRoutingShards",
-          "rootContentSearchIndexNumberOfShards",
-          "rootContentSearchIndexNumberOfReplicas",
-          "rootContentSearchIndexNumberOfRoutingShards",
-          "rootListItemSearchIndexNumberOfShards",
-          "rootListItemSearchIndexNumberOfReplicas",
-          "rootListItemSearchIndexNumberOfRoutingShards",
-          "indexedFieldThreshold",
-          "sortableFieldThreshold",
-          "redisDatabaseIndex",
-          "lifeCycle",
-          "contentRetentionTime",
-          "listItemRetentionTime",
-          "snapshotRetentionTime",
-          "snapshotFullbackupScheduleTime",
-          "contentBackupState",
-          "apiCallsPerMinute"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "lifelineId": {
-            "type": "string"
-          },
-          "namespace": {
-            "type": "string"
-          },
-          "alias": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "mainCatalog": {
-            "type": "string"
-          },
-          "userCatalog": {
-            "type": "string"
-          },
-          "mailCatalog": {
-            "type": "string"
-          },
-          "transferCatalog": {
-            "type": "string"
-          },
-          "shareCatalog": {
-            "type": "string"
-          },
-          "outputCatalog": {
-            "type": "string"
-          },
-          "outputFormatCatalog": {
-            "type": "string"
-          },
-          "channelCatalog": {
-            "type": "string"
-          },
-          "notificationCatalog": {
-            "type": "string"
-          },
-          "businessProcessCatalog": {
-            "type": "string"
-          },
-          "listItemCatalog": {
-            "type": "string"
-          },
-          "contentCatalog": {
-            "type": "string"
-          },
-          "displayValueCatalog": {
-            "type": "string"
-          },
-          "tokenCatalog": {
-            "type": "string"
-          },
-          "documentHistoryCatalog": {
-            "type": "string"
-          },
-          "liveStreamCatalog": {
-            "type": "string"
-          },
-          "cacheCatalog": {
-            "type": "string"
-          },
-          "schemaCatalog": {
-            "type": "string"
-          },
-          "referenceCatalog": {
-            "type": "string"
-          },
-          "watermarkPath": {
-            "type": "string"
-          },
-          "logoPath": {
-            "type": "string"
-          },
-          "storagePath": {
-            "type": "string"
-          },
-          "contractVersion": {
-            "type": "string"
-          },
-          "customerHosts": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "useSsl": {
-            "type": "boolean"
-          },
-          "enableQueryDetails": {
-            "type": "boolean"
-          },
-          "serviceProviders": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomerServiceProviderConfiguration"
-            }
-          },
-          "supportContactEmailAddress": {
-            "type": "string"
-          },
-          "baseUrl": {
-            "type": "string"
-          },
-          "cdnConfiguration": {
-            "$ref": "#/components/schemas/CdnConfigurationBase"
-          },
-          "elasticSearchNumberOfShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "elasticSearchNumberOfReplicas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "elasticSearchNumberOfRoutingShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootContentSearchIndexNumberOfShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootContentSearchIndexNumberOfReplicas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootContentSearchIndexNumberOfRoutingShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootListItemSearchIndexNumberOfShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootListItemSearchIndexNumberOfReplicas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootListItemSearchIndexNumberOfRoutingShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "indexedFieldThreshold": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "sortableFieldThreshold": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "corsAllowedHosts": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "noReplyEmailAddress": {
-            "type": "string"
-          },
-          "languageConfiguration": {
-            "$ref": "#/components/schemas/LanguageConfiguration"
-          },
-          "businessProcessEngineConnectionString": {
-            "type": "string"
-          },
-          "createTransferBusinessProcess": {
-            "type": "string"
-          },
-          "redisDatabaseIndex": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "lifeCycle": {
-            "$ref": "#/components/schemas/LifeCycle"
-          },
-          "contentRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "listItemRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "snapshotRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "snapshotFullbackupScheduleTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "deactivationMessage": {
-            "$ref": "#/components/schemas/TranslatedStringDictionary"
-          },
-          "superAdminUserId": {
-            "type": "string"
-          },
-          "serviceAdminUserId": {
-            "type": "string"
-          },
-          "contentBackupState": {
-            "$ref": "#/components/schemas/ContentBackupState"
-          },
-          "apiCallsPerMinute": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "CustomerServiceProviderConfiguration": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "serviceProviderId": {
-            "type": "string"
-          },
-          "customerId": {
-            "type": "string"
-          },
-          "userRoleIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "settings": {
-            "type": "string"
-          }
-        }
-      },
       "CustomerUpdateRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -11614,6 +11652,7 @@
           "contentRetentionTime",
           "listItemRetentionTime",
           "snapshotRetentionTime",
+          "userRetentionTime",
           "snapshotFullbackupScheduleTime",
           "useSsl",
           "enableQueryDetails",
@@ -11653,6 +11692,10 @@
             "type": "string",
             "format": "time-span"
           },
+          "userRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
           "snapshotFullbackupScheduleTime": {
             "type": "string",
             "format": "time-span"
@@ -11673,6 +11716,9 @@
             "type": "string"
           },
           "logoPath": {
+            "type": "string"
+          },
+          "contentBackupStoragePath": {
             "type": "string"
           },
           "supportContactEmailAddress": {
@@ -11724,7 +11770,6 @@
           },
           "results": {
             "type": "array",
-            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/Customer"
             }
@@ -12237,32 +12282,6 @@
           }
         ]
       },
-      "SearchIndexReindexRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "numberOfShards",
-          "numberOfReplicas",
-          "numberOfRoutingShards"
-        ],
-        "properties": {
-          "searchIndexId": {
-            "type": "string"
-          },
-          "numberOfShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfReplicas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfRoutingShards": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
       "Index": {
         "type": "object",
         "additionalProperties": false,
@@ -12380,12 +12399,29 @@
           "Cancelled"
         ]
       },
-      "CustomerMetadataLanguageCreateRequest": {
+      "SearchIndexReindexRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "numberOfShards",
+          "numberOfReplicas",
+          "numberOfRoutingShards"
+        ],
         "properties": {
-          "language": {
+          "searchIndexId": {
             "type": "string"
+          },
+          "numberOfShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOfReplicas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOfRoutingShards": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },
@@ -12643,6 +12679,15 @@
           "Failed"
         ]
       },
+      "CustomerMetadataLanguageCreateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "language": {
+            "type": "string"
+          }
+        }
+      },
       "CustomerServiceProviderCreateRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -12726,6 +12771,25 @@
           }
         }
       },
+      "EnvironmentProcessSearchResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "totalResults"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EnvironmentProcess"
+            }
+          }
+        }
+      },
       "EnvironmentProcessSearchRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -12748,25 +12812,6 @@
           },
           "filter": {
             "$ref": "#/components/schemas/FilterBase"
-          }
-        }
-      },
-      "EnvironmentProcessSearchResult": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "totalResults"
-        ],
-        "properties": {
-          "totalResults": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "results": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EnvironmentProcess"
-            }
           }
         }
       },
@@ -13077,30 +13122,6 @@
           }
         }
       },
-      "ServiceProviderCreateRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "externalId": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "applicationKey": {
-            "type": "string"
-          },
-          "messageQueueUser": {
-            "type": "string"
-          },
-          "messageQueuePassword": {
-            "type": "string"
-          },
-          "baseUrl": {
-            "type": "string"
-          }
-        }
-      },
       "ServiceProvider": {
         "type": "object",
         "additionalProperties": false,
@@ -13118,6 +13139,30 @@
             "type": "string"
           },
           "virtualHost": {
+            "type": "string"
+          },
+          "baseUrl": {
+            "type": "string"
+          }
+        }
+      },
+      "ServiceProviderCreateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "externalId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "applicationKey": {
+            "type": "string"
+          },
+          "messageQueueUser": {
+            "type": "string"
+          },
+          "messageQueuePassword": {
             "type": "string"
           },
           "baseUrl": {

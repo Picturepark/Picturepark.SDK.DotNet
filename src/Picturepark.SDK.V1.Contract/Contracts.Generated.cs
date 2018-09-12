@@ -1276,529 +1276,6 @@ namespace Picturepark.SDK.V1.Contract
     
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class BusinessProcessSearchRequest 
-    {
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
-        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; } = 0;
-    
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; } = 30;
-    
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BusinessProcessSearchRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessSearchRequest>(data);
-        }
-    
-    }
-    
-    /// <summary>The FilterBase is the base class for all filters.</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
-    [JsonInheritanceAttribute("AndFilter", typeof(AndFilter))]
-    [JsonInheritanceAttribute("OrFilter", typeof(OrFilter))]
-    [JsonInheritanceAttribute("NotFilter", typeof(NotFilter))]
-    [JsonInheritanceAttribute("DateRangeFilter", typeof(DateRangeFilter))]
-    [JsonInheritanceAttribute("ExistsFilter", typeof(ExistsFilter))]
-    [JsonInheritanceAttribute("GeoBoundingBoxFilter", typeof(GeoBoundingBoxFilter))]
-    [JsonInheritanceAttribute("GeoDistanceFilter", typeof(GeoDistanceFilter))]
-    [JsonInheritanceAttribute("NestedFilter", typeof(NestedFilter))]
-    [JsonInheritanceAttribute("NumericRangeFilter", typeof(NumericRangeFilter))]
-    [JsonInheritanceAttribute("PrefixFilter", typeof(PrefixFilter))]
-    [JsonInheritanceAttribute("TermFilter", typeof(TermFilter))]
-    [JsonInheritanceAttribute("TermsFilter", typeof(TermsFilter))]
-    [JsonInheritanceAttribute("AggregationFilter", typeof(AggregationFilter))]
-    [JsonInheritanceAttribute("ChildFilter", typeof(ChildFilter))]
-    [JsonInheritanceAttribute("ParentFilter", typeof(ParentFilter))]
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class FilterBase 
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FilterBase FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FilterBase>(data);
-        }
-    
-    }
-    
-    /// <summary>The AndFilter&gt; is a compound filter and returns documents that match all of the specified filters.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class AndFilter : FilterBase
-    {
-        /// <summary>Accepts all filters.</summary>
-        [Newtonsoft.Json.JsonProperty("filters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<FilterBase> Filters { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AndFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AndFilter>(data);
-        }
-    
-    }
-    
-    /// <summary>The OrFilter is a compound filter and returns documents that match any of the specified filters.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class OrFilter : FilterBase
-    {
-        /// <summary>Accepts all filters.</summary>
-        [Newtonsoft.Json.JsonProperty("filters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<FilterBase> Filters { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static OrFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<OrFilter>(data);
-        }
-    
-    }
-    
-    /// <summary>The NotFilter is a compound filter and returns documents that do not match the specified filter.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class NotFilter : FilterBase
-    {
-        /// <summary>Limits the result set.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static NotFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotFilter>(data);
-        }
-    
-    }
-    
-    /// <summary>The DateRangeFilter returns documents with fields that have date values within a certain range.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class DateRangeFilter : FilterBase
-    {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Field { get; set; }
-    
-        /// <summary>The date range. Supported pattern: now(+-)(int)(YMDHm).</summary>
-        [Newtonsoft.Json.JsonProperty("range", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DateRange Range { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static DateRangeFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DateRangeFilter>(data);
-        }
-    
-    }
-    
-    /// <summary>The date range class used in aggregators and filters.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class DateRange 
-    {
-        /// <summary>Tranlsated range names.</summary>
-        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        /// <summary>The from value can be a datetime string or a pattern now(+-)(int)(YMDHm).</summary>
-        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string From { get; set; }
-    
-        /// <summary>The to value can be a datetime string or a pattern now(+-)(int)(YMDHm).</summary>
-        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string To { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static DateRange FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DateRange>(data);
-        }
-    
-    }
-    
-    /// <summary>A custom dictionary type to distinguish language specific class properties.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class TranslatedStringDictionary : System.Collections.Generic.Dictionary<string, string>
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static TranslatedStringDictionary FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TranslatedStringDictionary>(data);
-        }
-    
-    }
-    
-    /// <summary>The ExistsFilter returns documents that have at least one non-null value in the original field.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ExistsFilter : FilterBase
-    {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Field { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ExistsFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ExistsFilter>(data);
-        }
-    
-    }
-    
-    /// <summary>The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class GeoBoundingBoxFilter : FilterBase
-    {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Field { get; set; }
-    
-        /// <summary>The top left longitude/latitude configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("topLeft", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public GeoLocation TopLeft { get; set; }
-    
-        /// <summary>The bottom right longitude/latitude configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("bottomRight", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public GeoLocation BottomRight { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static GeoBoundingBoxFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoBoundingBoxFilter>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class GeoLocation 
-    {
-        [Newtonsoft.Json.JsonProperty("lat", Required = Newtonsoft.Json.Required.Always)]
-        public double Lat { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("lon", Required = Newtonsoft.Json.Required.Always)]
-        public double Lon { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static GeoLocation FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoLocation>(data);
-        }
-    
-    }
-    
-    /// <summary>The GeoDistanceFilter returns documents that include only hits that exists within a specific distance from a geo point.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class GeoDistanceFilter : FilterBase
-    {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Field { get; set; }
-    
-        /// <summary>The longitude/latitude configuration for the point of origin.</summary>
-        [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public GeoLocation Location { get; set; }
-    
-        /// <summary>The range distance in meters.</summary>
-        [Newtonsoft.Json.JsonProperty("distance", Required = Newtonsoft.Json.Required.Always)]
-        public double Distance { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static GeoDistanceFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoDistanceFilter>(data);
-        }
-    
-    }
-    
-    /// <summary>The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class NestedFilter : FilterBase
-    {
-        /// <summary>The path pointing to the nested object.</summary>
-        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Path { get; set; }
-    
-        /// <summary>Limits the result set.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static NestedFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NestedFilter>(data);
-        }
-    
-    }
-    
-    /// <summary>The NumericRangeFilter returns documents with fields that have numeric values within a certain range.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class NumericRangeFilter : FilterBase
-    {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Field { get; set; }
-    
-        /// <summary>The numeric range with from and to properties.</summary>
-        [Newtonsoft.Json.JsonProperty("range", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public NumericRange Range { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static NumericRangeFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRangeFilter>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class NumericRange 
-    {
-        /// <summary>Tranlsated range names.</summary>
-        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        /// <summary>The from value.</summary>
-        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? From { get; set; }
-    
-        /// <summary>The to value.</summary>
-        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? To { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static NumericRange FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRange>(data);
-        }
-    
-    }
-    
-    /// <summary>The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PrefixFilter : FilterBase
-    {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Field { get; set; }
-    
-        /// <summary>The prefix term to filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("prefix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Prefix { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static PrefixFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<PrefixFilter>(data);
-        }
-    
-    }
-    
-    /// <summary>The TermFilter returns documents that contain the exact term specified in the inverted index.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class TermFilter : FilterBase
-    {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Field { get; set; }
-    
-        /// <summary>The term to filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("term", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Term { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static TermFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermFilter>(data);
-        }
-    
-    }
-    
-    /// <summary>The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class TermsFilter : FilterBase
-    {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Field { get; set; }
-    
-        /// <summary>A list of OR combined terms.</summary>
-        [Newtonsoft.Json.JsonProperty("terms", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Terms { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static TermsFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermsFilter>(data);
-        }
-    
-    }
-    
-    /// <summary>An AggregationFilter is provided with each aggregated value.
-    /// When selecting the aggregated value the aggregation filter is added to the search query and returns documents meeting the aggregation condition.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class AggregationFilter : FilterBase
-    {
-        /// <summary>The name of the aggregation this filter is connected to.</summary>
-        [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AggregationName { get; set; }
-    
-        /// <summary>The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter, GeoDistanceFilter and NestedFilter.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("temporaryAggregatorRequestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TemporaryAggregatorRequestId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AggregationFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationFilter>(data);
-        }
-    
-    }
-    
-    /// <summary>The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ChildFilter : FilterBase
-    {
-        /// <summary>The elastic search index type to filter as a child.</summary>
-        [Newtonsoft.Json.JsonProperty("childType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ChildType { get; set; }
-    
-        /// <summary>The filter to apply on the child entity. It accepts all filters.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ChildFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ChildFilter>(data);
-        }
-    
-    }
-    
-    /// <summary>The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ParentFilter : FilterBase
-    {
-        /// <summary>The elastic search index type to filter as a parent.</summary>
-        [Newtonsoft.Json.JsonProperty("parentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ParentType { get; set; }
-    
-        /// <summary>The filter to apply on the child entity. It accepts all filters.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ParentFilter FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ParentFilter>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum SearchBehaviour
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "DropInvalidCharactersOnFailure")]
-        DropInvalidCharactersOnFailure = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "WildcardOnSingleTerm")]
-        WildcardOnSingleTerm = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BaseResultOfBusinessProcess 
     {
         [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
@@ -2255,6 +1732,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
     [JsonInheritanceAttribute("ContentLayerInvalidException", typeof(ContentLayerInvalidException))]
     [JsonInheritanceAttribute("ContentFileReplaceTypeMismatchException", typeof(ContentFileReplaceTypeMismatchException))]
+    [JsonInheritanceAttribute("ContentBackupFailedException", typeof(ContentBackupFailedException))]
     [JsonInheritanceAttribute("BusinessProcessWaitTimeoutException", typeof(BusinessProcessWaitTimeoutException))]
     [JsonInheritanceAttribute("BusinessProcessEngineRequestException", typeof(BusinessProcessEngineRequestException))]
     [JsonInheritanceAttribute("BusinessProcessNotFoundException", typeof(BusinessProcessNotFoundException))]
@@ -5691,6 +5169,31 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ContentBackupFailedException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("outputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentBackupFailedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupFailedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class BusinessProcessWaitTimeoutException : PictureparkTimeoutException
     {
         [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -6092,6 +5595,529 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessLifeCycleNotHitException>(data);
         }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BusinessProcessSearchRequest 
+    {
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
+        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; } = 0;
+    
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessSearchRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>The FilterBase is the base class for all filters.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("AndFilter", typeof(AndFilter))]
+    [JsonInheritanceAttribute("OrFilter", typeof(OrFilter))]
+    [JsonInheritanceAttribute("NotFilter", typeof(NotFilter))]
+    [JsonInheritanceAttribute("DateRangeFilter", typeof(DateRangeFilter))]
+    [JsonInheritanceAttribute("ExistsFilter", typeof(ExistsFilter))]
+    [JsonInheritanceAttribute("GeoBoundingBoxFilter", typeof(GeoBoundingBoxFilter))]
+    [JsonInheritanceAttribute("GeoDistanceFilter", typeof(GeoDistanceFilter))]
+    [JsonInheritanceAttribute("NestedFilter", typeof(NestedFilter))]
+    [JsonInheritanceAttribute("NumericRangeFilter", typeof(NumericRangeFilter))]
+    [JsonInheritanceAttribute("PrefixFilter", typeof(PrefixFilter))]
+    [JsonInheritanceAttribute("TermFilter", typeof(TermFilter))]
+    [JsonInheritanceAttribute("TermsFilter", typeof(TermsFilter))]
+    [JsonInheritanceAttribute("AggregationFilter", typeof(AggregationFilter))]
+    [JsonInheritanceAttribute("ChildFilter", typeof(ChildFilter))]
+    [JsonInheritanceAttribute("ParentFilter", typeof(ParentFilter))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class FilterBase 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FilterBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FilterBase>(data);
+        }
+    
+    }
+    
+    /// <summary>The AndFilter&gt; is a compound filter and returns documents that match all of the specified filters.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class AndFilter : FilterBase
+    {
+        /// <summary>Accepts all filters.</summary>
+        [Newtonsoft.Json.JsonProperty("filters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<FilterBase> Filters { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AndFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AndFilter>(data);
+        }
+    
+    }
+    
+    /// <summary>The OrFilter is a compound filter and returns documents that match any of the specified filters.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class OrFilter : FilterBase
+    {
+        /// <summary>Accepts all filters.</summary>
+        [Newtonsoft.Json.JsonProperty("filters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<FilterBase> Filters { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OrFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OrFilter>(data);
+        }
+    
+    }
+    
+    /// <summary>The NotFilter is a compound filter and returns documents that do not match the specified filter.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class NotFilter : FilterBase
+    {
+        /// <summary>Limits the result set.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static NotFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotFilter>(data);
+        }
+    
+    }
+    
+    /// <summary>The DateRangeFilter returns documents with fields that have date values within a certain range.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DateRangeFilter : FilterBase
+    {
+        /// <summary>The elastic search index field to execute the filter on.</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Field { get; set; }
+    
+        /// <summary>The date range. Supported pattern: now(+-)(int)(YMDHm).</summary>
+        [Newtonsoft.Json.JsonProperty("range", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public DateRange Range { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DateRangeFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DateRangeFilter>(data);
+        }
+    
+    }
+    
+    /// <summary>The date range class used in aggregators and filters.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DateRange 
+    {
+        /// <summary>Tranlsated range names.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        /// <summary>The from value can be a datetime string or a pattern now(+-)(int)(YMDHm).</summary>
+        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string From { get; set; }
+    
+        /// <summary>The to value can be a datetime string or a pattern now(+-)(int)(YMDHm).</summary>
+        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string To { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DateRange FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DateRange>(data);
+        }
+    
+    }
+    
+    /// <summary>A custom dictionary type to distinguish language specific class properties.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class TranslatedStringDictionary : System.Collections.Generic.Dictionary<string, string>
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TranslatedStringDictionary FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TranslatedStringDictionary>(data);
+        }
+    
+    }
+    
+    /// <summary>The ExistsFilter returns documents that have at least one non-null value in the original field.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ExistsFilter : FilterBase
+    {
+        /// <summary>The elastic search index field to execute the filter on.</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Field { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ExistsFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ExistsFilter>(data);
+        }
+    
+    }
+    
+    /// <summary>The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class GeoBoundingBoxFilter : FilterBase
+    {
+        /// <summary>The elastic search index field to execute the filter on.</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Field { get; set; }
+    
+        /// <summary>The top left longitude/latitude configuration.</summary>
+        [Newtonsoft.Json.JsonProperty("topLeft", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public GeoLocation TopLeft { get; set; }
+    
+        /// <summary>The bottom right longitude/latitude configuration.</summary>
+        [Newtonsoft.Json.JsonProperty("bottomRight", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public GeoLocation BottomRight { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static GeoBoundingBoxFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoBoundingBoxFilter>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class GeoLocation 
+    {
+        [Newtonsoft.Json.JsonProperty("lat", Required = Newtonsoft.Json.Required.Always)]
+        public double Lat { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("lon", Required = Newtonsoft.Json.Required.Always)]
+        public double Lon { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static GeoLocation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoLocation>(data);
+        }
+    
+    }
+    
+    /// <summary>The GeoDistanceFilter returns documents that include only hits that exists within a specific distance from a geo point.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class GeoDistanceFilter : FilterBase
+    {
+        /// <summary>The elastic search index field to execute the filter on.</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Field { get; set; }
+    
+        /// <summary>The longitude/latitude configuration for the point of origin.</summary>
+        [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public GeoLocation Location { get; set; }
+    
+        /// <summary>The range distance in meters.</summary>
+        [Newtonsoft.Json.JsonProperty("distance", Required = Newtonsoft.Json.Required.Always)]
+        public double Distance { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static GeoDistanceFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoDistanceFilter>(data);
+        }
+    
+    }
+    
+    /// <summary>The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class NestedFilter : FilterBase
+    {
+        /// <summary>The path pointing to the nested object.</summary>
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+    
+        /// <summary>Limits the result set.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static NestedFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NestedFilter>(data);
+        }
+    
+    }
+    
+    /// <summary>The NumericRangeFilter returns documents with fields that have numeric values within a certain range.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class NumericRangeFilter : FilterBase
+    {
+        /// <summary>The elastic search index field to execute the filter on.</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Field { get; set; }
+    
+        /// <summary>The numeric range with from and to properties.</summary>
+        [Newtonsoft.Json.JsonProperty("range", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public NumericRange Range { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static NumericRangeFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRangeFilter>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class NumericRange 
+    {
+        /// <summary>Tranlsated range names.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        /// <summary>The from value.</summary>
+        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? From { get; set; }
+    
+        /// <summary>The to value.</summary>
+        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? To { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static NumericRange FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRange>(data);
+        }
+    
+    }
+    
+    /// <summary>The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PrefixFilter : FilterBase
+    {
+        /// <summary>The elastic search index field to execute the filter on.</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Field { get; set; }
+    
+        /// <summary>The prefix term to filter on.</summary>
+        [Newtonsoft.Json.JsonProperty("prefix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Prefix { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PrefixFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PrefixFilter>(data);
+        }
+    
+    }
+    
+    /// <summary>The TermFilter returns documents that contain the exact term specified in the inverted index.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class TermFilter : FilterBase
+    {
+        /// <summary>The elastic search index field to execute the filter on.</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Field { get; set; }
+    
+        /// <summary>The term to filter on.</summary>
+        [Newtonsoft.Json.JsonProperty("term", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Term { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TermFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermFilter>(data);
+        }
+    
+    }
+    
+    /// <summary>The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class TermsFilter : FilterBase
+    {
+        /// <summary>The elastic search index field to execute the filter on.</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Field { get; set; }
+    
+        /// <summary>A list of OR combined terms.</summary>
+        [Newtonsoft.Json.JsonProperty("terms", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Terms { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TermsFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermsFilter>(data);
+        }
+    
+    }
+    
+    /// <summary>An AggregationFilter is provided with each aggregated value.
+    /// When selecting the aggregated value the aggregation filter is added to the search query and returns documents meeting the aggregation condition.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class AggregationFilter : FilterBase
+    {
+        /// <summary>The name of the aggregation this filter is connected to.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AggregationName { get; set; }
+    
+        /// <summary>The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter, GeoDistanceFilter and NestedFilter.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("temporaryAggregatorRequestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TemporaryAggregatorRequestId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AggregationFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationFilter>(data);
+        }
+    
+    }
+    
+    /// <summary>The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ChildFilter : FilterBase
+    {
+        /// <summary>The elastic search index type to filter as a child.</summary>
+        [Newtonsoft.Json.JsonProperty("childType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ChildType { get; set; }
+    
+        /// <summary>The filter to apply on the child entity. It accepts all filters.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ChildFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ChildFilter>(data);
+        }
+    
+    }
+    
+    /// <summary>The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ParentFilter : FilterBase
+    {
+        /// <summary>The elastic search index type to filter as a parent.</summary>
+        [Newtonsoft.Json.JsonProperty("parentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ParentType { get; set; }
+    
+        /// <summary>The filter to apply on the child entity. It accepts all filters.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ParentFilter FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ParentFilter>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum SearchBehaviour
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "DropInvalidCharactersOnFailure")]
+        DropInvalidCharactersOnFailure = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "WildcardOnSingleTerm")]
+        WildcardOnSingleTerm = 1,
     
     }
     
@@ -6910,35 +6936,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum ContentResolveBehaviour
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Content")]
-        Content = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "LinkedListItems")]
-        LinkedListItems = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Metadata")]
-        Metadata = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Outputs")]
-        Outputs = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueThumbnail")]
-        InnerDisplayValueThumbnail = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueList")]
-        InnerDisplayValueList = 5,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueDetail")]
-        InnerDisplayValueDetail = 6,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueName")]
-        InnerDisplayValueName = 7,
-    
-    }
-    
     /// <summary>A content detail.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentDetail 
@@ -7295,6 +7292,153 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ContentResolveBehaviour
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Content")]
+        Content = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "LinkedListItems")]
+        LinkedListItems = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Metadata")]
+        Metadata = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Outputs")]
+        Outputs = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueThumbnail")]
+        InnerDisplayValueThumbnail = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueList")]
+        InnerDisplayValueList = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueDetail")]
+        InnerDisplayValueDetail = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueName")]
+        InnerDisplayValueName = 7,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BaseResultOfContent 
+    {
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<Content> Results { get; set; } = new System.Collections.Generic.List<Content>();
+    
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueryDebugInformation QueryDebugInformation { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfContent FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfContent>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SearchBehaviourBaseResultOfContent : BaseResultOfContent
+    {
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsSearchStringRewritten { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SearchBehaviourBaseResultOfContent FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviourBaseResultOfContent>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentSearchResult : SearchBehaviourBaseResultOfContent
+    {
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSearchResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class Content 
+    {
+        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserAudit Audit { get; set; }
+    
+        /// <summary>The id of the schema with schema type content.</summary>
+        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentSchemaId { get; set; }
+    
+        /// <summary>The content type of this content. All except ContentItem are binary files.</summary>
+        [Newtonsoft.Json.JsonProperty("contentType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ContentType ContentType { get; set; }
+    
+        /// <summary>An optional id list of schemas with schema type layer.</summary>
+        [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
+    
+        /// <summary>Contains display values of the specified language, rendered according to the content schema's display pattern configuration.</summary>
+        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, string> DisplayValues { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        /// <summary>All the ids of the broken references (tagboxes)</summary>
+        [Newtonsoft.Json.JsonProperty("brokenReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> BrokenReferenceIds { get; set; }
+    
+        /// <summary>All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)</summary>
+        [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> BrokenIndirectReferenceIds { get; set; }
+    
+        /// <summary>All the target ids of the broken relations</summary>
+        [Newtonsoft.Json.JsonProperty("brokenRelationTargetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> BrokenRelationTargetIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static Content FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Content>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentSearchRequest 
     {
         /// <summary>Limits the simple search fields to the fields available in the specified channel.</summary>
@@ -7444,198 +7588,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class BaseResultOfContent 
-    {
-        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
-        public long TotalResults { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<Content> Results { get; set; } = new System.Collections.Generic.List<Content>();
-    
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public QueryDebugInformation QueryDebugInformation { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BaseResultOfContent FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfContent>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SearchBehaviourBaseResultOfContent : BaseResultOfContent
-    {
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsSearchStringRewritten { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static SearchBehaviourBaseResultOfContent FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviourBaseResultOfContent>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentSearchResult : SearchBehaviourBaseResultOfContent
-    {
-        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
-        public long ElapsedMilliseconds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ContentSearchResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSearchResult>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class Content 
-    {
-        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserAudit Audit { get; set; }
-    
-        /// <summary>The id of the schema with schema type content.</summary>
-        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentSchemaId { get; set; }
-    
-        /// <summary>An optional id list of schemas with schema type layer.</summary>
-        [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
-    
-        /// <summary>Contains display values of the specified language, rendered according to the content schema's display pattern configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.IDictionary<string, string> DisplayValues { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        /// <summary>All the ids of the broken references (tagboxes)</summary>
-        [Newtonsoft.Json.JsonProperty("brokenReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> BrokenReferenceIds { get; set; }
-    
-        /// <summary>All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)</summary>
-        [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> BrokenIndirectReferenceIds { get; set; }
-    
-        /// <summary>All the target ids of the broken relations</summary>
-        [Newtonsoft.Json.JsonProperty("brokenRelationTargetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> BrokenRelationTargetIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static Content FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Content>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentAggregationOnChannelRequest 
-    {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
-        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
-    
-        /// <summary>An optional search filter. Limits the content document result set.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        /// <summary>Special filters used to filter down on a specific aggregated value.</summary>
-        [Newtonsoft.Json.JsonProperty("aggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AggregationFilter> AggregationFilters { get; set; }
-    
-        /// <summary>Limits the simple search fields to the fields available in the specified channel and retrieve the existing aggregation for it.</summary>
-        [Newtonsoft.Json.JsonProperty("channelId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ChannelId { get; set; }
-    
-        /// <summary>Only searches the specified language values. Defaults to all metadata languages in configured within the customer's language configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
-    
-        /// <summary>The collection id.</summary>
-        [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CollectionId { get; set; }
-    
-        /// <summary>Limits the content document result set to that life cycle state. Defaults to ActiveOnly.</summary>
-        [Newtonsoft.Json.JsonProperty("lifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public LifeCycleFilter LifeCycleFilter { get; set; }
-    
-        /// <summary>Filter the content document result set to those that have or not have broken references</summary>
-        [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }
-    
-        /// <summary>Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.</summary>
-        [Newtonsoft.Json.JsonProperty("searchType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ContentSearchType SearchType { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ContentAggregationOnChannelRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentAggregationOnChannelRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentAggregationRequest : ContentAggregationOnChannelRequest
-    {
-        /// <summary>Defines the aggregation resultset.</summary>
-        [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ContentAggregationRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentAggregationRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ObjectAggregationResult 
     {
         /// <summary>How long did the search and aggregation take.</summary>
@@ -7722,40 +7674,81 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentReferencesRequest 
+    public partial class ContentAggregationOnChannelRequest 
     {
-        [Newtonsoft.Json.JsonProperty("shares", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PagingRequest Shares { get; set; }
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
+        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
+    
+        /// <summary>An optional search filter. Limits the content document result set.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        /// <summary>Special filters used to filter down on a specific aggregated value.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregationFilter> AggregationFilters { get; set; }
+    
+        /// <summary>Limits the simple search fields to the fields available in the specified channel and retrieve the existing aggregation for it.</summary>
+        [Newtonsoft.Json.JsonProperty("channelId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ChannelId { get; set; }
+    
+        /// <summary>Only searches the specified language values. Defaults to all metadata languages in configured within the customer's language configuration.</summary>
+        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
+    
+        /// <summary>The collection id.</summary>
+        [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CollectionId { get; set; }
+    
+        /// <summary>Limits the content document result set to that life cycle state. Defaults to ActiveOnly.</summary>
+        [Newtonsoft.Json.JsonProperty("lifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public LifeCycleFilter LifeCycleFilter { get; set; }
+    
+        /// <summary>Filter the content document result set to those that have or not have broken references</summary>
+        [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }
+    
+        /// <summary>Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.</summary>
+        [Newtonsoft.Json.JsonProperty("searchType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ContentSearchType SearchType { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ContentReferencesRequest FromJson(string data)
+        public static ContentAggregationOnChannelRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentReferencesRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentAggregationOnChannelRequest>(data);
         }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PagingRequest 
+    public partial class ContentAggregationRequest : ContentAggregationOnChannelRequest
     {
-        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; }
+        /// <summary>Defines the aggregation resultset.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static PagingRequest FromJson(string data)
+        public static ContentAggregationRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<PagingRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentAggregationRequest>(data);
         }
     
     }
@@ -7934,6 +7927,45 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentReferencesRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("shares", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PagingRequest Shares { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentReferencesRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentReferencesRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PagingRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PagingRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PagingRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentManyReferencesRequest 
     {
         [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -7950,6 +7982,27 @@ namespace Picturepark.SDK.V1.Contract
         public static ContentManyReferencesRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentManyReferencesRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DownloadLink 
+    {
+        [Newtonsoft.Json.JsonProperty("downloadToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DownloadToken { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("downloadUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DownloadUrl { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DownloadLink FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DownloadLink>(data);
         }
     
     }
@@ -7989,27 +8042,6 @@ namespace Picturepark.SDK.V1.Contract
         public static ContentDownloadRequestItem FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDownloadRequestItem>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class DownloadLink 
-    {
-        [Newtonsoft.Json.JsonProperty("downloadToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DownloadToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("downloadUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DownloadUrl { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static DownloadLink FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DownloadLink>(data);
         }
     
     }
@@ -8661,65 +8693,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class PermissionSetSearchRequest 
-    {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
-        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
-    
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
-        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; } = 0;
-    
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; } = 30;
-    
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("rightFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PermissionSetRight? RightFilter { get; set; }
-    
-        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
-        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
-        public bool DebugMode { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static PermissionSetSearchRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetSearchRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum PermissionSetRight
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Apply")]
-        Apply = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Manage")]
-        Manage = 1,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BaseResultOfPermissionSet 
     {
         [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
@@ -8810,6 +8783,65 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSet>(data);
         }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class PermissionSetSearchRequest 
+    {
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
+        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
+    
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
+        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; } = 0;
+    
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rightFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public PermissionSetRight? RightFilter { get; set; }
+    
+        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
+        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
+        public bool DebugMode { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static PermissionSetSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetSearchRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum PermissionSetRight
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Apply")]
+        Apply = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Manage")]
+        Manage = 1,
     
     }
     
@@ -8905,55 +8937,6 @@ namespace Picturepark.SDK.V1.Contract
         public static PermissionUserRoleRightsOfPermissionSetRight FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionUserRoleRightsOfPermissionSetRight>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class DocumentHistorySearchRequest 
-    {
-        /// <summary>Limits the start date of the search request. Default to last 1 year.</summary>
-        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTime From { get; set; }
-    
-        /// <summary>Limits the end date of the search request. Default to now.</summary>
-        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTime To { get; set; }
-    
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; } = 30;
-    
-        /// <summary>To get a large amount of data, page token returned from the response can be used to get all data.</summary>
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        /// <summary>Limits the search to a specific document id. E.g. ContentId</summary>
-        [Newtonsoft.Json.JsonProperty("documentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DocumentId { get; set; }
-    
-        /// <summary>The document version to search. Default to -1 to not limit to a specific document version.</summary>
-        [Newtonsoft.Json.JsonProperty("documentVersion", Required = Newtonsoft.Json.Required.Always)]
-        public long DocumentVersion { get; set; } = -1L;
-    
-        /// <summary>Limits the search to a specifc document type.</summary>
-        [Newtonsoft.Json.JsonProperty("documentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DocumentType { get; set; }
-    
-        /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
-        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SortInfo Sort { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static DocumentHistorySearchRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentHistorySearchRequest>(data);
         }
     
     }
@@ -9076,6 +9059,55 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = "Deactivate")]
         Deactivate = 4,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DocumentHistorySearchRequest 
+    {
+        /// <summary>Limits the start date of the search request. Default to last 1 year.</summary>
+        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime From { get; set; }
+    
+        /// <summary>Limits the end date of the search request. Default to now.</summary>
+        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime To { get; set; }
+    
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        /// <summary>To get a large amount of data, page token returned from the response can be used to get all data.</summary>
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        /// <summary>Limits the search to a specific document id. E.g. ContentId</summary>
+        [Newtonsoft.Json.JsonProperty("documentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DocumentId { get; set; }
+    
+        /// <summary>The document version to search. Default to -1 to not limit to a specific document version.</summary>
+        [Newtonsoft.Json.JsonProperty("documentVersion", Required = Newtonsoft.Json.Required.Always)]
+        public long DocumentVersion { get; set; } = -1L;
+    
+        /// <summary>Limits the search to a specifc document type.</summary>
+        [Newtonsoft.Json.JsonProperty("documentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DocumentType { get; set; }
+    
+        /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public SortInfo Sort { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static DocumentHistorySearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentHistorySearchRequest>(data);
+        }
     
     }
     
@@ -9226,29 +9258,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum ListItemResolveBehaviour
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "Content")]
-        Content = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "LinkedListItems")]
-        LinkedListItems = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueThumbnail")]
-        InnerDisplayValueThumbnail = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueList")]
-        InnerDisplayValueList = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueDetail")]
-        InnerDisplayValueDetail = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueName")]
-        InnerDisplayValueName = 5,
-    
-    }
-    
     /// <summary>The detail view item for the list item.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ListItemDetail 
@@ -9277,6 +9286,105 @@ namespace Picturepark.SDK.V1.Contract
         public static ListItemDetail FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemDetail>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ListItemResolveBehaviour
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Content")]
+        Content = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "LinkedListItems")]
+        LinkedListItems = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueThumbnail")]
+        InnerDisplayValueThumbnail = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueList")]
+        InnerDisplayValueList = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueDetail")]
+        InnerDisplayValueDetail = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueName")]
+        InnerDisplayValueName = 5,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BaseResultOfListItem 
+    {
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<ListItem> Results { get; set; } = new System.Collections.Generic.List<ListItem>();
+    
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueryDebugInformation QueryDebugInformation { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfListItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfListItem>(data);
+        }
+    
+    }
+    
+    /// <summary>Encapsulates the result of a list item search.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ListItemSearchResult : BaseResultOfListItem
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemSearchResult>(data);
+        }
+    
+    }
+    
+    /// <summary>A document stored in the elastic search metadata index, with fields corresponding to the the schemantics of its underlying list schema.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ListItem 
+    {
+        /// <summary>The content data of the list item.</summary>
+        [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Content { get; set; }
+    
+        /// <summary>The id of the schema with schema type list.</summary>
+        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentSchemaId { get; set; }
+    
+        /// <summary>Contains language specific display values, rendered according to the list schema's display pattern configuration.</summary>
+        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public DisplayValueDictionary DisplayValues { get; set; }
+    
+        /// <summary>The list item id.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItem>(data);
         }
     
     }
@@ -9356,82 +9464,6 @@ namespace Picturepark.SDK.V1.Contract
         public static ListItemSearchRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemSearchRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class BaseResultOfListItem 
-    {
-        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
-        public long TotalResults { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<ListItem> Results { get; set; } = new System.Collections.Generic.List<ListItem>();
-    
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public QueryDebugInformation QueryDebugInformation { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BaseResultOfListItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfListItem>(data);
-        }
-    
-    }
-    
-    /// <summary>Encapsulates the result of a list item search.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ListItemSearchResult : BaseResultOfListItem
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ListItemSearchResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemSearchResult>(data);
-        }
-    
-    }
-    
-    /// <summary>A document stored in the elastic search metadata index, with fields corresponding to the the schemantics of its underlying list schema.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ListItem 
-    {
-        /// <summary>The content data of the list item.</summary>
-        [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object Content { get; set; }
-    
-        /// <summary>The id of the schema with schema type list.</summary>
-        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentSchemaId { get; set; }
-    
-        /// <summary>Contains language specific display values, rendered according to the list schema's display pattern configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DisplayValueDictionary DisplayValues { get; set; }
-    
-        /// <summary>The list item id.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ListItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItem>(data);
         }
     
     }
@@ -9772,39 +9804,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class LiveStreamSearchRequest 
-    {
-        /// <summary>Limits the start date of the search request.</summary>
-        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTime From { get; set; }
-    
-        /// <summary>Limits the end date of the search request.</summary>
-        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTime To { get; set; }
-    
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; } = 30;
-    
-        /// <summary>To get a large amount of data, page token returned from the response can be used to get all data.</summary>
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static LiveStreamSearchRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<LiveStreamSearchRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BaseResultOfObject 
     {
         [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
@@ -9867,6 +9866,39 @@ namespace Picturepark.SDK.V1.Contract
         public static ObjectSearchResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectSearchResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class LiveStreamSearchRequest 
+    {
+        /// <summary>Limits the start date of the search request.</summary>
+        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime From { get; set; }
+    
+        /// <summary>Limits the end date of the search request.</summary>
+        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime To { get; set; }
+    
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        /// <summary>To get a large amount of data, page token returned from the response can be used to get all data.</summary>
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static LiveStreamSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LiveStreamSearchRequest>(data);
         }
     
     }
@@ -10457,45 +10489,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class OutputSearchRequest 
-    {
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
-        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; } = 0;
-    
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; } = 30;
-    
-        /// <summary>List of Content ids you want to use to fetch the outputs.</summary>
-        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
-    
-        /// <summary>The allowed rendering states of the outputs you want to fetch.</summary>
-        [Newtonsoft.Json.JsonProperty("renderingStates", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<OutputRenderingState> RenderingStates { get; set; }
-    
-        /// <summary>The file extension of the outputs you want to fetch.</summary>
-        [Newtonsoft.Json.JsonProperty("fileExtensions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> FileExtensions { get; set; }
-    
-        /// <summary>The output format id of the outputs you want to fetch.</summary>
-        [Newtonsoft.Json.JsonProperty("outputFormatIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> OutputFormatIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static OutputSearchRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputSearchRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BaseResultOfOutput 
     {
         [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
@@ -10534,6 +10527,45 @@ namespace Picturepark.SDK.V1.Contract
         public static OutputSearchResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputSearchResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class OutputSearchRequest 
+    {
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
+        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; } = 0;
+    
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        /// <summary>List of Content ids you want to use to fetch the outputs.</summary>
+        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
+    
+        /// <summary>The allowed rendering states of the outputs you want to fetch.</summary>
+        [Newtonsoft.Json.JsonProperty("renderingStates", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<OutputRenderingState> RenderingStates { get; set; }
+    
+        /// <summary>The file extension of the outputs you want to fetch.</summary>
+        [Newtonsoft.Json.JsonProperty("fileExtensions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> FileExtensions { get; set; }
+    
+        /// <summary>The output format id of the outputs you want to fetch.</summary>
+        [Newtonsoft.Json.JsonProperty("outputFormatIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> OutputFormatIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputSearchRequest>(data);
         }
     
     }
@@ -12314,52 +12346,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SchemaSearchRequest 
-    {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
-        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
-    
-        /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
-        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
-    
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
-        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; } = 0;
-    
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; } = 30;
-    
-        /// <summary>An optional search filter. Limits the schema result set.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
-        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
-        public bool DebugMode { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static SchemaSearchRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaSearchRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BaseResultOfSchema 
     {
         [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
@@ -12479,19 +12465,47 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class IndexFieldsSearchBySchemaIdsRequest 
+    public partial class SchemaSearchRequest 
     {
-        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
+        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
+    
+        /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
+    
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
+        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; } = 0;
+    
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        /// <summary>An optional search filter. Limits the schema result set.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
+        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
+        public bool DebugMode { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static IndexFieldsSearchBySchemaIdsRequest FromJson(string data)
+        public static SchemaSearchRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexFieldsSearchBySchemaIdsRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaSearchRequest>(data);
         }
     
     }
@@ -12548,6 +12562,24 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class IndexFieldsSearchBySchemaIdsRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static IndexFieldsSearchBySchemaIdsRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexFieldsSearchBySchemaIdsRequest>(data);
+        }
+    
+    }
+    
     /// <summary>Response that tells if exists</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ExistsResponse 
@@ -12564,6 +12596,24 @@ namespace Picturepark.SDK.V1.Contract
         public static ExistsResponse FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ExistsResponse>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SchemaCreateResult 
+    {
+        [Newtonsoft.Json.JsonProperty("schema", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public SchemaDetail Schema { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaCreateResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaCreateResult>(data);
         }
     
     }
@@ -12640,7 +12690,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SchemaCreateResult 
+    public partial class SchemaUpdateResult 
     {
         [Newtonsoft.Json.JsonProperty("schema", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SchemaDetail Schema { get; set; }
@@ -12650,9 +12700,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static SchemaCreateResult FromJson(string data)
+        public static SchemaUpdateResult FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaCreateResult>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaUpdateResult>(data);
         }
     
     }
@@ -12716,24 +12766,6 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaUpdateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaUpdateRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SchemaUpdateResult 
-    {
-        [Newtonsoft.Json.JsonProperty("schema", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SchemaDetail Schema { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static SchemaUpdateResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaUpdateResult>(data);
         }
     
     }
@@ -12839,34 +12871,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Schema import request</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SchemaImportRequest 
-    {
-        /// <summary>Id of the previously uploaded file transfer</summary>
-        [Newtonsoft.Json.JsonProperty("fileTransferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FileTransferId { get; set; }
-    
-        /// <summary>Allow creating list items that refer to list items or contents that don't exist in the system.</summary>
-        [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
-        public bool AllowMissingDependencies { get; set; }
-    
-        /// <summary>Import the list items for the schema.</summary>
-        [Newtonsoft.Json.JsonProperty("importListItems", Required = Newtonsoft.Json.Required.Always)]
-        public bool ImportListItems { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static SchemaImportRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaImportRequest>(data);
-        }
-    
-    }
-    
     /// <summary>Represents a transfer.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class Transfer 
@@ -12913,6 +12917,34 @@ namespace Picturepark.SDK.V1.Contract
         public static Transfer FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<Transfer>(data);
+        }
+    
+    }
+    
+    /// <summary>Schema import request</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class SchemaImportRequest 
+    {
+        /// <summary>Id of the previously uploaded file transfer</summary>
+        [Newtonsoft.Json.JsonProperty("fileTransferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileTransferId { get; set; }
+    
+        /// <summary>Allow creating list items that refer to list items or contents that don't exist in the system.</summary>
+        [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowMissingDependencies { get; set; }
+    
+        /// <summary>Import the list items for the schema.</summary>
+        [Newtonsoft.Json.JsonProperty("importListItems", Required = Newtonsoft.Json.Required.Always)]
+        public bool ImportListItems { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static SchemaImportRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaImportRequest>(data);
         }
     
     }
@@ -12964,49 +12996,6 @@ namespace Picturepark.SDK.V1.Contract
         public static ServiceProviderConfigurationUpdateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ServiceProviderConfigurationUpdateRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ShareSearchRequest 
-    {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
-        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
-    
-        /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
-        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
-    
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
-        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; } = 0;
-    
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; } = 30;
-    
-        /// <summary>An optional search filter. Limits the share document result set.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
-        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
-        public bool DebugMode { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ShareSearchRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareSearchRequest>(data);
         }
     
     }
@@ -13117,6 +13106,49 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ShareSearchRequest 
+    {
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
+        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
+    
+        /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
+    
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
+        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; } = 0;
+    
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        /// <summary>An optional search filter. Limits the share document result set.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
+        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
+        public bool DebugMode { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ShareSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareSearchRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareAggregationRequest 
     {
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -13147,6 +13179,24 @@ namespace Picturepark.SDK.V1.Contract
         public static ShareAggregationRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareAggregationRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class CreateShareResult 
+    {
+        [Newtonsoft.Json.JsonProperty("shareId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ShareId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static CreateShareResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CreateShareResult>(data);
         }
     
     }
@@ -13282,24 +13332,6 @@ namespace Picturepark.SDK.V1.Contract
         public static ShareEmbedCreateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareEmbedCreateRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class CreateShareResult 
-    {
-        [Newtonsoft.Json.JsonProperty("shareId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ShareId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static CreateShareResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CreateShareResult>(data);
         }
     
     }
@@ -13446,37 +13478,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Request to search for transfers.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class TransferSearchRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; } = 0;
-    
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; } = 30;
-    
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static TransferSearchRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TransferSearchRequest>(data);
-        }
-    
-    }
-    
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BaseResultOfTransfer 
     {
@@ -13542,6 +13543,37 @@ namespace Picturepark.SDK.V1.Contract
         public static TransferSearchResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<TransferSearchResult>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to search for transfers.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class TransferSearchRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; } = 0;
+    
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TransferSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TransferSearchRequest>(data);
         }
     
     }
@@ -14203,37 +14235,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Request to search for file transfers.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class FileTransferSearchRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; } = 0;
-    
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; } = 30;
-    
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static FileTransferSearchRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileTransferSearchRequest>(data);
-        }
-    
-    }
-    
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BaseResultOfFileTransfer 
     {
@@ -14299,6 +14300,37 @@ namespace Picturepark.SDK.V1.Contract
         public static FileTransferSearchResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<FileTransferSearchResult>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to search for file transfers.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class FileTransferSearchRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; } = 0;
+    
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static FileTransferSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileTransferSearchRequest>(data);
         }
     
     }
@@ -14449,47 +14481,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Holds information needed for user creation.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class UserCreateRequest 
-    {
-        /// <summary>User's first name.</summary>
-        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FirstName { get; set; }
-    
-        /// <summary>User's last name.</summary>
-        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LastName { get; set; }
-    
-        /// <summary>Email address of the user (doubles as username).</summary>
-        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string EmailAddress { get; set; }
-    
-        /// <summary>Preferred language, e.g. for correspondence.</summary>
-        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LanguageCode { get; set; }
-    
-        /// <summary>IDs of user roles the user is assigned to.</summary>
-        [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
-    
-        /// <summary>User address.</summary>
-        [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserAddress Address { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static UserCreateRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserCreateRequest>(data);
-        }
-    
-    }
-    
     /// <summary>Represents the updateable fields of the user.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserUpdateRequest : User
@@ -14585,59 +14576,43 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Represents user search request.</summary>
+    /// <summary>Holds information needed for user creation.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class UserSearchRequest 
+    public partial class UserCreateRequest 
     {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
+        /// <summary>User's first name.</summary>
+        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FirstName { get; set; }
     
-        /// <summary>An optional list of search behaviors. All the passed behaviors will be applied.</summary>
-        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
+        /// <summary>User's last name.</summary>
+        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LastName { get; set; }
     
-        /// <summary>Fields and respective directions requested to sort the search results.</summary>
-        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
+        /// <summary>Email address of the user (doubles as username).</summary>
+        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string EmailAddress { get; set; }
     
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
-        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; } = 0;
+        /// <summary>Preferred language, e.g. for correspondence.</summary>
+        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LanguageCode { get; set; }
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; } = 30;
+        /// <summary>IDs of user roles the user is assigned to.</summary>
+        [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
     
-        /// <summary>Filter applied to users.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        /// <summary>Return only users in certain life cycle state(s).</summary>
-        [Newtonsoft.Json.JsonProperty("lifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public LifeCycleFilter LifeCycleFilter { get; set; }
-    
-        /// <summary>Return only users with certain user rights.</summary>
-        [Newtonsoft.Json.JsonProperty("userRightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<UserRight> UserRightsFilter { get; set; }
-    
-        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance.</summary>
-        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
-        public bool DebugMode { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("includeServiceUser", Required = Newtonsoft.Json.Required.Always)]
-        public bool IncludeServiceUser { get; set; }
+        /// <summary>User address.</summary>
+        [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserAddress Address { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static UserSearchRequest FromJson(string data)
+        public static UserCreateRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserSearchRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserCreateRequest>(data);
         }
     
     }
@@ -14768,6 +14743,63 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Represents user search request.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class UserSearchRequest 
+    {
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        /// <summary>An optional list of search behaviors. All the passed behaviors will be applied.</summary>
+        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
+    
+        /// <summary>Fields and respective directions requested to sort the search results.</summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
+    
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
+        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; } = 0;
+    
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        /// <summary>Filter applied to users.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        /// <summary>Return only users in certain life cycle state(s).</summary>
+        [Newtonsoft.Json.JsonProperty("lifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public LifeCycleFilter LifeCycleFilter { get; set; }
+    
+        /// <summary>Return only users with certain user rights.</summary>
+        [Newtonsoft.Json.JsonProperty("userRightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<UserRight> UserRightsFilter { get; set; }
+    
+        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance.</summary>
+        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
+        public bool DebugMode { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("includeServiceUser", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeServiceUser { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserSearchRequest>(data);
+        }
+    
+    }
+    
     /// <summary>Represents an aggregation request over users.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserAggregationRequest 
@@ -14870,57 +14902,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class UserRoleSearchRequest 
-    {
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        /// <summary>An optional list of search behaviors. All the passed behaviors will be applied.</summary>
-        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
-    
-        /// <summary>Fields and respective directions requested to sort the search results.</summary>
-        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
-    
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
-        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
-        public int Start { get; set; } = 0;
-    
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; } = 30;
-    
-        /// <summary>Filter applied to user roles.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
-        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
-        public bool DebugMode { get; set; }
-    
-        /// <summary>Which languages to search against when using the search string.</summary>
-        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
-    
-        /// <summary>Defines if the user roles with system user role Administrator is returned.</summary>
-        [Newtonsoft.Json.JsonProperty("includeAdministratorSystemUserRole", Required = Newtonsoft.Json.Required.Always)]
-        public bool IncludeAdministratorSystemUserRole { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static UserRoleSearchRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleSearchRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BaseResultOfUserRole 
     {
         [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
@@ -14985,6 +14966,57 @@ namespace Picturepark.SDK.V1.Contract
         public static UserRoleSearchResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleSearchResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class UserRoleSearchRequest 
+    {
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        /// <summary>An optional list of search behaviors. All the passed behaviors will be applied.</summary>
+        [Newtonsoft.Json.JsonProperty("searchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<SearchBehaviour> SearchBehaviours { get; set; }
+    
+        /// <summary>Fields and respective directions requested to sort the search results.</summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
+    
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
+        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
+        public int Start { get; set; } = 0;
+    
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        /// <summary>Filter applied to user roles.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
+        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
+        public bool DebugMode { get; set; }
+    
+        /// <summary>Which languages to search against when using the search string.</summary>
+        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
+    
+        /// <summary>Defines if the user roles with system user role Administrator is returned.</summary>
+        [Newtonsoft.Json.JsonProperty("includeAdministratorSystemUserRole", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeAdministratorSystemUserRole { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static UserRoleSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleSearchRequest>(data);
         }
     
     }
