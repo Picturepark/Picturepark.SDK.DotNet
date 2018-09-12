@@ -70,7 +70,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="forceReferenceRemoval">A value indicating whether references to the content should be removed.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -97,7 +97,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -215,7 +215,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>Void</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -253,7 +253,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -268,7 +268,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -282,7 +282,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -425,7 +425,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>Void</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -453,7 +453,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -500,7 +500,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>Void</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -840,7 +840,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="updateRequest">The share update request.</param>
         /// <returns>Share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1733,7 +1733,6 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentLayerInvalidException", typeof(ContentLayerInvalidException))]
     [JsonInheritanceAttribute("ContentFileReplaceTypeMismatchException", typeof(ContentFileReplaceTypeMismatchException))]
     [JsonInheritanceAttribute("ContentBackupFailedException", typeof(ContentBackupFailedException))]
-    [JsonInheritanceAttribute("BusinessProcessWaitTimeoutException", typeof(BusinessProcessWaitTimeoutException))]
     [JsonInheritanceAttribute("BusinessProcessEngineRequestException", typeof(BusinessProcessEngineRequestException))]
     [JsonInheritanceAttribute("BusinessProcessNotFoundException", typeof(BusinessProcessNotFoundException))]
     [JsonInheritanceAttribute("BusinessProcessDefinitionNotFoundException", typeof(BusinessProcessDefinitionNotFoundException))]
@@ -5194,25 +5193,6 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class BusinessProcessWaitTimeoutException : PictureparkTimeoutException
-    {
-        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BusinessProcessId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BusinessProcessWaitTimeoutException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitTimeoutException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class BusinessProcessEngineRequestException : PictureparkBusinessException
     {
         [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -7396,12 +7376,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>The id of the schema with schema type content.</summary>
         [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentSchemaId { get; set; }
-    
-        /// <summary>The content type of this content. All except ContentItem are binary files.</summary>
-        [Newtonsoft.Json.JsonProperty("contentType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ContentType ContentType { get; set; }
     
         /// <summary>An optional id list of schemas with schema type layer.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -10017,6 +9991,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SessionRenewalEvent", typeof(SessionRenewalEvent))]
     [JsonInheritanceAttribute("SharePageViewEvent", typeof(SharePageViewEvent))]
     [JsonInheritanceAttribute("ApiStatisticsEvent", typeof(ApiStatisticsEvent))]
+    [JsonInheritanceAttribute("BusinessProcessEvent", typeof(BusinessProcessEvent))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ApplicationEvent 
     {
@@ -10399,6 +10374,31 @@ namespace Picturepark.SDK.V1.Contract
         public static ApiStatisticsEvent FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ApiStatisticsEvent>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BusinessProcessEvent : ApplicationEvent
+    {
+        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BusinessProcessId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BusinessProcessLifeCycle? LifeCycle { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string State { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BusinessProcessEvent FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessEvent>(data);
         }
     
     }

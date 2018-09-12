@@ -1420,7 +1420,7 @@ namespace Picturepark.SDK.V1
         /// <param name="forceReferenceRemoval">A value indicating whether references to the content should be removed.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1777,7 +1777,7 @@ namespace Picturepark.SDK.V1
         /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -3773,7 +3773,7 @@ namespace Picturepark.SDK.V1
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>Void</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -4308,7 +4308,7 @@ namespace Picturepark.SDK.V1
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -4505,7 +4505,7 @@ namespace Picturepark.SDK.V1
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -5050,7 +5050,7 @@ namespace Picturepark.SDK.V1
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>ContentDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -8038,7 +8038,7 @@ namespace Picturepark.SDK.V1
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>Void</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -8396,7 +8396,7 @@ namespace Picturepark.SDK.V1
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>ListItemDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -9468,7 +9468,7 @@ namespace Picturepark.SDK.V1
         /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
         /// <returns>Void</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">The specified wait timeout exceeded</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -15795,7 +15795,7 @@ namespace Picturepark.SDK.V1
         /// <param name="updateRequest">The share update request.</param>
         /// <returns>Share</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="BusinessProcessWaitTimeoutException">A server side error occurred.</exception>
+        /// <exception cref="BusinessProcessLifeCycleNotHitException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
