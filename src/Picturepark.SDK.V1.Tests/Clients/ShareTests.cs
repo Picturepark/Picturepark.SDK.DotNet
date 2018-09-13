@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
 using Xunit;
@@ -246,11 +247,169 @@ namespace Picturepark.SDK.V1.Tests.Clients
             result.Results.First().Name.Should().Be(name);
         }
 
+        [Fact]
+        [Trait("Stack", "Shares")]
+        public async Task ShouldGetShareByToken()
+        {
+            // Arrange
+            var outputFormatIds = new List<string> { "Original", "Preview" };
+            var shareContentItems = new List<ShareContent>
+            {
+                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30).ConfigureAwait(false), OutputFormatIds = outputFormatIds },
+                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30).ConfigureAwait(false), OutputFormatIds = outputFormatIds }
+            };
+
+            var request = new ShareEmbedCreateRequest
+            {
+                Contents = shareContentItems,
+                Description = "Description of Embed share",
+                ExpirationDate = new DateTime(2020, 12, 31),
+                Name = "Embed share"
+            };
+
+            var createResult = await _client.Share.CreateAsync(request).ConfigureAwait(false);
+            var embedDetail = await _client.Share.GetAsync(createResult.ShareId).ConfigureAwait(false);
+
+            // Act
+            var result = await _client.Share.GetShareJsonAsync(((ShareDataEmbed)embedDetail.Data).Token).ConfigureAwait(false);
+
+            // Assert
+            Assert.NotNull(result);
+        }
+
+        [Fact]
+        [Trait("Stack", "Shares")]
+        public async Task ShouldGetShareOutputByToken()
+        {
+            // Arrange
+            var contents = await GetRandomShareContent(".jpg").ConfigureAwait(false);
+            var createResult = await CreateShare(new ShareEmbedCreateRequest
+            {
+                Contents = contents,
+                Description = "Description of Embed share",
+                ExpirationDate = new DateTime(2020, 12, 31),
+                Name = "Embed share"
+            }).ConfigureAwait(false);
+            var embedDetail = await _client.Share.GetAsync(createResult.ShareId).ConfigureAwait(false);
+
+            var shareOutput = (ShareOutputEmbed)embedDetail.ContentSelections.First().Outputs.First();
+
+            // Act
+            using (var result = await _client.Share.DownloadAsync(shareOutput.Token).ConfigureAwait(false))
+            {
+                // Assert
+                Assert.NotNull(result);
+            }
+        }
+
+        [Fact]
+        [Trait("Stack", "Shares")]
+        public async Task ShouldGetShareOutputByContentIdAndOutputFormatId()
+        {
+            var contents = await GetRandomShareContent(".jpg").ConfigureAwait(false);
+            var createResult = await CreateShare(new ShareEmbedCreateRequest
+            {
+                Contents = contents,
+                Description = "Description of Embed share",
+                ExpirationDate = new DateTime(2020, 12, 31),
+                Name = "Embed share"
+            }).ConfigureAwait(false);
+            var embedDetail = await _client.Share.GetAsync(createResult.ShareId).ConfigureAwait(false);
+
+            // Act
+            using (var result = await _client.Share
+                .DownloadWithOutputFormatIdAsync(((ShareDataEmbed)embedDetail.Data).Token, contents.First().ContentId, "Original")
+                .ConfigureAwait(false))
+            {
+                // Assert
+                Assert.NotNull(result);
+            }
+        }
+
+        [Fact]
+        [Trait("Stack", "Shares")]
+        public async Task ShouldGetShareOutputByContentIdAndSize()
+        {
+            // Arrange transfer
+            var timeout = TimeSpan.FromMinutes(2);
+            var transferName = nameof(ShouldGetShareOutputByContentIdAndSize) + "-" + new Random().Next(1000, 9999);
+
+            var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, "0033_aeVA-j1y2BY.jpg").ToList();
+
+            var importFilePaths = filesInDirectory.Select(fn => new FileLocations(fn, $"{Path.GetFileNameWithoutExtension(fn)}_1{Path.GetExtension(fn)}")).ToList();
+
+            // Act
+            var uploadOptions = new UploadOptions
+            {
+                SuccessDelegate = Console.WriteLine,
+                ErrorDelegate = Console.WriteLine
+            };
+            var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
+
+            var importRequest = new ImportTransferRequest
+            {
+                ContentPermissionSetIds = new List<string>(),
+                Metadata = null,
+                LayerSchemaIds = new List<string>()
+            };
+
+            await _client.Transfer.ImportAndWaitForCompletionAsync(createTransferResult.Transfer, importRequest, timeout).ConfigureAwait(false);
+
+            // Assert
+            var transferResult = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
+            var contentIds = transferResult.Results.Select(r => r.ContentId).ToList();
+
+            Assert.Equal(importFilePaths.Count, contentIds.Count);
+
+            // Arrange get share
+            var contentId = contentIds.First();
+            var outputFormatIds = new List<string> { "Original", "Preview" };
+            var shareContentItems = new List<ShareContent>
+            {
+                new ShareContent { ContentId = contentId, OutputFormatIds = outputFormatIds },
+            };
+
+            var request = new ShareEmbedCreateRequest
+            {
+                Contents = shareContentItems,
+                Description = "Description of Embed share",
+                ExpirationDate = new DateTime(2020, 12, 31),
+                Name = "Embed share"
+            };
+
+            var createResult = await _client.Share.CreateAsync(request).ConfigureAwait(false);
+            var embedDetail = await _client.Share.GetAsync(createResult.ShareId).ConfigureAwait(false);
+
+            var shareOutput = (ShareOutputEmbed)embedDetail.ContentSelections.Single().Outputs.First();
+
+            // Act
+            using (var result = await _client.Share.DownloadAsync(shareOutput.Token, 10, 10).ConfigureAwait(false))
+            {
+                // Assert
+                Assert.NotNull(result);
+            }
+        }
+
         private async Task<List<ShareContent>> GetRandomShareContent(int count = 2)
         {
             var outputFormatIds = new List<string> { "Original" };
 
             var randomContents = await _fixture.GetRandomContentsAsync(string.Empty, count).ConfigureAwait(false);
+            var shareContentItems = randomContents.Results.Select(i =>
+                new ShareContent
+                {
+                    ContentId = i.Id,
+                    OutputFormatIds = outputFormatIds
+                }).ToList();
+
+            return shareContentItems;
+        }
+
+        private async Task<List<ShareContent>> GetRandomShareContent(string searchstring, int count = 2)
+        {
+            var outputFormatIds = new List<string> { "Original", "Preview" };
+
+            var randomContents = await _fixture.GetRandomContentsAsync(searchstring, count).ConfigureAwait(false);
             var shareContentItems = randomContents.Results.Select(i =>
                 new ShareContent
                 {
