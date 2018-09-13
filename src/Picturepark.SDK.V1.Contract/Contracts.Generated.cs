@@ -591,7 +591,7 @@ namespace Picturepark.SDK.V1.Contract
     public partial interface IProfileClient
     {
         /// <summary>Get</summary>
-        /// <returns>UserProfile</returns>
+        /// <returns>User profile</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -601,7 +601,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<UserProfile> GetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update</summary>
-        /// <returns>UserProfile</returns>
+        /// <returns>Updated user profile</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -609,6 +609,16 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<UserProfile> UpdateAsync(UserProfileUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Request deletion</summary>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task RequestDeletionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -1179,6 +1189,17 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task DeleteAsync(string userId, UserDeleteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Cancels a user triggered deletion request and returns user to _Reviewed_ state.</summary>
+        /// <param name="userId">User ID to action on.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task CancelDeletionRequestAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
         /// <summary>Restore user</summary>
         /// <param name="userId">User ID to action on.</param>
         /// <returns>OK</returns>
@@ -1595,7 +1616,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("UserNotFoundException", typeof(UserNotFoundException))]
     [JsonInheritanceAttribute("UserInactiveOrDeletedException", typeof(UserInactiveOrDeletedException))]
     [JsonInheritanceAttribute("TermsOfServiceNotNewestException", typeof(TermsOfServiceNotNewestException))]
-    [JsonInheritanceAttribute("UnableToReinviteNotInvitedUserException", typeof(UnableToReinviteNotInvitedUserException))]
+    [JsonInheritanceAttribute("IllegalAuthorizationStateTransitionException", typeof(IllegalAuthorizationStateTransitionException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("ServiceProviderDeleteException", typeof(ServiceProviderDeleteException))]
     [JsonInheritanceAttribute("ServiceProviderCreateException", typeof(ServiceProviderCreateException))]
@@ -1985,16 +2006,16 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class UnableToReinviteNotInvitedUserException : PictureparkValidationException
+    public partial class IllegalAuthorizationStateTransitionException : PictureparkValidationException
     {
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static UnableToReinviteNotInvitedUserException FromJson(string data)
+        public static IllegalAuthorizationStateTransitionException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToReinviteNotInvitedUserException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IllegalAuthorizationStateTransitionException>(data);
         }
     
     }
@@ -10334,11 +10355,11 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "ToBeReviewed")]
         ToBeReviewed = 1,
     
-        [System.Runtime.Serialization.EnumMember(Value = "Locked")]
-        Locked = 2,
-    
         [System.Runtime.Serialization.EnumMember(Value = "Invited")]
-        Invited = 3,
+        Invited = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "UserTriggeredDeactivation")]
+        UserTriggeredDeactivation = 3,
     
     }
     
@@ -10595,6 +10616,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AuthorizationState AuthorizationState { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isLocked", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsLocked { get; set; }
     
         [Newtonsoft.Json.JsonProperty("userRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<UserRight> UserRights { get; set; }
@@ -14526,6 +14550,10 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AuthorizationState AuthorizationState { get; set; }
+    
+        /// <summary>Locked users are unable to log in and use the system.</summary>
+        [Newtonsoft.Json.JsonProperty("isLocked", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsLocked { get; set; }
     
         /// <summary>Life cycle state the user is currently in.</summary>
         [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]

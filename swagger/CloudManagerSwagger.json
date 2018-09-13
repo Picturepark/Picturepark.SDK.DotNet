@@ -5683,8 +5683,8 @@
             "TermsOfServiceNotNewestException": {
               "$ref": "#/components/schemas/TermsOfServiceNotNewestException"
             },
-            "UnableToReinviteNotInvitedUserException": {
-              "$ref": "#/components/schemas/UnableToReinviteNotInvitedUserException"
+            "IllegalAuthorizationStateTransitionException": {
+              "$ref": "#/components/schemas/IllegalAuthorizationStateTransitionException"
             },
             "RenderingException": {
               "$ref": "#/components/schemas/RenderingException"
@@ -6341,7 +6341,7 @@
           }
         ]
       },
-      "UnableToReinviteNotInvitedUserException": {
+      "IllegalAuthorizationStateTransitionException": {
         "type": "object",
         "additionalProperties": false,
         "allOf": [

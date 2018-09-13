@@ -797,7 +797,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("UserNotFoundException", typeof(UserNotFoundException))]
     [JsonInheritanceAttribute("UserInactiveOrDeletedException", typeof(UserInactiveOrDeletedException))]
     [JsonInheritanceAttribute("TermsOfServiceNotNewestException", typeof(TermsOfServiceNotNewestException))]
-    [JsonInheritanceAttribute("UnableToReinviteNotInvitedUserException", typeof(UnableToReinviteNotInvitedUserException))]
+    [JsonInheritanceAttribute("IllegalAuthorizationStateTransitionException", typeof(IllegalAuthorizationStateTransitionException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("ServiceProviderDeleteException", typeof(ServiceProviderDeleteException))]
     [JsonInheritanceAttribute("ServiceProviderCreateException", typeof(ServiceProviderCreateException))]
@@ -1187,16 +1187,16 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.72.0 (Newtonsoft.Json v9.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class UnableToReinviteNotInvitedUserException : PictureparkValidationException
+    public partial class IllegalAuthorizationStateTransitionException : PictureparkValidationException
     {
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static UnableToReinviteNotInvitedUserException FromJson(string data)
+        public static IllegalAuthorizationStateTransitionException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToReinviteNotInvitedUserException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IllegalAuthorizationStateTransitionException>(data);
         }
     
     }
