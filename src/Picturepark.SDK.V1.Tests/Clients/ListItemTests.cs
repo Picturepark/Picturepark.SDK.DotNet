@@ -6,6 +6,7 @@ using FluentAssertions;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Contract;
+using Picturepark.SDK.V1.Localization;
 using Picturepark.SDK.V1.Tests.Fixtures;
 
 namespace Picturepark.SDK.V1.Tests.Clients
@@ -613,6 +614,39 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             receivedItem1.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value2");
             receivedItem2.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value1");
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldUseLocalDateForDisplayValue()
+        {
+            // Arange
+            var schema = await SchemaHelper.CreateSchemasIfNotExistentAsync<LocalDateTestItem>(_client).ConfigureAwait(false);
+
+            var date = DateTime.UtcNow;
+
+            var listItem1 = new LocalDateTestItem
+            {
+                DateTimeField = date
+            };
+
+            var detail = await _client.ListItem.CreateAsync(new ListItemCreateRequest { ContentSchemaId = schema.Id, Content = listItem1 }).ConfigureAwait(false);
+
+            // Act
+            var receivedItem1 = await _client.ListItem.GetAsync(detail.Id, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+
+            // Assert
+            var dateValue = receivedItem1.ConvertTo<LocalDateTestItem>().DateTimeField;
+
+            const string quote = "\"";
+            var shouldBeValue = $"{{{{ {quote}{dateValue:O}{quote} | date: {quote}%d.%m.%Y %H:%M:%S{quote} }}}}";
+
+            receivedItem1.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()]
+                .Should().Be(shouldBeValue);
+
+            var renderedDisplayValue = LocalizationService.GetTimeLocalizedDisplayValue(shouldBeValue);
+            var formatedLocalDate = date.ToLocalTime().ToString("dd.MM.yyyy HH:mm:ss");
+            renderedDisplayValue.Should().Be(formatedLocalDate);
         }
 
         [Fact]

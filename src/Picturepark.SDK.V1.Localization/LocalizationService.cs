@@ -65,6 +65,13 @@ namespace Picturepark.SDK.V1.Localization
             return GetLocalizedText(code, language, Hash.FromDictionary(additionalData));
         }
 
+        public static string GetTimeLocalizedDisplayValue(string value)
+        {
+            Liquid.UseRubyDateFormat = true;
+            var template = Template.Parse(value);
+            return template.Render();
+        }
+
         private static string GetLocalizedText(string code, string language, Hash additionalData)
         {
             var catalog = TryFindBestCatalog(language);
