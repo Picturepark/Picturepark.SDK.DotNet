@@ -2,7 +2,7 @@ try {
 	$AllProtocols = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
 	[System.Net.ServicePointManager]::SecurityProtocol = $AllProtocols
 
-	$customerInfo = Invoke-WebRequest "${Env:TestInstanceUrl}/Service/Info" -Method Get -Headers @{ "Accept" = "application/json" } | ConvertFrom-Json
+	$customerInfo = Invoke-WebRequest "${Env:TestInstanceUrl}/Service/Info/Customer" -Method Get -Headers @{ "Accept" = "application/json" } | ConvertFrom-Json
 	
 	${Env:TestCustomerId} = $customerInfo.CustomerId
 	${Env:TestCustomerAlias} = $customerInfo.CustomerAlias
