@@ -630,18 +630,19 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 DateTimeField = date
             };
 
-            var detail = await _client.ListItem.CreateAsync(new ListItemCreateRequest { ContentSchemaId = schema.Id, Content = listItem1 }).ConfigureAwait(false);
+            var detail = await _client.ListItem.CreateAsync(
+                new ListItemCreateRequest { ContentSchemaId = schema.Id, Content = listItem1 },
+                new[] { ListItemResolveBehaviour.Content }
+            ).ConfigureAwait(false);
 
             // Act
-            var receivedItem1 = await _client.ListItem.GetAsync(detail.Id, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
-
-            // Assert
-            var dateValue = receivedItem1.ConvertTo<LocalDateTestItem>().DateTimeField;
+            var dateValue = detail.ConvertTo<LocalDateTestItem>().DateTimeField;
 
             const string quote = "\"";
             var shouldBeValue = $"{{{{ {quote}{dateValue:O}{quote} | date: {quote}%d.%m.%Y %H:%M:%S{quote} }}}}";
 
-            receivedItem1.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()]
+            // Assert
+            detail.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()]
                 .Should().Be(shouldBeValue);
 
             var renderedDisplayValue = LocalizationService.GetTimeLocalizedDisplayValue(shouldBeValue);
