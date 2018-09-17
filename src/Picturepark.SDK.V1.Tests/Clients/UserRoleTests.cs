@@ -21,6 +21,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
+        [Trait("Stack", "UserRoles")]
         public async Task ShouldCreateSearchAndDelete()
         {
             // Arrange

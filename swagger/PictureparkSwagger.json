@@ -4056,14 +4056,14 @@
         ]
       }
     },
-    "/v1/info": {
+    "/v1/info/customer": {
       "get": {
         "tags": [
           "Info"
         ],
         "summary": "Get info",
         "description": "Get the customer specific infos",
-        "operationId": "Info_Get",
+        "operationId": "Info_GetInfo",
         "responses": {
           "200": {
             "x-nullable": false,
@@ -4072,6 +4072,86 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CustomerInfo"
+                }
+              }
+            }
+          },
+          "500": {
+            "x-nullable": true,
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "x-nullable": true,
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "x-nullable": true,
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "x-nullable": true,
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/info/version": {
+      "get": {
+        "tags": [
+          "Info"
+        ],
+        "summary": "Get Version",
+        "operationId": "Info_GetVersion",
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "VersionInfo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VersionInfo"
                 }
               }
             }
@@ -6464,176 +6544,6 @@
         ]
       }
     },
-    "/v1/publicAccess/version": {
-      "get": {
-        "tags": [
-          "PublicAccess"
-        ],
-        "summary": "Get Version",
-        "operationId": "PublicAccess_GetVersion",
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "VersionInfo",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/VersionInfo"
-                }
-              }
-            }
-          },
-          "500": {
-            "x-nullable": true,
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "x-nullable": true,
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "409": {
-            "x-nullable": true,
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "x-nullable": true,
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/v1/publicAccess/shares/{token}": {
-      "get": {
-        "tags": [
-          "PublicAccess"
-        ],
-        "summary": "Get Share",
-        "operationId": "PublicAccess_GetShare",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "token",
-            "in": "path",
-            "required": true,
-            "description": "The token",
-            "nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "ShareBaseDetail",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ShareDetail"
-                }
-              }
-            }
-          },
-          "500": {
-            "x-nullable": true,
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "x-nullable": true,
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "409": {
-            "x-nullable": true,
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "x-nullable": true,
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
     "/v1/schemas/{schemaId}": {
       "get": {
         "tags": [
@@ -8049,501 +7959,6 @@
         ]
       }
     },
-    "/v1/shareAccess/json/{token}": {
-      "get": {
-        "tags": [
-          "ShareAccess"
-        ],
-        "summary": "Get Share json",
-        "operationId": "ShareAccess_GetShareJson",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "token",
-            "in": "path",
-            "required": true,
-            "description": "The token",
-            "nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "ShareDetail",
-            "content": {
-              "application/json": {
-                "schema": {}
-              }
-            }
-          },
-          "500": {
-            "x-nullable": true,
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "x-nullable": true,
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "409": {
-            "x-nullable": true,
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "x-nullable": true,
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/v1/shareAccess/d/{token}": {
-      "get": {
-        "tags": [
-          "ShareAccess"
-        ],
-        "summary": "Download Shared outputs",
-        "operationId": "ShareAccess_Download",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "token",
-            "in": "path",
-            "required": true,
-            "description": "The token",
-            "nullable": false
-          },
-          {
-            "type": "integer",
-            "name": "width",
-            "in": "query",
-            "description": "Optional width in pixels to resize image",
-            "format": "int32",
-            "nullable": true
-          },
-          {
-            "type": "integer",
-            "name": "height",
-            "in": "query",
-            "description": "Optional height in pixels to resize image",
-            "format": "int32",
-            "nullable": true
-          },
-          {
-            "type": "string",
-            "name": "range",
-            "in": "header",
-            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)",
-            "nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "HttpResponseMessage",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "file"
-                }
-              }
-            }
-          },
-          "206": {
-            "x-nullable": true,
-            "description": "HttpResponseMessage",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "file"
-                }
-              }
-            }
-          },
-          "412": {
-            "description": ""
-          },
-          "500": {
-            "x-nullable": true,
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "x-nullable": true,
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "409": {
-            "x-nullable": true,
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "x-nullable": true,
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/v1/shareAccess/d/{token}/{contentId}": {
-      "get": {
-        "tags": [
-          "ShareAccess"
-        ],
-        "summary": "Download Shared outputs\n            ",
-        "description": "Download single content in a specific outputformat. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
-        "operationId": "ShareAccess_DownloadWithContentId",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "token",
-            "in": "path",
-            "required": true,
-            "description": "The token",
-            "nullable": false
-          },
-          {
-            "type": "string",
-            "name": "contentId",
-            "in": "path",
-            "required": true,
-            "description": "The content id",
-            "nullable": false
-          },
-          {
-            "type": "integer",
-            "name": "width",
-            "in": "query",
-            "description": "Optional width in pixels to resize image",
-            "format": "int32",
-            "nullable": true
-          },
-          {
-            "type": "integer",
-            "name": "height",
-            "in": "query",
-            "description": "Optional height in pixels to resize image",
-            "format": "int32",
-            "nullable": true
-          },
-          {
-            "type": "string",
-            "name": "range",
-            "in": "header",
-            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)",
-            "nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "HttpResponseMessage",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "file"
-                }
-              }
-            }
-          },
-          "206": {
-            "x-nullable": true,
-            "description": "HttpResponseMessage",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "file"
-                }
-              }
-            }
-          },
-          "412": {
-            "description": ""
-          },
-          "500": {
-            "x-nullable": true,
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "x-nullable": true,
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "409": {
-            "x-nullable": true,
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "x-nullable": true,
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/v1/shareAccess/d/{token}/{contentId}/{outputFormatId}": {
-      "get": {
-        "tags": [
-          "ShareAccess"
-        ],
-        "summary": "Download Shared outputs\n            ",
-        "description": "Download single content in a specific outputformat. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
-        "operationId": "ShareAccess_DownloadWithOutputFormatId",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "token",
-            "in": "path",
-            "required": true,
-            "description": "The token",
-            "nullable": false
-          },
-          {
-            "type": "string",
-            "name": "contentId",
-            "in": "path",
-            "required": true,
-            "description": "The content id",
-            "nullable": false
-          },
-          {
-            "type": "string",
-            "name": "outputFormatId",
-            "in": "path",
-            "required": true,
-            "description": "The output format id+",
-            "nullable": false
-          },
-          {
-            "type": "integer",
-            "name": "width",
-            "in": "query",
-            "description": "Optional width in pixels to resize image",
-            "format": "int32",
-            "nullable": true
-          },
-          {
-            "type": "integer",
-            "name": "height",
-            "in": "query",
-            "description": "Optional height in pixels to resize image",
-            "format": "int32",
-            "nullable": true
-          },
-          {
-            "type": "string",
-            "name": "range",
-            "in": "header",
-            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)",
-            "nullable": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "HttpResponseMessage",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "file"
-                }
-              }
-            }
-          },
-          "206": {
-            "x-nullable": true,
-            "description": "HttpResponseMessage",
-            "content": {
-              "application/octet-stream": {
-                "schema": {
-                  "type": "file"
-                }
-              }
-            }
-          },
-          "412": {
-            "description": ""
-          },
-          "500": {
-            "x-nullable": true,
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "x-nullable": true,
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "409": {
-            "x-nullable": true,
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "x-nullable": true,
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
     "/v1/shares/{id}": {
       "get": {
         "tags": [
@@ -9169,6 +8584,501 @@
             "Bearer": [
               "share_write"
             ]
+          }
+        ]
+      }
+    },
+    "/v1/shares/json/{token}": {
+      "get": {
+        "tags": [
+          "Share"
+        ],
+        "summary": "Get Share json",
+        "operationId": "Share_GetShareJson",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "description": "The token",
+            "nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "ShareDetail",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "500": {
+            "x-nullable": true,
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "x-nullable": true,
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "x-nullable": true,
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "x-nullable": true,
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/shares/d/{token}": {
+      "get": {
+        "tags": [
+          "Share"
+        ],
+        "summary": "Download Shared outputs",
+        "operationId": "Share_Download",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "description": "The token",
+            "nullable": false
+          },
+          {
+            "type": "integer",
+            "name": "width",
+            "in": "query",
+            "description": "Optional width in pixels to resize image",
+            "format": "int32",
+            "nullable": true
+          },
+          {
+            "type": "integer",
+            "name": "height",
+            "in": "query",
+            "description": "Optional height in pixels to resize image",
+            "format": "int32",
+            "nullable": true
+          },
+          {
+            "type": "string",
+            "name": "range",
+            "in": "header",
+            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)",
+            "nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "HttpResponseMessage",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "file"
+                }
+              }
+            }
+          },
+          "206": {
+            "x-nullable": true,
+            "description": "HttpResponseMessage",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "file"
+                }
+              }
+            }
+          },
+          "412": {
+            "description": ""
+          },
+          "500": {
+            "x-nullable": true,
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "x-nullable": true,
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "x-nullable": true,
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "x-nullable": true,
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/shares/d/{token}/{contentId}": {
+      "get": {
+        "tags": [
+          "Share"
+        ],
+        "summary": "Download Shared outputs\n            ",
+        "description": "Download single content in a specific outputformat. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
+        "operationId": "Share_DownloadWithContentId",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "description": "The token",
+            "nullable": false
+          },
+          {
+            "type": "string",
+            "name": "contentId",
+            "in": "path",
+            "required": true,
+            "description": "The content id",
+            "nullable": false
+          },
+          {
+            "type": "integer",
+            "name": "width",
+            "in": "query",
+            "description": "Optional width in pixels to resize image",
+            "format": "int32",
+            "nullable": true
+          },
+          {
+            "type": "integer",
+            "name": "height",
+            "in": "query",
+            "description": "Optional height in pixels to resize image",
+            "format": "int32",
+            "nullable": true
+          },
+          {
+            "type": "string",
+            "name": "range",
+            "in": "header",
+            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)",
+            "nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "HttpResponseMessage",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "file"
+                }
+              }
+            }
+          },
+          "206": {
+            "x-nullable": true,
+            "description": "HttpResponseMessage",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "file"
+                }
+              }
+            }
+          },
+          "412": {
+            "description": ""
+          },
+          "500": {
+            "x-nullable": true,
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "x-nullable": true,
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "x-nullable": true,
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "x-nullable": true,
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/shares/d/{token}/{contentId}/{outputFormatId}": {
+      "get": {
+        "tags": [
+          "Share"
+        ],
+        "summary": "Download Shared outputs\n            ",
+        "description": "Download single content in a specific outputformat. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
+        "operationId": "Share_DownloadWithOutputFormatId",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "description": "The token",
+            "nullable": false
+          },
+          {
+            "type": "string",
+            "name": "contentId",
+            "in": "path",
+            "required": true,
+            "description": "The content id",
+            "nullable": false
+          },
+          {
+            "type": "string",
+            "name": "outputFormatId",
+            "in": "path",
+            "required": true,
+            "description": "The output format id+",
+            "nullable": false
+          },
+          {
+            "type": "integer",
+            "name": "width",
+            "in": "query",
+            "description": "Optional width in pixels to resize image",
+            "format": "int32",
+            "nullable": true
+          },
+          {
+            "type": "integer",
+            "name": "height",
+            "in": "query",
+            "description": "Optional height in pixels to resize image",
+            "format": "int32",
+            "nullable": true
+          },
+          {
+            "type": "string",
+            "name": "range",
+            "in": "header",
+            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)",
+            "nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "HttpResponseMessage",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "file"
+                }
+              }
+            }
+          },
+          "206": {
+            "x-nullable": true,
+            "description": "HttpResponseMessage",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "file"
+                }
+              }
+            }
+          },
+          "412": {
+            "description": ""
+          },
+          "500": {
+            "x-nullable": true,
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "x-nullable": true,
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "x-nullable": true,
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "x-nullable": true,
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
           }
         ]
       }
@@ -19579,6 +19489,29 @@
           }
         }
       },
+      "VersionInfo": {
+        "type": "object",
+        "description": "The version view item for the environment.",
+        "additionalProperties": false,
+        "properties": {
+          "fileVersion": {
+            "type": "string",
+            "description": "The manual file version of Picturepark.Contract.dll."
+          },
+          "fileProductVersion": {
+            "type": "string",
+            "description": "The GitVersionTask generated file product version of Picturepark.Configuration.dll."
+          },
+          "contractVersion": {
+            "type": "string",
+            "description": "The current contract version stored in CustomerDoc / EnvironmentDoc."
+          },
+          "release": {
+            "type": "string",
+            "description": "The bamboo release version. Only provided on bamboo deployments."
+          }
+        }
+      },
       "ListItemDetail": {
         "type": "object",
         "description": "The detail view item for the list item.",
@@ -21010,444 +20943,6 @@
             "$ref": "#/components/schemas/UserAddress"
           }
         }
-      },
-      "VersionInfo": {
-        "type": "object",
-        "description": "The version view item for the environment.",
-        "additionalProperties": false,
-        "properties": {
-          "fileVersion": {
-            "type": "string",
-            "description": "The manual file version of Picturepark.Contract.dll."
-          },
-          "fileProductVersion": {
-            "type": "string",
-            "description": "The GitVersionTask generated file product version of Picturepark.Configuration.dll."
-          },
-          "contractVersion": {
-            "type": "string",
-            "description": "The current contract version stored in CustomerDoc / EnvironmentDoc."
-          },
-          "release": {
-            "type": "string",
-            "description": "The bamboo release version. Only provided on bamboo deployments."
-          }
-        }
-      },
-      "ShareDetail": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "expired",
-          "outputAccess",
-          "shareType"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "creator": {
-            "$ref": "#/components/schemas/ShareUser"
-          },
-          "audit": {
-            "$ref": "#/components/schemas/UserAudit"
-          },
-          "contentSelections": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ShareContentDetail"
-            }
-          },
-          "layerSchemaIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "data": {
-            "$ref": "#/components/schemas/ShareDataBase"
-          },
-          "mailTemplateId": {
-            "type": "string"
-          },
-          "expirationDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "expired": {
-            "type": "boolean"
-          },
-          "template": {
-            "$ref": "#/components/schemas/TemplateBase"
-          },
-          "outputAccess": {
-            "$ref": "#/components/schemas/OutputAccess"
-          },
-          "shareType": {
-            "$ref": "#/components/schemas/ShareType"
-          }
-        }
-      },
-      "ShareUser": {
-        "type": "object",
-        "description": "Reduced set of user information used for shares",
-        "additionalProperties": false,
-        "properties": {
-          "displayName": {
-            "type": "string",
-            "description": "Name of user"
-          },
-          "emailHash": {
-            "type": "string",
-            "description": "MD5 hash of email address. Can be used to display gravatar image"
-          }
-        }
-      },
-      "ShareContentDetail": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "contentType"
-        ],
-        "properties": {
-          "contentSchemaId": {
-            "type": "string",
-            "description": "The id of the schema with schema type content."
-          },
-          "layerSchemaIds": {
-            "type": "array",
-            "description": "An optional id list of schemas with type layer.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "content": {
-            "$ref": "#/components/schemas/DataDictionary"
-          },
-          "metadata": {
-            "$ref": "#/components/schemas/DataDictionary"
-          },
-          "id": {
-            "type": "string"
-          },
-          "outputs": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ShareOutputBase"
-            }
-          },
-          "contentType": {
-            "$ref": "#/components/schemas/ContentType"
-          },
-          "displayValues": {
-            "description": "Contains language specific display values, rendered according to the content schema's display pattern configuration.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/DisplayValueDictionary"
-              }
-            ]
-          }
-        }
-      },
-      "ShareOutputBase": {
-        "type": "object",
-        "discriminator": {
-          "propertyName": "kind",
-          "mapping": {
-            "ShareOutputBasic": {
-              "$ref": "#/components/schemas/ShareOutputBasic"
-            },
-            "ShareOutputEmbed": {
-              "$ref": "#/components/schemas/ShareOutputEmbed"
-            }
-          }
-        },
-        "x-abstract": true,
-        "additionalProperties": false,
-        "required": [
-          "kind"
-        ],
-        "properties": {
-          "contentId": {
-            "type": "string"
-          },
-          "outputFormatId": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string",
-            "description": "Url to directly download output. In case of BasicShare if not fetched using a token, a placeholder {token} is included which needs to be replaced with the recipient's token"
-          },
-          "detail": {
-            "$ref": "#/components/schemas/OutputDataBase"
-          },
-          "kind": {
-            "type": "string"
-          }
-        }
-      },
-      "ShareOutputBasic": {
-        "type": "object",
-        "additionalProperties": false,
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ShareOutputBase"
-          }
-        ]
-      },
-      "ShareOutputEmbed": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "token": {
-            "type": "string"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ShareOutputBase"
-          }
-        ]
-      },
-      "ShareDataBase": {
-        "type": "object",
-        "discriminator": {
-          "propertyName": "kind",
-          "mapping": {
-            "ShareDataEmbed": {
-              "$ref": "#/components/schemas/ShareDataEmbed"
-            },
-            "ShareDataBasic": {
-              "$ref": "#/components/schemas/ShareDataBasic"
-            }
-          }
-        },
-        "x-abstract": true,
-        "additionalProperties": false,
-        "required": [
-          "kind"
-        ],
-        "properties": {
-          "url": {
-            "type": "string"
-          },
-          "kind": {
-            "type": "string"
-          }
-        }
-      },
-      "ShareDataEmbed": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "token": {
-            "type": "string"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ShareDataBase"
-          }
-        ]
-      },
-      "ShareDataBasic": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "mailRecipients": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MailRecipient"
-            }
-          },
-          "internalRecipients": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/InternalRecipient"
-            }
-          },
-          "languageCode": {
-            "type": "string"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ShareDataBase"
-          }
-        ]
-      },
-      "MailRecipient": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "userEmail": {
-            "$ref": "#/components/schemas/UserEmail"
-          },
-          "token": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          }
-        }
-      },
-      "UserEmail": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "emailAddress": {
-            "type": "string"
-          }
-        }
-      },
-      "InternalRecipient": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "recipient": {
-            "$ref": "#/components/schemas/User"
-          },
-          "token": {
-            "type": "string"
-          },
-          "url": {
-            "type": "string"
-          }
-        }
-      },
-      "User": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "emailAddress"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "User's Picturepark ID."
-          },
-          "firstName": {
-            "type": "string",
-            "description": "User's first name."
-          },
-          "lastName": {
-            "type": "string",
-            "description": "User's last name."
-          },
-          "emailAddress": {
-            "type": "string",
-            "description": "Email address of the user (doubles as username).",
-            "minLength": 1
-          }
-        }
-      },
-      "TemplateBase": {
-        "type": "object",
-        "discriminator": {
-          "propertyName": "kind",
-          "mapping": {
-            "CardTemplate": {
-              "$ref": "#/components/schemas/CardTemplate"
-            },
-            "ListTemplate": {
-              "$ref": "#/components/schemas/ListTemplate"
-            },
-            "BasicTemplate": {
-              "$ref": "#/components/schemas/BasicTemplate"
-            }
-          }
-        },
-        "x-abstract": true,
-        "additionalProperties": false,
-        "required": [
-          "kind"
-        ],
-        "properties": {
-          "width": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "height": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "kind": {
-            "type": "string"
-          }
-        }
-      },
-      "CardTemplate": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "showNavigation",
-          "showOverlay",
-          "showLogo",
-          "showFooter"
-        ],
-        "properties": {
-          "showNavigation": {
-            "type": "boolean"
-          },
-          "showOverlay": {
-            "type": "boolean"
-          },
-          "showLogo": {
-            "type": "boolean"
-          },
-          "showFooter": {
-            "type": "boolean"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/TemplateBase"
-          }
-        ]
-      },
-      "ListTemplate": {
-        "type": "object",
-        "additionalProperties": false,
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/TemplateBase"
-          }
-        ]
-      },
-      "BasicTemplate": {
-        "type": "object",
-        "additionalProperties": false,
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/TemplateBase"
-          }
-        ]
-      },
-      "OutputAccess": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Full",
-          "Preview",
-          "None"
-        ],
-        "enum": [
-          "Full",
-          "Preview",
-          "None"
-        ]
       },
       "SchemaDetail": {
         "type": "object",
@@ -23401,6 +22896,421 @@
             }
           }
         }
+      },
+      "ShareDetail": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "expired",
+          "outputAccess",
+          "shareType"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "creator": {
+            "$ref": "#/components/schemas/ShareUser"
+          },
+          "audit": {
+            "$ref": "#/components/schemas/UserAudit"
+          },
+          "contentSelections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShareContentDetail"
+            }
+          },
+          "layerSchemaIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "data": {
+            "$ref": "#/components/schemas/ShareDataBase"
+          },
+          "mailTemplateId": {
+            "type": "string"
+          },
+          "expirationDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expired": {
+            "type": "boolean"
+          },
+          "template": {
+            "$ref": "#/components/schemas/TemplateBase"
+          },
+          "outputAccess": {
+            "$ref": "#/components/schemas/OutputAccess"
+          },
+          "shareType": {
+            "$ref": "#/components/schemas/ShareType"
+          }
+        }
+      },
+      "ShareUser": {
+        "type": "object",
+        "description": "Reduced set of user information used for shares",
+        "additionalProperties": false,
+        "properties": {
+          "displayName": {
+            "type": "string",
+            "description": "Name of user"
+          },
+          "emailHash": {
+            "type": "string",
+            "description": "MD5 hash of email address. Can be used to display gravatar image"
+          }
+        }
+      },
+      "ShareContentDetail": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "contentType"
+        ],
+        "properties": {
+          "contentSchemaId": {
+            "type": "string",
+            "description": "The id of the schema with schema type content."
+          },
+          "layerSchemaIds": {
+            "type": "array",
+            "description": "An optional id list of schemas with type layer.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "content": {
+            "$ref": "#/components/schemas/DataDictionary"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/DataDictionary"
+          },
+          "id": {
+            "type": "string"
+          },
+          "outputs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShareOutputBase"
+            }
+          },
+          "contentType": {
+            "$ref": "#/components/schemas/ContentType"
+          },
+          "displayValues": {
+            "description": "Contains language specific display values, rendered according to the content schema's display pattern configuration.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DisplayValueDictionary"
+              }
+            ]
+          }
+        }
+      },
+      "ShareOutputBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "ShareOutputBasic": {
+              "$ref": "#/components/schemas/ShareOutputBasic"
+            },
+            "ShareOutputEmbed": {
+              "$ref": "#/components/schemas/ShareOutputEmbed"
+            }
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "contentId": {
+            "type": "string"
+          },
+          "outputFormatId": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "description": "Url to directly download output. In case of BasicShare if not fetched using a token, a placeholder {token} is included which needs to be replaced with the recipient's token"
+          },
+          "detail": {
+            "$ref": "#/components/schemas/OutputDataBase"
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "ShareOutputBasic": {
+        "type": "object",
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ShareOutputBase"
+          }
+        ]
+      },
+      "ShareOutputEmbed": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ShareOutputBase"
+          }
+        ]
+      },
+      "ShareDataBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "ShareDataEmbed": {
+              "$ref": "#/components/schemas/ShareDataEmbed"
+            },
+            "ShareDataBasic": {
+              "$ref": "#/components/schemas/ShareDataBasic"
+            }
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "ShareDataEmbed": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ShareDataBase"
+          }
+        ]
+      },
+      "ShareDataBasic": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "mailRecipients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MailRecipient"
+            }
+          },
+          "internalRecipients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InternalRecipient"
+            }
+          },
+          "languageCode": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ShareDataBase"
+          }
+        ]
+      },
+      "MailRecipient": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userEmail": {
+            "$ref": "#/components/schemas/UserEmail"
+          },
+          "token": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "UserEmail": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "emailAddress": {
+            "type": "string"
+          }
+        }
+      },
+      "InternalRecipient": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "recipient": {
+            "$ref": "#/components/schemas/User"
+          },
+          "token": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "emailAddress"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User's Picturepark ID."
+          },
+          "firstName": {
+            "type": "string",
+            "description": "User's first name."
+          },
+          "lastName": {
+            "type": "string",
+            "description": "User's last name."
+          },
+          "emailAddress": {
+            "type": "string",
+            "description": "Email address of the user (doubles as username).",
+            "minLength": 1
+          }
+        }
+      },
+      "TemplateBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "CardTemplate": {
+              "$ref": "#/components/schemas/CardTemplate"
+            },
+            "ListTemplate": {
+              "$ref": "#/components/schemas/ListTemplate"
+            },
+            "BasicTemplate": {
+              "$ref": "#/components/schemas/BasicTemplate"
+            }
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "width": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "CardTemplate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "showNavigation",
+          "showOverlay",
+          "showLogo",
+          "showFooter"
+        ],
+        "properties": {
+          "showNavigation": {
+            "type": "boolean"
+          },
+          "showOverlay": {
+            "type": "boolean"
+          },
+          "showLogo": {
+            "type": "boolean"
+          },
+          "showFooter": {
+            "type": "boolean"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TemplateBase"
+          }
+        ]
+      },
+      "ListTemplate": {
+        "type": "object",
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TemplateBase"
+          }
+        ]
+      },
+      "BasicTemplate": {
+        "type": "object",
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TemplateBase"
+          }
+        ]
+      },
+      "OutputAccess": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Full",
+          "Preview",
+          "None"
+        ],
+        "enum": [
+          "Full",
+          "Preview",
+          "None"
+        ]
       },
       "ShareSearchResult": {
         "type": "object",
@@ -25671,10 +25581,6 @@
       "description": "Endpoints to work with currently logged in user profile.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ProfileTests.cs)\r\n"
     },
     {
-      "name": "PublicAccess",
-      "description": "Endpoints to work with public accessable ressources.\r\n\r\nNo need to pass an AccessToken in the header.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/PublicAccessTests.cs)\r\n"
-    },
-    {
       "name": "Schema",
       "description": "Endpoints to work with schemas.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/SchemaTests.cs)\r\n"
     },
@@ -25689,10 +25595,6 @@
     {
       "name": "ServiceProvider",
       "description": "Endpoints to work with service providers.\r\n\r\n[TODO: Create Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/)\r\n"
-    },
-    {
-      "name": "ShareAccess",
-      "description": "Endpoints to work with shared resources.\r\n\r\nNo need to pass an AccessToken in the header.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/PublicAccessTests.cs)\r\n"
     },
     {
       "name": "Share",

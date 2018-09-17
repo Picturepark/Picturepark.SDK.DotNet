@@ -44,8 +44,6 @@ namespace Picturepark.SDK.V1
 
         public ISchemaPermissionSetClient SchemaPermissionSet { get; private set; }
 
-        public IPublicAccessClient PublicAccess { get; private set; }
-
         public IShareClient Share { get; private set; }
 
         public ITransferClient Transfer { get; private set; }
@@ -64,8 +62,6 @@ namespace Picturepark.SDK.V1
 
         public IChannelClient Channel { get; private set; }
 
-        public IShareAccessClient ShareAccess { get; private set; }
-
         public void Dispose()
         {
             if (_httpClient != null)
@@ -83,13 +79,11 @@ namespace Picturepark.SDK.V1
             JsonSchema = new JsonSchemaClient(settings, httpClient);
             ContentPermissionSet = new ContentPermissionSetClient(settings, httpClient);
             SchemaPermissionSet = new SchemaPermissionSetClient(settings, httpClient);
-            PublicAccess = new PublicAccessClient(settings, httpClient);
             Share = new ShareClient(settings, httpClient);
-            ShareAccess = new ShareAccessClient(settings, httpClient);
             User = new UserClient(settings, httpClient);
             UserRole = new UserRoleClient(settings, httpClient);
             Info = new InfoClient(settings, httpClient);
-            Schema = new SchemaClient((BusinessProcessClient)BusinessProcess, (InfoClient)Info, settings, httpClient);
+            Schema = new SchemaClient((InfoClient)Info, settings, httpClient);
             Transfer = new TransferClient((BusinessProcessClient)BusinessProcess, settings, httpClient);
             ListItem = new ListItemClient((BusinessProcessClient)BusinessProcess, settings, httpClient);
             LiveStream = new LiveStreamClient(settings, httpClient);

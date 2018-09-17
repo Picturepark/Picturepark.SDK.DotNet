@@ -10,13 +10,11 @@ namespace Picturepark.SDK.V1
 {
     public partial class SchemaClient
     {
-        private readonly BusinessProcessClient _businessProcessClient;
         private readonly InfoClient _infoClient;
 
-        public SchemaClient(BusinessProcessClient businessProcessesClient, InfoClient infoClient, IPictureparkServiceSettings settings, HttpClient httpClient)
+        public SchemaClient(InfoClient infoClient, IPictureparkServiceSettings settings, HttpClient httpClient)
             : this(settings, httpClient)
         {
-            _businessProcessClient = businessProcessesClient;
             _infoClient = infoClient;
         }
 
@@ -32,7 +30,7 @@ namespace Picturepark.SDK.V1
             bool generateDependencySchema = true,
             CancellationToken cancellationToken = default(CancellationToken))
         {
-            var config = await _infoClient.GetAsync(cancellationToken).ConfigureAwait(false);
+            var config = await _infoClient.GetInfoAsync(cancellationToken).ConfigureAwait(false);
             var schemaConverter = new ClassToSchemaConverter(config.LanguageConfiguration.DefaultLanguage);
             return await schemaConverter.GenerateAsync(type, schemaDetails ?? new List<SchemaDetail>(), generateDependencySchema).ConfigureAwait(false);
         }
