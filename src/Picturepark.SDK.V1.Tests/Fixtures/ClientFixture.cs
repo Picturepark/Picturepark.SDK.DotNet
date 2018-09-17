@@ -58,7 +58,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
         public IPictureparkService Client => _client;
 
         public Lazy<CustomerInfo> CustomerInfo =>
-            new Lazy<CustomerInfo>(() => _client.Info.GetAsync().GetAwaiter().GetResult());
+            new Lazy<CustomerInfo>(() => _client.Info.GetInfoAsync().GetAwaiter().GetResult());
 
         public string DefaultLanguage => CustomerInfo.Value.LanguageConfiguration.DefaultLanguage;
 
