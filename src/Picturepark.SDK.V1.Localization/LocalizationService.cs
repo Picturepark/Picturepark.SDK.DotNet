@@ -1,4 +1,6 @@
-﻿using DotLiquid;
+﻿using System;
+using System.Collections;
+using DotLiquid;
 using NGettext;
 using Picturepark.SDK.V1.Contract;
 using System.Collections.Concurrent;
@@ -6,6 +8,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
+using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace Picturepark.SDK.V1.Localization
 {
@@ -70,6 +74,57 @@ namespace Picturepark.SDK.V1.Localization
             Liquid.UseRubyDateFormat = true;
             var template = Template.Parse(value);
             return template.Render();
+        }
+
+        public static void ReplaceLocalizedDisplayValueInObject(object obj)
+        {
+            var type = obj.GetType();
+
+            if (obj is JObject jObject)
+            {
+                var tokens = jObject.SelectTokens("..displayValue").ToList()
+                    .Concat(jObject.SelectTokens("..displayValues").ToList());
+
+                foreach (var jToken in tokens.SelectMany(i => i.ToList()))
+                {
+                    var token = (JProperty)jToken;
+                    token.Value = GetTimeLocalizedDisplayValue(token.Value.ToString());
+                }
+
+                return;
+            }
+
+            var properties = type.GetTypeInfo().DeclaredProperties.ToList();
+
+            foreach (var property in properties)
+            {
+                if (property.Name == "DisplayValues" || property.Name == "DisplayValue")
+                {
+                    if (property.GetValue(obj) is IDictionary<string, string> displayValues)
+                    {
+                        foreach (var key in displayValues.Keys.ToList())
+                            displayValues[key] = GetTimeLocalizedDisplayValue(displayValues[key]);
+                    }
+
+                    return;
+                }
+
+                if (property.PropertyType == typeof(ICollection<>))
+                {
+                    var list = (ICollection)property.GetValue(obj, null);
+                    foreach (var item in list)
+                    {
+                        ReplaceLocalizedDisplayValueInObject(item);
+                    }
+                }
+
+                if (property.PropertyType.GetTypeInfo().IsClass)
+                {
+                    var value = property.GetValue(obj);
+                    if (value != null)
+                        ReplaceLocalizedDisplayValueInObject(value);
+                }
+            }
         }
 
         private static string GetLocalizedText(string code, string language, Hash additionalData)
