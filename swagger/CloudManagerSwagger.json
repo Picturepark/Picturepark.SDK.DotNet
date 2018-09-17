@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.19.1.0 (NJsonSchema v9.10.72.0 (Newtonsoft.Json v9.0.0.0))",
+  "x-generator": "NSwag v11.19.2.0 (NJsonSchema v9.10.73.0 (Newtonsoft.Json v9.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark CloudManager API V1",
@@ -5466,8 +5466,11 @@
             }
           }
         },
+        "description": "Business process",
         "additionalProperties": false,
         "required": [
+          "id",
+          "processDefinitionId",
           "supportsCancellation",
           "businessProcessScope",
           "lifeCycle",
@@ -5478,48 +5481,67 @@
         ],
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the business process.",
+            "minLength": 1
           },
           "processDefinitionId": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the business process definition associated to the business process.",
+            "minLength": 1
           },
           "referenceId": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the document that is modified by the running of the business process. Used during the cancellation of the business process."
           },
           "referenceDocType": {
-            "type": "string"
+            "type": "string",
+            "description": "Type of the document that is modified by the running of the business process. Used during the cancellation of the business process."
           },
           "supportsCancellation": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "True if the business process execution can be cancelled. False otherwise."
           },
           "businessProcessScope": {
-            "$ref": "#/components/schemas/BusinessProcessScope"
+            "description": "Scope of the business process.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessScope"
+              }
+            ]
           },
           "lifeCycle": {
-            "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+            "description": "Current life cycle of the business process.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+              }
+            ]
           },
           "startDate": {
             "type": "string",
+            "description": "When the business process started.",
             "format": "date-time"
           },
           "endDate": {
             "type": "string",
+            "description": "When the business process finished.",
             "format": "date-time"
           },
           "finished": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Is the business process finished."
           },
           "stateHistory": {
             "type": "array",
+            "description": "List containing the history of all the state transitions of the business process.",
             "items": {
               "$ref": "#/components/schemas/BusinessProcessState"
             }
           },
           "currentState": {
-            "type": "string"
-          },
-          "processDefinitionName": {
-            "type": "string"
+            "type": "string",
+            "description": "Current state of the business process."
           },
           "kind": {
             "type": "string"
@@ -5528,7 +5550,7 @@
       },
       "BusinessProcessScope": {
         "type": "string",
-        "description": "",
+        "description": "Scope of the business process",
         "x-enumNames": [
           "System",
           "User"
@@ -5540,7 +5562,7 @@
       },
       "BusinessProcessLifeCycle": {
         "type": "string",
-        "description": "",
+        "description": "Life cycle of the business process",
         "x-enumNames": [
           "Draft",
           "InProgress",
@@ -5562,44 +5584,64 @@
       },
       "BusinessProcessState": {
         "type": "object",
+        "description": "State transition information of a business process",
         "additionalProperties": false,
         "required": [
+          "state",
           "timestamp"
         ],
         "properties": {
           "state": {
-            "type": "string"
+            "type": "string",
+            "description": "State of the business process",
+            "minLength": 1
           },
           "timestamp": {
             "type": "string",
+            "description": "Date and time of when the state transition was performed.",
             "format": "date-time"
           },
           "error": {
-            "$ref": "#/components/schemas/ErrorResponse"
+            "description": "Eventual error associated to the state transition.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ErrorResponse"
+              }
+            ]
           }
         }
       },
       "ErrorResponse": {
         "type": "object",
+        "description": "Error information with serialized exception",
         "additionalProperties": false,
         "properties": {
           "exception": {
-            "type": "string"
+            "type": "string",
+            "description": "Serialized PictureparkBusinessException."
           },
           "traceId": {
-            "type": "string"
+            "type": "string",
+            "description": "Trace ID."
           },
           "traceJobId": {
-            "type": "string"
+            "type": "string",
+            "description": "Trace job ID."
           }
         }
       },
       "BusinessProcessBulkResponse": {
         "type": "object",
+        "description": "Business process with detailed information of succeeded / failed items during the run of the operation",
         "additionalProperties": false,
         "properties": {
           "response": {
-            "$ref": "#/components/schemas/BulkResponse"
+            "description": "Contains information regarding of succeeded / failed items.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BulkResponse"
+              }
+            ]
           }
         },
         "allOf": [
@@ -5610,10 +5652,12 @@
       },
       "BulkResponse": {
         "type": "object",
+        "description": "Response to a bulk operation",
         "additionalProperties": false,
         "properties": {
           "rows": {
             "type": "array",
+            "description": "Rows of the bulk response.",
             "items": {
               "$ref": "#/components/schemas/BulkResponseRow"
             }
@@ -5622,28 +5666,36 @@
       },
       "BulkResponseRow": {
         "type": "object",
+        "description": "Row information of a bulk response",
         "additionalProperties": false,
         "required": [
+          "id",
           "version",
           "succeeded",
           "status"
         ],
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the document.",
+            "minLength": 1
           },
           "version": {
             "type": "integer",
+            "description": "Version of the document.",
             "format": "int64"
           },
           "error": {
-            "type": "string"
+            "type": "string",
+            "description": "Eventual error."
           },
           "succeeded": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "True if item successfully saved. False otherwise."
           },
           "status": {
             "type": "integer",
+            "description": "Returned status code.",
             "format": "int32"
           }
         }
@@ -5839,8 +5891,8 @@
             "IndexMappingException": {
               "$ref": "#/components/schemas/IndexMappingException"
             },
-            "DuplicatedSearchBehaviourException": {
-              "$ref": "#/components/schemas/DuplicatedSearchBehaviourException"
+            "DuplicatedSearchBehaviorException": {
+              "$ref": "#/components/schemas/DuplicatedSearchBehaviorException"
             },
             "SearchStringLeadingWildcardException": {
               "$ref": "#/components/schemas/SearchStringLeadingWildcardException"
@@ -7101,11 +7153,11 @@
           }
         ]
       },
-      "DuplicatedSearchBehaviourException": {
+      "DuplicatedSearchBehaviorException": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "duplicatedSearchBehaviours": {
+          "duplicatedSearchBehaviors": {
             "type": "string"
           }
         },
@@ -7637,7 +7689,7 @@
       },
       "TransferType": {
         "type": "string",
-        "description": "",
+        "description": "Type of the transfer",
         "x-enumNames": [
           "FileUpload",
           "FileUploadAutoImport",
@@ -8522,7 +8574,7 @@
       },
       "SchemaType": {
         "type": "string",
-        "description": "",
+        "description": "Type of the schema",
         "x-enumNames": [
           "Content",
           "Layer",
@@ -8708,7 +8760,7 @@
       },
       "DisplayPatternType": {
         "type": "string",
-        "description": "",
+        "description": "The display pattern type",
         "x-enumNames": [
           "Thumbnail",
           "List",
@@ -8825,7 +8877,7 @@
       },
       "ContentType": {
         "type": "string",
-        "description": "",
+        "description": "Content types",
         "x-enumNames": [
           "Unknown",
           "Bitmap",
@@ -9722,7 +9774,7 @@
       },
       "LifeCycle": {
         "type": "string",
-        "description": "",
+        "description": "Lifecycle",
         "x-enumNames": [
           "Draft",
           "Active",
@@ -11841,7 +11893,7 @@
             }
           }
         },
-        "description": "The FilterBase is the base class for all filters.",
+        "description": "The filters' base class",
         "additionalProperties": false,
         "required": [
           "kind"
@@ -11854,12 +11906,12 @@
       },
       "AndFilter": {
         "type": "object",
-        "description": "The AndFilter&gt; is a compound filter and returns documents that match all of the specified filters.",
+        "description": "Used to put filters in \"and\"",
         "additionalProperties": false,
         "properties": {
           "filters": {
             "type": "array",
-            "description": "Accepts all filters.",
+            "description": "The filters to put in \"and\". All kinds of filters are accepted.",
             "items": {
               "$ref": "#/components/schemas/FilterBase"
             }
@@ -11873,12 +11925,12 @@
       },
       "OrFilter": {
         "type": "object",
-        "description": "The OrFilter is a compound filter and returns documents that match any of the specified filters.",
+        "description": "Put filters in \"or\"",
         "additionalProperties": false,
         "properties": {
           "filters": {
             "type": "array",
-            "description": "Accepts all filters.",
+            "description": "The filters to put in \"or\". All kinds of filters are accepted.",
             "items": {
               "$ref": "#/components/schemas/FilterBase"
             }
@@ -11892,11 +11944,14 @@
       },
       "NotFilter": {
         "type": "object",
-        "description": "The NotFilter is a compound filter and returns documents that do not match the specified filter.",
+        "description": "Negates the specified filter",
         "additionalProperties": false,
+        "required": [
+          "filter"
+        ],
         "properties": {
           "filter": {
-            "description": "Limits the result set.",
+            "description": "The filter to be negated.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/FilterBase"
@@ -11912,15 +11967,20 @@
       },
       "DateRangeFilter": {
         "type": "object",
-        "description": "The DateRangeFilter returns documents with fields that have date values within a certain range.",
+        "description": "Filters over a range of date time values",
         "additionalProperties": false,
+        "required": [
+          "field",
+          "range"
+        ],
         "properties": {
           "field": {
             "type": "string",
-            "description": "The elastic search index field to execute the filter on."
+            "description": "The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with \".\"\n(i.e. personLayer.address.street).",
+            "minLength": 1
           },
           "range": {
-            "description": "The date range. Supported pattern: now(+-)(int)(YMDHm).",
+            "description": "The date time range.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/DateRange"
@@ -11936,11 +11996,11 @@
       },
       "DateRange": {
         "type": "object",
-        "description": "The date range class used in aggregators and filters.",
+        "description": "The date time range class used in filters",
         "additionalProperties": false,
         "properties": {
           "names": {
-            "description": "Tranlsated range names.",
+            "description": "Language specific range names.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
@@ -11949,22 +12009,26 @@
           },
           "from": {
             "type": "string",
-            "description": "The from value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
+            "description": "The from value: it can be a datetime string or a pattern now(+-)(int)(YMDHm)."
           },
           "to": {
             "type": "string",
-            "description": "The to value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
+            "description": "The to value: it can be a datetime string or a pattern now(+-)(int)(YMDHm)."
           }
         }
       },
       "ExistsFilter": {
         "type": "object",
-        "description": "The ExistsFilter returns documents that have at least one non-null value in the original field.",
+        "description": "Filters over the existence of a field's value",
         "additionalProperties": false,
+        "required": [
+          "field"
+        ],
         "properties": {
           "field": {
             "type": "string",
-            "description": "The elastic search index field to execute the filter on."
+            "description": "The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with \".\"\n(i.e. personLayer.address.street).",
+            "minLength": 1
           }
         },
         "allOf": [
@@ -11975,15 +12039,21 @@
       },
       "GeoBoundingBoxFilter": {
         "type": "object",
-        "description": "The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.",
+        "description": "Filters geo point values based on a bounding box",
         "additionalProperties": false,
+        "required": [
+          "field",
+          "topLeft",
+          "bottomRight"
+        ],
         "properties": {
           "field": {
             "type": "string",
-            "description": "The elastic search index field to execute the filter on."
+            "description": "The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with \".\"\n(i.e. personLayer.address.street).",
+            "minLength": 1
           },
           "topLeft": {
-            "description": "The top left longitude/latitude configuration.",
+            "description": "The top left corner of the bounding box's geo location (latitude and longitude).",
             "allOf": [
               {
                 "$ref": "#/components/schemas/GeoLocation"
@@ -11991,7 +12061,7 @@
             ]
           },
           "bottomRight": {
-            "description": "The bottom right longitude/latitude configuration.",
+            "description": "The bottom right corner of the bounding box's geo location (latitude and longitude).",
             "allOf": [
               {
                 "$ref": "#/components/schemas/GeoLocation"
@@ -12007,6 +12077,7 @@
       },
       "GeoLocation": {
         "type": "object",
+        "description": "It stores geo location information (latitude and longitude)",
         "additionalProperties": false,
         "required": [
           "lat",
@@ -12015,28 +12086,33 @@
         "properties": {
           "lat": {
             "type": "number",
+            "description": "The latitude",
             "format": "double"
           },
           "lon": {
             "type": "number",
+            "description": "The longitude",
             "format": "double"
           }
         }
       },
       "GeoDistanceFilter": {
         "type": "object",
-        "description": "The GeoDistanceFilter returns documents that include only hits that exists within a specific distance from a geo point.",
+        "description": "Filters within the radius of the distance from a location",
         "additionalProperties": false,
         "required": [
+          "field",
+          "location",
           "distance"
         ],
         "properties": {
           "field": {
             "type": "string",
-            "description": "The elastic search index field to execute the filter on."
+            "description": "The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with \".\"\n(i.e. personLayer.address.street).",
+            "minLength": 1
           },
           "location": {
-            "description": "The longitude/latitude configuration for the point of origin.",
+            "description": "The point of origin to calculate the distance from (latitude/longitude).",
             "allOf": [
               {
                 "$ref": "#/components/schemas/GeoLocation"
@@ -12045,7 +12121,7 @@
           },
           "distance": {
             "type": "number",
-            "description": "The range distance in meters.",
+            "description": "The distance in meters from the point of origin.",
             "format": "double"
           }
         },
@@ -12057,15 +12133,20 @@
       },
       "NestedFilter": {
         "type": "object",
-        "description": "The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.",
+        "description": "Filters on nested documents",
         "additionalProperties": false,
+        "required": [
+          "path",
+          "filter"
+        ],
         "properties": {
           "path": {
             "type": "string",
-            "description": "The path pointing to the nested object."
+            "description": "The path pointing to the nested document (i.e. personLayer.nestedAddress).",
+            "minLength": 1
           },
           "filter": {
-            "description": "Limits the result set.",
+            "description": "The filter to be applied on the nested documents.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/FilterBase"
@@ -12081,15 +12162,20 @@
       },
       "NumericRangeFilter": {
         "type": "object",
-        "description": "The NumericRangeFilter returns documents with fields that have numeric values within a certain range.",
+        "description": "Filters over a range of numeric values",
         "additionalProperties": false,
+        "required": [
+          "field",
+          "range"
+        ],
         "properties": {
           "field": {
             "type": "string",
-            "description": "The elastic search index field to execute the filter on."
+            "description": "The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with \".\"\n(i.e. personLayer.address.street).",
+            "minLength": 1
           },
           "range": {
-            "description": "The numeric range with from and to properties.",
+            "description": "The numeric range on which filtering.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/NumericRange"
@@ -12105,10 +12191,11 @@
       },
       "NumericRange": {
         "type": "object",
+        "description": "The numeric range class",
         "additionalProperties": false,
         "properties": {
           "names": {
-            "description": "Tranlsated range names.",
+            "description": "Language specific range names.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
@@ -12129,16 +12216,22 @@
       },
       "PrefixFilter": {
         "type": "object",
-        "description": "The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).",
+        "description": "Filters field's values based on a prefix",
         "additionalProperties": false,
+        "required": [
+          "field",
+          "prefix"
+        ],
         "properties": {
           "field": {
             "type": "string",
-            "description": "The elastic search index field to execute the filter on."
+            "description": "The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with \".\"\n(i.e. personLayer.address.street).",
+            "minLength": 1
           },
           "prefix": {
             "type": "string",
-            "description": "The prefix term to filter on."
+            "description": "The value to be used as prefix.",
+            "minLength": 1
           }
         },
         "allOf": [
@@ -12149,16 +12242,22 @@
       },
       "TermFilter": {
         "type": "object",
-        "description": "The TermFilter returns documents that contain the exact term specified in the inverted index.",
+        "description": "Filters values exactly containing a term",
         "additionalProperties": false,
+        "required": [
+          "field",
+          "term"
+        ],
         "properties": {
           "field": {
             "type": "string",
-            "description": "The elastic search index field to execute the filter on."
+            "description": "The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with \".\"\n(i.e. personLayer.address.street).",
+            "minLength": 1
           },
           "term": {
             "type": "string",
-            "description": "The term to filter on."
+            "description": "The value to use to filter on.",
+            "minLength": 1
           }
         },
         "allOf": [
@@ -12169,16 +12268,21 @@
       },
       "TermsFilter": {
         "type": "object",
-        "description": "The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).",
+        "description": "Filters values containing at least one of the terms",
         "additionalProperties": false,
+        "required": [
+          "field",
+          "terms"
+        ],
         "properties": {
           "field": {
             "type": "string",
-            "description": "The elastic search index field to execute the filter on."
+            "description": "The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with \".\"\n(i.e. personLayer.address.street).",
+            "minLength": 1
           },
           "terms": {
             "type": "array",
-            "description": "A list of OR combined terms.",
+            "description": "The list of values to be filtered on. At least one must match to return results.",
             "items": {
               "type": "string"
             }
@@ -12192,7 +12296,7 @@
       },
       "AggregationFilter": {
         "type": "object",
-        "description": "An AggregationFilter is provided with each aggregated value.\nWhen selecting the aggregated value the aggregation filter is added to the search query and returns documents meeting the aggregation condition.",
+        "description": "Filters aggregations",
         "additionalProperties": false,
         "properties": {
           "aggregationName": {
@@ -12200,7 +12304,7 @@
             "description": "The name of the aggregation this filter is connected to."
           },
           "filter": {
-            "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter, GeoDistanceFilter and NestedFilter.",
+            "description": "The filter to be applied.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/FilterBase"
@@ -12208,7 +12312,8 @@
             ]
           },
           "temporaryAggregatorRequestId": {
-            "type": "string"
+            "type": "string",
+            "description": "Autogenerated Guid at request time, for precise aggregation result mapping."
           }
         },
         "allOf": [
@@ -12219,15 +12324,20 @@
       },
       "ChildFilter": {
         "type": "object",
-        "description": "The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.",
+        "description": "Filters on child documents",
         "additionalProperties": false,
+        "required": [
+          "childType",
+          "filter"
+        ],
         "properties": {
           "childType": {
             "type": "string",
-            "description": "The elastic search index type to filter as a child."
+            "description": "The type of the child document.",
+            "minLength": 1
           },
           "filter": {
-            "description": "The filter to apply on the child entity. It accepts all filters.",
+            "description": "The filter to be applied on the child document. All kinds of filters are accepted.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/FilterBase"
@@ -12243,15 +12353,20 @@
       },
       "ParentFilter": {
         "type": "object",
-        "description": "The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.",
+        "description": "Filters on parent documents",
         "additionalProperties": false,
+        "required": [
+          "parentType",
+          "filter"
+        ],
         "properties": {
           "parentType": {
             "type": "string",
-            "description": "The elastic search index type to filter as a parent."
+            "description": "The type of the parent document.",
+            "minLength": 1
           },
           "filter": {
-            "description": "The filter to apply on the child entity. It accepts all filters.",
+            "description": "The filter to be applied on the child document. All kinds of filters are accepted.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/FilterBase"

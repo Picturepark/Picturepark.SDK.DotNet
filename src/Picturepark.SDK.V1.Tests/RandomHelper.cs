@@ -8,9 +8,18 @@ namespace Picturepark.SDK.V1.Tests
 {
     public class RandomHelper
     {
-        public static async Task<ContentSearchResult> GetRandomContentsAsync(IPictureparkService client, string searchString, int limit)
+        public static async Task<ContentSearchResult> GetRandomContentsAsync(IPictureparkService client, string searchString, int limit, IReadOnlyList<ContentType> contentTypes = null)
         {
             var request = new ContentSearchRequest { SearchString = searchString, Limit = limit };
+            if (contentTypes?.Any() == true)
+            {
+                request.Filter = new TermsFilter
+                {
+                    Field = nameof(ContentDetail.ContentType).ToLowerCamelCase(),
+                    Terms = contentTypes.Select(ct => ct.ToString()).ToArray()
+                };
+            }
+
             return await client.Content.SearchAsync(request);
         }
 

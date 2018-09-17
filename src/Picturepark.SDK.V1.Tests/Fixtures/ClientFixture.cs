@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Reflection;
@@ -62,9 +63,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         public string DefaultLanguage => CustomerInfo.Value.LanguageConfiguration.DefaultLanguage;
 
-        public async Task<ContentSearchResult> GetRandomContentsAsync(string searchString, int limit)
+        public async Task<ContentSearchResult> GetRandomContentsAsync(string searchString, int limit, IReadOnlyList<ContentType> contentTypes = null)
         {
-            return await RandomHelper.GetRandomContentsAsync(_client, searchString, limit);
+            return await RandomHelper.GetRandomContentsAsync(_client, searchString, limit, contentTypes);
         }
 
         public async Task<string> GetRandomContentIdAsync(string searchString, int limit)
