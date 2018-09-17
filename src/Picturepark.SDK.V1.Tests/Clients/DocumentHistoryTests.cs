@@ -125,7 +125,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         private async Task<SchemaDetail> CreateTestSchemaAsync()
         {
             var schemaId = "Schema" + new Random().Next(0, 999999);
-            var config = await _client.Info.GetAsync().ConfigureAwait(false);
+            var config = await _client.Info.GetInfoAsync().ConfigureAwait(false);
             var schemaItem = new SchemaDetail
             {
                 Id = schemaId,
