@@ -69,14 +69,14 @@ namespace Picturepark.SDK.V1.Localization
             return GetLocalizedText(code, language, Hash.FromDictionary(additionalData));
         }
 
-        public static string GetTimeLocalizedDisplayValue(string value)
+        public static string GetDateTimeLocalizedDisplayValue(string value)
         {
             Liquid.UseRubyDateFormat = true;
             var template = Template.Parse(value);
             return template.Render();
         }
 
-        public static void ReplaceLocalizedDisplayValueInObject(object obj)
+        public static void ReplaceDateTimeLocalizedDisplayValueInObject(object obj)
         {
             var type = obj.GetType();
 
@@ -88,7 +88,7 @@ namespace Picturepark.SDK.V1.Localization
                 foreach (var jToken in tokens.SelectMany(i => i.ToList()))
                 {
                     var token = (JProperty)jToken;
-                    token.Value = GetTimeLocalizedDisplayValue(token.Value.ToString());
+                    token.Value = GetDateTimeLocalizedDisplayValue(token.Value.ToString());
                 }
 
                 return;
@@ -103,7 +103,7 @@ namespace Picturepark.SDK.V1.Localization
                     if (property.GetValue(obj) is IDictionary<string, string> displayValues)
                     {
                         foreach (var key in displayValues.Keys.ToList())
-                            displayValues[key] = GetTimeLocalizedDisplayValue(displayValues[key]);
+                            displayValues[key] = GetDateTimeLocalizedDisplayValue(displayValues[key]);
                     }
 
                     return;
@@ -114,7 +114,7 @@ namespace Picturepark.SDK.V1.Localization
                     var list = (ICollection)property.GetValue(obj, null);
                     foreach (var item in list)
                     {
-                        ReplaceLocalizedDisplayValueInObject(item);
+                        ReplaceDateTimeLocalizedDisplayValueInObject(item);
                     }
                 }
 
@@ -122,7 +122,7 @@ namespace Picturepark.SDK.V1.Localization
                 {
                     var value = property.GetValue(obj);
                     if (value != null)
-                        ReplaceLocalizedDisplayValueInObject(value);
+                        ReplaceDateTimeLocalizedDisplayValueInObject(value);
                 }
             }
         }

@@ -652,13 +652,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
             item.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()]
                 .Should().Be(shouldBeValue);
 
-            var renderedDisplayValue = LocalizationService.GetTimeLocalizedDisplayValue(shouldBeValue);
+            var renderedDisplayValue = LocalizationService.GetDateTimeLocalizedDisplayValue(shouldBeValue);
             var formatedLocalDate = date.ToLocalTime().ToString("dd.MM.yyyy HH:mm:ss");
             var formatedChildLocalDate = listItem1.Child.DateTimeField.ToString("dd.MM.yyyy HH:mm:ss");
             renderedDisplayValue.Should().Be(formatedLocalDate);
 
             // Apply local time to object tree
-            LocalizationService.ReplaceLocalizedDisplayValueInObject(item);
+            LocalizationService.ReplaceDateTimeLocalizedDisplayValueInObject(item);
 
             item.DisplayValues["name"].Should().Be(formatedLocalDate);
             ((JObject)item.Content)
