@@ -572,55 +572,67 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     
 
+    /// <summary>Business process</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("BusinessProcessBulkResponse", typeof(BusinessProcessBulkResponse))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcess 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>ID of the business process.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("processDefinitionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>ID of the business process definition associated to the business process.</summary>
+        [Newtonsoft.Json.JsonProperty("processDefinitionId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ProcessDefinitionId { get; set; }
     
+        /// <summary>ID of the document that is modified by the running of the business process. Used during the cancellation of the business process.</summary>
         [Newtonsoft.Json.JsonProperty("referenceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReferenceId { get; set; }
     
+        /// <summary>Type of the document that is modified by the running of the business process. Used during the cancellation of the business process.</summary>
         [Newtonsoft.Json.JsonProperty("referenceDocType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReferenceDocType { get; set; }
     
+        /// <summary>True if the business process execution can be cancelled. False otherwise.</summary>
         [Newtonsoft.Json.JsonProperty("supportsCancellation", Required = Newtonsoft.Json.Required.Always)]
         public bool SupportsCancellation { get; set; }
     
+        /// <summary>Scope of the business process.</summary>
         [Newtonsoft.Json.JsonProperty("businessProcessScope", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BusinessProcessScope BusinessProcessScope { get; set; }
     
+        /// <summary>Current life cycle of the business process.</summary>
         [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BusinessProcessLifeCycle LifeCycle { get; set; }
     
+        /// <summary>When the business process started.</summary>
         [Newtonsoft.Json.JsonProperty("startDate", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTime StartDate { get; set; }
     
+        /// <summary>When the business process finished.</summary>
         [Newtonsoft.Json.JsonProperty("endDate", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTime EndDate { get; set; }
     
+        /// <summary>Is the business process finished.</summary>
         [Newtonsoft.Json.JsonProperty("finished", Required = Newtonsoft.Json.Required.Always)]
         public bool Finished { get; set; }
     
+        /// <summary>List containing the history of all the state transitions of the business process.</summary>
         [Newtonsoft.Json.JsonProperty("stateHistory", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BusinessProcessState> StateHistory { get; set; }
     
+        /// <summary>Current state of the business process.</summary>
         [Newtonsoft.Json.JsonProperty("currentState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CurrentState { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("processDefinitionName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ProcessDefinitionName { get; set; }
     
         public string ToJson() 
         {
@@ -634,6 +646,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Scope of the business process</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum BusinessProcessScope
     {
@@ -645,6 +658,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Life cycle of the business process</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum BusinessProcessLifeCycle
     {
@@ -671,16 +685,21 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>State transition information of a business process</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessState 
     {
-        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>State of the business process</summary>
+        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string State { get; set; }
     
+        /// <summary>Date and time of when the state transition was performed.</summary>
         [Newtonsoft.Json.JsonProperty("timestamp", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTime Timestamp { get; set; }
     
+        /// <summary>Eventual error associated to the state transition.</summary>
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ErrorResponse Error { get; set; }
     
@@ -696,15 +715,19 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Error information with serialized exception</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ErrorResponse 
     {
+        /// <summary>Serialized PictureparkBusinessException.</summary>
         [Newtonsoft.Json.JsonProperty("exception", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Exception { get; set; }
     
+        /// <summary>Trace ID.</summary>
         [Newtonsoft.Json.JsonProperty("traceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TraceId { get; set; }
     
+        /// <summary>Trace job ID.</summary>
         [Newtonsoft.Json.JsonProperty("traceJobId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TraceJobId { get; set; }
     
@@ -720,9 +743,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Business process with detailed information of succeeded / failed items during the run of the operation</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessBulkResponse : BusinessProcess
     {
+        /// <summary>Contains information regarding of succeeded / failed items.</summary>
         [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BulkResponse Response { get; set; }
     
@@ -738,9 +763,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Response to a bulk operation</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BulkResponse 
     {
+        /// <summary>Rows of the bulk response.</summary>
         [Newtonsoft.Json.JsonProperty("rows", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BulkResponseRow> Rows { get; set; }
     
@@ -756,21 +783,28 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Row information of a bulk response</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BulkResponseRow 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>ID of the document.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
+        /// <summary>Version of the document.</summary>
         [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.Always)]
         public long Version { get; set; }
     
+        /// <summary>Eventual error.</summary>
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Error { get; set; }
     
+        /// <summary>True if item successfully saved. False otherwise.</summary>
         [Newtonsoft.Json.JsonProperty("succeeded", Required = Newtonsoft.Json.Required.Always)]
         public bool Succeeded { get; set; }
     
+        /// <summary>Returned status code.</summary>
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         public int Status { get; set; }
     
@@ -849,7 +883,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SearchIndexInUseException", typeof(SearchIndexInUseException))]
     [JsonInheritanceAttribute("IndexException", typeof(IndexException))]
     [JsonInheritanceAttribute("IndexMappingException", typeof(IndexMappingException))]
-    [JsonInheritanceAttribute("DuplicatedSearchBehaviourException", typeof(DuplicatedSearchBehaviourException))]
+    [JsonInheritanceAttribute("DuplicatedSearchBehaviorException", typeof(DuplicatedSearchBehaviorException))]
     [JsonInheritanceAttribute("SearchStringLeadingWildcardException", typeof(SearchStringLeadingWildcardException))]
     [JsonInheritanceAttribute("DuplicateAggregatorException", typeof(DuplicateAggregatorException))]
     [JsonInheritanceAttribute("InvalidDateTimeFormatException", typeof(InvalidDateTimeFormatException))]
@@ -2209,19 +2243,19 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class DuplicatedSearchBehaviourException : PictureparkValidationException
+    public partial class DuplicatedSearchBehaviorException : PictureparkValidationException
     {
-        [Newtonsoft.Json.JsonProperty("duplicatedSearchBehaviours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DuplicatedSearchBehaviours { get; set; }
+        [Newtonsoft.Json.JsonProperty("duplicatedSearchBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DuplicatedSearchBehaviors { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static DuplicatedSearchBehaviourException FromJson(string data)
+        public static DuplicatedSearchBehaviorException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicatedSearchBehaviourException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicatedSearchBehaviorException>(data);
         }
     
     }
@@ -2870,6 +2904,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Type of the transfer</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum TransferType
     {
@@ -3941,6 +3976,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Type of the schema</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum SchemaType
     {
@@ -4169,6 +4205,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>The display pattern type</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum DisplayPatternType
     {
@@ -4300,6 +4337,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Content types</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum ContentType
     {
@@ -5407,6 +5445,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Lifecycle</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum LifeCycle
     {
@@ -7483,7 +7522,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>The FilterBase is the base class for all filters.</summary>
+    /// <summary>The filters' base class</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("AndFilter", typeof(AndFilter))]
     [JsonInheritanceAttribute("OrFilter", typeof(OrFilter))]
@@ -7515,11 +7554,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>The AndFilter&gt; is a compound filter and returns documents that match all of the specified filters.</summary>
+    /// <summary>Used to put filters in "and"</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class AndFilter : FilterBase
     {
-        /// <summary>Accepts all filters.</summary>
+        /// <summary>The filters to put in "and". All kinds of filters are accepted.</summary>
         [Newtonsoft.Json.JsonProperty("filters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FilterBase> Filters { get; set; }
     
@@ -7535,11 +7574,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>The OrFilter is a compound filter and returns documents that match any of the specified filters.</summary>
+    /// <summary>Put filters in "or"</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class OrFilter : FilterBase
     {
-        /// <summary>Accepts all filters.</summary>
+        /// <summary>The filters to put in "or". All kinds of filters are accepted.</summary>
         [Newtonsoft.Json.JsonProperty("filters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FilterBase> Filters { get; set; }
     
@@ -7555,13 +7594,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>The NotFilter is a compound filter and returns documents that do not match the specified filter.</summary>
+    /// <summary>Negates the specified filter</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class NotFilter : FilterBase
     {
-        /// <summary>Limits the result set.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
+        /// <summary>The filter to be negated.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public FilterBase Filter { get; set; } = new FilterBase();
     
         public string ToJson() 
         {
@@ -7575,17 +7615,20 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>The DateRangeFilter returns documents with fields that have date values within a certain range.</summary>
+    /// <summary>Filters over a range of date time values</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DateRangeFilter : FilterBase
     {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with "."
+        /// (i.e. personLayer.address.street).</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Field { get; set; }
     
-        /// <summary>The date range. Supported pattern: now(+-)(int)(YMDHm).</summary>
-        [Newtonsoft.Json.JsonProperty("range", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DateRange Range { get; set; }
+        /// <summary>The date time range.</summary>
+        [Newtonsoft.Json.JsonProperty("range", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public DateRange Range { get; set; } = new DateRange();
     
         public string ToJson() 
         {
@@ -7599,19 +7642,19 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>The date range class used in aggregators and filters.</summary>
+    /// <summary>The date time range class used in filters</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class DateRange 
     {
-        /// <summary>Tranlsated range names.</summary>
+        /// <summary>Language specific range names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
-        /// <summary>The from value can be a datetime string or a pattern now(+-)(int)(YMDHm).</summary>
+        /// <summary>The from value: it can be a datetime string or a pattern now(+-)(int)(YMDHm).</summary>
         [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string From { get; set; }
     
-        /// <summary>The to value can be a datetime string or a pattern now(+-)(int)(YMDHm).</summary>
+        /// <summary>The to value: it can be a datetime string or a pattern now(+-)(int)(YMDHm).</summary>
         [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string To { get; set; }
     
@@ -7627,12 +7670,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>The ExistsFilter returns documents that have at least one non-null value in the original field.</summary>
+    /// <summary>Filters over the existence of a field's value</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ExistsFilter : FilterBase
     {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with "."
+        /// (i.e. personLayer.address.street).</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Field { get; set; }
     
         public string ToJson() 
@@ -7647,21 +7692,25 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.</summary>
+    /// <summary>Filters geo point values based on a bounding box</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class GeoBoundingBoxFilter : FilterBase
     {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with "."
+        /// (i.e. personLayer.address.street).</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Field { get; set; }
     
-        /// <summary>The top left longitude/latitude configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("topLeft", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public GeoLocation TopLeft { get; set; }
+        /// <summary>The top left corner of the bounding box's geo location (latitude and longitude).</summary>
+        [Newtonsoft.Json.JsonProperty("topLeft", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public GeoLocation TopLeft { get; set; } = new GeoLocation();
     
-        /// <summary>The bottom right longitude/latitude configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("bottomRight", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public GeoLocation BottomRight { get; set; }
+        /// <summary>The bottom right corner of the bounding box's geo location (latitude and longitude).</summary>
+        [Newtonsoft.Json.JsonProperty("bottomRight", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public GeoLocation BottomRight { get; set; } = new GeoLocation();
     
         public string ToJson() 
         {
@@ -7675,12 +7724,15 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>It stores geo location information (latitude and longitude)</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class GeoLocation 
     {
+        /// <summary>The latitude</summary>
         [Newtonsoft.Json.JsonProperty("lat", Required = Newtonsoft.Json.Required.Always)]
         public double Lat { get; set; }
     
+        /// <summary>The longitude</summary>
         [Newtonsoft.Json.JsonProperty("lon", Required = Newtonsoft.Json.Required.Always)]
         public double Lon { get; set; }
     
@@ -7696,19 +7748,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>The GeoDistanceFilter returns documents that include only hits that exists within a specific distance from a geo point.</summary>
+    /// <summary>Filters within the radius of the distance from a location</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class GeoDistanceFilter : FilterBase
     {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with "."
+        /// (i.e. personLayer.address.street).</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Field { get; set; }
     
-        /// <summary>The longitude/latitude configuration for the point of origin.</summary>
-        [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public GeoLocation Location { get; set; }
+        /// <summary>The point of origin to calculate the distance from (latitude/longitude).</summary>
+        [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public GeoLocation Location { get; set; } = new GeoLocation();
     
-        /// <summary>The range distance in meters.</summary>
+        /// <summary>The distance in meters from the point of origin.</summary>
         [Newtonsoft.Json.JsonProperty("distance", Required = Newtonsoft.Json.Required.Always)]
         public double Distance { get; set; }
     
@@ -7724,17 +7779,19 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.</summary>
+    /// <summary>Filters on nested documents</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class NestedFilter : FilterBase
     {
-        /// <summary>The path pointing to the nested object.</summary>
-        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The path pointing to the nested document (i.e. personLayer.nestedAddress).</summary>
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Path { get; set; }
     
-        /// <summary>Limits the result set.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
+        /// <summary>The filter to be applied on the nested documents.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public FilterBase Filter { get; set; } = new FilterBase();
     
         public string ToJson() 
         {
@@ -7748,17 +7805,20 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>The NumericRangeFilter returns documents with fields that have numeric values within a certain range.</summary>
+    /// <summary>Filters over a range of numeric values</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class NumericRangeFilter : FilterBase
     {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with "."
+        /// (i.e. personLayer.address.street).</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Field { get; set; }
     
-        /// <summary>The numeric range with from and to properties.</summary>
-        [Newtonsoft.Json.JsonProperty("range", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public NumericRange Range { get; set; }
+        /// <summary>The numeric range on which filtering.</summary>
+        [Newtonsoft.Json.JsonProperty("range", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public NumericRange Range { get; set; } = new NumericRange();
     
         public string ToJson() 
         {
@@ -7772,10 +7832,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>The numeric range class</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class NumericRange 
     {
-        /// <summary>Tranlsated range names.</summary>
+        /// <summary>Language specific range names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
@@ -7799,16 +7860,19 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).</summary>
+    /// <summary>Filters field's values based on a prefix</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PrefixFilter : FilterBase
     {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with "."
+        /// (i.e. personLayer.address.street).</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Field { get; set; }
     
-        /// <summary>The prefix term to filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("prefix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The value to be used as prefix.</summary>
+        [Newtonsoft.Json.JsonProperty("prefix", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Prefix { get; set; }
     
         public string ToJson() 
@@ -7823,16 +7887,19 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>The TermFilter returns documents that contain the exact term specified in the inverted index.</summary>
+    /// <summary>Filters values exactly containing a term</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TermFilter : FilterBase
     {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with "."
+        /// (i.e. personLayer.address.street).</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Field { get; set; }
     
-        /// <summary>The term to filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("term", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The value to use to filter on.</summary>
+        [Newtonsoft.Json.JsonProperty("term", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Term { get; set; }
     
         public string ToJson() 
@@ -7847,17 +7914,20 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).</summary>
+    /// <summary>Filters values containing at least one of the terms</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TermsFilter : FilterBase
     {
-        /// <summary>The elastic search index field to execute the filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with "."
+        /// (i.e. personLayer.address.street).</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Field { get; set; }
     
-        /// <summary>A list of OR combined terms.</summary>
-        [Newtonsoft.Json.JsonProperty("terms", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Terms { get; set; }
+        /// <summary>The list of values to be filtered on. At least one must match to return results.</summary>
+        [Newtonsoft.Json.JsonProperty("terms", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> Terms { get; set; } = new System.Collections.Generic.List<string>();
     
         public string ToJson() 
         {
@@ -7871,8 +7941,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>An AggregationFilter is provided with each aggregated value.
-    /// When selecting the aggregated value the aggregation filter is added to the search query and returns documents meeting the aggregation condition.</summary>
+    /// <summary>Filters aggregations</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class AggregationFilter : FilterBase
     {
@@ -7880,10 +7949,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AggregationName { get; set; }
     
-        /// <summary>The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter, GeoDistanceFilter and NestedFilter.</summary>
+        /// <summary>The filter to be applied.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
+        /// <summary>Autogenerated Guid at request time, for precise aggregation result mapping.</summary>
         [Newtonsoft.Json.JsonProperty("temporaryAggregatorRequestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TemporaryAggregatorRequestId { get; set; }
     
@@ -7899,17 +7969,19 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.</summary>
+    /// <summary>Filters on child documents</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ChildFilter : FilterBase
     {
-        /// <summary>The elastic search index type to filter as a child.</summary>
-        [Newtonsoft.Json.JsonProperty("childType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The type of the child document.</summary>
+        [Newtonsoft.Json.JsonProperty("childType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ChildType { get; set; }
     
-        /// <summary>The filter to apply on the child entity. It accepts all filters.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
+        /// <summary>The filter to be applied on the child document. All kinds of filters are accepted.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public FilterBase Filter { get; set; } = new FilterBase();
     
         public string ToJson() 
         {
@@ -7923,17 +7995,19 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.</summary>
+    /// <summary>Filters on parent documents</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ParentFilter : FilterBase
     {
-        /// <summary>The elastic search index type to filter as a parent.</summary>
-        [Newtonsoft.Json.JsonProperty("parentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The type of the parent document.</summary>
+        [Newtonsoft.Json.JsonProperty("parentType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ParentType { get; set; }
     
-        /// <summary>The filter to apply on the child entity. It accepts all filters.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
+        /// <summary>The filter to be applied on the child document. All kinds of filters are accepted.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public FilterBase Filter { get; set; } = new FilterBase();
     
         public string ToJson() 
         {
