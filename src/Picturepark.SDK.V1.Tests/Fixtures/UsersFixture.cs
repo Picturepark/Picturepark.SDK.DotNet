@@ -23,12 +23,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
                     LanguageCode = "en"
                 }).ToArray();
 
-            var userCreationTasks = usersToCreate.Select(async userRequest =>
-            {
-                var user = await Client.User.CreateAsync(userRequest);
-                await Client.User.InviteAsync(user.Id);
-                return user;
-            });
+            var userCreationTasks = usersToCreate.Select(userRequest => Client.User.CreateAsync(userRequest));
 
             var createdUsers = await Task.WhenAll(userCreationTasks);
 
@@ -38,7 +33,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             });
 
             searchRes.Results.Select(e => e.EmailAddress).Should()
-                .BeEquivalentTo(usersToCreate.Select(e => e.EmailAddress), "all users should have been invited/created");
+                .BeEquivalentTo(usersToCreate.Select(e => e.EmailAddress), "all users should have been created");
 
             foreach (var createdUser in createdUsers)
             {
