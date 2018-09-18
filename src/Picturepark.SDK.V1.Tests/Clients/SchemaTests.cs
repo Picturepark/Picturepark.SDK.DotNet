@@ -46,7 +46,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 foreach (var schema in schemas)
                 {
-                    schema.Id = "000";
+                    schema.LayerSchemaIds = new[] { "notExistingLayerId" };
                     await _client.Schema.CreateOrUpdateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false); // throws exception
                 }
             }).ConfigureAwait(false);
