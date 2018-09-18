@@ -5936,6 +5936,9 @@
             "PermissionValidationException": {
               "$ref": "#/components/schemas/PermissionValidationException"
             },
+            "PermissionSetInUseException": {
+              "$ref": "#/components/schemas/PermissionSetInUseException"
+            },
             "UnsupportedListItemChangeCommandException": {
               "$ref": "#/components/schemas/UnsupportedListItemChangeCommandException"
             },
@@ -6149,6 +6152,9 @@
             "ContentBackupFailedException": {
               "$ref": "#/components/schemas/ContentBackupFailedException"
             },
+            "ContentLayerSameRootException": {
+              "$ref": "#/components/schemas/ContentLayerSameRootException"
+            },
             "BusinessProcessEngineRequestException": {
               "$ref": "#/components/schemas/BusinessProcessEngineRequestException"
             },
@@ -6169,6 +6175,9 @@
             },
             "SchemaFieldImportTypeMismatchException": {
               "$ref": "#/components/schemas/SchemaFieldImportTypeMismatchException"
+            },
+            "SchemaFieldNotSupportedException": {
+              "$ref": "#/components/schemas/SchemaFieldNotSupportedException"
             },
             "SnapshotTimeoutException": {
               "$ref": "#/components/schemas/SnapshotTimeoutException"
@@ -7529,6 +7538,24 @@
           },
           "operation": {
             "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "PermissionSetInUseException": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "referenceCount"
+        ],
+        "properties": {
+          "referenceCount": {
+            "type": "integer",
+            "format": "int64"
           }
         },
         "allOf": [
@@ -8945,6 +8972,41 @@
           }
         ]
       },
+      "ContentLayerSameRootException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contentId": {
+            "type": "string"
+          },
+          "layerIdsByRootSchema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LayerIdsByRootSchema"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "LayerIdsByRootSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "rootSchemaId": {
+            "type": "string"
+          },
+          "layerSchemaIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "BusinessProcessEngineRequestException": {
         "type": "object",
         "additionalProperties": false,
@@ -9064,6 +9126,26 @@
             "type": "string"
           },
           "existingFieldType": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "SchemaFieldNotSupportedException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "fieldId": {
+            "type": "string"
+          },
+          "schemaId": {
+            "type": "string"
+          },
+          "fieldType": {
             "type": "string"
           }
         },
