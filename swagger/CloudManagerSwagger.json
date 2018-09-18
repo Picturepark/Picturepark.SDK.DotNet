@@ -6149,6 +6149,9 @@
             "ContentBackupFailedException": {
               "$ref": "#/components/schemas/ContentBackupFailedException"
             },
+            "ContentLayerSameRootException": {
+              "$ref": "#/components/schemas/ContentLayerSameRootException"
+            },
             "BusinessProcessEngineRequestException": {
               "$ref": "#/components/schemas/BusinessProcessEngineRequestException"
             },
@@ -8944,6 +8947,41 @@
             "$ref": "#/components/schemas/PictureparkBusinessException"
           }
         ]
+      },
+      "ContentLayerSameRootException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contentId": {
+            "type": "string"
+          },
+          "layerIdsByRootSchema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LayerIdsByRootSchema"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "LayerIdsByRootSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "rootSchemaId": {
+            "type": "string"
+          },
+          "layerSchemaIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
       },
       "BusinessProcessEngineRequestException": {
         "type": "object",
